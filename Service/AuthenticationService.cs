@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using AccommodationManagerApp.Models;
 using AccommodationManagerApp.Util;
 
@@ -14,11 +15,9 @@ namespace AccommodationManagerApp.Service {
         
         public bool Authenticate(string email, string password) {
             User user = UserService.GetUserByEmail(email);
-            bool result = user != null && user.Password == PasswordHelper.HashPassword(password);
-            
+            bool result = user != null && PasswordHelper.HashPassword(user.Password) == PasswordHelper.HashPassword(password);
             if (result) {
                 CurrentUser = user;
-                Console.WriteLine("Đăng nhập thành công");
             }
             
             return result;
