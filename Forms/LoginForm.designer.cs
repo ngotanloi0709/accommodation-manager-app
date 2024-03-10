@@ -135,6 +135,7 @@
             this.txtPass.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPass.Location = new System.Drawing.Point(133, 349);
             this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(237, 20);
             this.txtPass.TabIndex = 10;
             // 
@@ -166,6 +167,7 @@
             this.MinimizeBox = false;
             this.Name = "LoginForm";
             this.Sizable = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mangement Application";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

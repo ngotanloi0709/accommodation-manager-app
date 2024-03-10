@@ -18,10 +18,11 @@ namespace AccommodationManagerApp.Forms
 {
     public partial class LoginForm : MaterialForm
     {
-        private static ServiceProvider _serviceProvider;
+        private readonly AuthenticationService _authenticationService;
         
         public LoginForm()
         {
+            _authenticationService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
             InitializeComponent();
             SetUpUi();
         }
@@ -29,14 +30,12 @@ namespace AccommodationManagerApp.Forms
         {
             string email = txtEmail.Text;
             string password = txtPass.Text;
-            ConfigureServices();
             try
             {
-                AuthenticationService authenticationService = _serviceProvider.GetService<AuthenticationService>();
-                bool result = authenticationService.Authenticate(email, password);
+                bool result = _authenticationService.Authenticate(email, password);
                 if (result)
                 {
-                    SplashForm splashForm = _serviceProvider.GetService<SplashForm>();
+                    SplashForm splashForm = new SplashForm();
                     splashForm.Show();
                     this.Hide();
                 }
@@ -49,32 +48,6 @@ namespace AccommodationManagerApp.Forms
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private static void ConfigureServices()
-        {
-            var services = new ServiceCollection();
-
-            // Others
-            services.AddSingleton<AccommodationManagerAppContext>();
-
-            // Forms
-            services.AddSingleton<MainForm>();
-            services.AddSingleton<LoginForm>();
-            services.AddSingleton<SplashForm>();
-
-            // Services
-            services.AddSingleton<AuthenticationService>();
-            services.AddSingleton<UserService>();
-            services.AddSingleton<UnitService>();
-
-            // Repositories
-            services.AddSingleton<UserRepository>();
-            services.AddSingleton<UnitRepository>();
-            services.AddSingleton<InitLogRepository>();
-
-            _serviceProvider = services.BuildServiceProvider();
-            ServiceLocator.Initialize(_serviceProvider);
         }
         // Set up UI
         private void SetUpUi()
