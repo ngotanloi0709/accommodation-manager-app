@@ -1,7 +1,4 @@
-﻿using AccommodationManagerApp.Models;
-using AccommodationManagerApp.Repository;
-using AccommodationManagerApp.Service;
-using MaterialSkin;
+﻿using MaterialSkin;
 using MaterialSkin.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -13,6 +10,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AccommodationManagerApp.Models;
+using AccommodationManagerApp.Repository;
+using AccommodationManagerApp.Service;
+
 namespace AccommodationManagerApp.Forms
 {
     public partial class LoginForm : MaterialForm
@@ -35,13 +36,13 @@ namespace AccommodationManagerApp.Forms
                 bool result = authenticationService.Authenticate(email, password);
                 if (result)
                 {
-                    MainForm mainForm = _serviceProvider.GetService<MainForm>();
-                    mainForm.Show();
+                    SplashForm splashForm = _serviceProvider.GetService<SplashForm>();
+                    splashForm.Show();
                     this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show(result.ToString());
+                    MessageBox.Show("Đăng nhập sai thông tin!");
                 }
             }
             catch (Exception ex)
@@ -60,6 +61,7 @@ namespace AccommodationManagerApp.Forms
             // Forms
             services.AddSingleton<MainForm>();
             services.AddSingleton<LoginForm>();
+            services.AddSingleton<SplashForm>();
 
             // Services
             services.AddSingleton<AuthenticationService>();
@@ -77,6 +79,7 @@ namespace AccommodationManagerApp.Forms
         // Set up UI
         private void SetUpUi()
         {
+            Cursor = Cursors.Arrow;
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Green400, Primary.Green700, Primary.Green700,

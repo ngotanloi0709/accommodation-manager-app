@@ -38,6 +38,7 @@ namespace AccommodationManagerApp {
             // Forms
             services.AddSingleton<MainForm>();
             services.AddSingleton<LoginForm>();
+            services.AddSingleton<SplashForm>();
 
             // Services
             services.AddSingleton<AuthenticationService>();

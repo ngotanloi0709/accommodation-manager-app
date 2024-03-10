@@ -45,6 +45,7 @@
             // 
             btnLogin.AutoSize = false;
             btnLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             btnLogin.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             btnLogin.Depth = 0;
             btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -61,7 +62,6 @@
             btnLogin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btnLogin.UseAccentColor = false;
             btnLogin.UseVisualStyleBackColor = true;
-            btnLogin.UseWaitCursor = true;
             btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // materialLabel1
@@ -75,7 +75,7 @@
             this.materialLabel1.Size = new System.Drawing.Size(41, 19);
             this.materialLabel1.TabIndex = 0;
             this.materialLabel1.Text = "Email";
-            this.materialLabel1.UseWaitCursor = true;
+            this.materialLabel1.UseMnemonic = false;
             // 
             // materialLabel2
             // 
@@ -88,11 +88,12 @@
             this.materialLabel2.Size = new System.Drawing.Size(71, 19);
             this.materialLabel2.TabIndex = 1;
             this.materialLabel2.Text = "Password";
-            this.materialLabel2.UseWaitCursor = true;
+            this.materialLabel2.UseMnemonic = false;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(117, 84);
             this.pictureBox1.Name = "pictureBox1";
@@ -100,7 +101,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.UseWaitCursor = true;
             // 
             // labelRegister
             // 
@@ -114,7 +114,7 @@
             this.labelRegister.Size = new System.Drawing.Size(140, 14);
             this.labelRegister.TabIndex = 8;
             this.labelRegister.Text = "Do you forget Password ?";
-            this.labelRegister.UseWaitCursor = true;
+            this.labelRegister.UseMnemonic = false;
             // 
             // materialLabel3
             // 
@@ -128,10 +128,11 @@
             this.materialLabel3.Size = new System.Drawing.Size(269, 29);
             this.materialLabel3.TabIndex = 9;
             this.materialLabel3.Text = "Please Login Information";
-            this.materialLabel3.UseWaitCursor = true;
+            this.materialLabel3.UseMnemonic = false;
             // 
             // txtPass
             // 
+            this.txtPass.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPass.Location = new System.Drawing.Point(133, 349);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(237, 20);
@@ -139,6 +140,7 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtEmail.Location = new System.Drawing.Point(133, 299);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(237, 20);
@@ -157,13 +159,14 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel1);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DoubleBuffered = false;
             this.DrawerHighlightWithAccent = false;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LoginForm";
             this.Sizable = false;
             this.Text = "Mangement Application";
-            this.UseWaitCursor = true;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -15,7 +15,8 @@ namespace AccommodationManagerApp.Service {
         
         public bool Authenticate(string email, string password) {
             User user = UserService.GetUserByEmail(email);
-            bool result = user != null && PasswordHelper.HashPassword(user.Password) == PasswordHelper.HashPassword(password);
+            bool result = user != null && user.Password == PasswordHelper.HashPassword(password);
+            Console.WriteLine(PasswordHelper.HashPassword(password));
             if (result) {
                 CurrentUser = user;
             }
