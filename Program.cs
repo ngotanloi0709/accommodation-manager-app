@@ -24,8 +24,9 @@ namespace AccommodationManagerApp {
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(_serviceProvider.GetService<LoginForm>());
+            //Application.Run(_serviceProvider.GetService<MainForm>());
             // Application.Run(new LoginForm());
+            Application.Run(new BillDetail());
         }
 
         private static void ConfigureServices()
@@ -53,6 +54,7 @@ namespace AccommodationManagerApp {
             _serviceProvider = services.BuildServiceProvider();
             ServiceLocator.Initialize(_serviceProvider);
         }
+
         private static void ActiveMigration() {
             new InitLog(_serviceProvider.GetService<InitLogRepository>());
         }
