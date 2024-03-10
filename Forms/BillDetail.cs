@@ -33,7 +33,8 @@ namespace AccommodationManagerApp.Forms
             materialSkinManager.ColorScheme = new ColorScheme(Primary.Green400, Primary.Green700, Primary.Green700, Accent.Purple400, TextShade.WHITE);
         }
 
-        private void btn_ExportPDF_Click(object sender, EventArgs e)
+
+        private void btn_ExportPDF_Click_1(object sender, EventArgs e)
         {
             // Tạo hộp thoại lưu file
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -79,9 +80,9 @@ namespace AccommodationManagerApp.Forms
                             graph.DrawImage(panelImage, 0, 0, panelImage.PixelWidth * scale, panelImage.PixelHeight * scale);
                         }
 
-                        
 
-                        
+
+
                     }
 
                     pdf.Save(filePath);
