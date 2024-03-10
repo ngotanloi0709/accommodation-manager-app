@@ -25,7 +25,7 @@ namespace AccommodationManagerApp {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(_serviceProvider.GetService<MainForm>());
-            // Application.Run(new LoginForm());
+            //Application.Run(new LoginForm());
             Application.Run(new BillDetail());
         }
 
