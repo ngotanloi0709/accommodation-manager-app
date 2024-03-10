@@ -58,5 +58,12 @@ namespace AccommodationManagerApp.Forms {
         {
 
         }
+
+        private void exportPdfButton_Click(object sender, System.EventArgs e)
+        {
+            this.Hide(); // Hide the current form
+            BillDetail billDetailForm = new BillDetail();
+            billDetailForm.Show(); // Show the BillDetail form
+        }
     }
 }

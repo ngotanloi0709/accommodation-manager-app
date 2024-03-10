@@ -47,8 +47,10 @@
             this.tabPageInvoices = new System.Windows.Forms.TabPage();
             this.tabPageSystemUsers = new System.Windows.Forms.TabPage();
             this.tabPageConfiguration = new System.Windows.Forms.TabPage();
+            this.exportPdfButton = new System.Windows.Forms.Button();
             this.tabPageUnits.SuspendLayout();
             this.materialTabControl.SuspendLayout();
+            this.tabPageInvoices.SuspendLayout();
             this.SuspendLayout();
             // 
             // drawerImageList
@@ -72,9 +74,10 @@
             this.tabPageUnits.ForeColor = System.Drawing.Color.Transparent;
             this.tabPageUnits.ImageKey = "home.png";
             this.tabPageUnits.Location = new System.Drawing.Point(4, 39);
+            this.tabPageUnits.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageUnits.Name = "tabPageUnits";
-            this.tabPageUnits.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUnits.Size = new System.Drawing.Size(986, 673);
+            this.tabPageUnits.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageUnits.Size = new System.Drawing.Size(1234, 852);
             this.tabPageUnits.TabIndex = 0;
             this.tabPageUnits.Text = "Units";
             // 
@@ -87,12 +90,12 @@
             this.materialButton2.ForeColor = System.Drawing.Color.Transparent;
             this.materialButton2.HighEmphasis = true;
             this.materialButton2.Icon = null;
-            this.materialButton2.Location = new System.Drawing.Point(591, 23);
-            this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton2.Location = new System.Drawing.Point(739, 29);
+            this.materialButton2.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton2.Name = "materialButton2";
             this.materialButton2.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton2.Size = new System.Drawing.Size(207, 36);
+            this.materialButton2.Size = new System.Drawing.Size(259, 45);
             this.materialButton2.TabIndex = 3;
             this.materialButton2.Text = "Manage House Feature";
             this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -108,12 +111,12 @@
             this.materialButton1.ForeColor = System.Drawing.Color.Transparent;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(835, 23);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton1.Location = new System.Drawing.Point(1044, 29);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
             this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton1.Size = new System.Drawing.Size(75, 36);
+            this.materialButton1.Size = new System.Drawing.Size(94, 45);
             this.materialButton1.TabIndex = 2;
             this.materialButton1.Text = "Add";
             this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -130,12 +133,13 @@
             this.materialTextBox1.ForeColor = System.Drawing.Color.Transparent;
             this.materialTextBox1.Hint = "Search";
             this.materialTextBox1.LeadingIcon = null;
-            this.materialTextBox1.Location = new System.Drawing.Point(24, 23);
+            this.materialTextBox1.Location = new System.Drawing.Point(30, 29);
+            this.materialTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialTextBox1.MaxLength = 50;
             this.materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox1.Multiline = false;
             this.materialTextBox1.Name = "materialTextBox1";
-            this.materialTextBox1.Size = new System.Drawing.Size(244, 50);
+            this.materialTextBox1.Size = new System.Drawing.Size(305, 50);
             this.materialTextBox1.TabIndex = 1;
             this.materialTextBox1.Text = "";
             this.materialTextBox1.TrailingIcon = null;
@@ -155,13 +159,14 @@
             this.ListViewUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.ListViewUnit.FullRowSelect = true;
             this.ListViewUnit.HideSelection = false;
-            this.ListViewUnit.Location = new System.Drawing.Point(1, 102);
-            this.ListViewUnit.MinimumSize = new System.Drawing.Size(200, 100);
+            this.ListViewUnit.Location = new System.Drawing.Point(1, 128);
+            this.ListViewUnit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ListViewUnit.MinimumSize = new System.Drawing.Size(250, 125);
             this.ListViewUnit.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ListViewUnit.MouseState = MaterialSkin.MouseState.OUT;
             this.ListViewUnit.Name = "ListViewUnit";
             this.ListViewUnit.OwnerDraw = true;
-            this.ListViewUnit.Size = new System.Drawing.Size(985, 572);
+            this.ListViewUnit.Size = new System.Drawing.Size(1231, 715);
             this.ListViewUnit.TabIndex = 0;
             this.ListViewUnit.UseCompatibleStateImageBehavior = false;
             this.ListViewUnit.View = System.Windows.Forms.View.Details;
@@ -198,20 +203,22 @@
             this.materialTabControl.Depth = 0;
             this.materialTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialTabControl.ImageList = this.drawerImageList;
-            this.materialTabControl.Location = new System.Drawing.Point(3, 80);
+            this.materialTabControl.Location = new System.Drawing.Point(4, 100);
+            this.materialTabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.materialTabControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl.Multiline = true;
             this.materialTabControl.Name = "materialTabControl";
             this.materialTabControl.SelectedIndex = 0;
-            this.materialTabControl.Size = new System.Drawing.Size(994, 716);
+            this.materialTabControl.Size = new System.Drawing.Size(1242, 895);
             this.materialTabControl.TabIndex = 0;
             // 
             // tabPageDash
             // 
             this.tabPageDash.ImageKey = "dashboard.png";
             this.tabPageDash.Location = new System.Drawing.Point(4, 39);
+            this.tabPageDash.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageDash.Name = "tabPageDash";
-            this.tabPageDash.Size = new System.Drawing.Size(986, 673);
+            this.tabPageDash.Size = new System.Drawing.Size(1234, 852);
             this.tabPageDash.TabIndex = 1;
             this.tabPageDash.Text = "Dashboard";
             this.tabPageDash.UseVisualStyleBackColor = true;
@@ -221,18 +228,21 @@
             this.tabPageTenants.BackColor = System.Drawing.Color.White;
             this.tabPageTenants.ImageKey = "house-owner.png";
             this.tabPageTenants.Location = new System.Drawing.Point(4, 39);
+            this.tabPageTenants.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageTenants.Name = "tabPageTenants";
-            this.tabPageTenants.Size = new System.Drawing.Size(986, 673);
+            this.tabPageTenants.Size = new System.Drawing.Size(1234, 852);
             this.tabPageTenants.TabIndex = 2;
             this.tabPageTenants.Text = "Tenants";
             // 
             // tabPageInvoices
             // 
             this.tabPageInvoices.BackColor = System.Drawing.Color.White;
+            this.tabPageInvoices.Controls.Add(this.exportPdfButton);
             this.tabPageInvoices.ImageKey = "invoice.png";
             this.tabPageInvoices.Location = new System.Drawing.Point(4, 39);
+            this.tabPageInvoices.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageInvoices.Name = "tabPageInvoices";
-            this.tabPageInvoices.Size = new System.Drawing.Size(986, 673);
+            this.tabPageInvoices.Size = new System.Drawing.Size(1234, 852);
             this.tabPageInvoices.TabIndex = 3;
             this.tabPageInvoices.Text = "Invoices";
             // 
@@ -241,8 +251,9 @@
             this.tabPageSystemUsers.BackColor = System.Drawing.Color.White;
             this.tabPageSystemUsers.ImageKey = "customer.png";
             this.tabPageSystemUsers.Location = new System.Drawing.Point(4, 39);
+            this.tabPageSystemUsers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageSystemUsers.Name = "tabPageSystemUsers";
-            this.tabPageSystemUsers.Size = new System.Drawing.Size(986, 673);
+            this.tabPageSystemUsers.Size = new System.Drawing.Size(1234, 852);
             this.tabPageSystemUsers.TabIndex = 4;
             this.tabPageSystemUsers.Text = "System Users";
             // 
@@ -251,34 +262,47 @@
             this.tabPageConfiguration.BackColor = System.Drawing.Color.White;
             this.tabPageConfiguration.ImageKey = "setting.png";
             this.tabPageConfiguration.Location = new System.Drawing.Point(4, 39);
+            this.tabPageConfiguration.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageConfiguration.Name = "tabPageConfiguration";
-            this.tabPageConfiguration.Size = new System.Drawing.Size(986, 673);
+            this.tabPageConfiguration.Size = new System.Drawing.Size(1234, 852);
             this.tabPageConfiguration.TabIndex = 5;
             this.tabPageConfiguration.Text = "Configuration";
             // 
+            // exportPdfButton
+            // 
+            this.exportPdfButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportPdfButton.Location = new System.Drawing.Point(517, 350);
+            this.exportPdfButton.Name = "exportPdfButton";
+            this.exportPdfButton.Size = new System.Drawing.Size(172, 43);
+            this.exportPdfButton.TabIndex = 0;
+            this.exportPdfButton.Text = "PDF";
+            this.exportPdfButton.UseVisualStyleBackColor = true;
+            this.exportPdfButton.Click += new System.EventHandler(this.exportPdfButton_Click);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1000, 800);
+            this.ClientSize = new System.Drawing.Size(1250, 1000);
             this.Controls.Add(this.materialTabControl);
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl;
             this.HelpButton = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1000, 800);
+            this.MaximumSize = new System.Drawing.Size(1250, 1000);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1000, 800);
+            this.MinimumSize = new System.Drawing.Size(1250, 1000);
             this.Name = "MainForm";
-            this.Padding = new System.Windows.Forms.Padding(3, 80, 3, 4);
+            this.Padding = new System.Windows.Forms.Padding(4, 100, 4, 5);
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabPageUnits.ResumeLayout(false);
             this.materialTabControl.ResumeLayout(false);
+            this.tabPageInvoices.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -302,5 +326,6 @@
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
         private MaterialSkin.Controls.MaterialButton materialButton2;
+        private System.Windows.Forms.Button exportPdfButton;
     }
 }

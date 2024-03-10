@@ -24,9 +24,9 @@ namespace AccommodationManagerApp {
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(_serviceProvider.GetService<MainForm>());
+            Application.Run(_serviceProvider.GetService<MainForm>());
             // Application.Run(new LoginForm());
-            Application.Run(new BillDetail());
+            //Application.Run(new BillDetail());
         }
 
         private static void ConfigureServices()
