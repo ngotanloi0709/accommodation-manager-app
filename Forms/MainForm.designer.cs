@@ -145,6 +145,7 @@
             this.ListViewUnit.AutoArrange = false;
             this.ListViewUnit.AutoSizeTable = false;
             this.ListViewUnit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ListViewUnit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ListViewUnit.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.IdColumnDashboard,
             this.NameColumnDashboard,
@@ -153,7 +154,6 @@
             this.ListViewUnit.Depth = 0;
             this.ListViewUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.ListViewUnit.FullRowSelect = true;
-            this.ListViewUnit.GridLines = true;
             this.ListViewUnit.HideSelection = false;
             this.ListViewUnit.Location = new System.Drawing.Point(1, 102);
             this.ListViewUnit.MinimumSize = new System.Drawing.Size(200, 100);
@@ -276,6 +276,7 @@
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabPageUnits.ResumeLayout(false);
             this.materialTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
