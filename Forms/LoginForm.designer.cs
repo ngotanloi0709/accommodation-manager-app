@@ -28,174 +28,161 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TextBoxEmail = new MaterialSkin.Controls.MaterialTextBox2();
-            this.labelEmail = new MaterialSkin.Controls.MaterialLabel();
-            this.labelPassword = new MaterialSkin.Controls.MaterialLabel();
-            this.TextBoxPassword = new MaterialSkin.Controls.MaterialTextBox2();
-            this.buttonLogin = new MaterialSkin.Controls.MaterialButton();
-            this.buttonExit = new MaterialSkin.Controls.MaterialButton();
+            MaterialSkin.Controls.MaterialButton btnLogin;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelRegister = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.txtPass = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            btnLogin = new MaterialSkin.Controls.MaterialButton();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // TextBoxEmail
+            // btnLogin
             // 
-            this.TextBoxEmail.AnimateReadOnly = false;
-            this.TextBoxEmail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.TextBoxEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.TextBoxEmail.Depth = 0;
-            this.TextBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.TextBoxEmail.HideSelection = true;
-            this.TextBoxEmail.LeadingIcon = null;
-            this.TextBoxEmail.Location = new System.Drawing.Point(131, 36);
-            this.TextBoxEmail.MaximumSize = new System.Drawing.Size(250, 48);
-            this.TextBoxEmail.MaxLength = 32767;
-            this.TextBoxEmail.MinimumSize = new System.Drawing.Size(250, 48);
-            this.TextBoxEmail.MouseState = MaterialSkin.MouseState.OUT;
-            this.TextBoxEmail.Name = "TextBoxEmail";
-            this.TextBoxEmail.PasswordChar = '\0';
-            this.TextBoxEmail.PrefixSuffixText = null;
-            this.TextBoxEmail.ReadOnly = false;
-            this.TextBoxEmail.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.TextBoxEmail.SelectedText = "";
-            this.TextBoxEmail.SelectionLength = 0;
-            this.TextBoxEmail.SelectionStart = 0;
-            this.TextBoxEmail.ShortcutsEnabled = true;
-            this.TextBoxEmail.Size = new System.Drawing.Size(250, 48);
-            this.TextBoxEmail.TabIndex = 0;
-            this.TextBoxEmail.TabStop = false;
-            this.TextBoxEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.TextBoxEmail.TrailingIcon = null;
-            this.TextBoxEmail.UseSystemPasswordChar = false;
+            btnLogin.AutoSize = false;
+            btnLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnLogin.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnLogin.Depth = 0;
+            btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            btnLogin.HighEmphasis = true;
+            btnLogin.Icon = null;
+            btnLogin.Location = new System.Drawing.Point(290, 392);
+            btnLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            btnLogin.MouseState = MaterialSkin.MouseState.HOVER;
+            btnLogin.Name = "btnLogin";
+            btnLogin.NoAccentTextColor = System.Drawing.Color.Empty;
+            btnLogin.Size = new System.Drawing.Size(80, 30);
+            btnLogin.TabIndex = 7;
+            btnLogin.Text = "Login";
+            btnLogin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnLogin.UseAccentColor = false;
+            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // labelEmail
+            // materialLabel1
             // 
-            this.labelEmail.Depth = 0;
-            this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelEmail.Location = new System.Drawing.Point(35, 50);
-            this.labelEmail.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(75, 21);
-            this.labelEmail.TabIndex = 1;
-            this.labelEmail.Text = "Email";
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.Location = new System.Drawing.Point(31, 299);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(41, 19);
+            this.materialLabel1.TabIndex = 0;
+            this.materialLabel1.Text = "Email";
+            this.materialLabel1.UseMnemonic = false;
             // 
-            // labelPassword
+            // materialLabel2
             // 
-            this.labelPassword.Depth = 0;
-            this.labelPassword.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelPassword.Location = new System.Drawing.Point(35, 114);
-            this.labelPassword.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(75, 19);
-            this.labelPassword.TabIndex = 3;
-            this.labelPassword.Text = "Password";
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.Location = new System.Drawing.Point(31, 349);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(71, 19);
+            this.materialLabel2.TabIndex = 1;
+            this.materialLabel2.Text = "Password";
+            this.materialLabel2.UseMnemonic = false;
             // 
-            // TextBoxPassword
+            // pictureBox1
             // 
-            this.TextBoxPassword.AnimateReadOnly = false;
-            this.TextBoxPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.TextBoxPassword.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.TextBoxPassword.Depth = 0;
-            this.TextBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.TextBoxPassword.HideSelection = true;
-            this.TextBoxPassword.LeadingIcon = null;
-            this.TextBoxPassword.Location = new System.Drawing.Point(131, 98);
-            this.TextBoxPassword.MaximumSize = new System.Drawing.Size(250, 48);
-            this.TextBoxPassword.MaxLength = 32767;
-            this.TextBoxPassword.MinimumSize = new System.Drawing.Size(250, 48);
-            this.TextBoxPassword.MouseState = MaterialSkin.MouseState.OUT;
-            this.TextBoxPassword.Name = "TextBoxPassword";
-            this.TextBoxPassword.PasswordChar = '\0';
-            this.TextBoxPassword.PrefixSuffixText = null;
-            this.TextBoxPassword.ReadOnly = false;
-            this.TextBoxPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.TextBoxPassword.SelectedText = "";
-            this.TextBoxPassword.SelectionLength = 0;
-            this.TextBoxPassword.SelectionStart = 0;
-            this.TextBoxPassword.ShortcutsEnabled = true;
-            this.TextBoxPassword.Size = new System.Drawing.Size(250, 48);
-            this.TextBoxPassword.TabIndex = 2;
-            this.TextBoxPassword.TabStop = false;
-            this.TextBoxPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.TextBoxPassword.TrailingIcon = null;
-            this.TextBoxPassword.UseSystemPasswordChar = false;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(117, 84);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(193, 155);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
-            // buttonLogin
+            // labelRegister
             // 
-            this.buttonLogin.AutoSize = false;
-            this.buttonLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonLogin.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.buttonLogin.Depth = 0;
-            this.buttonLogin.HighEmphasis = true;
-            this.buttonLogin.Icon = null;
-            this.buttonLogin.Location = new System.Drawing.Point(277, 164);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.buttonLogin.MaximumSize = new System.Drawing.Size(104, 36);
-            this.buttonLogin.MinimumSize = new System.Drawing.Size(104, 36);
-            this.buttonLogin.MouseState = MaterialSkin.MouseState.HOVER;
-            this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonLogin.Size = new System.Drawing.Size(104, 36);
-            this.buttonLogin.TabIndex = 4;
-            this.buttonLogin.Text = "Login";
-            this.buttonLogin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.buttonLogin.UseAccentColor = false;
-            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.labelRegister.AutoSize = true;
+            this.labelRegister.Depth = 0;
+            this.labelRegister.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.labelRegister.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
+            this.labelRegister.Location = new System.Drawing.Point(31, 401);
+            this.labelRegister.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelRegister.Name = "labelRegister";
+            this.labelRegister.Size = new System.Drawing.Size(140, 14);
+            this.labelRegister.TabIndex = 8;
+            this.labelRegister.Text = "Do you forget Password ?";
+            this.labelRegister.UseMnemonic = false;
             // 
-            // buttonExit
+            // materialLabel3
             // 
-            this.buttonExit.AutoSize = false;
-            this.buttonExit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonExit.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.buttonExit.Depth = 0;
-            this.buttonExit.HighEmphasis = true;
-            this.buttonExit.Icon = null;
-            this.buttonExit.Location = new System.Drawing.Point(131, 164);
-            this.buttonExit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.buttonExit.MaximumSize = new System.Drawing.Size(104, 36);
-            this.buttonExit.MinimumSize = new System.Drawing.Size(104, 36);
-            this.buttonExit.MouseState = MaterialSkin.MouseState.HOVER;
-            this.buttonExit.Name = "buttonExit";
-            this.buttonExit.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonExit.Size = new System.Drawing.Size(104, 36);
-            this.buttonExit.TabIndex = 5;
-            this.buttonExit.Text = "Exit";
-            this.buttonExit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.buttonExit.UseAccentColor = false;
-            this.buttonExit.UseVisualStyleBackColor = true;
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel3.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.materialLabel3.Location = new System.Drawing.Point(76, 242);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(269, 29);
+            this.materialLabel3.TabIndex = 9;
+            this.materialLabel3.Text = "Please Login Information";
+            this.materialLabel3.UseMnemonic = false;
+            // 
+            // txtPass
+            // 
+            this.txtPass.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPass.Location = new System.Drawing.Point(133, 349);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
+            this.txtPass.Size = new System.Drawing.Size(237, 20);
+            this.txtPass.TabIndex = 10;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtEmail.Location = new System.Drawing.Point(133, 299);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(237, 20);
+            this.txtEmail.TabIndex = 11;
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(411, 231);
-            this.ControlBox = false;
-            this.Controls.Add(this.labelPassword);
-            this.Controls.Add(this.labelEmail);
-            this.Controls.Add(this.buttonExit);
-            this.Controls.Add(this.buttonLogin);
-            this.Controls.Add(this.TextBoxPassword);
-            this.Controls.Add(this.TextBoxEmail);
-            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(420, 460);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtPass);
+            this.Controls.Add(this.materialLabel3);
+            this.Controls.Add(this.labelRegister);
+            this.Controls.Add(btnLogin);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.materialLabel2);
+            this.Controls.Add(this.materialLabel1);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DoubleBuffered = false;
+            this.DrawerHighlightWithAccent = false;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(411, 231);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(411, 231);
             this.Name = "LoginForm";
-            this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LoginForm";
+            this.Text = "Mangement Application";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private MaterialSkin.Controls.MaterialTextBox2 TextBoxEmail;
-        private MaterialSkin.Controls.MaterialLabel labelEmail;
-        private MaterialSkin.Controls.MaterialLabel labelPassword;
-        private MaterialSkin.Controls.MaterialTextBox2 TextBoxPassword;
-        private MaterialSkin.Controls.MaterialButton buttonLogin;
-        private MaterialSkin.Controls.MaterialButton buttonExit;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private MaterialSkin.Controls.MaterialLabel labelRegister;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private System.Windows.Forms.TextBox txtPass;
+        private System.Windows.Forms.TextBox txtEmail;
     }
 }

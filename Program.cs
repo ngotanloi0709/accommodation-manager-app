@@ -29,16 +29,18 @@ namespace AccommodationManagerApp {
             Application.Run(new BillDetail());
         }
 
-        private static void ConfigureServices() {
+        private static void ConfigureServices()
+        {
             var services = new ServiceCollection();
 
             // Others
             services.AddSingleton<AccommodationManagerAppContext>();
-            
+
             // Forms
             services.AddSingleton<MainForm>();
             services.AddSingleton<LoginForm>();
-            
+            services.AddSingleton<SplashForm>();
+
             // Services
             services.AddSingleton<AuthenticationService>();
             services.AddSingleton<UserService>();

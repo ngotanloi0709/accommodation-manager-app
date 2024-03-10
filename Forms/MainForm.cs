@@ -53,5 +53,10 @@ namespace AccommodationManagerApp.Forms {
                 LoadUnitData();
             }
         }
+
+        private void MainForm_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
