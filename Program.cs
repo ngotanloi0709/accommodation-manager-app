@@ -16,7 +16,7 @@ namespace AccommodationManagerApp {
         [STAThread]
         static void Main() {
             ConfigureServices();
-            ActiveMigration();
+            // ActiveMigration();
 
             // AuthenticationService authenticationService = _serviceProvider.GetService<AuthenticationService>();
             // authenticationService.Authenticate("ngotanloi0709@gmail.com", "123");
@@ -44,11 +44,13 @@ namespace AccommodationManagerApp {
             // Services
             services.AddSingleton<AuthenticationService>();
             services.AddSingleton<UserService>();
-            services.AddSingleton<UnitService>();
+            services.AddSingleton<RoomService>();
+            services.AddSingleton<BuildingService>();
 
             // Repositories
             services.AddSingleton<UserRepository>();
-            services.AddSingleton<UnitRepository>();
+            services.AddSingleton<RoomRepository>();
+            services.AddSingleton<BuildingRepository>();
             services.AddSingleton<InitLogRepository>();
 
             _serviceProvider = services.BuildServiceProvider();

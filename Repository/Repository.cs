@@ -58,7 +58,8 @@ namespace AccommodationManagerApp.Repository {
         }
         
         public DbSet<User> Users { get; set; }
-        public DbSet<Unit> Units { get; set; }
+        public DbSet<Room> Units { get; set; }
+        public DbSet<Building> Buildings { get; set; }
         public DbSet<InitLog> InitLogs { get; set; }
     }
 }

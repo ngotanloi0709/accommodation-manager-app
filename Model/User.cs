@@ -11,8 +11,11 @@ namespace AccommodationManagerApp.Models
         public string Email { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
-    
-        public User() { }
+        public UserRole Role { get; set; }
+        public bool IsFemale { get; set; }
+        public string Phone { get; set; }
+        public string Address { get; set; }
+        public string IdentityNumber { get; set; }
         
         public User(string email, string name, string password) {
             Email = email;

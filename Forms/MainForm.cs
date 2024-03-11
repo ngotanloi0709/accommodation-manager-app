@@ -6,10 +6,12 @@ using TenantManagementSystem.Forms;
 
 namespace AccommodationManagerApp.Forms {
     public partial class MainForm : MaterialForm {
-        private readonly UnitService _unitService;
+        private readonly RoomService _roomService;
+        private readonly BuildingService _buildingService;
 
         public MainForm() {
-            _unitService = ServiceLocator.ServiceProvider.GetService(typeof(UnitService)) as UnitService;
+            _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
+            _buildingService = ServiceLocator.ServiceProvider.GetService(typeof(BuildingService)) as BuildingService;
             InitializeComponent();
             SetUpUi();
             LoadData();
@@ -24,18 +26,30 @@ namespace AccommodationManagerApp.Forms {
 
         private void LoadData() {
             LoadUnitData();
+            LoadBuildingData();
+        }
+
+        private void LoadBuildingData() {
+            var buildings = _buildingService.GetAll();
+            //
+            foreach (var building in buildings) {
+                ListViewItem item = new ListViewItem(building.Id.ToString());
+                item.SubItems.Add(building.Name);
+                item.SubItems.Add(building.CreatedAt.ToString("dd/MM/yyyy"));
+                ListViewBuilding.Items.Add(item);
+            }
         }
 
         private void LoadUnitData() {
-            var units = _unitService.GetAll();
-
-            foreach (var unit in units) {
-                ListViewItem item = new ListViewItem(unit.Id.ToString());
-                item.SubItems.Add(unit.Name);
-                item.SubItems.Add(unit.Building);
-                item.SubItems.Add(unit.CreatedAt.ToString("dd/MM/yyyy"));
-                ListViewUnit.Items.Add(item);
-            }
+            // var units = _roomService.GetAll();
+            //
+            // foreach (var unit in units) {
+            //     ListViewItem item = new ListViewItem(unit.Id.ToString());
+            //     item.SubItems.Add(unit.Name);
+            //     item.SubItems.Add(unit.Building);
+            //     item.SubItems.Add(unit.CreatedAt.ToString("dd/MM/yyyy"));
+            //     ListViewUnit.Items.Add(item);
+            // }
         }
 
         private void UnitListView_ItemActivate(object sender, System.EventArgs e) {
@@ -45,7 +59,7 @@ namespace AccommodationManagerApp.Forms {
             string name = selectedItem.SubItems[1].Text;
             string building = selectedItem.SubItems[2].Text;
 
-            UnitForm unitForm = new UnitForm(id, name, building);
+            RoomForm unitForm = new RoomForm(id, name, building);
             unitForm.ShowDialog();
 
             if (unitForm.DialogResult == DialogResult.OK) {
@@ -54,16 +68,10 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        private void MainForm_Load(object sender, System.EventArgs e)
-        {
-
-        }
-
         private void exportPdfButton_Click(object sender, System.EventArgs e)
         {
-            
             BillDetail billDetailForm = new BillDetail();
-            billDetailForm.Show(); // Show the BillDetail form
+            billDetailForm.Show();
         }
     }
 }

@@ -4,14 +4,14 @@ using MaterialSkin.Controls;
 
 namespace TenantManagementSystem.Forms
 {
-    public partial class UnitForm : MaterialForm
+    public partial class RoomForm : MaterialForm
     {
-        private readonly UnitService _unitService;
+        private readonly RoomService _roomService;
         private int _unitId;
         
-        public UnitForm(string Id, string Name, string Building)
+        public RoomForm(string Id, string Name, string Building)
         {
-            _unitService = ServiceLocator.ServiceProvider.GetService(typeof(UnitService)) as UnitService;
+            _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
             InitializeComponent();
             SetUpUi();
             SetUpData(Id, Name, Building);
@@ -37,7 +37,7 @@ namespace TenantManagementSystem.Forms
 
         private void ButtonDelete_Click(object sender, System.EventArgs e)
         {
-            _unitService.Delete(_unitId);
+            _roomService.Delete(_unitId);
             
             CloseForm();
         }
@@ -45,9 +45,9 @@ namespace TenantManagementSystem.Forms
         private void ButtonSave_Click(object sender, System.EventArgs e)
         {
             if (_unitId == 0) {
-                _unitService.Add(TextBoxName.Text, TextBoxBuilding.Text);
+                // _roomService.Add(TextBoxName.Text, TextBoxBuilding.Text);
             } else {
-                _unitService.Update(_unitId, TextBoxName.Text, TextBoxBuilding.Text);
+                // _roomService.Update(_unitId, TextBoxName.Text, TextBoxBuilding.Text);
             }
             
             CloseForm();
