@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AccommodationManagerApp.Models
+namespace AccommodationManagerApp.Model
 {
     [Table("users")]
     public class User
@@ -11,8 +11,12 @@ namespace AccommodationManagerApp.Models
         public string Email { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
-    
-        public User() { }
+        [EnumDataType(typeof(UserRole))]
+        public UserRole Role { get; set; }
+        public bool IsFemale { get; set; }
+        public string Phone { get; set; }
+        public string Address { get; set; }
+        public string IdentityNumber { get; set; }
         
         public User(string email, string name, string password) {
             Email = email;

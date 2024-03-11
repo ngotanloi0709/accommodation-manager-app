@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AccommodationManagerApp.Models;
+using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 

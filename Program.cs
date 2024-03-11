@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using AccommodationManagerApp.Forms;
+using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 using AccommodationManagerApp.Util;
@@ -17,7 +18,7 @@ namespace AccommodationManagerApp {
         static void Main() {
             ConfigureServices();
             ActiveMigration();
-
+            // Test();
             // AuthenticationService authenticationService = _serviceProvider.GetService<AuthenticationService>();
             // authenticationService.Authenticate("ngotanloi0709@gmail.com", "123");
             // Console.WriteLine(authenticationService.IsAuthenticated());
@@ -27,6 +28,18 @@ namespace AccommodationManagerApp {
             Application.Run(_serviceProvider.GetService<MainForm>());
             // Application.Run(new LoginForm());
             //Application.Run(new BillDetail());
+        }
+
+        private static void Test() {
+            RoomService roomService = _serviceProvider.GetService<RoomService>();
+            BuildingService buildingService = _serviceProvider.GetService<BuildingService>();
+            // Building building = buildingService.GetById(2);
+            // Room room = new Room(null, "A101", null, building, RoomStatus.Empty);
+            // roomService.Add(room);
+            // Room room = roomService.GetByIdWithBuilding(1);
+            // room.Status = RoomStatus.Rented;
+            // Console.WriteLine(room);
+            // roomService.Update(1, room);
         }
 
         private static void ConfigureServices()
@@ -44,11 +57,13 @@ namespace AccommodationManagerApp {
             // Services
             services.AddSingleton<AuthenticationService>();
             services.AddSingleton<UserService>();
-            services.AddSingleton<UnitService>();
+            services.AddSingleton<RoomService>();
+            services.AddSingleton<BuildingService>();
 
             // Repositories
             services.AddSingleton<UserRepository>();
-            services.AddSingleton<UnitRepository>();
+            services.AddSingleton<RoomRepository>();
+            services.AddSingleton<BuildingRepository>();
             services.AddSingleton<InitLogRepository>();
 
             _serviceProvider = services.BuildServiceProvider();
