@@ -1,4 +1,4 @@
-﻿using AccommodationManagerApp.Models;
+﻿using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
 
 
