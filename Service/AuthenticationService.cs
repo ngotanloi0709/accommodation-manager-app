@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using AccommodationManagerApp.Models;
+using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Util;
 
 
