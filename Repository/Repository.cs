@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using AccommodationManagerApp.Migrations;
-using AccommodationManagerApp.Models;
+using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Util;
 
 namespace AccommodationManagerApp.Repository {
-    public abstract class Repository<T> : IRepository<T> where T : class
+    public abstract class Repository<T>  where T : class
     {
         protected readonly DbContext Context;
 
@@ -16,7 +16,7 @@ namespace AccommodationManagerApp.Repository {
             this.Context = context;
         }
 
-        public IEnumerable<T> GetAll()
+        public List<T> GetAll()
         {
             return Context.Set<T>().ToList();
         }
@@ -58,7 +58,8 @@ namespace AccommodationManagerApp.Repository {
         }
         
         public DbSet<User> Users { get; set; }
-        public DbSet<Unit> Units { get; set; }
+        public DbSet<Room> Units { get; set; }
+        public DbSet<Building> Buildings { get; set; }
         public DbSet<InitLog> InitLogs { get; set; }
     }
 }

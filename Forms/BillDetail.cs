@@ -16,38 +16,23 @@ using iTextSharp.text;
 using MaterialSkin.Controls;
 using MaterialSkin;
 
-namespace AccommodationManagerApp.Forms
-{
-    public partial class BillDetail : MaterialForm
-    {
-        public BillDetail()
-        {
+namespace AccommodationManagerApp.Forms {
+    public partial class BillDetail : BaseForm {
+        public BillDetail() {
             InitializeComponent();
-            SetUpUi();
-        }
-        private void SetUpUi()
-        {
-            // Set the MaterialSkinManager to the form
-            MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Green400, Primary.Green700, Primary.Green700, Accent.Purple400, TextShade.WHITE);
         }
 
-
-        private void btn_ExportPDF_Click_1(object sender, EventArgs e)
-        {
+        private void btn_ExportPDF_Click_1(object sender, EventArgs e) {
             // Tạo hộp thoại lưu file
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "PDF Files|*.pdf";
             saveFileDialog.Title = "Save as PDF";
             saveFileDialog.FileName = "BillDetail.pdf";
 
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK) {
                 string filePath = saveFileDialog.FileName;
 
-                try
-                {
+                try {
                     PdfSharp.Pdf.PdfDocument pdf = new PdfSharp.Pdf.PdfDocument();
                     pdf.Info.Title = "Bill Detail";
 
@@ -58,16 +43,15 @@ namespace AccommodationManagerApp.Forms
                     XGraphics graph = XGraphics.FromPdfPage(pdfPage);
 
                     // Lấy nội dung của PanelHD và đưa nó vào tài liệu PDF
-                    using (MemoryStream ms = new MemoryStream())
-                    {
+                    using (MemoryStream ms = new MemoryStream()) {
                         // Lấy nội dung của PanelHD
                         Bitmap bmp = new Bitmap(PanelHD.Width, PanelHD.Height);
-                        PanelHD.DrawToBitmap(bmp, new System.Drawing.Rectangle(0, 0, PanelHD.Width + 5, PanelHD.Height + 5));
+                        PanelHD.DrawToBitmap(bmp,
+                            new System.Drawing.Rectangle(0, 0, PanelHD.Width + 5, PanelHD.Height + 5));
 
                         // Chuyển đổi hình ảnh từ System.Drawing.Image sang dạng byte[]
                         byte[] imageBytes;
-                        using (MemoryStream imageStream = new MemoryStream())
-                        {
+                        using (MemoryStream imageStream = new MemoryStream()) {
                             bmp.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
                             imageBytes = imageStream.ToArray();
                             XImage panelImage = XImage.FromStream(imageStream);
@@ -77,30 +61,25 @@ namespace AccommodationManagerApp.Forms
                             double scale = Math.Min(scaleX, scaleY);
 
                             // Vẽ hình ảnh vào tài liệu PDF với tỉ lệ scale
-                            graph.DrawImage(panelImage, 0, 0, panelImage.PixelWidth * scale, panelImage.PixelHeight * scale);
+                            graph.DrawImage(panelImage, 0, 0, panelImage.PixelWidth * scale,
+                                panelImage.PixelHeight * scale);
                         }
-
-
-
-
                     }
 
                     pdf.Save(filePath);
 
                     // Thông báo khi hoàn thành xuất PDF
-                    MessageBox.Show("Xuất PDF thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Xuất PDF thành công!", "Thông báo", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex) {
                     // Xử lý lỗi khi xuất PDF
-                    MessageBox.Show("Lỗi khi xuất PDF: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi khi xuất PDF: " + ex.Message, "Lỗi", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
             }
         }
 
-        private void PanelHD_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        private void PanelHD_Paint(object sender, PaintEventArgs e) { }
     }
 }

@@ -10,13 +10,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AccommodationManagerApp.Models;
+using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 
 namespace AccommodationManagerApp.Forms
 {
-    public partial class LoginForm : MaterialForm
+    public partial class LoginForm : BaseForm
     {
         private readonly AuthenticationService _authenticationService;
         
@@ -24,7 +24,6 @@ namespace AccommodationManagerApp.Forms
         {
             _authenticationService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
             InitializeComponent();
-            SetUpUi();
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -48,15 +47,6 @@ namespace AccommodationManagerApp.Forms
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-        // Set up UI
-        private void SetUpUi()
-        {
-            Cursor = Cursors.Arrow;
-            MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Green400, Primary.Green700, Primary.Green700,
-                Accent.LightBlue100, TextShade.WHITE);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using AccommodationManagerApp.Models;
+using AccommodationManagerApp.Model;
 
 namespace AccommodationManagerApp.Repository {
     public class UserRepository  : Repository<User> {

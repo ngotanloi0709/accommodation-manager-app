@@ -1,7 +1,7 @@
 ﻿using MySql.Data.EntityFramework;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using AccommodationManagerApp.Models;
+using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Util;
 
 namespace AccommodationManagerApp.Migrations {
@@ -18,6 +18,13 @@ namespace AccommodationManagerApp.Migrations {
             {
                 context.Users.AddOrUpdate(new User("ngotanloi0709@gmail.com", "Judian Ngo", PasswordHelper.HashPassword("123")));
             }
+            
+            if (!context.Buildings.Any())
+            {
+                context.Buildings.AddOrUpdate(new Building { Name = "Building 1" });
+                context.Buildings.AddOrUpdate(new Building { Name = "Building 2" });
+                context.Buildings.AddOrUpdate(new Building { Name = "Building 3" });
+            }   
         }
     }
 }
