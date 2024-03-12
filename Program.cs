@@ -2,7 +2,6 @@
 using System;
 using System.Windows.Forms;
 using AccommodationManagerApp.Forms;
-using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 using AccommodationManagerApp.Util;
@@ -25,7 +24,8 @@ namespace AccommodationManagerApp {
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(_serviceProvider.GetService<MainForm>());
+            Application.Run(new MainForm());
+            // Application.Run(new SplashForm());
             // Application.Run(new LoginForm());
             //Application.Run(new BillDetail());
         }
@@ -48,11 +48,6 @@ namespace AccommodationManagerApp {
 
             // Others
             services.AddSingleton<AccommodationManagerAppContext>();
-
-            // Forms
-            services.AddSingleton<MainForm>();
-            services.AddSingleton<LoginForm>();
-            services.AddSingleton<SplashForm>();
 
             // Services
             services.AddSingleton<AuthenticationService>();

@@ -198,53 +198,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\BillDetail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\BillDetail.Designer.cs">
       <DependentUpon>BillDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\LollipopButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\LollipopCard.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\LollipopCheckBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\LollipopFileInput.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\LollipopFlatButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\LollipopFolderInPut.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\LollipopLabel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\LollipopProgressBar.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\LollipopRadioButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\LollipopSmallCard.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\LollipopTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\LollipopToggle.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Forms\BuildingForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\BuildingForm.Designer.cs">
       <DependentUpon>BuildingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ConfirmationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConfirmationForm.Designer.cs">
+      <DependentUpon>ConfirmationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
@@ -270,6 +246,12 @@
     <Compile Include="Forms\RoomForm.designer.cs">
       <DependentUpon>RoomForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ToastForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ToastForm.Designer.cs">
+      <DependentUpon>ToastForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Building.cs" />
     <Compile Include="Model\Room.cs" />
@@ -285,7 +267,6 @@
     </Compile>
     <Compile Include="Repository\BuildingRepository.cs" />
     <Compile Include="Repository\InitLogRepository.cs" />
-    <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\RoomRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
@@ -301,6 +282,12 @@
     <EmbeddedResource Include="Forms\BillDetail.resx">
       <DependentUpon>BillDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BuildingForm.resx">
+      <DependentUpon>BuildingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConfirmationForm.resx">
+      <DependentUpon>ConfirmationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -312,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RoomForm.resx">
       <DependentUpon>RoomForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ToastForm.resx">
+      <DependentUpon>ToastForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -340,6 +330,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plus.png" />
+    <None Include="Resources\notification.png" />
     <Content Include="Resources\Roboto-Medium.ttf" />
     <Content Include="Resources\Roboto-Regular.ttf" />
     <None Include="Resources\signature.jpg" />

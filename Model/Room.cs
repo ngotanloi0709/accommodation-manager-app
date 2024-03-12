@@ -6,7 +6,7 @@ namespace AccommodationManagerApp.Model {
     [Table("rooms")]
     public class Room {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public string RoomNumber { get; set; }
         public int? BuildingId { get; set; }
         [ForeignKey("BuildingId")]
@@ -19,8 +19,7 @@ namespace AccommodationManagerApp.Model {
         {
         }
         
-        public Room(int? id, string roomNumber, int? buildingId, Building building, RoomStatus status) {
-            Id = id;
+        public Room(string roomNumber, int? buildingId, Building building, RoomStatus status) {
             RoomNumber = roomNumber;
             BuildingId = buildingId;
             Building = building;

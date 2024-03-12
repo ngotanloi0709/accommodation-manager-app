@@ -14,5 +14,10 @@ namespace AccommodationManagerApp.Model {
         public Building() 
         {
         }
+        
+        public Building(string name, string address) {
+            Name = name;
+            Address = address;
+        }
     }
 }

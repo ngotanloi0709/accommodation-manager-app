@@ -12,11 +12,11 @@ namespace AccommodationManagerApp.Repository {
             return Context.Set<Room>().Include("Building").FirstOrDefault(r => r.Id == id);
         }
 
-        public IEnumerable<Room> GetAllWithBuilding() {
+        public List<Room> GetAllWithBuilding() {
             return Context.Set<Room>().Include("Building").ToList();
         }
         
-        public IEnumerable<Room> GetAllByBuildingId(int buildingId) {
+        public List<Room> GetAllByBuildingId(int buildingId) {
             return Context.Set<Room>().Where(r => r.BuildingId == buildingId).ToList();
         }
     }

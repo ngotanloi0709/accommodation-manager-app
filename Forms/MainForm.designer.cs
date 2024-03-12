@@ -42,25 +42,27 @@
             this.colRoomStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPageDash = new System.Windows.Forms.TabPage();
+            this.buttonToast = new MaterialSkin.Controls.MaterialButton();
+            this.labelBuilldingCreatedAt = new MaterialSkin.Controls.MaterialLabel();
+            this.buttonEditBuilding = new MaterialSkin.Controls.MaterialButton();
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.labelBuildingAddress = new MaterialSkin.Controls.MaterialLabel();
+            this.labelBuildingName = new MaterialSkin.Controls.MaterialLabel();
+            this.labelBuildingId = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.buttonAddBuilding = new MaterialSkin.Controls.MaterialButton();
             this.ListViewBuilding = new MaterialSkin.Controls.MaterialListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageTenants = new System.Windows.Forms.TabPage();
             this.tabPageInvoices = new System.Windows.Forms.TabPage();
             this.exportPdfButton = new System.Windows.Forms.Button();
             this.tabPageSystemUsers = new System.Windows.Forms.TabPage();
             this.tabPageConfiguration = new System.Windows.Forms.TabPage();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.labelBuildingId = new MaterialSkin.Controls.MaterialLabel();
-            this.labelBuildingName = new MaterialSkin.Controls.MaterialLabel();
-            this.labelBuildingAddress = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.buttonEditBuilding = new MaterialSkin.Controls.MaterialButton();
-            this.labelBuilldingCreatedAt = new MaterialSkin.Controls.MaterialLabel();
+            this.buttonDeleteBuilding = new MaterialSkin.Controls.MaterialButton();
             this.tabPageRoom.SuspendLayout();
             this.materialTabControl.SuspendLayout();
             this.tabPageDash.SuspendLayout();
@@ -90,7 +92,7 @@
             this.tabPageRoom.Location = new System.Drawing.Point(4, 39);
             this.tabPageRoom.Name = "tabPageRoom";
             this.tabPageRoom.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRoom.Size = new System.Drawing.Size(873, 673);
+            this.tabPageRoom.Size = new System.Drawing.Size(986, 673);
             this.tabPageRoom.TabIndex = 0;
             this.tabPageRoom.Text = "Quản lý căn hộ";
             // 
@@ -202,6 +204,8 @@
             // tabPageDash
             // 
             this.tabPageDash.BackColor = System.Drawing.Color.White;
+            this.tabPageDash.Controls.Add(this.buttonDeleteBuilding);
+            this.tabPageDash.Controls.Add(this.buttonToast);
             this.tabPageDash.Controls.Add(this.labelBuilldingCreatedAt);
             this.tabPageDash.Controls.Add(this.buttonEditBuilding);
             this.tabPageDash.Controls.Add(this.materialLabel6);
@@ -219,6 +223,144 @@
             this.tabPageDash.Size = new System.Drawing.Size(986, 673);
             this.tabPageDash.TabIndex = 1;
             this.tabPageDash.Text = "Dashboard";
+            // 
+            // buttonToast
+            // 
+            this.buttonToast.AutoSize = false;
+            this.buttonToast.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonToast.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonToast.Depth = 0;
+            this.buttonToast.HighEmphasis = true;
+            this.buttonToast.Icon = null;
+            this.buttonToast.Location = new System.Drawing.Point(523, 258);
+            this.buttonToast.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonToast.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonToast.Name = "buttonToast";
+            this.buttonToast.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonToast.Size = new System.Drawing.Size(380, 36);
+            this.buttonToast.TabIndex = 12;
+            this.buttonToast.Text = "Toast";
+            this.buttonToast.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonToast.UseAccentColor = false;
+            this.buttonToast.UseVisualStyleBackColor = true;
+            this.buttonToast.Click += new System.EventHandler(this.buttonToast_Click);
+            // 
+            // labelBuilldingCreatedAt
+            // 
+            this.labelBuilldingCreatedAt.AutoSize = true;
+            this.labelBuilldingCreatedAt.Depth = 0;
+            this.labelBuilldingCreatedAt.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelBuilldingCreatedAt.Location = new System.Drawing.Point(593, 94);
+            this.labelBuilldingCreatedAt.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelBuilldingCreatedAt.Name = "labelBuilldingCreatedAt";
+            this.labelBuilldingCreatedAt.Size = new System.Drawing.Size(141, 19);
+            this.labelBuilldingCreatedAt.TabIndex = 11;
+            this.labelBuilldingCreatedAt.Text = "____________________";
+            // 
+            // buttonEditBuilding
+            // 
+            this.buttonEditBuilding.AutoSize = false;
+            this.buttonEditBuilding.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonEditBuilding.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonEditBuilding.Depth = 0;
+            this.buttonEditBuilding.HighEmphasis = true;
+            this.buttonEditBuilding.Icon = null;
+            this.buttonEditBuilding.Location = new System.Drawing.Point(523, 144);
+            this.buttonEditBuilding.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonEditBuilding.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonEditBuilding.Name = "buttonEditBuilding";
+            this.buttonEditBuilding.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonEditBuilding.Size = new System.Drawing.Size(380, 36);
+            this.buttonEditBuilding.TabIndex = 10;
+            this.buttonEditBuilding.Text = "Chỉnh sửa thông tin toà chung cư đã chọn";
+            this.buttonEditBuilding.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonEditBuilding.UseAccentColor = false;
+            this.buttonEditBuilding.UseVisualStyleBackColor = true;
+            this.buttonEditBuilding.Click += new System.EventHandler(this.buttonEditBuilding_Click);
+            // 
+            // materialLabel6
+            // 
+            this.materialLabel6.AutoSize = true;
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel6.Location = new System.Drawing.Point(518, 94);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(69, 19);
+            this.materialLabel6.TabIndex = 8;
+            this.materialLabel6.Text = "Ngày tạo:";
+            // 
+            // labelBuildingAddress
+            // 
+            this.labelBuildingAddress.AutoSize = true;
+            this.labelBuildingAddress.Depth = 0;
+            this.labelBuildingAddress.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelBuildingAddress.Location = new System.Drawing.Point(594, 62);
+            this.labelBuildingAddress.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelBuildingAddress.Name = "labelBuildingAddress";
+            this.labelBuildingAddress.Size = new System.Drawing.Size(141, 19);
+            this.labelBuildingAddress.TabIndex = 7;
+            this.labelBuildingAddress.Text = "____________________";
+            // 
+            // labelBuildingName
+            // 
+            this.labelBuildingName.AutoSize = true;
+            this.labelBuildingName.Depth = 0;
+            this.labelBuildingName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelBuildingName.Location = new System.Drawing.Point(705, 34);
+            this.labelBuildingName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelBuildingName.Name = "labelBuildingName";
+            this.labelBuildingName.Size = new System.Drawing.Size(127, 19);
+            this.labelBuildingName.TabIndex = 6;
+            this.labelBuildingName.Text = "__________________";
+            // 
+            // labelBuildingId
+            // 
+            this.labelBuildingId.AutoSize = true;
+            this.labelBuildingId.Depth = 0;
+            this.labelBuildingId.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelBuildingId.Location = new System.Drawing.Point(542, 34);
+            this.labelBuildingId.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelBuildingId.Name = "labelBuildingId";
+            this.labelBuildingId.Size = new System.Drawing.Size(43, 19);
+            this.labelBuildingId.TabIndex = 5;
+            this.labelBuildingId.Text = "______";
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel4.Location = new System.Drawing.Point(609, 34);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(90, 19);
+            this.materialLabel4.TabIndex = 4;
+            this.materialLabel4.Text = "Tên toà nhà:";
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel3.Location = new System.Drawing.Point(518, 62);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(54, 19);
+            this.materialLabel3.TabIndex = 3;
+            this.materialLabel3.Text = "Địa chỉ:";
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.Location = new System.Drawing.Point(518, 34);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(18, 19);
+            this.materialLabel2.TabIndex = 2;
+            this.materialLabel2.Text = "Id:";
             // 
             // buttonAddBuilding
             // 
@@ -253,7 +395,6 @@
             this.ListViewBuilding.Depth = 0;
             this.ListViewBuilding.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.ListViewBuilding.FullRowSelect = true;
-            this.ListViewBuilding.GridLines = true;
             this.ListViewBuilding.HideSelection = false;
             this.ListViewBuilding.Location = new System.Drawing.Point(31, 72);
             this.ListViewBuilding.MinimumSize = new System.Drawing.Size(200, 100);
@@ -265,7 +406,7 @@
             this.ListViewBuilding.TabIndex = 0;
             this.ListViewBuilding.UseCompatibleStateImageBehavior = false;
             this.ListViewBuilding.View = System.Windows.Forms.View.Details;
-            this.ListViewBuilding.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListViewBuilding_MouseClick);
+            this.ListViewBuilding.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.ListViewBuilding_ItemSelectionChanged);
             // 
             // columnHeader1
             // 
@@ -277,13 +418,18 @@
             this.columnHeader2.Text = "Tên toà nhà";
             this.columnHeader2.Width = 146;
             // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Ngày tạo";
+            this.columnHeader3.Width = 178;
+            // 
             // tabPageTenants
             // 
             this.tabPageTenants.BackColor = System.Drawing.Color.White;
             this.tabPageTenants.ImageKey = "house-owner.png";
             this.tabPageTenants.Location = new System.Drawing.Point(4, 39);
             this.tabPageTenants.Name = "tabPageTenants";
-            this.tabPageTenants.Size = new System.Drawing.Size(873, 673);
+            this.tabPageTenants.Size = new System.Drawing.Size(986, 673);
             this.tabPageTenants.TabIndex = 2;
             this.tabPageTenants.Text = "Tenants";
             // 
@@ -294,7 +440,7 @@
             this.tabPageInvoices.ImageKey = "invoice.png";
             this.tabPageInvoices.Location = new System.Drawing.Point(4, 39);
             this.tabPageInvoices.Name = "tabPageInvoices";
-            this.tabPageInvoices.Size = new System.Drawing.Size(873, 673);
+            this.tabPageInvoices.Size = new System.Drawing.Size(986, 673);
             this.tabPageInvoices.TabIndex = 3;
             this.tabPageInvoices.Text = "Invoices";
             // 
@@ -316,7 +462,7 @@
             this.tabPageSystemUsers.ImageKey = "customer.png";
             this.tabPageSystemUsers.Location = new System.Drawing.Point(4, 39);
             this.tabPageSystemUsers.Name = "tabPageSystemUsers";
-            this.tabPageSystemUsers.Size = new System.Drawing.Size(873, 673);
+            this.tabPageSystemUsers.Size = new System.Drawing.Size(986, 673);
             this.tabPageSystemUsers.TabIndex = 4;
             this.tabPageSystemUsers.Text = "System Users";
             // 
@@ -326,131 +472,30 @@
             this.tabPageConfiguration.ImageKey = "setting.png";
             this.tabPageConfiguration.Location = new System.Drawing.Point(4, 39);
             this.tabPageConfiguration.Name = "tabPageConfiguration";
-            this.tabPageConfiguration.Size = new System.Drawing.Size(873, 673);
+            this.tabPageConfiguration.Size = new System.Drawing.Size(986, 673);
             this.tabPageConfiguration.TabIndex = 5;
             this.tabPageConfiguration.Text = "Configuration";
             // 
-            // columnHeader3
+            // buttonDeleteBuilding
             // 
-            this.columnHeader3.Text = "Ngày tạo";
-            this.columnHeader3.Width = 178;
-            // 
-            // materialLabel2
-            // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(518, 34);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(18, 19);
-            this.materialLabel2.TabIndex = 2;
-            this.materialLabel2.Text = "Id:";
-            // 
-            // materialLabel3
-            // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(518, 62);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(54, 19);
-            this.materialLabel3.TabIndex = 3;
-            this.materialLabel3.Text = "Địa chỉ:";
-            // 
-            // materialLabel4
-            // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.Location = new System.Drawing.Point(609, 34);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(90, 19);
-            this.materialLabel4.TabIndex = 4;
-            this.materialLabel4.Text = "Tên toà nhà:";
-            // 
-            // labelBuildingId
-            // 
-            this.labelBuildingId.AutoSize = true;
-            this.labelBuildingId.Depth = 0;
-            this.labelBuildingId.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelBuildingId.Location = new System.Drawing.Point(542, 34);
-            this.labelBuildingId.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelBuildingId.Name = "labelBuildingId";
-            this.labelBuildingId.Size = new System.Drawing.Size(43, 19);
-            this.labelBuildingId.TabIndex = 5;
-            this.labelBuildingId.Text = "______";
-            // 
-            // labelBuildingName
-            // 
-            this.labelBuildingName.AutoSize = true;
-            this.labelBuildingName.Depth = 0;
-            this.labelBuildingName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelBuildingName.Location = new System.Drawing.Point(705, 34);
-            this.labelBuildingName.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelBuildingName.Name = "labelBuildingName";
-            this.labelBuildingName.Size = new System.Drawing.Size(127, 19);
-            this.labelBuildingName.TabIndex = 6;
-            this.labelBuildingName.Text = "__________________";
-            // 
-            // labelBuildingAddress
-            // 
-            this.labelBuildingAddress.AutoSize = true;
-            this.labelBuildingAddress.Depth = 0;
-            this.labelBuildingAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelBuildingAddress.Location = new System.Drawing.Point(594, 62);
-            this.labelBuildingAddress.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelBuildingAddress.Name = "labelBuildingAddress";
-            this.labelBuildingAddress.Size = new System.Drawing.Size(141, 19);
-            this.labelBuildingAddress.TabIndex = 7;
-            this.labelBuildingAddress.Text = "____________________";
-            // 
-            // materialLabel6
-            // 
-            this.materialLabel6.AutoSize = true;
-            this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel6.Location = new System.Drawing.Point(518, 94);
-            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(69, 19);
-            this.materialLabel6.TabIndex = 8;
-            this.materialLabel6.Text = "Ngày tạo:";
-            // 
-            // buttonEditBuilding
-            // 
-            this.buttonEditBuilding.AutoSize = false;
-            this.buttonEditBuilding.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonEditBuilding.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.buttonEditBuilding.Depth = 0;
-            this.buttonEditBuilding.HighEmphasis = true;
-            this.buttonEditBuilding.Icon = null;
-            this.buttonEditBuilding.Location = new System.Drawing.Point(523, 144);
-            this.buttonEditBuilding.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.buttonEditBuilding.MouseState = MaterialSkin.MouseState.HOVER;
-            this.buttonEditBuilding.Name = "buttonEditBuilding";
-            this.buttonEditBuilding.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonEditBuilding.Size = new System.Drawing.Size(380, 36);
-            this.buttonEditBuilding.TabIndex = 10;
-            this.buttonEditBuilding.Text = "Chỉnh sửa thông tin toà chung cư đã chọn";
-            this.buttonEditBuilding.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.buttonEditBuilding.UseAccentColor = false;
-            this.buttonEditBuilding.UseVisualStyleBackColor = true;
-            this.buttonEditBuilding.Click += new System.EventHandler(this.buttonEditBuilding_Click);
-            // 
-            // labelBuilldingCreatedAt
-            // 
-            this.labelBuilldingCreatedAt.AutoSize = true;
-            this.labelBuilldingCreatedAt.Depth = 0;
-            this.labelBuilldingCreatedAt.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelBuilldingCreatedAt.Location = new System.Drawing.Point(593, 94);
-            this.labelBuilldingCreatedAt.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelBuilldingCreatedAt.Name = "labelBuilldingCreatedAt";
-            this.labelBuilldingCreatedAt.Size = new System.Drawing.Size(141, 19);
-            this.labelBuilldingCreatedAt.TabIndex = 11;
-            this.labelBuilldingCreatedAt.Text = "____________________";
+            this.buttonDeleteBuilding.AutoSize = false;
+            this.buttonDeleteBuilding.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonDeleteBuilding.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonDeleteBuilding.Depth = 0;
+            this.buttonDeleteBuilding.HighEmphasis = true;
+            this.buttonDeleteBuilding.Icon = null;
+            this.buttonDeleteBuilding.Location = new System.Drawing.Point(521, 201);
+            this.buttonDeleteBuilding.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonDeleteBuilding.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonDeleteBuilding.Name = "buttonDeleteBuilding";
+            this.buttonDeleteBuilding.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonDeleteBuilding.Size = new System.Drawing.Size(380, 36);
+            this.buttonDeleteBuilding.TabIndex = 13;
+            this.buttonDeleteBuilding.Text = "Xoá thông tin toà chung cư đã chọn";
+            this.buttonDeleteBuilding.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonDeleteBuilding.UseAccentColor = false;
+            this.buttonDeleteBuilding.UseVisualStyleBackColor = true;
+            this.buttonDeleteBuilding.Click += new System.EventHandler(this.buttonDeleteBuilding_Click);
             // 
             // MainForm
             // 
@@ -463,14 +508,11 @@
             this.DrawerTabControl = this.materialTabControl;
             this.HelpButton = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1000, 800);
-            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1000, 800);
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(3, 80, 3, 4);
             this.Sizable = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.tabPageRoom.ResumeLayout(false);
             this.tabPageRoom.PerformLayout();
@@ -515,5 +557,7 @@
         private MaterialSkin.Controls.MaterialButton buttonEditBuilding;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private MaterialSkin.Controls.MaterialLabel labelBuilldingCreatedAt;
+        private MaterialSkin.Controls.MaterialButton buttonToast;
+        private MaterialSkin.Controls.MaterialButton buttonDeleteBuilding;
     }
 }

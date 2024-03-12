@@ -7,7 +7,7 @@ using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Util;
 
 namespace AccommodationManagerApp.Repository {
-    public abstract class Repository<T> : IRepository<T> where T : class
+    public abstract class Repository<T>  where T : class
     {
         protected readonly DbContext Context;
 
@@ -16,7 +16,7 @@ namespace AccommodationManagerApp.Repository {
             this.Context = context;
         }
 
-        public IEnumerable<T> GetAll()
+        public List<T> GetAll()
         {
             return Context.Set<T>().ToList();
         }

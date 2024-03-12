@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
 
@@ -12,8 +13,8 @@ namespace AccommodationManagerApp.Service {
             _roomRepository = roomRepository;
         }
 
-        public IEnumerable<Room> GetAll() {
-            return _roomRepository.GetAll();
+        public List<Room> GetAll() {
+            return _roomRepository.GetAll().ToList();
         }
 
         public void Delete(int id) {
@@ -36,12 +37,16 @@ namespace AccommodationManagerApp.Service {
             return _roomRepository.GetByIdWithBuilding(id);
         }
         
-        public IEnumerable<Room> GetAllWithBuilding() {
-            return _roomRepository.GetAllWithBuilding();
+        public List<Room> GetAllWithBuilding() {
+            return _roomRepository.GetAllWithBuilding().ToList();
         }
         
-        public IEnumerable<Room> GetAllByBuildingId(int buildingId) {
-            return _roomRepository.GetAllByBuildingId(buildingId);
+        public List<Room> GetAllByBuildingId(int buildingId) {
+            return _roomRepository.GetAllByBuildingId(buildingId).ToList();
+        }
+        
+        public List<Room> GetByBuildingId(int buildingId) {
+            return _roomRepository.GetAll().Where(room => room.BuildingId == buildingId).ToList();
         }
     }
 }

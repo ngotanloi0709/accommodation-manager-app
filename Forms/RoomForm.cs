@@ -1,10 +1,11 @@
-﻿using AccommodationManagerApp.Service;
+﻿using AccommodationManagerApp.Forms;
+using AccommodationManagerApp.Service;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
 namespace TenantManagementSystem.Forms
 {
-    public partial class RoomForm : MaterialForm
+    public partial class RoomForm : BaseForm
     {
         private readonly RoomService _roomService;
         private int _unitId;
@@ -13,15 +14,7 @@ namespace TenantManagementSystem.Forms
         {
             _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
             InitializeComponent();
-            SetUpUi();
             SetUpData(Id, Name, Building);
-        }
-        
-        private void SetUpUi() {
-            MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Green400, Primary.Green700, Primary.Green700,
-                Accent.Purple400, TextShade.WHITE);
         }
         
         private void SetUpData(string Id, string Name, string Building) {
