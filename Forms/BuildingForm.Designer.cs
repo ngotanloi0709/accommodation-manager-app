@@ -116,14 +116,16 @@ namespace AccommodationManagerApp.Forms {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 293);
+            this.ClientSize = new System.Drawing.Size(518, 291);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.textBoxAddress);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.buttonSave);
             this.Name = "BuildingForm";
+            this.Sizable = false;
             this.Text = "Chỉnh sửa thông tin toà chung cư";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BuildingForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

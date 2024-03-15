@@ -7,11 +7,9 @@ using AccommodationManagerApp.Repository;
 namespace AccommodationManagerApp.Service {
     public class BuildingService {
         private readonly BuildingRepository _buildingRepository;
-        private readonly RoomService _roomService;
         
-        public BuildingService(BuildingRepository buildingRepository, RoomService roomService) {
+        public BuildingService(BuildingRepository buildingRepository) {
             _buildingRepository = buildingRepository;
-            _roomService = roomService;
         }
         
         public List<Building> GetAll() {
@@ -29,25 +27,28 @@ namespace AccommodationManagerApp.Service {
         public bool Delete(int id) {
             try
             {
-                var rooms = _roomService.GetByBuildingId(id);
-                foreach (var room in rooms)
-                {
-                    room.BuildingId = null;
-                    _roomService.Update(room.Id, room);
-                }
-
                 _buildingRepository.Delete(id);
                 return true;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                return false; 
+                return false;
             }
         }
 
-        public Building GetById(int id) {
-            return _buildingRepository.GetById(id);
+        public int? GetIdByName(string name) {
+            Building building = _buildingRepository.GetByName(name);
+            
+            if (building != null) {
+                return building.Id;
+            }
+            
+            return null;
+        }
+
+        public bool IsBuildingNameExists(string buildingName) {
+            return _buildingRepository.GetByName(buildingName) != null;
         }
     }
 }

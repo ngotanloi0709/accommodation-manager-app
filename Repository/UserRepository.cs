@@ -10,5 +10,9 @@ namespace AccommodationManagerApp.Repository {
         public User GetByEmail(string email) {
             return Context.Set<User>().FirstOrDefault(u => u.Email == email);
         }
+
+        public User GetByName(string name) {
+            return Context.Set<User>().FirstOrDefault(u => u.Name == name);
+        }
     }
 }

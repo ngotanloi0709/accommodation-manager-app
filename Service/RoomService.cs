@@ -1,4 +1,5 @@
-﻿using System.Collections;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AccommodationManagerApp.Model;
@@ -16,9 +17,22 @@ namespace AccommodationManagerApp.Service {
         public List<Room> GetAll() {
             return _roomRepository.GetAll().ToList();
         }
+        
+        public List<Room> GetAllWithBuildingAndUser() {
+            return _roomRepository.GetAllWithBuildingAndUser().ToList();
+        }
 
-        public void Delete(int id) {
-            _roomRepository.Delete(id);
+        public bool Delete(int id) {
+            try
+            {
+                _roomRepository.Delete(id);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
         }
 
         public void Add(Room room) {
@@ -47,6 +61,11 @@ namespace AccommodationManagerApp.Service {
         
         public List<Room> GetByBuildingId(int buildingId) {
             return _roomRepository.GetAll().Where(room => room.BuildingId == buildingId).ToList();
+        }
+
+        public bool IsRoomNumberExists(string roomNumber) {
+            // return _roomRepository.GetAll().Any(room => room.RoomNumber.Equals(roomNumber));
+            return _roomRepository.GetByRoomNumber(roomNumber) != null;
         }
     }
 }

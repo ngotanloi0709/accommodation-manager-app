@@ -17,6 +17,8 @@ namespace AccommodationManagerApp.Model
         public string Phone { get; set; }
         public string Address { get; set; }
         public string IdentityNumber { get; set; }
+
+        public User() { }
         
         public User(string email, string name, string password) {
             Email = email;

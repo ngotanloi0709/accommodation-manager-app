@@ -24,13 +24,13 @@ namespace AccommodationManagerApp.Forms
             this.Close();
         }
         
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            base.OnFormClosing(e);
-            if (this.DialogResult == DialogResult.None)
-            {
-                this.DialogResult = DialogResult.No;
-            }
-        }
+        // protected override void OnFormClosing(FormClosingEventArgs e)
+        // {
+        //     base.OnFormClosing(e);
+        //     if (this.DialogResult == DialogResult.None)
+        //     {
+        //         this.DialogResult = DialogResult.No;
+        //     }
+        // }
     }
 }

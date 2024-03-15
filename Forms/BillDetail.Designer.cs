@@ -102,10 +102,10 @@
             this.panel1.Controls.Add(this.btn_ExportPDF);
             this.panel1.Controls.Add(this.PanelHD);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(2, 52);
+            this.panel1.Location = new System.Drawing.Point(3, 24);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(619, 1003);
+            this.panel1.Size = new System.Drawing.Size(539, 878);
             this.panel1.TabIndex = 0;
             // 
             // btn_ExportPDF
@@ -159,7 +159,7 @@
             this.PanelHD.Location = new System.Drawing.Point(0, 0);
             this.PanelHD.Margin = new System.Windows.Forms.Padding(2);
             this.PanelHD.Name = "PanelHD";
-            this.PanelHD.Size = new System.Drawing.Size(619, 806);
+            this.PanelHD.Size = new System.Drawing.Size(539, 806);
             this.PanelHD.TabIndex = 1;
             this.PanelHD.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelHD_Paint);
             // 
@@ -171,7 +171,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 738);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(619, 68);
+            this.panel3.Size = new System.Drawing.Size(539, 68);
             this.panel3.TabIndex = 27;
             // 
             // label45
@@ -313,7 +313,7 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.88797F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.11203F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.tableLayoutPanel3.Controls.Add(this.label33, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label34, 2, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(38, 466);
@@ -342,10 +342,10 @@
             this.label34.AutoSize = true;
             this.label34.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label34.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(355, 0);
+            this.label34.Location = new System.Drawing.Point(353, 0);
             this.label34.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(105, 41);
+            this.label34.Size = new System.Drawing.Size(107, 41);
             this.label34.TabIndex = 17;
             this.label34.Text = "4.120.000";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -356,7 +356,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.88921F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.11079F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104F));
             this.tableLayoutPanel2.Controls.Add(this.label32, 3, 3);
             this.tableLayoutPanel2.Controls.Add(this.label31, 2, 3);
             this.tableLayoutPanel2.Controls.Add(this.label30, 1, 3);
@@ -390,10 +390,10 @@
             this.label32.AutoSize = true;
             this.label32.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label32.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(361, 107);
+            this.label32.Location = new System.Drawing.Point(359, 107);
             this.label32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(99, 41);
+            this.label32.Size = new System.Drawing.Size(101, 41);
             this.label32.TabIndex = 30;
             this.label32.Text = "90.000";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -403,7 +403,7 @@
             this.label31.AutoSize = true;
             this.label31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label31.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(257, 107);
+            this.label31.Location = new System.Drawing.Point(255, 107);
             this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(100, 41);
@@ -416,10 +416,10 @@
             this.label30.AutoSize = true;
             this.label30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label30.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(170, 107);
+            this.label30.Location = new System.Drawing.Point(169, 107);
             this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(83, 41);
+            this.label30.Size = new System.Drawing.Size(82, 41);
             this.label30.TabIndex = 28;
             this.label30.Text = "3";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -432,7 +432,7 @@
             this.label29.Location = new System.Drawing.Point(2, 107);
             this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(164, 41);
+            this.label29.Size = new System.Drawing.Size(163, 41);
             this.label29.TabIndex = 27;
             this.label29.Text = "Incured Price";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -442,10 +442,10 @@
             this.label28.AutoSize = true;
             this.label28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label28.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(361, 69);
+            this.label28.Location = new System.Drawing.Point(359, 69);
             this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(99, 38);
+            this.label28.Size = new System.Drawing.Size(101, 38);
             this.label28.TabIndex = 26;
             this.label28.Text = "350.000";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -455,7 +455,7 @@
             this.label27.AutoSize = true;
             this.label27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label27.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(257, 69);
+            this.label27.Location = new System.Drawing.Point(255, 69);
             this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(100, 38);
@@ -468,10 +468,10 @@
             this.label26.AutoSize = true;
             this.label26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label26.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(170, 69);
+            this.label26.Location = new System.Drawing.Point(169, 69);
             this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(83, 38);
+            this.label26.Size = new System.Drawing.Size(82, 38);
             this.label26.TabIndex = 24;
             this.label26.Text = "100kwh";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -484,7 +484,7 @@
             this.label25.Location = new System.Drawing.Point(2, 69);
             this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(164, 38);
+            this.label25.Size = new System.Drawing.Size(163, 38);
             this.label25.TabIndex = 15;
             this.label25.Text = "Electric Price";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -494,10 +494,10 @@
             this.label24.AutoSize = true;
             this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label24.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(170, 32);
+            this.label24.Location = new System.Drawing.Point(169, 32);
             this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(83, 37);
+            this.label24.Size = new System.Drawing.Size(82, 37);
             this.label24.TabIndex = 23;
             this.label24.Text = "8";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -507,7 +507,7 @@
             this.label17.AutoSize = true;
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label17.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(257, 32);
+            this.label17.Location = new System.Drawing.Point(255, 32);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(100, 37);
@@ -520,10 +520,10 @@
             this.label23.AutoSize = true;
             this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label23.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(361, 32);
+            this.label23.Location = new System.Drawing.Point(359, 32);
             this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(99, 37);
+            this.label23.Size = new System.Drawing.Size(101, 37);
             this.label23.TabIndex = 21;
             this.label23.Text = "80.000";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -533,10 +533,10 @@
             this.label22.AutoSize = true;
             this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label22.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(170, 0);
+            this.label22.Location = new System.Drawing.Point(169, 0);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(83, 32);
+            this.label22.Size = new System.Drawing.Size(82, 32);
             this.label22.TabIndex = 20;
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -548,7 +548,7 @@
             this.label21.Location = new System.Drawing.Point(2, 0);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(164, 32);
+            this.label21.Size = new System.Drawing.Size(163, 32);
             this.label21.TabIndex = 19;
             this.label21.Text = "Home Price";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -558,7 +558,7 @@
             this.label20.AutoSize = true;
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label20.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(257, 0);
+            this.label20.Location = new System.Drawing.Point(255, 0);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(100, 32);
@@ -574,7 +574,7 @@
             this.label19.Location = new System.Drawing.Point(2, 32);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(164, 37);
+            this.label19.Size = new System.Drawing.Size(163, 37);
             this.label19.TabIndex = 17;
             this.label19.Text = "Water Price";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -584,10 +584,10 @@
             this.label18.AutoSize = true;
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label18.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(361, 0);
+            this.label18.Location = new System.Drawing.Point(359, 0);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(99, 32);
+            this.label18.Size = new System.Drawing.Size(101, 32);
             this.label18.TabIndex = 16;
             this.label18.Text = "3.600.000";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -805,7 +805,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(619, 89);
+            this.panel2.Size = new System.Drawing.Size(539, 89);
             this.panel2.TabIndex = 0;
             // 
             // pictureBox1
@@ -840,12 +840,12 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 1057);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(544, 904);
             this.Controls.Add(this.panel1);
+            this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "BillDetail";
-            this.Padding = new System.Windows.Forms.Padding(2, 52, 2, 2);
+            this.Padding = new System.Windows.Forms.Padding(3, 24, 2, 2);
             this.Text = "BillDetail";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

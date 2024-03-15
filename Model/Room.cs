@@ -11,6 +11,9 @@ namespace AccommodationManagerApp.Model {
         public int? BuildingId { get; set; }
         [ForeignKey("BuildingId")]
         public Building Building { get; set; }
+        public int? UserId { get; set; }
+        [ForeignKey("UserId")]
+        public User User { get; set; }
         [EnumDataType(typeof(RoomStatus))]
         public RoomStatus Status { get; set; } = RoomStatus.Empty;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
@@ -19,10 +22,10 @@ namespace AccommodationManagerApp.Model {
         {
         }
         
-        public Room(string roomNumber, int? buildingId, Building building, RoomStatus status) {
+        public Room(string roomNumber, int? buildingId, int? userId, RoomStatus status) {
             RoomNumber = roomNumber;
             BuildingId = buildingId;
-            Building = building;
+            UserId = userId;
             Status = status;
         }
     }
