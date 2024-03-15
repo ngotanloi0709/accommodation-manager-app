@@ -23,5 +23,9 @@ namespace AccommodationManagerApp.Repository {
         public List<Room> GetAllWithBuildingAndUser() {
             return Context.Set<Room>().Include("Building").Include("User").ToList();
         }
+
+        public Room GetByRoomNumber(string roomNumber) {
+            return Context.Set<Room>().FirstOrDefault(r => r.RoomNumber == roomNumber);
+        }
     }
 }

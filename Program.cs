@@ -17,6 +17,7 @@ namespace AccommodationManagerApp {
         static void Main() {
             ConfigureServices();
             ActiveMigration();
+            
             // Test();
             // AuthenticationService authenticationService = _serviceProvider.GetService<AuthenticationService>();
             // authenticationService.Authenticate("ngotanloi0709@gmail.com", "123");

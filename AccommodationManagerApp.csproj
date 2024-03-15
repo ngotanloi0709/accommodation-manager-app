@@ -343,6 +343,7 @@
     <None Include="Resources\edit.png" />
     <None Include="Resources\delete.png" />
     <None Include="Resources\cancel.png" />
+    <None Include="Resources\reload.png" />
     <Content Include="Resources\Roboto-Medium.ttf" />
     <Content Include="Resources\Roboto-Regular.ttf" />
     <None Include="Resources\signature.jpg" />

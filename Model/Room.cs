@@ -22,10 +22,10 @@ namespace AccommodationManagerApp.Model {
         {
         }
         
-        public Room(string roomNumber, Building building, User user, RoomStatus status) {
+        public Room(string roomNumber, int? buildingId, int? userId, RoomStatus status) {
             RoomNumber = roomNumber;
-            Building = building;
-            User = user;
+            BuildingId = buildingId;
+            UserId = userId;
             Status = status;
         }
     }
