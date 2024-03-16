@@ -23,6 +23,10 @@ namespace AccommodationManagerApp.Service {
             
             return result;
         }
+        public void Logout()
+        {
+            CurrentUser = null;
+        }
         
         public bool IsAuthenticated() {
             return CurrentUser != null;

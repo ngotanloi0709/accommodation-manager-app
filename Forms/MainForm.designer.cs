@@ -79,6 +79,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialTabControl = new MaterialSkin.Controls.MaterialTabControl();
+            this.btnLogOut = new MaterialSkin.Controls.MaterialButton();
             this.tabPageInvoices.SuspendLayout();
             this.tabPageRoom.SuspendLayout();
             this.tabPageBuilding.SuspendLayout();
@@ -761,12 +762,33 @@
             this.materialTabControl.Size = new System.Drawing.Size(994, 716);
             this.materialTabControl.TabIndex = 0;
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLogOut.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnLogOut.Depth = 0;
+            this.btnLogOut.HighEmphasis = true;
+            this.btnLogOut.Icon = null;
+            this.btnLogOut.Location = new System.Drawing.Point(834, 25);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnLogOut.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnLogOut.Size = new System.Drawing.Size(82, 36);
+            this.btnLogOut.TabIndex = 17;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnLogOut.UseAccentColor = true;
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1000, 800);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.materialTabControl);
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl;
@@ -785,6 +807,7 @@
             this.tabPageBuilding.PerformLayout();
             this.materialTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -839,5 +862,6 @@
         private MaterialSkin.Controls.MaterialButton buttonAddRoom;
         private MaterialSkin.Controls.MaterialTextBox materialTextBox2;
         private MaterialSkin.Controls.MaterialFloatingActionButton buttonReloadBuilding;
+        private MaterialSkin.Controls.MaterialButton btnLogOut;
     }
 }
