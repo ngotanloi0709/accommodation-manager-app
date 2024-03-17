@@ -29,7 +29,13 @@ namespace AccommodationManagerApp.Migrations {
                 context.Buildings.AddOrUpdate(new Building { Name = "Building 1" });
                 context.Buildings.AddOrUpdate(new Building { Name = "Building 2" });
                 context.Buildings.AddOrUpdate(new Building { Name = "Building 3" });
-            }   
+            }
+            if (!context.Vehicles.Any())
+            {
+                context.Vehicles.AddOrUpdate(new Vehicle {type= "Motobike", name = "Honda", number = "81F-3355"});
+                context.Vehicles.AddOrUpdate(new Vehicle {type = "Car", name = "Toyita", number = "81F-3355" });
+
+            }
         }
         
         private void CreateBuildingDeleteTrigger(DbContext context) {
@@ -62,5 +68,6 @@ namespace AccommodationManagerApp.Migrations {
                 Console.WriteLine(@"Dropped trigger " + triggerName);
             }
         }
+
     }
 }

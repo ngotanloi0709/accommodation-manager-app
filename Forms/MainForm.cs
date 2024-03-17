@@ -10,23 +10,28 @@ namespace AccommodationManagerApp.Forms {
         private readonly RoomService _roomService;
         private readonly BuildingService _buildingService;
         private readonly AuthenticationService _authenticationService;
+        private readonly VehicleService _vehicleService;
         private List<Building> Buildings { get; set; }
         private List<Room> Rooms { get; set; }
 
+        private List<Vehicle> Vehicles { get; set; }
         public MainForm() {
             _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
             _buildingService = ServiceLocator.ServiceProvider.GetService(typeof(BuildingService)) as BuildingService;
+            _vehicleService = ServiceLocator.ServiceProvider.GetService(typeof(VehicleService)) as VehicleService;
             _authenticationService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
             InitializeComponent();
             LoadData();
 
             ListViewBuilding.GridLines = true;
             ListViewRoom.GridLines = true;
+            ListViewVehicle.GridLines = true;
         }
 
         private void LoadData() {
             LoadRoomData();
             LoadBuildingData();
+            LoadVehicleData();
         }
 
         private void exportPdfButton_Click(object sender, System.EventArgs e) {
@@ -45,5 +50,6 @@ namespace AccommodationManagerApp.Forms {
                 this.Close();
             }
         }
+
     }
 }

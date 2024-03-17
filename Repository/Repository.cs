@@ -47,7 +47,9 @@ namespace AccommodationManagerApp.Repository {
         public DbSet<User> Users { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Building> Buildings { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<InitLog> InitLogs { get; set; }
+
 
         public AccommodationManagerAppContext() : base("name=MySqlConnectionString") {
             Database.SetInitializer(
