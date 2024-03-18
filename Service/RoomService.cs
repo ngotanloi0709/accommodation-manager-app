@@ -58,6 +58,23 @@ namespace AccommodationManagerApp.Service {
         public List<Room> GetAllByBuildingId(int buildingId) {
             return _roomRepository.GetAllByBuildingId(buildingId).ToList();
         }
+
+        public Room GetByRoomNumber(string roomNumber)
+        {
+            return _roomRepository.GetByRoomNumber(roomNumber);
+        }
+
+        public int? GetIdByRoomNumber(string roomNumber)
+        {
+            Room room = _roomRepository.GetByRoomNumber(roomNumber);
+
+            if (room != null)
+            {
+                return room.Id;
+            }
+
+            return null;
+        }
         
         public List<Room> GetByBuildingId(int buildingId) {
             return _roomRepository.GetAll().Where(room => room.BuildingId == buildingId).ToList();

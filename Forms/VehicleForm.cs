@@ -53,17 +53,35 @@ namespace AccommodationManagerApp.Forms
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (_vehicle == null)
+            string VehicleName = textBoxName.Text;
+            string VehicleType = textBoxType.Text;
+            string VehicleNumber = textBoxNumber.Text;
+            int? roomId = comboBoxRoom.SelectedItem.ToString().Equals("None") ? null : _roomService.GetIdByRoomNumber(comboBoxRoom.SelectedItem.ToString());
+            if (_vehicle == null && _vehicleService.IsVehicleNumberExists(VehicleNumber))
             {
-                _vehicle = new Vehicle();
+                new ToastForm("Tên phương tiện đã tồn tại").Show();
+                return;
             }
-            _vehicle.type = textBoxType.Text;
-            _vehicle.name = textBoxName.Text;
-            _vehicle.number = textBoxNumber.Text;
-            _vehicle.Room = comboBoxRoom.Text.Equals("None") ? null : _rooms.Find(r => r.RoomNumber.Equals(comboBoxRoom.Text));
-            _vehicleService.Save(_vehicle);
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            if(_vehicle == null)
+            {
+                _vehicleService.Add(new Vehicle
+                {
+                    name = VehicleName,
+                    type = VehicleType,
+                    number = VehicleNumber,
+                    RoomId = roomId
+                });
+            }
+            else { 
+                
+                _vehicle.name = VehicleName;
+                _vehicle.type = VehicleType;
+                _vehicle.number = VehicleNumber;
+                _vehicle.RoomId = roomId;
+                _vehicleService.Update(_vehicle.Id, _vehicle);
+            }
+            DialogResult = System.Windows.Forms.DialogResult.OK;
+            Close();
         }
 
     }

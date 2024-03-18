@@ -80,6 +80,8 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPageVehicle = new System.Windows.Forms.TabPage();
+            this.labelVehicleRoom = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel14 = new MaterialSkin.Controls.MaterialLabel();
             this.buttonDeleteVehicle = new MaterialSkin.Controls.MaterialButton();
             this.buttonEditVehicle = new MaterialSkin.Controls.MaterialButton();
             this.buttonAddVehicle = new MaterialSkin.Controls.MaterialButton();
@@ -99,8 +101,6 @@
             this.columnRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             this.btnLogOut = new MaterialSkin.Controls.MaterialButton();
-            this.labelVehicleRoom = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel14 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageInvoices.SuspendLayout();
             this.tabPageRoom.SuspendLayout();
             this.tabPageBuilding.SuspendLayout();
@@ -812,6 +812,32 @@
             this.tabPageVehicle.TabIndex = 6;
             this.tabPageVehicle.Text = "Vehicle";
             // 
+            // labelVehicleRoom
+            // 
+            this.labelVehicleRoom.AutoSize = true;
+            this.labelVehicleRoom.Depth = 0;
+            this.labelVehicleRoom.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.labelVehicleRoom.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.labelVehicleRoom.Location = new System.Drawing.Point(714, 269);
+            this.labelVehicleRoom.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelVehicleRoom.Name = "labelVehicleRoom";
+            this.labelVehicleRoom.Size = new System.Drawing.Size(217, 24);
+            this.labelVehicleRoom.TabIndex = 28;
+            this.labelVehicleRoom.Text = "________________________";
+            // 
+            // materialLabel14
+            // 
+            this.materialLabel14.AutoSize = true;
+            this.materialLabel14.Depth = 0;
+            this.materialLabel14.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel14.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel14.Location = new System.Drawing.Point(566, 269);
+            this.materialLabel14.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel14.Name = "materialLabel14";
+            this.materialLabel14.Size = new System.Drawing.Size(63, 24);
+            this.materialLabel14.TabIndex = 27;
+            this.materialLabel14.Text = "Phong:";
+            // 
             // buttonDeleteVehicle
             // 
             this.buttonDeleteVehicle.AutoSize = false;
@@ -851,6 +877,7 @@
             this.buttonEditVehicle.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.buttonEditVehicle.UseAccentColor = false;
             this.buttonEditVehicle.UseVisualStyleBackColor = true;
+            this.buttonEditVehicle.Click += new System.EventHandler(this.buttonEditVehicle_Click);
             // 
             // buttonAddVehicle
             // 
@@ -1098,32 +1125,6 @@
             this.btnLogOut.UseAccentColor = true;
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
-            // 
-            // labelVehicleRoom
-            // 
-            this.labelVehicleRoom.AutoSize = true;
-            this.labelVehicleRoom.Depth = 0;
-            this.labelVehicleRoom.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.labelVehicleRoom.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelVehicleRoom.Location = new System.Drawing.Point(714, 269);
-            this.labelVehicleRoom.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelVehicleRoom.Name = "labelVehicleRoom";
-            this.labelVehicleRoom.Size = new System.Drawing.Size(217, 24);
-            this.labelVehicleRoom.TabIndex = 28;
-            this.labelVehicleRoom.Text = "________________________";
-            // 
-            // materialLabel14
-            // 
-            this.materialLabel14.AutoSize = true;
-            this.materialLabel14.Depth = 0;
-            this.materialLabel14.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel14.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel14.Location = new System.Drawing.Point(566, 269);
-            this.materialLabel14.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel14.Name = "materialLabel14";
-            this.materialLabel14.Size = new System.Drawing.Size(63, 24);
-            this.materialLabel14.TabIndex = 27;
-            this.materialLabel14.Text = "Phong:";
             // 
             // MainForm
             // 

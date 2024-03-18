@@ -120,6 +120,7 @@
             this.buttonSave.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.buttonSave.UseAccentColor = false;
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // materialLabel1
             // 
@@ -191,7 +192,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(854, 591);
+            this.ClientSize = new System.Drawing.Size(872, 638);
             this.Controls.Add(this.comboBoxRoom);
             this.Controls.Add(this.materialLabel4);
             this.Controls.Add(this.materialLabel1);
