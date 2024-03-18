@@ -18,6 +18,7 @@ namespace AccommodationManagerApp.Migrations {
         protected override void Seed(Repository.AccommodationManagerAppContext context) {
             DeleteAllTriggers(context);
             CreateBuildingDeleteTrigger(context);
+            CreateRoomDeleteTrigger(context);
             
             if (!context.Users.Any())
             {
@@ -32,8 +33,8 @@ namespace AccommodationManagerApp.Migrations {
             }
             if (!context.Vehicles.Any())
             {
-                context.Vehicles.AddOrUpdate(new Vehicle {type= "Motobike", name = "Honda", number = "81F-3355"});
-                context.Vehicles.AddOrUpdate(new Vehicle {type = "Car", name = "Toyita", number = "81F-3355" });
+                context.Vehicles.AddOrUpdate(new Vehicle {type= "Motobike", name = "Honda", number = "81F-3355", RoomId = null});
+                context.Vehicles.AddOrUpdate(new Vehicle {type = "Car", name = "Toyita", number = "81F-3355", RoomId = null });
 
             }
         }
@@ -51,6 +52,27 @@ namespace AccommodationManagerApp.Migrations {
                     ";
                 context.Database.ExecuteSqlCommand(createTriggerSql);
                 Console.WriteLine(@"Created trigger SetNullOnBuildingDelete");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        private void CreateRoomDeleteTrigger(DbContext context)
+        {
+            try
+            {
+                string createTriggerSql = @"
+                    CREATE TRIGGER SetNullOnRoomDelete
+                    AFTER DELETE ON rooms
+                    FOR EACH ROW
+                    BEGIN
+                        UPDATE vehicles SET RoomId = NULL WHERE RoomId = OLD.Id;
+                    END;
+                    ";
+                context.Database.ExecuteSqlCommand(createTriggerSql);
+                Console.WriteLine(@"Created trigger SetNullOnRoomDelete");
             }
             catch (Exception e)
             {

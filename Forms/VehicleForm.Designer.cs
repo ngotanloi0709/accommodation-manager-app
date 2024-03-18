@@ -35,6 +35,8 @@
             this.buttonSave = new MaterialSkin.Controls.MaterialButton();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.textBoxNumber = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.comboBoxRoom = new MaterialSkin.Controls.MaterialComboBox();
             this.SuspendLayout();
             // 
             // materialLabel2
@@ -107,7 +109,7 @@
             this.buttonSave.Depth = 0;
             this.buttonSave.HighEmphasis = true;
             this.buttonSave.Icon = null;
-            this.buttonSave.Location = new System.Drawing.Point(594, 386);
+            this.buttonSave.Location = new System.Drawing.Point(594, 486);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.buttonSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonSave.Name = "buttonSave";
@@ -137,7 +139,7 @@
             this.textBoxNumber.AnimateReadOnly = false;
             this.textBoxNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxNumber.Depth = 0;
-            this.textBoxNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxNumber.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.textBoxNumber.LeadingIcon = null;
             this.textBoxNumber.Location = new System.Drawing.Point(270, 294);
             this.textBoxNumber.Margin = new System.Windows.Forms.Padding(4);
@@ -150,11 +152,48 @@
             this.textBoxNumber.Text = "";
             this.textBoxNumber.TrailingIcon = null;
             // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel4.Location = new System.Drawing.Point(90, 412);
+            this.materialLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(51, 19);
+            this.materialLabel4.TabIndex = 13;
+            this.materialLabel4.Text = "Phòng:";
+            // 
+            // comboBoxRoom
+            // 
+            this.comboBoxRoom.AutoResize = false;
+            this.comboBoxRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxRoom.Depth = 0;
+            this.comboBoxRoom.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxRoom.DropDownHeight = 174;
+            this.comboBoxRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRoom.DropDownWidth = 121;
+            this.comboBoxRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBoxRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxRoom.FormattingEnabled = true;
+            this.comboBoxRoom.IntegralHeight = false;
+            this.comboBoxRoom.ItemHeight = 43;
+            this.comboBoxRoom.Location = new System.Drawing.Point(270, 393);
+            this.comboBoxRoom.MaxDropDownItems = 4;
+            this.comboBoxRoom.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboBoxRoom.Name = "comboBoxRoom";
+            this.comboBoxRoom.Size = new System.Drawing.Size(440, 49);
+            this.comboBoxRoom.StartIndex = 0;
+            this.comboBoxRoom.TabIndex = 14;
+            // 
             // VehicleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 497);
+            this.ClientSize = new System.Drawing.Size(854, 591);
+            this.Controls.Add(this.comboBoxRoom);
+            this.Controls.Add(this.materialLabel4);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.textBoxNumber);
             this.Controls.Add(this.materialLabel2);
@@ -178,5 +217,7 @@
         private MaterialSkin.Controls.MaterialButton buttonSave;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialTextBox textBoxNumber;
+        private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private MaterialSkin.Controls.MaterialComboBox comboBoxRoom;
     }
 }

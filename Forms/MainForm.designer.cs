@@ -96,8 +96,11 @@
             this.columnNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             this.btnLogOut = new MaterialSkin.Controls.MaterialButton();
+            this.labelVehicleRoom = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel14 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageInvoices.SuspendLayout();
             this.tabPageRoom.SuspendLayout();
             this.tabPageBuilding.SuspendLayout();
@@ -786,6 +789,8 @@
             // tabPageVehicle
             // 
             this.tabPageVehicle.BackColor = System.Drawing.Color.White;
+            this.tabPageVehicle.Controls.Add(this.labelVehicleRoom);
+            this.tabPageVehicle.Controls.Add(this.materialLabel14);
             this.tabPageVehicle.Controls.Add(this.buttonDeleteVehicle);
             this.tabPageVehicle.Controls.Add(this.buttonEditVehicle);
             this.tabPageVehicle.Controls.Add(this.buttonAddVehicle);
@@ -815,7 +820,7 @@
             this.buttonDeleteVehicle.Depth = 0;
             this.buttonDeleteVehicle.HighEmphasis = true;
             this.buttonDeleteVehicle.Icon = global::AccommodationManagerApp.Properties.Resources.delete;
-            this.buttonDeleteVehicle.Location = new System.Drawing.Point(570, 406);
+            this.buttonDeleteVehicle.Location = new System.Drawing.Point(571, 442);
             this.buttonDeleteVehicle.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonDeleteVehicle.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonDeleteVehicle.Name = "buttonDeleteVehicle";
@@ -835,7 +840,7 @@
             this.buttonEditVehicle.Depth = 0;
             this.buttonEditVehicle.HighEmphasis = true;
             this.buttonEditVehicle.Icon = global::AccommodationManagerApp.Properties.Resources.edit;
-            this.buttonEditVehicle.Location = new System.Drawing.Point(570, 358);
+            this.buttonEditVehicle.Location = new System.Drawing.Point(571, 394);
             this.buttonEditVehicle.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonEditVehicle.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonEditVehicle.Name = "buttonEditVehicle";
@@ -855,7 +860,7 @@
             this.buttonAddVehicle.Depth = 0;
             this.buttonAddVehicle.HighEmphasis = true;
             this.buttonAddVehicle.Icon = global::AccommodationManagerApp.Properties.Resources.plus;
-            this.buttonAddVehicle.Location = new System.Drawing.Point(570, 310);
+            this.buttonAddVehicle.Location = new System.Drawing.Point(571, 346);
             this.buttonAddVehicle.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonAddVehicle.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonAddVehicle.Name = "buttonAddVehicle";
@@ -1022,7 +1027,8 @@
             this.ListViewVehicle.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnNumber,
             this.columnName,
-            this.columnType});
+            this.columnType,
+            this.columnRoom});
             this.ListViewVehicle.Depth = 0;
             this.ListViewVehicle.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ListViewVehicle.FullRowSelect = true;
@@ -1042,7 +1048,7 @@
             // columnNumber
             // 
             this.columnNumber.Text = "Number";
-            this.columnNumber.Width = 150;
+            this.columnNumber.Width = 120;
             // 
             // columnName
             // 
@@ -1053,7 +1059,12 @@
             // 
             this.columnType.Text = "Type";
             this.columnType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnType.Width = 150;
+            this.columnType.Width = 120;
+            // 
+            // columnRoom
+            // 
+            this.columnRoom.Text = "Room";
+            this.columnRoom.Width = 180;
             // 
             // materialLabel11
             // 
@@ -1087,6 +1098,32 @@
             this.btnLogOut.UseAccentColor = true;
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // labelVehicleRoom
+            // 
+            this.labelVehicleRoom.AutoSize = true;
+            this.labelVehicleRoom.Depth = 0;
+            this.labelVehicleRoom.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.labelVehicleRoom.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.labelVehicleRoom.Location = new System.Drawing.Point(714, 269);
+            this.labelVehicleRoom.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelVehicleRoom.Name = "labelVehicleRoom";
+            this.labelVehicleRoom.Size = new System.Drawing.Size(217, 24);
+            this.labelVehicleRoom.TabIndex = 28;
+            this.labelVehicleRoom.Text = "________________________";
+            // 
+            // materialLabel14
+            // 
+            this.materialLabel14.AutoSize = true;
+            this.materialLabel14.Depth = 0;
+            this.materialLabel14.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel14.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel14.Location = new System.Drawing.Point(566, 269);
+            this.materialLabel14.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel14.Name = "materialLabel14";
+            this.materialLabel14.Size = new System.Drawing.Size(63, 24);
+            this.materialLabel14.TabIndex = 27;
+            this.materialLabel14.Text = "Phong:";
             // 
             // MainForm
             // 
@@ -1189,5 +1226,8 @@
         private MaterialSkin.Controls.MaterialButton buttonDeleteVehicle;
         private MaterialSkin.Controls.MaterialButton buttonEditVehicle;
         private MaterialSkin.Controls.MaterialButton buttonAddVehicle;
+        private System.Windows.Forms.ColumnHeader columnRoom;
+        private MaterialSkin.Controls.MaterialLabel labelVehicleRoom;
+        private MaterialSkin.Controls.MaterialLabel materialLabel14;
     }
 }

@@ -17,5 +17,17 @@ namespace AccommodationManagerApp.Repository
         {
             return Context.Set<Vehicle>().FirstOrDefault(v => v.number == number);
         }
+        public Vehicle GetByIdWithRoom(int id)
+        {
+            return Context.Set<Vehicle>().Include("Room").FirstOrDefault(v => v.Id == id);
+        }
+        public List<Vehicle> GetAllWithRoom()
+        {
+            return Context.Set<Vehicle>().Include("Room").ToList();
+        }
+        public List<Vehicle> GetAllByRoomId(int roomId)
+        {
+            return Context.Set<Vehicle>().Where(v => v.RoomId == roomId).ToList();
+        }
     }
 }

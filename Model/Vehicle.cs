@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
 namespace AccommodationManagerApp.Model
 {
@@ -17,16 +11,20 @@ namespace AccommodationManagerApp.Model
         public string type { get; set; }
         public string name { get; set; }
         public string number { get; set; }
+        public int? RoomId { get; set; }
+        [ForeignKey("RoomId")]
+        public Room Room { get; set; }
 
         public Vehicle()
         {
         }
 
-        public Vehicle(string type, string name, string number)
+        public Vehicle(string type, string name, string number, int? RoomId)
         {
             this.type = type;
             this.name = name;
             this.number = number;
+            this.RoomId = RoomId;
         }
     }
 }

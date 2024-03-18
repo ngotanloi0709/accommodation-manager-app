@@ -22,6 +22,11 @@ namespace AccommodationManagerApp.Service
             return _vehicleRepository.GetAll().ToList();
         }
 
+        public List<Vehicle> GetAllWithRoom()
+        {
+            return _vehicleRepository.GetAllWithRoom().ToList();
+        }
+
         public void Add(Vehicle vehicle)
         {
             _vehicleRepository.Add(vehicle);
@@ -48,6 +53,16 @@ namespace AccommodationManagerApp.Service
         public Vehicle GetByNumber(string number)
         {
             return _vehicleRepository.GetByNumber(number);
+        }
+
+        public Vehicle GetByIdWithRoom(int id)
+        {
+            return _vehicleRepository.GetByIdWithRoom(id);
+        }
+
+        public List<Vehicle> GetAllByRoomId(int roomId)
+        {
+            return _vehicleRepository.GetAllByRoomId(roomId).ToList();
         }
 
         public bool IsVehicleNumberExists(string vehicleNumber)
