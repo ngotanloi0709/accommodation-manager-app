@@ -259,6 +259,8 @@
       <DependentUpon>ToastForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\Bill.cs" />
+    <Compile Include="Model\BillStatus.cs" />
     <Compile Include="Model\Building.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\RoomStatus.cs" />
@@ -271,6 +273,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Repository\BillRepository.cs" />
     <Compile Include="Repository\BuildingRepository.cs" />
     <Compile Include="Repository\InitLogRepository.cs" />
     <Compile Include="Repository\Repository.cs" />

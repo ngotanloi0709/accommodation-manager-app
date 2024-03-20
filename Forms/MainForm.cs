@@ -2,6 +2,7 @@
 using AccommodationManagerApp.Service;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Web.UI.Design.WebControls;
 using System.Windows.Forms;
 
@@ -39,10 +40,19 @@ namespace AccommodationManagerApp.Forms {
             if (MessageBox.Show("Are you sure you want to log out?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 _authenticationService.Logout();
-                LoginForm loginForm = new LoginForm();
-                this.Hide();
-                loginForm.ShowDialog();
-                this.Close();
+                this.Close(); // Close the MainForm
+
+                // Create a new thread for the LoginForm
+                Thread loginFormThread = new Thread(() =>
+                {
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    LoginForm loginForm = new LoginForm();
+                    Application.Run(loginForm);
+                });
+
+                // Start the new thread
+                loginFormThread.SetApartmentState(ApartmentState.STA);
+                loginFormThread.Start();
             }
         }
     }
