@@ -31,7 +31,7 @@ namespace AccommodationManagerApp.Forms
             SetUpComboBoxes();
             if(_vehicle != null)
             {
-                setUpData();
+                setUpData(_vehicle);
             }
         }
 
@@ -42,13 +42,14 @@ namespace AccommodationManagerApp.Forms
             {
                 comboBoxRoom.Items.Add(room.RoomNumber);
             }
+            comboBoxRoom.SelectedIndex = 0;
         }
-        private void setUpData()
+        private void setUpData(Vehicle vehicle)
         {
-            textBoxType.Text = _vehicle.type;
-            textBoxName.Text = _vehicle.name;
-            textBoxNumber.Text = _vehicle.number;
-            comboBoxRoom.Text = _vehicle.Room != null ? _vehicle.Room.RoomNumber : "None";
+            textBoxType.Text = vehicle.type;
+            textBoxName.Text = vehicle.name;
+            textBoxNumber.Text = vehicle.number;
+            comboBoxRoom.SelectedItem = vehicle.Room?.RoomNumber ?? "None" ;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -57,6 +58,11 @@ namespace AccommodationManagerApp.Forms
             string VehicleType = textBoxType.Text;
             string VehicleNumber = textBoxNumber.Text;
             int? roomId = comboBoxRoom.SelectedItem.ToString().Equals("None") ? null : _roomService.GetIdByRoomNumber(comboBoxRoom.SelectedItem.ToString());
+            if(VehicleName.Equals("") || VehicleType.Equals("") || VehicleNumber.Equals(""))
+            {
+                new ToastForm("Vui lòng nhập đầy đủ thông tin").Show();
+                return;
+            }
             if (_vehicle == null && _vehicleService.IsVehicleNumberExists(VehicleNumber))
             {
                 new ToastForm("Tên phương tiện đã tồn tại").Show();

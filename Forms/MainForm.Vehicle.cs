@@ -133,6 +133,7 @@ namespace AccommodationManagerApp.Forms
         private void VehicleForeignInformationReload()
         {
             LoadVehicleData();
+            LoadRoomData();
         }
 
         private Vehicle IsSelectedVehicleValid()
@@ -146,6 +147,12 @@ namespace AccommodationManagerApp.Forms
                 }
             }
             return null;
+        }
+
+        private void materialFloatingActionButton1_Click(object sender, EventArgs e)
+        {
+            LoadVehicleData();
+            new ToastForm("Dữ liệu phương tiện đã được tải lại", false).Show();
         }
     }
 }

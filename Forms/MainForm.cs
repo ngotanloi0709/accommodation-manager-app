@@ -50,7 +50,5 @@ namespace AccommodationManagerApp.Forms {
                 this.Close();
             }
         }
-
-
     }
 }
