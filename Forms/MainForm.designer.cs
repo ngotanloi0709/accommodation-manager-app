@@ -119,7 +119,7 @@
             this.drawerImageList.Images.SetKeyName(3, "house-owner.png");
             this.drawerImageList.Images.SetKeyName(4, "invoice.png");
             this.drawerImageList.Images.SetKeyName(5, "setting.png");
-            this.drawerImageList.Images.SetKeyName(6, "vehicle2.png");
+            this.drawerImageList.Images.SetKeyName(6, "fleet.png");
             // 
             // tabPageConfiguration
             // 
@@ -807,7 +807,7 @@
             this.tabPageVehicle.Controls.Add(this.materialMaskedTextBox1);
             this.tabPageVehicle.Controls.Add(this.ListViewVehicle);
             this.tabPageVehicle.Controls.Add(this.materialLabel11);
-            this.tabPageVehicle.ImageKey = "vehicle.png";
+            this.tabPageVehicle.ImageKey = "fleet.png";
             this.tabPageVehicle.Location = new System.Drawing.Point(4, 39);
             this.tabPageVehicle.Name = "tabPageVehicle";
             this.tabPageVehicle.Size = new System.Drawing.Size(986, 673);
