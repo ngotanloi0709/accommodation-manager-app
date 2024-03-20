@@ -119,7 +119,7 @@
             this.drawerImageList.Images.SetKeyName(3, "house-owner.png");
             this.drawerImageList.Images.SetKeyName(4, "invoice.png");
             this.drawerImageList.Images.SetKeyName(5, "setting.png");
-            this.drawerImageList.Images.SetKeyName(6, "vehicle.png");
+            this.drawerImageList.Images.SetKeyName(6, "vehicle2.png");
             // 
             // tabPageConfiguration
             // 
