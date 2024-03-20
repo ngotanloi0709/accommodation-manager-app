@@ -1,9 +1,7 @@
 ﻿using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Service;
-using System;
 using System.Collections.Generic;
 using System.Threading;
-using System.Web.UI.Design.WebControls;
 using System.Windows.Forms;
 
 namespace AccommodationManagerApp.Forms {
