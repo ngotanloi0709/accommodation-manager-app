@@ -29,7 +29,13 @@ namespace AccommodationManagerApp.Migrations {
                 context.Buildings.AddOrUpdate(new Building { Name = "Building 1" });
                 context.Buildings.AddOrUpdate(new Building { Name = "Building 2" });
                 context.Buildings.AddOrUpdate(new Building { Name = "Building 3" });
-            }   
+            }
+            if (!context.Bills.Any())
+            {
+                context.Bills.AddOrUpdate(new Bill(1000, 887, 206, null));
+                context.Bills.AddOrUpdate(new Bill(1500, 621, 372, null));
+                context.Bills.AddOrUpdate(new Bill(2000, 913, 455, null));
+            }  
         }
         
         private void CreateBuildingDeleteTrigger(DbContext context) {

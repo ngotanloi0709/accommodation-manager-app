@@ -9,7 +9,6 @@ namespace AccommodationManagerApp.Model
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
         public Double RentBill { get; set; }
         public Double ElectricityBill { get; set; }
         public Double WaterBill { get; set; }
@@ -17,21 +16,33 @@ namespace AccommodationManagerApp.Model
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         [EnumDataType(typeof(BillStatus))]
-        public BillStatus Status { get; set; } = BillStatus.Unpaid;
+        public BillStatus Status { get; set; }
 
         public int? RoomId { get; set; }
         [ForeignKey("RoomId")]
         public Room Room { get; set; }
+        
+        public int? UserId { get; set; }
+        [ForeignKey("UserId")]
+        public User User { get; set; }
 
         public Bill() {}
-        public Bill(Double rentBill, Double electricityBill, Double waterBill, Double totalBill, int? roomId, BillStatus status)
+        public Bill(Double rentBill, Double electricityBill, Double waterBill, int? roomId)
         {
             RentBill = rentBill;
             ElectricityBill = electricityBill;
             WaterBill = waterBill;
-            TotalBill = totalBill;
+            TotalBill = CalculateTotalBill();
             RoomId = roomId;
-            Status = status;
+            Status = BillStatus.Unpaid;
+        }
+
+        public string toString() {             
+            return "[Rent Bill: " + RentBill + " " + "Electricity Bill: " + ElectricityBill + " " + "Water Bill: " + WaterBill + " " + "Total Bill: " + TotalBill + " " + "Status: " + Status + "]";
+        }
+        private Double CalculateTotalBill()
+        {
+            return (this.RentBill + this.ElectricityBill + this.WaterBill);
         }
     }
 }
