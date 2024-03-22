@@ -283,6 +283,7 @@
     <Compile Include="Model\Bill.cs" />
     <Compile Include="Model\BillStatus.cs" />
     <Compile Include="Model\Building.cs" />
+    <Compile Include="Model\Contract.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\RoomStatus.cs" />
     <Compile Include="Model\User.cs" />

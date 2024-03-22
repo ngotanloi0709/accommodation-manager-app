@@ -64,10 +64,5 @@ namespace AccommodationManagerApp.Forms {
                 loginFormThread.Start();
             }
         }
-
-        private void buttonEditTenantPassword_Click(object sender, System.EventArgs e)
-        {
-
-        }
     }
 }

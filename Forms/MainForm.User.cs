@@ -105,6 +105,11 @@ namespace AccommodationManagerApp.Forms {
                 new ToastForm("Vui lòng chọn thông tin cần xóa", true).Show();
             }
         }
+        
+        private void buttonEditTenantPassword_Click(object sender, System.EventArgs e)
+        {
+
+        }
 
         private User IsSelectedUserValid() {
             if (ListViewUser.SelectedItems.Count > 0) {
