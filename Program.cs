@@ -5,6 +5,9 @@ using AccommodationManagerApp.Forms;
 using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 using AccommodationManagerApp.Util;
+using AccommodationManagerApp.Model;
+using System.Runtime.Remoting.Contexts;
+using System.Collections.Generic;
 
 namespace AccommodationManagerApp {
     internal static class Program {
@@ -18,30 +21,15 @@ namespace AccommodationManagerApp {
             ConfigureServices();
             ActiveMigration();
             
-            // Test();
             AuthenticationService authenticationService = _serviceProvider.GetService<AuthenticationService>();
             authenticationService.Authenticate("ngotanloi0709@gmail.com", "1234");
-            // Console.WriteLine(authenticationService.IsAuthenticated());
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
-            // Application.Run(new SplashForm());
-            // Application.Run(new LoginForm());
-            //Application.Run(new BillDetail());
         }
 
-        private static void Test() {
-            RoomService roomService = _serviceProvider.GetService<RoomService>();
-            BuildingService buildingService = _serviceProvider.GetService<BuildingService>();
-            // Building building = buildingService.GetById(2);
-            // Room room = new Room(null, "A101", null, building, RoomStatus.Empty);
-            // roomService.Add(room);
-            // Room room = roomService.GetByIdWithBuilding(1);
-            // room.Status = RoomStatus.Rented;
-            // Console.WriteLine(room);
-            // roomService.Update(1, room);
-        }
+        // private static void Test() { }
 
         private static void ConfigureServices()
         {
@@ -56,8 +44,10 @@ namespace AccommodationManagerApp {
             services.AddSingleton<RoomService>();
             services.AddSingleton<VehicleService>();
             services.AddSingleton<BuildingService>();
+            services.AddSingleton<BillService>();
 
             // Repositories
+            services.AddSingleton<BillRepository>();
             services.AddSingleton<UserRepository>();
             services.AddSingleton<RoomRepository>();
             services.AddSingleton<BuildingRepository>();

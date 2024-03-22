@@ -1,16 +1,17 @@
 ﻿using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Service;
-using System;
 using System.Collections.Generic;
-using System.Web.UI.Design.WebControls;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace AccommodationManagerApp.Forms {
     public partial class MainForm : BaseForm {
         private readonly RoomService _roomService;
         private readonly BuildingService _buildingService;
+        private readonly BillService _billService;
         private readonly AuthenticationService _authenticationService;
         private readonly VehicleService _vehicleService;
+        private List<Bill> Bills { get; set; }
         private List<Building> Buildings { get; set; }
         private List<Room> Rooms { get; set; }
 
@@ -18,6 +19,7 @@ namespace AccommodationManagerApp.Forms {
         public MainForm() {
             _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
             _buildingService = ServiceLocator.ServiceProvider.GetService(typeof(BuildingService)) as BuildingService;
+            _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
             _vehicleService = ServiceLocator.ServiceProvider.GetService(typeof(VehicleService)) as VehicleService;
             _authenticationService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
             InitializeComponent();
@@ -26,28 +28,33 @@ namespace AccommodationManagerApp.Forms {
             ListViewBuilding.GridLines = true;
             ListViewRoom.GridLines = true;
             ListViewVehicle.GridLines = true;
+            lstViewBill.GridLines = true;
         }
 
         private void LoadData() {
             LoadRoomData();
             LoadBuildingData();
+            LoadBillData();
             LoadVehicleData();
         }
-
-        private void exportPdfButton_Click(object sender, System.EventArgs e) {
-            BillDetail billDetailForm = new BillDetail();
-            billDetailForm.Show();
-        }
-
-        private void btnLogOut_Click(object sender, System.EventArgs e)
+        private void BtnLogOut_Click(object sender, System.EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to log out?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 _authenticationService.Logout();
-                LoginForm loginForm = new LoginForm();
-                this.Hide();
-                loginForm.ShowDialog();
-                this.Close();
+                this.Close(); // Close the MainForm
+
+                // Create a new thread for the LoginForm
+                Thread loginFormThread = new Thread(() =>
+                {
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    LoginForm loginForm = new LoginForm();
+                    Application.Run(loginForm);
+                });
+
+                // Start the new thread
+                loginFormThread.SetApartmentState(ApartmentState.STA);
+                loginFormThread.Start();
             }
         }
     }
