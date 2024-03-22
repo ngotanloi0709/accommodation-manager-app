@@ -35,6 +35,7 @@
             this.tabPageConfiguration = new System.Windows.Forms.TabPage();
             this.tabPageSystemUsers = new System.Windows.Forms.TabPage();
             this.tabPageTenants = new System.Windows.Forms.TabPage();
+            this.materialButton4 = new MaterialSkin.Controls.MaterialButton();
             this.buttonEditTenantPassword = new MaterialSkin.Controls.MaterialButton();
             this.buttonDeleteTenant = new MaterialSkin.Controls.MaterialButton();
             this.buttonEditTenant = new MaterialSkin.Controls.MaterialButton();
@@ -64,7 +65,6 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageRoom = new System.Windows.Forms.TabPage();
             this.buttonDeleteRoom = new MaterialSkin.Controls.MaterialButton();
             this.buttonEditRoom = new MaterialSkin.Controls.MaterialButton();
@@ -107,24 +107,6 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialTabControl = new MaterialSkin.Controls.MaterialTabControl();
-            this.tabPageBills = new System.Windows.Forms.TabPage();
-            this.materialComboBox2 = new MaterialSkin.Controls.MaterialComboBox();
-            this.cmbboxCatg = new MaterialSkin.Controls.MaterialComboBox();
-            this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
-            this.btnSearch = new MaterialSkin.Controls.MaterialButton();
-            this.txtBoxSearch = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
-            this.btnDelete = new MaterialSkin.Controls.MaterialButton();
-            this.btnAdd = new MaterialSkin.Controls.MaterialButton();
-            this.btnPDF = new MaterialSkin.Controls.MaterialButton();
-            this.lstViewBill = new MaterialSkin.Controls.MaterialListView();
-            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.rent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.water = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.electricity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.total = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageVehicle = new System.Windows.Forms.TabPage();
             this.materialFloatingActionButton1 = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.labelVehicleRoom = new MaterialSkin.Controls.MaterialLabel();
@@ -147,9 +129,25 @@
             this.columnType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
+            this.tabPageBills = new System.Windows.Forms.TabPage();
+            this.materialComboBox2 = new MaterialSkin.Controls.MaterialComboBox();
+            this.cmbboxCatg = new MaterialSkin.Controls.MaterialComboBox();
+            this.btnSearch = new MaterialSkin.Controls.MaterialButton();
+            this.txtBoxSearch = new MaterialSkin.Controls.MaterialTextBox();
+            this.btnDelete = new MaterialSkin.Controls.MaterialButton();
+            this.btnAdd = new MaterialSkin.Controls.MaterialButton();
+            this.btnPDF = new MaterialSkin.Controls.MaterialButton();
+            this.lstViewBill = new MaterialSkin.Controls.MaterialListView();
+            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.rent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.water = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.electricity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.total = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnLogOut = new MaterialSkin.Controls.MaterialButton();
             this.mySqlConnection1 = new MySqlConnector.MySqlConnection();
-            this.materialButton4 = new MaterialSkin.Controls.MaterialButton();
+            this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageTenants.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserImage)).BeginInit();
             this.tabPageRoom.SuspendLayout();
@@ -194,13 +192,13 @@
             // tabPageTenants
             // 
             this.tabPageTenants.BackColor = System.Drawing.Color.White;
+            this.tabPageTenants.Controls.Add(this.materialLabel12);
             this.tabPageTenants.Controls.Add(this.materialButton4);
             this.tabPageTenants.Controls.Add(this.buttonEditTenantPassword);
             this.tabPageTenants.Controls.Add(this.buttonDeleteTenant);
             this.tabPageTenants.Controls.Add(this.buttonEditTenant);
             this.tabPageTenants.Controls.Add(this.buttonAddTenant);
             this.tabPageTenants.Controls.Add(this.materialButton3);
-            this.tabPageTenants.Controls.Add(this.materialButton2);
             this.tabPageTenants.Controls.Add(this.materialButton1);
             this.tabPageTenants.Controls.Add(this.materialLabel15);
             this.tabPageTenants.Controls.Add(this.ListViewUserRentList);
@@ -219,13 +217,32 @@
             this.tabPageTenants.Controls.Add(this.materialLabel28);
             this.tabPageTenants.Controls.Add(this.buttonReloadUser);
             this.tabPageTenants.Controls.Add(this.ListViewUser);
-            this.tabPageTenants.Controls.Add(this.materialLabel12);
             this.tabPageTenants.ImageKey = "house-owner.png";
             this.tabPageTenants.Location = new System.Drawing.Point(4, 39);
             this.tabPageTenants.Name = "tabPageTenants";
             this.tabPageTenants.Size = new System.Drawing.Size(986, 673);
             this.tabPageTenants.TabIndex = 2;
             this.tabPageTenants.Text = "Quản lý người thuê";
+            // 
+            // materialButton4
+            // 
+            this.materialButton4.AutoSize = false;
+            this.materialButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton4.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton4.Depth = 0;
+            this.materialButton4.HighEmphasis = true;
+            this.materialButton4.Icon = global::AccommodationManagerApp.Properties.Resources.user_no_color;
+            this.materialButton4.Location = new System.Drawing.Point(618, 79);
+            this.materialButton4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton4.Name = "materialButton4";
+            this.materialButton4.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton4.Size = new System.Drawing.Size(295, 36);
+            this.materialButton4.TabIndex = 39;
+            this.materialButton4.Text = "Đổi ảnh đại diện cho người thuê";
+            this.materialButton4.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton4.UseAccentColor = false;
+            this.materialButton4.UseVisualStyleBackColor = true;
             // 
             // buttonEditTenantPassword
             // 
@@ -338,15 +355,15 @@
             this.materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButton2.Depth = 0;
             this.materialButton2.HighEmphasis = true;
-            this.materialButton2.Icon = null;
-            this.materialButton2.Location = new System.Drawing.Point(490, 416);
+            this.materialButton2.Icon = global::AccommodationManagerApp.Properties.Resources.edit;
+            this.materialButton2.Location = new System.Drawing.Point(223, 605);
             this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton2.Name = "materialButton2";
             this.materialButton2.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton2.Size = new System.Drawing.Size(85, 36);
-            this.materialButton2.TabIndex = 33;
-            this.materialButton2.Text = "Đang thuê";
+            this.materialButton2.Size = new System.Drawing.Size(78, 36);
+            this.materialButton2.TabIndex = 4;
+            this.materialButton2.Text = "UPD";
             this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton2.UseAccentColor = false;
             this.materialButton2.UseVisualStyleBackColor = true;
@@ -635,19 +652,6 @@
             // 
             this.columnHeader10.Text = "Số căn cước";
             this.columnHeader10.Width = 191;
-            // 
-            // materialLabel12
-            // 
-            this.materialLabel12.AutoSize = true;
-            this.materialLabel12.Depth = 0;
-            this.materialLabel12.Font = new System.Drawing.Font("Roboto Light", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel12.FontType = MaterialSkin.MaterialSkinManager.fontType.H2;
-            this.materialLabel12.Location = new System.Drawing.Point(-1, 0);
-            this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel12.Name = "materialLabel12";
-            this.materialLabel12.Size = new System.Drawing.Size(491, 72);
-            this.materialLabel12.TabIndex = 8;
-            this.materialLabel12.Text = "Quản lý người thuê";
             // 
             // tabPageRoom
             // 
@@ -1602,7 +1606,6 @@
             this.tabPageBills.BackColor = System.Drawing.Color.White;
             this.tabPageBills.Controls.Add(this.materialComboBox2);
             this.tabPageBills.Controls.Add(this.cmbboxCatg);
-            this.tabPageBills.Controls.Add(this.materialLabel12);
             this.tabPageBills.Controls.Add(this.btnSearch);
             this.tabPageBills.Controls.Add(this.txtBoxSearch);
             this.tabPageBills.Controls.Add(this.materialButton2);
@@ -1674,19 +1677,6 @@
             this.cmbboxCatg.StartIndex = 0;
             this.cmbboxCatg.TabIndex = 18;
             // 
-            // materialLabel12
-            // 
-            this.materialLabel12.AutoSize = true;
-            this.materialLabel12.Depth = 0;
-            this.materialLabel12.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel12.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
-            this.materialLabel12.Location = new System.Drawing.Point(669, 600);
-            this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel12.Name = "materialLabel12";
-            this.materialLabel12.Size = new System.Drawing.Size(196, 41);
-            this.materialLabel12.TabIndex = 17;
-            this.materialLabel12.Text = "Bills Manage";
-            // 
             // btnSearch
             // 
             this.btnSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -1727,25 +1717,6 @@
             this.txtBoxSearch.Text = "";
             this.txtBoxSearch.TrailingIcon = null;
             // 
-            // materialButton2
-            // 
-            this.materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton2.Depth = 0;
-            this.materialButton2.HighEmphasis = true;
-            this.materialButton2.Icon = global::AccommodationManagerApp.Properties.Resources.edit;
-            this.materialButton2.Location = new System.Drawing.Point(223, 605);
-            this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton2.Name = "materialButton2";
-            this.materialButton2.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton2.Size = new System.Drawing.Size(78, 36);
-            this.materialButton2.TabIndex = 4;
-            this.materialButton2.Text = "UPD";
-            this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton2.UseAccentColor = false;
-            this.materialButton2.UseVisualStyleBackColor = true;
-            // 
             // btnDelete
             // 
             this.btnDelete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -1771,7 +1742,7 @@
             this.btnAdd.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnAdd.Depth = 0;
             this.btnAdd.HighEmphasis = true;
-            this.btnAdd.Icon = global::AccommodationManagerApp.Properties.Resources.plus1;
+            this.btnAdd.Icon = global::AccommodationManagerApp.Properties.Resources.plus;
             this.btnAdd.Location = new System.Drawing.Point(54, 605);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1898,25 +1869,18 @@
             this.mySqlConnection1.ProvidePasswordCallback = null;
             this.mySqlConnection1.RemoteCertificateValidationCallback = null;
             // 
-            // materialButton4
+            // materialLabel12
             // 
-            this.materialButton4.AutoSize = false;
-            this.materialButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton4.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton4.Depth = 0;
-            this.materialButton4.HighEmphasis = true;
-            this.materialButton4.Icon = global::AccommodationManagerApp.Properties.Resources.user_no_color;
-            this.materialButton4.Location = new System.Drawing.Point(618, 79);
-            this.materialButton4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton4.Name = "materialButton4";
-            this.materialButton4.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton4.Size = new System.Drawing.Size(295, 36);
-            this.materialButton4.TabIndex = 39;
-            this.materialButton4.Text = "Đổi ảnh đại diện cho người thuê";
-            this.materialButton4.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton4.UseAccentColor = false;
-            this.materialButton4.UseVisualStyleBackColor = true;
+            this.materialLabel12.AutoSize = true;
+            this.materialLabel12.Depth = 0;
+            this.materialLabel12.Font = new System.Drawing.Font("Roboto Light", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel12.FontType = MaterialSkin.MaterialSkinManager.fontType.H2;
+            this.materialLabel12.Location = new System.Drawing.Point(-1, 0);
+            this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel12.Name = "materialLabel12";
+            this.materialLabel12.Size = new System.Drawing.Size(491, 72);
+            this.materialLabel12.TabIndex = 40;
+            this.materialLabel12.Text = "Quản lý người thuê";
             // 
             // MainForm
             // 
@@ -1944,10 +1908,10 @@
             this.tabPageBuilding.ResumeLayout(false);
             this.tabPageBuilding.PerformLayout();
             this.materialTabControl.ResumeLayout(false);
-            this.tabPageBills.ResumeLayout(false);
-            this.tabPageBills.PerformLayout();
             this.tabPageVehicle.ResumeLayout(false);
             this.tabPageVehicle.PerformLayout();
+            this.tabPageBills.ResumeLayout(false);
+            this.tabPageBills.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2014,11 +1978,9 @@
         private System.Windows.Forms.ColumnHeader date;
         private MaterialSkin.Controls.MaterialButton btnPDF;
         private MaterialSkin.Controls.MaterialButton btnAdd;
-        private MaterialSkin.Controls.MaterialButton materialButton2;
         private MaterialSkin.Controls.MaterialButton btnDelete;
         private MaterialSkin.Controls.MaterialButton btnSearch;
         private MaterialSkin.Controls.MaterialTextBox txtBoxSearch;
-        private MaterialSkin.Controls.MaterialLabel materialLabel12;
         private MaterialSkin.Controls.MaterialComboBox materialComboBox2;
         private MaterialSkin.Controls.MaterialComboBox cmbboxCatg;
         private System.Windows.Forms.TabPage tabPageVehicle;
@@ -2044,7 +2006,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel14;
         private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
-        private MaterialSkin.Controls.MaterialLabel materialLabel12;
         private MaterialSkin.Controls.MaterialFloatingActionButton buttonReloadUser;
         private MaterialSkin.Controls.MaterialListView ListViewUser;
         private MaterialSkin.Controls.MaterialLabel labelUserName;
@@ -2075,5 +2036,6 @@
         private MaterialSkin.Controls.MaterialButton buttonAddTenant;
         private MaterialSkin.Controls.MaterialButton buttonEditTenantPassword;
         private MaterialSkin.Controls.MaterialButton materialButton4;
+        private MaterialSkin.Controls.MaterialLabel materialLabel12;
     }
 }
