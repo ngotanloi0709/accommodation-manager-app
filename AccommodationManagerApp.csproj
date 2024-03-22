@@ -216,6 +216,18 @@
     <Compile Include="Forms\BuildingForm.Designer.cs">
       <DependentUpon>BuildingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CurrentUserInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CurrentUserInformationForm.Designer.cs">
+      <DependentUpon>CurrentUserInformationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChangeUserPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChangeUserPasswordForm.Designer.cs">
+      <DependentUpon>ChangeUserPasswordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ConfirmationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -320,6 +332,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BuildingForm.resx">
       <DependentUpon>BuildingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CurrentUserInformationForm.resx">
+      <DependentUpon>CurrentUserInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChangeUserPasswordForm.resx">
+      <DependentUpon>ChangeUserPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ConfirmationForm.resx">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
