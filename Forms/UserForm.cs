@@ -10,7 +10,7 @@ namespace AccommodationManagerApp.Forms
         private User _user;
         private readonly UserService _userService;
 
-        public UserForm(User user)
+        public UserForm(User user, bool isCurrentUser = false)
         {
             _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
             _user = user;
@@ -19,7 +19,7 @@ namespace AccommodationManagerApp.Forms
             if (_user != null)
             {
                 setUpData(_user);
-                Text = "Chỉnh sửa thông tin người thuê";
+                Text =  isCurrentUser ? "Chỉnh sửa thông tin cá nhân" : "Chỉnh sửa thông tin người dùng";
             }
         }
 

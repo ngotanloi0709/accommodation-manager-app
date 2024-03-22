@@ -6,15 +6,15 @@ using AccommodationManagerApp.Util;
 
 namespace AccommodationManagerApp.Service {
     public class AuthenticationService {
-        private User CurrentUser { get; set; }
-        private UserService UserService;
+        public User CurrentUser { get; set; }
+        private readonly UserService _userService;
         
         public AuthenticationService(UserService userService) {
-            this.UserService = userService;
+            this._userService = userService;
         }
         
         public bool Authenticate(string email, string password) {
-            User user = UserService.GetUserByEmail(email);
+            User user = _userService.GetUserByEmail(email);
             bool result = user != null && user.Password == PasswordHelper.HashPassword(password);
             Console.WriteLine(PasswordHelper.HashPassword(password));
             if (result) {

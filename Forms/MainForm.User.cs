@@ -1,4 +1,7 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Properties;
 
@@ -20,6 +23,8 @@ namespace AccommodationManagerApp.Forms {
             User user = IsSelectedUserValid();
 
             if (user != null) {
+                LoadTenantAvatar(user);
+
                 labelUserName.Text = string.IsNullOrEmpty(user.Name) ? Resources.NullData : user.Name;
                 labelUserPhone.Text = string.IsNullOrEmpty(user.Phone) ? Resources.NullData : user.Phone;
                 labelUserIdentityNumber.Text = string.IsNullOrEmpty(user.IdentityNumber)
@@ -33,8 +38,12 @@ namespace AccommodationManagerApp.Forms {
 
                 ListViewUserRentList.Items.Clear();
                 foreach (var room in user.Rooms) {
-                    ListViewItem item = new ListViewItem(string.IsNullOrEmpty(room.RoomNumber) ? Resources.NullData : room.RoomNumber);
-                    item.SubItems.Add(room.Building == null || string.IsNullOrEmpty(room.Building.Name) ? Resources.NullData : room.Building.Name);
+                    ListViewItem item = new ListViewItem(string.IsNullOrEmpty(room.RoomNumber)
+                        ? Resources.NullData
+                        : room.RoomNumber);
+                    item.SubItems.Add(room.Building == null || string.IsNullOrEmpty(room.Building.Name)
+                        ? Resources.NullData
+                        : room.Building.Name);
                     ListViewUserRentList.Items.Add(item);
                 }
             }
@@ -88,27 +97,83 @@ namespace AccommodationManagerApp.Forms {
         private void buttonDeleteTenant_Click(object sender, System.EventArgs e) {
             User user = IsSelectedUserValid();
             if (user != null) {
-                var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn xóa người dùng này không?");
+                var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn xóa người thuê này không?");
                 var result = confirmationForm.ShowDialog();
                 if (result == DialogResult.Yes) {
                     var deleteResult = _userService.Delete(user.Id);
                     if (deleteResult) {
                         UserForeignInformationReload();
-                        new ToastForm("Xóa thông tin người dùng thành công", false).Show();
+                        new ToastForm("Xóa thông tin người thuê thành công", false).Show();
                     }
                     else {
-                        new ToastForm("Xóa thông tin người dùng thất bại", true).Show();
+                        new ToastForm("Xóa thông tin người thuê thất bại", true).Show();
                     }
                 }
             }
             else {
-                new ToastForm("Vui lòng chọn thông tin cần xóa", true).Show();
+                new ToastForm("Vui lòng chọn người thuê cần xóa", true).Show();
             }
         }
-        
-        private void buttonEditTenantPassword_Click(object sender, System.EventArgs e)
-        {
 
+        private void buttonEditTenantPassword_Click(object sender, System.EventArgs e) {
+            User user = IsSelectedUserValid();
+            
+            if (user != null) {
+                var changeUserPasswordForm = new ChangeUserPasswordForm(user);
+                changeUserPasswordForm.Show();
+            }
+            else {
+                new ToastForm("Vui lòng chọn người thuê cần sửa mật khẩu", true).Show();
+            }
+        }
+
+        private void buttonChangeTenantAvatar_Click(object sender, EventArgs e) {
+            User user = IsSelectedUserValid();
+            if (user != null) {
+                OpenFileDialog openFileDialog = new OpenFileDialog {
+                    Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG",
+                    RestoreDirectory = true
+                };
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK) {
+                    Image image = Image.FromFile(openFileDialog.FileName);
+                    Image compressedImage = _userService.CompressImage(image, 50);
+
+                    using (MemoryStream ms = new MemoryStream()) {
+                        compressedImage.Save(ms, image.RawFormat);
+                        user.Avatar = ms.ToArray();
+                    }
+                    
+                    var updateResult = _userService.Update(user.Id, user);
+                    if (updateResult) {
+                        LoadTenantAvatar(user);
+                        new ToastForm("Cập nhật thành công", false).Show();
+                    }
+                    else {
+                        new ToastForm("Cập nhật thất bại", true).Show();
+                    }
+                }
+            }
+            else {
+                new ToastForm("Xin hãy chọn người thuê cần cập nhật hình ảnh", true).Show();
+            }
+        }
+
+        private void LoadTenantAvatar(User user) {
+            try {
+                if (user.Avatar != null) {
+                    using (var ms = new MemoryStream(user.Avatar)) {
+                        pictureBoxUserImage.Image = Image.FromStream(ms);
+                    }
+                }
+                else {
+                    pictureBoxUserImage.Image = Resources.user;
+                }
+            }
+            catch (Exception e) {
+                pictureBoxUserImage.Image = Resources.user;
+                Console.WriteLine(e);
+            }
         }
 
         private User IsSelectedUserValid() {

@@ -50,6 +50,7 @@ namespace AccommodationManagerApp.Repository
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<InitLog> InitLogs { get; set; }
         public DbSet<Bill> Bills { get; set; }
+        public DbSet<Contract> Contracts { get; set; }
         
         public AccommodationManagerAppContext() : base("name=MySqlConnectionString") {
             Database.SetInitializer(

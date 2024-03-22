@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
 
@@ -42,8 +45,17 @@ namespace AccommodationManagerApp.Service {
             _userRepository.Add(user);
         }
 
-        public void Update(int userId, User user) {
-            _userRepository.Update(userId, user);
+        public bool Update(int userId, User user) {
+            try
+            {
+                _userRepository.Update(userId, user);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
         }
 
         public bool Delete(int userId) {
@@ -55,6 +67,31 @@ namespace AccommodationManagerApp.Service {
                 Console.WriteLine(e);
                 return false;
             }
+        }
+        
+        public Image CompressImage(Image image, int quality) {
+            EncoderParameter qualityParam = new EncoderParameter(Encoder.Quality, quality);
+            ImageCodecInfo jpegCodec = GetEncoderInfo("image/jpeg");
+
+            EncoderParameters encoderParams = new EncoderParameters(1);
+            encoderParams.Param[0] = qualityParam;
+
+            MemoryStream ms = new MemoryStream();
+            image.Save(ms, jpegCodec, encoderParams);
+
+            return Image.FromStream(ms);
+        }
+        
+        private ImageCodecInfo GetEncoderInfo(String mimeType) {
+            int j;
+            ImageCodecInfo[] encoders;
+            encoders = ImageCodecInfo.GetImageEncoders();
+            for (j = 0; j < encoders.Length; ++j) {
+                if (encoders[j].MimeType == mimeType)
+                    return encoders[j];
+            }
+
+            return null;
         }
     }
 }

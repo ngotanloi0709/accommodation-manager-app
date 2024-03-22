@@ -61,9 +61,9 @@ namespace AccommodationManagerApp.Forms {
             this.materialLabel1.Location = new System.Drawing.Point(44, 95);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(112, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(72, 19);
             this.materialLabel1.TabIndex = 8;
-            this.materialLabel1.Text = "Tên người thuê:";
+            this.materialLabel1.Text = "Họ và tên:";
             // 
             // textBoxPhone
             // 
@@ -71,7 +71,7 @@ namespace AccommodationManagerApp.Forms {
             this.textBoxPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxPhone.Depth = 0;
             this.textBoxPhone.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxPhone.Hint = "Nhập số điện thoại của người thuê";
+            this.textBoxPhone.Hint = "Nhập số điện thoại";
             this.textBoxPhone.LeadingIcon = null;
             this.textBoxPhone.Location = new System.Drawing.Point(179, 137);
             this.textBoxPhone.MaxLength = 50;
@@ -89,7 +89,7 @@ namespace AccommodationManagerApp.Forms {
             this.textBoxName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxName.Depth = 0;
             this.textBoxName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxName.Hint = "Nhập tên người thuê";
+            this.textBoxName.Hint = "Nhập họ và tên";
             this.textBoxName.LeadingIcon = null;
             this.textBoxName.Location = new System.Drawing.Point(179, 78);
             this.textBoxName.MaxLength = 50;
@@ -140,7 +140,7 @@ namespace AccommodationManagerApp.Forms {
             this.textBoxIdentityNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxIdentityNumber.Depth = 0;
             this.textBoxIdentityNumber.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxIdentityNumber.Hint = "Nhập số căn cước của người thuê";
+            this.textBoxIdentityNumber.Hint = "Nhập số căn cước";
             this.textBoxIdentityNumber.LeadingIcon = null;
             this.textBoxIdentityNumber.Location = new System.Drawing.Point(179, 193);
             this.textBoxIdentityNumber.MaxLength = 50;
@@ -170,7 +170,7 @@ namespace AccommodationManagerApp.Forms {
             this.textBoxEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxEmail.Depth = 0;
             this.textBoxEmail.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxEmail.Hint = "Nhập địa chỉ của toà chung cư";
+            this.textBoxEmail.Hint = "Nhập Email";
             this.textBoxEmail.LeadingIcon = null;
             this.textBoxEmail.Location = new System.Drawing.Point(179, 304);
             this.textBoxEmail.MaxLength = 50;
@@ -235,7 +235,7 @@ namespace AccommodationManagerApp.Forms {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 492);
+            this.ClientSize = new System.Drawing.Size(543, 440);
             this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.switchSex);
             this.Controls.Add(this.materialLabel5);
@@ -249,8 +249,9 @@ namespace AccommodationManagerApp.Forms {
             this.Controls.Add(this.textBoxPhone);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.buttonSave);
+            this.MaximumSize = new System.Drawing.Size(543, 440);
+            this.MinimumSize = new System.Drawing.Size(543, 440);
             this.Name = "UserForm";
-            this.Sizable = false;
             this.Text = "Thêm thông tin người thuê";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserForm_FormClosing);
             this.ResumeLayout(false);

@@ -1,5 +1,4 @@
-﻿using System;
-using AccommodationManagerApp.Model;
+﻿using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Service;
 using System.Windows.Forms;
 
