@@ -32,6 +32,12 @@ namespace AccommodationManagerApp.Migrations {
                 context.Buildings.AddOrUpdate(new Building { Name = "Building 2" });
                 context.Buildings.AddOrUpdate(new Building { Name = "Building 3" });
             }
+            if (!context.Bills.Any())
+            {
+                context.Bills.AddOrUpdate(new Bill(1000, 887, 206, null));
+                context.Bills.AddOrUpdate(new Bill(1500, 621, 372, null));
+                context.Bills.AddOrUpdate(new Bill(2000, 913, 455, null));
+            }
             if (!context.Vehicles.Any())
             {
                 context.Vehicles.AddOrUpdate(new Vehicle {type= "Motobike", name = "Honda", number = "81F-3355", RoomId = null});

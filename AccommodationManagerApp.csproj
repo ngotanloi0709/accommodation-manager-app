@@ -228,6 +228,9 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MainForm.Bill.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\MainForm.Building.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +280,8 @@
       <DependentUpon>VehicleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\Bill.cs" />
+    <Compile Include="Model\BillStatus.cs" />
     <Compile Include="Model\Building.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\RoomStatus.cs" />
@@ -290,6 +295,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Repository\BillRepository.cs" />
     <Compile Include="Repository\BuildingRepository.cs" />
     <Compile Include="Repository\InitLogRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
@@ -297,6 +303,7 @@
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Repository\VehicleRepository.cs" />
     <Compile Include="Service\AuthenticationService.cs" />
+    <Compile Include="Service\BillService.cs" />
     <Compile Include="Service\BuildingService.cs" />
     <Compile Include="Service\ServiceLocator.cs" />
     <Compile Include="Service\RoomService.cs" />
@@ -321,6 +328,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SplashForm.resx">
       <DependentUpon>SplashForm.cs</DependentUpon>
@@ -365,6 +373,7 @@
   <ItemGroup>
     <None Include="Resources\user_no_color.png" />
     <None Include="Resources\user.png" />
+    <None Include="Resources\search.png" />
     <None Include="Resources\save.png" />
     <None Include="Resources\tick.png" />
     <None Include="Resources\plus.png" />
@@ -374,6 +383,10 @@
     <None Include="Resources\cancel.png" />
     <None Include="Resources\reload.png" />
     <None Include="Resources\password.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\pdf.png" />
+    <None Include="Resources\black_plus.png" />
+    <None Include="Resources\plus1.png" />
     <Content Include="Resources\Roboto-Medium.ttf" />
     <Content Include="Resources\Roboto-Regular.ttf" />
     <None Include="Resources\signature.jpg" />

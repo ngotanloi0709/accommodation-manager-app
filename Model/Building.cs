@@ -11,9 +11,7 @@ namespace AccommodationManagerApp.Model {
         public string Address { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         
-        public Building() 
-        {
-        }
+        public Building() {}
         
         public Building(string name, string address) {
             Name = name;
