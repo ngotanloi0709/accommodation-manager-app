@@ -133,5 +133,6 @@ namespace AccommodationManagerApp.Forms {
             LoadBuildingData();
             new ToastForm("Đã thực hiện tải lại dữ liệu toà nhà", false).Show();
         }
+
     }
 }

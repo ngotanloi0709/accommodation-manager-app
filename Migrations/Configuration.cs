@@ -18,6 +18,7 @@ namespace AccommodationManagerApp.Migrations {
         protected override void Seed(Repository.AccommodationManagerAppContext context) {
             DeleteAllTriggers(context);
             CreateBuildingDeleteTrigger(context);
+            CreateRoomDeleteTrigger(context);
             
             if (!context.Users.Any())
             {
@@ -35,7 +36,13 @@ namespace AccommodationManagerApp.Migrations {
                 context.Bills.AddOrUpdate(new Bill(1000, 887, 206, null));
                 context.Bills.AddOrUpdate(new Bill(1500, 621, 372, null));
                 context.Bills.AddOrUpdate(new Bill(2000, 913, 455, null));
-            }  
+            }
+            if (!context.Vehicles.Any())
+            {
+                context.Vehicles.AddOrUpdate(new Vehicle {type= "Motobike", name = "Honda", number = "81F-3355", RoomId = null});
+                context.Vehicles.AddOrUpdate(new Vehicle {type = "Car", name = "Toyita", number = "81F-3355", RoomId = null });
+
+            }
         }
         
         private void CreateBuildingDeleteTrigger(DbContext context) {
@@ -57,6 +64,27 @@ namespace AccommodationManagerApp.Migrations {
                 Console.WriteLine(e);
             }
         }
+
+        private void CreateRoomDeleteTrigger(DbContext context)
+        {
+            try
+            {
+                string createTriggerSql = @"
+                    CREATE TRIGGER SetNullOnRoomDelete
+                    AFTER DELETE ON rooms
+                    FOR EACH ROW
+                    BEGIN
+                        UPDATE vehicles SET RoomId = NULL WHERE RoomId = OLD.Id;
+                    END;
+                    ";
+                context.Database.ExecuteSqlCommand(createTriggerSql);
+                Console.WriteLine(@"Created trigger SetNullOnRoomDelete");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
         
         private void DeleteAllTriggers(DbContext context) {
             var triggerNames = context.Database.SqlQuery<string>(
@@ -68,5 +96,6 @@ namespace AccommodationManagerApp.Migrations {
                 Console.WriteLine(@"Dropped trigger " + triggerName);
             }
         }
+
     }
 }

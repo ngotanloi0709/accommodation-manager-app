@@ -86,8 +86,5 @@ namespace AccommodationManagerApp.Forms
                 }
             }
         }
-
-
-        // private void PanelHD_Paint(object sender, PaintEventArgs e) { }
     }
 }
