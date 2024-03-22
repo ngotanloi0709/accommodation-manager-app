@@ -34,8 +34,6 @@
             this.drawerImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabPageConfiguration = new System.Windows.Forms.TabPage();
             this.tabPageSystemUsers = new System.Windows.Forms.TabPage();
-            this.tabPageInvoices = new System.Windows.Forms.TabPage();
-            this.exportPdfButton = new System.Windows.Forms.Button();
             this.tabPageTenants = new System.Windows.Forms.TabPage();
             this.tabPageRoom = new System.Windows.Forms.TabPage();
             this.buttonDeleteRoom = new MaterialSkin.Controls.MaterialButton();
@@ -79,7 +77,24 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialTabControl = new MaterialSkin.Controls.MaterialTabControl();
-            this.btnLogOut = new MaterialSkin.Controls.MaterialButton();
+            this.tabPageBills = new System.Windows.Forms.TabPage();
+            this.materialComboBox2 = new MaterialSkin.Controls.MaterialComboBox();
+            this.cmbboxCatg = new MaterialSkin.Controls.MaterialComboBox();
+            this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
+            this.btnSearch = new MaterialSkin.Controls.MaterialButton();
+            this.txtBoxSearch = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
+            this.btnDelete = new MaterialSkin.Controls.MaterialButton();
+            this.btnAdd = new MaterialSkin.Controls.MaterialButton();
+            this.btnPDF = new MaterialSkin.Controls.MaterialButton();
+            this.lstViewBill = new MaterialSkin.Controls.MaterialListView();
+            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.rent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.water = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.electricity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.total = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageVehicle = new System.Windows.Forms.TabPage();
             this.materialFloatingActionButton1 = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.labelVehicleRoom = new MaterialSkin.Controls.MaterialLabel();
@@ -103,11 +118,12 @@
             this.columnRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             this.btnLogOut = new MaterialSkin.Controls.MaterialButton();
-            this.tabPageInvoices.SuspendLayout();
+            this.mySqlConnection1 = new MySqlConnector.MySqlConnection();
             this.tabPageRoom.SuspendLayout();
             this.tabPageBuilding.SuspendLayout();
             this.materialTabControl.SuspendLayout();
             this.tabPageVehicle.SuspendLayout();
+            this.tabPageBills.SuspendLayout();
             this.SuspendLayout();
             // 
             // drawerImageList
@@ -141,29 +157,6 @@
             this.tabPageSystemUsers.Size = new System.Drawing.Size(986, 673);
             this.tabPageSystemUsers.TabIndex = 4;
             this.tabPageSystemUsers.Text = "System Users";
-            // 
-            // tabPageInvoices
-            // 
-            this.tabPageInvoices.BackColor = System.Drawing.Color.White;
-            this.tabPageInvoices.Controls.Add(this.exportPdfButton);
-            this.tabPageInvoices.ImageKey = "invoice.png";
-            this.tabPageInvoices.Location = new System.Drawing.Point(4, 39);
-            this.tabPageInvoices.Name = "tabPageInvoices";
-            this.tabPageInvoices.Size = new System.Drawing.Size(986, 673);
-            this.tabPageInvoices.TabIndex = 3;
-            this.tabPageInvoices.Text = "Invoices";
-            // 
-            // exportPdfButton
-            // 
-            this.exportPdfButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exportPdfButton.Location = new System.Drawing.Point(414, 280);
-            this.exportPdfButton.Margin = new System.Windows.Forms.Padding(2);
-            this.exportPdfButton.Name = "exportPdfButton";
-            this.exportPdfButton.Size = new System.Drawing.Size(138, 34);
-            this.exportPdfButton.TabIndex = 0;
-            this.exportPdfButton.Text = "PDF";
-            this.exportPdfButton.UseVisualStyleBackColor = true;
-            this.exportPdfButton.Click += new System.EventHandler(this.exportPdfButton_Click);
             // 
             // tabPageTenants
             // 
@@ -569,7 +562,7 @@
             this.buttonDeleteBuilding.Depth = 0;
             this.buttonDeleteBuilding.HighEmphasis = true;
             this.buttonDeleteBuilding.Icon = global::AccommodationManagerApp.Properties.Resources.delete;
-            this.buttonDeleteBuilding.Location = new System.Drawing.Point(490, 356);
+            this.buttonDeleteBuilding.Location = new System.Drawing.Point(490, 374);
             this.buttonDeleteBuilding.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonDeleteBuilding.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonDeleteBuilding.Name = "buttonDeleteBuilding";
@@ -603,7 +596,7 @@
             this.buttonEditBuilding.Depth = 0;
             this.buttonEditBuilding.HighEmphasis = true;
             this.buttonEditBuilding.Icon = global::AccommodationManagerApp.Properties.Resources.edit;
-            this.buttonEditBuilding.Location = new System.Drawing.Point(490, 308);
+            this.buttonEditBuilding.Location = new System.Drawing.Point(490, 326);
             this.buttonEditBuilding.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonEditBuilding.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonEditBuilding.Name = "buttonEditBuilding";
@@ -715,7 +708,7 @@
             this.buttonAddBuilding.Depth = 0;
             this.buttonAddBuilding.HighEmphasis = true;
             this.buttonAddBuilding.Icon = global::AccommodationManagerApp.Properties.Resources.plus;
-            this.buttonAddBuilding.Location = new System.Drawing.Point(490, 260);
+            this.buttonAddBuilding.Location = new System.Drawing.Point(490, 278);
             this.buttonAddBuilding.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonAddBuilding.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonAddBuilding.Name = "buttonAddBuilding";
@@ -773,9 +766,10 @@
             this.materialTabControl.Controls.Add(this.tabPageBuilding);
             this.materialTabControl.Controls.Add(this.tabPageRoom);
             this.materialTabControl.Controls.Add(this.tabPageTenants);
-            this.materialTabControl.Controls.Add(this.tabPageInvoices);
+            this.materialTabControl.Controls.Add(this.tabPageVehicle);
             this.materialTabControl.Controls.Add(this.tabPageSystemUsers);
             this.materialTabControl.Controls.Add(this.tabPageConfiguration);
+            this.materialTabControl.Controls.Add(this.tabPageBills);
             this.materialTabControl.Depth = 0;
             this.materialTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialTabControl.ImageList = this.drawerImageList;
@@ -1122,45 +1116,306 @@
             this.materialLabel11.TabIndex = 0;
             this.materialLabel11.Text = "Quản lý phương tiện";
             // 
+            // tabPageBills
+            // 
+            this.tabPageBills.BackColor = System.Drawing.Color.White;
+            this.tabPageBills.Controls.Add(this.materialComboBox2);
+            this.tabPageBills.Controls.Add(this.cmbboxCatg);
+            this.tabPageBills.Controls.Add(this.materialLabel12);
+            this.tabPageBills.Controls.Add(this.btnSearch);
+            this.tabPageBills.Controls.Add(this.txtBoxSearch);
+            this.tabPageBills.Controls.Add(this.materialButton2);
+            this.tabPageBills.Controls.Add(this.btnDelete);
+            this.tabPageBills.Controls.Add(this.btnAdd);
+            this.tabPageBills.Controls.Add(this.btnPDF);
+            this.tabPageBills.Controls.Add(this.lstViewBill);
+            this.tabPageBills.ImageKey = "invoice.png";
+            this.tabPageBills.Location = new System.Drawing.Point(4, 39);
+            this.tabPageBills.Name = "tabPageBills";
+            this.tabPageBills.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageBills.Size = new System.Drawing.Size(986, 673);
+            this.tabPageBills.TabIndex = 6;
+            this.tabPageBills.Text = "Bill Managements";
+            this.tabPageBills.UseVisualStyleBackColor = true;
+            // 
+            // materialComboBox2
+            // 
+            this.materialComboBox2.AutoResize = false;
+            this.materialComboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialComboBox2.Depth = 0;
+            this.materialComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.materialComboBox2.DropDownHeight = 174;
+            this.materialComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.materialComboBox2.DropDownWidth = 121;
+            this.materialComboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialComboBox2.FormattingEnabled = true;
+            this.materialComboBox2.IntegralHeight = false;
+            this.materialComboBox2.ItemHeight = 43;
+            this.materialComboBox2.Items.AddRange(new object[] {
+            "Asc",
+            "Des"});
+            this.materialComboBox2.Location = new System.Drawing.Point(59, 27);
+            this.materialComboBox2.MaxDropDownItems = 4;
+            this.materialComboBox2.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialComboBox2.Name = "materialComboBox2";
+            this.materialComboBox2.Size = new System.Drawing.Size(87, 49);
+            this.materialComboBox2.StartIndex = 0;
+            this.materialComboBox2.TabIndex = 19;
+            // 
+            // cmbboxCatg
+            // 
+            this.cmbboxCatg.AutoResize = false;
+            this.cmbboxCatg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cmbboxCatg.Depth = 0;
+            this.cmbboxCatg.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbboxCatg.DropDownHeight = 174;
+            this.cmbboxCatg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbboxCatg.DropDownWidth = 121;
+            this.cmbboxCatg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cmbboxCatg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cmbboxCatg.FormattingEnabled = true;
+            this.cmbboxCatg.IntegralHeight = false;
+            this.cmbboxCatg.ItemHeight = 43;
+            this.cmbboxCatg.Items.AddRange(new object[] {
+            "Date",
+            "Room Id",
+            "User",
+            "Price",
+            "Electric",
+            "Water",
+            "Rent"});
+            this.cmbboxCatg.Location = new System.Drawing.Point(152, 27);
+            this.cmbboxCatg.MaxDropDownItems = 4;
+            this.cmbboxCatg.MouseState = MaterialSkin.MouseState.OUT;
+            this.cmbboxCatg.Name = "cmbboxCatg";
+            this.cmbboxCatg.Size = new System.Drawing.Size(87, 49);
+            this.cmbboxCatg.StartIndex = 0;
+            this.cmbboxCatg.TabIndex = 18;
+            // 
+            // materialLabel12
+            // 
+            this.materialLabel12.AutoSize = true;
+            this.materialLabel12.Depth = 0;
+            this.materialLabel12.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel12.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
+            this.materialLabel12.Location = new System.Drawing.Point(669, 600);
+            this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel12.Name = "materialLabel12";
+            this.materialLabel12.Size = new System.Drawing.Size(196, 41);
+            this.materialLabel12.TabIndex = 17;
+            this.materialLabel12.Text = "Bills Manage";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnSearch.Depth = 0;
+            this.btnSearch.HighEmphasis = true;
+            this.btnSearch.Icon = global::AccommodationManagerApp.Properties.Resources.search;
+            this.btnSearch.Location = new System.Drawing.Point(823, 34);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnSearch.Size = new System.Drawing.Size(106, 36);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnSearch.UseAccentColor = false;
+            this.btnSearch.UseCompatibleTextRendering = true;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // txtBoxSearch
+            // 
+            this.txtBoxSearch.AnimateReadOnly = false;
+            this.txtBoxSearch.BackColor = System.Drawing.SystemColors.Control;
+            this.txtBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxSearch.Depth = 0;
+            this.txtBoxSearch.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtBoxSearch.ForeColor = System.Drawing.Color.Transparent;
+            this.txtBoxSearch.Hint = "Search";
+            this.txtBoxSearch.LeadingIcon = null;
+            this.txtBoxSearch.Location = new System.Drawing.Point(246, 26);
+            this.txtBoxSearch.MaxLength = 50;
+            this.txtBoxSearch.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtBoxSearch.Multiline = false;
+            this.txtBoxSearch.Name = "txtBoxSearch";
+            this.txtBoxSearch.Size = new System.Drawing.Size(562, 50);
+            this.txtBoxSearch.TabIndex = 15;
+            this.txtBoxSearch.Text = "";
+            this.txtBoxSearch.TrailingIcon = null;
+            // 
+            // materialButton2
+            // 
+            this.materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton2.Depth = 0;
+            this.materialButton2.HighEmphasis = true;
+            this.materialButton2.Icon = global::AccommodationManagerApp.Properties.Resources.edit;
+            this.materialButton2.Location = new System.Drawing.Point(223, 605);
+            this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton2.Name = "materialButton2";
+            this.materialButton2.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton2.Size = new System.Drawing.Size(78, 36);
+            this.materialButton2.TabIndex = 4;
+            this.materialButton2.Text = "UPD";
+            this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton2.UseAccentColor = false;
+            this.materialButton2.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnDelete.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnDelete.Depth = 0;
+            this.btnDelete.HighEmphasis = true;
+            this.btnDelete.Icon = global::AccommodationManagerApp.Properties.Resources.delete;
+            this.btnDelete.Location = new System.Drawing.Point(140, 605);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnDelete.Size = new System.Drawing.Size(75, 36);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "DEL";
+            this.btnDelete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnDelete.UseAccentColor = false;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnAdd.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnAdd.Depth = 0;
+            this.btnAdd.HighEmphasis = true;
+            this.btnAdd.Icon = global::AccommodationManagerApp.Properties.Resources.plus1;
+            this.btnAdd.Location = new System.Drawing.Point(54, 605);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnAdd.Size = new System.Drawing.Size(78, 36);
+            this.btnAdd.TabIndex = 2;
+            this.btnAdd.Text = "ADD";
+            this.btnAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnAdd.UseAccentColor = false;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            // 
+            // btnPDF
+            // 
+            this.btnPDF.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnPDF.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnPDF.Depth = 0;
+            this.btnPDF.HighEmphasis = true;
+            this.btnPDF.Icon = global::AccommodationManagerApp.Properties.Resources.pdf;
+            this.btnPDF.Location = new System.Drawing.Point(309, 605);
+            this.btnPDF.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnPDF.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnPDF.Size = new System.Drawing.Size(77, 36);
+            this.btnPDF.TabIndex = 1;
+            this.btnPDF.Text = "PDF";
+            this.btnPDF.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnPDF.UseAccentColor = false;
+            this.btnPDF.UseVisualStyleBackColor = true;
+            this.btnPDF.Click += new System.EventHandler(this.BtnPDF_Click);
+            // 
+            // lstViewBill
+            // 
+            this.lstViewBill.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.lstViewBill.AutoSizeTable = false;
+            this.lstViewBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lstViewBill.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstViewBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.id,
+            this.rent,
+            this.water,
+            this.electricity,
+            this.total,
+            this.room,
+            this.date});
+            this.lstViewBill.Depth = 0;
+            this.lstViewBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lstViewBill.FullRowSelect = true;
+            this.lstViewBill.HideSelection = false;
+            this.lstViewBill.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lstViewBill.Location = new System.Drawing.Point(3, 100);
+            this.lstViewBill.MinimumSize = new System.Drawing.Size(200, 100);
+            this.lstViewBill.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.lstViewBill.MouseState = MaterialSkin.MouseState.OUT;
+            this.lstViewBill.Name = "lstViewBill";
+            this.lstViewBill.OwnerDraw = true;
+            this.lstViewBill.ShowGroups = false;
+            this.lstViewBill.Size = new System.Drawing.Size(983, 474);
+            this.lstViewBill.TabIndex = 0;
+            this.lstViewBill.UseCompatibleStateImageBehavior = false;
+            this.lstViewBill.View = System.Windows.Forms.View.Details;
+            this.lstViewBill.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LstViewBill_ItemSelectionChanged);
+            // 
+            // id
+            // 
+            this.id.Text = "ID";
+            this.id.Width = 50;
+            // 
+            // rent
+            // 
+            this.rent.Text = "Rent";
+            this.rent.Width = 150;
+            // 
+            // water
+            // 
+            this.water.Text = "Water";
+            this.water.Width = 150;
+            // 
+            // electricity
+            // 
+            this.electricity.Text = "Electricity";
+            this.electricity.Width = 150;
+            // 
+            // total
+            // 
+            this.total.Text = "Total";
+            this.total.Width = 150;
+            // 
+            // room
+            // 
+            this.room.Text = "Room ID";
+            this.room.Width = 150;
+            // 
+            // date
+            // 
+            this.date.Text = "Date";
+            this.date.Width = 100;
+            // 
             // btnLogOut
             // 
             this.btnLogOut.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogOut.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnLogOut.Depth = 0;
             this.btnLogOut.HighEmphasis = true;
-            this.btnLogOut.Icon = null;
-            this.btnLogOut.Location = new System.Drawing.Point(834, 25);
+            this.btnLogOut.Icon = global::AccommodationManagerApp.Properties.Resources.logout;
+            this.btnLogOut.Location = new System.Drawing.Point(798, 25);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnLogOut.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnLogOut.Size = new System.Drawing.Size(82, 36);
+            this.btnLogOut.Size = new System.Drawing.Size(110, 36);
             this.btnLogOut.TabIndex = 17;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnLogOut.UseAccentColor = true;
+            this.btnLogOut.UseAccentColor = false;
             this.btnLogOut.UseVisualStyleBackColor = true;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            this.btnLogOut.Click += new System.EventHandler(this.BtnLogOut_Click);
             // 
-            // btnLogOut
+            // mySqlConnection1
             // 
-            this.btnLogOut.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnLogOut.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnLogOut.Depth = 0;
-            this.btnLogOut.HighEmphasis = true;
-            this.btnLogOut.Icon = null;
-            this.btnLogOut.Location = new System.Drawing.Point(834, 25);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnLogOut.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnLogOut.Size = new System.Drawing.Size(82, 36);
-            this.btnLogOut.TabIndex = 17;
-            this.btnLogOut.Text = "Log Out";
-            this.btnLogOut.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnLogOut.UseAccentColor = true;
-            this.btnLogOut.UseVisualStyleBackColor = true;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            this.mySqlConnection1.ProvideClientCertificatesCallback = null;
+            this.mySqlConnection1.ProvidePasswordCallback = null;
+            this.mySqlConnection1.RemoteCertificateValidationCallback = null;
             // 
             // MainForm
             // 
@@ -1180,12 +1435,13 @@
             this.Padding = new System.Windows.Forms.Padding(3, 80, 3, 4);
             this.Sizable = false;
             this.Text = "MainForm";
-            this.tabPageInvoices.ResumeLayout(false);
             this.tabPageRoom.ResumeLayout(false);
             this.tabPageRoom.PerformLayout();
             this.tabPageBuilding.ResumeLayout(false);
             this.tabPageBuilding.PerformLayout();
             this.materialTabControl.ResumeLayout(false);
+            this.tabPageBills.ResumeLayout(false);
+            this.tabPageBills.PerformLayout();
             this.tabPageVehicle.ResumeLayout(false);
             this.tabPageVehicle.PerformLayout();
             this.ResumeLayout(false);
@@ -1199,8 +1455,6 @@
         private System.Windows.Forms.ImageList drawerImageList;
         private System.Windows.Forms.TabPage tabPageConfiguration;
         private System.Windows.Forms.TabPage tabPageSystemUsers;
-        private System.Windows.Forms.TabPage tabPageInvoices;
-        private System.Windows.Forms.Button exportPdfButton;
         private System.Windows.Forms.TabPage tabPageTenants;
         private System.Windows.Forms.TabPage tabPageRoom;
         private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
@@ -1245,6 +1499,25 @@
         private MaterialSkin.Controls.MaterialTextBox materialTextBox2;
         private MaterialSkin.Controls.MaterialFloatingActionButton buttonReloadBuilding;
         private MaterialSkin.Controls.MaterialButton btnLogOut;
+        private System.Windows.Forms.TabPage tabPageBills;
+        private MaterialSkin.Controls.MaterialListView lstViewBill;
+        private MySqlConnector.MySqlConnection mySqlConnection1;
+        private System.Windows.Forms.ColumnHeader id;
+        private System.Windows.Forms.ColumnHeader rent;
+        private System.Windows.Forms.ColumnHeader water;
+        private System.Windows.Forms.ColumnHeader electricity;
+        private System.Windows.Forms.ColumnHeader total;
+        private System.Windows.Forms.ColumnHeader room;
+        private System.Windows.Forms.ColumnHeader date;
+        private MaterialSkin.Controls.MaterialButton btnPDF;
+        private MaterialSkin.Controls.MaterialButton btnAdd;
+        private MaterialSkin.Controls.MaterialButton materialButton2;
+        private MaterialSkin.Controls.MaterialButton btnDelete;
+        private MaterialSkin.Controls.MaterialButton btnSearch;
+        private MaterialSkin.Controls.MaterialTextBox txtBoxSearch;
+        private MaterialSkin.Controls.MaterialLabel materialLabel12;
+        private MaterialSkin.Controls.MaterialComboBox materialComboBox2;
+        private MaterialSkin.Controls.MaterialComboBox cmbboxCatg;
         private System.Windows.Forms.TabPage tabPageVehicle;
         private MaterialSkin.Controls.MaterialLabel materialLabel11;
         private MaterialSkin.Controls.MaterialListView ListViewVehicle;
@@ -1267,6 +1540,5 @@
         private MaterialSkin.Controls.MaterialLabel labelVehicleRoom;
         private MaterialSkin.Controls.MaterialLabel materialLabel14;
         private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton1;
-        private MaterialSkin.Controls.MaterialButton btnLogOut;
     }
 }

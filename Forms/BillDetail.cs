@@ -1,25 +1,32 @@
-﻿using PdfSharp.Drawing;
-using PdfSharp.Pdf;
+﻿using AccommodationManagerApp.Model;
+using AccommodationManagerApp.Service;
+using PdfSharp.Drawing;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing.Printing;
-using iTextSharp.text.pdf;
-using iTextSharp.text;
-using MaterialSkin.Controls;
-using MaterialSkin;
 
-namespace AccommodationManagerApp.Forms {
+namespace AccommodationManagerApp.Forms
+{
     public partial class BillDetail : BaseForm {
-        public BillDetail() {
+        private readonly BillService _billService;
+        private readonly Bill bill;
+
+        public BillDetail(int id) {
             InitializeComponent();
+            _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
+            bill = _billService.GetById(id);
+            LoadBillDetail();
+        }
+
+        private void LoadBillDetail()
+        {
+            lblRoomId.Text = bill.RoomId.ToString();
+            lblDate.Text = bill.CreatedAt.ToString();
+            lblRent.Text = bill.RentBill.ToString();
+            lblWater.Text = bill.WaterBill.ToString();
+            lblElectric.Text = bill.ElectricityBill.ToString();
+            lblTotal.Text = bill.TotalBill.ToString();
         }
 
         private void btn_ExportPDF_Click_1(object sender, EventArgs e) {
@@ -79,7 +86,5 @@ namespace AccommodationManagerApp.Forms {
                 }
             }
         }
-
-        private void PanelHD_Paint(object sender, PaintEventArgs e) { }
     }
 }

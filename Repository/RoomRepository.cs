@@ -4,9 +4,7 @@ using AccommodationManagerApp.Model;
 
 namespace AccommodationManagerApp.Repository {
     public class RoomRepository : Repository<Room> {
-        public RoomRepository(AccommodationManagerAppContext context) : base(context)
-        {
-        }
+        public RoomRepository(AccommodationManagerAppContext context) : base(context) {}
 
         public Room GetByIdWithBuilding(int id) {
             return Context.Set<Room>().Include("Building").FirstOrDefault(r => r.Id == id);

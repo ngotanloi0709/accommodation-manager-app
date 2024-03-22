@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using AccommodationManagerApp.Migrations;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Util;
 
-namespace AccommodationManagerApp.Repository {
+namespace AccommodationManagerApp.Repository
+{
     public abstract class Repository<T> where T : class {
         protected readonly DbContext Context;
 
@@ -49,8 +49,8 @@ namespace AccommodationManagerApp.Repository {
         public DbSet<Building> Buildings { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<InitLog> InitLogs { get; set; }
-
-
+        public DbSet<Bill> Bills { get; set; }
+        
         public AccommodationManagerAppContext() : base("name=MySqlConnectionString") {
             Database.SetInitializer(
                 new MigrateDatabaseToLatestVersion<AccommodationManagerAppContext, Configuration>());
