@@ -31,6 +31,7 @@ namespace AccommodationManagerApp.Forms
             if (_room != null)
             {
                 SetUpData(_room);
+                Text = "Chỉnh sửa thông tin căn hộ";
             }
         }
 
@@ -77,12 +78,6 @@ namespace AccommodationManagerApp.Forms
             int? buildingId = comboBoxRoomBuilding.SelectedItem.ToString().Equals("None") ? null : _buildingService.GetIdByName(comboBoxRoomBuilding.SelectedItem.ToString());
             int? userId = comboBoxRoomTenant.SelectedItem.ToString().Equals("None") ? null : _userService.GetIdByName(comboBoxRoomTenant.SelectedItem.ToString());
             RoomStatus status = comboBoxRoomStatus.SelectedItem.ToString().ToRoomStatus();
-
-            if (_room == null && _roomService.IsRoomNumberExists(roomNumber))
-            {
-                new ToastForm("Số nhà đã tồn tại. Vui lòng nhập số nhà khác.", true).Show();
-                return;
-            }
 
             if (_room == null)
             {

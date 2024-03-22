@@ -59,5 +59,10 @@ namespace AccommodationManagerApp.Forms
                 Close();
             }
         }
+
+        private void buttonEditTenantPassword_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

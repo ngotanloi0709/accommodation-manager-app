@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
@@ -31,6 +32,29 @@ namespace AccommodationManagerApp.Service {
             }
 
             return null;
+        }
+
+        public bool IsEmailExists(string text) {
+            return _userRepository.GetByEmail(text) != null;
+        }
+
+        public void Add(User user) {
+            _userRepository.Add(user);
+        }
+
+        public void Update(int userId, User user) {
+            _userRepository.Update(userId, user);
+        }
+
+        public bool Delete(int userId) {
+            try {
+                _userRepository.Delete(userId);
+                return true;
+            }
+            catch (Exception e) {
+                Console.WriteLine(e);
+                return false;
+            }
         }
     }
 }

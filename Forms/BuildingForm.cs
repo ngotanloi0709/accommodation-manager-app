@@ -15,6 +15,7 @@ namespace AccommodationManagerApp.Forms {
 
             if (_building != null) {
                 SetUpData();
+                Text = "Chỉnh sửa thông tin toà chung cư";
             }
         }
 

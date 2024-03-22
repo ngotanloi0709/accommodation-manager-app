@@ -25,6 +25,7 @@ namespace AccommodationManagerApp.Forms
             if(_vehicle != null)
             {
                 setUpData(_vehicle);
+                Text = "Chỉnh sửa thông tin phương tiện";
             }
         }
 

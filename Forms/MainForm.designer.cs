@@ -37,6 +37,10 @@
             this.tabPageInvoices = new System.Windows.Forms.TabPage();
             this.exportPdfButton = new System.Windows.Forms.Button();
             this.tabPageTenants = new System.Windows.Forms.TabPage();
+            this.buttonEditTenantPassword = new MaterialSkin.Controls.MaterialButton();
+            this.buttonDeleteTenant = new MaterialSkin.Controls.MaterialButton();
+            this.buttonEditTenant = new MaterialSkin.Controls.MaterialButton();
+            this.buttonAddTenant = new MaterialSkin.Controls.MaterialButton();
             this.materialButton3 = new MaterialSkin.Controls.MaterialButton();
             this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
@@ -128,6 +132,7 @@
             this.columnRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             this.btnLogOut = new MaterialSkin.Controls.MaterialButton();
+            this.materialButton4 = new MaterialSkin.Controls.MaterialButton();
             this.tabPageInvoices.SuspendLayout();
             this.tabPageTenants.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserImage)).BeginInit();
@@ -195,6 +200,11 @@
             // tabPageTenants
             // 
             this.tabPageTenants.BackColor = System.Drawing.Color.White;
+            this.tabPageTenants.Controls.Add(this.materialButton4);
+            this.tabPageTenants.Controls.Add(this.buttonEditTenantPassword);
+            this.tabPageTenants.Controls.Add(this.buttonDeleteTenant);
+            this.tabPageTenants.Controls.Add(this.buttonEditTenant);
+            this.tabPageTenants.Controls.Add(this.buttonAddTenant);
             this.tabPageTenants.Controls.Add(this.materialButton3);
             this.tabPageTenants.Controls.Add(this.materialButton2);
             this.tabPageTenants.Controls.Add(this.materialButton1);
@@ -222,6 +232,90 @@
             this.tabPageTenants.Size = new System.Drawing.Size(986, 673);
             this.tabPageTenants.TabIndex = 2;
             this.tabPageTenants.Text = "Quản lý người thuê";
+            // 
+            // buttonEditTenantPassword
+            // 
+            this.buttonEditTenantPassword.AutoSize = false;
+            this.buttonEditTenantPassword.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonEditTenantPassword.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonEditTenantPassword.Depth = 0;
+            this.buttonEditTenantPassword.HighEmphasis = true;
+            this.buttonEditTenantPassword.Icon = global::AccommodationManagerApp.Properties.Resources.password;
+            this.buttonEditTenantPassword.Location = new System.Drawing.Point(618, 127);
+            this.buttonEditTenantPassword.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonEditTenantPassword.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonEditTenantPassword.Name = "buttonEditTenantPassword";
+            this.buttonEditTenantPassword.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonEditTenantPassword.Size = new System.Drawing.Size(295, 36);
+            this.buttonEditTenantPassword.TabIndex = 38;
+            this.buttonEditTenantPassword.Text = "Đổi mật khẩu cho người thuê";
+            this.buttonEditTenantPassword.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonEditTenantPassword.UseAccentColor = false;
+            this.buttonEditTenantPassword.UseVisualStyleBackColor = true;
+            this.buttonEditTenantPassword.Click += new System.EventHandler(this.buttonEditTenantPassword_Click);
+            // 
+            // buttonDeleteTenant
+            // 
+            this.buttonDeleteTenant.AutoSize = false;
+            this.buttonDeleteTenant.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonDeleteTenant.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonDeleteTenant.Depth = 0;
+            this.buttonDeleteTenant.HighEmphasis = true;
+            this.buttonDeleteTenant.Icon = global::AccommodationManagerApp.Properties.Resources.delete;
+            this.buttonDeleteTenant.Location = new System.Drawing.Point(618, 225);
+            this.buttonDeleteTenant.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonDeleteTenant.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonDeleteTenant.Name = "buttonDeleteTenant";
+            this.buttonDeleteTenant.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonDeleteTenant.Size = new System.Drawing.Size(295, 36);
+            this.buttonDeleteTenant.TabIndex = 37;
+            this.buttonDeleteTenant.Text = "Xoá thông tin người thuê";
+            this.buttonDeleteTenant.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonDeleteTenant.UseAccentColor = false;
+            this.buttonDeleteTenant.UseVisualStyleBackColor = true;
+            this.buttonDeleteTenant.Click += new System.EventHandler(this.buttonDeleteTenant_Click);
+            // 
+            // buttonEditTenant
+            // 
+            this.buttonEditTenant.AutoSize = false;
+            this.buttonEditTenant.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonEditTenant.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonEditTenant.Depth = 0;
+            this.buttonEditTenant.HighEmphasis = true;
+            this.buttonEditTenant.Icon = global::AccommodationManagerApp.Properties.Resources.edit;
+            this.buttonEditTenant.Location = new System.Drawing.Point(618, 175);
+            this.buttonEditTenant.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonEditTenant.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonEditTenant.Name = "buttonEditTenant";
+            this.buttonEditTenant.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonEditTenant.Size = new System.Drawing.Size(295, 36);
+            this.buttonEditTenant.TabIndex = 36;
+            this.buttonEditTenant.Text = "Chỉnh sửa thông tin người thuê";
+            this.buttonEditTenant.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonEditTenant.UseAccentColor = false;
+            this.buttonEditTenant.UseVisualStyleBackColor = true;
+            this.buttonEditTenant.Click += new System.EventHandler(this.buttonEditTenant_Click);
+            // 
+            // buttonAddTenant
+            // 
+            this.buttonAddTenant.AutoSize = false;
+            this.buttonAddTenant.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonAddTenant.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonAddTenant.Depth = 0;
+            this.buttonAddTenant.HighEmphasis = true;
+            this.buttonAddTenant.Icon = global::AccommodationManagerApp.Properties.Resources.plus;
+            this.buttonAddTenant.Location = new System.Drawing.Point(618, 31);
+            this.buttonAddTenant.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonAddTenant.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonAddTenant.Name = "buttonAddTenant";
+            this.buttonAddTenant.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonAddTenant.Size = new System.Drawing.Size(295, 36);
+            this.buttonAddTenant.TabIndex = 35;
+            this.buttonAddTenant.Text = "Thêm người thuê mới";
+            this.buttonAddTenant.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonAddTenant.UseAccentColor = false;
+            this.buttonAddTenant.UseVisualStyleBackColor = true;
+            this.buttonAddTenant.Click += new System.EventHandler(this.buttonAddTenant_Click);
             // 
             // materialButton3
             // 
@@ -289,7 +383,7 @@
             this.materialLabel15.Depth = 0;
             this.materialLabel15.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel15.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            this.materialLabel15.Location = new System.Drawing.Point(584, 323);
+            this.materialLabel15.Location = new System.Drawing.Point(602, 321);
             this.materialLabel15.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel15.Name = "materialLabel15";
             this.materialLabel15.Size = new System.Drawing.Size(311, 29);
@@ -345,12 +439,12 @@
             this.labelUserIdentityNumber.Depth = 0;
             this.labelUserIdentityNumber.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelUserIdentityNumber.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelUserIdentityNumber.Location = new System.Drawing.Point(421, 137);
+            this.labelUserIdentityNumber.Location = new System.Drawing.Point(414, 187);
             this.labelUserIdentityNumber.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelUserIdentityNumber.Name = "labelUserIdentityNumber";
-            this.labelUserIdentityNumber.Size = new System.Drawing.Size(217, 24);
+            this.labelUserIdentityNumber.Size = new System.Drawing.Size(163, 24);
             this.labelUserIdentityNumber.TabIndex = 27;
-            this.labelUserIdentityNumber.Text = "________________________";
+            this.labelUserIdentityNumber.Text = "__________________";
             // 
             // materialLabel32
             // 
@@ -358,7 +452,7 @@
             this.materialLabel32.Depth = 0;
             this.materialLabel32.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel32.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel32.Location = new System.Drawing.Point(227, 137);
+            this.materialLabel32.Location = new System.Drawing.Point(227, 187);
             this.materialLabel32.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel32.Name = "materialLabel32";
             this.materialLabel32.Size = new System.Drawing.Size(181, 24);
@@ -371,7 +465,7 @@
             this.labelUserPhone.Depth = 0;
             this.labelUserPhone.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelUserPhone.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelUserPhone.Location = new System.Drawing.Point(698, 97);
+            this.labelUserPhone.Location = new System.Drawing.Point(358, 142);
             this.labelUserPhone.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelUserPhone.Name = "labelUserPhone";
             this.labelUserPhone.Size = new System.Drawing.Size(217, 24);
@@ -384,7 +478,7 @@
             this.materialLabel30.Depth = 0;
             this.materialLabel30.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel30.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel30.Location = new System.Drawing.Point(569, 97);
+            this.materialLabel30.Location = new System.Drawing.Point(227, 142);
             this.materialLabel30.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel30.Name = "materialLabel30";
             this.materialLabel30.Size = new System.Drawing.Size(123, 24);
@@ -397,7 +491,7 @@
             this.labelUserName.Depth = 0;
             this.labelUserName.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelUserName.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelUserName.Location = new System.Drawing.Point(333, 97);
+            this.labelUserName.Location = new System.Drawing.Point(358, 97);
             this.labelUserName.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelUserName.Name = "labelUserName";
             this.labelUserName.Size = new System.Drawing.Size(217, 24);
@@ -423,7 +517,7 @@
             this.labelUserDateOfBirth.Depth = 0;
             this.labelUserDateOfBirth.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelUserDateOfBirth.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelUserDateOfBirth.Location = new System.Drawing.Point(532, 178);
+            this.labelUserDateOfBirth.Location = new System.Drawing.Point(358, 229);
             this.labelUserDateOfBirth.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelUserDateOfBirth.Name = "labelUserDateOfBirth";
             this.labelUserDateOfBirth.Size = new System.Drawing.Size(217, 24);
@@ -436,12 +530,12 @@
             this.labelUserSex.Depth = 0;
             this.labelUserSex.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelUserSex.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelUserSex.Location = new System.Drawing.Point(333, 178);
+            this.labelUserSex.Location = new System.Drawing.Point(358, 321);
             this.labelUserSex.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelUserSex.Name = "labelUserSex";
-            this.labelUserSex.Size = new System.Drawing.Size(55, 24);
+            this.labelUserSex.Size = new System.Drawing.Size(217, 24);
             this.labelUserSex.TabIndex = 19;
-            this.labelUserSex.Text = "______";
+            this.labelUserSex.Text = "________________________";
             // 
             // labelUserEmail
             // 
@@ -449,7 +543,7 @@
             this.labelUserEmail.Depth = 0;
             this.labelUserEmail.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelUserEmail.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelUserEmail.Location = new System.Drawing.Point(333, 223);
+            this.labelUserEmail.Location = new System.Drawing.Point(358, 273);
             this.labelUserEmail.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelUserEmail.Name = "labelUserEmail";
             this.labelUserEmail.Size = new System.Drawing.Size(217, 24);
@@ -462,7 +556,7 @@
             this.materialLabel25.Depth = 0;
             this.materialLabel25.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel25.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel25.Location = new System.Drawing.Point(421, 178);
+            this.materialLabel25.Location = new System.Drawing.Point(228, 229);
             this.materialLabel25.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel25.Name = "materialLabel25";
             this.materialLabel25.Size = new System.Drawing.Size(94, 24);
@@ -475,7 +569,7 @@
             this.materialLabel27.Depth = 0;
             this.materialLabel27.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel27.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel27.Location = new System.Drawing.Point(228, 178);
+            this.materialLabel27.Location = new System.Drawing.Point(227, 321);
             this.materialLabel27.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel27.Name = "materialLabel27";
             this.materialLabel27.Size = new System.Drawing.Size(81, 24);
@@ -488,7 +582,7 @@
             this.materialLabel28.Depth = 0;
             this.materialLabel28.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel28.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel28.Location = new System.Drawing.Point(228, 223);
+            this.materialLabel28.Location = new System.Drawing.Point(228, 273);
             this.materialLabel28.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel28.Name = "materialLabel28";
             this.materialLabel28.Size = new System.Drawing.Size(55, 24);
@@ -521,13 +615,13 @@
             this.ListViewUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.ListViewUser.FullRowSelect = true;
             this.ListViewUser.HideSelection = false;
-            this.ListViewUser.Location = new System.Drawing.Point(-3, 371);
+            this.ListViewUser.Location = new System.Drawing.Point(-3, 357);
             this.ListViewUser.MinimumSize = new System.Drawing.Size(200, 100);
             this.ListViewUser.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ListViewUser.MouseState = MaterialSkin.MouseState.OUT;
             this.ListViewUser.Name = "ListViewUser";
             this.ListViewUser.OwnerDraw = true;
-            this.ListViewUser.Size = new System.Drawing.Size(482, 302);
+            this.ListViewUser.Size = new System.Drawing.Size(482, 316);
             this.ListViewUser.TabIndex = 9;
             this.ListViewUser.UseCompatibleStateImageBehavior = false;
             this.ListViewUser.View = System.Windows.Forms.View.Details;
@@ -1529,6 +1623,26 @@
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
+            // materialButton4
+            // 
+            this.materialButton4.AutoSize = false;
+            this.materialButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton4.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton4.Depth = 0;
+            this.materialButton4.HighEmphasis = true;
+            this.materialButton4.Icon = global::AccommodationManagerApp.Properties.Resources.user_no_color;
+            this.materialButton4.Location = new System.Drawing.Point(618, 79);
+            this.materialButton4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton4.Name = "materialButton4";
+            this.materialButton4.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton4.Size = new System.Drawing.Size(295, 36);
+            this.materialButton4.TabIndex = 39;
+            this.materialButton4.Text = "Đổi ảnh đại diện cho người thuê";
+            this.materialButton4.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton4.UseAccentColor = false;
+            this.materialButton4.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1663,5 +1777,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private MaterialSkin.Controls.MaterialButton materialButton3;
         private MaterialSkin.Controls.MaterialButton materialButton2;
+        private MaterialSkin.Controls.MaterialButton buttonDeleteTenant;
+        private MaterialSkin.Controls.MaterialButton buttonEditTenant;
+        private MaterialSkin.Controls.MaterialButton buttonAddTenant;
+        private MaterialSkin.Controls.MaterialButton buttonEditTenantPassword;
+        private MaterialSkin.Controls.MaterialButton materialButton4;
     }
 }

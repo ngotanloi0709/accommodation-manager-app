@@ -124,6 +124,7 @@ namespace AccommodationManagerApp.Forms {
         private void BuildingForeignInformationReload() {
             LoadBuildingData();
             LoadRoomData();
+            LoadUserData();
         }
         
         private void buttonReloadBuilding_Click(object sender, System.EventArgs e)
