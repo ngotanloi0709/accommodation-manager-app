@@ -1,5 +1,4 @@
-﻿using System.Runtime.Serialization;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Properties;
 
@@ -10,8 +9,8 @@ namespace AccommodationManagerApp.Forms {
             Buildings = _buildingService.GetAll();
 
             foreach (var building in Buildings) {
-                ListViewItem item = new ListViewItem(building.Id.ToString());
-                item.SubItems.Add(building.Name);
+                ListViewItem item = new ListViewItem(string.IsNullOrEmpty(building.Name) ? Resources.NullData : building.Name);
+                item.SubItems.Add(string.IsNullOrEmpty(building.Address) ? Resources.NullData : building.Address);
                 item.SubItems.Add(building.CreatedAt.ToString("dd/MM/yyyy"));
                 ListViewBuilding.Items.Add(item);
             }
@@ -106,8 +105,7 @@ namespace AccommodationManagerApp.Forms {
             if (ListViewBuilding.SelectedItems.Count > 0) {
                 int index = ListViewBuilding.SelectedItems[0].Index;
                 if (index < Buildings.Count) {
-                    Building building = Buildings[index];
-                    return building;
+                    return Buildings[index];
                 }
             }
             
@@ -126,6 +124,7 @@ namespace AccommodationManagerApp.Forms {
         private void BuildingForeignInformationReload() {
             LoadBuildingData();
             LoadRoomData();
+            LoadUserData();
         }
         
         private void buttonReloadBuilding_Click(object sender, System.EventArgs e)

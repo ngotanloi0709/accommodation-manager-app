@@ -11,23 +11,29 @@ namespace AccommodationManagerApp.Forms {
         private readonly BillService _billService;
         private readonly AuthenticationService _authenticationService;
         private readonly VehicleService _vehicleService;
+        private readonly UserService _userService;
         private List<Bill> Bills { get; set; }
         private List<Building> Buildings { get; set; }
         private List<Room> Rooms { get; set; }
 
         private List<Vehicle> Vehicles { get; set; }
-        public MainForm() {
+        private List<User> Users { get; set; }
+        public MainForm()
+        {
             _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
             _buildingService = ServiceLocator.ServiceProvider.GetService(typeof(BuildingService)) as BuildingService;
             _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
             _vehicleService = ServiceLocator.ServiceProvider.GetService(typeof(VehicleService)) as VehicleService;
             _authenticationService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
+            _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
             InitializeComponent();
             LoadData();
 
             ListViewBuilding.GridLines = true;
             ListViewRoom.GridLines = true;
             ListViewVehicle.GridLines = true;
+            ListViewUser.GridLines = true;
+            ListViewUserRentList.GridLines = true;
             lstViewBill.GridLines = true;
         }
 
@@ -36,6 +42,7 @@ namespace AccommodationManagerApp.Forms {
             LoadBuildingData();
             LoadBillData();
             LoadVehicleData();
+            LoadUserData();
         }
         private void BtnLogOut_Click(object sender, System.EventArgs e)
         {

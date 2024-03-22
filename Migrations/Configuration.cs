@@ -19,6 +19,7 @@ namespace AccommodationManagerApp.Migrations {
             DeleteAllTriggers(context);
             CreateBuildingDeleteTrigger(context);
             CreateRoomDeleteTrigger(context);
+            CreateUserDeleteTrigger(context);
             
             if (!context.Users.Any())
             {
@@ -79,6 +80,26 @@ namespace AccommodationManagerApp.Migrations {
                     ";
                 context.Database.ExecuteSqlCommand(createTriggerSql);
                 Console.WriteLine(@"Created trigger SetNullOnRoomDelete");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+        
+        private void CreateUserDeleteTrigger(DbContext context) {
+            try
+            {
+                string createTriggerSql = @"
+                    CREATE TRIGGER SetNullOnUserDelete
+                    AFTER DELETE ON users
+                    FOR EACH ROW
+                    BEGIN
+                        UPDATE rooms SET UserId = NULL WHERE UserId = OLD.Id;
+                    END;
+                    ";
+                context.Database.ExecuteSqlCommand(createTriggerSql);
+                Console.WriteLine(@"Created trigger SetNullOnUserDelete");
             }
             catch (Exception e)
             {

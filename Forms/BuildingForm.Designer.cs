@@ -60,6 +60,7 @@ namespace AccommodationManagerApp.Forms {
             this.textBoxName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxName.Depth = 0;
             this.textBoxName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxName.Hint = "Nhập tên của toà chung cư";
             this.textBoxName.LeadingIcon = null;
             this.textBoxName.Location = new System.Drawing.Point(165, 79);
             this.textBoxName.MaxLength = 50;
@@ -77,6 +78,7 @@ namespace AccommodationManagerApp.Forms {
             this.textBoxAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxAddress.Depth = 0;
             this.textBoxAddress.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxAddress.Hint = "Nhập địa chỉ của toà chung cư";
             this.textBoxAddress.LeadingIcon = null;
             this.textBoxAddress.Location = new System.Drawing.Point(165, 152);
             this.textBoxAddress.MaxLength = 50;
@@ -116,15 +118,16 @@ namespace AccommodationManagerApp.Forms {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(518, 291);
+            this.ClientSize = new System.Drawing.Size(532, 291);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.textBoxAddress);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.buttonSave);
+            this.MaximumSize = new System.Drawing.Size(532, 291);
             this.Name = "BuildingForm";
             this.Sizable = false;
-            this.Text = "Chỉnh sửa thông tin toà chung cư";
+            this.Text = "Thêm thông tin toà chung cư";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BuildingForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
