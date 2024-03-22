@@ -240,6 +240,9 @@
     <Compile Include="Forms\MainForm.Room.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\MainForm.User.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\MainForm.Vehicle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +263,12 @@
     </Compile>
     <Compile Include="Forms\ToastForm.Designer.cs">
       <DependentUpon>ToastForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\VehicleForm.cs">
       <SubType>Form</SubType>
@@ -351,6 +360,7 @@
     <None Include="Resources\download.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\user.png" />
     <None Include="Resources\save.png" />
     <None Include="Resources\tick.png" />
     <None Include="Resources\plus.png" />

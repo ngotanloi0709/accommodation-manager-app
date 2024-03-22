@@ -9,19 +9,14 @@ namespace AccommodationManagerApp.Model {
         public int Id { get; set; }
         public string RoomNumber { get; set; }
         public int? BuildingId { get; set; }
-        [ForeignKey("BuildingId")]
-        public Building Building { get; set; }
+        [ForeignKey("BuildingId")] public Building Building { get; set; }
         public int? UserId { get; set; }
-        [ForeignKey("UserId")]
-        public User User { get; set; }
-        [EnumDataType(typeof(RoomStatus))]
-        public RoomStatus Status { get; set; } = RoomStatus.Empty;
+        [ForeignKey("UserId")] public User User { get; set; }
+        [EnumDataType(typeof(RoomStatus))] public RoomStatus Status { get; set; } = RoomStatus.Empty;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
-        public Room() 
-        {
-        }
-        
+        public Room() { }
+
         public Room(string roomNumber, int? buildingId, int? userId, RoomStatus status) {
             RoomNumber = roomNumber;
             BuildingId = buildingId;

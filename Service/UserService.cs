@@ -18,6 +18,10 @@ namespace AccommodationManagerApp.Service {
         public List<User> GetAll() {
             return _userRepository.GetAll();
         }
+        
+        public List<User> GetAllWithRoom() {
+            return _userRepository.GetAllWithRoom();
+        }
 
         public int? GetIdByName(string name) {
             User user = _userRepository.GetByName(name);
