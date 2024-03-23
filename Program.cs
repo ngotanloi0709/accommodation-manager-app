@@ -5,9 +5,6 @@ using AccommodationManagerApp.Forms;
 using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 using AccommodationManagerApp.Util;
-using AccommodationManagerApp.Model;
-using System.Runtime.Remoting.Contexts;
-using System.Collections.Generic;
 
 namespace AccommodationManagerApp {
     internal static class Program {

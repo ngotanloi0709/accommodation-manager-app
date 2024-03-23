@@ -198,6 +198,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AddBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddBill.Designer.cs">
+      <DependentUpon>AddBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BillForm.Designer.cs">
+      <DependentUpon>BillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UpdateBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UpdateBill.Designer.cs">
+      <DependentUpon>UpdateBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,8 +345,17 @@
     <Compile Include="Util\InitLog.cs" />
     <Compile Include="Util\PasswordHelper.cs" />
     <Compile Include="Util\RoomStatusExtensions.cs" />
+    <EmbeddedResource Include="Forms\AddBill.resx">
+      <DependentUpon>AddBill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\BillDetail.resx">
       <DependentUpon>BillDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BillForm.resx">
+      <DependentUpon>BillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UpdateBill.resx">
+      <DependentUpon>UpdateBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BuildingForm.resx">
       <DependentUpon>BuildingForm.cs</DependentUpon>
@@ -406,6 +433,10 @@
     <None Include="Resources\pdf.png" />
     <None Include="Resources\black_plus.png" />
     <None Include="Resources\plus1.png" />
+    <None Include="Resources\icon_black.png" />
+    <None Include="Resources\icon_black1.png" />
+    <None Include="Resources\icon.png" />
+    <None Include="Resources\close.png" />
     <Content Include="Resources\Roboto-Medium.ttf" />
     <Content Include="Resources\Roboto-Regular.ttf" />
     <None Include="Resources\signature.jpg" />

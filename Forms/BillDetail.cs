@@ -1,4 +1,4 @@
-﻿using AccommodationManagerApp.Model;
+﻿using BillModel = AccommodationManagerApp.Model.Bill;
 using AccommodationManagerApp.Service;
 using PdfSharp.Drawing;
 using System;
@@ -10,8 +10,7 @@ namespace AccommodationManagerApp.Forms
 {
     public partial class BillDetail : BaseForm {
         private readonly BillService _billService;
-        private readonly Bill bill;
-
+        private BillModel bill = null;
         public BillDetail(int id) {
             InitializeComponent();
             _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;

@@ -2,7 +2,8 @@
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Properties;
 
-namespace AccommodationManagerApp.Forms {
+namespace AccommodationManagerApp.Forms
+{
     public partial class MainForm {
         private void LoadBuildingData() {
             ListViewBuilding.Items.Clear();
