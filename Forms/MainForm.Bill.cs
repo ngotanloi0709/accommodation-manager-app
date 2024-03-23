@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using AccommodationManagerApp.Forms.Bill;
+using System.Windows.Forms;
 
 namespace AccommodationManagerApp.Forms
 {
@@ -19,6 +20,7 @@ namespace AccommodationManagerApp.Forms
                 item.SubItems.Add(bill.TotalBill.ToString());
                 item.SubItems.Add(bill.RoomId.ToString());
                 item.SubItems.Add(bill.CreatedAt.ToString());
+                item.SubItems.Add(bill.Status.ToString());
                 lstViewBill.Items.Add(item);
             }
         }
@@ -33,12 +35,54 @@ namespace AccommodationManagerApp.Forms
         {
             if (billId == 0)
             {
-                MessageBox.Show("Please select a bill to export to PDF");
+                new ToastForm("Please select a bill to export to PDF", true).Show();
                 return;
             }
 
             BillDetail billDetail = new BillDetail(billId);
             billDetail.ShowDialog();
+        }
+        private void btnAdd_Click(object sender, System.EventArgs e)
+        {
+            AddBill addBill = new AddBill();
+            addBill.ShowDialog();
+            reset();
+
+        }
+        private void btnDelete_Click(object sender, System.EventArgs e)
+        {
+            if (billId != 0)
+            {
+                if ((new ConfirmationForm("Do you want to delete this bill ?")).ShowDialog() == DialogResult.Yes)
+                {
+                    _billService.Delete(billId);
+                    reset();
+                }
+            }
+            else
+            {
+                new ToastForm("Please select bill !", true).Show();
+                return;
+            }
+        }
+        private void btnUpd_Click(object sender, System.EventArgs e)
+        {
+            if (billId != 0)
+            {
+                UpdateBill updateBill = new UpdateBill(billId);
+                updateBill.ShowDialog();
+                reset();
+            }
+            else
+            {
+                new ToastForm("Please select bill !", true).Show();
+                return;
+            }
+        }
+        private void reset()
+        {
+            billId = 0;
+            LoadBillData();
         }
     }
 }

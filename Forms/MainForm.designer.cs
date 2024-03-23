@@ -77,24 +77,6 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialTabControl = new MaterialSkin.Controls.MaterialTabControl();
-            this.tabPageBills = new System.Windows.Forms.TabPage();
-            this.materialComboBox2 = new MaterialSkin.Controls.MaterialComboBox();
-            this.cmbboxCatg = new MaterialSkin.Controls.MaterialComboBox();
-            this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
-            this.btnSearch = new MaterialSkin.Controls.MaterialButton();
-            this.txtBoxSearch = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
-            this.btnDelete = new MaterialSkin.Controls.MaterialButton();
-            this.btnAdd = new MaterialSkin.Controls.MaterialButton();
-            this.btnPDF = new MaterialSkin.Controls.MaterialButton();
-            this.lstViewBill = new MaterialSkin.Controls.MaterialListView();
-            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.rent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.water = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.electricity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.total = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageVehicle = new System.Windows.Forms.TabPage();
             this.materialFloatingActionButton1 = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.labelVehicleRoom = new MaterialSkin.Controls.MaterialLabel();
@@ -117,6 +99,25 @@
             this.columnType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
+            this.tabPageBills = new System.Windows.Forms.TabPage();
+            this.materialComboBox2 = new MaterialSkin.Controls.MaterialComboBox();
+            this.cmbboxCatg = new MaterialSkin.Controls.MaterialComboBox();
+            this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
+            this.btnSearch = new MaterialSkin.Controls.MaterialButton();
+            this.txtBoxSearch = new MaterialSkin.Controls.MaterialTextBox();
+            this.btnUpd = new MaterialSkin.Controls.MaterialButton();
+            this.btnDelete = new MaterialSkin.Controls.MaterialButton();
+            this.btnAdd = new MaterialSkin.Controls.MaterialButton();
+            this.btnPDF = new MaterialSkin.Controls.MaterialButton();
+            this.lstViewBill = new MaterialSkin.Controls.MaterialListView();
+            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.rent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.water = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.electricity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.total = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.state = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnLogOut = new MaterialSkin.Controls.MaterialButton();
             this.mySqlConnection1 = new MySqlConnector.MySqlConnection();
             this.tabPageRoom.SuspendLayout();
@@ -1124,7 +1125,7 @@
             this.tabPageBills.Controls.Add(this.materialLabel12);
             this.tabPageBills.Controls.Add(this.btnSearch);
             this.tabPageBills.Controls.Add(this.txtBoxSearch);
-            this.tabPageBills.Controls.Add(this.materialButton2);
+            this.tabPageBills.Controls.Add(this.btnUpd);
             this.tabPageBills.Controls.Add(this.btnDelete);
             this.tabPageBills.Controls.Add(this.btnAdd);
             this.tabPageBills.Controls.Add(this.btnPDF);
@@ -1199,7 +1200,7 @@
             this.materialLabel12.Depth = 0;
             this.materialLabel12.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel12.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
-            this.materialLabel12.Location = new System.Drawing.Point(669, 600);
+            this.materialLabel12.Location = new System.Drawing.Point(65, 600);
             this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel12.Name = "materialLabel12";
             this.materialLabel12.Size = new System.Drawing.Size(196, 41);
@@ -1246,24 +1247,25 @@
             this.txtBoxSearch.Text = "";
             this.txtBoxSearch.TrailingIcon = null;
             // 
-            // materialButton2
+            // btnUpd
             // 
-            this.materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton2.Depth = 0;
-            this.materialButton2.HighEmphasis = true;
-            this.materialButton2.Icon = global::AccommodationManagerApp.Properties.Resources.edit;
-            this.materialButton2.Location = new System.Drawing.Point(223, 605);
-            this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton2.Name = "materialButton2";
-            this.materialButton2.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton2.Size = new System.Drawing.Size(78, 36);
-            this.materialButton2.TabIndex = 4;
-            this.materialButton2.Text = "UPD";
-            this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton2.UseAccentColor = false;
-            this.materialButton2.UseVisualStyleBackColor = true;
+            this.btnUpd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnUpd.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnUpd.Depth = 0;
+            this.btnUpd.HighEmphasis = true;
+            this.btnUpd.Icon = global::AccommodationManagerApp.Properties.Resources.edit;
+            this.btnUpd.Location = new System.Drawing.Point(437, 605);
+            this.btnUpd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnUpd.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnUpd.Name = "btnUpd";
+            this.btnUpd.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnUpd.Size = new System.Drawing.Size(78, 36);
+            this.btnUpd.TabIndex = 4;
+            this.btnUpd.Text = "UPD";
+            this.btnUpd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnUpd.UseAccentColor = false;
+            this.btnUpd.UseVisualStyleBackColor = true;
+            this.btnUpd.Click += new System.EventHandler(this.btnUpd_Click);
             // 
             // btnDelete
             // 
@@ -1272,7 +1274,7 @@
             this.btnDelete.Depth = 0;
             this.btnDelete.HighEmphasis = true;
             this.btnDelete.Icon = global::AccommodationManagerApp.Properties.Resources.delete;
-            this.btnDelete.Location = new System.Drawing.Point(140, 605);
+            this.btnDelete.Location = new System.Drawing.Point(354, 605);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDelete.Name = "btnDelete";
@@ -1283,6 +1285,7 @@
             this.btnDelete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnDelete.UseAccentColor = false;
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -1291,7 +1294,7 @@
             this.btnAdd.Depth = 0;
             this.btnAdd.HighEmphasis = true;
             this.btnAdd.Icon = global::AccommodationManagerApp.Properties.Resources.plus1;
-            this.btnAdd.Location = new System.Drawing.Point(54, 605);
+            this.btnAdd.Location = new System.Drawing.Point(268, 605);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAdd.Name = "btnAdd";
@@ -1302,6 +1305,7 @@
             this.btnAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnAdd.UseAccentColor = false;
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnPDF
             // 
@@ -1310,7 +1314,7 @@
             this.btnPDF.Depth = 0;
             this.btnPDF.HighEmphasis = true;
             this.btnPDF.Icon = global::AccommodationManagerApp.Properties.Resources.pdf;
-            this.btnPDF.Location = new System.Drawing.Point(309, 605);
+            this.btnPDF.Location = new System.Drawing.Point(523, 605);
             this.btnPDF.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPDF.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPDF.Name = "btnPDF";
@@ -1336,7 +1340,8 @@
             this.electricity,
             this.total,
             this.room,
-            this.date});
+            this.date,
+            this.state});
             this.lstViewBill.Depth = 0;
             this.lstViewBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.lstViewBill.FullRowSelect = true;
@@ -1363,32 +1368,37 @@
             // rent
             // 
             this.rent.Text = "Rent";
-            this.rent.Width = 150;
+            this.rent.Width = 130;
             // 
             // water
             // 
             this.water.Text = "Water";
-            this.water.Width = 150;
+            this.water.Width = 130;
             // 
             // electricity
             // 
             this.electricity.Text = "Electricity";
-            this.electricity.Width = 150;
+            this.electricity.Width = 130;
             // 
             // total
             // 
             this.total.Text = "Total";
-            this.total.Width = 150;
+            this.total.Width = 130;
             // 
             // room
             // 
             this.room.Text = "Room ID";
-            this.room.Width = 150;
+            this.room.Width = 100;
             // 
             // date
             // 
             this.date.Text = "Date";
-            this.date.Width = 100;
+            this.date.Width = 130;
+            // 
+            // state
+            // 
+            this.state.Text = "State";
+            this.state.Width = 100;
             // 
             // btnLogOut
             // 
@@ -1419,7 +1429,7 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1000, 800);
@@ -1440,10 +1450,10 @@
             this.tabPageBuilding.ResumeLayout(false);
             this.tabPageBuilding.PerformLayout();
             this.materialTabControl.ResumeLayout(false);
-            this.tabPageBills.ResumeLayout(false);
-            this.tabPageBills.PerformLayout();
             this.tabPageVehicle.ResumeLayout(false);
             this.tabPageVehicle.PerformLayout();
+            this.tabPageBills.ResumeLayout(false);
+            this.tabPageBills.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1511,7 +1521,7 @@
         private System.Windows.Forms.ColumnHeader date;
         private MaterialSkin.Controls.MaterialButton btnPDF;
         private MaterialSkin.Controls.MaterialButton btnAdd;
-        private MaterialSkin.Controls.MaterialButton materialButton2;
+        private MaterialSkin.Controls.MaterialButton btnUpd;
         private MaterialSkin.Controls.MaterialButton btnDelete;
         private MaterialSkin.Controls.MaterialButton btnSearch;
         private MaterialSkin.Controls.MaterialTextBox txtBoxSearch;
@@ -1540,5 +1550,6 @@
         private MaterialSkin.Controls.MaterialLabel labelVehicleRoom;
         private MaterialSkin.Controls.MaterialLabel materialLabel14;
         private MaterialSkin.Controls.MaterialFloatingActionButton materialFloatingActionButton1;
+        private System.Windows.Forms.ColumnHeader state;
     }
 }
