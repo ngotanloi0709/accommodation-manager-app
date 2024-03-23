@@ -134,8 +134,10 @@
             this.tabPageBills = new System.Windows.Forms.TabPage();
             this.materialComboBox2 = new MaterialSkin.Controls.MaterialComboBox();
             this.cmbboxCatg = new MaterialSkin.Controls.MaterialComboBox();
+            this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
             this.btnSearch = new MaterialSkin.Controls.MaterialButton();
             this.txtBoxSearch = new MaterialSkin.Controls.MaterialTextBox();
+            this.btnUpd = new MaterialSkin.Controls.MaterialButton();
             this.btnDelete = new MaterialSkin.Controls.MaterialButton();
             this.btnAdd = new MaterialSkin.Controls.MaterialButton();
             this.btnPDF = new MaterialSkin.Controls.MaterialButton();
@@ -147,6 +149,7 @@
             this.total = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.state = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnLogOut = new MaterialSkin.Controls.MaterialButton();
             this.mySqlConnection1 = new MySqlConnector.MySqlConnection();
             this.labelCurrentUserEmail = new System.Windows.Forms.Label();
@@ -1638,7 +1641,7 @@
             this.tabPageBills.Controls.Add(this.cmbboxCatg);
             this.tabPageBills.Controls.Add(this.btnSearch);
             this.tabPageBills.Controls.Add(this.txtBoxSearch);
-            this.tabPageBills.Controls.Add(this.materialButton2);
+            this.tabPageBills.Controls.Add(this.btnUpd);
             this.tabPageBills.Controls.Add(this.btnDelete);
             this.tabPageBills.Controls.Add(this.btnAdd);
             this.tabPageBills.Controls.Add(this.btnPDF);
@@ -1747,6 +1750,26 @@
             this.txtBoxSearch.Text = "";
             this.txtBoxSearch.TrailingIcon = null;
             // 
+            // btnUpd
+            // 
+            this.btnUpd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnUpd.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnUpd.Depth = 0;
+            this.btnUpd.HighEmphasis = true;
+            this.btnUpd.Icon = global::AccommodationManagerApp.Properties.Resources.edit;
+            this.btnUpd.Location = new System.Drawing.Point(437, 605);
+            this.btnUpd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnUpd.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnUpd.Name = "btnUpd";
+            this.btnUpd.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnUpd.Size = new System.Drawing.Size(78, 36);
+            this.btnUpd.TabIndex = 4;
+            this.btnUpd.Text = "UPD";
+            this.btnUpd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnUpd.UseAccentColor = false;
+            this.btnUpd.UseVisualStyleBackColor = true;
+            this.btnUpd.Click += new System.EventHandler(this.btnUpd_Click);
+            // 
             // btnDelete
             // 
             this.btnDelete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -1754,7 +1777,7 @@
             this.btnDelete.Depth = 0;
             this.btnDelete.HighEmphasis = true;
             this.btnDelete.Icon = global::AccommodationManagerApp.Properties.Resources.delete;
-            this.btnDelete.Location = new System.Drawing.Point(140, 605);
+            this.btnDelete.Location = new System.Drawing.Point(354, 605);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDelete.Name = "btnDelete";
@@ -1765,6 +1788,7 @@
             this.btnDelete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnDelete.UseAccentColor = false;
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -1784,6 +1808,7 @@
             this.btnAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnAdd.UseAccentColor = false;
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnPDF
             // 
@@ -1792,7 +1817,7 @@
             this.btnPDF.Depth = 0;
             this.btnPDF.HighEmphasis = true;
             this.btnPDF.Icon = global::AccommodationManagerApp.Properties.Resources.pdf;
-            this.btnPDF.Location = new System.Drawing.Point(309, 605);
+            this.btnPDF.Location = new System.Drawing.Point(523, 605);
             this.btnPDF.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPDF.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPDF.Name = "btnPDF";
@@ -1818,7 +1843,8 @@
             this.electricity,
             this.total,
             this.room,
-            this.date});
+            this.date,
+            this.state});
             this.lstViewBill.Depth = 0;
             this.lstViewBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.lstViewBill.FullRowSelect = true;
@@ -1845,32 +1871,37 @@
             // rent
             // 
             this.rent.Text = "Rent";
-            this.rent.Width = 150;
+            this.rent.Width = 130;
             // 
             // water
             // 
             this.water.Text = "Water";
-            this.water.Width = 150;
+            this.water.Width = 130;
             // 
             // electricity
             // 
             this.electricity.Text = "Electricity";
-            this.electricity.Width = 150;
+            this.electricity.Width = 130;
             // 
             // total
             // 
             this.total.Text = "Total";
-            this.total.Width = 150;
+            this.total.Width = 130;
             // 
             // room
             // 
             this.room.Text = "Room ID";
-            this.room.Width = 150;
+            this.room.Width = 100;
             // 
             // date
             // 
             this.date.Text = "Date";
-            this.date.Width = 100;
+            this.date.Width = 130;
+            // 
+            // state
+            // 
+            this.state.Text = "State";
+            this.state.Width = 100;
             // 
             // btnLogOut
             // 
@@ -2030,6 +2061,7 @@
         private System.Windows.Forms.ColumnHeader date;
         private MaterialSkin.Controls.MaterialButton btnPDF;
         private MaterialSkin.Controls.MaterialButton btnAdd;
+        private MaterialSkin.Controls.MaterialButton btnUpd;
         private MaterialSkin.Controls.MaterialButton btnDelete;
         private MaterialSkin.Controls.MaterialButton btnSearch;
         private MaterialSkin.Controls.MaterialTextBox txtBoxSearch;
@@ -2092,5 +2124,6 @@
         private System.Windows.Forms.TabPage tabPageHome;
         private System.Windows.Forms.Label labelCurrentUserEmail;
         private MaterialSkin.Controls.MaterialButton buttonCurrentUserInformationManagement;
+        private System.Windows.Forms.ColumnHeader state;
     }
 }

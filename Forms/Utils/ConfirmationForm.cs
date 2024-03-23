@@ -8,7 +8,7 @@ namespace AccommodationManagerApp.Forms
         public ConfirmationForm(string message)
         {
             InitializeComponent();
-            this.Text = "Thông báo";
+            this.Text = "Notice";
             this.labelMessage.Text = message;
         }
 
@@ -23,14 +23,5 @@ namespace AccommodationManagerApp.Forms
             this.DialogResult = DialogResult.No;
             this.Close();
         }
-        
-        // protected override void OnFormClosing(FormClosingEventArgs e)
-        // {
-        //     base.OnFormClosing(e);
-        //     if (this.DialogResult == DialogResult.None)
-        //     {
-        //         this.DialogResult = DialogResult.No;
-        //     }
-        // }
     }
 }

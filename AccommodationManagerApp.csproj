@@ -198,22 +198,40 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\BaseForm.cs">
+    <Compile Include="Forms\Bill\AddBill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\BaseForm.Designer.cs">
+    <Compile Include="Forms\Bill\AddBill.Designer.cs">
+      <DependentUpon>AddBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Bill\BillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Bill\BillForm.Designer.cs">
+      <DependentUpon>BillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Bill\UpdateBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Bill\UpdateBill.Designer.cs">
+      <DependentUpon>UpdateBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Utils\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Utils\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\BillDetail.cs">
+    <Compile Include="Forms\Bill\BillDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\BillDetail.Designer.cs">
+    <Compile Include="Forms\Bill\BillDetail.Designer.cs">
       <DependentUpon>BillDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\BuildingForm.cs">
+    <Compile Include="Forms\Building\BuildingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\BuildingForm.Designer.cs">
+    <Compile Include="Forms\Building\BuildingForm.Designer.cs">
       <DependentUpon>BuildingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\CurrentUserInformationForm.cs">
@@ -228,55 +246,55 @@
     <Compile Include="Forms\ChangeUserPasswordForm.Designer.cs">
       <DependentUpon>ChangeUserPasswordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ConfirmationForm.cs">
+    <Compile Include="Forms\Utils\ConfirmationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ConfirmationForm.Designer.cs">
+    <Compile Include="Forms\Utils\ConfirmationForm.Designer.cs">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\LoginForm.cs">
+    <Compile Include="Forms\Utils\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\LoginForm.Designer.cs">
+    <Compile Include="Forms\Utils\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MainForm.Bill.cs">
+    <Compile Include="Forms\Main\MainForm.Bill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainForm.Building.cs">
+    <Compile Include="Forms\Main\MainForm.Building.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainForm.cs">
+    <Compile Include="Forms\Main\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainForm.designer.cs">
+    <Compile Include="Forms\Main\MainForm.designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MainForm.Room.cs">
+    <Compile Include="Forms\Main\MainForm.Room.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.User.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainForm.Vehicle.cs">
+    <Compile Include="Forms\Main\MainForm.Vehicle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SplashForm.cs">
+    <Compile Include="Forms\Utils\SplashForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SplashForm.Designer.cs">
+    <Compile Include="Forms\Utils\SplashForm.Designer.cs">
       <DependentUpon>SplashForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RoomForm.cs">
+    <Compile Include="Forms\Room\RoomForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\RoomForm.designer.cs">
+    <Compile Include="Forms\Room\RoomForm.designer.cs">
       <DependentUpon>RoomForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ToastForm.cs">
+    <Compile Include="Forms\Utils\ToastForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ToastForm.Designer.cs">
+    <Compile Include="Forms\Utils\ToastForm.Designer.cs">
       <DependentUpon>ToastForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\UserForm.cs">
@@ -285,10 +303,10 @@
     <Compile Include="Forms\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\VehicleForm.cs">
+    <Compile Include="Forms\Vehicle\VehicleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\VehicleForm.Designer.cs">
+    <Compile Include="Forms\Vehicle\VehicleForm.Designer.cs">
       <DependentUpon>VehicleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
@@ -327,10 +345,19 @@
     <Compile Include="Util\InitLog.cs" />
     <Compile Include="Util\PasswordHelper.cs" />
     <Compile Include="Util\RoomStatusExtensions.cs" />
-    <EmbeddedResource Include="Forms\BillDetail.resx">
+    <EmbeddedResource Include="Forms\Bill\AddBill.resx">
+      <DependentUpon>AddBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Bill\BillDetail.resx">
       <DependentUpon>BillDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\BuildingForm.resx">
+    <EmbeddedResource Include="Forms\Bill\BillForm.resx">
+      <DependentUpon>BillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Bill\UpdateBill.resx">
+      <DependentUpon>UpdateBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Building\BuildingForm.resx">
       <DependentUpon>BuildingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CurrentUserInformationForm.resx">
@@ -339,29 +366,29 @@
     <EmbeddedResource Include="Forms\ChangeUserPasswordForm.resx">
       <DependentUpon>ChangeUserPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ConfirmationForm.resx">
+    <EmbeddedResource Include="Forms\Utils\ConfirmationForm.resx">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LoginForm.resx">
+    <EmbeddedResource Include="Forms\Utils\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainForm.resx">
+    <EmbeddedResource Include="Forms\Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SplashForm.resx">
+    <EmbeddedResource Include="Forms\Utils\SplashForm.resx">
       <DependentUpon>SplashForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\RoomForm.resx">
+    <EmbeddedResource Include="Forms\Room\RoomForm.resx">
       <DependentUpon>RoomForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ToastForm.resx">
+    <EmbeddedResource Include="Forms\Utils\ToastForm.resx">
       <DependentUpon>ToastForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\VehicleForm.resx">
+    <EmbeddedResource Include="Forms\Vehicle\VehicleForm.resx">
       <DependentUpon>VehicleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -406,6 +433,10 @@
     <None Include="Resources\pdf.png" />
     <None Include="Resources\black_plus.png" />
     <None Include="Resources\plus1.png" />
+    <None Include="Resources\icon_black.png" />
+    <None Include="Resources\icon_black1.png" />
+    <None Include="Resources\icon.png" />
+    <None Include="Resources\close.png" />
     <Content Include="Resources\Roboto-Medium.ttf" />
     <Content Include="Resources\Roboto-Regular.ttf" />
     <None Include="Resources\signature.jpg" />

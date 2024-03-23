@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
 using AccommodationManagerApp.Repository;
+using BillModel = AccommodationManagerApp.Model.Bill;
 
 namespace AccommodationManagerApp.Forms
 {
@@ -15,7 +16,7 @@ namespace AccommodationManagerApp.Forms
         private readonly AuthenticationService _authenticationService;
         private readonly VehicleService _vehicleService;
         private readonly UserService _userService;
-        private List<Bill> Bills { get; set; }
+        private List<BillModel> Bills { get; set; }
         private List<Building> Buildings { get; set; }
         private List<Room> Rooms { get; set; }
 
