@@ -234,6 +234,18 @@
     <Compile Include="Forms\BuildingForm.Designer.cs">
       <DependentUpon>BuildingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CurrentUserInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CurrentUserInformationForm.Designer.cs">
+      <DependentUpon>CurrentUserInformationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ChangeUserPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChangeUserPasswordForm.Designer.cs">
+      <DependentUpon>ChangeUserPasswordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ConfirmationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,6 +273,9 @@
     <Compile Include="Forms\MainForm.Room.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\MainForm.User.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\MainForm.Vehicle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +297,12 @@
     <Compile Include="Forms\ToastForm.Designer.cs">
       <DependentUpon>ToastForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\VehicleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +313,7 @@
     <Compile Include="Model\Bill.cs" />
     <Compile Include="Model\BillStatus.cs" />
     <Compile Include="Model\Building.cs" />
+    <Compile Include="Model\Contract.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\RoomStatus.cs" />
     <Compile Include="Model\User.cs" />
@@ -338,6 +360,12 @@
     <EmbeddedResource Include="Forms\BuildingForm.resx">
       <DependentUpon>BuildingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CurrentUserInformationForm.resx">
+      <DependentUpon>CurrentUserInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChangeUserPasswordForm.resx">
+      <DependentUpon>ChangeUserPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ConfirmationForm.resx">
       <DependentUpon>ConfirmationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -356,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ToastForm.resx">
       <DependentUpon>ToastForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\VehicleForm.resx">
       <DependentUpon>VehicleForm.cs</DependentUpon>
@@ -386,6 +417,8 @@
     <None Include="Resources\download.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\user_no_color.png" />
+    <None Include="Resources\user.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\save.png" />
     <None Include="Resources\tick.png" />
@@ -395,6 +428,7 @@
     <None Include="Resources\delete.png" />
     <None Include="Resources\cancel.png" />
     <None Include="Resources\reload.png" />
+    <None Include="Resources\password.png" />
     <None Include="Resources\logout.png" />
     <None Include="Resources\pdf.png" />
     <None Include="Resources\black_plus.png" />

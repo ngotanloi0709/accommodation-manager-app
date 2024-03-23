@@ -31,6 +31,7 @@ namespace AccommodationManagerApp.Forms
             if (_room != null)
             {
                 SetUpData(_room);
+                Text = "Chỉnh sửa thông tin căn hộ";
             }
         }
 
@@ -68,16 +69,15 @@ namespace AccommodationManagerApp.Forms
 
         private void ButtonSave_Click(object sender, System.EventArgs e)
         {
+            if (!IsAllTextBoxFilled() || !IsRoomNumberSafe())
+            {
+                return;
+            }
+            
             string roomNumber = textBoxRoomName.Text;
             int? buildingId = comboBoxRoomBuilding.SelectedItem.ToString().Equals("None") ? null : _buildingService.GetIdByName(comboBoxRoomBuilding.SelectedItem.ToString());
             int? userId = comboBoxRoomTenant.SelectedItem.ToString().Equals("None") ? null : _userService.GetIdByName(comboBoxRoomTenant.SelectedItem.ToString());
             RoomStatus status = comboBoxRoomStatus.SelectedItem.ToString().ToRoomStatus();
-
-            if (_room == null && _roomService.IsRoomNumberExists(roomNumber))
-            {
-                new ToastForm("Số nhà đã tồn tại. Vui lòng nhập số nhà khác.", true).Show();
-                return;
-            }
 
             if (_room == null)
             {
@@ -89,18 +89,42 @@ namespace AccommodationManagerApp.Forms
                 _room.BuildingId = buildingId;
                 _room.UserId = userId;
                 _room.Status = status;
+                
                 _roomService.Update(_room.Id, _room);
             }
 
-            DialogResult = System.Windows.Forms.DialogResult.OK;
+            DialogResult = DialogResult.OK;
             Close();
+        }
+        
+        private bool IsRoomNumberSafe()
+        {
+            if ((_room == null || _room.RoomNumber != textBoxRoomName.Text) &&
+                _roomService.IsRoomNumberExists(textBoxRoomName.Text))
+            {
+                new ToastForm("Số nhà đã tồn tại. Vui lòng nhập số nhà khác.", true).Show();
+                return false;
+            }
+
+            return true;
+        }
+        
+        private bool IsAllTextBoxFilled()
+        {
+            bool result = string.IsNullOrEmpty(textBoxRoomName.Text);
+            
+            if (result) {
+                new ToastForm("Vui lòng điền đầy đủ thông tin.", true).Show();
+            }
+            
+            return !result;
         }
 
         private void RoomForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (DialogResult != System.Windows.Forms.DialogResult.OK)
+            if (DialogResult != DialogResult.OK)
             {
-                DialogResult = System.Windows.Forms.DialogResult.Cancel;
+                DialogResult = DialogResult.Cancel;
             }
         }
     }
