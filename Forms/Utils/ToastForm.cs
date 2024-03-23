@@ -15,7 +15,7 @@ namespace AccommodationManagerApp.Forms
             ShowInTaskbar = false;
             if (isWarning)
             {
-                label.Text = "Cảnh báo";
+                label.Text = "Warning";
                 panel.BackColor = Color.FromArgb(255, 0, 0);
             }
         }

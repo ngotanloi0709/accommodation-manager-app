@@ -3,6 +3,7 @@ using AccommodationManagerApp.Service;
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
+using BillModel = AccommodationManagerApp.Model.Bill;
 
 namespace AccommodationManagerApp.Forms {
     public partial class MainForm : BaseForm {
@@ -11,7 +12,7 @@ namespace AccommodationManagerApp.Forms {
         private readonly BillService _billService;
         private readonly AuthenticationService _authenticationService;
         private readonly VehicleService _vehicleService;
-        private List<Bill> Bills { get; set; }
+        private List<BillModel> Bills { get; set; }
         private List<Building> Buildings { get; set; }
         private List<Room> Rooms { get; set; }
 

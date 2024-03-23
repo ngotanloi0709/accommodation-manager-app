@@ -9,6 +9,7 @@ namespace AccommodationManagerApp.Model
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        public bool IsDeleted { get; set; }
         public Double RentBill { get; set; }
         public Double ElectricityBill { get; set; }
         public Double WaterBill { get; set; }
@@ -35,6 +36,7 @@ namespace AccommodationManagerApp.Model
             TotalBill = CalculateTotalBill();
             RoomId = roomId;
             Status = BillStatus.Unpaid;
+            IsDeleted = false;
         }
 
         public string toString() {             
