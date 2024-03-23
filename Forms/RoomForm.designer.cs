@@ -139,12 +139,12 @@
             this.ButtonSave.Depth = 0;
             this.ButtonSave.HighEmphasis = true;
             this.ButtonSave.Icon = global::AccommodationManagerApp.Properties.Resources.save;
-            this.ButtonSave.Location = new System.Drawing.Point(423, 392);
+            this.ButtonSave.Location = new System.Drawing.Point(419, 392);
             this.ButtonSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.ButtonSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonSave.Name = "ButtonSave";
             this.ButtonSave.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.ButtonSave.Size = new System.Drawing.Size(92, 40);
+            this.ButtonSave.Size = new System.Drawing.Size(96, 40);
             this.ButtonSave.TabIndex = 4;
             this.ButtonSave.Text = "Lưu";
             this.ButtonSave.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -171,6 +171,7 @@
             this.textBoxRoomName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxRoomName.Depth = 0;
             this.textBoxRoomName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxRoomName.Hint = "Nhập số nhà của căn hộ";
             this.textBoxRoomName.LeadingIcon = null;
             this.textBoxRoomName.Location = new System.Drawing.Point(162, 89);
             this.textBoxRoomName.MaxLength = 50;
@@ -199,7 +200,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(556, 496);
+            this.ClientSize = new System.Drawing.Size(545, 465);
             this.Controls.Add(this.comboBoxRoomStatus);
             this.Controls.Add(this.comboBoxRoomTenant);
             this.Controls.Add(this.comboBoxRoomBuilding);
@@ -211,7 +212,7 @@
             this.Controls.Add(this.materialLabel1);
             this.Name = "RoomForm";
             this.Sizable = false;
-            this.Text = "Chỉnh sửa căn hộ";
+            this.Text = "Thêm thông tin căn hộ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RoomForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

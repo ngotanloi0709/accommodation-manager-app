@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using AccommodationManagerApp.Migrations;
@@ -30,7 +31,15 @@ namespace AccommodationManagerApp.Repository
         public void Update(int id, T entity) {
             var existingEntity = Context.Set<T>().Find(id);
             if (existingEntity != null) {
-                Context.Entry(existingEntity).CurrentValues.SetValues(entity);
+                foreach (var property in typeof(T).GetProperties())
+                {
+                    if (!property.GetCustomAttributes(typeof(KeyAttribute), false).Any())
+                    {
+                        property.SetValue(existingEntity, property.GetValue(entity));
+                    }
+                }
+                // this line will error when you change id
+                // Context.Entry(existingEntity).CurrentValues.SetValues(entity);
                 Context.SaveChanges();
             }
         }
@@ -50,6 +59,7 @@ namespace AccommodationManagerApp.Repository
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<InitLog> InitLogs { get; set; }
         public DbSet<Bill> Bills { get; set; }
+        public DbSet<Contract> Contracts { get; set; }
         
         public AccommodationManagerAppContext() : base("name=MySqlConnectionString") {
             Database.SetInitializer(

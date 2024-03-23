@@ -11,20 +11,8 @@ namespace AccommodationManagerApp.Forms {
 
             foreach (var room in Rooms) {
                 ListViewItem item = new ListViewItem(room.RoomNumber);
-                if (room.Building != null) {
-                    item.SubItems.Add(room.Building.Name);
-                }
-                else {
-                    item.SubItems.Add(Resources.NullData);
-                }
-
-                if (room.User != null) {
-                    item.SubItems.Add(room.User.Name);
-                }
-                else {
-                    item.SubItems.Add(Resources.NullData);
-                }
-
+                item.SubItems.Add(room.Building != null ? room.Building.Name : Resources.NullData);
+                item.SubItems.Add(room.User != null ? room.User.Name : Resources.NullData);
                 item.SubItems.Add(room.Status.ToVietnamese());
                 ListViewRoom.Items.Add(item);
             }
@@ -156,10 +144,10 @@ namespace AccommodationManagerApp.Forms {
 
         private void RoomForeignInformationReload() {
             LoadRoomData();
+            LoadVehicleData();
         }
-        
-        private void buttonReloadRoom_Click(object sender, System.EventArgs e)
-        {
+
+        private void buttonReloadRoom_Click(object sender, System.EventArgs e) {
             LoadRoomData();
             new ToastForm("Đã thực hiện tải lại dữ liệu chung cư", false).Show();
         }

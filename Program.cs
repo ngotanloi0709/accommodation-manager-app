@@ -5,9 +5,6 @@ using AccommodationManagerApp.Forms;
 using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 using AccommodationManagerApp.Util;
-using AccommodationManagerApp.Model;
-using System.Runtime.Remoting.Contexts;
-using System.Collections.Generic;
 
 namespace AccommodationManagerApp {
     internal static class Program {
@@ -22,14 +19,12 @@ namespace AccommodationManagerApp {
             ActiveMigration();
             
             AuthenticationService authenticationService = _serviceProvider.GetService<AuthenticationService>();
-            authenticationService.Authenticate("ngotanloi0709@gmail.com", "1234");
+            authenticationService.Authenticate("ngotanloi0709@gmail.com", "123");
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
-
-        // private static void Test() { }
 
         private static void ConfigureServices()
         {

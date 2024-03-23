@@ -44,8 +44,7 @@
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(90, 223);
-            this.materialLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.materialLabel2.Location = new System.Drawing.Point(34, 175);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(125, 19);
@@ -57,8 +56,7 @@
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(90, 133);
-            this.materialLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.materialLabel3.Location = new System.Drawing.Point(34, 102);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(121, 19);
@@ -71,14 +69,14 @@
             this.textBoxType.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxType.Depth = 0;
             this.textBoxType.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxType.Hint = "Nhập loại phương tiện";
             this.textBoxType.LeadingIcon = null;
-            this.textBoxType.Location = new System.Drawing.Point(270, 201);
-            this.textBoxType.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxType.Location = new System.Drawing.Point(168, 157);
             this.textBoxType.MaxLength = 50;
             this.textBoxType.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxType.Multiline = false;
             this.textBoxType.Name = "textBoxType";
-            this.textBoxType.Size = new System.Drawing.Size(440, 50);
+            this.textBoxType.Size = new System.Drawing.Size(330, 50);
             this.textBoxType.TabIndex = 7;
             this.textBoxType.Text = "";
             this.textBoxType.TrailingIcon = null;
@@ -89,14 +87,14 @@
             this.textBoxName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxName.Depth = 0;
             this.textBoxName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxName.Hint = "Nhập tên/loại/miêu tả cho phương tiện";
             this.textBoxName.LeadingIcon = null;
-            this.textBoxName.Location = new System.Drawing.Point(270, 111);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxName.Location = new System.Drawing.Point(168, 84);
             this.textBoxName.MaxLength = 50;
             this.textBoxName.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxName.Multiline = false;
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(440, 50);
+            this.textBoxName.Size = new System.Drawing.Size(330, 50);
             this.textBoxName.TabIndex = 6;
             this.textBoxName.Text = "";
             this.textBoxName.TrailingIcon = null;
@@ -109,12 +107,12 @@
             this.buttonSave.Depth = 0;
             this.buttonSave.HighEmphasis = true;
             this.buttonSave.Icon = null;
-            this.buttonSave.Location = new System.Drawing.Point(594, 486);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
+            this.buttonSave.Location = new System.Drawing.Point(412, 389);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonSave.Size = new System.Drawing.Size(116, 44);
+            this.buttonSave.Size = new System.Drawing.Size(87, 36);
             this.buttonSave.TabIndex = 5;
             this.buttonSave.Text = "Lưu";
             this.buttonSave.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -127,8 +125,7 @@
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(90, 316);
-            this.materialLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.materialLabel1.Location = new System.Drawing.Point(34, 251);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(57, 19);
@@ -141,14 +138,14 @@
             this.textBoxNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxNumber.Depth = 0;
             this.textBoxNumber.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxNumber.Hint = "Nhập biển số xe";
             this.textBoxNumber.LeadingIcon = null;
-            this.textBoxNumber.Location = new System.Drawing.Point(270, 294);
-            this.textBoxNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxNumber.Location = new System.Drawing.Point(168, 233);
             this.textBoxNumber.MaxLength = 50;
             this.textBoxNumber.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxNumber.Multiline = false;
             this.textBoxNumber.Name = "textBoxNumber";
-            this.textBoxNumber.Size = new System.Drawing.Size(440, 50);
+            this.textBoxNumber.Size = new System.Drawing.Size(330, 50);
             this.textBoxNumber.TabIndex = 10;
             this.textBoxNumber.Text = "";
             this.textBoxNumber.TrailingIcon = null;
@@ -158,8 +155,7 @@
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.Location = new System.Drawing.Point(90, 412);
-            this.materialLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.materialLabel4.Location = new System.Drawing.Point(34, 329);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(51, 19);
@@ -180,19 +176,20 @@
             this.comboBoxRoom.FormattingEnabled = true;
             this.comboBoxRoom.IntegralHeight = false;
             this.comboBoxRoom.ItemHeight = 43;
-            this.comboBoxRoom.Location = new System.Drawing.Point(270, 393);
+            this.comboBoxRoom.Location = new System.Drawing.Point(168, 313);
+            this.comboBoxRoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxRoom.MaxDropDownItems = 4;
             this.comboBoxRoom.MouseState = MaterialSkin.MouseState.OUT;
             this.comboBoxRoom.Name = "comboBoxRoom";
-            this.comboBoxRoom.Size = new System.Drawing.Size(440, 49);
+            this.comboBoxRoom.Size = new System.Drawing.Size(331, 49);
             this.comboBoxRoom.StartIndex = 0;
             this.comboBoxRoom.TabIndex = 14;
             // 
             // VehicleForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(872, 638);
+            this.ClientSize = new System.Drawing.Size(536, 450);
             this.Controls.Add(this.comboBoxRoom);
             this.Controls.Add(this.materialLabel4);
             this.Controls.Add(this.materialLabel1);
@@ -202,8 +199,10 @@
             this.Controls.Add(this.textBoxType);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.buttonSave);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "VehicleForm";
-            this.Text = "VehicleForm";
+            this.Padding = new System.Windows.Forms.Padding(2, 52, 2, 2);
+            this.Text = "Thêm thông tin phương tiện";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AccommodationManagerApp.Model;
@@ -81,7 +80,6 @@ namespace AccommodationManagerApp.Service {
         }
 
         public bool IsRoomNumberExists(string roomNumber) {
-            // return _roomRepository.GetAll().Any(room => room.RoomNumber.Equals(roomNumber));
             return _roomRepository.GetByRoomNumber(roomNumber) != null;
         }
     }
