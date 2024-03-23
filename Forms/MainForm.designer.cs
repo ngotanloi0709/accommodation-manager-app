@@ -2135,7 +2135,6 @@
         private MaterialSkin.Controls.MaterialButton buttonAddTenant;
         private MaterialSkin.Controls.MaterialButton buttonEditTenantPassword;
         private MaterialSkin.Controls.MaterialButton buttonChangeTenantAvatar;
-        private MaterialSkin.Controls.MaterialLabel materialLabel12;
         private System.Windows.Forms.TabPage tabPageHome;
         private System.Windows.Forms.Label labelCurrentUserEmail;
         private MaterialSkin.Controls.MaterialButton buttonCurrentUserInformationManagement;
