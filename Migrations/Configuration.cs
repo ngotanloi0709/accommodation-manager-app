@@ -40,8 +40,8 @@ namespace AccommodationManagerApp.Migrations {
             }
             if (!context.Vehicles.Any())
             {
-                context.Vehicles.AddOrUpdate(new Vehicle {type= "Motobike", name = "Honda", number = "81F-3355", RoomId = null});
-                context.Vehicles.AddOrUpdate(new Vehicle {type = "Car", name = "Toyita", number = "81F-3355", RoomId = null });
+                context.Vehicles.AddOrUpdate(new Vehicle {name = "Honda", number = "81F-3355", RoomId = null});
+                context.Vehicles.AddOrUpdate(new Vehicle {name = "Toyita", number = "81F-3355", RoomId = null });
 
             }
         }

@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 using System.Windows.Forms;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Properties;
+using AccommodationManagerApp.Util;
 using iTextSharp.text.pdf.codec;
 
 namespace AccommodationManagerApp.Forms
@@ -16,7 +17,7 @@ namespace AccommodationManagerApp.Forms
             {
                 ListViewItem item = new ListViewItem(vehicle.number);
                 item.SubItems.Add(vehicle.name);
-                item.SubItems.Add(vehicle.type);
+                item.SubItems.Add(vehicle.Category.ToVietnamese().ToString());
                 if(vehicle.Room != null)
                 {
                     item.SubItems.Add(vehicle.Room.RoomNumber);
@@ -36,7 +37,7 @@ namespace AccommodationManagerApp.Forms
                 string  id = vehicle.Id.ToString();
                 string number = vehicle.number;
                 string name = vehicle.name;
-                string type = vehicle.type;
+                string type = vehicle.Category.ToString();
                 string roomNumber = vehicle.Room != null ? vehicle.Room.RoomNumber : Resources.NullData;
                 labelVehicleId.Text = id.Equals("") ? Resources.NullData : id;
                 labelVehicleNumber.Text = number == null || number.Equals("") ? Resources.NullData : number;

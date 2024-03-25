@@ -1,5 +1,6 @@
 ﻿using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Service;
+using AccommodationManagerApp.Util;
 using System;
 using System.Collections.Generic;
 
@@ -36,11 +37,17 @@ namespace AccommodationManagerApp.Forms
             {
                 comboBoxRoom.Items.Add(room.RoomNumber);
             }
+            comboBoxCategory.Items.Add(VehicleCategory.two_wheel.ToVietnamese());
+            comboBoxCategory.Items.Add(VehicleCategory.four_wheel.ToVietnamese());
+            comboBoxCategory.Items.Add(VehicleCategory.three_wheel.ToVietnamese());
+            comboBoxCategory.Items.Add(VehicleCategory.bicycle.ToVietnamese());
+            comboBoxCategory.Items.Add(VehicleCategory.electric_bicycle.ToVietnamese());
+            comboBoxCategory.SelectedIndex = 0;
             comboBoxRoom.SelectedIndex = 0;
         }
         private void setUpData(Vehicle vehicle)
         {
-            textBoxType.Text = vehicle.type;
+            comboBoxCategory.SelectedItem = vehicle.Category.ToVietnamese();
             textBoxName.Text = vehicle.name;
             textBoxNumber.Text = vehicle.number;
             comboBoxRoom.SelectedItem = vehicle.Room?.RoomNumber ?? "None" ;
@@ -49,10 +56,10 @@ namespace AccommodationManagerApp.Forms
         private void buttonSave_Click(object sender, EventArgs e)
         {
             string VehicleName = textBoxName.Text;
-            string VehicleType = textBoxType.Text;
+            VehicleCategory vehicleCategory = comboBoxCategory.SelectedItem.ToString().ToVehicleCategory();
             string VehicleNumber = textBoxNumber.Text;
             int? roomId = comboBoxRoom.SelectedItem.ToString().Equals("None") ? null : _roomService.GetIdByRoomNumber(comboBoxRoom.SelectedItem.ToString());
-            if(VehicleName.Equals("") || VehicleType.Equals("") || VehicleNumber.Equals(""))
+            if(VehicleName.Equals("") || VehicleNumber.Equals(""))
             {
                 new ToastForm("Vui lòng nhập đầy đủ thông tin").Show();
                 return;
@@ -67,17 +74,17 @@ namespace AccommodationManagerApp.Forms
                 _vehicleService.Add(new Vehicle
                 {
                     name = VehicleName,
-                    type = VehicleType,
                     number = VehicleNumber,
-                    RoomId = roomId
+                    RoomId = roomId,
+                    Category = vehicleCategory
                 });
             }
             else { 
                 
                 _vehicle.name = VehicleName;
-                _vehicle.type = VehicleType;
                 _vehicle.number = VehicleNumber;
                 _vehicle.RoomId = roomId;
+                _vehicle.Category = vehicleCategory;
                 _vehicleService.Update(_vehicle.Id, _vehicle);
             }
             DialogResult = System.Windows.Forms.DialogResult.OK;
