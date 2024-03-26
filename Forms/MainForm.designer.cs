@@ -134,7 +134,6 @@
             this.tabPageBills = new System.Windows.Forms.TabPage();
             this.materialComboBox2 = new MaterialSkin.Controls.MaterialComboBox();
             this.cmbboxCatg = new MaterialSkin.Controls.MaterialComboBox();
-            this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
             this.btnSearch = new MaterialSkin.Controls.MaterialButton();
             this.txtBoxSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.btnUpd = new MaterialSkin.Controls.MaterialButton();
@@ -180,9 +179,9 @@
             // 
             this.tabPageConfiguration.BackColor = System.Drawing.Color.White;
             this.tabPageConfiguration.ImageKey = "setting.png";
-            this.tabPageConfiguration.Location = new System.Drawing.Point(4, 39);
+            this.tabPageConfiguration.Location = new System.Drawing.Point(4, 74);
             this.tabPageConfiguration.Name = "tabPageConfiguration";
-            this.tabPageConfiguration.Size = new System.Drawing.Size(986, 673);
+            this.tabPageConfiguration.Size = new System.Drawing.Size(986, 638);
             this.tabPageConfiguration.TabIndex = 5;
             this.tabPageConfiguration.Text = "Configuration";
             // 
@@ -190,9 +189,9 @@
             // 
             this.tabPageSystemUsers.BackColor = System.Drawing.Color.White;
             this.tabPageSystemUsers.ImageKey = "customer.png";
-            this.tabPageSystemUsers.Location = new System.Drawing.Point(4, 39);
+            this.tabPageSystemUsers.Location = new System.Drawing.Point(4, 74);
             this.tabPageSystemUsers.Name = "tabPageSystemUsers";
-            this.tabPageSystemUsers.Size = new System.Drawing.Size(986, 673);
+            this.tabPageSystemUsers.Size = new System.Drawing.Size(986, 638);
             this.tabPageSystemUsers.TabIndex = 4;
             this.tabPageSystemUsers.Text = "System Users";
             // 
@@ -225,9 +224,9 @@
             this.tabPageTenants.Controls.Add(this.buttonReloadUser);
             this.tabPageTenants.Controls.Add(this.ListViewUser);
             this.tabPageTenants.ImageKey = "house-owner.png";
-            this.tabPageTenants.Location = new System.Drawing.Point(4, 39);
+            this.tabPageTenants.Location = new System.Drawing.Point(4, 74);
             this.tabPageTenants.Name = "tabPageTenants";
-            this.tabPageTenants.Size = new System.Drawing.Size(986, 673);
+            this.tabPageTenants.Size = new System.Drawing.Size(986, 638);
             this.tabPageTenants.TabIndex = 2;
             this.tabPageTenants.Text = "Quản lý người thuê";
             // 
@@ -235,14 +234,14 @@
             // 
             this.materialLabel12.AutoSize = true;
             this.materialLabel12.Depth = 0;
-            this.materialLabel12.Font = new System.Drawing.Font("Roboto Light", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel12.FontType = MaterialSkin.MaterialSkinManager.fontType.H2;
-            this.materialLabel12.Location = new System.Drawing.Point(-1, 0);
+            this.materialLabel12.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel12.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
+            this.materialLabel12.Location = new System.Drawing.Point(65, 600);
             this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel12.Name = "materialLabel12";
-            this.materialLabel12.Size = new System.Drawing.Size(491, 72);
-            this.materialLabel12.TabIndex = 40;
-            this.materialLabel12.Text = "Quản lý người thuê";
+            this.materialLabel12.Size = new System.Drawing.Size(196, 41);
+            this.materialLabel12.TabIndex = 17;
+            this.materialLabel12.Text = "Bills Manage";
             // 
             // buttonChangeTenantAvatar
             // 
@@ -696,10 +695,10 @@
             this.tabPageRoom.Controls.Add(this.ListViewRoom);
             this.tabPageRoom.ForeColor = System.Drawing.Color.Transparent;
             this.tabPageRoom.ImageKey = "home.png";
-            this.tabPageRoom.Location = new System.Drawing.Point(4, 39);
+            this.tabPageRoom.Location = new System.Drawing.Point(4, 74);
             this.tabPageRoom.Name = "tabPageRoom";
             this.tabPageRoom.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRoom.Size = new System.Drawing.Size(986, 673);
+            this.tabPageRoom.Size = new System.Drawing.Size(986, 638);
             this.tabPageRoom.TabIndex = 0;
             this.tabPageRoom.Text = "Quản lý căn hộ";
             // 
@@ -1008,9 +1007,9 @@
             this.tabPageBuilding.Controls.Add(this.buttonAddBuilding);
             this.tabPageBuilding.Controls.Add(this.ListViewBuilding);
             this.tabPageBuilding.ImageKey = "dashboard.png";
-            this.tabPageBuilding.Location = new System.Drawing.Point(4, 39);
+            this.tabPageBuilding.Location = new System.Drawing.Point(4, 74);
             this.tabPageBuilding.Name = "tabPageBuilding";
-            this.tabPageBuilding.Size = new System.Drawing.Size(986, 673);
+            this.tabPageBuilding.Size = new System.Drawing.Size(986, 638);
             this.tabPageBuilding.TabIndex = 1;
             this.tabPageBuilding.Text = "Quản lý toà nhà";
             // 
@@ -1292,9 +1291,9 @@
             // tabPageHome
             // 
             this.tabPageHome.ImageKey = "statistic.png";
-            this.tabPageHome.Location = new System.Drawing.Point(4, 39);
+            this.tabPageHome.Location = new System.Drawing.Point(4, 74);
             this.tabPageHome.Name = "tabPageHome";
-            this.tabPageHome.Size = new System.Drawing.Size(986, 673);
+            this.tabPageHome.Size = new System.Drawing.Size(986, 638);
             this.tabPageHome.TabIndex = 7;
             this.tabPageHome.Text = "Trang chủ";
             this.tabPageHome.UseVisualStyleBackColor = true;
@@ -1320,9 +1319,9 @@
             this.tabPageVehicle.Controls.Add(this.ListViewVehicle);
             this.tabPageVehicle.Controls.Add(this.materialLabel11);
             this.tabPageVehicle.ImageKey = "fleet.png";
-            this.tabPageVehicle.Location = new System.Drawing.Point(4, 39);
+            this.tabPageVehicle.Location = new System.Drawing.Point(4, 74);
             this.tabPageVehicle.Name = "tabPageVehicle";
-            this.tabPageVehicle.Size = new System.Drawing.Size(986, 673);
+            this.tabPageVehicle.Size = new System.Drawing.Size(986, 638);
             this.tabPageVehicle.TabIndex = 6;
             this.tabPageVehicle.Text = "Vehicle";
             // 
@@ -1602,24 +1601,24 @@
             // 
             // columnNumber
             // 
-            this.columnNumber.Text = "Number";
-            this.columnNumber.Width = 120;
+            this.columnNumber.Text = "Biển số";
+            this.columnNumber.Width = 100;
             // 
             // columnName
             // 
-            this.columnName.Text = "Name";
-            this.columnName.Width = 120;
+            this.columnName.Text = "Tên phương tiện";
+            this.columnName.Width = 145;
             // 
             // columnType
             // 
-            this.columnType.Text = "Type";
+            this.columnType.Text = "Loại phương tiện";
             this.columnType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnType.Width = 120;
+            this.columnType.Width = 145;
             // 
             // columnRoom
             // 
-            this.columnRoom.Text = "Room";
-            this.columnRoom.Width = 150;
+            this.columnRoom.Text = "Phòng";
+            this.columnRoom.Width = 130;
             // 
             // materialLabel11
             // 
@@ -1647,10 +1646,10 @@
             this.tabPageBills.Controls.Add(this.btnPDF);
             this.tabPageBills.Controls.Add(this.lstViewBill);
             this.tabPageBills.ImageKey = "invoice.png";
-            this.tabPageBills.Location = new System.Drawing.Point(4, 39);
+            this.tabPageBills.Location = new System.Drawing.Point(4, 74);
             this.tabPageBills.Name = "tabPageBills";
             this.tabPageBills.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageBills.Size = new System.Drawing.Size(986, 673);
+            this.tabPageBills.Size = new System.Drawing.Size(986, 638);
             this.tabPageBills.TabIndex = 6;
             this.tabPageBills.Text = "Bill Managements";
             this.tabPageBills.UseVisualStyleBackColor = true;
@@ -1709,19 +1708,6 @@
             this.cmbboxCatg.Size = new System.Drawing.Size(87, 49);
             this.cmbboxCatg.StartIndex = 0;
             this.cmbboxCatg.TabIndex = 18;
-            // 
-            // materialLabel12
-            // 
-            this.materialLabel12.AutoSize = true;
-            this.materialLabel12.Depth = 0;
-            this.materialLabel12.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel12.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
-            this.materialLabel12.Location = new System.Drawing.Point(65, 600);
-            this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel12.Name = "materialLabel12";
-            this.materialLabel12.Size = new System.Drawing.Size(196, 41);
-            this.materialLabel12.TabIndex = 17;
-            this.materialLabel12.Text = "Bills Manage";
             // 
             // btnSearch
             // 
@@ -1979,7 +1965,7 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1000, 800);
@@ -2010,7 +1996,6 @@
             this.tabPageBills.ResumeLayout(false);
             this.tabPageBills.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
