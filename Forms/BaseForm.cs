@@ -1,9 +1,9 @@
 ﻿using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
-
 namespace AccommodationManagerApp.Forms {
     public partial class BaseForm : MaterialForm {
+        protected static string defaultMail = "user@email.com";
         public BaseForm() {
             InitializeComponent();
             SetUpUi();
@@ -22,5 +22,14 @@ namespace AccommodationManagerApp.Forms {
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
+        protected void exit(object sender, System.EventArgs e)
+        {
+            var confirmation = new ConfirmationForm("Bạn có chắc chắn muốn thoát");
+            var result = confirmation.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }

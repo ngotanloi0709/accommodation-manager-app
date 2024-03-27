@@ -148,10 +148,11 @@
             this.room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.state = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnLogOut = new MaterialSkin.Controls.MaterialButton();
+            this.btnLogin = new MaterialSkin.Controls.MaterialButton();
             this.mySqlConnection1 = new MySqlConnector.MySqlConnection();
             this.labelCurrentUserEmail = new System.Windows.Forms.Label();
             this.buttonCurrentUserInformationManagement = new MaterialSkin.Controls.MaterialButton();
+            this.btnLogout = new MaterialSkin.Controls.MaterialButton();
             this.tabPageTenants.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserImage)).BeginInit();
             this.tabPageRoom.SuspendLayout();
@@ -1586,24 +1587,24 @@
             // 
             // columnNumber
             // 
-            this.columnNumber.Text = "Number";
-            this.columnNumber.Width = 120;
+            this.columnNumber.Text = "Biển số";
+            this.columnNumber.Width = 100;
             // 
             // columnName
             // 
-            this.columnName.Text = "Name";
-            this.columnName.Width = 120;
+            this.columnName.Text = "Tên phương tiện";
+            this.columnName.Width = 145;
             // 
             // columnType
             // 
-            this.columnType.Text = "Type";
+            this.columnType.Text = "Loại phương tiện";
             this.columnType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnType.Width = 120;
+            this.columnType.Width = 145;
             // 
             // columnRoom
             // 
-            this.columnRoom.Text = "Room";
-            this.columnRoom.Width = 150;
+            this.columnRoom.Text = "Phòng";
+            this.columnRoom.Width = 130;
             // 
             // materialLabel11
             // 
@@ -1887,27 +1888,28 @@
             this.state.Text = "Tình Trạng";
             this.state.Width = 100;
             // 
-            // btnLogOut
+            // btnLogin
             // 
-            this.btnLogOut.AutoSize = false;
-            this.btnLogOut.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogOut.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnLogOut.Depth = 0;
-            this.btnLogOut.HighEmphasis = true;
-            this.btnLogOut.Icon = global::AccommodationManagerApp.Properties.Resources.logout;
-            this.btnLogOut.Location = new System.Drawing.Point(774, 25);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnLogOut.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnLogOut.Size = new System.Drawing.Size(134, 36);
-            this.btnLogOut.TabIndex = 17;
-            this.btnLogOut.Text = "Đăng xuất";
-            this.btnLogOut.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.btnLogOut.UseAccentColor = false;
-            this.btnLogOut.UseVisualStyleBackColor = true;
-            this.btnLogOut.Click += new System.EventHandler(this.logout);
+            this.btnLogin.AutoSize = false;
+            this.btnLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogin.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnLogin.Depth = 0;
+            this.btnLogin.HighEmphasis = true;
+            this.btnLogin.Icon = global::AccommodationManagerApp.Properties.Resources.login;
+            this.btnLogin.Location = new System.Drawing.Point(649, 25);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnLogin.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnLogin.Size = new System.Drawing.Size(134, 36);
+            this.btnLogin.TabIndex = 17;
+            this.btnLogin.Text = "Đăng nhập";
+            this.btnLogin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.btnLogin.UseAccentColor = false;
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Visible = false;
+            this.btnLogin.Click += new System.EventHandler(this.login);
             // 
             // mySqlConnection1
             // 
@@ -1919,12 +1921,12 @@
             // 
             this.labelCurrentUserEmail.BackColor = System.Drawing.Color.Transparent;
             this.labelCurrentUserEmail.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCurrentUserEmail.Location = new System.Drawing.Point(521, 25);
+            this.labelCurrentUserEmail.Location = new System.Drawing.Point(270, 25);
             this.labelCurrentUserEmail.Name = "labelCurrentUserEmail";
             this.labelCurrentUserEmail.Size = new System.Drawing.Size(246, 36);
             this.labelCurrentUserEmail.TabIndex = 18;
             this.labelCurrentUserEmail.Text = "user@email.com";
-            this.labelCurrentUserEmail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelCurrentUserEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // buttonCurrentUserInformationManagement
             // 
@@ -1940,13 +1942,35 @@
             this.buttonCurrentUserInformationManagement.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonCurrentUserInformationManagement.Name = "buttonCurrentUserInformationManagement";
             this.buttonCurrentUserInformationManagement.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonCurrentUserInformationManagement.Size = new System.Drawing.Size(257, 36);
+            this.buttonCurrentUserInformationManagement.Size = new System.Drawing.Size(189, 36);
             this.buttonCurrentUserInformationManagement.TabIndex = 19;
-            this.buttonCurrentUserInformationManagement.Text = "Quản lý thông tin cá nhân";
+            this.buttonCurrentUserInformationManagement.Text = "Thông tin cá nhân";
             this.buttonCurrentUserInformationManagement.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.buttonCurrentUserInformationManagement.UseAccentColor = false;
             this.buttonCurrentUserInformationManagement.UseVisualStyleBackColor = true;
             this.buttonCurrentUserInformationManagement.Click += new System.EventHandler(this.buttonCurrentUserInformationManagement_Click);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.AutoSize = false;
+            this.btnLogout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogout.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnLogout.Depth = 0;
+            this.btnLogout.HighEmphasis = true;
+            this.btnLogout.Icon = global::AccommodationManagerApp.Properties.Resources.logout;
+            this.btnLogout.Location = new System.Drawing.Point(789, 25);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnLogout.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnLogout.Size = new System.Drawing.Size(134, 36);
+            this.btnLogout.TabIndex = 21;
+            this.btnLogout.Text = "Đăng Xuất";
+            this.btnLogout.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
+            this.btnLogout.UseAccentColor = false;
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.logout);
             // 
             // MainForm
             // 
@@ -1954,9 +1978,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1000, 800);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.buttonCurrentUserInformationManagement);
             this.Controls.Add(this.labelCurrentUserEmail);
-            this.Controls.Add(this.btnLogOut);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.materialTabControl);
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl;
@@ -1968,6 +1993,12 @@
             this.Padding = new System.Windows.Forms.Padding(3, 80, 3, 4);
             this.Sizable = false;
             this.Text = "";
+            this.Controls.SetChildIndex(this.materialTabControl, 0);
+            this.Controls.SetChildIndex(this.btnLogin, 0);
+            this.Controls.SetChildIndex(this.labelCurrentUserEmail, 0);
+            this.Controls.SetChildIndex(this.buttonCurrentUserInformationManagement, 0);
+            this.Controls.SetChildIndex(this.btnLogout, 0);
+            this.Controls.SetChildIndex(this.btnExit, 0);
             this.tabPageTenants.ResumeLayout(false);
             this.tabPageTenants.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserImage)).EndInit();
@@ -2032,7 +2063,7 @@
         private MaterialSkin.Controls.MaterialButton buttonAddRoom;
         private MaterialSkin.Controls.MaterialTextBox materialTextBox2;
         private MaterialSkin.Controls.MaterialFloatingActionButton buttonReloadBuilding;
-        private MaterialSkin.Controls.MaterialButton btnLogOut;
+        private MaterialSkin.Controls.MaterialButton btnLogin;
         private System.Windows.Forms.TabPage tabPageBills;
         private MaterialSkin.Controls.MaterialListView lstViewBill;
         private MySqlConnector.MySqlConnection mySqlConnection1;
@@ -2108,5 +2139,6 @@
         private System.Windows.Forms.Label labelCurrentUserEmail;
         private MaterialSkin.Controls.MaterialButton buttonCurrentUserInformationManagement;
         private System.Windows.Forms.ColumnHeader state;
+        private MaterialSkin.Controls.MaterialButton btnLogout;
     }
 }

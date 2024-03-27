@@ -11,7 +11,9 @@ namespace AccommodationManagerApp.Forms
             if (e.Item.Selected)
             {
                 billId = int.Parse(e.Item.SubItems[0].Text);
+                return;
             }
+            billId = 0;
         }
         private void pdfBill(object sender, System.EventArgs e)
         {

@@ -13,8 +13,8 @@ namespace AccommodationManagerApp.Forms
         private readonly RoomService _roomService;
         private readonly BuildingService _buildingService;
         private readonly BillService _billService;
-        private readonly AuthenticationService _authenticationService;
         private readonly VehicleService _vehicleService;
+        private readonly AuthenticationService _authenticationService;
         private List<BillModel> Bills { get; set; }
         private readonly UserService _userService;
         private List<Building> Buildings { get; set; }
@@ -28,8 +28,8 @@ namespace AccommodationManagerApp.Forms
             _buildingService = ServiceLocator.ServiceProvider.GetService(typeof(BuildingService)) as BuildingService;
             _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
             _vehicleService = ServiceLocator.ServiceProvider.GetService(typeof(VehicleService)) as VehicleService;
-            _authenticationService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
             _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
+            _authenticationService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
             InitializeComponent();
             LoadData();
 
@@ -68,27 +68,10 @@ namespace AccommodationManagerApp.Forms
             if (_authenticationService.IsAuthenticated())
             {
                 labelCurrentUserEmail.Text = _authenticationService.CurrentUser.Email;
-            }
-        }
-
-        private void logout(object sender, System.EventArgs e)
-        {
-            var confirmation = new ConfirmationForm("Bạn có chắc chắn muốn đăng xuất");
-            var result = confirmation.ShowDialog();
-            if (result == DialogResult.Yes)
+            } else
             {
-                _authenticationService.Logout();
-                Close();
-
-                Thread loginFormThread = new Thread(() =>
-                {
-                    Application.SetCompatibleTextRenderingDefault(false);
-                    LoginForm loginForm = new LoginForm();
-                    Application.Run(loginForm);
-                });
-
-                loginFormThread.SetApartmentState(ApartmentState.STA);
-                loginFormThread.Start();
+                labelCurrentUserEmail.Text = defaultMail;
+                btnLogin.Visible = true;
             }
         }
     }
