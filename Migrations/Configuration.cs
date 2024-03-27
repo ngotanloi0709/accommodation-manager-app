@@ -95,7 +95,7 @@ namespace AccommodationManagerApp.Migrations {
                     AFTER DELETE ON users
                     FOR EACH ROW
                     BEGIN
-                        UPDATE rooms SET UserId = NULL WHERE UserId = OLD.Id;
+                        UPDATE contracts SET UserId = NULL WHERE UserId = OLD.Id;
                     END;
                     ";
                 context.Database.ExecuteSqlCommand(createTriggerSql);

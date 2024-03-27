@@ -7,12 +7,12 @@ namespace AccommodationManagerApp.Forms {
     public partial class MainForm {
         private void LoadRoomData() {
             ListViewRoom.Items.Clear();
-            Rooms = _roomService.GetAllWithBuildingAndUser();
+            Rooms = _roomService.GetAllWithBuildingAndContract();
 
             foreach (var room in Rooms) {
                 ListViewItem item = new ListViewItem(room.RoomNumber);
                 item.SubItems.Add(room.Building != null ? room.Building.Name : Resources.NullData);
-                item.SubItems.Add(room.User != null ? room.User.Name : Resources.NullData);
+                item.SubItems.Add(Resources.NullData);
                 item.SubItems.Add(room.Status.ToVietnamese());
                 ListViewRoom.Items.Add(item);
             }
@@ -24,7 +24,6 @@ namespace AccommodationManagerApp.Forms {
                 string id = room.Id.ToString();
                 string number = room.RoomNumber;
                 Building building = room.Building;
-                User tenant = room.User;
                 string status = room.Status.ToVietnamese();
 
                 labelRoomId.Text = id.Equals("") ? Resources.NullData : id;
@@ -40,14 +39,7 @@ namespace AccommodationManagerApp.Forms {
                     labelRoomBuilding.Text = Resources.NullData;
                 }
 
-                if (tenant != null) {
-                    string tenantName = room.User.Name;
-                    labelRoomTenant.Text =
-                        tenantName == null || tenantName.Equals("") ? Resources.NullData : tenantName;
-                }
-                else {
-                    labelRoomTenant.Text = Resources.NullData;
-                }
+                labelRoomTenant.Text = Resources.NullData;
 
                 labelRoomStatus.Text = status.Equals("") ? Resources.NullData : status;
             }

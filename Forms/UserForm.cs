@@ -1,7 +1,7 @@
-﻿using System.Windows.Forms;
-using AccommodationManagerApp.Model;
+﻿using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Service;
 using AccommodationManagerApp.Util;
+using System.Windows.Forms;
 
 namespace AccommodationManagerApp.Forms
 {
@@ -19,7 +19,7 @@ namespace AccommodationManagerApp.Forms
             if (_user != null)
             {
                 setUpData(_user);
-                Text =  isCurrentUser ? "Chỉnh sửa thông tin cá nhân" : "Chỉnh sửa thông tin người dùng";
+                Text = isCurrentUser ? "Chỉnh sửa thông tin cá nhân" : "Chỉnh sửa thông tin người dùng";
             }
         }
 
@@ -36,36 +36,38 @@ namespace AccommodationManagerApp.Forms
         private void buttonSave_Click(object sender, System.EventArgs e)
         {
             if (!IsAllTextBoxFilled() || !IsEmailSafe()) return;
-                
+
             if (_user == null)
             {
                 _user = new User(
-                    textBoxEmail.Text, 
-                    textBoxName.Text, 
-                    PasswordHelper.HashPassword("123"), 
-                    switchSex.Checked, 
+                    textBoxEmail.Text,
+                    textBoxName.Text,
+                    PasswordHelper.HashPassword("123"),
+                    switchSex.Checked,
                     textBoxPhone.Text,
-                    textBoxIdentityNumber.Text, 
+                    textBoxIdentityNumber.Text,
                     dateTimePickerDateOfBirth.Value);
-                
+
                 _userService.Add(_user);
             }
-            else {
+            else
+            {
                 _user.Name = textBoxName.Text;
                 _user.Phone = textBoxPhone.Text;
                 _user.Email = textBoxEmail.Text;
                 _user.IdentityNumber = textBoxIdentityNumber.Text;
                 _user.IsFemale = switchSex.Checked;
                 _user.DateOfBirth = dateTimePickerDateOfBirth.Value;
-                
+
                 _userService.Update(_user.Id, _user);
             }
-            
+
             DialogResult = DialogResult.OK;
             Close();
         }
-        
-        private bool IsEmailSafe() {
+
+        private bool IsEmailSafe()
+        {
             if ((_user == null || _user.Email != textBoxEmail.Text) &&
                 _userService.IsEmailExists(textBoxEmail.Text))
             {
@@ -75,15 +77,17 @@ namespace AccommodationManagerApp.Forms
 
             return true;
         }
-        
-        private bool IsAllTextBoxFilled() {
+
+        private bool IsAllTextBoxFilled()
+        {
             bool result = string.IsNullOrEmpty(textBoxName.Text) || string.IsNullOrEmpty(textBoxPhone.Text) ||
                           string.IsNullOrEmpty(textBoxEmail.Text) || string.IsNullOrEmpty(textBoxIdentityNumber.Text);
-            
-            if (result) {
+
+            if (result)
+            {
                 new ToastForm("Vui lòng điền đầy đủ thông tin.", true).Show();
             }
-            
+
             return !result;
         }
 

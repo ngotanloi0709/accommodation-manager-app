@@ -63,7 +63,7 @@ namespace AccommodationManagerApp.Forms
         {
             textBoxRoomName.Text = room.RoomNumber;
             comboBoxRoomBuilding.SelectedItem = room.Building?.Name ?? "None";
-            comboBoxRoomTenant.SelectedItem = room.User?.Name ?? "None";
+            comboBoxRoomTenant.SelectedItem = "None";
             comboBoxRoomStatus.SelectedItem = room.Status.ToVietnamese();
         }
 
@@ -76,18 +76,17 @@ namespace AccommodationManagerApp.Forms
             
             string roomNumber = textBoxRoomName.Text;
             int? buildingId = comboBoxRoomBuilding.SelectedItem.ToString().Equals("None") ? null : _buildingService.GetIdByName(comboBoxRoomBuilding.SelectedItem.ToString());
-            int? userId = comboBoxRoomTenant.SelectedItem.ToString().Equals("None") ? null : _userService.GetIdByName(comboBoxRoomTenant.SelectedItem.ToString());
+            int? contractId = comboBoxRoomTenant.SelectedItem.ToString().Equals("None") ? null : _userService.GetIdByName(comboBoxRoomTenant.SelectedItem.ToString());
             RoomStatus status = comboBoxRoomStatus.SelectedItem.ToString().ToRoomStatus();
 
             if (_room == null)
             {
-                _roomService.Add(new Room(roomNumber, buildingId, userId, status));
+                _roomService.Add(new Room(roomNumber, buildingId, status));
             }
             else
             {
                 _room.RoomNumber = roomNumber;
                 _room.BuildingId = buildingId;
-                _room.UserId = userId;
                 _room.Status = status;
                 
                 _roomService.Update(_room.Id, _room);

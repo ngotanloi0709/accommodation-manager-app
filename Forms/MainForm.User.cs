@@ -9,7 +9,7 @@ namespace AccommodationManagerApp.Forms {
     public partial class MainForm {
         private void LoadUserData() {
             ListViewUser.Items.Clear();
-            Users = _userService.GetAllWithRoom();
+            Users = _userService.GetAllWithContract();
 
             foreach (var user in Users) {
                 ListViewItem item = new ListViewItem(user.Name);
@@ -37,15 +37,15 @@ namespace AccommodationManagerApp.Forms {
                 labelUserEmail.Text = string.IsNullOrEmpty(user.Email) ? Resources.NullData : user.Email;
 
                 ListViewUserRentList.Items.Clear();
-                foreach (var room in user.Rooms) {
-                    ListViewItem item = new ListViewItem(string.IsNullOrEmpty(room.RoomNumber)
-                        ? Resources.NullData
-                        : room.RoomNumber);
-                    item.SubItems.Add(room.Building == null || string.IsNullOrEmpty(room.Building.Name)
-                        ? Resources.NullData
-                        : room.Building.Name);
-                    ListViewUserRentList.Items.Add(item);
-                }
+                // foreach (var room in user.Rooms) {
+                //     ListViewItem item = new ListViewItem(string.IsNullOrEmpty(room.RoomNumber)
+                //         ? Resources.NullData
+                //         : room.RoomNumber);
+                //     item.SubItems.Add(room.Building == null || string.IsNullOrEmpty(room.Building.Name)
+                //         ? Resources.NullData
+                //         : room.Building.Name);
+                //     ListViewUserRentList.Items.Add(item);
+                // }
             }
         }
 

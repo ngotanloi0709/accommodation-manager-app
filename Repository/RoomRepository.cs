@@ -18,12 +18,16 @@ namespace AccommodationManagerApp.Repository {
             return Context.Set<Room>().Where(r => r.BuildingId == buildingId).ToList();
         }
 
-        public List<Room> GetAllWithBuildingAndUser() {
-            return Context.Set<Room>().Include("Building").Include("User").ToList();
+        public List<Room> GetAllWithBuildingAndContract() {
+            return Context.Set<Room>().Include("Building").Include("Contract").ToList();
         }
 
         public Room GetByRoomNumber(string roomNumber) {
             return Context.Set<Room>().FirstOrDefault(r => r.RoomNumber == roomNumber);
+        }
+
+        public Room GetByIdWithContract(int id) {
+            return Context.Set<Room>().Include("Contract").FirstOrDefault(r => r.Id == id);
         }
     }
 }

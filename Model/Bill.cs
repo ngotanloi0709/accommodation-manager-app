@@ -47,4 +47,10 @@ namespace AccommodationManagerApp.Model
             return (this.RentBill + this.ElectricityBill + this.WaterBill);
         }
     }
+    
+    public enum BillStatus {
+        Unpaid = 0,
+        Pending = 1,
+        Paid = 2
+    }
 }

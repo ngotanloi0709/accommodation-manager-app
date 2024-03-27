@@ -200,7 +200,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(545, 465);
+            this.ClientSize = new System.Drawing.Size(542, 452);
             this.Controls.Add(this.comboBoxRoomStatus);
             this.Controls.Add(this.comboBoxRoomTenant);
             this.Controls.Add(this.comboBoxRoomBuilding);
@@ -210,6 +210,8 @@
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.textBoxRoomName);
             this.Controls.Add(this.materialLabel1);
+            this.MaximumSize = new System.Drawing.Size(542, 452);
+            this.MinimumSize = new System.Drawing.Size(542, 452);
             this.Name = "RoomForm";
             this.Sizable = false;
             this.Text = "Thêm thông tin căn hộ";

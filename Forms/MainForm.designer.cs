@@ -67,6 +67,7 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
             this.tabPageRoom = new System.Windows.Forms.TabPage();
+            this.materialButton4 = new MaterialSkin.Controls.MaterialButton();
             this.buttonDeleteRoom = new MaterialSkin.Controls.MaterialButton();
             this.buttonEditRoom = new MaterialSkin.Controls.MaterialButton();
             this.buttonAddRoom = new MaterialSkin.Controls.MaterialButton();
@@ -153,11 +154,13 @@
             this.mySqlConnection1 = new MySqlConnector.MySqlConnection();
             this.labelCurrentUserEmail = new System.Windows.Forms.Label();
             this.buttonCurrentUserInformationManagement = new MaterialSkin.Controls.MaterialButton();
+            this.buttonContractManagement = new MaterialSkin.Controls.MaterialButton();
             this.tabPageTenants.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserImage)).BeginInit();
             this.tabPageRoom.SuspendLayout();
             this.tabPageBuilding.SuspendLayout();
             this.materialTabControl.SuspendLayout();
+            this.tabPageHome.SuspendLayout();
             this.tabPageVehicle.SuspendLayout();
             this.tabPageBills.SuspendLayout();
             this.SuspendLayout();
@@ -179,9 +182,9 @@
             // 
             this.tabPageConfiguration.BackColor = System.Drawing.Color.White;
             this.tabPageConfiguration.ImageKey = "setting.png";
-            this.tabPageConfiguration.Location = new System.Drawing.Point(4, 74);
+            this.tabPageConfiguration.Location = new System.Drawing.Point(4, 39);
             this.tabPageConfiguration.Name = "tabPageConfiguration";
-            this.tabPageConfiguration.Size = new System.Drawing.Size(986, 638);
+            this.tabPageConfiguration.Size = new System.Drawing.Size(986, 673);
             this.tabPageConfiguration.TabIndex = 5;
             this.tabPageConfiguration.Text = "Configuration";
             // 
@@ -189,9 +192,9 @@
             // 
             this.tabPageSystemUsers.BackColor = System.Drawing.Color.White;
             this.tabPageSystemUsers.ImageKey = "customer.png";
-            this.tabPageSystemUsers.Location = new System.Drawing.Point(4, 74);
+            this.tabPageSystemUsers.Location = new System.Drawing.Point(4, 39);
             this.tabPageSystemUsers.Name = "tabPageSystemUsers";
-            this.tabPageSystemUsers.Size = new System.Drawing.Size(986, 638);
+            this.tabPageSystemUsers.Size = new System.Drawing.Size(986, 673);
             this.tabPageSystemUsers.TabIndex = 4;
             this.tabPageSystemUsers.Text = "System Users";
             // 
@@ -224,9 +227,9 @@
             this.tabPageTenants.Controls.Add(this.buttonReloadUser);
             this.tabPageTenants.Controls.Add(this.ListViewUser);
             this.tabPageTenants.ImageKey = "house-owner.png";
-            this.tabPageTenants.Location = new System.Drawing.Point(4, 74);
+            this.tabPageTenants.Location = new System.Drawing.Point(4, 39);
             this.tabPageTenants.Name = "tabPageTenants";
-            this.tabPageTenants.Size = new System.Drawing.Size(986, 638);
+            this.tabPageTenants.Size = new System.Drawing.Size(986, 673);
             this.tabPageTenants.TabIndex = 2;
             this.tabPageTenants.Text = "Quản lý người thuê";
             // 
@@ -234,14 +237,14 @@
             // 
             this.materialLabel12.AutoSize = true;
             this.materialLabel12.Depth = 0;
-            this.materialLabel12.Font = new System.Drawing.Font("Roboto", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel12.FontType = MaterialSkin.MaterialSkinManager.fontType.H4;
-            this.materialLabel12.Location = new System.Drawing.Point(65, 600);
+            this.materialLabel12.Font = new System.Drawing.Font("Roboto Light", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel12.FontType = MaterialSkin.MaterialSkinManager.fontType.H2;
+            this.materialLabel12.Location = new System.Drawing.Point(-1, 0);
             this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel12.Name = "materialLabel12";
-            this.materialLabel12.Size = new System.Drawing.Size(196, 41);
-            this.materialLabel12.TabIndex = 17;
-            this.materialLabel12.Text = "Bills Manage";
+            this.materialLabel12.Size = new System.Drawing.Size(491, 72);
+            this.materialLabel12.TabIndex = 40;
+            this.materialLabel12.Text = "Quản lý người thuê";
             // 
             // buttonChangeTenantAvatar
             // 
@@ -676,6 +679,7 @@
             // tabPageRoom
             // 
             this.tabPageRoom.BackColor = System.Drawing.Color.White;
+            this.tabPageRoom.Controls.Add(this.materialButton4);
             this.tabPageRoom.Controls.Add(this.buttonDeleteRoom);
             this.tabPageRoom.Controls.Add(this.buttonEditRoom);
             this.tabPageRoom.Controls.Add(this.buttonAddRoom);
@@ -695,12 +699,32 @@
             this.tabPageRoom.Controls.Add(this.ListViewRoom);
             this.tabPageRoom.ForeColor = System.Drawing.Color.Transparent;
             this.tabPageRoom.ImageKey = "home.png";
-            this.tabPageRoom.Location = new System.Drawing.Point(4, 74);
+            this.tabPageRoom.Location = new System.Drawing.Point(4, 39);
             this.tabPageRoom.Name = "tabPageRoom";
             this.tabPageRoom.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRoom.Size = new System.Drawing.Size(986, 638);
+            this.tabPageRoom.Size = new System.Drawing.Size(986, 673);
             this.tabPageRoom.TabIndex = 0;
             this.tabPageRoom.Text = "Quản lý căn hộ";
+            // 
+            // materialButton4
+            // 
+            this.materialButton4.AutoSize = false;
+            this.materialButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton4.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton4.Depth = 0;
+            this.materialButton4.HighEmphasis = true;
+            this.materialButton4.Icon = global::AccommodationManagerApp.Properties.Resources.contract;
+            this.materialButton4.Location = new System.Drawing.Point(548, 497);
+            this.materialButton4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton4.Name = "materialButton4";
+            this.materialButton4.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton4.Size = new System.Drawing.Size(361, 36);
+            this.materialButton4.TabIndex = 17;
+            this.materialButton4.Text = "Xem hợp đồng thuê nhà";
+            this.materialButton4.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton4.UseAccentColor = false;
+            this.materialButton4.UseVisualStyleBackColor = true;
             // 
             // buttonDeleteRoom
             // 
@@ -1007,9 +1031,9 @@
             this.tabPageBuilding.Controls.Add(this.buttonAddBuilding);
             this.tabPageBuilding.Controls.Add(this.ListViewBuilding);
             this.tabPageBuilding.ImageKey = "dashboard.png";
-            this.tabPageBuilding.Location = new System.Drawing.Point(4, 74);
+            this.tabPageBuilding.Location = new System.Drawing.Point(4, 39);
             this.tabPageBuilding.Name = "tabPageBuilding";
-            this.tabPageBuilding.Size = new System.Drawing.Size(986, 638);
+            this.tabPageBuilding.Size = new System.Drawing.Size(986, 673);
             this.tabPageBuilding.TabIndex = 1;
             this.tabPageBuilding.Text = "Quản lý toà nhà";
             // 
@@ -1290,10 +1314,11 @@
             // 
             // tabPageHome
             // 
+            this.tabPageHome.Controls.Add(this.buttonContractManagement);
             this.tabPageHome.ImageKey = "statistic.png";
-            this.tabPageHome.Location = new System.Drawing.Point(4, 74);
+            this.tabPageHome.Location = new System.Drawing.Point(4, 39);
             this.tabPageHome.Name = "tabPageHome";
-            this.tabPageHome.Size = new System.Drawing.Size(986, 638);
+            this.tabPageHome.Size = new System.Drawing.Size(986, 673);
             this.tabPageHome.TabIndex = 7;
             this.tabPageHome.Text = "Trang chủ";
             this.tabPageHome.UseVisualStyleBackColor = true;
@@ -1319,9 +1344,9 @@
             this.tabPageVehicle.Controls.Add(this.ListViewVehicle);
             this.tabPageVehicle.Controls.Add(this.materialLabel11);
             this.tabPageVehicle.ImageKey = "fleet.png";
-            this.tabPageVehicle.Location = new System.Drawing.Point(4, 74);
+            this.tabPageVehicle.Location = new System.Drawing.Point(4, 39);
             this.tabPageVehicle.Name = "tabPageVehicle";
-            this.tabPageVehicle.Size = new System.Drawing.Size(986, 638);
+            this.tabPageVehicle.Size = new System.Drawing.Size(986, 673);
             this.tabPageVehicle.TabIndex = 6;
             this.tabPageVehicle.Text = "Vehicle";
             // 
@@ -1646,10 +1671,10 @@
             this.tabPageBills.Controls.Add(this.btnPDF);
             this.tabPageBills.Controls.Add(this.lstViewBill);
             this.tabPageBills.ImageKey = "invoice.png";
-            this.tabPageBills.Location = new System.Drawing.Point(4, 74);
+            this.tabPageBills.Location = new System.Drawing.Point(4, 39);
             this.tabPageBills.Name = "tabPageBills";
             this.tabPageBills.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageBills.Size = new System.Drawing.Size(986, 638);
+            this.tabPageBills.Size = new System.Drawing.Size(986, 673);
             this.tabPageBills.TabIndex = 6;
             this.tabPageBills.Text = "Bill Managements";
             this.tabPageBills.UseVisualStyleBackColor = true;
@@ -1963,9 +1988,30 @@
             this.buttonCurrentUserInformationManagement.UseVisualStyleBackColor = true;
             this.buttonCurrentUserInformationManagement.Click += new System.EventHandler(this.buttonCurrentUserInformationManagement_Click);
             // 
+            // buttonContractManagement
+            // 
+            this.buttonContractManagement.AutoSize = false;
+            this.buttonContractManagement.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonContractManagement.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonContractManagement.Depth = 0;
+            this.buttonContractManagement.HighEmphasis = true;
+            this.buttonContractManagement.Icon = null;
+            this.buttonContractManagement.Location = new System.Drawing.Point(674, 33);
+            this.buttonContractManagement.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonContractManagement.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonContractManagement.Name = "buttonContractManagement";
+            this.buttonContractManagement.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonContractManagement.Size = new System.Drawing.Size(290, 36);
+            this.buttonContractManagement.TabIndex = 0;
+            this.buttonContractManagement.Text = "Quản lý hợp đồng thuê nhà";
+            this.buttonContractManagement.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonContractManagement.UseAccentColor = false;
+            this.buttonContractManagement.UseVisualStyleBackColor = true;
+            this.buttonContractManagement.Click += new System.EventHandler(this.buttonContractManagement_Click);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1000, 800);
@@ -1991,6 +2037,7 @@
             this.tabPageBuilding.ResumeLayout(false);
             this.tabPageBuilding.PerformLayout();
             this.materialTabControl.ResumeLayout(false);
+            this.tabPageHome.ResumeLayout(false);
             this.tabPageVehicle.ResumeLayout(false);
             this.tabPageVehicle.PerformLayout();
             this.tabPageBills.ResumeLayout(false);
@@ -2064,7 +2111,6 @@
         private MaterialSkin.Controls.MaterialButton btnDelete;
         private MaterialSkin.Controls.MaterialButton btnSearch;
         private MaterialSkin.Controls.MaterialTextBox txtBoxSearch;
-        private MaterialSkin.Controls.MaterialLabel materialLabel12;
         private MaterialSkin.Controls.MaterialComboBox materialComboBox2;
         private MaterialSkin.Controls.MaterialComboBox cmbboxCatg;
         private System.Windows.Forms.TabPage tabPageVehicle;
@@ -2124,5 +2170,8 @@
         private System.Windows.Forms.Label labelCurrentUserEmail;
         private MaterialSkin.Controls.MaterialButton buttonCurrentUserInformationManagement;
         private System.Windows.Forms.ColumnHeader state;
+        private MaterialSkin.Controls.MaterialLabel materialLabel12;
+        private MaterialSkin.Controls.MaterialButton materialButton4;
+        private MaterialSkin.Controls.MaterialButton buttonContractManagement;
     }
 }

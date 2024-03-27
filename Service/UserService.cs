@@ -23,8 +23,8 @@ namespace AccommodationManagerApp.Service {
             return _userRepository.GetAll();
         }
         
-        public List<User> GetAllWithRoom() {
-            return _userRepository.GetAllWithRoom();
+        public List<User> GetAllWithContract() {
+            return _userRepository.GetAllWithContract();
         }
 
         public int? GetIdByName(string name) {

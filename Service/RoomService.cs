@@ -17,8 +17,8 @@ namespace AccommodationManagerApp.Service {
             return _roomRepository.GetAll().ToList();
         }
         
-        public List<Room> GetAllWithBuildingAndUser() {
-            return _roomRepository.GetAllWithBuildingAndUser().ToList();
+        public List<Room> GetAllWithBuildingAndContract() {
+            return _roomRepository.GetAllWithBuildingAndContract().ToList();
         }
 
         public bool Delete(int id) {
@@ -44,6 +44,10 @@ namespace AccommodationManagerApp.Service {
 
         public Room GetById(int id) {
             return _roomRepository.GetById(id);
+        }
+        
+        public Room GetByIdWithContract(int id) {
+            return _roomRepository.GetByIdWithContract(id);
         }
         
         public Room GetByIdWithBuilding(int id) {

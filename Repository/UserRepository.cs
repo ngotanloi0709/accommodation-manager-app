@@ -14,8 +14,8 @@ namespace AccommodationManagerApp.Repository {
             return Context.Set<User>().FirstOrDefault(u => u.Name == name);
         }
 
-        public List<User> GetAllWithRoom() {
-            return Context.Set<User>().Include("Rooms").ToList();
+        public List<User> GetAllWithContract() {
+            return Context.Set<User>().Include("Contracts").ToList();
         }
     }
 }

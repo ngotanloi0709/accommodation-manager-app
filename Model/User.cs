@@ -19,7 +19,7 @@ namespace AccommodationManagerApp.Model
         public string Phone { get; set; }
         public string IdentityNumber { get; set; }
         public byte[] Avatar { get; set; }
-        public List<Room> Rooms { get; set; }
+        public List<Contract> Contracts { get; set; }
         
         public User() { }
         
@@ -38,5 +38,11 @@ namespace AccommodationManagerApp.Model
             IdentityNumber = identityNumber;
             DateOfBirth = dateOfBirth;
         }
+    }
+    
+    public enum UserRole {
+        Tenant,
+        Manager,
+        Admin
     }
 }
