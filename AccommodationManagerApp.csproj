@@ -321,6 +321,10 @@
     <Compile Include="Forms\VehicleForm.Designer.cs">
       <DependentUpon>VehicleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202403271925413_update.cs" />
+    <Compile Include="Migrations\202403271925413_update.Designer.cs">
+      <DependentUpon>202403271925413_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Bill.cs" />
     <Compile Include="Model\Building.cs" />
@@ -407,6 +411,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\VehicleForm.resx">
       <DependentUpon>VehicleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202403271925413_update.resx">
+      <DependentUpon>202403271925413_update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

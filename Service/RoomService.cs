@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AccommodationManagerApp.Model;
+using AccommodationManagerApp.Properties;
 using AccommodationManagerApp.Repository;
 
 
@@ -42,31 +43,6 @@ namespace AccommodationManagerApp.Service {
             _roomRepository.Update(id, room);
         }
 
-        public Room GetById(int id) {
-            return _roomRepository.GetById(id);
-        }
-        
-        public Room GetByIdWithContract(int id) {
-            return _roomRepository.GetByIdWithContract(id);
-        }
-        
-        public Room GetByIdWithBuilding(int id) {
-            return _roomRepository.GetByIdWithBuilding(id);
-        }
-        
-        public List<Room> GetAllWithBuilding() {
-            return _roomRepository.GetAllWithBuilding().ToList();
-        }
-        
-        public List<Room> GetAllByBuildingId(int buildingId) {
-            return _roomRepository.GetAllByBuildingId(buildingId).ToList();
-        }
-
-        public Room GetByRoomNumber(string roomNumber)
-        {
-            return _roomRepository.GetByRoomNumber(roomNumber);
-        }
-
         public int? GetIdByRoomNumber(string roomNumber)
         {
             Room room = _roomRepository.GetByRoomNumber(roomNumber);
@@ -78,13 +54,23 @@ namespace AccommodationManagerApp.Service {
 
             return null;
         }
-        
-        public List<Room> GetByBuildingId(int buildingId) {
-            return _roomRepository.GetAll().Where(room => room.BuildingId == buildingId).ToList();
-        }
 
         public bool IsRoomNumberExists(string roomNumber) {
             return _roomRepository.GetByRoomNumber(roomNumber) != null;
+        }
+        
+        public String GetCurrentTenantName(Room room) {
+            if (room.Contracts.Count == 0) {
+                return Resources.NullData;
+            }
+
+            foreach (var contract in room.Contracts) {
+                if (contract.EndDate > DateTime.Now) {
+                    return contract.User.Name;
+                }
+            }
+            
+            return Resources.NullData; 
         }
     }
 }

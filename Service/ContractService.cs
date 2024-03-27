@@ -35,7 +35,7 @@ namespace AccommodationManagerApp.Service {
                 return true;
             }
 
-            if (contract.EndDate > DateTime.Now) {
+            if (contract.EndDate < DateTime.Now) {
                 TerminateContract(contract);
                 
                 return true;
@@ -48,9 +48,9 @@ namespace AccommodationManagerApp.Service {
             bool result = true;
             
             if (room.Contracts.Count == 0) return true;
-            
+            Console.WriteLine(room.Contracts.Count);
             foreach (var contract in room.Contracts) {
-                if (IsContractExpired(contract)) {
+                if (!IsContractExpired(contract)) {
                     result = false;
                 }
             }
@@ -58,35 +58,29 @@ namespace AccommodationManagerApp.Service {
             return result;
         }
         
-        public bool IsRoomAvailable(int roomId) {
+        public bool IsRoomAvailableWithToast(int? roomId) {
             Room room = _roomRepository.GetByIdWithContract(roomId);
             
             if (room == null) {
+                new ToastForm("Phòng không tồn tại", true).Show();
                 return false;
             }
             
             if (!IsRoomContractsAllExpired(room)) {
-                new ToastForm("Hợp đồng của phòng chưa hết hạn", true);
+                new ToastForm("Hợp đồng của phòng chưa hết hạn", true).Show();
                 return false;
             }
             
             if (room.Status == RoomStatus.Rented) {
-                new ToastForm("Trạng thái của phòng đang được thuê", true);
+                new ToastForm("Trạng thái của phòng đang được thuê", true).Show();
                 return false;
             }
-            
             
             return true;
         }
 
-        public List<Room> GetAvailableRooms() {
-            List<Room> rooms = new List<Room>();
-
-            foreach (var room in _roomRepository.GetAll()) {
-                if (IsRoomAvailable(room.Id)) rooms.Add(room);
-            }
-            
-            return rooms;
+        public void Add(Contract contract) {
+            _contractRepository.Add(contract);
         }
     }
 }

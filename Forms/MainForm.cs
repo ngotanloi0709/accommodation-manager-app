@@ -14,6 +14,7 @@ namespace AccommodationManagerApp.Forms {
         private readonly AuthenticationService _authenticationService;
         private readonly VehicleService _vehicleService;
         private readonly UserService _userService;
+        private readonly ContractService _contractService;
         private List<BillModel> Bills { get; set; }
         private List<Building> Buildings { get; set; }
         private List<Room> Rooms { get; set; }
@@ -28,6 +29,7 @@ namespace AccommodationManagerApp.Forms {
             _authenticationService =
                 ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
             _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
+            _contractService = ServiceLocator.ServiceProvider.GetService(typeof(ContractService)) as ContractService;
             InitializeComponent();
             LoadData();
 
@@ -41,7 +43,7 @@ namespace AccommodationManagerApp.Forms {
 
         private void LoadData() {
             LoadPersonalInformation();
-            // LoadRoomData();
+            LoadRoomData();
             LoadBuildingData();
             LoadBillData();
             LoadVehicleData();
@@ -83,8 +85,7 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        private void buttonContractManagement_Click(object sender, System.EventArgs e)
-        {
+        private void buttonContractManagement_Click(object sender, System.EventArgs e) {
             ContractManagementForm contractManagementForm = new ContractManagementForm();
             contractManagementForm.ShowDialog();
         }

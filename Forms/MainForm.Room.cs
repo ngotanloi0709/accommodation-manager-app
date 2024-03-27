@@ -12,11 +12,12 @@ namespace AccommodationManagerApp.Forms {
             foreach (var room in Rooms) {
                 ListViewItem item = new ListViewItem(room.RoomNumber);
                 item.SubItems.Add(room.Building != null ? room.Building.Name : Resources.NullData);
-                item.SubItems.Add(Resources.NullData);
+                item.SubItems.Add(_roomService.GetCurrentTenantName(room));
                 item.SubItems.Add(room.Status.ToVietnamese());
                 ListViewRoom.Items.Add(item);
             }
         }
+        
 
         private void ListViewRoom_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) {
             Room room = IsSelectedRoomValid();
@@ -39,7 +40,7 @@ namespace AccommodationManagerApp.Forms {
                     labelRoomBuilding.Text = Resources.NullData;
                 }
 
-                labelRoomTenant.Text = Resources.NullData;
+                labelRoomTenant.Text = _roomService.GetCurrentTenantName(room);
 
                 labelRoomStatus.Text = status.Equals("") ? Resources.NullData : status;
             }
