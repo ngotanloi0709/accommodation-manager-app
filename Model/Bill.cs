@@ -14,7 +14,9 @@ namespace AccommodationManagerApp.Model
         public Double ElectricityBill { get; set; }
         public Double WaterBill { get; set; }
         public Double TotalBill { get; set; }
+        [DisplayFormat(DataFormatString = "dd/MM/yyyy HH:mm")]
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public string CreatedAtFormatted => CreatedAt.ToString("dd/MM/yyyy HH:mm");
 
         [EnumDataType(typeof(BillStatus))]
         public BillStatus Status { get; set; }

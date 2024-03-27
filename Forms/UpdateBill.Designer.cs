@@ -54,7 +54,7 @@
             this.btnAdd.NoAccentTextColor = System.Drawing.Color.Empty;
             this.btnAdd.Size = new System.Drawing.Size(95, 36);
             this.btnAdd.TabIndex = 9;
-            this.btnAdd.Text = "save";
+            this.btnAdd.Text = "Lưu";
             this.btnAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnAdd.UseAccentColor = false;
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -64,13 +64,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 539);
+            this.ClientSize = new System.Drawing.Size(548, 617);
             this.Controls.Add(this.btnAdd);
             this.Name = "UpdateBill";
             this.Text = "UpdateBill";
-            this.Controls.SetChildIndex(this.btnClose, 0);
             this.Controls.SetChildIndex(this.lblDate, 0);
-            this.Controls.SetChildIndex(this.lblRoom, 0);
+            this.Controls.SetChildIndex(this.btnClose, 0);
             this.Controls.SetChildIndex(this.cmbboxRent, 0);
             this.Controls.SetChildIndex(this.cmbboxRoom, 0);
             this.Controls.SetChildIndex(this.txtbxWater, 0);

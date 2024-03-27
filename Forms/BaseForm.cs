@@ -8,7 +8,6 @@ namespace AccommodationManagerApp.Forms {
             InitializeComponent();
             SetUpUi();
         }
-        
         protected void SetUpUi()
         {
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
@@ -22,5 +21,6 @@ namespace AccommodationManagerApp.Forms {
             MinimizeBox = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
+
     }
 }

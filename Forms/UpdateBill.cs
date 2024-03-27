@@ -21,7 +21,7 @@ namespace AccommodationManagerApp.Forms.Bill
 
         private void loadData()
         {
-            lblDate.Text = preBill.CreatedAt.ToString();
+            lblDate.Text += preBill.CreatedAtFormatted;
             cmbboxRent.Text = preBill.RentBill.ToString();
             txtbxWater.Text = preBill.WaterBill.ToString();
             txtbxElectric.Text = preBill.ElectricityBill.ToString();
@@ -32,7 +32,6 @@ namespace AccommodationManagerApp.Forms.Bill
             postBill = setBill();
             if (postBill != null)
             {
-                //I can compare 2 bill here
                 _billService.Update(id, postBill);
                 new ToastForm("Update Success!", false).Show();
                 this.Close();

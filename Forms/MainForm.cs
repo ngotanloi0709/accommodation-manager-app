@@ -46,28 +46,9 @@ namespace AccommodationManagerApp.Forms
             LoadPersonalInformation();
             LoadRoomData();
             LoadBuildingData();
-            LoadBillData();
+            readBill();
             LoadVehicleData();
             LoadUserData();
-        }
-        
-        private void BtnLogOut_Click(object sender, System.EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có chắc chắn muốn đăng xuất", "Xác nhận đăng xuất", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                _authenticationService.Logout();
-                Close();
-
-                Thread loginFormThread = new Thread(() =>
-                {
-                    Application.SetCompatibleTextRenderingDefault(false);
-                    LoginForm loginForm = new LoginForm();
-                    Application.Run(loginForm);
-                });
-
-                loginFormThread.SetApartmentState(ApartmentState.STA);
-                loginFormThread.Start();
-            }
         }
 
         private void buttonCurrentUserInformationManagement_Click(object sender, System.EventArgs e)
@@ -87,6 +68,27 @@ namespace AccommodationManagerApp.Forms
             if (_authenticationService.IsAuthenticated())
             {
                 labelCurrentUserEmail.Text = _authenticationService.CurrentUser.Email;
+            }
+        }
+
+        private void logout(object sender, System.EventArgs e)
+        {
+            var confirmation = new ConfirmationForm("Bạn có chắc chắn muốn đăng xuất");
+            var result = confirmation.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
+                _authenticationService.Logout();
+                Close();
+
+                Thread loginFormThread = new Thread(() =>
+                {
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    LoginForm loginForm = new LoginForm();
+                    Application.Run(loginForm);
+                });
+
+                loginFormThread.SetApartmentState(ApartmentState.STA);
+                loginFormThread.Start();
             }
         }
     }

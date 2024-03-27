@@ -1,5 +1,6 @@
 ﻿using BillModel = AccommodationManagerApp.Model.Bill;
 using AccommodationManagerApp.Service;
+using System;
 
 namespace AccommodationManagerApp.Forms.Bill
 {
@@ -8,6 +9,7 @@ namespace AccommodationManagerApp.Forms.Bill
         private readonly BillService _billService;
         public AddBill()
         {
+            this.lblDate.Text += DateTime.Now.ToString("dd/MM/yyyy HH:mm");
             _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
             InitializeComponent();
         }
