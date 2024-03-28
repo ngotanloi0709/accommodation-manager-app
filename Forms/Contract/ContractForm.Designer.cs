@@ -42,6 +42,7 @@ namespace AccommodationManagerApp.Forms {
             this.textBoxEndDate = new MaterialSkin.Controls.MaterialLabel();
             this.buttonPlus = new MaterialSkin.Controls.MaterialButton();
             this.buttonMinus = new MaterialSkin.Controls.MaterialButton();
+            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // comboBoxEndDate
@@ -318,11 +319,25 @@ namespace AccommodationManagerApp.Forms {
             this.buttonMinus.UseVisualStyleBackColor = true;
             this.buttonMinus.Click += new System.EventHandler(this.buttonMinus_Click);
             // 
+            // materialLabel7
+            // 
+            this.materialLabel7.AutoSize = true;
+            this.materialLabel7.Depth = 0;
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel7.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
+            this.materialLabel7.Location = new System.Drawing.Point(156, 217);
+            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel7.Name = "materialLabel7";
+            this.materialLabel7.Size = new System.Drawing.Size(294, 14);
+            this.materialLabel7.TabIndex = 29;
+            this.materialLabel7.Text = "Chỉ hiện thị những phòng trống và không có hợp đồng";
+            // 
             // ContractForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(481, 677);
+            this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.buttonMinus);
             this.Controls.Add(this.buttonPlus);
             this.Controls.Add(this.textBoxEndDate);
@@ -344,6 +359,7 @@ namespace AccommodationManagerApp.Forms {
             this.Name = "ContractForm";
             this.Sizable = false;
             this.Text = "Thêm hợp đồng";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ContractForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,5 +383,6 @@ namespace AccommodationManagerApp.Forms {
         private MaterialSkin.Controls.MaterialLabel textBoxEndDate;
         private MaterialSkin.Controls.MaterialButton buttonPlus;
         private MaterialSkin.Controls.MaterialButton buttonMinus;
+        private MaterialSkin.Controls.MaterialLabel materialLabel7;
     }
 }

@@ -96,6 +96,10 @@ namespace AccommodationManagerApp.Forms {
         private void buttonDeleteRoom_Click(object sender, System.EventArgs e) {
             Room room = IsSelectedRoomValid();
             if (room != null) {
+                if (!IsRoomSafeDelete(room.Id)) {
+                    return;
+                }
+                
                 var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn xóa căn hộ này không?");
                 var result = confirmationForm.ShowDialog();
                 if (result == DialogResult.Yes) {
@@ -112,6 +116,15 @@ namespace AccommodationManagerApp.Forms {
             else {
                 new ToastForm("Vui lòng chọn thông tin cần xóa", true).Show();
             }
+        }
+
+        private bool IsRoomSafeDelete(int roomId) {
+            if (_roomService.IsExistContract(roomId)) {
+                new ToastForm("Dữ liệu đang tồn tại ở hợp đồng", true).Show();
+                return false;
+            }
+            
+            return true;
         }
 
         private Room IsSelectedRoomValid() {

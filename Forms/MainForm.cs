@@ -87,7 +87,11 @@ namespace AccommodationManagerApp.Forms {
 
         private void buttonContractManagement_Click(object sender, System.EventArgs e) {
             ContractManagementForm contractManagementForm = new ContractManagementForm();
-            contractManagementForm.ShowDialog();
+            contractManagementForm.FormClosed += (s, args) => {
+                LoadUserData();
+                LoadRoomData();
+            };
+            contractManagementForm.Show();
         }
     }
 }

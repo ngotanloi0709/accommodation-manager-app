@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
 
@@ -10,9 +11,11 @@ using AccommodationManagerApp.Repository;
 namespace AccommodationManagerApp.Service {
     public class UserService {
         private readonly UserRepository _userRepository;
+        private readonly ContractRepository _contractRepository;
 
-        public UserService(UserRepository userRepository) {
+        public UserService(UserRepository userRepository, ContractRepository contractRepository) {
             _userRepository = userRepository;
+            _contractRepository = contractRepository;
         }
 
         public User GetUserByEmail(string email) {
@@ -92,6 +95,10 @@ namespace AccommodationManagerApp.Service {
             }
 
             return null;
+        }
+
+        public bool IsExistContract(int userId) {
+            return _contractRepository.GetByUserId(userId).Any();
         }
     }
 }

@@ -355,6 +355,7 @@
     <Compile Include="Service\RoomService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="Service\VehicleServide.cs" />
+    <Compile Include="Util\FormatText.cs" />
     <Compile Include="Util\InitLog.cs" />
     <Compile Include="Util\InputCheck.cs" />
     <Compile Include="Util\PasswordHelper.cs" />

@@ -97,6 +97,10 @@ namespace AccommodationManagerApp.Forms {
         private void buttonDeleteTenant_Click(object sender, System.EventArgs e) {
             User user = IsSelectedUserValid();
             if (user != null) {
+                if (!IsUserSafeDelete(user.Id)) {
+                    return;
+                }
+                
                 var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn xóa người thuê này không?");
                 var result = confirmationForm.ShowDialog();
                 if (result == DialogResult.Yes) {
@@ -113,6 +117,15 @@ namespace AccommodationManagerApp.Forms {
             else {
                 new ToastForm("Vui lòng chọn người thuê cần xóa", true).Show();
             }
+        }
+
+        private bool IsUserSafeDelete(int userId) {
+            if (_userService.IsExistContract(userId)) {
+                new ToastForm("Dữ liệu đang tồn tại ở hợp đồng", true).Show();
+                return false;
+            }
+            
+            return true;
         }
 
         private void buttonEditTenantPassword_Click(object sender, System.EventArgs e) {

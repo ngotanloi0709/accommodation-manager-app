@@ -76,6 +76,7 @@ namespace AccommodationManagerApp.Migrations {
                     FOR EACH ROW
                     BEGIN
                         UPDATE vehicles SET RoomId = NULL WHERE RoomId = OLD.Id;
+                        Update contracts SET RoomId = NULL WHERE RoomId = OLD.Id;
                     END;
                     ";
                 context.Database.ExecuteSqlCommand(createTriggerSql);
@@ -95,7 +96,7 @@ namespace AccommodationManagerApp.Migrations {
                     AFTER DELETE ON users
                     FOR EACH ROW
                     BEGIN
-                        UPDATE contracts SET UserId = NULL WHERE UserId = OLD.Id;
+                        update contracts SET UserId = NULL WHERE UserId = OLD.Id;
                     END;
                     ";
                 context.Database.ExecuteSqlCommand(createTriggerSql);

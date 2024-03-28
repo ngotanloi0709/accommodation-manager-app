@@ -9,9 +9,11 @@ using AccommodationManagerApp.Repository;
 namespace AccommodationManagerApp.Service {
     public class RoomService {
         private readonly RoomRepository _roomRepository;
+        private readonly ContractRepository _contractRepository;
 
-        public RoomService(RoomRepository roomRepository) {
+        public RoomService(RoomRepository roomRepository, ContractRepository contractRepository) {
             _roomRepository = roomRepository;
+            _contractRepository = contractRepository;
         }
 
         public List<Room> GetAll() {
@@ -71,6 +73,10 @@ namespace AccommodationManagerApp.Service {
             }
             
             return Resources.NullData; 
+        }
+
+        public bool IsExistContract(int roomId) {
+            return _contractRepository.GetByRoomId(roomId).Any();
         }
     }
 }
