@@ -40,6 +40,7 @@ namespace AccommodationManagerApp {
             services.AddSingleton<VehicleService>();
             services.AddSingleton<BuildingService>();
             services.AddSingleton<BillService>();
+            services.AddSingleton<ContractService>();
 
             // Repositories
             services.AddSingleton<BillRepository>();
@@ -48,6 +49,7 @@ namespace AccommodationManagerApp {
             services.AddSingleton<BuildingRepository>();
             services.AddSingleton<VehicleRepository>();
             services.AddSingleton<InitLogRepository>();
+            services.AddSingleton<ContractRepository>();
 
             _serviceProvider = services.BuildServiceProvider();
             ServiceLocator.Initialize(_serviceProvider);

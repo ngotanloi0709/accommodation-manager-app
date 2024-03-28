@@ -45,11 +45,12 @@ namespace AccommodationManagerApp.Forms {
             // 
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(44, 150);
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel2.Location = new System.Drawing.Point(43, 150);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(99, 19);
+            this.materialLabel2.Size = new System.Drawing.Size(123, 24);
             this.materialLabel2.TabIndex = 9;
             this.materialLabel2.Text = "Số điện thoại:";
             // 
@@ -57,11 +58,12 @@ namespace AccommodationManagerApp.Forms {
             // 
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(44, 95);
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel1.Location = new System.Drawing.Point(43, 95);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(72, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(91, 24);
             this.materialLabel1.TabIndex = 8;
             this.materialLabel1.Text = "Họ và tên:";
             // 
@@ -126,11 +128,12 @@ namespace AccommodationManagerApp.Forms {
             // 
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(44, 208);
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel3.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel3.Location = new System.Drawing.Point(43, 208);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(93, 19);
+            this.materialLabel3.Size = new System.Drawing.Size(115, 24);
             this.materialLabel3.TabIndex = 11;
             this.materialLabel3.Text = "Số căn cước:";
             // 
@@ -156,11 +159,12 @@ namespace AccommodationManagerApp.Forms {
             // 
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.Location = new System.Drawing.Point(44, 322);
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel4.Location = new System.Drawing.Point(43, 322);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(45, 19);
+            this.materialLabel4.Size = new System.Drawing.Size(55, 24);
             this.materialLabel4.TabIndex = 13;
             this.materialLabel4.Text = "Email:";
             // 
@@ -184,11 +188,12 @@ namespace AccommodationManagerApp.Forms {
             // 
             // dateTimePickerDateOfBirth
             // 
+            this.dateTimePickerDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dateTimePickerDateOfBirth.Location = new System.Drawing.Point(179, 263);
             this.dateTimePickerDateOfBirth.MaxDate = new System.DateTime(2010, 12, 31, 0, 0, 0, 0);
             this.dateTimePickerDateOfBirth.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dateTimePickerDateOfBirth.Name = "dateTimePickerDateOfBirth";
-            this.dateTimePickerDateOfBirth.Size = new System.Drawing.Size(330, 20);
+            this.dateTimePickerDateOfBirth.Size = new System.Drawing.Size(330, 26);
             this.dateTimePickerDateOfBirth.TabIndex = 14;
             this.dateTimePickerDateOfBirth.Value = new System.DateTime(2010, 12, 31, 0, 0, 0, 0);
             // 
@@ -196,11 +201,12 @@ namespace AccommodationManagerApp.Forms {
             // 
             this.materialLabel5.AutoSize = true;
             this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel5.Location = new System.Drawing.Point(44, 263);
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel5.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel5.Location = new System.Drawing.Point(43, 263);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(76, 19);
+            this.materialLabel5.Size = new System.Drawing.Size(94, 24);
             this.materialLabel5.TabIndex = 15;
             this.materialLabel5.Text = "Ngày sinh:";
             // 
@@ -223,13 +229,14 @@ namespace AccommodationManagerApp.Forms {
             // 
             this.materialLabel6.AutoSize = true;
             this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel6.Location = new System.Drawing.Point(44, 383);
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel6.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel6.Location = new System.Drawing.Point(43, 379);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(60, 19);
+            this.materialLabel6.Size = new System.Drawing.Size(81, 24);
             this.materialLabel6.TabIndex = 17;
-            this.materialLabel6.Text = "Giới tính";
+            this.materialLabel6.Text = "Giới tính:";
             // 
             // UserForm
             // 

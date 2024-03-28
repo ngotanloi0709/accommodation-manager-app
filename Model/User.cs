@@ -19,14 +19,15 @@ namespace AccommodationManagerApp.Model
         public string Phone { get; set; }
         public string IdentityNumber { get; set; }
         public byte[] Avatar { get; set; }
-        public List<Room> Rooms { get; set; }
+        public List<Contract> Contracts { get; set; }
         
         public User() { }
         
-        public User(string email, string name, string password) {
+        public User(string email, string name, string password, UserRole role) {
             Email = email;
             Name = name;
             Password = password;
+            Role = role;
         }
         
         public User(string email, string name, string password, bool isFemale, string phone, string identityNumber, DateTime dateOfBirth) {
@@ -38,5 +39,11 @@ namespace AccommodationManagerApp.Model
             IdentityNumber = identityNumber;
             DateOfBirth = dateOfBirth;
         }
+    }
+    
+    public enum UserRole {
+        Tenant,
+        Manager,
+        Admin
     }
 }

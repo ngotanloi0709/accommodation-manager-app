@@ -1,24 +1,28 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using AccommodationManagerApp.Model;
+using AccommodationManagerApp.Properties;
 using AccommodationManagerApp.Repository;
 
 
 namespace AccommodationManagerApp.Service {
     public class RoomService {
         private readonly RoomRepository _roomRepository;
+        private readonly ContractRepository _contractRepository;
 
-        public RoomService(RoomRepository roomRepository) {
+        public RoomService(RoomRepository roomRepository, ContractRepository contractRepository) {
             _roomRepository = roomRepository;
+            _contractRepository = contractRepository;
         }
 
         public List<Room> GetAll() {
             return _roomRepository.GetAll().ToList();
         }
         
-        public List<Room> GetAllWithBuildingAndUser() {
-            return _roomRepository.GetAllWithBuildingAndUser().ToList();
+        public List<Room> GetAllWithBuildingAndContractWithUser() {
+            return _roomRepository.GetAllWithBuildingAndContractWithUser().ToList();
         }
 
         public bool Delete(int id) {
@@ -42,27 +46,6 @@ namespace AccommodationManagerApp.Service {
             _roomRepository.Update(id, room);
         }
 
-        public Room GetById(int id) {
-            return _roomRepository.GetById(id);
-        }
-        
-        public Room GetByIdWithBuilding(int id) {
-            return _roomRepository.GetByIdWithBuilding(id);
-        }
-        
-        public List<Room> GetAllWithBuilding() {
-            return _roomRepository.GetAllWithBuilding().ToList();
-        }
-        
-        public List<Room> GetAllByBuildingId(int buildingId) {
-            return _roomRepository.GetAllByBuildingId(buildingId).ToList();
-        }
-
-        public Room GetByRoomNumber(string roomNumber)
-        {
-            return _roomRepository.GetByRoomNumber(roomNumber);
-        }
-
         public int? GetIdByRoomNumber(string roomNumber)
         {
             Room room = _roomRepository.GetByRoomNumber(roomNumber);
@@ -74,13 +57,27 @@ namespace AccommodationManagerApp.Service {
 
             return null;
         }
-        
-        public List<Room> GetByBuildingId(int buildingId) {
-            return _roomRepository.GetAll().Where(room => room.BuildingId == buildingId).ToList();
-        }
 
         public bool IsRoomNumberExists(string roomNumber) {
             return _roomRepository.GetByRoomNumber(roomNumber) != null;
+        }
+        
+        public String GetCurrentTenantName(Room room) {
+            if (room.Contracts.Count == 0) {
+                return Resources.NullData;
+            }
+
+            foreach (var contract in room.Contracts) {
+                if (contract.EndDate > DateTime.Now && !contract.IsTerminated && contract.User != null) {
+                    return string.IsNullOrEmpty(contract.User.Name) ? Resources.NullData : contract.User.Name;
+                }
+            }
+            
+            return Resources.NullData; 
+        }
+
+        public bool IsExistContract(int roomId) {
+            return _contractRepository.GetByRoomId(roomId).Any();
         }
     }
 }

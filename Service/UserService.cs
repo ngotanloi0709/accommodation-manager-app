@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
 
@@ -10,9 +11,11 @@ using AccommodationManagerApp.Repository;
 namespace AccommodationManagerApp.Service {
     public class UserService {
         private readonly UserRepository _userRepository;
+        private readonly ContractRepository _contractRepository;
 
-        public UserService(UserRepository userRepository) {
+        public UserService(UserRepository userRepository, ContractRepository contractRepository) {
             _userRepository = userRepository;
+            _contractRepository = contractRepository;
         }
 
         public User GetUserByEmail(string email) {
@@ -23,12 +26,12 @@ namespace AccommodationManagerApp.Service {
             return _userRepository.GetAll();
         }
         
-        public List<User> GetAllWithRoom() {
-            return _userRepository.GetAllWithRoom();
+        public List<User> GetAllWithRoleTenantAndWithContract() {
+            return _userRepository.GetAllWithRoleTenantAndWithContract();
         }
 
-        public int? GetIdByName(string name) {
-            User user = _userRepository.GetByName(name);
+        public int? GetIdByNameAndEmail(string name, string email) {
+            User user = _userRepository.GetByNameAndEmail(name, email);
 
             if (user != null) {
                 return user.Id;
@@ -92,6 +95,25 @@ namespace AccommodationManagerApp.Service {
             }
 
             return null;
+        }
+
+        public bool IsExistContract(int userId) {
+            return _contractRepository.GetByUserId(userId).Any();
+        }
+
+        public List<User> GetAllWithRoleTenant() {
+            return _userRepository.GetAllWithRoleTenant();
+        }
+
+        public List<String> GetAllEmailByName(string name) {
+            List<User> users = _userRepository.GetAllByName(name);
+            List<String> emails = new List<string>();
+            
+            foreach (var user in users) {
+                emails.Add(user.Email);
+            }
+            
+            return emails;
         }
     }
 }

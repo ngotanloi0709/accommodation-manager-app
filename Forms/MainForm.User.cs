@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 using AccommodationManagerApp.Model;
@@ -9,7 +10,7 @@ namespace AccommodationManagerApp.Forms {
     public partial class MainForm {
         private void LoadUserData() {
             ListViewUser.Items.Clear();
-            Users = _userService.GetAllWithRoom();
+            Users = _userService.GetAllWithRoleTenantAndWithContract();
 
             foreach (var user in Users) {
                 ListViewItem item = new ListViewItem(user.Name);
@@ -31,31 +32,33 @@ namespace AccommodationManagerApp.Forms {
                     ? Resources.NullData
                     : user.IdentityNumber;
                 labelUserSex.Text = user.IsFemale ? "Nữ" : "Nam";
-                labelUserDateOfBirth.Text = string.IsNullOrEmpty(user.DateOfBirth.ToString())
+                labelUserDateOfBirth.Text = string.IsNullOrEmpty(user.DateOfBirth.ToString(CultureInfo.CurrentCulture))
                     ? Resources.NullData
                     : user.DateOfBirth.ToString("dd/MM/yyyy");
                 labelUserEmail.Text = string.IsNullOrEmpty(user.Email) ? Resources.NullData : user.Email;
 
-                ListViewUserRentList.Items.Clear();
-                foreach (var room in user.Rooms) {
-                    ListViewItem item = new ListViewItem(string.IsNullOrEmpty(room.RoomNumber)
-                        ? Resources.NullData
-                        : room.RoomNumber);
-                    item.SubItems.Add(room.Building == null || string.IsNullOrEmpty(room.Building.Name)
-                        ? Resources.NullData
-                        : room.Building.Name);
-                    ListViewUserRentList.Items.Add(item);
-                }
+                LoadUserRentList(user);
             }
         }
 
-        private void buttonAddTenant_Click(object sender, System.EventArgs e) {
+        private void LoadUserRentList(User user) {
+            ListViewUserRentList.Items.Clear();
+            var contracts = _contractService.GetByUserIdAndNonExpiredWithRoom(user.Id);
+            
+            foreach (var contract in contracts) {
+                ListViewItem item = new ListViewItem(contract.User != null ? contract.Room.RoomNumber : Resources.NullData);
+                item.SubItems.Add(string.IsNullOrEmpty(contract.EndDate.ToString("dd/MM/yyyy")) ? Resources.NullData : contract.EndDate.ToString("dd/MM/yyyy"));
+                ListViewUserRentList.Items.Add(item);
+            }
+        }
+        
+        private void buttonAddTenant_Click(object sender, EventArgs e) {
             var userForm = new UserForm(null);
             userForm.ShowDialog();
             ShowUserDialogMessageResult(userForm.DialogResult, false);
         }
 
-        private void buttonEditTenant_Click(object sender, System.EventArgs e) {
+        private void buttonEditTenant_Click(object sender, EventArgs e) {
             User user = IsSelectedUserValid();
 
             if (user != null) {
@@ -94,16 +97,20 @@ namespace AccommodationManagerApp.Forms {
             new ToastForm(message, dialogResult != DialogResult.OK).Show();
         }
 
-        private void buttonDeleteTenant_Click(object sender, System.EventArgs e) {
+        private void buttonDeleteTenant_Click(object sender, EventArgs e) {
             User user = IsSelectedUserValid();
             if (user != null) {
+                if (!IsUserSafeDelete(user.Id)) {
+                    return;
+                }
+
                 var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn xóa người thuê này không?");
                 var result = confirmationForm.ShowDialog();
                 if (result == DialogResult.Yes) {
                     var deleteResult = _userService.Delete(user.Id);
                     if (deleteResult) {
                         UserForeignInformationReload();
-                        new ToastForm("Xóa thông tin người thuê thành công", false).Show();
+                        new ToastForm("Xóa thông tin người thuê thành công").Show();
                     }
                     else {
                         new ToastForm("Xóa thông tin người thuê thất bại", true).Show();
@@ -115,9 +122,18 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        private void buttonEditTenantPassword_Click(object sender, System.EventArgs e) {
+        private bool IsUserSafeDelete(int userId) {
+            if (_userService.IsExistContract(userId)) {
+                new ToastForm("Dữ liệu đang tồn tại ở hợp đồng", true).Show();
+                return false;
+            }
+
+            return true;
+        }
+
+        private void buttonEditTenantPassword_Click(object sender, EventArgs e) {
             User user = IsSelectedUserValid();
-            
+
             if (user != null) {
                 var changeUserPasswordForm = new ChangeUserPasswordForm(user);
                 changeUserPasswordForm.Show();
@@ -131,7 +147,7 @@ namespace AccommodationManagerApp.Forms {
             User user = IsSelectedUserValid();
             if (user != null) {
                 OpenFileDialog openFileDialog = new OpenFileDialog {
-                    Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG",
+                    Filter = Resources.ImageFilter,
                     RestoreDirectory = true
                 };
 
@@ -143,11 +159,11 @@ namespace AccommodationManagerApp.Forms {
                         compressedImage.Save(ms, image.RawFormat);
                         user.Avatar = ms.ToArray();
                     }
-                    
+
                     var updateResult = _userService.Update(user.Id, user);
                     if (updateResult) {
                         LoadTenantAvatar(user);
-                        new ToastForm("Cập nhật thành công", false).Show();
+                        new ToastForm("Cập nhật thành công").Show();
                     }
                     else {
                         new ToastForm("Cập nhật thất bại", true).Show();
@@ -199,6 +215,12 @@ namespace AccommodationManagerApp.Forms {
         private void UserForeignInformationReload() {
             LoadUserData();
             LoadRoomData();
+        }
+        
+        private void buttonReloadUser_Click(object sender, EventArgs e)
+        {
+            LoadUserData();
+            new ToastForm("Đã thực hiện tải lại dữ liệu người thuê").Show();
         }
     }
 }

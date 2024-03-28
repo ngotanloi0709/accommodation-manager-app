@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Properties;
 using AccommodationManagerApp.Util;
@@ -7,29 +9,32 @@ namespace AccommodationManagerApp.Forms {
     public partial class MainForm {
         private void LoadRoomData() {
             ListViewRoom.Items.Clear();
-            Rooms = _roomService.GetAllWithBuildingAndUser();
+            Rooms = _roomService.GetAllWithBuildingAndContractWithUser();
 
             foreach (var room in Rooms) {
                 ListViewItem item = new ListViewItem(room.RoomNumber);
                 item.SubItems.Add(room.Building != null ? room.Building.Name : Resources.NullData);
-                item.SubItems.Add(room.User != null ? room.User.Name : Resources.NullData);
+                item.SubItems.Add(_roomService.GetCurrentTenantName(room));
                 item.SubItems.Add(room.Status.ToVietnamese());
                 ListViewRoom.Items.Add(item);
             }
         }
 
+
         private void ListViewRoom_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) {
             Room room = IsSelectedRoomValid();
+            
             if (room != null) {
                 string id = room.Id.ToString();
                 string number = room.RoomNumber;
                 Building building = room.Building;
-                User tenant = room.User;
                 string status = room.Status.ToVietnamese();
 
                 labelRoomId.Text = id.Equals("") ? Resources.NullData : id;
                 labelRoomNumber.Text = number == null || number.Equals("") ? Resources.NullData : number;
-
+                labelRoomTenant.Text = _roomService.GetCurrentTenantName(room);
+                labelRoomStatus.Text = status.Equals("") ? Resources.NullData : status;
+                
                 if (building != null) {
                     string buildingName = room.Building.Name;
                     labelRoomBuilding.Text = buildingName == null || buildingName.Equals("")
@@ -39,27 +44,14 @@ namespace AccommodationManagerApp.Forms {
                 else {
                     labelRoomBuilding.Text = Resources.NullData;
                 }
-
-                if (tenant != null) {
-                    string tenantName = room.User.Name;
-                    labelRoomTenant.Text =
-                        tenantName == null || tenantName.Equals("") ? Resources.NullData : tenantName;
-                }
-                else {
-                    labelRoomTenant.Text = Resources.NullData;
-                }
-
-                labelRoomStatus.Text = status.Equals("") ? Resources.NullData : status;
             }
         }
-
 
         private void buttonAddRoom_Click(object sender, System.EventArgs e) {
             var roomForm = new RoomForm(null);
             roomForm.ShowDialog();
             ShowRoomDialogMessageResult(roomForm.DialogResult, false);
         }
-
 
         private void buttonEditRoom_Click(object sender, System.EventArgs e) {
             Room room = IsSelectedRoomValid();
@@ -103,6 +95,10 @@ namespace AccommodationManagerApp.Forms {
         private void buttonDeleteRoom_Click(object sender, System.EventArgs e) {
             Room room = IsSelectedRoomValid();
             if (room != null) {
+                if (!IsRoomSafeDelete(room.Id)) {
+                    return;
+                }
+
                 var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn xóa căn hộ này không?");
                 var result = confirmationForm.ShowDialog();
                 if (result == DialogResult.Yes) {
@@ -119,6 +115,15 @@ namespace AccommodationManagerApp.Forms {
             else {
                 new ToastForm("Vui lòng chọn thông tin cần xóa", true).Show();
             }
+        }
+
+        private bool IsRoomSafeDelete(int roomId) {
+            if (_roomService.IsExistContract(roomId)) {
+                new ToastForm("Dữ liệu đang tồn tại ở hợp đồng", true).Show();
+                return false;
+            }
+
+            return true;
         }
 
         private Room IsSelectedRoomValid() {
