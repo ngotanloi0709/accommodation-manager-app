@@ -33,6 +33,31 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.drawerImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabPageConfiguration = new System.Windows.Forms.TabPage();
+            this.buttonReloadContract = new MaterialSkin.Controls.MaterialFloatingActionButton();
+            this.buttonDelete = new MaterialSkin.Controls.MaterialButton();
+            this.labelContractIsTerminated = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel20 = new MaterialSkin.Controls.MaterialLabel();
+            this.ListViewContract = new MaterialSkin.Controls.MaterialListView();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonTerminateContract = new MaterialSkin.Controls.MaterialButton();
+            this.buttonExtendContract = new MaterialSkin.Controls.MaterialButton();
+            this.buttonEditContract = new MaterialSkin.Controls.MaterialButton();
+            this.labelContractTenantName = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel23 = new MaterialSkin.Controls.MaterialLabel();
+            this.labelContractEndDate = new MaterialSkin.Controls.MaterialLabel();
+            this.labelContractStartDate = new MaterialSkin.Controls.MaterialLabel();
+            this.labelContractPrice = new MaterialSkin.Controls.MaterialLabel();
+            this.labelContractRoomNumber = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel26 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel29 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel31 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel33 = new MaterialSkin.Controls.MaterialLabel();
+            this.buttonAddContract = new MaterialSkin.Controls.MaterialButton();
+            this.materialLabel18 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageSystemUsers = new System.Windows.Forms.TabPage();
             this.tabPageTenants = new System.Windows.Forms.TabPage();
             this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
@@ -154,13 +179,12 @@
             this.mySqlConnection1 = new MySqlConnector.MySqlConnection();
             this.labelCurrentUserEmail = new System.Windows.Forms.Label();
             this.buttonCurrentUserInformationManagement = new MaterialSkin.Controls.MaterialButton();
-            this.buttonContractManagement = new MaterialSkin.Controls.MaterialButton();
+            this.tabPageConfiguration.SuspendLayout();
             this.tabPageTenants.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserImage)).BeginInit();
             this.tabPageRoom.SuspendLayout();
             this.tabPageBuilding.SuspendLayout();
             this.materialTabControl.SuspendLayout();
-            this.tabPageHome.SuspendLayout();
             this.tabPageVehicle.SuspendLayout();
             this.tabPageBills.SuspendLayout();
             this.SuspendLayout();
@@ -177,16 +201,393 @@
             this.drawerImageList.Images.SetKeyName(5, "setting.png");
             this.drawerImageList.Images.SetKeyName(6, "fleet.png");
             this.drawerImageList.Images.SetKeyName(7, "statistic.png");
+            this.drawerImageList.Images.SetKeyName(8, "contract.png");
             // 
             // tabPageConfiguration
             // 
             this.tabPageConfiguration.BackColor = System.Drawing.Color.White;
-            this.tabPageConfiguration.ImageKey = "setting.png";
+            this.tabPageConfiguration.Controls.Add(this.buttonReloadContract);
+            this.tabPageConfiguration.Controls.Add(this.buttonDelete);
+            this.tabPageConfiguration.Controls.Add(this.labelContractIsTerminated);
+            this.tabPageConfiguration.Controls.Add(this.materialLabel20);
+            this.tabPageConfiguration.Controls.Add(this.ListViewContract);
+            this.tabPageConfiguration.Controls.Add(this.buttonTerminateContract);
+            this.tabPageConfiguration.Controls.Add(this.buttonExtendContract);
+            this.tabPageConfiguration.Controls.Add(this.buttonEditContract);
+            this.tabPageConfiguration.Controls.Add(this.labelContractTenantName);
+            this.tabPageConfiguration.Controls.Add(this.materialLabel23);
+            this.tabPageConfiguration.Controls.Add(this.labelContractEndDate);
+            this.tabPageConfiguration.Controls.Add(this.labelContractStartDate);
+            this.tabPageConfiguration.Controls.Add(this.labelContractPrice);
+            this.tabPageConfiguration.Controls.Add(this.labelContractRoomNumber);
+            this.tabPageConfiguration.Controls.Add(this.materialLabel26);
+            this.tabPageConfiguration.Controls.Add(this.materialLabel29);
+            this.tabPageConfiguration.Controls.Add(this.materialLabel31);
+            this.tabPageConfiguration.Controls.Add(this.materialLabel33);
+            this.tabPageConfiguration.Controls.Add(this.buttonAddContract);
+            this.tabPageConfiguration.Controls.Add(this.materialLabel18);
+            this.tabPageConfiguration.ImageKey = "contract.png";
             this.tabPageConfiguration.Location = new System.Drawing.Point(4, 39);
             this.tabPageConfiguration.Name = "tabPageConfiguration";
             this.tabPageConfiguration.Size = new System.Drawing.Size(986, 673);
             this.tabPageConfiguration.TabIndex = 5;
-            this.tabPageConfiguration.Text = "Configuration";
+            this.tabPageConfiguration.Text = "Quản lý hợp đồng";
+            // 
+            // buttonReloadContract
+            // 
+            this.buttonReloadContract.Depth = 0;
+            this.buttonReloadContract.Icon = global::AccommodationManagerApp.Properties.Resources.reload;
+            this.buttonReloadContract.Location = new System.Drawing.Point(495, 595);
+            this.buttonReloadContract.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonReloadContract.Name = "buttonReloadContract";
+            this.buttonReloadContract.Size = new System.Drawing.Size(56, 56);
+            this.buttonReloadContract.TabIndex = 49;
+            this.buttonReloadContract.Text = "materialFloatingActionButton2";
+            this.buttonReloadContract.UseVisualStyleBackColor = true;
+            this.buttonReloadContract.Click += new System.EventHandler(this.buttonReloadContract_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.AutoSize = false;
+            this.buttonDelete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonDelete.BackColor = System.Drawing.Color.Transparent;
+            this.buttonDelete.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonDelete.Depth = 0;
+            this.buttonDelete.HighEmphasis = true;
+            this.buttonDelete.Icon = global::AccommodationManagerApp.Properties.Resources.delete;
+            this.buttonDelete.Location = new System.Drawing.Point(737, 543);
+            this.buttonDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonDelete.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonDelete.Size = new System.Drawing.Size(187, 36);
+            this.buttonDelete.TabIndex = 48;
+            this.buttonDelete.Text = "Xoá hợp đồng";
+            this.buttonDelete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonDelete.UseAccentColor = false;
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // labelContractIsTerminated
+            // 
+            this.labelContractIsTerminated.AutoSize = true;
+            this.labelContractIsTerminated.BackColor = System.Drawing.Color.Transparent;
+            this.labelContractIsTerminated.Depth = 0;
+            this.labelContractIsTerminated.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.labelContractIsTerminated.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.labelContractIsTerminated.Location = new System.Drawing.Point(734, 304);
+            this.labelContractIsTerminated.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelContractIsTerminated.Name = "labelContractIsTerminated";
+            this.labelContractIsTerminated.Size = new System.Drawing.Size(190, 24);
+            this.labelContractIsTerminated.TabIndex = 47;
+            this.labelContractIsTerminated.Text = "_____________________";
+            // 
+            // materialLabel20
+            // 
+            this.materialLabel20.AutoSize = true;
+            this.materialLabel20.BackColor = System.Drawing.Color.Transparent;
+            this.materialLabel20.Depth = 0;
+            this.materialLabel20.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel20.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel20.Location = new System.Drawing.Point(586, 304);
+            this.materialLabel20.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel20.Name = "materialLabel20";
+            this.materialLabel20.Size = new System.Drawing.Size(79, 24);
+            this.materialLabel20.TabIndex = 46;
+            this.materialLabel20.Text = "Hiệu lực:";
+            // 
+            // ListViewContract
+            // 
+            this.ListViewContract.AutoSizeTable = false;
+            this.ListViewContract.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ListViewContract.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ListViewContract.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader11,
+            this.columnHeader12,
+            this.columnHeader13});
+            this.ListViewContract.Depth = 0;
+            this.ListViewContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.ListViewContract.FullRowSelect = true;
+            this.ListViewContract.HideSelection = false;
+            this.ListViewContract.Location = new System.Drawing.Point(1, 86);
+            this.ListViewContract.MinimumSize = new System.Drawing.Size(200, 100);
+            this.ListViewContract.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.ListViewContract.MouseState = MaterialSkin.MouseState.OUT;
+            this.ListViewContract.Name = "ListViewContract";
+            this.ListViewContract.OwnerDraw = true;
+            this.ListViewContract.Size = new System.Drawing.Size(575, 587);
+            this.ListViewContract.TabIndex = 45;
+            this.ListViewContract.UseCompatibleStateImageBehavior = false;
+            this.ListViewContract.View = System.Windows.Forms.View.Details;
+            this.ListViewContract.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.ListViewContract_ItemSelectionChanged);
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Tên người thuê";
+            this.columnHeader6.Width = 144;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Số phòng";
+            this.columnHeader7.Width = 105;
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Đơn giá";
+            this.columnHeader11.Width = 85;
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "Ngày bắt đầu";
+            this.columnHeader12.Width = 123;
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "Hiệu lực";
+            this.columnHeader13.Width = 116;
+            // 
+            // buttonTerminateContract
+            // 
+            this.buttonTerminateContract.AutoSize = false;
+            this.buttonTerminateContract.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonTerminateContract.BackColor = System.Drawing.Color.Transparent;
+            this.buttonTerminateContract.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonTerminateContract.Depth = 0;
+            this.buttonTerminateContract.HighEmphasis = true;
+            this.buttonTerminateContract.Icon = global::AccommodationManagerApp.Properties.Resources.close;
+            this.buttonTerminateContract.Location = new System.Drawing.Point(737, 449);
+            this.buttonTerminateContract.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonTerminateContract.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonTerminateContract.Name = "buttonTerminateContract";
+            this.buttonTerminateContract.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonTerminateContract.Size = new System.Drawing.Size(187, 36);
+            this.buttonTerminateContract.TabIndex = 44;
+            this.buttonTerminateContract.Text = "Kết thúc hợp đồng";
+            this.buttonTerminateContract.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonTerminateContract.UseAccentColor = false;
+            this.buttonTerminateContract.UseVisualStyleBackColor = false;
+            this.buttonTerminateContract.Click += new System.EventHandler(this.buttonTerminateContract_Click);
+            // 
+            // buttonExtendContract
+            // 
+            this.buttonExtendContract.AutoSize = false;
+            this.buttonExtendContract.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonExtendContract.BackColor = System.Drawing.Color.Transparent;
+            this.buttonExtendContract.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonExtendContract.Depth = 0;
+            this.buttonExtendContract.HighEmphasis = true;
+            this.buttonExtendContract.Icon = global::AccommodationManagerApp.Properties.Resources.contract;
+            this.buttonExtendContract.Location = new System.Drawing.Point(737, 401);
+            this.buttonExtendContract.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonExtendContract.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonExtendContract.Name = "buttonExtendContract";
+            this.buttonExtendContract.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonExtendContract.Size = new System.Drawing.Size(187, 36);
+            this.buttonExtendContract.TabIndex = 43;
+            this.buttonExtendContract.Text = "Gia hạn hợp đồng";
+            this.buttonExtendContract.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonExtendContract.UseAccentColor = false;
+            this.buttonExtendContract.UseVisualStyleBackColor = false;
+            this.buttonExtendContract.Click += new System.EventHandler(this.buttonExtendContract_Click);
+            // 
+            // buttonEditContract
+            // 
+            this.buttonEditContract.AutoSize = false;
+            this.buttonEditContract.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonEditContract.BackColor = System.Drawing.Color.Transparent;
+            this.buttonEditContract.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonEditContract.Depth = 0;
+            this.buttonEditContract.HighEmphasis = true;
+            this.buttonEditContract.Icon = global::AccommodationManagerApp.Properties.Resources.edit;
+            this.buttonEditContract.Location = new System.Drawing.Point(737, 495);
+            this.buttonEditContract.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonEditContract.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonEditContract.Name = "buttonEditContract";
+            this.buttonEditContract.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonEditContract.Size = new System.Drawing.Size(187, 36);
+            this.buttonEditContract.TabIndex = 42;
+            this.buttonEditContract.Text = "Sửa hợp đồng";
+            this.buttonEditContract.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonEditContract.UseAccentColor = false;
+            this.buttonEditContract.UseVisualStyleBackColor = false;
+            this.buttonEditContract.Click += new System.EventHandler(this.buttonEditContract_Click);
+            // 
+            // labelContractTenantName
+            // 
+            this.labelContractTenantName.AutoSize = true;
+            this.labelContractTenantName.BackColor = System.Drawing.Color.Transparent;
+            this.labelContractTenantName.Depth = 0;
+            this.labelContractTenantName.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.labelContractTenantName.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.labelContractTenantName.Location = new System.Drawing.Point(734, 88);
+            this.labelContractTenantName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelContractTenantName.Name = "labelContractTenantName";
+            this.labelContractTenantName.Size = new System.Drawing.Size(190, 24);
+            this.labelContractTenantName.TabIndex = 41;
+            this.labelContractTenantName.Text = "_____________________";
+            // 
+            // materialLabel23
+            // 
+            this.materialLabel23.AutoSize = true;
+            this.materialLabel23.BackColor = System.Drawing.Color.Transparent;
+            this.materialLabel23.Depth = 0;
+            this.materialLabel23.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel23.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel23.Location = new System.Drawing.Point(587, 88);
+            this.materialLabel23.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel23.Name = "materialLabel23";
+            this.materialLabel23.Size = new System.Drawing.Size(141, 24);
+            this.materialLabel23.TabIndex = 40;
+            this.materialLabel23.Text = "Tên người thuê:";
+            // 
+            // labelContractEndDate
+            // 
+            this.labelContractEndDate.AutoSize = true;
+            this.labelContractEndDate.BackColor = System.Drawing.Color.Transparent;
+            this.labelContractEndDate.Depth = 0;
+            this.labelContractEndDate.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.labelContractEndDate.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.labelContractEndDate.Location = new System.Drawing.Point(734, 259);
+            this.labelContractEndDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelContractEndDate.Name = "labelContractEndDate";
+            this.labelContractEndDate.Size = new System.Drawing.Size(190, 24);
+            this.labelContractEndDate.TabIndex = 39;
+            this.labelContractEndDate.Text = "_____________________";
+            // 
+            // labelContractStartDate
+            // 
+            this.labelContractStartDate.AutoSize = true;
+            this.labelContractStartDate.BackColor = System.Drawing.Color.Transparent;
+            this.labelContractStartDate.Depth = 0;
+            this.labelContractStartDate.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.labelContractStartDate.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.labelContractStartDate.Location = new System.Drawing.Point(734, 215);
+            this.labelContractStartDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelContractStartDate.Name = "labelContractStartDate";
+            this.labelContractStartDate.Size = new System.Drawing.Size(190, 24);
+            this.labelContractStartDate.TabIndex = 38;
+            this.labelContractStartDate.Text = "_____________________";
+            // 
+            // labelContractPrice
+            // 
+            this.labelContractPrice.AutoSize = true;
+            this.labelContractPrice.BackColor = System.Drawing.Color.Transparent;
+            this.labelContractPrice.Depth = 0;
+            this.labelContractPrice.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.labelContractPrice.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.labelContractPrice.Location = new System.Drawing.Point(734, 170);
+            this.labelContractPrice.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelContractPrice.Name = "labelContractPrice";
+            this.labelContractPrice.Size = new System.Drawing.Size(190, 24);
+            this.labelContractPrice.TabIndex = 37;
+            this.labelContractPrice.Text = "_____________________";
+            // 
+            // labelContractRoomNumber
+            // 
+            this.labelContractRoomNumber.AutoSize = true;
+            this.labelContractRoomNumber.BackColor = System.Drawing.Color.Transparent;
+            this.labelContractRoomNumber.Depth = 0;
+            this.labelContractRoomNumber.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.labelContractRoomNumber.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.labelContractRoomNumber.Location = new System.Drawing.Point(734, 129);
+            this.labelContractRoomNumber.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelContractRoomNumber.Name = "labelContractRoomNumber";
+            this.labelContractRoomNumber.Size = new System.Drawing.Size(190, 24);
+            this.labelContractRoomNumber.TabIndex = 36;
+            this.labelContractRoomNumber.Text = "_____________________";
+            // 
+            // materialLabel26
+            // 
+            this.materialLabel26.AutoSize = true;
+            this.materialLabel26.BackColor = System.Drawing.Color.Transparent;
+            this.materialLabel26.Depth = 0;
+            this.materialLabel26.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel26.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel26.Location = new System.Drawing.Point(586, 215);
+            this.materialLabel26.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel26.Name = "materialLabel26";
+            this.materialLabel26.Size = new System.Drawing.Size(125, 24);
+            this.materialLabel26.TabIndex = 35;
+            this.materialLabel26.Text = "Ngày bắt đầu:";
+            // 
+            // materialLabel29
+            // 
+            this.materialLabel29.AutoSize = true;
+            this.materialLabel29.BackColor = System.Drawing.Color.Transparent;
+            this.materialLabel29.Depth = 0;
+            this.materialLabel29.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel29.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel29.Location = new System.Drawing.Point(586, 259);
+            this.materialLabel29.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel29.Name = "materialLabel29";
+            this.materialLabel29.Size = new System.Drawing.Size(129, 24);
+            this.materialLabel29.TabIndex = 34;
+            this.materialLabel29.Text = "Ngày kết thúc:";
+            // 
+            // materialLabel31
+            // 
+            this.materialLabel31.AutoSize = true;
+            this.materialLabel31.BackColor = System.Drawing.Color.Transparent;
+            this.materialLabel31.Depth = 0;
+            this.materialLabel31.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel31.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel31.Location = new System.Drawing.Point(587, 170);
+            this.materialLabel31.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel31.Name = "materialLabel31";
+            this.materialLabel31.Size = new System.Drawing.Size(74, 24);
+            this.materialLabel31.TabIndex = 33;
+            this.materialLabel31.Text = "Đơn giá:";
+            // 
+            // materialLabel33
+            // 
+            this.materialLabel33.AutoSize = true;
+            this.materialLabel33.BackColor = System.Drawing.Color.Transparent;
+            this.materialLabel33.Depth = 0;
+            this.materialLabel33.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel33.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel33.Location = new System.Drawing.Point(587, 129);
+            this.materialLabel33.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel33.Name = "materialLabel33";
+            this.materialLabel33.Size = new System.Drawing.Size(89, 24);
+            this.materialLabel33.TabIndex = 32;
+            this.materialLabel33.Text = "Số phòng:";
+            // 
+            // buttonAddContract
+            // 
+            this.buttonAddContract.AutoSize = false;
+            this.buttonAddContract.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonAddContract.BackColor = System.Drawing.Color.Transparent;
+            this.buttonAddContract.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonAddContract.Depth = 0;
+            this.buttonAddContract.HighEmphasis = true;
+            this.buttonAddContract.Icon = global::AccommodationManagerApp.Properties.Resources.plus;
+            this.buttonAddContract.Location = new System.Drawing.Point(737, 353);
+            this.buttonAddContract.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonAddContract.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonAddContract.Name = "buttonAddContract";
+            this.buttonAddContract.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonAddContract.Size = new System.Drawing.Size(187, 36);
+            this.buttonAddContract.TabIndex = 31;
+            this.buttonAddContract.Text = "Thêm hợp đồng";
+            this.buttonAddContract.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonAddContract.UseAccentColor = false;
+            this.buttonAddContract.UseVisualStyleBackColor = false;
+            this.buttonAddContract.Click += new System.EventHandler(this.buttonAddContract_Click);
+            // 
+            // materialLabel18
+            // 
+            this.materialLabel18.AutoSize = true;
+            this.materialLabel18.Depth = 0;
+            this.materialLabel18.Font = new System.Drawing.Font("Roboto Light", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel18.FontType = MaterialSkin.MaterialSkinManager.fontType.H2;
+            this.materialLabel18.Location = new System.Drawing.Point(-1, 0);
+            this.materialLabel18.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel18.Name = "materialLabel18";
+            this.materialLabel18.Size = new System.Drawing.Size(461, 72);
+            this.materialLabel18.TabIndex = 1;
+            this.materialLabel18.Text = "Quản lý hợp đồng";
             // 
             // tabPageSystemUsers
             // 
@@ -434,7 +835,7 @@
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Toà nhà";
+            this.columnHeader5.Text = "Ngày hết hạn";
             this.columnHeader5.Width = 115;
             // 
             // pictureBoxUserImage
@@ -614,6 +1015,7 @@
             this.buttonReloadUser.TabIndex = 10;
             this.buttonReloadUser.Text = "materialFloatingActionButton1";
             this.buttonReloadUser.UseVisualStyleBackColor = true;
+            this.buttonReloadUser.Click += new System.EventHandler(this.buttonReloadUser_Click);
             // 
             // ListViewUser
             // 
@@ -1314,14 +1716,13 @@
             // 
             // tabPageHome
             // 
-            this.tabPageHome.Controls.Add(this.buttonContractManagement);
+            this.tabPageHome.BackColor = System.Drawing.Color.White;
             this.tabPageHome.ImageKey = "statistic.png";
             this.tabPageHome.Location = new System.Drawing.Point(4, 39);
             this.tabPageHome.Name = "tabPageHome";
             this.tabPageHome.Size = new System.Drawing.Size(986, 673);
             this.tabPageHome.TabIndex = 7;
             this.tabPageHome.Text = "Trang chủ";
-            this.tabPageHome.UseVisualStyleBackColor = true;
             // 
             // tabPageVehicle
             // 
@@ -1676,7 +2077,7 @@
             this.tabPageBills.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageBills.Size = new System.Drawing.Size(986, 673);
             this.tabPageBills.TabIndex = 6;
-            this.tabPageBills.Text = "Bill Managements";
+            this.tabPageBills.Text = "Quản lý hoá đơn";
             this.tabPageBills.UseVisualStyleBackColor = true;
             // 
             // materialComboBox2
@@ -1988,27 +2389,6 @@
             this.buttonCurrentUserInformationManagement.UseVisualStyleBackColor = true;
             this.buttonCurrentUserInformationManagement.Click += new System.EventHandler(this.buttonCurrentUserInformationManagement_Click);
             // 
-            // buttonContractManagement
-            // 
-            this.buttonContractManagement.AutoSize = false;
-            this.buttonContractManagement.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonContractManagement.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.buttonContractManagement.Depth = 0;
-            this.buttonContractManagement.HighEmphasis = true;
-            this.buttonContractManagement.Icon = null;
-            this.buttonContractManagement.Location = new System.Drawing.Point(674, 33);
-            this.buttonContractManagement.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.buttonContractManagement.MouseState = MaterialSkin.MouseState.HOVER;
-            this.buttonContractManagement.Name = "buttonContractManagement";
-            this.buttonContractManagement.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonContractManagement.Size = new System.Drawing.Size(290, 36);
-            this.buttonContractManagement.TabIndex = 0;
-            this.buttonContractManagement.Text = "Quản lý hợp đồng thuê nhà";
-            this.buttonContractManagement.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.buttonContractManagement.UseAccentColor = false;
-            this.buttonContractManagement.UseVisualStyleBackColor = true;
-            this.buttonContractManagement.Click += new System.EventHandler(this.buttonContractManagement_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -2029,6 +2409,8 @@
             this.Padding = new System.Windows.Forms.Padding(3, 80, 3, 4);
             this.Sizable = false;
             this.Text = "";
+            this.tabPageConfiguration.ResumeLayout(false);
+            this.tabPageConfiguration.PerformLayout();
             this.tabPageTenants.ResumeLayout(false);
             this.tabPageTenants.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserImage)).EndInit();
@@ -2037,7 +2419,6 @@
             this.tabPageBuilding.ResumeLayout(false);
             this.tabPageBuilding.PerformLayout();
             this.materialTabControl.ResumeLayout(false);
-            this.tabPageHome.ResumeLayout(false);
             this.tabPageVehicle.ResumeLayout(false);
             this.tabPageVehicle.PerformLayout();
             this.tabPageBills.ResumeLayout(false);
@@ -2172,6 +2553,30 @@
         private System.Windows.Forms.ColumnHeader state;
         private MaterialSkin.Controls.MaterialLabel materialLabel12;
         private MaterialSkin.Controls.MaterialButton materialButton4;
-        private MaterialSkin.Controls.MaterialButton buttonContractManagement;
+        private MaterialSkin.Controls.MaterialLabel materialLabel18;
+        private MaterialSkin.Controls.MaterialButton buttonDelete;
+        private MaterialSkin.Controls.MaterialLabel labelContractIsTerminated;
+        private MaterialSkin.Controls.MaterialLabel materialLabel20;
+        private MaterialSkin.Controls.MaterialListView ListViewContract;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.ColumnHeader columnHeader13;
+        private MaterialSkin.Controls.MaterialButton buttonTerminateContract;
+        private MaterialSkin.Controls.MaterialButton buttonExtendContract;
+        private MaterialSkin.Controls.MaterialButton buttonEditContract;
+        private MaterialSkin.Controls.MaterialLabel labelContractTenantName;
+        private MaterialSkin.Controls.MaterialLabel materialLabel23;
+        private MaterialSkin.Controls.MaterialLabel labelContractEndDate;
+        private MaterialSkin.Controls.MaterialLabel labelContractStartDate;
+        private MaterialSkin.Controls.MaterialLabel labelContractPrice;
+        private MaterialSkin.Controls.MaterialLabel labelContractRoomNumber;
+        private MaterialSkin.Controls.MaterialLabel materialLabel26;
+        private MaterialSkin.Controls.MaterialLabel materialLabel29;
+        private MaterialSkin.Controls.MaterialLabel materialLabel31;
+        private MaterialSkin.Controls.MaterialLabel materialLabel33;
+        private MaterialSkin.Controls.MaterialButton buttonAddContract;
+        private MaterialSkin.Controls.MaterialFloatingActionButton buttonReloadContract;
     }
 }

@@ -26,12 +26,12 @@ namespace AccommodationManagerApp.Service {
             return _userRepository.GetAll();
         }
         
-        public List<User> GetAllWithContract() {
-            return _userRepository.GetAllWithContract();
+        public List<User> GetAllWithRoleTenantAndWithContract() {
+            return _userRepository.GetAllWithRoleTenantAndWithContract();
         }
 
-        public int? GetIdByName(string name) {
-            User user = _userRepository.GetByName(name);
+        public int? GetIdByNameAndEmail(string name, string email) {
+            User user = _userRepository.GetByNameAndEmail(name, email);
 
             if (user != null) {
                 return user.Id;
@@ -99,6 +99,21 @@ namespace AccommodationManagerApp.Service {
 
         public bool IsExistContract(int userId) {
             return _contractRepository.GetByUserId(userId).Any();
+        }
+
+        public List<User> GetAllWithRoleTenant() {
+            return _userRepository.GetAllWithRoleTenant();
+        }
+
+        public List<String> GetAllEmailByName(string name) {
+            List<User> users = _userRepository.GetAllByName(name);
+            List<String> emails = new List<string>();
+            
+            foreach (var user in users) {
+                emails.Add(user.Email);
+            }
+            
+            return emails;
         }
     }
 }

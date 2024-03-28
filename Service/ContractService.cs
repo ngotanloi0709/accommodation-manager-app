@@ -34,7 +34,7 @@ namespace AccommodationManagerApp.Service {
             if (contract.IsTerminated) {
                 return true;
             }
-
+            
             if (contract.EndDate < DateTime.Now) {
                 TerminateContract(contract);
 
@@ -71,11 +71,6 @@ namespace AccommodationManagerApp.Service {
                 return false;
             }
 
-            if (room.Status == RoomStatus.Rented) {
-                new ToastForm("Trạng thái của phòng đang được thuê", true).Show();
-                return false;
-            }
-
             return true;
         }
 
@@ -87,10 +82,6 @@ namespace AccommodationManagerApp.Service {
             }
 
             if (!IsRoomContractsAllExpired(room)) {
-                return false;
-            }
-
-            if (room.Status == RoomStatus.Rented) {
                 return false;
             }
 
@@ -123,6 +114,10 @@ namespace AccommodationManagerApp.Service {
             }
 
             return false;
+        }
+
+        public List<Contract> GetByUserIdAndNonExpiredWithRoom(int userId) {
+            return _contractRepository.GetByUserIdAndNonExpiredWithRoom(userId);
         }
     }
 }

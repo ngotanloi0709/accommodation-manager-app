@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Properties;
 using AccommodationManagerApp.Repository;
@@ -20,8 +21,8 @@ namespace AccommodationManagerApp.Service {
             return _roomRepository.GetAll().ToList();
         }
         
-        public List<Room> GetAllWithBuildingAndContract() {
-            return _roomRepository.GetAllWithBuildingAndContract().ToList();
+        public List<Room> GetAllWithBuildingAndContractWithUser() {
+            return _roomRepository.GetAllWithBuildingAndContractWithUser().ToList();
         }
 
         public bool Delete(int id) {
@@ -67,8 +68,8 @@ namespace AccommodationManagerApp.Service {
             }
 
             foreach (var contract in room.Contracts) {
-                if (contract.EndDate > DateTime.Now) {
-                    return contract.User.Name;
+                if (contract.EndDate > DateTime.Now && !contract.IsTerminated && contract.User != null) {
+                    return string.IsNullOrEmpty(contract.User.Name) ? Resources.NullData : contract.User.Name;
                 }
             }
             

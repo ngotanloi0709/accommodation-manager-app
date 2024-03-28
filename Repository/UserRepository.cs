@@ -10,12 +10,20 @@ namespace AccommodationManagerApp.Repository {
             return Context.Set<User>().FirstOrDefault(u => u.Email == email);
         }
 
-        public User GetByName(string name) {
-            return Context.Set<User>().FirstOrDefault(u => u.Name == name);
+        public User GetByNameAndEmail(string name, string email) {
+            return Context.Set<User>().FirstOrDefault(u => u.Name == name && u.Email == email && u.Role == UserRole.Tenant);
         }
 
-        public List<User> GetAllWithContract() {
-            return Context.Set<User>().Include("Contracts").ToList();
+        public List<User> GetAllWithRoleTenantAndWithContract() {
+            return Context.Set<User>().Include("Contracts").Where(u => u.Role == UserRole.Tenant).ToList();
+        }
+
+        public List<User> GetAllWithRoleTenant() {
+            return Context.Set<User>().Where(u => u.Role == UserRole.Tenant).ToList();
+        }
+
+        public List<User> GetAllByName(string name) {
+            return Context.Set<User>().Where(u => u.Name.Contains(name) && u.Role == UserRole.Tenant).ToList();
         }
     }
 }

@@ -189,6 +189,15 @@ namespace AccommodationManagerApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &quot;Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG&quot;.
+        /// </summary>
+        internal static string ImageFilter {
+            get {
+                return ResourceManager.GetString("ImageFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap logout {

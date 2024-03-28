@@ -1,13 +1,15 @@
 ﻿using AccommodationManagerApp.Model;
+using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
 using BillModel = AccommodationManagerApp.Model.Bill;
-using AccommodationManagerApp.Repository;
 
-namespace AccommodationManagerApp.Forms {
-    public partial class MainForm : BaseForm {
+namespace AccommodationManagerApp.Forms
+{
+    public partial class MainForm : BaseForm
+    {
         private readonly RoomService _roomService;
         private readonly BuildingService _buildingService;
         private readonly BillService _billService;
@@ -20,8 +22,10 @@ namespace AccommodationManagerApp.Forms {
         private List<Room> Rooms { get; set; }
         private List<Vehicle> Vehicles { get; set; }
         private List<User> Users { get; set; }
+        private List<Contract> Contracts { get; set; }
 
-        public MainForm() {
+        public MainForm()
+        {
             _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
             _buildingService = ServiceLocator.ServiceProvider.GetService(typeof(BuildingService)) as BuildingService;
             _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
@@ -30,33 +34,45 @@ namespace AccommodationManagerApp.Forms {
                 ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
             _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
             _contractService = ServiceLocator.ServiceProvider.GetService(typeof(ContractService)) as ContractService;
-            InitializeComponent();
-            LoadData();
 
-            ListViewBuilding.GridLines = true;
-            ListViewRoom.GridLines = true;
-            ListViewVehicle.GridLines = true;
-            ListViewUser.GridLines = true;
-            ListViewUserRentList.GridLines = true;
-            lstViewBill.GridLines = true;
+            InitializeComponent();
+
+            LoadData();
+            SetListViewGridEnable();
         }
 
-        private void LoadData() {
+        private void LoadData()
+        {
             LoadPersonalInformation();
             LoadRoomData();
             LoadBuildingData();
             LoadBillData();
             LoadVehicleData();
             LoadUserData();
+            LoadContractData();
         }
 
-        private void BtnLogOut_Click(object sender, System.EventArgs e) {
+        private void SetListViewGridEnable()
+        {
+            ListViewBuilding.GridLines = true;
+            ListViewRoom.GridLines = true;
+            ListViewVehicle.GridLines = true;
+            ListViewUser.GridLines = true;
+            ListViewUserRentList.GridLines = true;
+            lstViewBill.GridLines = true;
+            ListViewContract.GridLines = true;
+        }
+
+        private void BtnLogOut_Click(object sender, System.EventArgs e)
+        {
             if (MessageBox.Show("Bạn có chắc chắn muốn đăng xuất", "Xác nhận đăng xuất", MessageBoxButtons.YesNo) ==
-                DialogResult.Yes) {
+                DialogResult.Yes)
+            {
                 _authenticationService.Logout();
                 Close();
 
-                Thread loginFormThread = new Thread(() => {
+                Thread loginFormThread = new Thread(() =>
+                {
                     Application.SetCompatibleTextRenderingDefault(false);
                     LoginForm loginForm = new LoginForm();
                     Application.Run(loginForm);
@@ -67,31 +83,27 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        private void buttonCurrentUserInformationManagement_Click(object sender, System.EventArgs e) {
-            if (_authenticationService.IsAuthenticated()) {
+        private void buttonCurrentUserInformationManagement_Click(object sender, System.EventArgs e)
+        {
+            if (_authenticationService.IsAuthenticated())
+            {
                 CurrentUserInformationForm userManagementForm =
                     new CurrentUserInformationForm(_authenticationService.CurrentUser);
                 userManagementForm.ShowDialog();
                 LoadPersonalInformation();
             }
-            else {
+            else
+            {
                 new ToastForm("Vui lòng đăng nhập để sử dụng chức năng này", true).Show();
             }
         }
 
-        private void LoadPersonalInformation() {
-            if (_authenticationService.IsAuthenticated()) {
+        private void LoadPersonalInformation()
+        {
+            if (_authenticationService.IsAuthenticated())
+            {
                 labelCurrentUserEmail.Text = _authenticationService.CurrentUser.Email;
             }
-        }
-
-        private void buttonContractManagement_Click(object sender, System.EventArgs e) {
-            ContractManagementForm contractManagementForm = new ContractManagementForm();
-            contractManagementForm.FormClosed += (s, args) => {
-                LoadUserData();
-                LoadRoomData();
-            };
-            contractManagementForm.Show();
         }
     }
 }

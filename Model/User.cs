@@ -23,10 +23,11 @@ namespace AccommodationManagerApp.Model
         
         public User() { }
         
-        public User(string email, string name, string password) {
+        public User(string email, string name, string password, UserRole role) {
             Email = email;
             Name = name;
             Password = password;
+            Role = role;
         }
         
         public User(string email, string name, string password, bool isFemale, string phone, string identityNumber, DateTime dateOfBirth) {

@@ -19,11 +19,13 @@ namespace AccommodationManagerApp.Model {
 
         public Contract() { }
 
-        public Contract(int userId, int price, DateTime startDate, DateTime endDate) {
+        public Contract(int userId, int roomId, int price, DateTime startDate, DateTime endDate, bool isTerminated) {
             UserId = userId;
+            RoomId = roomId;
             Price = price;
             StartDate = startDate;
             EndDate = endDate;
+            IsTerminated = isTerminated;
         }
     }
 }

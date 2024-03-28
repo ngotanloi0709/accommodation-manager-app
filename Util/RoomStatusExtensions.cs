@@ -5,12 +5,10 @@ namespace AccommodationManagerApp.Util {
     public static class RoomStatusExtensions {
         public static string ToVietnamese(this RoomStatus status) {
             switch (status) {
-                case RoomStatus.Empty:
-                    return "Trống";
+                case RoomStatus.Normal:
+                    return "Bình thường";
                 case RoomStatus.UnderMaintenance:
                     return "Đang bảo dưỡng";
-                case RoomStatus.Rented:
-                    return "Đã thuê";
                 default:
                     throw new ArgumentOutOfRangeException(nameof(status), status, null);
             }
@@ -18,12 +16,10 @@ namespace AccommodationManagerApp.Util {
 
         public static RoomStatus ToRoomStatus(this string status) {
             switch (status) {
-                case "Trống":
-                    return RoomStatus.Empty;
+                case "Bình thường":
+                    return RoomStatus.Normal;
                 case "Đang bảo dưỡng":
                     return RoomStatus.UnderMaintenance;
-                case "Đã thuê":
-                    return RoomStatus.Rented;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(status), status, null);
             }

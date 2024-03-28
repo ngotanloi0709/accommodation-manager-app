@@ -41,8 +41,7 @@ namespace AccommodationManagerApp.Forms
                 comboBoxRoomBuilding.Items.Add(building.Name);
             }
 
-            comboBoxRoomStatus.Items.Add(RoomStatus.Empty.ToVietnamese());
-            comboBoxRoomStatus.Items.Add(RoomStatus.Rented.ToVietnamese());
+            comboBoxRoomStatus.Items.Add(RoomStatus.Normal.ToVietnamese());
             comboBoxRoomStatus.Items.Add(RoomStatus.UnderMaintenance.ToVietnamese());
 
             comboBoxRoomBuilding.SelectedIndex = 0;

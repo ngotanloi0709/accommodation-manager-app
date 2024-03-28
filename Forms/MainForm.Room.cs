@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Properties;
 using AccommodationManagerApp.Util;
@@ -7,7 +9,7 @@ namespace AccommodationManagerApp.Forms {
     public partial class MainForm {
         private void LoadRoomData() {
             ListViewRoom.Items.Clear();
-            Rooms = _roomService.GetAllWithBuildingAndContract();
+            Rooms = _roomService.GetAllWithBuildingAndContractWithUser();
 
             foreach (var room in Rooms) {
                 ListViewItem item = new ListViewItem(room.RoomNumber);
@@ -17,10 +19,11 @@ namespace AccommodationManagerApp.Forms {
                 ListViewRoom.Items.Add(item);
             }
         }
-        
+
 
         private void ListViewRoom_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) {
             Room room = IsSelectedRoomValid();
+            
             if (room != null) {
                 string id = room.Id.ToString();
                 string number = room.RoomNumber;
@@ -29,7 +32,9 @@ namespace AccommodationManagerApp.Forms {
 
                 labelRoomId.Text = id.Equals("") ? Resources.NullData : id;
                 labelRoomNumber.Text = number == null || number.Equals("") ? Resources.NullData : number;
-
+                labelRoomTenant.Text = _roomService.GetCurrentTenantName(room);
+                labelRoomStatus.Text = status.Equals("") ? Resources.NullData : status;
+                
                 if (building != null) {
                     string buildingName = room.Building.Name;
                     labelRoomBuilding.Text = buildingName == null || buildingName.Equals("")
@@ -39,20 +44,14 @@ namespace AccommodationManagerApp.Forms {
                 else {
                     labelRoomBuilding.Text = Resources.NullData;
                 }
-
-                labelRoomTenant.Text = _roomService.GetCurrentTenantName(room);
-
-                labelRoomStatus.Text = status.Equals("") ? Resources.NullData : status;
             }
         }
-
 
         private void buttonAddRoom_Click(object sender, System.EventArgs e) {
             var roomForm = new RoomForm(null);
             roomForm.ShowDialog();
             ShowRoomDialogMessageResult(roomForm.DialogResult, false);
         }
-
 
         private void buttonEditRoom_Click(object sender, System.EventArgs e) {
             Room room = IsSelectedRoomValid();
@@ -99,7 +98,7 @@ namespace AccommodationManagerApp.Forms {
                 if (!IsRoomSafeDelete(room.Id)) {
                     return;
                 }
-                
+
                 var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn xóa căn hộ này không?");
                 var result = confirmationForm.ShowDialog();
                 if (result == DialogResult.Yes) {
@@ -123,7 +122,7 @@ namespace AccommodationManagerApp.Forms {
                 new ToastForm("Dữ liệu đang tồn tại ở hợp đồng", true).Show();
                 return false;
             }
-            
+
             return true;
         }
 
