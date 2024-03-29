@@ -90,26 +90,48 @@ namespace AccommodationManagerApp.Forms
 
         private void btnWord_Click(object sender, EventArgs e)
         {
-            Document doc = new Document("..\\..\\Template\\baocao.doc");
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "DOC Files|*.docx";
+            saveFileDialog.Title = "Save as DOCX";
+            saveFileDialog.FileName = "BillDetail.docx";
 
-            doc.MailMerge.Execute(new string[] { "Ho_Ten" }, new[] { lblName.Text});
-            doc.MailMerge.Execute(new string[] { "Date_Bill" }, new[] { lblDate.Text });
-            doc.MailMerge.Execute(new string[] { "Room_ID" }, new[] { lblRoomId.Text });
-            doc.MailMerge.Execute(new string[] { "Quan_Rent" }, new[] { lblQuanRent.Text });
-            doc.MailMerge.Execute(new string[] { "Quan_Water" }, new[] { lblQuanWater.Text });
-            doc.MailMerge.Execute(new string[] { "Quan_Elec" }, new[] { lblQuanElec.Text });
-            doc.MailMerge.Execute(new string[] { "Quan_Other" }, new[] { lblQuanOther.Text });
-            doc.MailMerge.Execute(new string[] { "Price_Rent" }, new[] { lblPriceRent.Text });
-            doc.MailMerge.Execute(new string[] { "Price_Water" }, new[] { lblPriceWater.Text });
-            doc.MailMerge.Execute(new string[] { "Price_Elec" }, new[] { lblPriceElec.Text });
-            doc.MailMerge.Execute(new string[] { "Price_Other" }, new[] { lblPriceOther.Text });
-            doc.MailMerge.Execute(new string[] { "Total_Rent" }, new[] { lblRent.Text });
-            doc.MailMerge.Execute(new string[] { "Total_Water" }, new[] { lblWater.Text });
-            doc.MailMerge.Execute(new string[] { "Total_Elec" }, new[] { lblElectric.Text });
-            doc.MailMerge.Execute(new string[] { "Total_Other" }, new[] { lblOther.Text });
-            doc.MailMerge.Execute(new string[] { "Total_Price" }, new[] { lblTotal.Text });
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
 
-            doc.SaveAndOpenFile("BillDetail.doc");
+                try
+                {
+                    Document doc = new Document("..\\..\\Template\\baocao.doc");
+
+                    doc.MailMerge.Execute(new string[] { "Ho_Ten" }, new[] { lblName.Text });
+                    doc.MailMerge.Execute(new string[] { "Date_Bill" }, new[] { lblDate.Text });
+                    doc.MailMerge.Execute(new string[] { "Room_ID" }, new[] { lblRoomId.Text });
+                    doc.MailMerge.Execute(new string[] { "Quan_Rent" }, new[] { lblQuanRent.Text });
+                    doc.MailMerge.Execute(new string[] { "Quan_Water" }, new[] { lblQuanWater.Text });
+                    doc.MailMerge.Execute(new string[] { "Quan_Elec" }, new[] { lblQuanElec.Text });
+                    doc.MailMerge.Execute(new string[] { "Quan_Other" }, new[] { lblQuanOther.Text });
+                    doc.MailMerge.Execute(new string[] { "Price_Rent" }, new[] { lblPriceRent.Text });
+                    doc.MailMerge.Execute(new string[] { "Price_Water" }, new[] { lblPriceWater.Text });
+                    doc.MailMerge.Execute(new string[] { "Price_Elec" }, new[] { lblPriceElec.Text });
+                    doc.MailMerge.Execute(new string[] { "Price_Other" }, new[] { lblPriceOther.Text });
+                    doc.MailMerge.Execute(new string[] { "Total_Rent" }, new[] { lblRent.Text });
+                    doc.MailMerge.Execute(new string[] { "Total_Water" }, new[] { lblWater.Text });
+                    doc.MailMerge.Execute(new string[] { "Total_Elec" }, new[] { lblElectric.Text });
+                    doc.MailMerge.Execute(new string[] { "Total_Other" }, new[] { lblOther.Text });
+                    doc.MailMerge.Execute(new string[] { "Total_Price" }, new[] { lblTotal.Text });
+                    doc.Save(filePath);
+
+                    // Thông báo khi hoàn thành xuất PDF
+                    MessageBox.Show("Xuất Word thành công!", "Thông báo", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    // Xử lý lỗi khi xuất PDF
+                    MessageBox.Show("Lỗi khi xuất PDF: " + ex.Message, "Lỗi", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
