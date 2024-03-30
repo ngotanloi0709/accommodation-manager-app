@@ -229,9 +229,9 @@
             this.tabPageConfiguration.Controls.Add(this.buttonAddContract);
             this.tabPageConfiguration.Controls.Add(this.materialLabel18);
             this.tabPageConfiguration.ImageKey = "contract.png";
-            this.tabPageConfiguration.Location = new System.Drawing.Point(4, 74);
+            this.tabPageConfiguration.Location = new System.Drawing.Point(4, 39);
             this.tabPageConfiguration.Name = "tabPageConfiguration";
-            this.tabPageConfiguration.Size = new System.Drawing.Size(986, 638);
+            this.tabPageConfiguration.Size = new System.Drawing.Size(986, 673);
             this.tabPageConfiguration.TabIndex = 5;
             this.tabPageConfiguration.Text = "Quản lý hợp đồng";
             // 
@@ -2157,7 +2157,7 @@
             this.btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnSearch.Size = new System.Drawing.Size(114, 36);
+            this.btnSearch.Size = new System.Drawing.Size(106, 36);
             this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "Search";
             this.btnSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -2591,7 +2591,6 @@
         private System.Windows.Forms.Label labelCurrentUserEmail;
         private MaterialSkin.Controls.MaterialButton buttonCurrentUserInformationManagement;
         private System.Windows.Forms.ColumnHeader state;
-        private MaterialSkin.Controls.MaterialLabel materialLabel12;
         private MaterialSkin.Controls.MaterialButton materialButton4;
         private MaterialSkin.Controls.MaterialLabel materialLabel18;
         private MaterialSkin.Controls.MaterialButton buttonDelete;
