@@ -1,7 +1,9 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Properties;
 using AccommodationManagerApp.Util;
+using Aspose.Words;
 
 namespace AccommodationManagerApp.Forms {
     public partial class MainForm {
@@ -194,6 +196,54 @@ namespace AccommodationManagerApp.Forms {
         {
             ContractForeignInformationReload();
             new ToastForm("Đã thực hiện tải lại dữ liệu hợp đồng").Show();
+        }
+
+        private void btnWordExtract_Click(object sender, System.EventArgs e)
+        {
+            Contract contract = IsSelectedContractValid();
+            if (contract != null)
+            {
+                string date = DateTime.Now.ToString("dd/MM/yyyy");
+                string tenantName = contract.User != null ? contract.User.Name : Resources.NullData;
+                string tenantIdentityNumber = contract.User != null ? contract.User.IdentityNumber : Resources.NullData;
+                string tenantPhone = contract.User != null ? contract.User.Phone : Resources.NullData;
+                string dateOfBirth = contract.User != null ? contract.User.DateOfBirth.ToString("dd/MM/yyyy") : Resources.NullData;
+                string roomNumber = contract.Room != null ? contract.Room.RoomNumber : Resources.NullData;
+                string price = FormatText.IntegerToVnd(contract.Price);
+                string startDate = string.IsNullOrEmpty(contract.StartDate.ToString())
+                    ? Resources.NullData
+                    : contract.StartDate.ToString("dd/MM/yyyy");
+                string endDate = string.IsNullOrEmpty(contract.EndDate.ToString())
+                    ? Resources.NullData
+                    : contract.EndDate.ToString("dd/MM/yyyy");
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "DOC Files|*.docx";
+                saveFileDialog.Title = "Save as DOCX";
+                saveFileDialog.FileName = "Contract.docx";
+                if(saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = saveFileDialog.FileName;
+                    try
+                    {
+                        Document doc = new Document("..\\..\\Template\\contract.docx");
+                        doc.MailMerge.Execute(new string[] { "This_Date" }, new[] { date });
+                        doc.MailMerge.Execute(new string[] { "Tennant_Name" }, new[] { tenantName });
+                        doc.MailMerge.Execute(new string[] { "Tennant_CCCD" }, new[] { tenantIdentityNumber });
+                        doc.MailMerge.Execute(new string[] { "Tennant_Phone" }, new[] { tenantPhone });
+                        doc.MailMerge.Execute(new string[] { "Date_of_Birth" }, new[] { dateOfBirth });
+                        doc.MailMerge.Execute(new string[] { "Room_Number" }, new[] { roomNumber });
+                        doc.MailMerge.Execute(new string[] { "Single_Price" }, new[] { price });
+                        doc.MailMerge.Execute(new string[] { "Start_Date" }, new[] { startDate });
+                        doc.MailMerge.Execute(new string[] { "End_Date" }, new[] { endDate });
+                        doc.Save(filePath);
+                        MessageBox.Show("Xuất Word thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi khi xuất Word: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }   
+            }
         }
     }
 }
