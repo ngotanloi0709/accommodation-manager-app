@@ -32,4 +32,13 @@ namespace AccommodationManagerApp.Model
             this.RoomId = RoomId;
         }
     }
+    
+    public enum VehicleCategory
+    {
+        two_wheel,
+        four_wheel,
+        three_wheel,
+        bicycle,
+        electric_bicycle
+    }
 }

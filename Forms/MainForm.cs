@@ -13,32 +13,30 @@ namespace AccommodationManagerApp.Forms
         private readonly RoomService _roomService;
         private readonly BuildingService _buildingService;
         private readonly BillService _billService;
-        private readonly VehicleService _vehicleService;
         private readonly AuthenticationService _authenticationService;
-        private List<BillModel> Bills { get; set; }
+        private readonly VehicleService _vehicleService;
         private readonly UserService _userService;
+        private readonly ContractService _contractService;
+        private List<BillModel> Bills { get; set; }
         private List<Building> Buildings { get; set; }
         private List<Room> Rooms { get; set; }
-
         private List<Vehicle> Vehicles { get; set; }
         private List<User> Users { get; set; }
+        private List<Contract> Contracts { get; set; }
+
         public MainForm()
         {
             _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
             _buildingService = ServiceLocator.ServiceProvider.GetService(typeof(BuildingService)) as BuildingService;
             _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
             _vehicleService = ServiceLocator.ServiceProvider.GetService(typeof(VehicleService)) as VehicleService;
-            _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
             _authenticationService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
+            _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
+            _contractService = ServiceLocator.ServiceProvider.GetService(typeof(ContractService)) as ContractService;
+
             InitializeComponent();
             LoadData();
-
-            ListViewBuilding.GridLines = true;
-            ListViewRoom.GridLines = true;
-            ListViewVehicle.GridLines = true;
-            ListViewUser.GridLines = true;
-            ListViewUserRentList.GridLines = true;
-            lstViewBill.GridLines = true;
+            SetListViewGridEnable();
         }
 
         private void LoadData()
@@ -49,20 +47,35 @@ namespace AccommodationManagerApp.Forms
             readBill();
             LoadVehicleData();
             LoadUserData();
+            LoadContractData();
+        }
+
+        private void SetListViewGridEnable()
+        {
+            ListViewBuilding.GridLines = true;
+            ListViewRoom.GridLines = true;
+            ListViewVehicle.GridLines = true;
+            ListViewUser.GridLines = true;
+            ListViewUserRentList.GridLines = true;
+            lstViewBill.GridLines = true;
+            ListViewContract.GridLines = true;
         }
 
         private void buttonCurrentUserInformationManagement_Click(object sender, System.EventArgs e)
         {
             if (_authenticationService.IsAuthenticated())
             {
-                CurrentUserInformationForm userManagementForm = new CurrentUserInformationForm(_authenticationService.CurrentUser);
+                CurrentUserInformationForm userManagementForm =
+                    new CurrentUserInformationForm(_authenticationService.CurrentUser);
                 userManagementForm.ShowDialog();
                 LoadPersonalInformation();
-            } else {
+            }
+            else
+            {
                 new ToastForm("Vui lòng đăng nhập để sử dụng chức năng này", true).Show();
             }
         }
-        
+
         private void LoadPersonalInformation()
         {
             if (_authenticationService.IsAuthenticated())

@@ -7,22 +7,25 @@ namespace AccommodationManagerApp.Model {
     public class Contract {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         [ForeignKey("UserId")] public User User { get; set; }
-        public int RoomId { get; set; }
+        public int? RoomId { get; set; }
         [ForeignKey("RoomId")] public Room Room { get; set; }
+        public int Price { get; set; }
         public DateTime StartDate { get; set; } = DateTime.Now;
         public DateTime EndDate { get; set; } = DateTime.Now;
+        public bool IsTerminated { get; set; } = false;
         
 
         public Contract() { }
 
-        public Contract(int userId, int roomId, DateTime startDate, DateTime endDate) {
+        public Contract(int userId, int roomId, int price, DateTime startDate, DateTime endDate, bool isTerminated) {
             UserId = userId;
             RoomId = roomId;
+            Price = price;
             StartDate = startDate;
             EndDate = endDate;
+            IsTerminated = isTerminated;
         }
     }
 }
