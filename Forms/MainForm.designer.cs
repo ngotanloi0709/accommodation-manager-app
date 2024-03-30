@@ -33,6 +33,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.drawerImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabPageConfiguration = new System.Windows.Forms.TabPage();
+            this.btnWordExtract = new MaterialSkin.Controls.MaterialButton();
             this.buttonReloadContract = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.buttonDelete = new MaterialSkin.Controls.MaterialButton();
             this.labelContractIsTerminated = new MaterialSkin.Controls.MaterialLabel();
@@ -206,6 +207,7 @@
             // tabPageConfiguration
             // 
             this.tabPageConfiguration.BackColor = System.Drawing.Color.White;
+            this.tabPageConfiguration.Controls.Add(this.btnWordExtract);
             this.tabPageConfiguration.Controls.Add(this.buttonReloadContract);
             this.tabPageConfiguration.Controls.Add(this.buttonDelete);
             this.tabPageConfiguration.Controls.Add(this.labelContractIsTerminated);
@@ -227,17 +229,39 @@
             this.tabPageConfiguration.Controls.Add(this.buttonAddContract);
             this.tabPageConfiguration.Controls.Add(this.materialLabel18);
             this.tabPageConfiguration.ImageKey = "contract.png";
-            this.tabPageConfiguration.Location = new System.Drawing.Point(4, 39);
+            this.tabPageConfiguration.Location = new System.Drawing.Point(4, 74);
             this.tabPageConfiguration.Name = "tabPageConfiguration";
-            this.tabPageConfiguration.Size = new System.Drawing.Size(986, 673);
+            this.tabPageConfiguration.Size = new System.Drawing.Size(986, 638);
             this.tabPageConfiguration.TabIndex = 5;
             this.tabPageConfiguration.Text = "Quản lý hợp đồng";
+            // 
+            // btnWordExtract
+            // 
+            this.btnWordExtract.AutoSize = false;
+            this.btnWordExtract.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnWordExtract.BackColor = System.Drawing.Color.Transparent;
+            this.btnWordExtract.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnWordExtract.Depth = 0;
+            this.btnWordExtract.HighEmphasis = true;
+            this.btnWordExtract.Icon = global::AccommodationManagerApp.Properties.Resources.contract;
+            this.btnWordExtract.Location = new System.Drawing.Point(738, 591);
+            this.btnWordExtract.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnWordExtract.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnWordExtract.Name = "btnWordExtract";
+            this.btnWordExtract.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnWordExtract.Size = new System.Drawing.Size(187, 36);
+            this.btnWordExtract.TabIndex = 50;
+            this.btnWordExtract.Text = "Xuất hợp đồng";
+            this.btnWordExtract.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnWordExtract.UseAccentColor = false;
+            this.btnWordExtract.UseVisualStyleBackColor = false;
+            this.btnWordExtract.Click += new System.EventHandler(this.btnWordExtract_Click);
             // 
             // buttonReloadContract
             // 
             this.buttonReloadContract.Depth = 0;
             this.buttonReloadContract.Icon = global::AccommodationManagerApp.Properties.Resources.reload;
-            this.buttonReloadContract.Location = new System.Drawing.Point(495, 595);
+            this.buttonReloadContract.Location = new System.Drawing.Point(490, 581);
             this.buttonReloadContract.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonReloadContract.Name = "buttonReloadContract";
             this.buttonReloadContract.Size = new System.Drawing.Size(56, 56);
@@ -593,9 +617,9 @@
             // 
             this.tabPageSystemUsers.BackColor = System.Drawing.Color.White;
             this.tabPageSystemUsers.ImageKey = "customer.png";
-            this.tabPageSystemUsers.Location = new System.Drawing.Point(4, 39);
+            this.tabPageSystemUsers.Location = new System.Drawing.Point(4, 74);
             this.tabPageSystemUsers.Name = "tabPageSystemUsers";
-            this.tabPageSystemUsers.Size = new System.Drawing.Size(986, 673);
+            this.tabPageSystemUsers.Size = new System.Drawing.Size(986, 638);
             this.tabPageSystemUsers.TabIndex = 4;
             this.tabPageSystemUsers.Text = "System Users";
             // 
@@ -628,9 +652,9 @@
             this.tabPageTenants.Controls.Add(this.buttonReloadUser);
             this.tabPageTenants.Controls.Add(this.ListViewUser);
             this.tabPageTenants.ImageKey = "house-owner.png";
-            this.tabPageTenants.Location = new System.Drawing.Point(4, 39);
+            this.tabPageTenants.Location = new System.Drawing.Point(4, 74);
             this.tabPageTenants.Name = "tabPageTenants";
-            this.tabPageTenants.Size = new System.Drawing.Size(986, 673);
+            this.tabPageTenants.Size = new System.Drawing.Size(986, 638);
             this.tabPageTenants.TabIndex = 2;
             this.tabPageTenants.Text = "Quản lý người thuê";
             // 
@@ -1101,10 +1125,10 @@
             this.tabPageRoom.Controls.Add(this.ListViewRoom);
             this.tabPageRoom.ForeColor = System.Drawing.Color.Transparent;
             this.tabPageRoom.ImageKey = "home.png";
-            this.tabPageRoom.Location = new System.Drawing.Point(4, 39);
+            this.tabPageRoom.Location = new System.Drawing.Point(4, 74);
             this.tabPageRoom.Name = "tabPageRoom";
             this.tabPageRoom.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageRoom.Size = new System.Drawing.Size(986, 673);
+            this.tabPageRoom.Size = new System.Drawing.Size(986, 638);
             this.tabPageRoom.TabIndex = 0;
             this.tabPageRoom.Text = "Quản lý căn hộ";
             // 
@@ -1433,9 +1457,9 @@
             this.tabPageBuilding.Controls.Add(this.buttonAddBuilding);
             this.tabPageBuilding.Controls.Add(this.ListViewBuilding);
             this.tabPageBuilding.ImageKey = "dashboard.png";
-            this.tabPageBuilding.Location = new System.Drawing.Point(4, 39);
+            this.tabPageBuilding.Location = new System.Drawing.Point(4, 74);
             this.tabPageBuilding.Name = "tabPageBuilding";
-            this.tabPageBuilding.Size = new System.Drawing.Size(986, 673);
+            this.tabPageBuilding.Size = new System.Drawing.Size(986, 638);
             this.tabPageBuilding.TabIndex = 1;
             this.tabPageBuilding.Text = "Quản lý toà nhà";
             // 
@@ -1718,9 +1742,9 @@
             // 
             this.tabPageHome.BackColor = System.Drawing.Color.White;
             this.tabPageHome.ImageKey = "statistic.png";
-            this.tabPageHome.Location = new System.Drawing.Point(4, 39);
+            this.tabPageHome.Location = new System.Drawing.Point(4, 74);
             this.tabPageHome.Name = "tabPageHome";
-            this.tabPageHome.Size = new System.Drawing.Size(986, 673);
+            this.tabPageHome.Size = new System.Drawing.Size(986, 638);
             this.tabPageHome.TabIndex = 7;
             this.tabPageHome.Text = "Trang chủ";
             // 
@@ -1745,9 +1769,9 @@
             this.tabPageVehicle.Controls.Add(this.ListViewVehicle);
             this.tabPageVehicle.Controls.Add(this.materialLabel11);
             this.tabPageVehicle.ImageKey = "fleet.png";
-            this.tabPageVehicle.Location = new System.Drawing.Point(4, 39);
+            this.tabPageVehicle.Location = new System.Drawing.Point(4, 74);
             this.tabPageVehicle.Name = "tabPageVehicle";
-            this.tabPageVehicle.Size = new System.Drawing.Size(986, 673);
+            this.tabPageVehicle.Size = new System.Drawing.Size(986, 638);
             this.tabPageVehicle.TabIndex = 6;
             this.tabPageVehicle.Text = "Vehicle";
             // 
@@ -2072,10 +2096,10 @@
             this.tabPageBills.Controls.Add(this.btnPDF);
             this.tabPageBills.Controls.Add(this.lstViewBill);
             this.tabPageBills.ImageKey = "invoice.png";
-            this.tabPageBills.Location = new System.Drawing.Point(4, 39);
+            this.tabPageBills.Location = new System.Drawing.Point(4, 74);
             this.tabPageBills.Name = "tabPageBills";
             this.tabPageBills.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageBills.Size = new System.Drawing.Size(986, 673);
+            this.tabPageBills.Size = new System.Drawing.Size(986, 638);
             this.tabPageBills.TabIndex = 6;
             this.tabPageBills.Text = "Quản lý hoá đơn";
             this.tabPageBills.UseVisualStyleBackColor = true;
@@ -2391,7 +2415,7 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1000, 800);
@@ -2578,5 +2602,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel33;
         private MaterialSkin.Controls.MaterialButton buttonAddContract;
         private MaterialSkin.Controls.MaterialFloatingActionButton buttonReloadContract;
+        private MaterialSkin.Controls.MaterialButton btnWordExtract;
     }
 }

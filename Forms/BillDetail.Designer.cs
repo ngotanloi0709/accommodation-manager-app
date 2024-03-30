@@ -101,7 +101,7 @@
             this.panel1.Location = new System.Drawing.Point(4, 30);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(814, 1070);
+            this.panel1.Size = new System.Drawing.Size(850, 1070);
             this.panel1.TabIndex = 0;
             // 
             // btnWord
@@ -162,7 +162,7 @@
             this.PanelHD.Location = new System.Drawing.Point(0, 0);
             this.PanelHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PanelHD.Name = "PanelHD";
-            this.PanelHD.Size = new System.Drawing.Size(814, 992);
+            this.PanelHD.Size = new System.Drawing.Size(850, 992);
             this.PanelHD.TabIndex = 1;
             // 
             // panel3
@@ -173,7 +173,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 908);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(814, 84);
+            this.panel3.Size = new System.Drawing.Size(850, 84);
             this.panel3.TabIndex = 27;
             // 
             // label45
@@ -304,7 +304,7 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.59916F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.40084F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
             this.tableLayoutPanel3.Controls.Add(this.label33, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.lblTotal, 2, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(86, 489);
@@ -332,9 +332,9 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(481, 0);
+            this.lblTotal.Location = new System.Drawing.Point(480, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(132, 50);
+            this.lblTotal.Size = new System.Drawing.Size(133, 50);
             this.lblTotal.TabIndex = 17;
             this.lblTotal.Text = "-1";
             this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -345,7 +345,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.47231F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.5277F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
             this.tableLayoutPanel2.Controls.Add(this.lblOther, 3, 3);
             this.tableLayoutPanel2.Controls.Add(this.lblPriceOther, 2, 3);
             this.tableLayoutPanel2.Controls.Add(this.lblQuanOther, 1, 3);
@@ -379,9 +379,9 @@
             this.lblOther.AutoSize = true;
             this.lblOther.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblOther.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOther.Location = new System.Drawing.Point(482, 132);
+            this.lblOther.Location = new System.Drawing.Point(481, 132);
             this.lblOther.Name = "lblOther";
-            this.lblOther.Size = new System.Drawing.Size(131, 50);
+            this.lblOther.Size = new System.Drawing.Size(132, 50);
             this.lblOther.TabIndex = 30;
             this.lblOther.Text = "-1";
             this.lblOther.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -391,7 +391,7 @@
             this.lblPriceOther.AutoSize = true;
             this.lblPriceOther.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPriceOther.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPriceOther.Location = new System.Drawing.Point(344, 132);
+            this.lblPriceOther.Location = new System.Drawing.Point(343, 132);
             this.lblPriceOther.Name = "lblPriceOther";
             this.lblPriceOther.Size = new System.Drawing.Size(132, 50);
             this.lblPriceOther.TabIndex = 29;
@@ -403,7 +403,7 @@
             this.lblQuanOther.AutoSize = true;
             this.lblQuanOther.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblQuanOther.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuanOther.Location = new System.Drawing.Point(230, 132);
+            this.lblQuanOther.Location = new System.Drawing.Point(229, 132);
             this.lblQuanOther.Name = "lblQuanOther";
             this.lblQuanOther.Size = new System.Drawing.Size(108, 50);
             this.lblQuanOther.TabIndex = 28;
@@ -417,7 +417,7 @@
             this.label29.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.Location = new System.Drawing.Point(3, 132);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(221, 50);
+            this.label29.Size = new System.Drawing.Size(220, 50);
             this.label29.TabIndex = 27;
             this.label29.Text = "Other Price";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -427,9 +427,9 @@
             this.lblElectric.AutoSize = true;
             this.lblElectric.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblElectric.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblElectric.Location = new System.Drawing.Point(482, 85);
+            this.lblElectric.Location = new System.Drawing.Point(481, 85);
             this.lblElectric.Name = "lblElectric";
-            this.lblElectric.Size = new System.Drawing.Size(131, 47);
+            this.lblElectric.Size = new System.Drawing.Size(132, 47);
             this.lblElectric.TabIndex = 26;
             this.lblElectric.Text = "-1";
             this.lblElectric.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -439,7 +439,7 @@
             this.lblPriceElec.AutoSize = true;
             this.lblPriceElec.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPriceElec.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPriceElec.Location = new System.Drawing.Point(344, 85);
+            this.lblPriceElec.Location = new System.Drawing.Point(343, 85);
             this.lblPriceElec.Name = "lblPriceElec";
             this.lblPriceElec.Size = new System.Drawing.Size(132, 47);
             this.lblPriceElec.TabIndex = 25;
@@ -451,7 +451,7 @@
             this.lblQuanElec.AutoSize = true;
             this.lblQuanElec.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblQuanElec.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuanElec.Location = new System.Drawing.Point(230, 85);
+            this.lblQuanElec.Location = new System.Drawing.Point(229, 85);
             this.lblQuanElec.Name = "lblQuanElec";
             this.lblQuanElec.Size = new System.Drawing.Size(108, 47);
             this.lblQuanElec.TabIndex = 24;
@@ -465,7 +465,7 @@
             this.label25.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.Location = new System.Drawing.Point(3, 85);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(221, 47);
+            this.label25.Size = new System.Drawing.Size(220, 47);
             this.label25.TabIndex = 15;
             this.label25.Text = "Electric Price";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -475,7 +475,7 @@
             this.lblQuanWater.AutoSize = true;
             this.lblQuanWater.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblQuanWater.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuanWater.Location = new System.Drawing.Point(230, 39);
+            this.lblQuanWater.Location = new System.Drawing.Point(229, 39);
             this.lblQuanWater.Name = "lblQuanWater";
             this.lblQuanWater.Size = new System.Drawing.Size(108, 46);
             this.lblQuanWater.TabIndex = 23;
@@ -487,7 +487,7 @@
             this.lblPriceWater.AutoSize = true;
             this.lblPriceWater.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPriceWater.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPriceWater.Location = new System.Drawing.Point(344, 39);
+            this.lblPriceWater.Location = new System.Drawing.Point(343, 39);
             this.lblPriceWater.Name = "lblPriceWater";
             this.lblPriceWater.Size = new System.Drawing.Size(132, 46);
             this.lblPriceWater.TabIndex = 22;
@@ -499,9 +499,9 @@
             this.lblWater.AutoSize = true;
             this.lblWater.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblWater.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWater.Location = new System.Drawing.Point(482, 39);
+            this.lblWater.Location = new System.Drawing.Point(481, 39);
             this.lblWater.Name = "lblWater";
-            this.lblWater.Size = new System.Drawing.Size(131, 46);
+            this.lblWater.Size = new System.Drawing.Size(132, 46);
             this.lblWater.TabIndex = 21;
             this.lblWater.Text = "-1";
             this.lblWater.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -511,7 +511,7 @@
             this.lblQuanRent.AutoSize = true;
             this.lblQuanRent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblQuanRent.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuanRent.Location = new System.Drawing.Point(230, 0);
+            this.lblQuanRent.Location = new System.Drawing.Point(229, 0);
             this.lblQuanRent.Name = "lblQuanRent";
             this.lblQuanRent.Size = new System.Drawing.Size(108, 39);
             this.lblQuanRent.TabIndex = 20;
@@ -524,7 +524,7 @@
             this.label21.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(3, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(221, 39);
+            this.label21.Size = new System.Drawing.Size(220, 39);
             this.label21.TabIndex = 19;
             this.label21.Text = "Rent Price";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -534,7 +534,7 @@
             this.lblPriceRent.AutoSize = true;
             this.lblPriceRent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPriceRent.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPriceRent.Location = new System.Drawing.Point(344, 0);
+            this.lblPriceRent.Location = new System.Drawing.Point(343, 0);
             this.lblPriceRent.Name = "lblPriceRent";
             this.lblPriceRent.Size = new System.Drawing.Size(132, 39);
             this.lblPriceRent.TabIndex = 18;
@@ -548,7 +548,7 @@
             this.label19.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(3, 39);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(221, 46);
+            this.label19.Size = new System.Drawing.Size(220, 46);
             this.label19.TabIndex = 17;
             this.label19.Text = "Water Price";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -558,9 +558,9 @@
             this.lblRent.AutoSize = true;
             this.lblRent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblRent.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRent.Location = new System.Drawing.Point(482, 0);
+            this.lblRent.Location = new System.Drawing.Point(481, 0);
             this.lblRent.Name = "lblRent";
-            this.lblRent.Size = new System.Drawing.Size(131, 39);
+            this.lblRent.Size = new System.Drawing.Size(132, 39);
             this.lblRent.TabIndex = 16;
             this.lblRent.Text = "-1";
             this.lblRent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -702,7 +702,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(814, 110);
+            this.panel2.Size = new System.Drawing.Size(850, 110);
             this.panel2.TabIndex = 0;
             // 
             // pictureBox1
@@ -736,7 +736,7 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 1102);
+            this.ClientSize = new System.Drawing.Size(857, 1102);
             this.Controls.Add(this.panel1);
             this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

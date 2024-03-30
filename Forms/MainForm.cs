@@ -105,5 +105,6 @@ namespace AccommodationManagerApp.Forms
                 labelCurrentUserEmail.Text = _authenticationService.CurrentUser.Email;
             }
         }
+        
     }
 }
