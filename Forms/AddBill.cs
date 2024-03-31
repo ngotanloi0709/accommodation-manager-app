@@ -1,5 +1,6 @@
 ﻿using BillModel = AccommodationManagerApp.Model.Bill;
 using AccommodationManagerApp.Service;
+using System;
 
 namespace AccommodationManagerApp.Forms.Bill
 {
@@ -8,6 +9,7 @@ namespace AccommodationManagerApp.Forms.Bill
         private readonly BillService _billService;
         public AddBill()
         {
+            this.lblDate.Text += DateTime.Now.ToString("dd/MM/yyyy HH:mm");
             _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
             InitializeComponent();
         }
@@ -18,10 +20,10 @@ namespace AccommodationManagerApp.Forms.Bill
             if (bill != null)
             {
                 _billService.Add(bill);
-                new ToastForm("Add Success!", false).Show();
+                new ToastForm("Thêm thành Công!", false).Show();
                 this.Close();
             }
-            new ToastForm("Please Complete Information!").Show();
+            new ToastForm("Xin bạn nhập đầy đủ thông tin!").Show();
         }
     }
 }

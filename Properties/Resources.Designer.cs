@@ -171,6 +171,16 @@ namespace AccommodationManagerApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_250 {
+            get {
+                object obj = ResourceManager.GetObject("icon-250", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_black {
             get {
                 object obj = ResourceManager.GetObject("icon_black", resourceCulture);
@@ -194,6 +204,16 @@ namespace AccommodationManagerApp.Properties {
         internal static string ImageFilter {
             get {
                 return ResourceManager.GetString("ImageFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap login {
+            get {
+                object obj = ResourceManager.GetObject("login", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -233,6 +253,16 @@ namespace AccommodationManagerApp.Properties {
         internal static string NullData {
             get {
                 return ResourceManager.GetString("NullData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap off {
+            get {
+                object obj = ResourceManager.GetObject("off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -362,6 +392,16 @@ namespace AccommodationManagerApp.Properties {
         internal static System.Drawing.Bitmap user_no_color {
             get {
                 object obj = ResourceManager.GetObject("user_no_color", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap view {
+            get {
+                object obj = ResourceManager.GetObject("view", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

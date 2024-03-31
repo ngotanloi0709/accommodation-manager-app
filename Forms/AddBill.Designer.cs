@@ -31,14 +31,6 @@
             this.btnAdd = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
-            // txtbxWater
-            // 
-            this.txtbxWater.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            // 
-            // txtbxElectric
-            // 
-            this.txtbxElectric.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            // 
             // btnAdd
             // 
             this.btnAdd.AutoSize = false;
@@ -54,7 +46,7 @@
             this.btnAdd.NoAccentTextColor = System.Drawing.Color.Empty;
             this.btnAdd.Size = new System.Drawing.Size(95, 36);
             this.btnAdd.TabIndex = 8;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "Thêm";
             this.btnAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnAdd.UseAccentColor = false;
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -64,13 +56,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 500);
+            this.ClientSize = new System.Drawing.Size(516, 539);
             this.Controls.Add(this.btnAdd);
             this.Name = "AddBill";
             this.Text = "AddBill";
             this.Controls.SetChildIndex(this.btnClose, 0);
-            this.Controls.SetChildIndex(this.lblDate, 0);
-            this.Controls.SetChildIndex(this.lblRoom, 0);
             this.Controls.SetChildIndex(this.cmbboxRent, 0);
             this.Controls.SetChildIndex(this.cmbboxRoom, 0);
             this.Controls.SetChildIndex(this.txtbxWater, 0);

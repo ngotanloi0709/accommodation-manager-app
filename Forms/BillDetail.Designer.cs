@@ -80,6 +80,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Invoice = new System.Windows.Forms.Label();
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            this.btnWord = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.PanelHD.SuspendLayout();
             this.panel3.SuspendLayout();

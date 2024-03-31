@@ -1,18 +1,20 @@
 ﻿using MaterialSkin;
 using MaterialSkin.Controls;
-using System.Windows.Forms;
-using BillModel = AccommodationManagerApp.Model.Bill;
+using System.Drawing.Drawing2D;
 using System;
+using System.Windows.Forms;
+using AccommodationManagerApp.Model;
 
-namespace AccommodationManagerApp.Forms.Bill
+namespace AccommodationManagerApp.Forms
 {
-    public partial class BillForm : MaterialForm
+    public partial class ReqForm : MaterialForm
     {
-        public BillForm()
+        public ReqForm()
         {
             InitializeComponent();
             SetUpUi();
         }
+
         protected void SetUpUi()
         {
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
@@ -27,7 +29,7 @@ namespace AccommodationManagerApp.Forms.Bill
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
-        protected void btnClose_Click(object sender, System.EventArgs e)
+        protected void close(object sender, System.EventArgs e)
         {
             ConfirmationForm confirmationForm = new ConfirmationForm("Bạn có muốn thoát không ?");
             if (confirmationForm.ShowDialog() == DialogResult.Yes)
@@ -35,17 +37,15 @@ namespace AccommodationManagerApp.Forms.Bill
                 this.Close();
             }
         }
-    
-        protected BillModel setBill()
+        protected Request setReq()
         {
             try
             {
-                Double rent = Double.Parse(cmbboxRent.SelectedItem.ToString());
-                Double water = Double.Parse(txtbxWater.Text);
-                Double electric = Double.Parse(txtbxElectric.Text);
-                BillModel bill = new BillModel(rent, electric, water, null);
-                return bill;
-            } catch(Exception)
+                string des = txtReq.Text; 
+                Request req = new Request(des, null);
+                return req;
+            }
+            catch (Exception)
             {
                 return null;
             }

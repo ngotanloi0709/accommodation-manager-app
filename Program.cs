@@ -23,7 +23,7 @@ namespace AccommodationManagerApp {
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new ClientForm());
         }
 
         private static void ConfigureServices()
@@ -41,6 +41,7 @@ namespace AccommodationManagerApp {
             services.AddSingleton<BuildingService>();
             services.AddSingleton<BillService>();
             services.AddSingleton<ContractService>();
+            services.AddSingleton<RequestService>();
 
             // Repositories
             services.AddSingleton<BillRepository>();
@@ -50,6 +51,7 @@ namespace AccommodationManagerApp {
             services.AddSingleton<VehicleRepository>();
             services.AddSingleton<InitLogRepository>();
             services.AddSingleton<ContractRepository>();
+            services.AddSingleton<RequestRepository>();
 
             _serviceProvider = services.BuildServiceProvider();
             ServiceLocator.Initialize(_serviceProvider);

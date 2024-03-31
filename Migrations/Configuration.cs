@@ -4,7 +4,9 @@ using MySql.Data.EntityFramework;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using AccommodationManagerApp.Model;
+using Request = AccommodationManagerApp.Model.Request;
 using AccommodationManagerApp.Util;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace AccommodationManagerApp.Migrations {
     internal sealed class Configuration : DbMigrationsConfiguration<Repository.AccommodationManagerAppContext> {
@@ -53,6 +55,13 @@ namespace AccommodationManagerApp.Migrations {
                 context.Bills.AddOrUpdate(new Bill(1000000, 887000, 206000, null));
                 context.Bills.AddOrUpdate(new Bill(1500000, 621000, 372000, null));
                 context.Bills.AddOrUpdate(new Bill(2000000, 913000, 455000, null));
+            }
+
+            if (!context.Requests.Any())
+            {
+                context.Requests.AddOrUpdate(new Request("Cúp điện kìa", null));
+                context.Requests.AddOrUpdate(new Request("Tiền nhà gì đóng hoài vậy", null));
+                context.Requests.AddOrUpdate(new Request("đcmm", null));
             }
 
             if (!context.Vehicles.Any()) {

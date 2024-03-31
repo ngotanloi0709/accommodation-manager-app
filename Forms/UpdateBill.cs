@@ -1,7 +1,6 @@
 ﻿using BillService = AccommodationManagerApp.Service.BillService;
 using ServiceLocator = AccommodationManagerApp.Service.ServiceLocator;
 using BillModel = AccommodationManagerApp.Model.Bill;
-using AccommodationManagerApp.Model;
 using System.Windows.Forms;
 namespace AccommodationManagerApp.Forms.Bill
 {
@@ -21,24 +20,23 @@ namespace AccommodationManagerApp.Forms.Bill
 
         private void loadData()
         {
-            lblDate.Text = preBill.CreatedAt.ToString();
-            cmbboxRent.Text = preBill.RentBill.ToString();
+            lblDate.Text += preBill.CreatedAtFormatted;
+            lblRoom.Text += preBill.RoomId;
             txtbxWater.Text = preBill.WaterBill.ToString();
             txtbxElectric.Text = preBill.ElectricityBill.ToString();
         }
+
         private void update(object sender, System.EventArgs e)
         {
-            MessageBox.Show(id.ToString());
             postBill = setBill();
             if (postBill != null)
             {
-                //I can compare 2 bill here
                 _billService.Update(id, postBill);
-                new ToastForm("Update Success!", false).Show();
+                new ToastForm("Cập nhật thành công !", false).Show();
                 this.Close();
             } else
             {
-                new ToastForm("Please Complete Information!").Show();
+                new ToastForm("Xin mời điền đầy đủ thông tin !").Show();
             }
         }
     }
