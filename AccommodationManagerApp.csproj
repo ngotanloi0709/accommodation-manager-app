@@ -418,7 +418,7 @@
     <Compile Include="Service\VehicleServide.cs" />
     <Compile Include="Util\FormatText.cs" />
     <Compile Include="Util\InitLog.cs" />
-    <Compile Include="Util\InputCheck.cs" />
+    <Compile Include="Util\InputHelper.cs" />
     <Compile Include="Util\PasswordHelper.cs" />
     <Compile Include="Util\RoomStatusExtensions.cs" />
     <Compile Include="Util\VehicleCategoryExtensions.cs" />

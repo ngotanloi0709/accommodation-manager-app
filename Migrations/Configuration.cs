@@ -65,9 +65,9 @@ namespace AccommodationManagerApp.Migrations {
             }
 
             if (!context.Vehicles.Any()) {
-                context.Vehicles.AddOrUpdate(new Vehicle { name = "Honda", number = "63D-0301", RoomId = null });
-                context.Vehicles.AddOrUpdate(new Vehicle { name = "Yamaha", number = "86F-31235", RoomId = null });
-                context.Vehicles.AddOrUpdate(new Vehicle { name = "Suzuki", number = "59F-5234", RoomId = null });
+                context.Vehicles.AddOrUpdate(new Vehicle { Name = "Honda", Number = "63D-0301", RoomId = null });
+                context.Vehicles.AddOrUpdate(new Vehicle { Name = "Yamaha", Number = "86F-31235", RoomId = null });
+                context.Vehicles.AddOrUpdate(new Vehicle { Name = "Suzuki", Number = "59F-5234", RoomId = null });
             }
         }
 

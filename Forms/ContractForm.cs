@@ -4,11 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Forms;
+using AccommodationManagerApp.Util;
 
-namespace AccommodationManagerApp.Forms
-{
-    public partial class ContractForm : BaseForm
-    {
+namespace AccommodationManagerApp.Forms {
+    public partial class ContractForm : BaseForm {
         private Contract _contract;
         private readonly ContractService _contractService;
         private readonly UserService _userService;
@@ -16,8 +15,7 @@ namespace AccommodationManagerApp.Forms
         private List<User> _users;
         private RoomService _roomService;
 
-        public ContractForm(Contract contract)
-        {
+        public ContractForm(Contract contract) {
             _contractService = ServiceLocator.ServiceProvider.GetService(typeof(ContractService)) as ContractService;
             _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
             _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
@@ -29,15 +27,13 @@ namespace AccommodationManagerApp.Forms
 
             SetUpComboBox();
 
-            if (_contract != null)
-            {
+            if (_contract != null) {
                 SetUpData(_contract);
                 Text = "Chỉnh sửa hợp đồng";
             }
         }
 
-        private void SetUpData(Contract contract)
-        {
+        private void SetUpData(Contract contract) {
             // Cho phép sửa
             comboBoxContractTenant.SelectedItem = contract.User.Name;
             textBoxPrice.Text = contract.Price.ToString();
@@ -56,8 +52,7 @@ namespace AccommodationManagerApp.Forms
             labelContractEndDate.Text = contract.EndDate.ToString("dd/MM/yyyy");
         }
 
-        private void SetUpComboBox()
-        {
+        private void SetUpComboBox() {
             comboBoxContractRoom.Items.Add("None");
             comboBoxContractTenant.Items.Add("None");
             comboBoxContractPrice.Items.Add("None");
@@ -68,8 +63,7 @@ namespace AccommodationManagerApp.Forms
             comboBoxContractPrice.SelectedIndex = 0;
             comboBoxContractEndDate.SelectedIndex = 0;
 
-            if (_contract == null)
-            {
+            if (_contract == null) {
                 SetUpComboBoxRoom();
                 SetUpComboBoxEndDate();
             }
@@ -78,18 +72,14 @@ namespace AccommodationManagerApp.Forms
             SetUpComboBoxPrice();
         }
 
-        private void SetUpComboBoxRoom()
-        {
-            foreach (var room in _rooms)
-            {
+        private void SetUpComboBoxRoom() {
+            foreach (var room in _rooms) {
                 comboBoxContractRoom.Items.Add(room.RoomNumber);
             }
         }
 
-        private void SetUpComboBoxTenant()
-        {
-            foreach (var user in _users)
-            {
+        private void SetUpComboBoxTenant() {
+            foreach (var user in _users) {
                 comboBoxContractTenant.Items.Add(user.Name);
             }
 
@@ -97,8 +87,7 @@ namespace AccommodationManagerApp.Forms
             comboBoxContractTenantEmail.SelectedIndex = 0;
         }
 
-        private void SetUpComboBoxPrice()
-        {
+        private void SetUpComboBoxPrice() {
             comboBoxContractPrice.Items.Add("1.000.000");
             comboBoxContractPrice.Items.Add("1.500.000");
             comboBoxContractPrice.Items.Add("3.000.000");
@@ -109,8 +98,7 @@ namespace AccommodationManagerApp.Forms
             comboBoxContractPrice.Items.Add("20.000.000");
         }
 
-        private void SetUpComboBoxEndDate()
-        {
+        private void SetUpComboBoxEndDate() {
             comboBoxContractEndDate.Items.Add("1 tháng");
             comboBoxContractEndDate.Items.Add("3 tháng");
             comboBoxContractEndDate.Items.Add("6 tháng");
@@ -120,19 +108,15 @@ namespace AccommodationManagerApp.Forms
             comboBoxContractEndDate.Items.Add("36 tháng");
         }
 
-        private void ButtonSave_Click(object sender, EventArgs e)
-        {
+        private void ButtonSave_Click(object sender, EventArgs e) {
             int? roomId = _roomService.GetIdByRoomNumber(comboBoxContractRoom.Text);
             int? userId =
                 _userService.GetIdByNameAndEmail(comboBoxContractTenant.Text, comboBoxContractTenantEmail.Text);
 
-            if (IsAllDataFilled())
-            {
-                if (_contract == null)
-                {
+            if (IsAllDataFilled()) {
+                if (_contract == null) {
                     if (!_contractService.IsRoomAvailableWithToast(roomId)) return;
-                    _contractService.Add(new Contract
-                    {
+                    _contractService.Add(new Contract {
                         RoomId = roomId,
                         UserId = userId,
                         Price = int.Parse(textBoxPrice.Text),
@@ -141,8 +125,7 @@ namespace AccommodationManagerApp.Forms
                             CultureInfo.CurrentCulture)
                     });
                 }
-                else
-                {
+                else {
                     _contract.UserId = userId;
                     _contract.Price = int.Parse(textBoxPrice.Text);
                     _contract.StartDate = dateTimePickerContractStartDate.Value;
@@ -155,34 +138,33 @@ namespace AccommodationManagerApp.Forms
             }
         }
 
-        private bool IsAllDataFilled()
-        {
-            if (comboBoxContractTenant.SelectedIndex == 0)
-            {
+        private bool IsAllDataFilled() {
+            if (comboBoxContractTenant.SelectedIndex == 0) {
                 new ToastForm("Vui lòng chọn người thuê", true).Show();
                 return false;
             }
 
-            if (comboBoxContractTenantEmail.SelectedIndex == 0)
-            {
+            if (comboBoxContractTenantEmail.SelectedIndex == 0) {
                 new ToastForm("Vui lòng chọn email người thuê", true).Show();
                 return false;
             }
 
-            if (comboBoxContractRoom.SelectedIndex == 0)
-            {
-                new ToastForm("Vui lòng chọn phòng", true).Show();
+            if (comboBoxContractRoom.SelectedIndex == 0) {
+                new ToastForm("Vui lòng chọn căn hộ", true).Show();
                 return false;
             }
 
-            if (string.IsNullOrEmpty(textBoxPrice.Text))
-            {
-                new ToastForm("Vui lòng nhập giá phòng", true).Show();
+            if (string.IsNullOrEmpty(textBoxPrice.Text)) {
+                new ToastForm("Vui lòng nhập giá căn hộ", true).Show();
                 return false;
             }
 
-            if (comboBoxContractEndDate.SelectedIndex == 0)
-            {
+            if (!InputHelper.IsValidPrice(textBoxPrice.Text)) {
+                new ToastForm("Vui lòng nhập giá căn hộ hợp lệ").Show();
+                return false;
+            }
+
+            if (comboBoxContractEndDate.SelectedIndex == 0) {
                 new ToastForm("Vui lòng chọn thời hạn", true).Show();
                 return false;
             }
@@ -190,10 +172,8 @@ namespace AccommodationManagerApp.Forms
             return true;
         }
 
-        private void comboBoxPrice_SelectedIndexChanged(object sender, System.EventArgs e)
-        {
-            if (comboBoxContractPrice.Text.Equals("None"))
-            {
+        private void comboBoxPrice_SelectedIndexChanged(object sender, System.EventArgs e) {
+            if (comboBoxContractPrice.Text.Equals("None")) {
                 textBoxPrice.Text = "";
                 return;
             }
@@ -201,10 +181,8 @@ namespace AccommodationManagerApp.Forms
             textBoxPrice.Text = comboBoxContractPrice.Text.Replace(".", "");
         }
 
-        private void comboBoxEndDate_SelectedIndexChanged(object sender, System.EventArgs e)
-        {
-            if (comboBoxContractEndDate.Text.Equals("None"))
-            {
+        private void comboBoxEndDate_SelectedIndexChanged(object sender, System.EventArgs e) {
+            if (comboBoxContractEndDate.Text.Equals("None")) {
                 return;
             }
 
@@ -213,40 +191,40 @@ namespace AccommodationManagerApp.Forms
             labelContractEndDate.Text = endDate.ToString("dd/MM/yyyy");
         }
 
-        private void buttonPlus_Click(object sender, EventArgs e)
-        {
+        private void buttonPlus_Click(object sender, EventArgs e) {
             textBoxPrice.Text = string.IsNullOrEmpty(textBoxPrice.Text)
                 ? "500000"
                 : (int.Parse(textBoxPrice.Text) + 500000).ToString();
+
+            if (int.Parse(textBoxPrice.Text) < 0) {
+                textBoxPrice.Text = "0";
+            }
         }
 
-        private void buttonMinus_Click(object sender, EventArgs e)
-        {
+        private void buttonMinus_Click(object sender, EventArgs e) {
             textBoxPrice.Text = string.IsNullOrEmpty(textBoxPrice.Text)
                 ? "500000"
                 : (int.Parse(textBoxPrice.Text) - 500000).ToString();
+
+            if (int.Parse(textBoxPrice.Text) < 0) {
+                textBoxPrice.Text = "0";
+            }
         }
 
-        private void textBox_NumberInput(object sender, System.Windows.Forms.KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
+        private void textBox_NumberInput(object sender, System.Windows.Forms.KeyPressEventArgs e) {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)) {
                 e.Handled = true;
             }
         }
 
-        private void ContractForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (DialogResult != DialogResult.OK)
-            {
+        private void ContractForm_FormClosing(object sender, FormClosingEventArgs e) {
+            if (DialogResult != DialogResult.OK) {
                 DialogResult = DialogResult.Cancel;
             }
         }
 
-        private void comboBoxContractTenant_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxContractTenant.SelectedIndex == 0)
-            {
+        private void comboBoxContractTenant_SelectedIndexChanged(object sender, EventArgs e) {
+            if (comboBoxContractTenant.SelectedIndex == 0) {
                 return;
             }
 
@@ -254,17 +232,14 @@ namespace AccommodationManagerApp.Forms
 
             comboBoxContractTenantEmail.Items.Clear();
             comboBoxContractTenantEmail.Items.Add("None");
-            foreach (var user in users)
-            {
+            foreach (var user in users) {
                 comboBoxContractTenantEmail.Items.Add(user);
             }
 
-            if (comboBoxContractTenantEmail.Items.Count == 1)
-            {
+            if (comboBoxContractTenantEmail.Items.Count == 1) {
                 comboBoxContractTenantEmail.SelectedIndex = 0;
             }
-            else
-            {
+            else {
                 comboBoxContractTenantEmail.SelectedIndex = 1;
             }
         }

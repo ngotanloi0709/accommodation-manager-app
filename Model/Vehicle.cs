@@ -8,37 +8,33 @@ namespace AccommodationManagerApp.Model
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [EnumDataType(typeof(VehicleCategory))] public VehicleCategory Category { get; set; } = VehicleCategory.two_wheel;
-        public string name { get; set; }
-        public string number { get; set; }
+        public string Name { get; set; }
+        public string Number { get; set; }
+        public int Price { get; set; } = 100000;
+        [EnumDataType(typeof(VehicleCategory))] public VehicleCategory Category { get; set; } = VehicleCategory.TwoWheel;
         public int? RoomId { get; set; }
         [ForeignKey("RoomId")]
         public Room Room { get; set; }
 
         
         public Vehicle() { }
-        public Vehicle(string name, string number, int? RoomId, VehicleCategory category)
+        
+        public Vehicle(string name, string number, int price, VehicleCategory category, int? roomId)
         {
-            this.name = name;
-            this.number = number;
-            this.RoomId = RoomId;
-            this.Category = category;
-        }
-
-        public Vehicle(string name, string number, int? RoomId)
-        {
-            this.name = name;
-            this.number = number;
-            this.RoomId = RoomId;
+            Name = name;
+            Number = number;
+            Price = price;
+            Category = category;
+            RoomId = roomId;
         }
     }
     
     public enum VehicleCategory
     {
-        two_wheel,
-        four_wheel,
-        three_wheel,
-        bicycle,
-        electric_bicycle
+        TwoWheel,
+        FourWheel,
+        ThreeWheel,
+        Bicycle,
+        ElectricBicycle
     }
 }

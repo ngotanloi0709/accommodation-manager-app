@@ -13,15 +13,15 @@ namespace AccommodationManagerApp.Util
         {
             switch (category)
             {
-                case VehicleCategory.two_wheel:
+                case VehicleCategory.TwoWheel:
                     return "Xe hai bánh";
-                case VehicleCategory.four_wheel:
+                case VehicleCategory.FourWheel:
                     return "Xe bốn bánh";
-                case VehicleCategory.three_wheel:
+                case VehicleCategory.ThreeWheel:
                     return "Xe ba bánh";
-                case VehicleCategory.bicycle:
+                case VehicleCategory.Bicycle:
                     return "Xe đạp";
-                case VehicleCategory.electric_bicycle:
+                case VehicleCategory.ElectricBicycle:
                     return "Xe đạp điện";
                 default:
                     throw new ArgumentOutOfRangeException(nameof(category), category, null);
@@ -33,15 +33,15 @@ namespace AccommodationManagerApp.Util
             switch (category)
             {
                 case "Xe hai bánh":
-                    return VehicleCategory.two_wheel;
+                    return VehicleCategory.TwoWheel;
                 case "Xe bốn bánh":
-                    return VehicleCategory.four_wheel;
+                    return VehicleCategory.FourWheel;
                 case "Xe ba bánh":
-                    return VehicleCategory.three_wheel;
+                    return VehicleCategory.ThreeWheel;
                 case "Xe đạp":
-                    return VehicleCategory.bicycle;
+                    return VehicleCategory.Bicycle;
                 case "Xe đạp điện":
-                    return VehicleCategory.electric_bicycle;
+                    return VehicleCategory.ElectricBicycle;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(category), category, null);
             }

@@ -15,7 +15,7 @@ namespace AccommodationManagerApp.Repository
 
         public Vehicle GetByNumber(string number)
         {
-            return Context.Set<Vehicle>().FirstOrDefault(v => v.number == number);
+            return Context.Set<Vehicle>().FirstOrDefault(v => v.Number == number);
         }
         public Vehicle GetByIdWithRoom(int id)
         {
