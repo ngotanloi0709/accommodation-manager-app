@@ -6,10 +6,11 @@ using System.Linq;
 using AccommodationManagerApp.Model;
 using Request = AccommodationManagerApp.Model.Request;
 using AccommodationManagerApp.Util;
-using Org.BouncyCastle.Asn1.Ocsp;
+using AccommodationManagerApp.Service;
 
 namespace AccommodationManagerApp.Migrations {
     internal sealed class Configuration : DbMigrationsConfiguration<Repository.AccommodationManagerAppContext> {
+        private UserService _userService;
         public Configuration() {
             SetSqlGenerator("MySql.Data.MySqlClient", new MySqlMigrationSqlGenerator());
 
@@ -56,14 +57,14 @@ namespace AccommodationManagerApp.Migrations {
                 context.Bills.AddOrUpdate(new Bill(1500000, 621000, 372000, null));
                 context.Bills.AddOrUpdate(new Bill(2000000, 913000, 455000, null));
             }
-
+            /*
             if (!context.Requests.Any())
             {
                 context.Requests.AddOrUpdate(new Request("Cúp điện kìa", null));
                 context.Requests.AddOrUpdate(new Request("Tiền nhà gì đóng hoài vậy", null));
                 context.Requests.AddOrUpdate(new Request("Không được chửi thề", null));
             }
-
+            */
             if (!context.Vehicles.Any()) {
                 context.Vehicles.AddOrUpdate(new Vehicle { Name = "Honda", Number = "63D-0301", RoomId = null });
                 context.Vehicles.AddOrUpdate(new Vehicle { Name = "Yamaha", Number = "86F-31235", RoomId = null });

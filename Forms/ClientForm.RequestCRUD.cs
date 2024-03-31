@@ -14,7 +14,8 @@ namespace AccommodationManagerApp.Forms
         }
         private void readReq()
         {
-            requests = _requestService.GetAll();
+            int userId = user.Id;
+            requests = _requestService.GetAllByUserId(userId);
             lstViewReq.Items.Clear();
             foreach (var request in requests)
             {

@@ -173,7 +173,7 @@
             this.tbCtrlClient.Multiline = true;
             this.tbCtrlClient.Name = "tbCtrlClient";
             this.tbCtrlClient.SelectedIndex = 0;
-            this.tbCtrlClient.Size = new System.Drawing.Size(994, 733);
+            this.tbCtrlClient.Size = new System.Drawing.Size(1090, 853);
             this.tbCtrlClient.TabIndex = 25;
             // 
             // pgMain
@@ -182,7 +182,7 @@
             this.pgMain.Location = new System.Drawing.Point(4, 39);
             this.pgMain.Name = "pgMain";
             this.pgMain.Padding = new System.Windows.Forms.Padding(3);
-            this.pgMain.Size = new System.Drawing.Size(1018, 768);
+            this.pgMain.Size = new System.Drawing.Size(1082, 810);
             this.pgMain.TabIndex = 0;
             this.pgMain.Text = "Trang Chủ";
             this.pgMain.UseVisualStyleBackColor = true;
@@ -202,7 +202,7 @@
             this.pgRequest.Location = new System.Drawing.Point(4, 39);
             this.pgRequest.Name = "pgRequest";
             this.pgRequest.Padding = new System.Windows.Forms.Padding(3);
-            this.pgRequest.Size = new System.Drawing.Size(986, 690);
+            this.pgRequest.Size = new System.Drawing.Size(1050, 810);
             this.pgRequest.TabIndex = 1;
             this.pgRequest.Text = "Yêu Cầu";
             this.pgRequest.UseVisualStyleBackColor = true;
@@ -303,7 +303,7 @@
             this.lstViewReq.Name = "lstViewReq";
             this.lstViewReq.OwnerDraw = true;
             this.lstViewReq.ShowGroups = false;
-            this.lstViewReq.Size = new System.Drawing.Size(735, 453);
+            this.lstViewReq.Size = new System.Drawing.Size(700, 450);
             this.lstViewReq.TabIndex = 29;
             this.lstViewReq.UseCompatibleStateImageBehavior = false;
             this.lstViewReq.View = System.Windows.Forms.View.Details;
@@ -316,12 +316,12 @@
             // desReq
             // 
             this.desReq.Text = "Nội Dung ";
-            this.desReq.Width = 400;
+            this.desReq.Width = 300;
             // 
             // dateReq
             // 
             this.dateReq.Text = "Ngày Tạo";
-            this.dateReq.Width = 120;
+            this.dateReq.Width = 150;
             // 
             // stateReq
             // 
@@ -350,7 +350,7 @@
             "Điện",
             "Nước",
             "Phí Thuê"});
-            this.cmbbxReqCate.Location = new System.Drawing.Point(217, 57);
+            this.cmbbxReqCate.Location = new System.Drawing.Point(137, 38);
             this.cmbbxReqCate.MaxDropDownItems = 4;
             this.cmbbxReqCate.MouseState = MaterialSkin.MouseState.OUT;
             this.cmbbxReqCate.Name = "cmbbxReqCate";
@@ -365,7 +365,7 @@
             this.btnReqSearch.Depth = 0;
             this.btnReqSearch.HighEmphasis = true;
             this.btnReqSearch.Icon = global::AccommodationManagerApp.Properties.Resources.search;
-            this.btnReqSearch.Location = new System.Drawing.Point(846, 60);
+            this.btnReqSearch.Location = new System.Drawing.Point(766, 41);
             this.btnReqSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnReqSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnReqSearch.Name = "btnReqSearch";
@@ -388,7 +388,7 @@
             this.txtReqSearch.ForeColor = System.Drawing.Color.Transparent;
             this.txtReqSearch.Hint = "Tìm Kiếm";
             this.txtReqSearch.LeadingIcon = null;
-            this.txtReqSearch.Location = new System.Drawing.Point(310, 56);
+            this.txtReqSearch.Location = new System.Drawing.Point(230, 37);
             this.txtReqSearch.MaxLength = 50;
             this.txtReqSearch.MouseState = MaterialSkin.MouseState.OUT;
             this.txtReqSearch.Multiline = false;
@@ -410,7 +410,7 @@
             this.pgBill.ImageKey = "contract.png";
             this.pgBill.Location = new System.Drawing.Point(4, 39);
             this.pgBill.Name = "pgBill";
-            this.pgBill.Size = new System.Drawing.Size(1002, 729);
+            this.pgBill.Size = new System.Drawing.Size(1050, 810);
             this.pgBill.TabIndex = 2;
             this.pgBill.Text = "Hóa Đơn";
             this.pgBill.UseVisualStyleBackColor = true;
@@ -609,7 +609,7 @@
             this.pgConfig.ImageKey = "configuration.png";
             this.pgConfig.Location = new System.Drawing.Point(4, 39);
             this.pgConfig.Name = "pgConfig";
-            this.pgConfig.Size = new System.Drawing.Size(1002, 729);
+            this.pgConfig.Size = new System.Drawing.Size(1050, 810);
             this.pgConfig.TabIndex = 3;
             this.pgConfig.Text = "Cài Đặt";
             this.pgConfig.UseVisualStyleBackColor = true;
@@ -618,7 +618,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 800);
+            this.ClientSize = new System.Drawing.Size(1096, 920);
             this.Controls.Add(this.tbCtrlClient);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.buttonCurrentUserInformationManagement);

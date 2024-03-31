@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AccommodationManagerApp.Service;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,6 +8,7 @@ namespace AccommodationManagerApp.Model
     [Table("requests")]
     public class Request
     {
+        private readonly UserService _userService;
         // Primary Key
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
