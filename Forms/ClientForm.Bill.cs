@@ -2,7 +2,7 @@
 
 namespace AccommodationManagerApp.Forms
 {
-    public partial class MainForm
+    public partial class ClientForm
     {
         private int billId = 0;
         private void LstViewBill_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -14,7 +14,7 @@ namespace AccommodationManagerApp.Forms
             }
             billId = 0;
         }
-        private void pdfBill(object sender, System.EventArgs e)
+        private void view(object sender, System.EventArgs e)
         {
             if (billId == 0)
             {

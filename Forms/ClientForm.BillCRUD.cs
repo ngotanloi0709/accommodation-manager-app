@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace AccommodationManagerApp.Forms
 {
-    public partial class MainForm
+    public partial class ClientForm
     {
         private void addBill(object sender, System.EventArgs e)
         {

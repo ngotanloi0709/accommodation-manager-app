@@ -20,7 +20,6 @@ namespace AccommodationManagerApp.Model
 
         [EnumDataType(typeof(BillStatus))]
         public BillStatus Status { get; set; }
-
         public int? RoomId { get; set; }
         [ForeignKey("RoomId")]
         public Room Room { get; set; }

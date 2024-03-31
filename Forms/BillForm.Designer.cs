@@ -31,13 +31,13 @@
             this.btnClose = new MaterialSkin.Controls.MaterialButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cmbboxRent = new MaterialSkin.Controls.MaterialComboBox();
-            this.cmbboxRoom = new MaterialSkin.Controls.MaterialComboBox();
             this.txtbxWater = new MaterialSkin.Controls.MaterialTextBox();
             this.txtbxElectric = new MaterialSkin.Controls.MaterialTextBox();
             this.lblElectric = new MaterialSkin.Controls.MaterialLabel();
             this.lblWater = new MaterialSkin.Controls.MaterialLabel();
             this.mySqlCommand1 = new MySqlConnector.MySqlCommand();
             this.lblDate = new MaterialSkin.Controls.MaterialLabel();
+            this.cmbboxRoom = new MaterialSkin.Controls.MaterialComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,33 +100,6 @@
             this.cmbboxRent.StartIndex = 0;
             this.cmbboxRent.TabIndex = 4;
             // 
-            // cmbboxRoom
-            // 
-            this.cmbboxRoom.AutoResize = false;
-            this.cmbboxRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cmbboxRoom.Depth = 0;
-            this.cmbboxRoom.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbboxRoom.DropDownHeight = 174;
-            this.cmbboxRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbboxRoom.DropDownWidth = 121;
-            this.cmbboxRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.cmbboxRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cmbboxRoom.FormattingEnabled = true;
-            this.cmbboxRoom.IntegralHeight = false;
-            this.cmbboxRoom.ItemHeight = 43;
-            this.cmbboxRoom.Items.AddRange(new object[] {
-            "Mã Phòng",
-            "01",
-            "02",
-            "03"});
-            this.cmbboxRoom.Location = new System.Drawing.Point(268, 209);
-            this.cmbboxRoom.MaxDropDownItems = 4;
-            this.cmbboxRoom.MouseState = MaterialSkin.MouseState.OUT;
-            this.cmbboxRoom.Name = "cmbboxRoom";
-            this.cmbboxRoom.Size = new System.Drawing.Size(201, 49);
-            this.cmbboxRoom.StartIndex = 0;
-            this.cmbboxRoom.TabIndex = 5;
-            // 
             // txtbxWater
             // 
             this.txtbxWater.AnimateReadOnly = false;
@@ -143,8 +116,6 @@
             this.txtbxWater.TabIndex = 6;
             this.txtbxWater.Text = "";
             this.txtbxWater.TrailingIcon = null;
-            this.txtbxWater.Click += new System.EventHandler(this.clearTxt);
-            this.txtbxWater.TabIndexChanged += new System.EventHandler(this.clearTxt);
             // 
             // txtbxElectric
             // 
@@ -162,8 +133,6 @@
             this.txtbxElectric.TabIndex = 7;
             this.txtbxElectric.Text = "";
             this.txtbxElectric.TrailingIcon = null;
-            this.txtbxElectric.Click += new System.EventHandler(this.clearTxt);
-            this.txtbxElectric.TabIndexChanged += new System.EventHandler(this.clearTxt);
             // 
             // lblElectric
             // 
@@ -211,17 +180,44 @@
             this.lblDate.TabIndex = 11;
             this.lblDate.Text = "Ngày Tạo: ";
             // 
+            // cmbboxRoom
+            // 
+            this.cmbboxRoom.AutoResize = false;
+            this.cmbboxRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cmbboxRoom.Depth = 0;
+            this.cmbboxRoom.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbboxRoom.DropDownHeight = 174;
+            this.cmbboxRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbboxRoom.DropDownWidth = 121;
+            this.cmbboxRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cmbboxRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cmbboxRoom.FormattingEnabled = true;
+            this.cmbboxRoom.IntegralHeight = false;
+            this.cmbboxRoom.ItemHeight = 43;
+            this.cmbboxRoom.Items.AddRange(new object[] {
+            "Mã Phòng",
+            "01",
+            "02",
+            "03"});
+            this.cmbboxRoom.Location = new System.Drawing.Point(256, 210);
+            this.cmbboxRoom.MaxDropDownItems = 4;
+            this.cmbboxRoom.MouseState = MaterialSkin.MouseState.OUT;
+            this.cmbboxRoom.Name = "cmbboxRoom";
+            this.cmbboxRoom.Size = new System.Drawing.Size(201, 49);
+            this.cmbboxRoom.StartIndex = 0;
+            this.cmbboxRoom.TabIndex = 12;
+            // 
             // BillForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 500);
+            this.Controls.Add(this.cmbboxRoom);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblWater);
             this.Controls.Add(this.lblElectric);
             this.Controls.Add(this.txtbxElectric);
             this.Controls.Add(this.txtbxWater);
-            this.Controls.Add(this.cmbboxRoom);
             this.Controls.Add(this.cmbboxRent);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnClose);
@@ -236,14 +232,14 @@
         #endregion
 
         protected MaterialSkin.Controls.MaterialButton btnClose;
-        private System.Windows.Forms.PictureBox pictureBox1;
         protected MaterialSkin.Controls.MaterialComboBox cmbboxRent;
-        protected MaterialSkin.Controls.MaterialComboBox cmbboxRoom;
         protected MaterialSkin.Controls.MaterialTextBox txtbxWater;
         protected MaterialSkin.Controls.MaterialTextBox txtbxElectric;
-        private MaterialSkin.Controls.MaterialLabel lblElectric;
-        private MaterialSkin.Controls.MaterialLabel lblWater;
         private MySqlConnector.MySqlCommand mySqlCommand1;
         protected MaterialSkin.Controls.MaterialLabel lblDate;
+        protected System.Windows.Forms.PictureBox pictureBox1;
+        protected MaterialSkin.Controls.MaterialLabel lblElectric;
+        protected MaterialSkin.Controls.MaterialLabel lblWater;
+        protected MaterialSkin.Controls.MaterialComboBox cmbboxRoom;
     }
 }

@@ -1,8 +1,6 @@
 ﻿using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Service;
 using System.Collections.Generic;
-using System.Threading;
-using System.Windows.Forms;
 using BillModel = AccommodationManagerApp.Model.Bill;
 using AccommodationManagerApp.Repository;
 
