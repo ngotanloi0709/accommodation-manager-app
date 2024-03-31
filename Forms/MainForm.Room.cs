@@ -9,7 +9,7 @@ namespace AccommodationManagerApp.Forms {
     public partial class MainForm {
         private void LoadRoomData() {
             ListViewRoom.Items.Clear();
-            Rooms = _roomService.GetAllWithBuildingAndContractWithUser();
+            Rooms = _roomService.GetAllWithBuildingAndUserAndContractWithUser();
 
             foreach (var room in Rooms) {
                 ListViewItem item = new ListViewItem(room.RoomNumber);
@@ -23,18 +23,16 @@ namespace AccommodationManagerApp.Forms {
 
         private void ListViewRoom_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) {
             Room room = IsSelectedRoomValid();
-            
+
             if (room != null) {
-                string id = room.Id.ToString();
                 string number = room.RoomNumber;
                 Building building = room.Building;
                 string status = room.Status.ToVietnamese();
 
-                labelRoomId.Text = id.Equals("") ? Resources.NullData : id;
                 labelRoomNumber.Text = number == null || number.Equals("") ? Resources.NullData : number;
                 labelRoomTenant.Text = _roomService.GetCurrentTenantName(room);
                 labelRoomStatus.Text = status.Equals("") ? Resources.NullData : status;
-                
+
                 if (building != null) {
                     string buildingName = room.Building.Name;
                     labelRoomBuilding.Text = buildingName == null || buildingName.Equals("")
@@ -44,6 +42,27 @@ namespace AccommodationManagerApp.Forms {
                 else {
                     labelRoomBuilding.Text = Resources.NullData;
                 }
+
+                LoadRoomUserList(room);
+            }
+        }
+
+        private void LoadRoomUserList(Room room) {
+            ListViewRoomUserList.Items.Clear();
+            List<User> users = room.Users;
+
+            foreach (var user in users) {
+                ListViewItem item = new ListViewItem(user.Name);
+                item.SubItems.Add(user.Email);
+                ListViewRoomUserList.Items.Add(item);
+            }
+
+            try {
+                labelCurrentStayNumber.Text = users.Count + " người ở";
+            }
+            catch (Exception e) {
+                labelCurrentStayNumber.Text = "0 người ở";
+                Console.WriteLine(e);
             }
         }
 
@@ -155,6 +174,58 @@ namespace AccommodationManagerApp.Forms {
         private void buttonReloadRoom_Click(object sender, System.EventArgs e) {
             LoadRoomData();
             new ToastForm("Đã thực hiện tải lại dữ liệu chung cư", false).Show();
+        }
+
+        private void buttonAddResidentToRoom_Click(object sender, System.EventArgs e) {
+            Room room = IsSelectedRoomValid();
+            if (room != null) {
+                var residentForm = new ResidentForm(null, room);
+                residentForm.ShowDialog();
+
+                if (residentForm.DialogResult == DialogResult.Cancel) {
+                    return;
+                }
+
+                if (residentForm.DialogResult == DialogResult.OK) {
+                    LoadRoomData();
+                    SelectRoomAgain(room);
+                    new ToastForm("Thêm cư dân vào căn hộ thành công", false).Show();
+                }
+                else {
+                    new ToastForm("Thêm cư dân vào căn hộ thất bại", true).Show();
+                }
+            }
+            else {
+                new ToastForm("Vui lòng chọn căn hộ", true).Show();
+            }
+        }
+
+        private void buttonRemoveResidentFromRoom_Click(object sender, System.EventArgs e) {
+            Room room = IsSelectedRoomValid();
+
+            if (ListViewRoomUserList.SelectedItems.Count > 0) {
+                string name = ListViewRoomUserList.SelectedItems[0].Text;
+                string email = ListViewRoomUserList.SelectedItems[0].SubItems[1].Text;
+                User user = _userService.GetByNameAndEmail(name, email);
+
+                if (user != null) {
+                    var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn xóa nhân khẩu này không?");
+                    var result = confirmationForm.ShowDialog();
+                    if (result == DialogResult.Yes) {
+                        user.RoomId = null;
+                        _userService.Update(user.Id, user);
+                        LoadRoomData();
+                        SelectRoomAgain(room);
+                        new ToastForm("Xóa nhân khẩu khỏi căn hộ thành công").Show();
+                    }
+                }
+                else {
+                    new ToastForm("Không tìm thấy nhân khẩu", true).Show();
+                }
+            }
+            else {
+                new ToastForm("Vui lòng chọn nhân khẩu", true).Show();
+            }
         }
     }
 }

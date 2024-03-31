@@ -19,9 +19,8 @@ namespace AccommodationManagerApp.Model
         public string CreatedAtFormatted => CreatedAt.ToString("dd/MM/yyyy HH:mm");
         // Foreign Key
         public int? UserId { get; set; }
-        [ForeignKey("UserId")]
-        public User User { get; set; }
-
+        [ForeignKey("UserId")] public User User { get; set; }
+        
         public Request() { }
         public Request(string description,int? userId)
         {

@@ -26,8 +26,8 @@ namespace AccommodationManagerApp.Service {
             return _userRepository.GetAll();
         }
         
-        public List<User> GetAllWithRoleTenantAndWithContract() {
-            return _userRepository.GetAllWithRoleTenantAndWithContract();
+        public List<User> GetAllWithRoleTenantAndWithContractAndRoom() {
+            return _userRepository.GetAllWithRoleTenantAndWithContractAndRoom();
         }
 
         public int? GetIdByNameAndEmail(string name, string email) {
@@ -114,6 +114,10 @@ namespace AccommodationManagerApp.Service {
             }
             
             return emails;
+        }
+
+        public User GetByNameAndEmail(string name, string email) {
+            return _userRepository.GetByNameAndEmail(name, email);
         }
     }
 }

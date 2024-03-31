@@ -21,8 +21,8 @@ namespace AccommodationManagerApp.Service {
             return _roomRepository.GetAll().ToList();
         }
         
-        public List<Room> GetAllWithBuildingAndContractWithUser() {
-            return _roomRepository.GetAllWithBuildingAndContractWithUser().ToList();
+        public List<Room> GetAllWithBuildingAndUserAndContractWithUser() {
+            return _roomRepository.GetAllWithBuildingAndUserAndContractWithUser().ToList();
         }
 
         public bool Delete(int id) {
@@ -78,6 +78,14 @@ namespace AccommodationManagerApp.Service {
 
         public bool IsExistContract(int roomId) {
             return _contractRepository.GetByRoomId(roomId).Any();
+        }
+
+        public bool IsExistById(int? id) {
+            return _roomRepository.GetById((int) id) != null;
+        }
+
+        public Room GetById(int roomId) {
+            return _roomRepository.GetById(roomId);
         }
     }
 }

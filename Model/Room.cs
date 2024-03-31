@@ -12,6 +12,7 @@ namespace AccommodationManagerApp.Model {
         public int? BuildingId { get; set; }
         [ForeignKey("BuildingId")] public Building Building { get; set; }
         public List<Contract> Contracts { get; set; }
+        public List<User> Users { get; set; }
         [EnumDataType(typeof(RoomStatus))] public RoomStatus Status { get; set; } = RoomStatus.Normal;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 

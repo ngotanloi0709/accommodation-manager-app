@@ -1,8 +1,8 @@
 ﻿using MaterialSkin;
 using MaterialSkin.Controls;
+using System;
 using System.Windows.Forms;
 using BillModel = AccommodationManagerApp.Model.Bill;
-using System;
 
 namespace AccommodationManagerApp.Forms.Bill
 {
@@ -35,7 +35,7 @@ namespace AccommodationManagerApp.Forms.Bill
                 this.Close();
             }
         }
-    
+
         protected BillModel setBill()
         {
             try
@@ -45,9 +45,18 @@ namespace AccommodationManagerApp.Forms.Bill
                 Double electric = Double.Parse(txtbxElectric.Text);
                 BillModel bill = new BillModel(rent, electric, water, null);
                 return bill;
-            } catch(Exception)
+            }
+            catch (Exception)
             {
                 return null;
+            }
+        }
+
+        private void txtbxWater_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

@@ -277,6 +277,12 @@
     <Compile Include="Forms\ReqForm.Designer.cs">
       <DependentUpon>ReqForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ResidentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResidentForm.Designer.cs">
+      <DependentUpon>ResidentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UpdateBill.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -448,6 +454,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReqForm.resx">
       <DependentUpon>ReqForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResidentForm.resx">
+      <DependentUpon>ResidentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UpdateBill.resx">
       <DependentUpon>UpdateBill.cs</DependentUpon>

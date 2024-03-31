@@ -116,6 +116,7 @@
             this.txtbxWater.TabIndex = 6;
             this.txtbxWater.Text = "";
             this.txtbxWater.TrailingIcon = null;
+            this.txtbxWater.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbxWater_KeyPress);
             // 
             // txtbxElectric
             // 
@@ -133,6 +134,7 @@
             this.txtbxElectric.TabIndex = 7;
             this.txtbxElectric.Text = "";
             this.txtbxElectric.TrailingIcon = null;
+            this.txtbxElectric.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbxWater_KeyPress);
             // 
             // lblElectric
             // 

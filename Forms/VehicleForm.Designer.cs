@@ -258,6 +258,7 @@
             this.textBoxPrice.TabIndex = 31;
             this.textBoxPrice.Text = "";
             this.textBoxPrice.TrailingIcon = null;
+            this.textBoxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPrice_KeyPress);
             // 
             // comboBoxVehiclePrice
             // 
@@ -299,7 +300,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(647, 706);
+            this.ClientSize = new System.Drawing.Size(679, 784);
             this.Controls.Add(this.buttonMinus);
             this.Controls.Add(this.buttonPlus);
             this.Controls.Add(this.textBoxPrice);
