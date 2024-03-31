@@ -1,8 +1,8 @@
 ﻿using AccommodationManagerApp.Model;
+using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 using System.Collections.Generic;
 using BillModel = AccommodationManagerApp.Model.Bill;
-using AccommodationManagerApp.Repository;
 
 namespace AccommodationManagerApp.Forms
 {
@@ -57,6 +57,7 @@ namespace AccommodationManagerApp.Forms
             ListViewUserRentList.GridLines = true;
             lstViewBill.GridLines = true;
             ListViewContract.GridLines = true;
+            ListViewRoomUserList.GridLines = true;
         }
 
         private void buttonCurrentUserInformationManagement_Click(object sender, System.EventArgs e)
@@ -79,7 +80,8 @@ namespace AccommodationManagerApp.Forms
             if (_authenticationService.IsAuthenticated())
             {
                 labelCurrentUserEmail.Text = _authenticationService.CurrentUser.Email;
-            } else
+            }
+            else
             {
                 labelCurrentUserEmail.Text = defaultMail;
                 btnLogin.Visible = true;

@@ -84,6 +84,7 @@ namespace AccommodationManagerApp.Forms {
             this.textBoxPhone.TabIndex = 7;
             this.textBoxPhone.Text = "";
             this.textBoxPhone.TrailingIcon = null;
+            this.textBoxPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPhone_KeyPress);
             // 
             // textBoxName
             // 
@@ -154,6 +155,7 @@ namespace AccommodationManagerApp.Forms {
             this.textBoxIdentityNumber.TabIndex = 10;
             this.textBoxIdentityNumber.Text = "";
             this.textBoxIdentityNumber.TrailingIcon = null;
+            this.textBoxIdentityNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPhone_KeyPress);
             // 
             // materialLabel4
             // 
@@ -261,6 +263,20 @@ namespace AccommodationManagerApp.Forms {
             this.Name = "UserForm";
             this.Text = "Thêm thông tin người thuê";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserForm_FormClosing);
+            this.Controls.SetChildIndex(this.buttonSave, 0);
+            this.Controls.SetChildIndex(this.textBoxName, 0);
+            this.Controls.SetChildIndex(this.textBoxPhone, 0);
+            this.Controls.SetChildIndex(this.materialLabel1, 0);
+            this.Controls.SetChildIndex(this.materialLabel2, 0);
+            this.Controls.SetChildIndex(this.textBoxIdentityNumber, 0);
+            this.Controls.SetChildIndex(this.materialLabel3, 0);
+            this.Controls.SetChildIndex(this.textBoxEmail, 0);
+            this.Controls.SetChildIndex(this.materialLabel4, 0);
+            this.Controls.SetChildIndex(this.dateTimePickerDateOfBirth, 0);
+            this.Controls.SetChildIndex(this.materialLabel5, 0);
+            this.Controls.SetChildIndex(this.switchSex, 0);
+            this.Controls.SetChildIndex(this.materialLabel6, 0);
+            this.Controls.SetChildIndex(this.btnExit, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 

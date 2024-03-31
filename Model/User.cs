@@ -20,6 +20,8 @@ namespace AccommodationManagerApp.Model
         public string IdentityNumber { get; set; }
         public byte[] Avatar { get; set; }
         public List<Contract> Contracts { get; set; }
+        public int? RoomId { get; set; }
+        [ForeignKey("RoomId")] public Room Room { get; set; }
         
         public User() { }
         

@@ -8,7 +8,7 @@ namespace AccommodationManagerApp.Forms
         public ConfirmationForm(string message)
         {
             InitializeComponent();
-            this.Text = "Notice";
+            this.Text = "Thông báo";
             this.labelMessage.Text = message;
         }
 

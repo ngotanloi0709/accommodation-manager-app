@@ -61,7 +61,7 @@ namespace AccommodationManagerApp.Forms
             {
                 return;
             }
-            
+
             string roomNumber = textBoxRoomName.Text;
             int? buildingId = comboBoxRoomBuilding.SelectedItem.ToString().Equals("None") ? null : _buildingService.GetIdByName(comboBoxRoomBuilding.SelectedItem.ToString());
             RoomStatus status = comboBoxRoomStatus.SelectedItem.ToString().ToRoomStatus();
@@ -75,14 +75,14 @@ namespace AccommodationManagerApp.Forms
                 _room.RoomNumber = roomNumber;
                 _room.BuildingId = buildingId;
                 _room.Status = status;
-                
+
                 _roomService.Update(_room.Id, _room);
             }
 
             DialogResult = DialogResult.OK;
             Close();
         }
-        
+
         private bool IsRoomNumberSafe()
         {
             if ((_room == null || _room.RoomNumber != textBoxRoomName.Text) &&
@@ -94,15 +94,16 @@ namespace AccommodationManagerApp.Forms
 
             return true;
         }
-        
+
         private bool IsAllTextBoxFilled()
         {
             bool result = string.IsNullOrEmpty(textBoxRoomName.Text);
-            
-            if (result) {
+
+            if (result)
+            {
                 new ToastForm("Vui lòng điền đầy đủ thông tin.", true).Show();
             }
-            
+
             return !result;
         }
 
@@ -111,6 +112,14 @@ namespace AccommodationManagerApp.Forms
             if (DialogResult != DialogResult.OK)
             {
                 DialogResult = DialogResult.Cancel;
+            }
+        }
+
+        private void textBoxRoomName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

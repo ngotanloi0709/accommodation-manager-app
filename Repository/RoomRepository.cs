@@ -6,8 +6,8 @@ namespace AccommodationManagerApp.Repository {
     public class RoomRepository : Repository<Room> {
         public RoomRepository(AccommodationManagerAppContext context) : base(context) {}
 
-        public List<Room> GetAllWithBuildingAndContractWithUser() {
-            return Context.Set<Room>().Include("Building").Include("Contracts").Include("Contracts.User").ToList();
+        public List<Room> GetAllWithBuildingAndUserAndContractWithUser() {
+            return Context.Set<Room>().Include("Building").Include("Users").Include("Contracts").Include("Contracts.User").ToList();
         }
 
         public Room GetByRoomNumber(string roomNumber) {

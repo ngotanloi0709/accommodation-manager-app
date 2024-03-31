@@ -145,6 +145,7 @@
             this.textBoxRoomName.TabIndex = 1;
             this.textBoxRoomName.Text = "";
             this.textBoxRoomName.TrailingIcon = null;
+            this.textBoxRoomName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRoomName_KeyPress);
             // 
             // materialLabel1
             // 
@@ -177,6 +178,14 @@
             this.Sizable = false;
             this.Text = "Thêm thông tin căn hộ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RoomForm_FormClosing);
+            this.Controls.SetChildIndex(this.materialLabel1, 0);
+            this.Controls.SetChildIndex(this.textBoxRoomName, 0);
+            this.Controls.SetChildIndex(this.materialLabel2, 0);
+            this.Controls.SetChildIndex(this.ButtonSave, 0);
+            this.Controls.SetChildIndex(this.materialLabel4, 0);
+            this.Controls.SetChildIndex(this.comboBoxRoomBuilding, 0);
+            this.Controls.SetChildIndex(this.comboBoxRoomStatus, 0);
+            this.Controls.SetChildIndex(this.btnExit, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 

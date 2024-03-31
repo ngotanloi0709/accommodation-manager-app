@@ -10,7 +10,7 @@ namespace AccommodationManagerApp.Forms {
     public partial class MainForm {
         private void LoadUserData() {
             ListViewUser.Items.Clear();
-            Users = _userService.GetAllWithRoleTenantAndWithContract();
+            Users = _userService.GetAllWithRoleTenantAndWithContractAndRoom();
 
             foreach (var user in Users) {
                 ListViewItem item = new ListViewItem(user.Name);
@@ -36,7 +36,16 @@ namespace AccommodationManagerApp.Forms {
                     ? Resources.NullData
                     : user.DateOfBirth.ToString("dd/MM/yyyy");
                 labelUserEmail.Text = string.IsNullOrEmpty(user.Email) ? Resources.NullData : user.Email;
-
+                
+                if (user.Room != null) {
+                    labelResident.Text = "Người này đang ở tại căn hộ số " + user.Room.RoomNumber;
+                    
+                }   
+                else {
+                    labelResident.Text = "Người này hiện không sống ở căn hộ nào!";
+                }
+                
+                
                 LoadUserRentList(user);
             }
         }

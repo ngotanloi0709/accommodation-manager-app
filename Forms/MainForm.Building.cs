@@ -21,12 +21,10 @@ namespace AccommodationManagerApp.Forms
             Building building = IsSelectedBuildingValid();
 
             if (building != null) {
-                string id = building.Id.ToString();
                 string name = building.Name;
                 string address = building.Address;
                 string createdAt = building.CreatedAt.ToString("dd/MM/yyyy");
-
-                labelBuildingId.Text = id.Equals("") ? Resources.NullData : id;
+                
                 labelBuildingName.Text = name == null || name.Equals("") ? Resources.NullData : name;
                 labelBuildingAddress.Text = address == null || address.Equals("") ? Resources.NullData : address;
                 labelBuilldingCreatedAt.Text = createdAt.Equals("") ? Resources.NullData : createdAt;

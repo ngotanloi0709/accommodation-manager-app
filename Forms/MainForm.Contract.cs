@@ -41,6 +41,11 @@ namespace AccommodationManagerApp.Forms {
             Contract contract = IsSelectedContractValid();
             
             if (contract != null) {
+                if (contract.IsTerminated) {
+                    new ToastForm("Hợp đồng đã kết thúc - bị thanh lý, không thể chỉnh sửa", true).Show();
+                    return;
+                }
+                
                 var contractForm = new ContractForm(contract);
                 contractForm.ShowDialog();
                 ShowContractDialogMessageResult(contractForm.DialogResult, true);
@@ -86,6 +91,11 @@ namespace AccommodationManagerApp.Forms {
             Contract contract = IsSelectedContractValid();
 
             if (contract != null) {
+                if (contract.IsTerminated) {
+                    new ToastForm("Hợp đồng đã kết thúc - bị thanh lý", true).Show();
+                    return;
+                }
+                
                 var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn kết thúc hợp đồng này không?");
                 var result = confirmationForm.ShowDialog();
 
@@ -243,6 +253,10 @@ namespace AccommodationManagerApp.Forms {
                         MessageBox.Show("Lỗi khi xuất Word: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }   
+            }
+            else 
+            {
+                new ToastForm("Vui lòng chọn hợp đồng cần xuất", true).Show();
             }
         }
     }

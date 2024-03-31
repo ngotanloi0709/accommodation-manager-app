@@ -61,7 +61,7 @@ namespace AccommodationManagerApp.Migrations {
             {
                 context.Requests.AddOrUpdate(new Request("Cúp điện kìa", null));
                 context.Requests.AddOrUpdate(new Request("Tiền nhà gì đóng hoài vậy", null));
-                context.Requests.AddOrUpdate(new Request("đcmm", null));
+                context.Requests.AddOrUpdate(new Request("Không được chửi thề", null));
             }
 
             if (!context.Vehicles.Any()) {
@@ -99,6 +99,7 @@ namespace AccommodationManagerApp.Migrations {
                         UPDATE vehicles SET RoomId = NULL WHERE RoomId = OLD.Id;
                         UPDATE contracts SET RoomId = NULL WHERE RoomId = OLD.Id;
                         UPDATE bills SET RoomId = NULL WHERE RoomId = OLD.Id;
+                        UPDATE users SET RoomId = NULL WHERE RoomId = OLD.Id;
                     END;
                     ";
                 context.Database.ExecuteSqlCommand(createTriggerSql);
@@ -118,6 +119,7 @@ namespace AccommodationManagerApp.Migrations {
                     BEGIN
                         UPDATE contracts SET UserId = NULL WHERE UserId = OLD.Id;
                         UPDATE bills SET UserId = NULL WHERE UserId = OLD.Id;
+                        UPDATE requests SET UserId = NULL WHERE UserId = OLD.Id;
                     END;
                     ";
                 context.Database.ExecuteSqlCommand(createTriggerSql);

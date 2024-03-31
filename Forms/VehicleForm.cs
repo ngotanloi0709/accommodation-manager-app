@@ -76,6 +76,7 @@ namespace AccommodationManagerApp.Forms
         {
             comboBoxCategory.SelectedItem = vehicle.Category.ToVietnamese();
             textBoxName.Text = vehicle.Name;
+            textBoxPrice.Text = vehicle.Price.ToString();
             textBoxNumber.Text = vehicle.Number;
             comboBoxRoom.SelectedItem = vehicle.Room?.RoomNumber ?? "None";
         }
@@ -185,6 +186,14 @@ namespace AccommodationManagerApp.Forms
             if (DialogResult != DialogResult.OK)
             {
                 DialogResult = DialogResult.Cancel;
+            }
+        }
+
+        private void textBoxPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }
