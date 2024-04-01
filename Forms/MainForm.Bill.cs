@@ -1,34 +1,87 @@
-﻿using System.Windows.Forms;
-
+﻿using AccommodationManagerApp.Forms.Bill;
+using System.Windows.Forms;
+using BillModel = AccommodationManagerApp.Model.Bill;
 namespace AccommodationManagerApp.Forms
 {
     public partial class MainForm
     {
-        private int billId = 0;
-        private void LstViewBill_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        private BillModel _bill;
+        private BillModel SelectBill()
         {
-            if (e.Item.Selected)
+            if(lstViewBill.SelectedItems.Count > 0)
             {
-                billId = int.Parse(e.Item.SubItems[0].Text);
-                return;
+                int index = lstViewBill.SelectedItems[0].Index;
+                
+                if(index < Bills.Count) return Bills[index];
             }
-            billId = 0;
+            return null;
         }
-        private void pdfBill(object sender, System.EventArgs e)
+        private void previewBill(object sender, System.EventArgs e)
         {
-            if (billId == 0)
+            _bill = SelectBill();
+            if (_bill == null)
             {
-                new ToastForm("Please select a bill to export to PDF", true).Show();
+                new ToastForm("Mời chọn hóa đơn để xem chi tiết", true).Show();
                 return;
             }
 
-            BillDetail billDetail = new BillDetail(billId);
+            BillDetail billDetail = new BillDetail(_bill);
             billDetail.ShowDialog();
         }
-        private void reset()
+        private void InsertBill(BillModel bill)
         {
-            billId = 0;
-            readBill();
+            BillForm billForm = new BillForm(bill);
+            billForm.ShowDialog();
+            LoadBillData();
+        }
+        private void addBill(object sender, System.EventArgs e)
+        {
+            InsertBill(null);
+        }
+        private void updateBill(object sender, System.EventArgs e)
+        {
+            _bill = SelectBill();
+            if (_bill == null)
+            {
+                new ToastForm("Mời chọn hóa đơn !", true).Show();
+                return;
+            }
+            InsertBill(_bill);
+        }
+        private void LoadBillData()
+        {
+
+            Bills = _billService.GetAll();
+            lstViewBill.Items.Clear();
+            foreach (var bill in Bills)
+            {
+                var item = new ListViewItem(bill.Id.ToString());
+                item.SubItems.Add(bill.ElecQuantity.ToString());
+                item.SubItems.Add(bill.WaterQuantity.ToString());
+                item.SubItems.Add(bill.Contract?.Room.RoomNumber.ToString() ?? "Trống");
+                item.SubItems.Add(bill.CreatedAtFormatted);
+                item.SubItems.Add(bill.Status.ToString());
+                lstViewBill.Items.Add(item);
+            }
+        }
+        private void deleteBill(object sender, System.EventArgs e)
+        {
+            _bill = SelectBill();
+            if (_bill != null)
+            {
+                var confirmation = new ConfirmationForm("Xác nhận xóa hóa đơn?");
+                var result = confirmation.ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    _billService.Delete(_bill.Id);
+                    LoadBillData();
+                }
+            }
+            else
+            {
+                new ToastForm("Mời chọn hóa đơn để xóa !", true).Show();
+                return;
+            }
         }
     }
 }

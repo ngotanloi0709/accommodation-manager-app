@@ -6,30 +6,39 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using Aspose.Words;
-using ThuVienWinform.Report.AsposeWordExtension;
 
 namespace AccommodationManagerApp.Forms
 {
     public partial class BillDetail : BaseForm {
         private readonly BillService _billService;
-        private BillModel bill = null;
-        public BillDetail(int id) {
+        private BillModel _bill;
+        public BillDetail(BillModel bill) {
             InitializeComponent();
             _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
-            bill = _billService.GetById(id);
+            _bill = bill;
             LoadBillDetail();
         }
 
         private void LoadBillDetail()
         {
-            lblRoomId.Text = bill.RoomId.ToString();
-            lblDate.Text = bill.CreatedAt.ToString();
-            lblRent.Text = bill.RentBill.ToString();
-            lblWater.Text = bill.WaterBill.ToString();
-            lblElectric.Text = bill.ElectricityBill.ToString();
-            lblTotal.Text = bill.TotalBill.ToString();
-        }
+            int waterQty = _bill.WaterQuantity;
+            int waterPrice = _billService.GetWaterPrice().Price;
+            int elecQty = _bill.ElecQuantity;
+            int elecPrice = _billService.GetElectricityPrice().Price;
+            int internetPrice = _billService.GetInternetPrice().Price;
 
+            lblRoomId.Text = _bill.Contract.Room.RoomNumber;
+            lblDate.Text = _bill.CreatedAt.ToString();
+            labelRent.Text = _bill.Contract.Price.ToString();
+            labelQtyWater.Text = waterQty.ToString();
+            labelQtyElec.Text = elecQty.ToString();
+            labelPriceWater.Text = waterPrice.ToString();
+            labelPriceElec.Text = elecPrice.ToString();
+            labelInternet.Text = internetPrice.ToString();
+            labelWater.Text = (waterQty * waterPrice).ToString();
+            labelElec.Text = (elecQty * elecPrice).ToString();
+            labelTotal.Text = ((waterQty * waterPrice) + (elecQty * elecPrice) + internetPrice).ToString();
+        }
         private void btn_ExportPDF_Click_1(object sender, EventArgs e) {
             // Tạo hộp thoại lưu file
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -107,18 +116,18 @@ namespace AccommodationManagerApp.Forms
                     doc.MailMerge.Execute(new string[] { "Date_Bill" }, new[] { lblDate.Text });
                     doc.MailMerge.Execute(new string[] { "Room_ID" }, new[] { lblRoomId.Text });
                     doc.MailMerge.Execute(new string[] { "Quan_Rent" }, new[] { lblQuanRent.Text });
-                    doc.MailMerge.Execute(new string[] { "Quan_Water" }, new[] { lblQuanWater.Text });
-                    doc.MailMerge.Execute(new string[] { "Quan_Elec" }, new[] { lblQuanElec.Text });
+                    doc.MailMerge.Execute(new string[] { "Quan_Water" }, new[] { labelQtyWater.Text });
+                    doc.MailMerge.Execute(new string[] { "Quan_Elec" }, new[] { labelQtyElec.Text });
                     doc.MailMerge.Execute(new string[] { "Quan_Other" }, new[] { lblQuanOther.Text });
-                    doc.MailMerge.Execute(new string[] { "Price_Rent" }, new[] { lblPriceRent.Text });
-                    doc.MailMerge.Execute(new string[] { "Price_Water" }, new[] { lblPriceWater.Text });
-                    doc.MailMerge.Execute(new string[] { "Price_Elec" }, new[] { lblPriceElec.Text });
-                    doc.MailMerge.Execute(new string[] { "Price_Other" }, new[] { lblPriceOther.Text });
-                    doc.MailMerge.Execute(new string[] { "Total_Rent" }, new[] { lblRent.Text });
-                    doc.MailMerge.Execute(new string[] { "Total_Water" }, new[] { lblWater.Text });
-                    doc.MailMerge.Execute(new string[] { "Total_Elec" }, new[] { lblElectric.Text });
-                    doc.MailMerge.Execute(new string[] { "Total_Other" }, new[] { lblOther.Text });
-                    doc.MailMerge.Execute(new string[] { "Total_Price" }, new[] { lblTotal.Text });
+                    doc.MailMerge.Execute(new string[] { "Price_Rent" }, new[] { lbllls.Text });
+                    doc.MailMerge.Execute(new string[] { "Price_Water" }, new[] { labelPriceWater.Text });
+                    doc.MailMerge.Execute(new string[] { "Price_Elec" }, new[] { labelPriceElec.Text });
+                    doc.MailMerge.Execute(new string[] { "Price_Other" }, new[] { lalslasl.Text });
+                    doc.MailMerge.Execute(new string[] { "Total_Rent" }, new[] { labelRent.Text });
+                    doc.MailMerge.Execute(new string[] { "Total_Water" }, new[] { labelWater.Text });
+                    doc.MailMerge.Execute(new string[] { "Total_Elec" }, new[] { labelElec.Text });
+                    doc.MailMerge.Execute(new string[] { "Total_Other" }, new[] { labelInternet.Text });
+                    doc.MailMerge.Execute(new string[] { "Total_Price" }, new[] { labelTotal.Text });
                     doc.Save(filePath);
 
                     // Thông báo khi hoàn thành xuất PDF

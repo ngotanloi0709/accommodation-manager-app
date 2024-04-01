@@ -45,7 +45,7 @@ namespace AccommodationManagerApp.Forms
 
         private void SetUpComboBoxRoom()
         {
-            comboBoxRoom.Items.Add("None");
+            comboBoxRoom.Items.Add("Số Phòng");
 
             foreach (var room in _rooms)
             {

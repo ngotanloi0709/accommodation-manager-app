@@ -165,6 +165,7 @@
             this.columnRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageBills = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelInternetPrice = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel35 = new MaterialSkin.Controls.MaterialLabel();
             this.labelElectricityPrice = new MaterialSkin.Controls.MaterialLabel();
@@ -182,10 +183,8 @@
             this.btnPDF = new MaterialSkin.Controls.MaterialButton();
             this.lstViewBill = new MaterialSkin.Controls.MaterialListView();
             this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.rent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.elec = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.water = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.electricity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.total = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.state = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -203,6 +202,7 @@
             this.materialTabControl.SuspendLayout();
             this.tabPageVehicle.SuspendLayout();
             this.tabPageBills.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // drawerImageList
@@ -2194,6 +2194,7 @@
             // tabPageBills
             // 
             this.tabPageBills.BackColor = System.Drawing.Color.White;
+            this.tabPageBills.Controls.Add(this.pictureBox1);
             this.tabPageBills.Controls.Add(this.labelInternetPrice);
             this.tabPageBills.Controls.Add(this.materialLabel35);
             this.tabPageBills.Controls.Add(this.labelElectricityPrice);
@@ -2219,31 +2220,40 @@
             this.tabPageBills.Text = "Hoá đơn";
             this.tabPageBills.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AccommodationManagerApp.Properties.Resources.icon_250;
+            this.pictureBox1.Location = new System.Drawing.Point(713, 95);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(189, 151);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 48;
+            this.pictureBox1.TabStop = false;
+            // 
             // labelInternetPrice
             // 
             this.labelInternetPrice.AutoSize = true;
             this.labelInternetPrice.BackColor = System.Drawing.Color.Transparent;
             this.labelInternetPrice.Depth = 0;
-            this.labelInternetPrice.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.labelInternetPrice.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelInternetPrice.Location = new System.Drawing.Point(726, 631);
+            this.labelInternetPrice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelInternetPrice.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
+            this.labelInternetPrice.Location = new System.Drawing.Point(799, 513);
             this.labelInternetPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelInternetPrice.Name = "labelInternetPrice";
-            this.labelInternetPrice.Size = new System.Drawing.Size(190, 24);
+            this.labelInternetPrice.Size = new System.Drawing.Size(127, 19);
             this.labelInternetPrice.TabIndex = 47;
-            this.labelInternetPrice.Text = "_____________________";
+            this.labelInternetPrice.Text = "__________________";
             // 
             // materialLabel35
             // 
             this.materialLabel35.AutoSize = true;
             this.materialLabel35.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel35.Depth = 0;
-            this.materialLabel35.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel35.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel35.Location = new System.Drawing.Point(552, 631);
+            this.materialLabel35.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel35.Location = new System.Drawing.Point(677, 515);
             this.materialLabel35.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel35.Name = "materialLabel35";
-            this.materialLabel35.Size = new System.Drawing.Size(112, 24);
+            this.materialLabel35.Size = new System.Drawing.Size(86, 19);
             this.materialLabel35.TabIndex = 46;
             this.materialLabel35.Text = "Giá Internet:";
             // 
@@ -2252,26 +2262,25 @@
             this.labelElectricityPrice.AutoSize = true;
             this.labelElectricityPrice.BackColor = System.Drawing.Color.Transparent;
             this.labelElectricityPrice.Depth = 0;
-            this.labelElectricityPrice.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.labelElectricityPrice.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelElectricityPrice.Location = new System.Drawing.Point(726, 588);
+            this.labelElectricityPrice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelElectricityPrice.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
+            this.labelElectricityPrice.Location = new System.Drawing.Point(799, 470);
             this.labelElectricityPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelElectricityPrice.Name = "labelElectricityPrice";
-            this.labelElectricityPrice.Size = new System.Drawing.Size(190, 24);
+            this.labelElectricityPrice.Size = new System.Drawing.Size(127, 19);
             this.labelElectricityPrice.TabIndex = 45;
-            this.labelElectricityPrice.Text = "_____________________";
+            this.labelElectricityPrice.Text = "__________________";
             // 
             // materialLabel34
             // 
             this.materialLabel34.AutoSize = true;
             this.materialLabel34.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel34.Depth = 0;
-            this.materialLabel34.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel34.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel34.Location = new System.Drawing.Point(554, 588);
+            this.materialLabel34.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel34.Location = new System.Drawing.Point(679, 472);
             this.materialLabel34.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel34.Name = "materialLabel34";
-            this.materialLabel34.Size = new System.Drawing.Size(116, 24);
+            this.materialLabel34.Size = new System.Drawing.Size(93, 19);
             this.materialLabel34.TabIndex = 44;
             this.materialLabel34.Text = "Giá 1 kí điện:";
             // 
@@ -2280,28 +2289,27 @@
             this.labelWaterPrice.AutoSize = true;
             this.labelWaterPrice.BackColor = System.Drawing.Color.Transparent;
             this.labelWaterPrice.Depth = 0;
-            this.labelWaterPrice.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.labelWaterPrice.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelWaterPrice.Location = new System.Drawing.Point(726, 543);
+            this.labelWaterPrice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelWaterPrice.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
+            this.labelWaterPrice.Location = new System.Drawing.Point(799, 425);
             this.labelWaterPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelWaterPrice.Name = "labelWaterPrice";
-            this.labelWaterPrice.Size = new System.Drawing.Size(190, 24);
+            this.labelWaterPrice.Size = new System.Drawing.Size(127, 19);
             this.labelWaterPrice.TabIndex = 43;
-            this.labelWaterPrice.Text = "_____________________";
+            this.labelWaterPrice.Text = "__________________";
             // 
             // materialLabel36
             // 
             this.materialLabel36.AutoSize = true;
             this.materialLabel36.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel36.Depth = 0;
-            this.materialLabel36.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel36.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel36.Location = new System.Drawing.Point(552, 543);
+            this.materialLabel36.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel36.Location = new System.Drawing.Point(677, 427);
             this.materialLabel36.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel36.Name = "materialLabel36";
-            this.materialLabel36.Size = new System.Drawing.Size(168, 24);
+            this.materialLabel36.Size = new System.Drawing.Size(116, 19);
             this.materialLabel36.TabIndex = 42;
-            this.materialLabel36.Text = "Giá một khối nước:";
+            this.materialLabel36.Text = "Giá 1 khối nước:";
             // 
             // buttonEditFixedPrice
             // 
@@ -2311,12 +2319,12 @@
             this.buttonEditFixedPrice.Depth = 0;
             this.buttonEditFixedPrice.HighEmphasis = true;
             this.buttonEditFixedPrice.Icon = global::AccommodationManagerApp.Properties.Resources.invoice;
-            this.buttonEditFixedPrice.Location = new System.Drawing.Point(289, 562);
+            this.buttonEditFixedPrice.Location = new System.Drawing.Point(674, 363);
             this.buttonEditFixedPrice.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonEditFixedPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonEditFixedPrice.Name = "buttonEditFixedPrice";
             this.buttonEditFixedPrice.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonEditFixedPrice.Size = new System.Drawing.Size(234, 36);
+            this.buttonEditFixedPrice.Size = new System.Drawing.Size(252, 44);
             this.buttonEditFixedPrice.TabIndex = 20;
             this.buttonEditFixedPrice.Text = "Chỉnh sửa chi phí cố định";
             this.buttonEditFixedPrice.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -2341,7 +2349,7 @@
             this.materialComboBox2.Items.AddRange(new object[] {
             "Tăng ",
             "Giảm"});
-            this.materialComboBox2.Location = new System.Drawing.Point(59, 27);
+            this.materialComboBox2.Location = new System.Drawing.Point(45, 23);
             this.materialComboBox2.MaxDropDownItems = 4;
             this.materialComboBox2.MouseState = MaterialSkin.MouseState.OUT;
             this.materialComboBox2.Name = "materialComboBox2";
@@ -2371,7 +2379,7 @@
             "Điện",
             "Nước",
             "Phí Thuê"});
-            this.cmbboxCatg.Location = new System.Drawing.Point(152, 27);
+            this.cmbboxCatg.Location = new System.Drawing.Point(145, 23);
             this.cmbboxCatg.MaxDropDownItems = 4;
             this.cmbboxCatg.MouseState = MaterialSkin.MouseState.OUT;
             this.cmbboxCatg.Name = "cmbboxCatg";
@@ -2386,7 +2394,7 @@
             this.btnSearch.Depth = 0;
             this.btnSearch.HighEmphasis = true;
             this.btnSearch.Icon = global::AccommodationManagerApp.Properties.Resources.search;
-            this.btnSearch.Location = new System.Drawing.Point(823, 34);
+            this.btnSearch.Location = new System.Drawing.Point(820, 30);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSearch.Name = "btnSearch";
@@ -2409,7 +2417,7 @@
             this.txtBoxSearch.ForeColor = System.Drawing.Color.Transparent;
             this.txtBoxSearch.Hint = "Tìm Kiếm";
             this.txtBoxSearch.LeadingIcon = null;
-            this.txtBoxSearch.Location = new System.Drawing.Point(246, 26);
+            this.txtBoxSearch.Location = new System.Drawing.Point(244, 22);
             this.txtBoxSearch.MaxLength = 50;
             this.txtBoxSearch.MouseState = MaterialSkin.MouseState.OUT;
             this.txtBoxSearch.Multiline = false;
@@ -2427,7 +2435,7 @@
             this.btnUpd.Depth = 0;
             this.btnUpd.HighEmphasis = true;
             this.btnUpd.Icon = global::AccommodationManagerApp.Properties.Resources.edit;
-            this.btnUpd.Location = new System.Drawing.Point(29, 610);
+            this.btnUpd.Location = new System.Drawing.Point(674, 315);
             this.btnUpd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnUpd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpd.Name = "btnUpd";
@@ -2448,7 +2456,7 @@
             this.btnDelete.Depth = 0;
             this.btnDelete.HighEmphasis = true;
             this.btnDelete.Icon = global::AccommodationManagerApp.Properties.Resources.delete;
-            this.btnDelete.Location = new System.Drawing.Point(160, 562);
+            this.btnDelete.Location = new System.Drawing.Point(805, 267);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDelete.Name = "btnDelete";
@@ -2469,7 +2477,7 @@
             this.btnAdd.Depth = 0;
             this.btnAdd.HighEmphasis = true;
             this.btnAdd.Icon = global::AccommodationManagerApp.Properties.Resources.plus1;
-            this.btnAdd.Location = new System.Drawing.Point(29, 562);
+            this.btnAdd.Location = new System.Drawing.Point(674, 267);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAdd.Name = "btnAdd";
@@ -2489,19 +2497,19 @@
             this.btnPDF.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnPDF.Depth = 0;
             this.btnPDF.HighEmphasis = true;
-            this.btnPDF.Icon = global::AccommodationManagerApp.Properties.Resources.pdf;
-            this.btnPDF.Location = new System.Drawing.Point(160, 610);
+            this.btnPDF.Icon = global::AccommodationManagerApp.Properties.Resources.preview;
+            this.btnPDF.Location = new System.Drawing.Point(805, 315);
             this.btnPDF.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPDF.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPDF.Name = "btnPDF";
             this.btnPDF.NoAccentTextColor = System.Drawing.Color.Empty;
             this.btnPDF.Size = new System.Drawing.Size(121, 36);
             this.btnPDF.TabIndex = 1;
-            this.btnPDF.Text = "Xuất PDF";
+            this.btnPDF.Text = "Xem Chi Tiết";
             this.btnPDF.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnPDF.UseAccentColor = false;
             this.btnPDF.UseVisualStyleBackColor = true;
-            this.btnPDF.Click += new System.EventHandler(this.pdfBill);
+            this.btnPDF.Click += new System.EventHandler(this.previewBill);
             // 
             // lstViewBill
             // 
@@ -2511,10 +2519,8 @@
             this.lstViewBill.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstViewBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.id,
-            this.rent,
+            this.elec,
             this.water,
-            this.electricity,
-            this.total,
             this.room,
             this.date,
             this.state});
@@ -2523,58 +2529,47 @@
             this.lstViewBill.FullRowSelect = true;
             this.lstViewBill.HideSelection = false;
             this.lstViewBill.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lstViewBill.Location = new System.Drawing.Point(3, 100);
+            this.lstViewBill.Location = new System.Drawing.Point(41, 95);
             this.lstViewBill.MinimumSize = new System.Drawing.Size(200, 100);
             this.lstViewBill.MouseLocation = new System.Drawing.Point(-1, -1);
             this.lstViewBill.MouseState = MaterialSkin.MouseState.OUT;
             this.lstViewBill.Name = "lstViewBill";
             this.lstViewBill.OwnerDraw = true;
             this.lstViewBill.ShowGroups = false;
-            this.lstViewBill.Size = new System.Drawing.Size(983, 440);
+            this.lstViewBill.Size = new System.Drawing.Size(615, 440);
             this.lstViewBill.TabIndex = 0;
             this.lstViewBill.UseCompatibleStateImageBehavior = false;
             this.lstViewBill.View = System.Windows.Forms.View.Details;
-            this.lstViewBill.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LstViewBill_ItemSelectionChanged);
             // 
             // id
             // 
             this.id.Text = "ID";
             this.id.Width = 50;
             // 
-            // rent
+            // elec
             // 
-            this.rent.Text = "Phí Thuê";
-            this.rent.Width = 130;
+            this.elec.Text = "Điện";
+            this.elec.Width = 80;
             // 
             // water
             // 
-            this.water.Text = "Tiền Nước";
-            this.water.Width = 130;
-            // 
-            // electricity
-            // 
-            this.electricity.Text = "Tiền Điện";
-            this.electricity.Width = 130;
-            // 
-            // total
-            // 
-            this.total.Text = "Tổng Tiền";
-            this.total.Width = 130;
+            this.water.Text = "Nước";
+            this.water.Width = 80;
             // 
             // room
             // 
-            this.room.Text = "Mã Phòng";
+            this.room.Text = "Phòng";
             this.room.Width = 100;
             // 
             // date
             // 
-            this.date.Text = "Ngày";
-            this.date.Width = 130;
+            this.date.Text = "Ngày Tạo";
+            this.date.Width = 120;
             // 
             // state
             // 
             this.state.Text = "Tình Trạng";
-            this.state.Width = 100;
+            this.state.Width = 120;
             // 
             // btnLogin
             // 
@@ -2703,6 +2698,7 @@
             this.tabPageVehicle.PerformLayout();
             this.tabPageBills.ResumeLayout(false);
             this.tabPageBills.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2756,12 +2752,6 @@
         private MaterialSkin.Controls.MaterialListView lstViewBill;
         private MySqlConnector.MySqlConnection mySqlConnection1;
         private System.Windows.Forms.ColumnHeader id;
-        private System.Windows.Forms.ColumnHeader rent;
-        private System.Windows.Forms.ColumnHeader water;
-        private System.Windows.Forms.ColumnHeader electricity;
-        private System.Windows.Forms.ColumnHeader total;
-        private System.Windows.Forms.ColumnHeader room;
-        private System.Windows.Forms.ColumnHeader date;
         private MaterialSkin.Controls.MaterialButton btnPDF;
         private MaterialSkin.Controls.MaterialButton btnAdd;
         private MaterialSkin.Controls.MaterialButton btnUpd;
@@ -2824,7 +2814,6 @@
         private System.Windows.Forms.TabPage tabPageHome;
         private System.Windows.Forms.Label labelCurrentUserEmail;
         private MaterialSkin.Controls.MaterialButton buttonCurrentUserInformationManagement;
-        private System.Windows.Forms.ColumnHeader state;
         private MaterialSkin.Controls.MaterialButton materialButton4;
         private MaterialSkin.Controls.MaterialLabel materialLabel18;
         private MaterialSkin.Controls.MaterialButton buttonDelete;
@@ -2873,5 +2862,11 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel36;
         private MaterialSkin.Controls.MaterialLabel labelInternetPrice;
         private MaterialSkin.Controls.MaterialLabel materialLabel35;
+        private System.Windows.Forms.ColumnHeader elec;
+        private System.Windows.Forms.ColumnHeader water;
+        private System.Windows.Forms.ColumnHeader room;
+        private System.Windows.Forms.ColumnHeader date;
+        private System.Windows.Forms.ColumnHeader state;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

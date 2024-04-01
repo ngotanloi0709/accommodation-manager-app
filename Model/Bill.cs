@@ -9,49 +9,33 @@ namespace AccommodationManagerApp.Model
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public bool IsDeleted { get; set; }
-        public int RentBill { get; set; }
-        public int ElectricityBill { get; set; }
-        public int WaterBill { get; set; }
-        public int TotalBill { get; set; }
-        [DisplayFormat(DataFormatString = "dd/MM/yyyy HH:mm")]
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-        public string CreatedAtFormatted => CreatedAt.ToString("dd/MM/yyyy HH:mm");
+
+        public int ElecQuantity { get; set; }
+        public int WaterQuantity { get; set; }
 
         [EnumDataType(typeof(BillStatus))]
-        public BillStatus Status { get; set; }
-        public int? RoomId { get; set; }
-        [ForeignKey("RoomId")]
-        public Room Room { get; set; }
+        public BillStatus Status { get; set; } = BillStatus.Unpaid;
+        public int? ContractId { get; set; }
+        [ForeignKey("ContractId")]
+        public Contract Contract { get; set; }
+
+        // Date
+        [DisplayFormat(DataFormatString = "dd/MM/yyyy HH:mm")]
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public string CreatedAtFormatted => CreatedAt.ToString("dd/MM/yyyy");
         
-        public int? UserId { get; set; }
-        [ForeignKey("UserId")]
-        public User User { get; set; }
+        public Bill() { }
 
-        public Bill() {}
-        public Bill(int rentBill, int electricityBill, int waterBill, int? roomId)
+        public Bill(int elecQuantity, int waterQuantity, int? contractId)
         {
-            RentBill = rentBill;
-            ElectricityBill = electricityBill;
-            WaterBill = waterBill;
-            TotalBill = CalculateTotalBill();
-            RoomId = roomId;
-            Status = BillStatus.Unpaid;
-            IsDeleted = false;
-        }
-
-        public string toString() {             
-            return "[Rent Bill: " + RentBill + " " + "Electricity Bill: " + ElectricityBill + " " + "Water Bill: " + WaterBill + " " + "Total Bill: " + TotalBill + " " + "Status: " + Status + "]";
-        }
-        private int CalculateTotalBill()
-        {
-            return (this.RentBill + this.ElectricityBill + this.WaterBill);
+            ElecQuantity = elecQuantity;
+            WaterQuantity = waterQuantity;
+            ContractId = contractId;
         }
     }
     
     public enum BillStatus {
-        Unpaid = 0,
-        Pending = 1,
-        Paid = 2
+        Unpaid,
+        Paid
     }
 }

@@ -50,9 +50,9 @@ namespace AccommodationManagerApp.Migrations {
             }
 
             if (!context.Bills.Any()) {
-                context.Bills.AddOrUpdate(new Bill(1000000, 887000, 206000, null));
-                context.Bills.AddOrUpdate(new Bill(1500000, 621000, 372000, null));
-                context.Bills.AddOrUpdate(new Bill(2000000, 913000, 455000, null));
+                context.Bills.AddOrUpdate(new Bill(100, 50, null));
+                context.Bills.AddOrUpdate(new Bill(150, 75, null));
+                context.Bills.AddOrUpdate(new Bill(200, 100, null));
             }            
             if (!context.Requests.Any())
             {

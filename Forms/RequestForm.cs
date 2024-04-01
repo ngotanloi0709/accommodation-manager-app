@@ -34,34 +34,33 @@ namespace AccommodationManagerApp.Forms
         }
         private void AddAndUpdateRequest(object sender, System.EventArgs e)
         {
-            if(IsAllTextBoxFilled())
-                return;
+            if(IsAllTextBoxFilled()) return;
+
             var confirmationForm = new ConfirmationForm("Xác nhận cập nhật");
-            var res = confirmationForm.ShowDialog();
-            if (res == DialogResult.Yes)
+            confirmationForm.ShowDialog();
+
+            if (confirmationForm.DialogResult != DialogResult.Yes) return;
+            
+            if (_request == null)
             {
-                if (_request == null)
-                {
-                    _request = new Request(txtReq.Text, _authenticaitonService.CurrentUser.Id);
-                    _requestService.Add(_request);
-                }
-                else
-                {
-                    _request.Des = txtReq.Text;
-                    _request.UserId = _authenticaitonService.CurrentUser.Id;
-                    _requestService.Update(_request.Id, _request);
-                }
+                _request = new Request(txtReq.Text, _authenticaitonService.CurrentUser.Id);
+                _requestService.Add(_request);
             }
-            new ToastForm("Chúc mừng cập nhật thành công").Show();
+            else
+            {
+                _request.Des = txtReq.Text;
+                _request.UserId = _authenticaitonService.CurrentUser.Id;
+                _requestService.Update(_request.Id, _request);
+            }
+            new ToastForm(_request == null ? "Cập nhật thành công" : "Tạo mới thành công").Show();
+            
             Close();
         }
         private void close(object sender, System.EventArgs e)
         {
             ConfirmationForm confirmationForm = new ConfirmationForm("Bạn có muốn thoát không ?");
             if (confirmationForm.ShowDialog() == DialogResult.Yes)
-            {
                 Close();
-            }
         }
     }
 }

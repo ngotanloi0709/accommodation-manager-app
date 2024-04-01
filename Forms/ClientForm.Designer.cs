@@ -53,11 +53,6 @@
             this.pgBill = new System.Windows.Forms.TabPage();
             this.lstViewBill = new MaterialSkin.Controls.MaterialListView();
             this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.rent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.water = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.electricity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.total = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.state = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnPDF = new MaterialSkin.Controls.MaterialButton();
@@ -173,7 +168,7 @@
             this.tbCtrlClient.Multiline = true;
             this.tbCtrlClient.Name = "tbCtrlClient";
             this.tbCtrlClient.SelectedIndex = 0;
-            this.tbCtrlClient.Size = new System.Drawing.Size(994, 733);
+            this.tbCtrlClient.Size = new System.Drawing.Size(1026, 811);
             this.tbCtrlClient.TabIndex = 25;
             // 
             // pgMain
@@ -182,7 +177,7 @@
             this.pgMain.Location = new System.Drawing.Point(4, 39);
             this.pgMain.Name = "pgMain";
             this.pgMain.Padding = new System.Windows.Forms.Padding(3);
-            this.pgMain.Size = new System.Drawing.Size(986, 690);
+            this.pgMain.Size = new System.Drawing.Size(1018, 768);
             this.pgMain.TabIndex = 0;
             this.pgMain.Text = "Trang Chủ";
             this.pgMain.UseVisualStyleBackColor = true;
@@ -202,7 +197,7 @@
             this.pgRequest.Location = new System.Drawing.Point(4, 39);
             this.pgRequest.Name = "pgRequest";
             this.pgRequest.Padding = new System.Windows.Forms.Padding(3);
-            this.pgRequest.Size = new System.Drawing.Size(1098, 810);
+            this.pgRequest.Size = new System.Drawing.Size(986, 690);
             this.pgRequest.TabIndex = 1;
             this.pgRequest.Text = "Yêu Cầu";
             this.pgRequest.UseVisualStyleBackColor = true;
@@ -410,7 +405,7 @@
             this.pgBill.ImageKey = "contract.png";
             this.pgBill.Location = new System.Drawing.Point(4, 39);
             this.pgBill.Name = "pgBill";
-            this.pgBill.Size = new System.Drawing.Size(1098, 810);
+            this.pgBill.Size = new System.Drawing.Size(1018, 768);
             this.pgBill.TabIndex = 2;
             this.pgBill.Text = "Hóa Đơn";
             this.pgBill.UseVisualStyleBackColor = true;
@@ -423,11 +418,6 @@
             this.lstViewBill.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstViewBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.id,
-            this.rent,
-            this.water,
-            this.electricity,
-            this.total,
-            this.room,
             this.date,
             this.state});
             this.lstViewBill.Depth = 0;
@@ -446,37 +436,11 @@
             this.lstViewBill.TabIndex = 28;
             this.lstViewBill.UseCompatibleStateImageBehavior = false;
             this.lstViewBill.View = System.Windows.Forms.View.Details;
-            this.lstViewBill.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.LstViewBill_ItemSelectionChanged);
             // 
             // id
             // 
             this.id.Text = "ID";
             this.id.Width = 50;
-            // 
-            // rent
-            // 
-            this.rent.Text = "Phí Thuê";
-            this.rent.Width = 130;
-            // 
-            // water
-            // 
-            this.water.Text = "Tiền Nước";
-            this.water.Width = 130;
-            // 
-            // electricity
-            // 
-            this.electricity.Text = "Tiền Điện";
-            this.electricity.Width = 130;
-            // 
-            // total
-            // 
-            this.total.Text = "Tổng Tiền";
-            this.total.Width = 130;
-            // 
-            // room
-            // 
-            this.room.Text = "Mã Phòng";
-            this.room.Width = 100;
             // 
             // date
             // 
@@ -507,7 +471,7 @@
             this.btnPDF.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnPDF.UseAccentColor = false;
             this.btnPDF.UseVisualStyleBackColor = true;
-            this.btnPDF.Click += new System.EventHandler(this.view);
+            this.btnPDF.Click += new System.EventHandler(this.pdfBill);
             // 
             // materialComboBox2
             // 
@@ -609,7 +573,7 @@
             this.pgConfig.ImageKey = "configuration.png";
             this.pgConfig.Location = new System.Drawing.Point(4, 39);
             this.pgConfig.Name = "pgConfig";
-            this.pgConfig.Size = new System.Drawing.Size(1098, 810);
+            this.pgConfig.Size = new System.Drawing.Size(986, 690);
             this.pgConfig.TabIndex = 3;
             this.pgConfig.Text = "Cài Đặt";
             this.pgConfig.UseVisualStyleBackColor = true;
@@ -618,7 +582,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 800);
+            this.ClientSize = new System.Drawing.Size(1032, 878);
             this.Controls.Add(this.tbCtrlClient);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.buttonCurrentUserInformationManagement);
@@ -663,11 +627,6 @@
         private MaterialSkin.Controls.MaterialButton btnPDF;
         private MaterialSkin.Controls.MaterialListView lstViewBill;
         private System.Windows.Forms.ColumnHeader id;
-        private System.Windows.Forms.ColumnHeader rent;
-        private System.Windows.Forms.ColumnHeader water;
-        private System.Windows.Forms.ColumnHeader electricity;
-        private System.Windows.Forms.ColumnHeader total;
-        private System.Windows.Forms.ColumnHeader room;
         private System.Windows.Forms.ColumnHeader date;
         private System.Windows.Forms.ColumnHeader state;
         private MaterialSkin.Controls.MaterialComboBox cmbbxReqCate;

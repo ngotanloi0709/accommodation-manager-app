@@ -44,7 +44,7 @@ namespace AccommodationManagerApp.Forms
             LoadPersonalInformation();
             LoadRoomData();
             LoadBuildingData();
-            readBill();
+            LoadBillData();
             LoadVehicleData();
             LoadUserData();
             LoadContractData();
@@ -123,6 +123,5 @@ namespace AccommodationManagerApp.Forms
                 loginFormThread.Start();
             }
         }
-
     }
 }

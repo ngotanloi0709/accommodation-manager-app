@@ -30,7 +30,7 @@ namespace AccommodationManagerApp.Forms
 
         private void load()
         {
-            readBill();
+            LoadBillData();
             readReq();
         }
 
