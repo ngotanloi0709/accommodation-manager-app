@@ -241,6 +241,21 @@
     <Compile Include="Forms\ClientForm.Request.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\ClientForm.RequestCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FixedPriceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FixedPriceForm.Designer.cs">
+      <DependentUpon>FixedPriceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Auth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Auth.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\MainForm.BillCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +272,9 @@
       <DependentUpon>ContractForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForm.Contract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.FixedPrice.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\RequestForm.cs">
@@ -375,6 +393,7 @@
     <Compile Include="Model\Bill.cs" />
     <Compile Include="Model\Building.cs" />
     <Compile Include="Model\Contract.cs" />
+    <Compile Include="Model\FixedPrice.cs" />
     <Compile Include="Model\Request.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\User.cs" />
@@ -389,6 +408,7 @@
     <Compile Include="Repository\BillRepository.cs" />
     <Compile Include="Repository\BuildingRepository.cs" />
     <Compile Include="Repository\ContractRepository.cs" />
+    <Compile Include="Repository\FixedPriceRepository.cs" />
     <Compile Include="Repository\InitLogRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\RequestRepository.cs" />
@@ -404,6 +424,7 @@
     <Compile Include="Service\RoomService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="Service\VehicleServide.cs" />
+    <Compile Include="Util\FixedPriceTypeHelper.cs" />
     <Compile Include="Util\FormatText.cs" />
     <Compile Include="Util\InitLog.cs" />
     <Compile Include="Util\InputHelper.cs" />
@@ -433,6 +454,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FixedPriceForm.resx">
+      <DependentUpon>FixedPriceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RequestForm.resx">
       <DependentUpon>RequestForm.cs</DependentUpon>
@@ -529,6 +553,7 @@
     <None Include="Resources\contract.png" />
     <None Include="Resources\minus.png" />
     <None Include="Resources\icon-250.png" />
+    <None Include="Resources\invoice.png" />
     <Content Include="Resources\Roboto-Medium.ttf" />
     <Content Include="Resources\Roboto-Regular.ttf" />
     <None Include="Resources\signature.jpg" />

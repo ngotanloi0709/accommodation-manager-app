@@ -10,10 +10,10 @@ namespace AccommodationManagerApp.Model
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public bool IsDeleted { get; set; }
-        public Double RentBill { get; set; }
-        public Double ElectricityBill { get; set; }
-        public Double WaterBill { get; set; }
-        public Double TotalBill { get; set; }
+        public int RentBill { get; set; }
+        public int ElectricityBill { get; set; }
+        public int WaterBill { get; set; }
+        public int TotalBill { get; set; }
         [DisplayFormat(DataFormatString = "dd/MM/yyyy HH:mm")]
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public string CreatedAtFormatted => CreatedAt.ToString("dd/MM/yyyy HH:mm");
@@ -29,7 +29,7 @@ namespace AccommodationManagerApp.Model
         public User User { get; set; }
 
         public Bill() {}
-        public Bill(Double rentBill, Double electricityBill, Double waterBill, int? roomId)
+        public Bill(int rentBill, int electricityBill, int waterBill, int? roomId)
         {
             RentBill = rentBill;
             ElectricityBill = electricityBill;
@@ -43,7 +43,7 @@ namespace AccommodationManagerApp.Model
         public string toString() {             
             return "[Rent Bill: " + RentBill + " " + "Electricity Bill: " + ElectricityBill + " " + "Water Bill: " + WaterBill + " " + "Total Bill: " + TotalBill + " " + "Status: " + Status + "]";
         }
-        private Double CalculateTotalBill()
+        private int CalculateTotalBill()
         {
             return (this.RentBill + this.ElectricityBill + this.WaterBill);
         }

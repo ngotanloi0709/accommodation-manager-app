@@ -30,6 +30,7 @@ namespace AccommodationManagerApp.Repository {
         public void Update(int id, T entity) {
             var existingEntity = Context.Set<T>().Find(id);
             if (existingEntity != null) {
+                // filter non-primary properties and non-set propertie
                 foreach (var property in typeof(T).GetProperties())
                 {
                     if (!property.GetCustomAttributes(typeof(KeyAttribute), false).Any() && property.CanWrite)
@@ -37,6 +38,7 @@ namespace AccommodationManagerApp.Repository {
                         property.SetValue(existingEntity, property.GetValue(entity));
                     }
                 }
+                
                 Context.SaveChanges();
             }
         }
@@ -57,6 +59,7 @@ namespace AccommodationManagerApp.Repository {
         public DbSet<InitLog> InitLogs { get; set; }
         public DbSet<Bill> Bills { get; set; }
         public DbSet<Contract> Contracts { get; set; }
+        public DbSet<FixedPrice> FixedPrices { get; set; }
         public DbSet<Request> Requests { get; set; }
         public AccommodationManagerAppContext() : base("name=MySqlConnectionString") {
             Database.SetInitializer(

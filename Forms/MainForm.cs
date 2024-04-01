@@ -48,7 +48,10 @@ namespace AccommodationManagerApp.Forms
             LoadVehicleData();
             LoadUserData();
             LoadContractData();
+            LoadFixedPriceData();
         }
+
+
 
         private void SetListViewGridEnable()
         {

@@ -65,6 +65,13 @@ namespace AccommodationManagerApp.Migrations {
                 context.Vehicles.AddOrUpdate(new Vehicle { Name = "Yamaha", Number = "86F-31235", RoomId = null });
                 context.Vehicles.AddOrUpdate(new Vehicle { Name = "Suzuki", Number = "59F-5234", RoomId = null });
             }
+            
+            if (!context.FixedPrices.Any())
+            {
+                context.FixedPrices.AddOrUpdate(new FixedPrice { Type = FixedPriceType.Water, Price = 10000 });
+                context.FixedPrices.AddOrUpdate(new FixedPrice { Type = FixedPriceType.Electricity, Price = 7500 });
+                context.FixedPrices.AddOrUpdate(new FixedPrice { Type = FixedPriceType.Internet, Price = 100000 });
+            }
         }
 
         private void CreateBuildingDeleteTrigger(DbContext context) {
