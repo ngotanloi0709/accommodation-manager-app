@@ -241,20 +241,11 @@
     <Compile Include="Forms\ClientForm.Request.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ClientForm.RequestCRUD.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\FixedPriceForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FixedPriceForm.Designer.cs">
       <DependentUpon>FixedPriceForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\LoginForm.Auth.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MainForm.Auth.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.BillCRUD.cs">
       <SubType>Form</SubType>
