@@ -2,6 +2,7 @@
 using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 using System.Collections.Generic;
+using System.Threading;
 using BillModel = AccommodationManagerApp.Model.Bill;
 
 namespace AccommodationManagerApp.Forms
@@ -87,5 +88,37 @@ namespace AccommodationManagerApp.Forms
                 btnLogin.Visible = true;
             }
         }
+
+        private void logout(object sender, System.EventArgs e)
+        {
+            var confirmation = new ConfirmationForm("Bạn có chắc chắn muốn thoát");
+            var result = confirmation.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
+                _authenticationService.Logout();
+                LoadPersonalInformation();
+            }
+        }
+        private void login(object sender, System.EventArgs e)
+        {
+            var confirmation = new ConfirmationForm("Bạn có chắc chắn muốn đăng xuất");
+            var result = confirmation.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
+                _authenticationService.Logout();
+                Close();
+
+                Thread loginFormThread = new Thread(() =>
+                {
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    LoginForm loginForm = new LoginForm();
+                    Application.Run(loginForm);
+                });
+
+                loginFormThread.SetApartmentState(ApartmentState.STA);
+                loginFormThread.Start();
+            }
+        }
+
     }
 }

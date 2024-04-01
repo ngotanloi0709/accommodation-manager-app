@@ -106,8 +106,7 @@ namespace AccommodationManagerApp.Forms
                 if (index < Buildings.Count) {
                     return Buildings[index];
                 }
-            }
-            
+            }            
             return null;
         }
 

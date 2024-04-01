@@ -2,7 +2,9 @@
 using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 using System.Collections.Generic;
+using System.Threading;
 using BillModel = AccommodationManagerApp.Model.Bill;
+using System.Windows.Forms;
 namespace AccommodationManagerApp.Forms
 {
     public partial class ClientForm : BaseForm
@@ -53,6 +55,38 @@ namespace AccommodationManagerApp.Forms
             else
             {
                 new ToastForm("Vui lòng đăng nhập để sử dụng chức năng này", true).Show();
+            }
+        }
+
+        private void login(object sender, System.EventArgs e)
+        {
+            var confirmation = new ConfirmationForm("Xác nhận đăng nhập");
+            var result = confirmation.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
+                _authenticationService.Logout();
+                Close();
+
+                Thread loginFormThread = new Thread(() =>
+                {
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    LoginForm loginForm = new LoginForm();
+                    Application.Run(loginForm);
+                });
+
+                loginFormThread.SetApartmentState(ApartmentState.STA);
+                loginFormThread.Start();
+            }
+        }
+
+        private void logout(object sender, System.EventArgs e)
+        {
+            var confirmation = new ConfirmationForm("Bạn có chắc chắn muốn thoát");
+            var result = confirmation.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
+                _authenticationService.Logout();
+                setInfor();
             }
         }
     }
