@@ -40,9 +40,9 @@ namespace AccommodationManagerApp.Forms.Bill
         {
             try
             {
-                Double rent = Double.Parse(cmbboxRent.SelectedItem.ToString());
-                Double water = Double.Parse(txtbxWater.Text);
-                Double electric = Double.Parse(txtbxElectric.Text);
+                int rent = int.Parse(cmbboxRent.SelectedItem.ToString());
+                int water = int.Parse(txtbxWater.Text);
+                int electric = int.Parse(txtbxElectric.Text);
                 BillModel bill = new BillModel(rent, electric, water, null);
                 return bill;
             }

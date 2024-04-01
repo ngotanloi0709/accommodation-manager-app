@@ -53,6 +53,7 @@ namespace AccommodationManagerApp {
             services.AddSingleton<InitLogRepository>();
             services.AddSingleton<ContractRepository>();
             services.AddSingleton<RequestRepository>();
+            services.AddSingleton<FixedPriceRepository>();
 
             _serviceProvider = services.BuildServiceProvider();
             ServiceLocator.Initialize(_serviceProvider);

@@ -9,13 +9,12 @@ namespace AccommodationManagerApp.Service
     public class BillService
     {
         private readonly BillRepository _billRepository;
-
-        public BillService(BillRepository billRepository)
+        private readonly FixedPriceRepository _fixedPriceRepository;
+        public BillService(BillRepository billRepository, FixedPriceRepository fixedPriceRepository)
         {
             _billRepository = billRepository;
+            _fixedPriceRepository = fixedPriceRepository;
         }
-
-        // CRUD Bill: Begin
 
         public void Add(Bill bill)
         {
@@ -36,11 +35,6 @@ namespace AccommodationManagerApp.Service
         {
             _billRepository.Update(id, bill);
         }
-
-        public void DeleteAll()
-        {
-            _billRepository.DeleteAll();
-        }
         
         public int Delete(int id)
         {
@@ -57,7 +51,31 @@ namespace AccommodationManagerApp.Service
                 return -1;
             }
         }
-        
-        // CRUD Bill: end
+
+        public FixedPrice GetWaterPrice() {
+            return _fixedPriceRepository.GetWaterPrice();
+        }
+
+        public FixedPrice GetElectricityPrice() {
+            return _fixedPriceRepository.GetElectricityPrice();
+        }
+
+        public FixedPrice GetInternetPrice() {
+            return _fixedPriceRepository.GetInternetPrice();
+        }
+
+        public void UpdateFixedPrice(int water, int electricity, int internet) {
+            FixedPrice waterPrice = GetWaterPrice();
+            waterPrice.Price = water;
+            _fixedPriceRepository.Update(waterPrice.Id, waterPrice);
+
+            FixedPrice electricityPrice = GetElectricityPrice();
+            electricityPrice.Price = electricity;
+            _fixedPriceRepository.Update(electricityPrice.Id, electricityPrice);
+
+            FixedPrice internetPrice = GetInternetPrice();
+            internetPrice.Price = internet;
+            _fixedPriceRepository.Update(internetPrice.Id, internetPrice);
+        }
     }
 }
