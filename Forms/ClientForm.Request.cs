@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using AccommodationManagerApp.Model;
+using System.Windows.Forms;
 
 namespace AccommodationManagerApp.Forms
 {
@@ -41,8 +42,9 @@ namespace AccommodationManagerApp.Forms
         {
             if (reqId != 0)
             {
-                UpdateReq updateReq = new UpdateReq(reqId);
-                updateReq.ShowDialog();
+                Request request = _requestService.GetById(reqId);
+                RequestForm requestForm = new RequestForm(request);
+                requestForm.ShowDialog();
                 resetReq();
             }
             else
@@ -67,10 +69,9 @@ namespace AccommodationManagerApp.Forms
         }
         private void addReq(object sender, System.EventArgs e)
         {
-            AddReq addReq = new AddReq();
-            addReq.ShowDialog();
+            RequestForm requestForm = new RequestForm(null);
+            requestForm.ShowDialog();
             resetReq();
-
         }
     }
 }

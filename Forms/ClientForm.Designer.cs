@@ -202,7 +202,7 @@
             this.pgRequest.Location = new System.Drawing.Point(4, 39);
             this.pgRequest.Name = "pgRequest";
             this.pgRequest.Padding = new System.Windows.Forms.Padding(3);
-            this.pgRequest.Size = new System.Drawing.Size(1146, 810);
+            this.pgRequest.Size = new System.Drawing.Size(1098, 810);
             this.pgRequest.TabIndex = 1;
             this.pgRequest.Text = "Yêu Cầu";
             this.pgRequest.UseVisualStyleBackColor = true;
@@ -410,7 +410,7 @@
             this.pgBill.ImageKey = "contract.png";
             this.pgBill.Location = new System.Drawing.Point(4, 39);
             this.pgBill.Name = "pgBill";
-            this.pgBill.Size = new System.Drawing.Size(1146, 810);
+            this.pgBill.Size = new System.Drawing.Size(1098, 810);
             this.pgBill.TabIndex = 2;
             this.pgBill.Text = "Hóa Đơn";
             this.pgBill.UseVisualStyleBackColor = true;
@@ -609,7 +609,7 @@
             this.pgConfig.ImageKey = "configuration.png";
             this.pgConfig.Location = new System.Drawing.Point(4, 39);
             this.pgConfig.Name = "pgConfig";
-            this.pgConfig.Size = new System.Drawing.Size(1146, 810);
+            this.pgConfig.Size = new System.Drawing.Size(1098, 810);
             this.pgConfig.TabIndex = 3;
             this.pgConfig.Text = "Cài Đặt";
             this.pgConfig.UseVisualStyleBackColor = true;

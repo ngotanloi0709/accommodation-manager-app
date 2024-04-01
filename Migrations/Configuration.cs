@@ -5,7 +5,6 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Util;
-using AccommodationManagerApp.Service;
 
 namespace AccommodationManagerApp.Migrations {
     internal sealed class Configuration : DbMigrationsConfiguration<Repository.AccommodationManagerAppContext> {

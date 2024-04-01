@@ -3,6 +3,7 @@ using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 using System.Collections.Generic;
 using System.Threading;
+using System.Windows.Forms;
 using BillModel = AccommodationManagerApp.Model.Bill;
 
 namespace AccommodationManagerApp.Forms
