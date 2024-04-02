@@ -14,11 +14,13 @@ namespace AccommodationManagerApp.Forms {
         private List<Room> _rooms;
         private List<User> _users;
         private RoomService _roomService;
+        private BillService _billService;
 
         public ContractForm(Contract contract) {
             _contractService = ServiceLocator.ServiceProvider.GetService(typeof(ContractService)) as ContractService;
             _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
             _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
+            _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
             _contract = contract;
             _rooms = _contractService.GetAvailableRooms();
             _users = _userService.GetAllWithRoleTenant();
@@ -109,21 +111,23 @@ namespace AccommodationManagerApp.Forms {
         }
 
         private void ButtonSave_Click(object sender, EventArgs e) {
-            int? roomId = _roomService.GetIdByRoomNumber(comboBoxContractRoom.Text);
-            int? userId =
-                _userService.GetIdByNameAndEmail(comboBoxContractTenant.Text, comboBoxContractTenantEmail.Text);
+            var roomId = _roomService.GetIdByRoomNumber(comboBoxContractRoom.Text);
+            var userId = _userService.GetIdByNameAndEmail(comboBoxContractTenant.Text, comboBoxContractTenantEmail.Text);
 
             if (IsAllDataFilled()) {
                 if (_contract == null) {
                     if (!_contractService.IsRoomAvailableWithToast(roomId)) return;
-                    _contractService.Add(new Contract {
+                    _contract = new Contract
+                    {
                         RoomId = roomId,
                         UserId = userId,
                         Price = int.Parse(textBoxPrice.Text),
                         StartDate = dateTimePickerContractStartDate.Value,
                         EndDate = DateTime.ParseExact(labelContractEndDate.Text, "dd/MM/yyyy",
                             CultureInfo.CurrentCulture)
-                    });
+                    };
+                    _contractService.Add(_contract);
+                    _billService.GenerateBillByContract(_contract);
                 }
                 else {
                     _contract.UserId = userId;
@@ -172,7 +176,7 @@ namespace AccommodationManagerApp.Forms {
             return true;
         }
 
-        private void comboBoxPrice_SelectedIndexChanged(object sender, System.EventArgs e) {
+        private void comboBoxPrice_SelectedIndexChanged(object sender, EventArgs e) {
             if (comboBoxContractPrice.Text.Equals("None")) {
                 textBoxPrice.Text = "";
                 return;
@@ -181,12 +185,12 @@ namespace AccommodationManagerApp.Forms {
             textBoxPrice.Text = comboBoxContractPrice.Text.Replace(".", "");
         }
 
-        private void comboBoxEndDate_SelectedIndexChanged(object sender, System.EventArgs e) {
+        private void comboBoxEndDate_SelectedIndexChanged(object sender, EventArgs e) {
             if (comboBoxContractEndDate.Text.Equals("None")) {
                 return;
             }
 
-            int months = int.Parse(comboBoxContractEndDate.Text.Split(' ')[0]);
+            var months = int.Parse(comboBoxContractEndDate.Text.Split(' ')[0]);
             var endDate = dateTimePickerContractStartDate.Value.AddMonths(months);
             labelContractEndDate.Text = endDate.ToString("dd/MM/yyyy");
         }
@@ -211,7 +215,7 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        private void textBox_NumberInput(object sender, System.Windows.Forms.KeyPressEventArgs e) {
+        private void textBox_NumberInput(object sender, KeyPressEventArgs e) {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)) {
                 e.Handled = true;
             }

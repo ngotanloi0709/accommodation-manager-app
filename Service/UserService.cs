@@ -31,7 +31,7 @@ namespace AccommodationManagerApp.Service {
         }
 
         public int? GetIdByNameAndEmail(string name, string email) {
-            User user = _userRepository.GetByNameAndEmail(name, email);
+            var user = _userRepository.GetByNameAndEmail(name, email);
 
             if (user != null) {
                 return user.Id;
@@ -73,13 +73,13 @@ namespace AccommodationManagerApp.Service {
         }
         
         public Image CompressImage(Image image, int quality) {
-            EncoderParameter qualityParam = new EncoderParameter(Encoder.Quality, quality);
-            ImageCodecInfo jpegCodec = GetEncoderInfo("image/jpeg");
+            var qualityParam = new EncoderParameter(Encoder.Quality, quality);
+            var jpegCodec = GetEncoderInfo("image/jpeg");
 
-            EncoderParameters encoderParams = new EncoderParameters(1);
+            var encoderParams = new EncoderParameters(1);
             encoderParams.Param[0] = qualityParam;
 
-            MemoryStream ms = new MemoryStream();
+            var ms = new MemoryStream();
             image.Save(ms, jpegCodec, encoderParams);
 
             return Image.FromStream(ms);
@@ -106,8 +106,8 @@ namespace AccommodationManagerApp.Service {
         }
 
         public List<String> GetAllEmailByName(string name) {
-            List<User> users = _userRepository.GetAllByName(name);
-            List<String> emails = new List<string>();
+            var users = _userRepository.GetAllByName(name);
+            var emails = new List<string>();
             
             foreach (var user in users) {
                 emails.Add(user.Email);

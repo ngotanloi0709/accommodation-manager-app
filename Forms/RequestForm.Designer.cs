@@ -1,6 +1,6 @@
 ﻿namespace AccommodationManagerApp.Forms
 {
-    partial class ReqForm
+    partial class RequestForm
     {
         /// <summary>
         /// Required designer variable.
@@ -33,6 +33,7 @@
             this.txtReq = new MaterialSkin.Controls.MaterialMultiLineTextBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.btnClose = new MaterialSkin.Controls.MaterialButton();
+            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbxReq)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,11 +108,33 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.close);
             // 
+            // materialButton1
+            // 
+            this.materialButton1.AutoSize = false;
+            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton1.Depth = 0;
+            this.materialButton1.HighEmphasis = true;
+            this.materialButton1.Icon = global::AccommodationManagerApp.Properties.Resources.plus1;
+            this.materialButton1.Location = new System.Drawing.Point(275, 403);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton1.Name = "materialButton1";
+            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton1.Size = new System.Drawing.Size(95, 36);
+            this.materialButton1.TabIndex = 25;
+            this.materialButton1.Text = "Thêm";
+            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton1.UseAccentColor = false;
+            this.materialButton1.UseVisualStyleBackColor = true;
+            this.materialButton1.Click += new System.EventHandler(this.AddAndUpdateRequest);
+            // 
             // ReqForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 500);
+            this.ClientSize = new System.Drawing.Size(516, 539);
+            this.Controls.Add(this.materialButton1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.txtReq);
@@ -119,6 +142,13 @@
             this.Controls.Add(this.pbxReq);
             this.Name = "ReqForm";
             this.Text = "ReqForm";
+            this.Click += new System.EventHandler(this.AddAndUpdateRequest);
+            this.Controls.SetChildIndex(this.pbxReq, 0);
+            this.Controls.SetChildIndex(this.lblReqDate, 0);
+            this.Controls.SetChildIndex(this.txtReq, 0);
+            this.Controls.SetChildIndex(this.materialLabel1, 0);
+            this.Controls.SetChildIndex(this.btnClose, 0);
+            this.Controls.SetChildIndex(this.materialButton1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pbxReq)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -132,5 +162,6 @@
         protected MaterialSkin.Controls.MaterialLabel lblReqDate;
         protected MaterialSkin.Controls.MaterialMultiLineTextBox txtReq;
         protected MaterialSkin.Controls.MaterialButton btnClose;
+        protected MaterialSkin.Controls.MaterialButton materialButton1;
     }
 }

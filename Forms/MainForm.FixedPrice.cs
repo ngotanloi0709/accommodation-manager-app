@@ -10,7 +10,7 @@ namespace AccommodationManagerApp.Forms {
         }
 
         private void buttonEditFixedPrice_Click(object sender, System.EventArgs e) {
-            FixedPriceForm fixedPriceForm = new FixedPriceForm();
+            var fixedPriceForm = new FixedPriceForm();
             fixedPriceForm.ShowDialog();
             
             if (fixedPriceForm.DialogResult == DialogResult.Cancel) {

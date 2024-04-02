@@ -38,7 +38,7 @@ namespace AccommodationManagerApp.Service {
         }
 
         public int? GetIdByName(string name) {
-            Building building = _buildingRepository.GetByName(name);
+            var building = _buildingRepository.GetByName(name);
             
             if (building != null) {
                 return building.Id;

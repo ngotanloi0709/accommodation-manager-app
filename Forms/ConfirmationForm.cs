@@ -8,20 +8,20 @@ namespace AccommodationManagerApp.Forms
         public ConfirmationForm(string message)
         {
             InitializeComponent();
-            this.Text = "Thông báo";
-            this.labelMessage.Text = message;
+            Text = "Thông báo";
+            labelMessage.Text = message;
         }
 
         private void buttonYes_Click(object sender, System.EventArgs e)
         {
-            this.DialogResult = DialogResult.Yes;
-            this.Close();
+            DialogResult = DialogResult.Yes;
+            Close();
         }
 
         private void buttonNo_Click(object sender, System.EventArgs e)
         {
-            this.DialogResult = DialogResult.No;
-            this.Close();
+            DialogResult = DialogResult.No;
+            Close();
         }
     }
 }

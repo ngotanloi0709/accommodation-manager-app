@@ -48,7 +48,7 @@ namespace AccommodationManagerApp.Service {
 
         public int? GetIdByRoomNumber(string roomNumber)
         {
-            Room room = _roomRepository.GetByRoomNumber(roomNumber);
+            var room = _roomRepository.GetByRoomNumber(roomNumber);
 
             if (room != null)
             {

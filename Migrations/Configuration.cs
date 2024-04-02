@@ -4,9 +4,7 @@ using MySql.Data.EntityFramework;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using AccommodationManagerApp.Model;
-using Request = AccommodationManagerApp.Model.Request;
 using AccommodationManagerApp.Util;
-using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace AccommodationManagerApp.Migrations {
     internal sealed class Configuration : DbMigrationsConfiguration<Repository.AccommodationManagerAppContext> {
@@ -50,20 +48,19 @@ namespace AccommodationManagerApp.Migrations {
                 context.Rooms.AddOrUpdate(new Room { RoomNumber = "302", BuildingId = null });
                 context.Rooms.AddOrUpdate(new Room { RoomNumber = "303", BuildingId = null });
             }
-
+            /*
             if (!context.Bills.Any()) {
-                context.Bills.AddOrUpdate(new Bill(1000000, 887000, 206000, null));
-                context.Bills.AddOrUpdate(new Bill(1500000, 621000, 372000, null));
-                context.Bills.AddOrUpdate(new Bill(2000000, 913000, 455000, null));
-            }
-
+                context.Bills.AddOrUpdate(new Bill(100, 50, null));
+                context.Bills.AddOrUpdate(new Bill(150, 75, null));
+                context.Bills.AddOrUpdate(new Bill(200, 100, null));
+            } 
+            */
             if (!context.Requests.Any())
             {
                 context.Requests.AddOrUpdate(new Request("Cúp điện kìa", null));
                 context.Requests.AddOrUpdate(new Request("Tiền nhà gì đóng hoài vậy", null));
                 context.Requests.AddOrUpdate(new Request("Không được chửi thề", null));
             }
-
             if (!context.Vehicles.Any()) {
                 context.Vehicles.AddOrUpdate(new Vehicle { Name = "Honda", Number = "63D-0301", RoomId = null });
                 context.Vehicles.AddOrUpdate(new Vehicle { Name = "Yamaha", Number = "86F-31235", RoomId = null });
@@ -80,7 +77,7 @@ namespace AccommodationManagerApp.Migrations {
 
         private void CreateBuildingDeleteTrigger(DbContext context) {
             try {
-                string createTriggerSql = @"
+                var createTriggerSql = @"
                     CREATE TRIGGER SetNullOnBuildingDelete
                     BEFORE DELETE ON buildings
                     FOR EACH ROW
@@ -98,7 +95,7 @@ namespace AccommodationManagerApp.Migrations {
 
         private void CreateRoomDeleteTrigger(DbContext context) {
             try {
-                string createTriggerSql = @"
+                var createTriggerSql = @"
                     CREATE TRIGGER SetNullOnRoomDelete
                     BEFORE DELETE ON rooms
                     FOR EACH ROW
@@ -119,7 +116,7 @@ namespace AccommodationManagerApp.Migrations {
 
         private void CreateUserDeleteTrigger(DbContext context) {
             try {
-                string createTriggerSql = @"
+                var createTriggerSql = @"
                     CREATE TRIGGER SetNullOnUserDelete
                     BEFORE DELETE ON users
                     FOR EACH ROW

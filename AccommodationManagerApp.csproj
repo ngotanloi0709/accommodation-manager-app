@@ -208,31 +208,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\AddBill.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddBill.Designer.cs">
-      <DependentUpon>AddBill.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\AddReq.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddReq.Designer.cs">
-      <DependentUpon>AddReq.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\BillForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\BillForm.Designer.cs">
       <DependentUpon>BillForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ClientForm.Auth.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\ClientForm.Bill.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ClientForm.BillCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ClientForm.cs">
@@ -244,23 +226,11 @@
     <Compile Include="Forms\ClientForm.Request.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ClientForm.RequestCRUD.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\FixedPriceForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FixedPriceForm.Designer.cs">
       <DependentUpon>FixedPriceForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\LoginForm.Auth.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MainForm.Auth.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MainForm.BillCRUD.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ContractExtendForm.cs">
       <SubType>Form</SubType>
@@ -280,23 +250,17 @@
     <Compile Include="Forms\MainForm.FixedPrice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ReqForm.cs">
+    <Compile Include="Forms\RequestForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ReqForm.Designer.cs">
-      <DependentUpon>ReqForm.cs</DependentUpon>
+    <Compile Include="Forms\RequestForm.Designer.cs">
+      <DependentUpon>RequestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ResidentForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ResidentForm.Designer.cs">
       <DependentUpon>ResidentForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\UpdateBill.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\UpdateBill.Designer.cs">
-      <DependentUpon>UpdateBill.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\BaseForm.cs">
       <SubType>Form</SubType>
@@ -379,12 +343,6 @@
     <Compile Include="Forms\ToastForm.Designer.cs">
       <DependentUpon>ToastForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\UpdateReq.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\UpdateReq.Designer.cs">
-      <DependentUpon>UpdateReq.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -433,6 +391,7 @@
     <Compile Include="Service\RoomService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="Service\VehicleServide.cs" />
+    <Compile Include="Util\BillStatusExtensions.cs" />
     <Compile Include="Util\FixedPriceTypeHelper.cs" />
     <Compile Include="Util\FormatText.cs" />
     <Compile Include="Util\InitLog.cs" />
@@ -440,12 +399,6 @@
     <Compile Include="Util\PasswordHelper.cs" />
     <Compile Include="Util\RoomStatusExtensions.cs" />
     <Compile Include="Util\VehicleCategoryExtensions.cs" />
-    <EmbeddedResource Include="Forms\AddBill.resx">
-      <DependentUpon>AddBill.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddReq.resx">
-      <DependentUpon>AddReq.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -467,14 +420,11 @@
     <EmbeddedResource Include="Forms\FixedPriceForm.resx">
       <DependentUpon>FixedPriceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ReqForm.resx">
-      <DependentUpon>ReqForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\RequestForm.resx">
+      <DependentUpon>RequestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ResidentForm.resx">
       <DependentUpon>ResidentForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\UpdateBill.resx">
-      <DependentUpon>UpdateBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BuildingForm.resx">
       <DependentUpon>BuildingForm.cs</DependentUpon>
@@ -503,9 +453,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ToastForm.resx">
       <DependentUpon>ToastForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\UpdateReq.resx">
-      <DependentUpon>UpdateReq.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
@@ -566,6 +513,7 @@
     <None Include="Resources\minus.png" />
     <None Include="Resources\icon-250.png" />
     <None Include="Resources\invoice.png" />
+    <None Include="Resources\preview.png" />
     <Content Include="Resources\Roboto-Medium.ttf" />
     <Content Include="Resources\Roboto-Regular.ttf" />
     <None Include="Resources\signature.jpg" />

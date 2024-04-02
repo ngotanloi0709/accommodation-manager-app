@@ -308,7 +308,6 @@ namespace AccommodationManagerApp.Forms {
             this.Sizable = false;
             this.Text = "Chỉnh sửa chi phí cố định";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FixedPriceForm_FormClosing);
-            this.Controls.SetChildIndex(this.btnExit, 0);
             this.Controls.SetChildIndex(this.textBoxWaterPrice, 0);
             this.Controls.SetChildIndex(this.textBoxElectricityPrice, 0);
             this.Controls.SetChildIndex(this.materialLabel1, 0);

@@ -1,7 +1,9 @@
-﻿using AccommodationManagerApp.Model;
+﻿using System;
+using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using BillModel = AccommodationManagerApp.Model.Bill;
 
 namespace AccommodationManagerApp.Forms
@@ -42,15 +44,12 @@ namespace AccommodationManagerApp.Forms
             LoadPersonalInformation();
             LoadRoomData();
             LoadBuildingData();
-            readBill();
+            LoadBillData();
             LoadVehicleData();
             LoadUserData();
             LoadContractData();
             LoadFixedPriceData();
         }
-
-
-
         private void SetListViewGridEnable()
         {
             ListViewBuilding.GridLines = true;
@@ -62,12 +61,11 @@ namespace AccommodationManagerApp.Forms
             ListViewContract.GridLines = true;
             ListViewRoomUserList.GridLines = true;
         }
-
-        private void buttonCurrentUserInformationManagement_Click(object sender, System.EventArgs e)
+        private void buttonCurrentUserInformationManagement_Click(object sender, EventArgs e)
         {
             if (_authenticationService.IsAuthenticated())
             {
-                CurrentUserInformationForm userManagementForm =
+                var userManagementForm =
                     new CurrentUserInformationForm(_authenticationService.CurrentUser);
                 userManagementForm.ShowDialog();
                 LoadPersonalInformation();
@@ -77,17 +75,18 @@ namespace AccommodationManagerApp.Forms
                 new ToastForm("Vui lòng đăng nhập để sử dụng chức năng này", true).Show();
             }
         }
-
         private void LoadPersonalInformation()
         {
-            if (_authenticationService.IsAuthenticated())
+            labelCurrentUserEmail.Text = _authenticationService.IsAuthenticated() ? _authenticationService.CurrentUser.Email : defaultMail;
+        }
+        private void Logout(object sender, EventArgs e)
+        {
+            var confirmation = new ConfirmationForm("Bạn có chắc chắn muốn thoát");
+            var result = confirmation.ShowDialog();
+            if (result == DialogResult.Yes)
             {
-                labelCurrentUserEmail.Text = _authenticationService.CurrentUser.Email;
-            }
-            else
-            {
-                labelCurrentUserEmail.Text = defaultMail;
-                btnLogin.Visible = true;
+                _authenticationService.Logout();
+                Close();
             }
         }
     }

@@ -3,56 +3,69 @@ using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 using System.Collections.Generic;
 using BillModel = AccommodationManagerApp.Model.Bill;
+using System.Windows.Forms;
 namespace AccommodationManagerApp.Forms
 {
     public partial class ClientForm : BaseForm
     {
-        private readonly BillService _billService;
-        private readonly AuthenticationService _authenticationService;
-        private readonly RequestService _requestService;
+        private BillService _billService;
+        private AuthenticationService _authenticationService;
+        private RequestService _requestService;
         
-        private User user;
-        private List<Request> requests;
-
-        private List<BillModel> Bills { get; set; }
+        private User _user;
+        private List<Request> _Requests;
+        private List<BillModel> _Bills;
         public ClientForm()
+        {
+            InitializeComponent();
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            LoadService();
+            LoadEntity();
+            LoadBillData();
+            LoadRequestData();
+            LoadPersonalInformation();
+        }
+
+        private void LoadEntity() 
+        {
+            _user = _authenticationService.CurrentUser;
+        }
+        private void LoadService()
         {
             _authenticationService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
             _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
             _requestService = ServiceLocator.ServiceProvider.GetService(typeof(RequestService)) as RequestService;
-            user = _authenticationService.CurrentUser;
-            InitializeComponent();
-            setInfor();
-            load();
         }
 
-        private void load()
+        private void LoadPersonalInformation()
         {
-            readBill();
-            readReq();
+            lblEmail.Text = _authenticationService.IsAuthenticated() ? _authenticationService.CurrentUser.Email : defaultMail;
         }
-
-        private void setInfor()
+        private void ShowInfor(object sender, System.EventArgs e)
         {
             if (_authenticationService.IsAuthenticated())
             {
-                lblEmail.Text = _authenticationService.CurrentUser.Email;
-            } else
-            {
-                lblEmail.Text = defaultMail;
-                btnLogin.Visible = true;
-            }
-        }
-        private void showInfor(object sender, System.EventArgs e)
-        {
-            if (_authenticationService.IsAuthenticated())
-            {
-                CurrentUserInformationForm userManagementForm = new CurrentUserInformationForm(_authenticationService.CurrentUser);
+                var userManagementForm = new CurrentUserInformationForm(_authenticationService.CurrentUser);
                 userManagementForm.ShowDialog();
             }
             else
             {
                 new ToastForm("Vui lòng đăng nhập để sử dụng chức năng này", true).Show();
+            }
+        }
+
+        private void logout(object sender, System.EventArgs e)
+        {
+            var confirmation = new ConfirmationForm("Bạn có muốn đăng xuất");
+            var result = confirmation.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
+                _authenticationService.Logout();
+                Close();
             }
         }
     }

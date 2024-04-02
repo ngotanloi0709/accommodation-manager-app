@@ -62,9 +62,9 @@ namespace AccommodationManagerApp.Forms
                 return;
             }
 
-            string roomNumber = textBoxRoomName.Text;
-            int? buildingId = comboBoxRoomBuilding.SelectedItem.ToString().Equals("None") ? null : _buildingService.GetIdByName(comboBoxRoomBuilding.SelectedItem.ToString());
-            RoomStatus status = comboBoxRoomStatus.SelectedItem.ToString().ToRoomStatus();
+            var roomNumber = textBoxRoomName.Text;
+            var buildingId = comboBoxRoomBuilding.SelectedItem.ToString().Equals("None") ? null : _buildingService.GetIdByName(comboBoxRoomBuilding.SelectedItem.ToString());
+            var status = comboBoxRoomStatus.SelectedItem.ToString().ToRoomStatus();
 
             if (_room == null)
             {
@@ -97,7 +97,7 @@ namespace AccommodationManagerApp.Forms
 
         private bool IsAllTextBoxFilled()
         {
-            bool result = string.IsNullOrEmpty(textBoxRoomName.Text);
+            var result = string.IsNullOrEmpty(textBoxRoomName.Text);
 
             if (result)
             {

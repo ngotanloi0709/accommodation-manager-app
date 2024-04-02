@@ -6,67 +6,76 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using Aspose.Words;
-using ThuVienWinform.Report.AsposeWordExtension;
+using AccommodationManagerApp.Util;
 
 namespace AccommodationManagerApp.Forms
 {
     public partial class BillDetail : BaseForm {
         private readonly BillService _billService;
-        private BillModel bill = null;
-        public BillDetail(int id) {
+        private BillModel _bill;
+        public BillDetail(BillModel bill) {
             InitializeComponent();
             _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
-            bill = _billService.GetById(id);
+            _bill = bill;
             LoadBillDetail();
         }
 
         private void LoadBillDetail()
         {
-            lblRoomId.Text = bill.RoomId.ToString();
-            lblDate.Text = bill.CreatedAt.ToString();
-            lblRent.Text = bill.RentBill.ToString();
-            lblWater.Text = bill.WaterBill.ToString();
-            lblElectric.Text = bill.ElectricityBill.ToString();
-            lblTotal.Text = bill.TotalBill.ToString();
+            var waterQty = _bill.WaterQuantity;
+            var waterPrice = _billService.GetWaterPrice().Price;
+            var elecQty = _bill.ElecQuantity;
+            var elecPrice = _billService.GetElectricityPrice().Price;
+            var internetPrice = _billService.GetInternetPrice().Price;
+            lblRoomId.Text = _bill.Contract.Room.RoomNumber;
+            lblDate.Text = _bill.CreatedAtFormatted;
+            labelRent.Text = FormatText.IntegerToVnd(_bill.Contract.Price);
+            labelQtyWater.Text = waterQty.ToString();
+            labelQtyElec.Text = elecQty.ToString();
+            labelPriceWater.Text = FormatText.IntegerToVnd(waterPrice);
+            labelPriceElec.Text = FormatText.IntegerToVnd(elecPrice);
+            labelInternet.Text = internetPrice.ToString();
+            labelWater.Text = FormatText.IntegerToVnd((waterQty * waterPrice));
+            labelElec.Text = FormatText.IntegerToVnd((elecQty * elecPrice));
+            labelTotal.Text = FormatText.IntegerToVnd(((waterQty * waterPrice) + (elecQty * elecPrice) + internetPrice + _bill.Contract.Price));
         }
-
         private void btn_ExportPDF_Click_1(object sender, EventArgs e) {
             // Tạo hộp thoại lưu file
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            var saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "PDF Files|*.pdf";
             saveFileDialog.Title = "Save as PDF";
             saveFileDialog.FileName = "BillDetail.pdf";
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK) {
-                string filePath = saveFileDialog.FileName;
+                var filePath = saveFileDialog.FileName;
 
                 try {
-                    PdfSharp.Pdf.PdfDocument pdf = new PdfSharp.Pdf.PdfDocument();
+                    var pdf = new PdfSharp.Pdf.PdfDocument();
                     pdf.Info.Title = "Bill Detail";
 
 
-                    PdfSharp.Pdf.PdfPage pdfPage = pdf.AddPage();
+                    var pdfPage = pdf.AddPage();
                     pdfPage.Width = PanelHD.Width + 5;
                     pdfPage.Height = PanelHD.Height + 5;
-                    XGraphics graph = XGraphics.FromPdfPage(pdfPage);
+                    var graph = XGraphics.FromPdfPage(pdfPage);
 
                     // Lấy nội dung của PanelHD và đưa nó vào tài liệu PDF
-                    using (MemoryStream ms = new MemoryStream()) {
+                    using (var ms = new MemoryStream()) {
                         // Lấy nội dung của PanelHD
-                        Bitmap bmp = new Bitmap(PanelHD.Width, PanelHD.Height);
+                        var bmp = new Bitmap(PanelHD.Width, PanelHD.Height);
                         PanelHD.DrawToBitmap(bmp,
-                            new System.Drawing.Rectangle(0, 0, PanelHD.Width + 5, PanelHD.Height + 5));
+                            new Rectangle(0, 0, PanelHD.Width + 5, PanelHD.Height + 5));
 
                         // Chuyển đổi hình ảnh từ System.Drawing.Image sang dạng byte[]
                         byte[] imageBytes;
-                        using (MemoryStream imageStream = new MemoryStream()) {
+                        using (var imageStream = new MemoryStream()) {
                             bmp.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
                             imageBytes = imageStream.ToArray();
-                            XImage panelImage = XImage.FromStream(imageStream);
+                            var panelImage = XImage.FromStream(imageStream);
                             // Tính toán tỉ lệ scale để hình ảnh fit vào trang PDF
-                            double scaleX = pdfPage.Width / panelImage.PixelWidth;
-                            double scaleY = pdfPage.Height / panelImage.PixelHeight;
-                            double scale = Math.Min(scaleX, scaleY);
+                            var scaleX = pdfPage.Width / panelImage.PixelWidth;
+                            var scaleY = pdfPage.Height / panelImage.PixelHeight;
+                            var scale = Math.Min(scaleX, scaleY);
 
                             // Vẽ hình ảnh vào tài liệu PDF với tỉ lệ scale
                             graph.DrawImage(panelImage, 0, 0, panelImage.PixelWidth * scale,
@@ -90,35 +99,35 @@ namespace AccommodationManagerApp.Forms
 
         private void btnWord_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            var saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "DOC Files|*.docx";
             saveFileDialog.Title = "Save as DOCX";
             saveFileDialog.FileName = "BillDetail.docx";
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string filePath = saveFileDialog.FileName;
+                var filePath = saveFileDialog.FileName;
 
                 try
                 {
-                    Document doc = new Document("..\\..\\Template\\baocao.doc");
+                    var doc = new Document("..\\..\\Template\\baocao.doc");
 
                     doc.MailMerge.Execute(new string[] { "Ho_Ten" }, new[] { lblName.Text });
                     doc.MailMerge.Execute(new string[] { "Date_Bill" }, new[] { lblDate.Text });
                     doc.MailMerge.Execute(new string[] { "Room_ID" }, new[] { lblRoomId.Text });
                     doc.MailMerge.Execute(new string[] { "Quan_Rent" }, new[] { lblQuanRent.Text });
-                    doc.MailMerge.Execute(new string[] { "Quan_Water" }, new[] { lblQuanWater.Text });
-                    doc.MailMerge.Execute(new string[] { "Quan_Elec" }, new[] { lblQuanElec.Text });
+                    doc.MailMerge.Execute(new string[] { "Quan_Water" }, new[] { labelQtyWater.Text });
+                    doc.MailMerge.Execute(new string[] { "Quan_Elec" }, new[] { labelQtyElec.Text });
                     doc.MailMerge.Execute(new string[] { "Quan_Other" }, new[] { lblQuanOther.Text });
-                    doc.MailMerge.Execute(new string[] { "Price_Rent" }, new[] { lblPriceRent.Text });
-                    doc.MailMerge.Execute(new string[] { "Price_Water" }, new[] { lblPriceWater.Text });
-                    doc.MailMerge.Execute(new string[] { "Price_Elec" }, new[] { lblPriceElec.Text });
-                    doc.MailMerge.Execute(new string[] { "Price_Other" }, new[] { lblPriceOther.Text });
-                    doc.MailMerge.Execute(new string[] { "Total_Rent" }, new[] { lblRent.Text });
-                    doc.MailMerge.Execute(new string[] { "Total_Water" }, new[] { lblWater.Text });
-                    doc.MailMerge.Execute(new string[] { "Total_Elec" }, new[] { lblElectric.Text });
-                    doc.MailMerge.Execute(new string[] { "Total_Other" }, new[] { lblOther.Text });
-                    doc.MailMerge.Execute(new string[] { "Total_Price" }, new[] { lblTotal.Text });
+                    doc.MailMerge.Execute(new string[] { "Price_Rent" }, new[] { lbllls.Text });
+                    doc.MailMerge.Execute(new string[] { "Price_Water" }, new[] { labelPriceWater.Text });
+                    doc.MailMerge.Execute(new string[] { "Price_Elec" }, new[] { labelPriceElec.Text });
+                    doc.MailMerge.Execute(new string[] { "Price_Other" }, new[] { lalslasl.Text });
+                    doc.MailMerge.Execute(new string[] { "Total_Rent" }, new[] { labelRent.Text });
+                    doc.MailMerge.Execute(new string[] { "Total_Water" }, new[] { labelWater.Text });
+                    doc.MailMerge.Execute(new string[] { "Total_Elec" }, new[] { labelElec.Text });
+                    doc.MailMerge.Execute(new string[] { "Total_Other" }, new[] { labelInternet.Text });
+                    doc.MailMerge.Execute(new string[] { "Total_Price" }, new[] { labelTotal.Text });
                     doc.Save(filePath);
 
                     // Thông báo khi hoàn thành xuất PDF

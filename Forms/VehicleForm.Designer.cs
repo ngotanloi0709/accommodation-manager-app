@@ -300,7 +300,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 784);
+            this.ClientSize = new System.Drawing.Size(600, 600);
             this.Controls.Add(this.buttonMinus);
             this.Controls.Add(this.buttonPlus);
             this.Controls.Add(this.textBoxPrice);
@@ -329,7 +329,6 @@
             this.Controls.SetChildIndex(this.materialLabel4, 0);
             this.Controls.SetChildIndex(this.comboBoxRoom, 0);
             this.Controls.SetChildIndex(this.comboBoxCategory, 0);
-            this.Controls.SetChildIndex(this.btnExit, 0);
             this.Controls.SetChildIndex(this.materialLabel5, 0);
             this.Controls.SetChildIndex(this.comboBoxVehiclePrice, 0);
             this.Controls.SetChildIndex(this.textBoxPrice, 0);

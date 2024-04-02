@@ -64,7 +64,7 @@
             btnLogin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btnLogin.UseAccentColor = false;
             btnLogin.UseVisualStyleBackColor = true;
-            btnLogin.Click += new System.EventHandler(this.login);
+            btnLogin.Click += new System.EventHandler(this.Login);
             // 
             // btnLogout
             // 
@@ -87,7 +87,7 @@
             btnLogout.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             btnLogout.UseAccentColor = false;
             btnLogout.UseVisualStyleBackColor = true;
-            btnLogout.Click += new System.EventHandler(this.logout);
+            btnLogout.Click += new System.EventHandler(this.Logout);
             // 
             // materialLabel1
             // 
@@ -220,7 +220,6 @@
             this.Controls.SetChildIndex(this.txtEmail, 0);
             this.Controls.SetChildIndex(this.txtPass, 0);
             this.Controls.SetChildIndex(btnLogout, 0);
-            this.Controls.SetChildIndex(this.btnExit, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

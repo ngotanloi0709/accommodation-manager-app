@@ -30,14 +30,17 @@
         {
             this.btnClose = new MaterialSkin.Controls.MaterialButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cmbboxRent = new MaterialSkin.Controls.MaterialComboBox();
             this.txtbxWater = new MaterialSkin.Controls.MaterialTextBox();
             this.txtbxElectric = new MaterialSkin.Controls.MaterialTextBox();
             this.lblElectric = new MaterialSkin.Controls.MaterialLabel();
             this.lblWater = new MaterialSkin.Controls.MaterialLabel();
             this.mySqlCommand1 = new MySqlConnector.MySqlCommand();
             this.lblDate = new MaterialSkin.Controls.MaterialLabel();
-            this.cmbboxRoom = new MaterialSkin.Controls.MaterialComboBox();
+            this.comboBoxRoom = new MaterialSkin.Controls.MaterialComboBox();
+            this.buttonSave = new MaterialSkin.Controls.MaterialButton();
+            this.labelRent = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,35 +74,6 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // cmbboxRent
-            // 
-            this.cmbboxRent.AutoResize = false;
-            this.cmbboxRent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cmbboxRent.Depth = 0;
-            this.cmbboxRent.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbboxRent.DropDownHeight = 174;
-            this.cmbboxRent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbboxRent.DropDownWidth = 121;
-            this.cmbboxRent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.cmbboxRent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cmbboxRent.FormattingEnabled = true;
-            this.cmbboxRent.IntegralHeight = false;
-            this.cmbboxRent.ItemHeight = 43;
-            this.cmbboxRent.Items.AddRange(new object[] {
-            "Phí Thuê Nhà",
-            "1.000.000 vnd",
-            "1.200.000 vnd",
-            "1.500.000 vnd",
-            "1.800.000 vnd",
-            "2.000.000 vnd"});
-            this.cmbboxRent.Location = new System.Drawing.Point(54, 210);
-            this.cmbboxRent.MaxDropDownItems = 4;
-            this.cmbboxRent.MouseState = MaterialSkin.MouseState.OUT;
-            this.cmbboxRent.Name = "cmbboxRent";
-            this.cmbboxRent.Size = new System.Drawing.Size(196, 49);
-            this.cmbboxRent.StartIndex = 0;
-            this.cmbboxRent.TabIndex = 4;
-            // 
             // txtbxWater
             // 
             this.txtbxWater.AnimateReadOnly = false;
@@ -107,12 +81,12 @@
             this.txtbxWater.Depth = 0;
             this.txtbxWater.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtbxWater.LeadingIcon = null;
-            this.txtbxWater.Location = new System.Drawing.Point(153, 276);
+            this.txtbxWater.Location = new System.Drawing.Point(134, 276);
             this.txtbxWater.MaxLength = 50;
             this.txtbxWater.MouseState = MaterialSkin.MouseState.OUT;
             this.txtbxWater.Multiline = false;
             this.txtbxWater.Name = "txtbxWater";
-            this.txtbxWater.Size = new System.Drawing.Size(316, 50);
+            this.txtbxWater.Size = new System.Drawing.Size(207, 50);
             this.txtbxWater.TabIndex = 6;
             this.txtbxWater.Text = "";
             this.txtbxWater.TrailingIcon = null;
@@ -125,12 +99,12 @@
             this.txtbxElectric.Depth = 0;
             this.txtbxElectric.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtbxElectric.LeadingIcon = null;
-            this.txtbxElectric.Location = new System.Drawing.Point(153, 343);
+            this.txtbxElectric.Location = new System.Drawing.Point(134, 348);
             this.txtbxElectric.MaxLength = 50;
             this.txtbxElectric.MouseState = MaterialSkin.MouseState.OUT;
             this.txtbxElectric.Multiline = false;
             this.txtbxElectric.Name = "txtbxElectric";
-            this.txtbxElectric.Size = new System.Drawing.Size(316, 50);
+            this.txtbxElectric.Size = new System.Drawing.Size(207, 50);
             this.txtbxElectric.TabIndex = 7;
             this.txtbxElectric.Text = "";
             this.txtbxElectric.TrailingIcon = null;
@@ -145,9 +119,9 @@
             this.lblElectric.Location = new System.Drawing.Point(50, 287);
             this.lblElectric.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblElectric.Name = "lblElectric";
-            this.lblElectric.Size = new System.Drawing.Size(85, 24);
+            this.lblElectric.Size = new System.Drawing.Size(77, 24);
             this.lblElectric.TabIndex = 8;
-            this.lblElectric.Text = "Tiền Điện";
+            this.lblElectric.Text = "Số Nước";
             // 
             // lblWater
             // 
@@ -158,9 +132,9 @@
             this.lblWater.Location = new System.Drawing.Point(50, 357);
             this.lblWater.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblWater.Name = "lblWater";
-            this.lblWater.Size = new System.Drawing.Size(93, 24);
+            this.lblWater.Size = new System.Drawing.Size(69, 24);
             this.lblWater.TabIndex = 9;
-            this.lblWater.Text = "Tiền Nước";
+            this.lblWater.Text = "Số Điện";
             // 
             // mySqlCommand1
             // 
@@ -182,47 +156,108 @@
             this.lblDate.TabIndex = 11;
             this.lblDate.Text = "Ngày Tạo: ";
             // 
-            // cmbboxRoom
+            // comboBoxRoom
             // 
-            this.cmbboxRoom.AutoResize = false;
-            this.cmbboxRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cmbboxRoom.Depth = 0;
-            this.cmbboxRoom.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbboxRoom.DropDownHeight = 174;
-            this.cmbboxRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbboxRoom.DropDownWidth = 121;
-            this.cmbboxRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.cmbboxRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cmbboxRoom.FormattingEnabled = true;
-            this.cmbboxRoom.IntegralHeight = false;
-            this.cmbboxRoom.ItemHeight = 43;
-            this.cmbboxRoom.Items.AddRange(new object[] {
-            "Mã Phòng",
-            "01",
-            "02",
-            "03"});
-            this.cmbboxRoom.Location = new System.Drawing.Point(256, 210);
-            this.cmbboxRoom.MaxDropDownItems = 4;
-            this.cmbboxRoom.MouseState = MaterialSkin.MouseState.OUT;
-            this.cmbboxRoom.Name = "cmbboxRoom";
-            this.cmbboxRoom.Size = new System.Drawing.Size(201, 49);
-            this.cmbboxRoom.StartIndex = 0;
-            this.cmbboxRoom.TabIndex = 12;
+            this.comboBoxRoom.AutoResize = false;
+            this.comboBoxRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxRoom.Depth = 0;
+            this.comboBoxRoom.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxRoom.DropDownHeight = 174;
+            this.comboBoxRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRoom.DropDownWidth = 121;
+            this.comboBoxRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBoxRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxRoom.FormattingEnabled = true;
+            this.comboBoxRoom.IntegralHeight = false;
+            this.comboBoxRoom.ItemHeight = 43;
+            this.comboBoxRoom.Location = new System.Drawing.Point(54, 212);
+            this.comboBoxRoom.MaxDropDownItems = 4;
+            this.comboBoxRoom.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboBoxRoom.Name = "comboBoxRoom";
+            this.comboBoxRoom.Size = new System.Drawing.Size(222, 49);
+            this.comboBoxRoom.StartIndex = 0;
+            this.comboBoxRoom.TabIndex = 12;
+            this.comboBoxRoom.SelectedIndexChanged += new System.EventHandler(this.comboBoxRoom_SelectedIndexChanged);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.AutoSize = false;
+            this.buttonSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonSave.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonSave.Depth = 0;
+            this.buttonSave.HighEmphasis = true;
+            this.buttonSave.Icon = global::AccommodationManagerApp.Properties.Resources.plus1;
+            this.buttonSave.Location = new System.Drawing.Point(271, 434);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonSave.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonSave.Size = new System.Drawing.Size(95, 36);
+            this.buttonSave.TabIndex = 25;
+            this.buttonSave.Text = "Thêm";
+            this.buttonSave.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonSave.UseAccentColor = false;
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // labelRent
+            // 
+            this.labelRent.AutoSize = true;
+            this.labelRent.Depth = 0;
+            this.labelRent.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.labelRent.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.labelRent.Location = new System.Drawing.Point(292, 237);
+            this.labelRent.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelRent.Name = "labelRent";
+            this.labelRent.Size = new System.Drawing.Size(141, 24);
+            this.labelRent.TabIndex = 26;
+            this.labelRent.Text = "--------------------";
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel1.Location = new System.Drawing.Point(349, 287);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(109, 24);
+            this.materialLabel1.TabIndex = 27;
+            this.materialLabel1.Text = "kWh/ Tháng";
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel2.Location = new System.Drawing.Point(360, 357);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(98, 24);
+            this.materialLabel2.TabIndex = 28;
+            this.materialLabel2.Text = "m3/ Tháng";
             // 
             // BillForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 500);
-            this.Controls.Add(this.cmbboxRoom);
+            this.Controls.Add(this.materialLabel2);
+            this.Controls.Add(this.materialLabel1);
+            this.Controls.Add(this.labelRent);
+            this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.comboBoxRoom);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblWater);
             this.Controls.Add(this.lblElectric);
             this.Controls.Add(this.txtbxElectric);
             this.Controls.Add(this.txtbxWater);
-            this.Controls.Add(this.cmbboxRent);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnClose);
+            this.MaximumSize = new System.Drawing.Size(500, 500);
+            this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "BillForm";
             this.Text = "Nhập Thông Tin Hóa Đơn";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -234,7 +269,6 @@
         #endregion
 
         protected MaterialSkin.Controls.MaterialButton btnClose;
-        protected MaterialSkin.Controls.MaterialComboBox cmbboxRent;
         protected MaterialSkin.Controls.MaterialTextBox txtbxWater;
         protected MaterialSkin.Controls.MaterialTextBox txtbxElectric;
         private MySqlConnector.MySqlCommand mySqlCommand1;
@@ -242,6 +276,10 @@
         protected System.Windows.Forms.PictureBox pictureBox1;
         protected MaterialSkin.Controls.MaterialLabel lblElectric;
         protected MaterialSkin.Controls.MaterialLabel lblWater;
-        protected MaterialSkin.Controls.MaterialComboBox cmbboxRoom;
+        protected MaterialSkin.Controls.MaterialComboBox comboBoxRoom;
+        protected MaterialSkin.Controls.MaterialButton buttonSave;
+        protected MaterialSkin.Controls.MaterialLabel labelRent;
+        protected MaterialSkin.Controls.MaterialLabel materialLabel1;
+        protected MaterialSkin.Controls.MaterialLabel materialLabel2;
     }
 }

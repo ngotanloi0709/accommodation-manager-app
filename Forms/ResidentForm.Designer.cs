@@ -179,7 +179,6 @@ namespace AccommodationManagerApp.Forms {
             this.Name = "ResidentForm";
             this.Text = "Thêm nhân khẩu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ResidentForm_FormClosing);
-            this.Controls.SetChildIndex(this.btnExit, 0);
             this.Controls.SetChildIndex(this.materialLabel2, 0);
             this.Controls.SetChildIndex(this.comboBoxRoomNumber, 0);
             this.Controls.SetChildIndex(this.ButtonSave, 0);

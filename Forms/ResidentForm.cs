@@ -33,7 +33,7 @@ namespace AccommodationManagerApp.Forms
             comboBoxRoomNumber.SelectedIndex = 0;
             comboBoxRoomNumber.Enabled = false;
             
-            List<User> users = _userService.GetAllWithRoleTenant();
+            var users = _userService.GetAllWithRoleTenant();
             
             comboBoxName.Items.Add("None");
             foreach (var user in users) {
@@ -56,7 +56,7 @@ namespace AccommodationManagerApp.Forms
             comboBoxEmail.SelectedIndex = 0;
             comboBoxEmail.Enabled = false;
             
-            List<Room> rooms = _roomService.GetAll();
+            var rooms = _roomService.GetAll();
             comboBoxRoomNumber.Items.Add("None");
             
             foreach (var room in rooms) {
@@ -75,10 +75,10 @@ namespace AccommodationManagerApp.Forms
                     user = _user;
                 }
                 
-                int? updateId = _roomService.GetIdByRoomNumber(comboBoxRoomNumber.Text);
+                var updateId = _roomService.GetIdByRoomNumber(comboBoxRoomNumber.Text);
                 
                 if (user.RoomId != null) {
-                    Room room = _roomService.GetById((int) user.RoomId);
+                    var room = _roomService.GetById((int) user.RoomId);
                     
                     if (room != null && room.Id != updateId && !IsProceedUpdate(room)) {
                         return;

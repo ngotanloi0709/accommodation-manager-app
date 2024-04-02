@@ -13,7 +13,7 @@ namespace AccommodationManagerApp.Forms {
             Users = _userService.GetAllWithRoleTenantAndWithContractAndRoom();
 
             foreach (var user in Users) {
-                ListViewItem item = new ListViewItem(user.Name);
+                var item = new ListViewItem(user.Name);
                 item.SubItems.Add(user.Phone);
                 item.SubItems.Add(user.IdentityNumber);
                 ListViewUser.Items.Add(item);
@@ -21,7 +21,7 @@ namespace AccommodationManagerApp.Forms {
         }
 
         private void ListViewUser_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) {
-            User user = IsSelectedUserValid();
+            var user = IsSelectedUserValid();
 
             if (user != null) {
                 LoadTenantAvatar(user);
@@ -55,7 +55,7 @@ namespace AccommodationManagerApp.Forms {
             var contracts = _contractService.GetByUserIdAndNonExpiredWithRoom(user.Id);
             
             foreach (var contract in contracts) {
-                ListViewItem item = new ListViewItem(contract.User != null ? contract.Room.RoomNumber : Resources.NullData);
+                var item = new ListViewItem(contract.User != null ? contract.Room.RoomNumber : Resources.NullData);
                 item.SubItems.Add(string.IsNullOrEmpty(contract.EndDate.ToString("dd/MM/yyyy")) ? Resources.NullData : contract.EndDate.ToString("dd/MM/yyyy"));
                 ListViewUserRentList.Items.Add(item);
             }
@@ -68,7 +68,7 @@ namespace AccommodationManagerApp.Forms {
         }
 
         private void buttonEditTenant_Click(object sender, EventArgs e) {
-            User user = IsSelectedUserValid();
+            var user = IsSelectedUserValid();
 
             if (user != null) {
                 var userForm = new UserForm(user);
@@ -107,7 +107,7 @@ namespace AccommodationManagerApp.Forms {
         }
 
         private void buttonDeleteTenant_Click(object sender, EventArgs e) {
-            User user = IsSelectedUserValid();
+            var user = IsSelectedUserValid();
             if (user != null) {
                 if (!IsUserSafeDelete(user.Id)) {
                     return;
@@ -141,7 +141,7 @@ namespace AccommodationManagerApp.Forms {
         }
 
         private void buttonEditTenantPassword_Click(object sender, EventArgs e) {
-            User user = IsSelectedUserValid();
+            var user = IsSelectedUserValid();
 
             if (user != null) {
                 var changeUserPasswordForm = new ChangeUserPasswordForm(user);
@@ -153,18 +153,18 @@ namespace AccommodationManagerApp.Forms {
         }
 
         private void buttonChangeTenantAvatar_Click(object sender, EventArgs e) {
-            User user = IsSelectedUserValid();
+            var user = IsSelectedUserValid();
             if (user != null) {
-                OpenFileDialog openFileDialog = new OpenFileDialog {
+                var openFileDialog = new OpenFileDialog {
                     Filter = Resources.ImageFilter,
                     RestoreDirectory = true
                 };
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK) {
-                    Image image = Image.FromFile(openFileDialog.FileName);
-                    Image compressedImage = _userService.CompressImage(image, 50);
+                    var image = Image.FromFile(openFileDialog.FileName);
+                    var compressedImage = _userService.CompressImage(image, 50);
 
-                    using (MemoryStream ms = new MemoryStream()) {
+                    using (var ms = new MemoryStream()) {
                         compressedImage.Save(ms, image.RawFormat);
                         user.Avatar = ms.ToArray();
                     }
@@ -203,7 +203,7 @@ namespace AccommodationManagerApp.Forms {
 
         private User IsSelectedUserValid() {
             if (ListViewUser.SelectedItems.Count > 0) {
-                int index = ListViewUser.SelectedItems[0].Index;
+                var index = ListViewUser.SelectedItems[0].Index;
                 if (index < Users.Count) {
                     return Users[index];
                 }
@@ -213,7 +213,7 @@ namespace AccommodationManagerApp.Forms {
         }
 
         private void SelectUserAgain(User user) {
-            int index = Users.IndexOf(user);
+            var index = Users.IndexOf(user);
 
             if (ListViewUser.Items.Count > index) {
                 ListViewUser.Items[index].Selected = true;

@@ -185,7 +185,6 @@
             this.Controls.SetChildIndex(this.materialLabel4, 0);
             this.Controls.SetChildIndex(this.comboBoxRoomBuilding, 0);
             this.Controls.SetChildIndex(this.comboBoxRoomStatus, 0);
-            this.Controls.SetChildIndex(this.btnExit, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 

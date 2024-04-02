@@ -9,9 +9,7 @@ namespace AccommodationManagerApp.Repository
 {
     public class VehicleRepository : Repository<Vehicle>
     {
-        public VehicleRepository(AccommodationManagerAppContext context) : base(context)
-        {
-        }
+        public VehicleRepository(AccommodationManagerAppContext context) : base(context) { }
 
         public Vehicle GetByNumber(string number)
         {
