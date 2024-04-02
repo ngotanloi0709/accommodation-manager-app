@@ -51,7 +51,10 @@ namespace AccommodationManagerApp.Service
                 return -1;
             }
         }
-
+        public List<Bill> GetAllBillByUserId(int userId)
+        {
+            return _billRepository.GetAllBillByUserId(userId);
+        }
         public FixedPrice GetWaterPrice() {
             return _fixedPriceRepository.GetWaterPrice();
         }

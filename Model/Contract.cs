@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -15,7 +16,7 @@ namespace AccommodationManagerApp.Model {
         public DateTime StartDate { get; set; } = DateTime.Now;
         public DateTime EndDate { get; set; } = DateTime.Now;
         public bool IsTerminated { get; set; } = false;
-        
+        public List<Bill> Bills { get; set; }
 
         public Contract() { }
 

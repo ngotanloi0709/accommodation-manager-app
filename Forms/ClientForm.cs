@@ -9,32 +9,41 @@ namespace AccommodationManagerApp.Forms
 {
     public partial class ClientForm : BaseForm
     {
-        private readonly BillService _billService;
-        private readonly AuthenticationService _authenticationService;
-        private readonly RequestService _requestService;
+        private BillService _billService;
+        private AuthenticationService _authenticationService;
+        private RequestService _requestService;
         
-        private User user;
-        private List<Request> requests;
-
-        private List<BillModel> Bills { get; set; }
+        private User _user;
+        private List<Request> _Requests;
+        private List<BillModel> _Bills;
         public ClientForm()
+        {
+            InitializeComponent();
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            LoadService();
+            LoadEntity();
+            LoadBillData();
+            LoadRequestData();
+            LoadFixedPriceToBills();
+            LoadPersonalInformation();
+        }
+
+        private void LoadEntity() 
+        {
+            _user = _authenticationService.CurrentUser;
+        }
+        private void LoadService()
         {
             _authenticationService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
             _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
             _requestService = ServiceLocator.ServiceProvider.GetService(typeof(RequestService)) as RequestService;
-            user = _authenticationService.CurrentUser;
-            InitializeComponent();
-            setInfor();
-            load();
         }
 
-        private void load()
-        {
-            LoadBillData();
-            readReq();
-        }
-
-        private void setInfor()
+        private void LoadPersonalInformation()
         {
             if (_authenticationService.IsAuthenticated())
             {
@@ -86,7 +95,7 @@ namespace AccommodationManagerApp.Forms
             if (result == DialogResult.Yes)
             {
                 _authenticationService.Logout();
-                setInfor();
+                LoadPersonalInformation();
             }
         }
     }

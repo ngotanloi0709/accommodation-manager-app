@@ -37,6 +37,7 @@ namespace AccommodationManagerApp.Forms
         private void addBill(object sender, System.EventArgs e)
         {
             InsertBill(null);
+            LoadFixedPriceToBills();
         }
         private void updateBill(object sender, System.EventArgs e)
         {
@@ -83,6 +84,24 @@ namespace AccommodationManagerApp.Forms
                 return;
             }
         }
+        private void LoadFixedPriceToBills()
+        {
+            int waterFee = _billService.GetWaterPrice().Price;
+            int elecFee = _billService.GetElectricityPrice().Price;
+            int internetFee = _billService.GetInternetPrice().Price;
+
+            foreach(var Bill in Bills)
+            {
+                if(Bill.InternetFee == 0 || Bill.ElecFee == 0 || Bill.WaterFee == 0)
+                {
+                    Bill.WaterFee = waterFee;
+                    Bill.ElecFee = elecFee;
+                    Bill.InternetFee = internetFee;
+                    _billService.Update(Bill.Id, Bill);
+                }
+            }
+        }
+    
     }
 }
 

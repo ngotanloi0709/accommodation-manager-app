@@ -1,5 +1,4 @@
-﻿using AccommodationManagerApp.Forms.Bill;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using BillModel = AccommodationManagerApp.Model.Bill;
 namespace AccommodationManagerApp.Forms
 {
@@ -12,72 +11,59 @@ namespace AccommodationManagerApp.Forms
             {
                 int index = lstViewBill.SelectedItems[0].Index;
 
-                if (index < Bills.Count) return Bills[index];
+                if (index < _Bills.Count) return _Bills[index];
             }
             return null;
         }
-        private void pdfBill(object sender, System.EventArgs e)
-        {
-            _bill = SelectBill();
-            if (_bill == null)
-            {
-                new ToastForm("Please select a bill to export to PDF", true).Show();
-                return;
-            }
-
-            BillDetail billDetail = new BillDetail(_bill);
-            billDetail.ShowDialog();
-        }
-        private void InsertBill(BillModel bill)
-        {
-            BillForm billForm = new BillForm(bill);
-            billForm.ShowDialog();
-            LoadBillData();
-        }
-        private void addBill(object sender, System.EventArgs e)
-        {
-            InsertBill(null);
-        }
-        private void updateBill(object sender, System.EventArgs e)
-        {
-            _bill = SelectBill();
-            if (_bill == null)
-            {
-                new ToastForm("Mời chọn hóa đơn !", true).Show();
-                return;
-            }
-            InsertBill(_bill);
-        }
         private void LoadBillData()
         {
-            Bills = _billService.GetAll();
+
+            _Bills = _billService.GetAllBillByUserId(_user.Id);
             lstViewBill.Items.Clear();
-            foreach (var bill in Bills)
+            foreach (var bill in _Bills)
             {
                 var item = new ListViewItem(bill.Id.ToString());
+                item.SubItems.Add(bill.ElecQuantity.ToString());
+                item.SubItems.Add(bill.WaterQuantity.ToString());
+                item.SubItems.Add(bill.Contract?.Room.RoomNumber.ToString() ?? "Trống");
                 item.SubItems.Add(bill.CreatedAtFormatted);
                 item.SubItems.Add(bill.Status.ToString());
                 lstViewBill.Items.Add(item);
             }
         }
-        private void deleteBill(object sender, System.EventArgs e)
+        private void LoadFixedPriceToBills()
         {
-            _bill = SelectBill();
-            if (_bill != null)
+            int waterFee = _billService.GetWaterPrice().Price;
+            int elecFee = _billService.GetElectricityPrice().Price;
+            int internetFee = _billService.GetInternetPrice().Price;
+
+            foreach (var Bill in _Bills)
             {
-                var confirmation = new ConfirmationForm("Xác nhận xóa hóa đơn?");
-                var result = confirmation.ShowDialog();
-                if (result == DialogResult.Yes)
+                if (Bill.InternetFee == 0 || Bill.ElecFee == 0 || Bill.WaterFee == 0)
                 {
-                    _billService.Delete(_bill.Id);
-                    LoadBillData();
+                    Bill.WaterFee = waterFee;
+                    Bill.ElecFee = elecFee;
+                    Bill.InternetFee = internetFee;
+                    _billService.Update(Bill.Id, Bill);
                 }
             }
-            else
+        }
+        private void buttonPreview_Click(object sender, System.EventArgs e)
+        {
+            var confirmForm = new ConfirmationForm("Bạn muốn xem chi tiết hóa đơn ?");
+            confirmForm.ShowDialog();
+            
+            if (confirmForm.DialogResult != DialogResult.Yes) return;
+            
+            _bill = SelectBill();
+            if (_bill == null)
             {
-                new ToastForm("Mời chọn hóa đơn để xóa !", true).Show();
+                new ToastForm("Mời chọn hóa đơn để xem chi tiết", true).Show();
                 return;
             }
+
+            BillDetail billDetail = new BillDetail(_bill);
+            billDetail.ShowDialog();
         }
     }
 }

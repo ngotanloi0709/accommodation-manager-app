@@ -1,15 +1,16 @@
 ﻿using AccommodationManagerApp.Model;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AccommodationManagerApp.Repository
 {
     public class BillRepository : Repository<Bill>
     {
         public BillRepository(AccommodationManagerAppContext context) : base(context) { }
-        public void DeleteAll()
+
+        public List<Bill> GetAllBillByUserId(int userId)
         {
-            Context.Set<Bill>().RemoveRange(GetAll());
-            Context.SaveChanges();
-            Context.Database.ExecuteSqlCommand("ALTER TABLE bills AUTO_INCREMENT = 1;");
+            return Context.Set<Bill>().Where(bill => bill.UserId == userId).ToList();
         }
     }
 }

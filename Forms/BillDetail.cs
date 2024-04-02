@@ -26,9 +26,8 @@ namespace AccommodationManagerApp.Forms
             int elecQty = _bill.ElecQuantity;
             int elecPrice = _billService.GetElectricityPrice().Price;
             int internetPrice = _billService.GetInternetPrice().Price;
-
-            lblRoomId.Text = _bill.Contract.Room.RoomNumber;
-            lblDate.Text = _bill.CreatedAt.ToString();
+            if(_bill.Contract != null) lblRoomId.Text = _bill.Contract.Room.RoomNumber;
+            lblDate.Text = _bill.CreatedAtFormatted;
             labelRent.Text = _bill.Contract.Price.ToString();
             labelQtyWater.Text = waterQty.ToString();
             labelQtyElec.Text = elecQty.ToString();

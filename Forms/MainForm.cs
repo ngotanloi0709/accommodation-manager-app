@@ -49,6 +49,7 @@ namespace AccommodationManagerApp.Forms
             LoadUserData();
             LoadContractData();
             LoadFixedPriceData();
+            LoadFixedPriceToBills();
         }
 
 

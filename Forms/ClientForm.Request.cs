@@ -1,64 +1,48 @@
 ﻿using AccommodationManagerApp.Model;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace AccommodationManagerApp.Forms
 {
     public partial class ClientForm
     {
-        private int reqId;
-        private void ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        private Request _request;
+        private void DeleteReq(object sender, System.EventArgs e)
         {
-            if (e.Item.Selected)
+            _request = SelectRequest();
+            if (_request == null) return;
+
+            var confirmation = new ConfirmationForm("Xác nhận xóa yêu cầu?");
+            confirmation.ShowDialog();
+            if (confirmation.DialogResult == DialogResult.Yes)
             {
-                reqId = int.Parse(e.Item.SubItems[0].Text);
-                return;
-            }
-            reqId = 0;
-        }
-        private void resetReq()
-        {
-            reqId = 0;
-            readReq();
-        }
-        private void deleteReq(object sender, System.EventArgs e)
-        {
-            if (reqId != 0)
-            {
-                var confirmation = new ConfirmationForm("Xác nhận xóa yêu cầu?");
-                var result = confirmation.ShowDialog();
-                if (result == DialogResult.Yes)
-                {
-                    _requestService.Delete(reqId);
-                    resetReq();
-                }
-            }
-            else
-            {
-                new ToastForm("Mời bạn chọn yêu cầu thì mới xóa được !", true).Show();
-                return;
+                _requestService.Delete(_request.Id);
+                LoadRequestData();
             }
         }
-        private void updateReq(object sender, System.EventArgs e)
+        private void UpdateReq(object sender, System.EventArgs e)
         {
-            if (reqId != 0)
-            {
-                Request request = _requestService.GetById(reqId);
-                RequestForm requestForm = new RequestForm(request);
-                requestForm.ShowDialog();
-                resetReq();
-            }
-            else
-            {
-                new ToastForm("Mời bạn chọn yêu cầu !", true).Show();
-                return;
-            }
+            _request = SelectRequest();
+            if (_request == null) return;
+                
+            InsertRequest(_request);
+            
         }
-        private void readReq()
+        private void AddReq(object sender, System.EventArgs e)
         {
-            int userId = user.Id;
-            requests = _requestService.GetAllByUserId(userId);
+            InsertRequest(null);
+        }
+        private void InsertRequest(Request request)
+        {
+            RequestForm requestForm = new RequestForm(request);
+            requestForm.ShowDialog();
+            LoadRequestData();
+        }
+        private void LoadRequestData()
+        {
+            _Requests = _requestService.GetAllByUserId(_user.Id);
             lstViewReq.Items.Clear();
-            foreach (var request in requests)
+            foreach (var request in _Requests)
             {
                 var item = new ListViewItem(request.Id.ToString());
                 item.SubItems.Add(request.Des);
@@ -67,11 +51,15 @@ namespace AccommodationManagerApp.Forms
                 lstViewReq.Items.Add(item);
             }
         }
-        private void addReq(object sender, System.EventArgs e)
+        private Request SelectRequest()
         {
-            RequestForm requestForm = new RequestForm(null);
-            requestForm.ShowDialog();
-            resetReq();
+            if (lstViewReq.SelectedItems.Count > 0)
+            {
+                int index = lstViewReq.SelectedItems[0].Index;
+                if (index < _Requests.Count) return _Requests[index];
+            }
+            new ToastForm("Mời bạn chọn yêu cầu !", true).Show();
+            return null;
         }
     }
 }
