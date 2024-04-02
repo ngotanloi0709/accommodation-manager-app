@@ -21,15 +21,5 @@ namespace AccommodationManagerApp.Forms {
             MinimizeBox = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
-
-        protected void exit(object sender, System.EventArgs e)
-        {
-            var confirmation = new ConfirmationForm("Bạn có chắc chắn muốn thoát");
-            var result = confirmation.ShowDialog();
-            if (result == DialogResult.Yes)
-            {
-                Close();
-            }
-        }
     }
 }

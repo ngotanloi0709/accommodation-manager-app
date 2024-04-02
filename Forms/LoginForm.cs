@@ -11,9 +11,8 @@ namespace AccommodationManagerApp.Forms
         {
             _authenticationService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
             InitializeComponent();
-            btnExit.Visible = false;
         }
-        private void login(object sender, EventArgs e)
+        private void Login(object sender, EventArgs e)
         {
             var email = txtEmail.Text;
             var password = txtPass.Text;
@@ -37,7 +36,7 @@ namespace AccommodationManagerApp.Forms
             }
         }
 
-        private void logout(object sender, EventArgs e)
+        private void Logout(object sender, EventArgs e)
         {
             var confirm = new ConfirmationForm("Bạn chắc muốn thoát chứ");
             var result = confirm.ShowDialog();

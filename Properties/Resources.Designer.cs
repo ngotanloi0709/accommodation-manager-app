@@ -232,7 +232,7 @@ namespace AccommodationManagerApp.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap logout {
             get {
-                object obj = ResourceManager.GetObject("logout", resourceCulture);
+                object obj = ResourceManager.GetObject("Logout", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

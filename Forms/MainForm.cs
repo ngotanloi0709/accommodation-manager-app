@@ -3,7 +3,6 @@ using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 using System.Collections.Generic;
-using System.Threading;
 using System.Windows.Forms;
 using BillModel = AccommodationManagerApp.Model.Bill;
 
@@ -78,15 +77,7 @@ namespace AccommodationManagerApp.Forms
         }
         private void LoadPersonalInformation()
         {
-            if (_authenticationService.IsAuthenticated())
-            {
-                labelCurrentUserEmail.Text = _authenticationService.CurrentUser.Email;
-            }
-            else
-            {
-                labelCurrentUserEmail.Text = defaultMail;
-                btnLogin.Visible = true;
-            }
+            labelCurrentUserEmail.Text = _authenticationService.IsAuthenticated() ? _authenticationService.CurrentUser.Email : defaultMail;
         }
         private void Logout(object sender, EventArgs e)
         {
@@ -95,26 +86,8 @@ namespace AccommodationManagerApp.Forms
             if (result == DialogResult.Yes)
             {
                 _authenticationService.Logout();
-                LoadPersonalInformation();
+                Close();
             }
-        }
-        private void Login(object sender, EventArgs e)
-        {
-            var confirmation = new ConfirmationForm("Bạn có chắc chắn muốn đăng xuất");
-            var result = confirmation.ShowDialog();
-            if (result != DialogResult.Yes) return;
-            _authenticationService.Logout();
-            Close();
-
-            var loginFormThread = new Thread(() =>
-            {
-                Application.SetCompatibleTextRenderingDefault(false);
-                var loginForm = new LoginForm();
-                Application.Run(loginForm);
-            });
-
-            loginFormThread.SetApartmentState(ApartmentState.STA);
-            loginFormThread.Start();
         }
     }
 }

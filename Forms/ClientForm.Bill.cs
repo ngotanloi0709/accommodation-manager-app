@@ -1,4 +1,7 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 using BillModel = AccommodationManagerApp.Model.Bill;
 namespace AccommodationManagerApp.Forms
 {
@@ -17,10 +20,18 @@ namespace AccommodationManagerApp.Forms
         }
         private void LoadBillData()
         {
-
             _Bills = _billService.GetAllBillByUserId(_user.Id);
+            InsertBillIntoListView(_Bills);
+        }
+        private void LoadBillDataInThisMonth()
+        {
+            var billsInThisMonth = _Bills.Where(bill => bill.CreatedAt.Month == DateTime.Now.Month).ToList();
+            InsertBillIntoListView(billsInThisMonth);
+        }
+        private void InsertBillIntoListView(List<BillModel> bills)
+        {
             lstViewBill.Items.Clear();
-            foreach (var bill in _Bills)
+            foreach (var bill in bills)
             {
                 var item = new ListViewItem(bill.Id.ToString());
                 item.SubItems.Add(bill.ElecQuantity.ToString());
@@ -47,6 +58,20 @@ namespace AccommodationManagerApp.Forms
 
             var billDetail = new BillDetail(_bill);
             billDetail.ShowDialog();
+        }
+        private void ComboBoxVolumn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBoxVolumn.SelectedIndex)
+            {
+                case 0:
+                    LoadBillData();
+                    break;
+                case 1:
+                    LoadBillDataInThisMonth();
+                    break;
+
+
+            }
         }
     }
 }

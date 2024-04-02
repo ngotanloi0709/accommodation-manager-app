@@ -187,7 +187,6 @@
             this.room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.state = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnLogin = new MaterialSkin.Controls.MaterialButton();
             this.mySqlConnection1 = new MySqlConnector.MySqlConnection();
             this.labelCurrentUserEmail = new System.Windows.Forms.Label();
             this.buttonCurrentUserInformationManagement = new MaterialSkin.Controls.MaterialButton();
@@ -2347,7 +2346,7 @@
             this.comboBoxVolumn.Items.AddRange(new object[] {
             "Tất Cả",
             "Tháng Này"});
-            this.comboBoxVolumn.Location = new System.Drawing.Point(45, 23);
+            this.comboBoxVolumn.Location = new System.Drawing.Point(41, 29);
             this.comboBoxVolumn.MaxDropDownItems = 4;
             this.comboBoxVolumn.MouseState = MaterialSkin.MouseState.OUT;
             this.comboBoxVolumn.Name = "comboBoxVolumn";
@@ -2372,7 +2371,7 @@
             this.cmbboxCatg.ItemHeight = 43;
             this.cmbboxCatg.Items.AddRange(new object[] {
             "Thời gian"});
-            this.cmbboxCatg.Location = new System.Drawing.Point(177, 23);
+            this.cmbboxCatg.Location = new System.Drawing.Point(173, 29);
             this.cmbboxCatg.MaxDropDownItems = 4;
             this.cmbboxCatg.MouseState = MaterialSkin.MouseState.OUT;
             this.cmbboxCatg.Name = "cmbboxCatg";
@@ -2387,7 +2386,7 @@
             this.btnSearch.Depth = 0;
             this.btnSearch.HighEmphasis = true;
             this.btnSearch.Icon = global::AccommodationManagerApp.Properties.Resources.search;
-            this.btnSearch.Location = new System.Drawing.Point(820, 30);
+            this.btnSearch.Location = new System.Drawing.Point(816, 36);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSearch.Name = "btnSearch";
@@ -2410,7 +2409,7 @@
             this.txtBoxSearch.ForeColor = System.Drawing.Color.Transparent;
             this.txtBoxSearch.Hint = "Tìm Kiếm";
             this.txtBoxSearch.LeadingIcon = null;
-            this.txtBoxSearch.Location = new System.Drawing.Point(299, 22);
+            this.txtBoxSearch.Location = new System.Drawing.Point(295, 28);
             this.txtBoxSearch.MaxLength = 50;
             this.txtBoxSearch.MouseState = MaterialSkin.MouseState.OUT;
             this.txtBoxSearch.Multiline = false;
@@ -2543,29 +2542,6 @@
             this.state.Text = "Tình Trạng";
             this.state.Width = 150;
             // 
-            // btnLogin
-            // 
-            this.btnLogin.AutoSize = false;
-            this.btnLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnLogin.Depth = 0;
-            this.btnLogin.HighEmphasis = true;
-            this.btnLogin.Icon = global::AccommodationManagerApp.Properties.Resources.login;
-            this.btnLogin.Location = new System.Drawing.Point(649, 25);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnLogin.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnLogin.Size = new System.Drawing.Size(134, 36);
-            this.btnLogin.TabIndex = 17;
-            this.btnLogin.Text = "Đăng nhập";
-            this.btnLogin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.btnLogin.UseAccentColor = false;
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Visible = false;
-            this.btnLogin.Click += new System.EventHandler(this.Login);
-            // 
             // mySqlConnection1
             // 
             this.mySqlConnection1.ProvideClientCertificatesCallback = null;
@@ -2614,7 +2590,7 @@
             this.btnLogout.Depth = 0;
             this.btnLogout.HighEmphasis = true;
             this.btnLogout.Icon = global::AccommodationManagerApp.Properties.Resources.logout;
-            this.btnLogout.Location = new System.Drawing.Point(789, 25);
+            this.btnLogout.Location = new System.Drawing.Point(821, 25);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnLogout.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLogout.Name = "btnLogout";
@@ -2636,7 +2612,6 @@
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.buttonCurrentUserInformationManagement);
             this.Controls.Add(this.labelCurrentUserEmail);
-            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.materialTabControl);
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl;
@@ -2648,12 +2623,6 @@
             this.Padding = new System.Windows.Forms.Padding(3, 80, 3, 4);
             this.Sizable = false;
             this.Text = "";
-            this.Controls.SetChildIndex(this.materialTabControl, 0);
-            this.Controls.SetChildIndex(this.btnLogin, 0);
-            this.Controls.SetChildIndex(this.labelCurrentUserEmail, 0);
-            this.Controls.SetChildIndex(this.buttonCurrentUserInformationManagement, 0);
-            this.Controls.SetChildIndex(this.btnLogout, 0);
-            this.Controls.SetChildIndex(this.btnExit, 0);
             this.tabPageContract.ResumeLayout(false);
             this.tabPageContract.PerformLayout();
             this.tabPageSystemUser.ResumeLayout(false);
@@ -2719,7 +2688,6 @@
         private MaterialSkin.Controls.MaterialButton buttonAddRoom;
         private MaterialSkin.Controls.MaterialTextBox materialTextBox2;
         private MaterialSkin.Controls.MaterialFloatingActionButton buttonReloadBuilding;
-        private MaterialSkin.Controls.MaterialButton btnLogin;
         private System.Windows.Forms.TabPage tabPageBills;
         private MaterialSkin.Controls.MaterialListView lstViewBill;
         private MySqlConnector.MySqlConnection mySqlConnection1;

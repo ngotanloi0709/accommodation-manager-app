@@ -266,7 +266,6 @@
             this.Controls.SetChildIndex(this.lblWater, 0);
             this.Controls.SetChildIndex(this.lblDate, 0);
             this.Controls.SetChildIndex(this.comboBoxRoom, 0);
-            this.Controls.SetChildIndex(this.btnExit, 0);
             this.Controls.SetChildIndex(this.buttonSave, 0);
             this.Controls.SetChildIndex(this.labelRent, 0);
             this.Controls.SetChildIndex(this.materialLabel1, 0);

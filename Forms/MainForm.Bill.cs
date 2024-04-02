@@ -45,8 +45,8 @@ namespace AccommodationManagerApp.Forms
         }
         private void LoadBillDataInThisMonth()
         {
-            var billsInThisMonth = Bills.Where(bill => bill.CreatedAt.Month == DateTime.Now.Month).ToList();
-            InsertBillIntoListView(billsInThisMonth);
+            Bills = Bills.Where(bill => bill.CreatedAt.Month == DateTime.Now.Month).ToList();
+            InsertBillIntoListView(Bills);
         }
         private void InsertBillIntoListView(List<BillModel> bills)
         {
@@ -75,7 +75,6 @@ namespace AccommodationManagerApp.Forms
                 LoadBillData();
             }
         }    
-        
         private void ComboBoxVolumn_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (comboBoxVolumn.SelectedIndex)
@@ -86,8 +85,6 @@ namespace AccommodationManagerApp.Forms
                 case 1:
                     LoadBillDataInThisMonth();
                     break;
-
-
             }
         }
     }

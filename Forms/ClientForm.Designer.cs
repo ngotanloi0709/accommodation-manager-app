@@ -33,7 +33,6 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.btnLogout = new MaterialSkin.Controls.MaterialButton();
             this.buttonCurrentUserInformationManagement = new MaterialSkin.Controls.MaterialButton();
-            this.btnLogin = new MaterialSkin.Controls.MaterialButton();
             this.imgLstClient = new System.Windows.Forms.ImageList(this.components);
             this.tbCtrlClient = new MaterialSkin.Controls.MaterialTabControl();
             this.pgRequest = new System.Windows.Forms.TabPage();
@@ -50,11 +49,11 @@
             this.btnReqSearch = new MaterialSkin.Controls.MaterialButton();
             this.txtReqSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.pgBill = new System.Windows.Forms.TabPage();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.materialComboBox2 = new MaterialSkin.Controls.MaterialComboBox();
+            this.comboBoxVolumn = new MaterialSkin.Controls.MaterialComboBox();
             this.cmbboxCatg = new MaterialSkin.Controls.MaterialComboBox();
             this.btnSearch = new MaterialSkin.Controls.MaterialButton();
             this.txtBoxSearch = new MaterialSkin.Controls.MaterialTextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonPreview = new MaterialSkin.Controls.MaterialButton();
             this.lstViewBill = new MaterialSkin.Controls.MaterialListView();
             this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -91,7 +90,7 @@
             this.btnLogout.Depth = 0;
             this.btnLogout.HighEmphasis = true;
             this.btnLogout.Icon = global::AccommodationManagerApp.Properties.Resources.logout;
-            this.btnLogout.Location = new System.Drawing.Point(789, 25);
+            this.btnLogout.Location = new System.Drawing.Point(814, 28);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnLogout.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLogout.Name = "btnLogout";
@@ -124,30 +123,7 @@
             this.buttonCurrentUserInformationManagement.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.buttonCurrentUserInformationManagement.UseAccentColor = false;
             this.buttonCurrentUserInformationManagement.UseVisualStyleBackColor = true;
-            this.buttonCurrentUserInformationManagement.Click += new System.EventHandler(this.showInfor);
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.AutoSize = false;
-            this.btnLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnLogin.Depth = 0;
-            this.btnLogin.HighEmphasis = true;
-            this.btnLogin.Icon = global::AccommodationManagerApp.Properties.Resources.login;
-            this.btnLogin.Location = new System.Drawing.Point(649, 25);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnLogin.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnLogin.Size = new System.Drawing.Size(134, 36);
-            this.btnLogin.TabIndex = 22;
-            this.btnLogin.Text = "Đăng nhập";
-            this.btnLogin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.btnLogin.UseAccentColor = false;
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Visible = false;
-            this.btnLogin.Click += new System.EventHandler(this.login);
+            this.buttonCurrentUserInformationManagement.Click += new System.EventHandler(this.ShowInfor);
             // 
             // imgLstClient
             // 
@@ -171,7 +147,7 @@
             this.tbCtrlClient.Multiline = true;
             this.tbCtrlClient.Name = "tbCtrlClient";
             this.tbCtrlClient.SelectedIndex = 0;
-            this.tbCtrlClient.Size = new System.Drawing.Size(1058, 853);
+            this.tbCtrlClient.Size = new System.Drawing.Size(1026, 811);
             this.tbCtrlClient.TabIndex = 25;
             // 
             // pgRequest
@@ -189,14 +165,13 @@
             this.pgRequest.Location = new System.Drawing.Point(4, 39);
             this.pgRequest.Name = "pgRequest";
             this.pgRequest.Padding = new System.Windows.Forms.Padding(3);
-            this.pgRequest.Size = new System.Drawing.Size(1050, 810);
+            this.pgRequest.Size = new System.Drawing.Size(1018, 768);
             this.pgRequest.TabIndex = 1;
             this.pgRequest.Text = "Yêu Cầu";
             this.pgRequest.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::AccommodationManagerApp.Properties.Resources.icon_250;
             this.pictureBox1.Location = new System.Drawing.Point(754, 130);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(187, 157);
@@ -387,55 +362,46 @@
             // pgBill
             // 
             this.pgBill.BackColor = System.Drawing.Color.White;
-            this.pgBill.Controls.Add(this.pictureBox2);
-            this.pgBill.Controls.Add(this.materialComboBox2);
+            this.pgBill.Controls.Add(this.comboBoxVolumn);
             this.pgBill.Controls.Add(this.cmbboxCatg);
             this.pgBill.Controls.Add(this.btnSearch);
             this.pgBill.Controls.Add(this.txtBoxSearch);
+            this.pgBill.Controls.Add(this.pictureBox2);
             this.pgBill.Controls.Add(this.buttonPreview);
             this.pgBill.Controls.Add(this.lstViewBill);
             this.pgBill.ImageKey = "contract.png";
             this.pgBill.Location = new System.Drawing.Point(4, 39);
             this.pgBill.Name = "pgBill";
-            this.pgBill.Size = new System.Drawing.Size(1050, 810);
+            this.pgBill.Size = new System.Drawing.Size(986, 690);
             this.pgBill.TabIndex = 2;
             this.pgBill.Text = "Hóa Đơn";
             this.pgBill.UseVisualStyleBackColor = true;
             // 
-            // pictureBox2
+            // comboBoxVolumn
             // 
-            this.pictureBox2.Image = global::AccommodationManagerApp.Properties.Resources.icon_250;
-            this.pictureBox2.Location = new System.Drawing.Point(710, 94);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(189, 151);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 65;
-            this.pictureBox2.TabStop = false;
-            // 
-            // materialComboBox2
-            // 
-            this.materialComboBox2.AutoResize = false;
-            this.materialComboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialComboBox2.Depth = 0;
-            this.materialComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBox2.DropDownHeight = 174;
-            this.materialComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBox2.DropDownWidth = 121;
-            this.materialComboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialComboBox2.FormattingEnabled = true;
-            this.materialComboBox2.IntegralHeight = false;
-            this.materialComboBox2.ItemHeight = 43;
-            this.materialComboBox2.Items.AddRange(new object[] {
-            "Tăng ",
-            "Giảm"});
-            this.materialComboBox2.Location = new System.Drawing.Point(42, 22);
-            this.materialComboBox2.MaxDropDownItems = 4;
-            this.materialComboBox2.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBox2.Name = "materialComboBox2";
-            this.materialComboBox2.Size = new System.Drawing.Size(87, 49);
-            this.materialComboBox2.StartIndex = 0;
-            this.materialComboBox2.TabIndex = 57;
+            this.comboBoxVolumn.AutoResize = false;
+            this.comboBoxVolumn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxVolumn.Depth = 0;
+            this.comboBoxVolumn.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxVolumn.DropDownHeight = 174;
+            this.comboBoxVolumn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxVolumn.DropDownWidth = 121;
+            this.comboBoxVolumn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBoxVolumn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxVolumn.FormattingEnabled = true;
+            this.comboBoxVolumn.IntegralHeight = false;
+            this.comboBoxVolumn.ItemHeight = 43;
+            this.comboBoxVolumn.Items.AddRange(new object[] {
+            "Tất Cả",
+            "Tháng Này"});
+            this.comboBoxVolumn.Location = new System.Drawing.Point(38, 25);
+            this.comboBoxVolumn.MaxDropDownItems = 4;
+            this.comboBoxVolumn.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboBoxVolumn.Name = "comboBoxVolumn";
+            this.comboBoxVolumn.Size = new System.Drawing.Size(126, 49);
+            this.comboBoxVolumn.StartIndex = 0;
+            this.comboBoxVolumn.TabIndex = 69;
+            this.comboBoxVolumn.SelectedIndexChanged += new System.EventHandler(this.ComboBoxVolumn_SelectedIndexChanged);
             // 
             // cmbboxCatg
             // 
@@ -452,20 +418,14 @@
             this.cmbboxCatg.IntegralHeight = false;
             this.cmbboxCatg.ItemHeight = 43;
             this.cmbboxCatg.Items.AddRange(new object[] {
-            "Ngày",
-            "Phòng",
-            "Khách Hàng",
-            "Giá",
-            "Điện",
-            "Nước",
-            "Phí Thuê"});
-            this.cmbboxCatg.Location = new System.Drawing.Point(142, 22);
+            "Thời gian"});
+            this.cmbboxCatg.Location = new System.Drawing.Point(170, 25);
             this.cmbboxCatg.MaxDropDownItems = 4;
             this.cmbboxCatg.MouseState = MaterialSkin.MouseState.OUT;
             this.cmbboxCatg.Name = "cmbboxCatg";
-            this.cmbboxCatg.Size = new System.Drawing.Size(87, 49);
+            this.cmbboxCatg.Size = new System.Drawing.Size(116, 49);
             this.cmbboxCatg.StartIndex = 0;
-            this.cmbboxCatg.TabIndex = 56;
+            this.cmbboxCatg.TabIndex = 68;
             // 
             // btnSearch
             // 
@@ -474,13 +434,13 @@
             this.btnSearch.Depth = 0;
             this.btnSearch.HighEmphasis = true;
             this.btnSearch.Icon = global::AccommodationManagerApp.Properties.Resources.search;
-            this.btnSearch.Location = new System.Drawing.Point(817, 29);
+            this.btnSearch.Location = new System.Drawing.Point(813, 32);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.NoAccentTextColor = System.Drawing.Color.Empty;
             this.btnSearch.Size = new System.Drawing.Size(106, 36);
-            this.btnSearch.TabIndex = 54;
+            this.btnSearch.TabIndex = 66;
             this.btnSearch.Text = "Search";
             this.btnSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnSearch.UseAccentColor = false;
@@ -497,15 +457,24 @@
             this.txtBoxSearch.ForeColor = System.Drawing.Color.Transparent;
             this.txtBoxSearch.Hint = "Tìm Kiếm";
             this.txtBoxSearch.LeadingIcon = null;
-            this.txtBoxSearch.Location = new System.Drawing.Point(241, 21);
+            this.txtBoxSearch.Location = new System.Drawing.Point(292, 24);
             this.txtBoxSearch.MaxLength = 50;
             this.txtBoxSearch.MouseState = MaterialSkin.MouseState.OUT;
             this.txtBoxSearch.Multiline = false;
             this.txtBoxSearch.Name = "txtBoxSearch";
-            this.txtBoxSearch.Size = new System.Drawing.Size(562, 50);
-            this.txtBoxSearch.TabIndex = 55;
+            this.txtBoxSearch.Size = new System.Drawing.Size(507, 50);
+            this.txtBoxSearch.TabIndex = 67;
             this.txtBoxSearch.Text = "";
             this.txtBoxSearch.TrailingIcon = null;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(710, 94);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(189, 151);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 65;
+            this.pictureBox2.TabStop = false;
             // 
             // buttonPreview
             // 
@@ -593,7 +562,7 @@
             this.pgConfig.ImageKey = "configuration.png";
             this.pgConfig.Location = new System.Drawing.Point(4, 39);
             this.pgConfig.Name = "pgConfig";
-            this.pgConfig.Size = new System.Drawing.Size(1018, 768);
+            this.pgConfig.Size = new System.Drawing.Size(986, 690);
             this.pgConfig.TabIndex = 3;
             this.pgConfig.Text = "Cài Đặt";
             this.pgConfig.UseVisualStyleBackColor = true;
@@ -602,9 +571,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 920);
+            this.ClientSize = new System.Drawing.Size(1032, 878);
             this.Controls.Add(this.tbCtrlClient);
-            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.buttonCurrentUserInformationManagement);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.lblEmail);
@@ -612,12 +580,6 @@
             this.DrawerTabControl = this.tbCtrlClient;
             this.Name = "ClientForm";
             this.Text = "";
-            this.Controls.SetChildIndex(this.lblEmail, 0);
-            this.Controls.SetChildIndex(this.btnLogout, 0);
-            this.Controls.SetChildIndex(this.buttonCurrentUserInformationManagement, 0);
-            this.Controls.SetChildIndex(this.btnLogin, 0);
-            this.Controls.SetChildIndex(this.tbCtrlClient, 0);
-            this.Controls.SetChildIndex(this.btnExit, 0);
             this.tbCtrlClient.ResumeLayout(false);
             this.pgRequest.ResumeLayout(false);
             this.pgRequest.PerformLayout();
@@ -634,7 +596,6 @@
         private System.Windows.Forms.Label lblEmail;
         private MaterialSkin.Controls.MaterialButton btnLogout;
         private MaterialSkin.Controls.MaterialButton buttonCurrentUserInformationManagement;
-        private MaterialSkin.Controls.MaterialButton btnLogin;
         private System.Windows.Forms.ImageList imgLstClient;
         private MaterialSkin.Controls.MaterialTabControl tbCtrlClient;
         private System.Windows.Forms.TabPage pgRequest;
@@ -653,10 +614,6 @@
         private MaterialSkin.Controls.MaterialButton btnAdd;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private MaterialSkin.Controls.MaterialComboBox materialComboBox2;
-        private MaterialSkin.Controls.MaterialComboBox cmbboxCatg;
-        private MaterialSkin.Controls.MaterialButton btnSearch;
-        private MaterialSkin.Controls.MaterialTextBox txtBoxSearch;
         private MaterialSkin.Controls.MaterialButton buttonPreview;
         private MaterialSkin.Controls.MaterialListView lstViewBill;
         private System.Windows.Forms.ColumnHeader id;
@@ -665,5 +622,9 @@
         private System.Windows.Forms.ColumnHeader room;
         private System.Windows.Forms.ColumnHeader date;
         private System.Windows.Forms.ColumnHeader state;
+        private MaterialSkin.Controls.MaterialComboBox comboBoxVolumn;
+        private MaterialSkin.Controls.MaterialComboBox cmbboxCatg;
+        private MaterialSkin.Controls.MaterialButton btnSearch;
+        private MaterialSkin.Controls.MaterialTextBox txtBoxSearch;
     }
 }

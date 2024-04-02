@@ -148,7 +148,6 @@
             this.Controls.SetChildIndex(this.txtReq, 0);
             this.Controls.SetChildIndex(this.materialLabel1, 0);
             this.Controls.SetChildIndex(this.btnClose, 0);
-            this.Controls.SetChildIndex(this.btnExit, 0);
             this.Controls.SetChildIndex(this.materialButton1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pbxReq)).EndInit();
             this.ResumeLayout(false);

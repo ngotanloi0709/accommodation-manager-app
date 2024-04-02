@@ -276,7 +276,6 @@ namespace AccommodationManagerApp.Forms {
             this.Controls.SetChildIndex(this.materialLabel5, 0);
             this.Controls.SetChildIndex(this.switchSex, 0);
             this.Controls.SetChildIndex(this.materialLabel6, 0);
-            this.Controls.SetChildIndex(this.btnExit, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 

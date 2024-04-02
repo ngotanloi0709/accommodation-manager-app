@@ -2,7 +2,6 @@
 using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 using System.Collections.Generic;
-using System.Threading;
 using BillModel = AccommodationManagerApp.Model.Bill;
 using System.Windows.Forms;
 namespace AccommodationManagerApp.Forms
@@ -44,16 +43,9 @@ namespace AccommodationManagerApp.Forms
 
         private void LoadPersonalInformation()
         {
-            if (_authenticationService.IsAuthenticated())
-            {
-                lblEmail.Text = _authenticationService.CurrentUser.Email;
-            } else
-            {
-                lblEmail.Text = defaultMail;
-                btnLogin.Visible = true;
-            }
+            lblEmail.Text = _authenticationService.IsAuthenticated() ? _authenticationService.CurrentUser.Email : defaultMail;
         }
-        private void showInfor(object sender, System.EventArgs e)
+        private void ShowInfor(object sender, System.EventArgs e)
         {
             if (_authenticationService.IsAuthenticated())
             {
@@ -66,35 +58,14 @@ namespace AccommodationManagerApp.Forms
             }
         }
 
-        private void login(object sender, System.EventArgs e)
+        private void logout(object sender, System.EventArgs e)
         {
-            var confirmation = new ConfirmationForm("Xác nhận đăng nhập");
+            var confirmation = new ConfirmationForm("Bạn có muốn đăng xuất");
             var result = confirmation.ShowDialog();
             if (result == DialogResult.Yes)
             {
                 _authenticationService.Logout();
                 Close();
-
-                var loginFormThread = new Thread(() =>
-                {
-                    Application.SetCompatibleTextRenderingDefault(false);
-                    var loginForm = new LoginForm();
-                    Application.Run(loginForm);
-                });
-
-                loginFormThread.SetApartmentState(ApartmentState.STA);
-                loginFormThread.Start();
-            }
-        }
-
-        private void logout(object sender, System.EventArgs e)
-        {
-            var confirmation = new ConfirmationForm("Bạn có chắc chắn muốn thoát");
-            var result = confirmation.ShowDialog();
-            if (result == DialogResult.Yes)
-            {
-                _authenticationService.Logout();
-                LoadPersonalInformation();
             }
         }
     }

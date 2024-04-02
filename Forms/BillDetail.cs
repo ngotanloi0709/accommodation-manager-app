@@ -6,7 +6,6 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using Aspose.Words;
-using ZstdSharp.Unsafe;
 
 namespace AccommodationManagerApp.Forms
 {
@@ -27,7 +26,7 @@ namespace AccommodationManagerApp.Forms
             var elecQty = _bill.ElecQuantity;
             var elecPrice = _billService.GetElectricityPrice().Price;
             var internetPrice = _billService.GetInternetPrice().Price;
-            if(_bill.Contract != null) lblRoomId.Text = _bill.Contract.Room.RoomNumber;
+            lblRoomId.Text = _bill.Contract.Room.RoomNumber;
             lblDate.Text = _bill.CreatedAtFormatted;
             labelRent.Text = _bill.Contract.Price.ToString();
             labelQtyWater.Text = waterQty.ToString();

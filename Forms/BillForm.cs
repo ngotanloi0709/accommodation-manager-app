@@ -44,7 +44,6 @@ namespace AccommodationManagerApp.Forms.Bill
                 Close();
             }
         }
-        // -------------------------------------------------------------------------------------------
         private void CheckInput()
         {
             if (string.IsNullOrWhiteSpace(txtbxElectric.Text) ||
