@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using Aspose.Words;
+using AccommodationManagerApp.Util;
 
 namespace AccommodationManagerApp.Forms
 {
@@ -28,15 +29,15 @@ namespace AccommodationManagerApp.Forms
             var internetPrice = _billService.GetInternetPrice().Price;
             lblRoomId.Text = _bill.Contract.Room.RoomNumber;
             lblDate.Text = _bill.CreatedAtFormatted;
-            labelRent.Text = _bill.Contract.Price.ToString();
+            labelRent.Text = FormatText.IntegerToVnd(_bill.Contract.Price);
             labelQtyWater.Text = waterQty.ToString();
             labelQtyElec.Text = elecQty.ToString();
-            labelPriceWater.Text = waterPrice.ToString();
-            labelPriceElec.Text = elecPrice.ToString();
+            labelPriceWater.Text = FormatText.IntegerToVnd(waterPrice);
+            labelPriceElec.Text = FormatText.IntegerToVnd(elecPrice);
             labelInternet.Text = internetPrice.ToString();
-            labelWater.Text = (waterQty * waterPrice).ToString();
-            labelElec.Text = (elecQty * elecPrice).ToString();
-            labelTotal.Text = ((waterQty * waterPrice) + (elecQty * elecPrice) + internetPrice + _bill.Contract.Price).ToString();
+            labelWater.Text = FormatText.IntegerToVnd((waterQty * waterPrice));
+            labelElec.Text = FormatText.IntegerToVnd((elecQty * elecPrice));
+            labelTotal.Text = FormatText.IntegerToVnd(((waterQty * waterPrice) + (elecQty * elecPrice) + internetPrice + _bill.Contract.Price));
         }
         private void btn_ExportPDF_Click_1(object sender, EventArgs e) {
             // Tạo hộp thoại lưu file

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AccommodationManagerApp.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -25,8 +26,8 @@ namespace AccommodationManagerApp.Forms
         }
         private void LoadBillDataInThisMonth()
         {
-            var billsInThisMonth = _Bills.Where(bill => bill.CreatedAt.Month == DateTime.Now.Month).ToList();
-            InsertBillIntoListView(billsInThisMonth);
+            _Bills = _Bills.Where(bill => bill.CreatedAt.Month == DateTime.Now.Month).ToList();
+            InsertBillIntoListView(_Bills);
         }
         private void InsertBillIntoListView(List<BillModel> bills)
         {
@@ -38,7 +39,7 @@ namespace AccommodationManagerApp.Forms
                 item.SubItems.Add(bill.WaterQuantity.ToString());
                 item.SubItems.Add(bill.Contract?.Room.RoomNumber.ToString() ?? "Trống");
                 item.SubItems.Add(bill.CreatedAtFormatted);
-                item.SubItems.Add(bill.Status.ToString());
+                item.SubItems.Add(bill.Status.ToVietnamese());
                 lstViewBill.Items.Add(item);
             }
         }

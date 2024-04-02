@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using AccommodationManagerApp.Forms.Bill;
+using AccommodationManagerApp.Util;
 using BillModel = AccommodationManagerApp.Model.Bill;
 namespace AccommodationManagerApp.Forms
 {
@@ -58,7 +59,7 @@ namespace AccommodationManagerApp.Forms
                 item.SubItems.Add(bill.WaterQuantity.ToString());
                 item.SubItems.Add(bill.Contract?.Room.RoomNumber.ToString() ?? "Trống");
                 item.SubItems.Add(bill.CreatedAtFormatted);
-                item.SubItems.Add(bill.Status.ToString());
+                item.SubItems.Add(bill.Status.ToVietnamese());
                 lstViewBill.Items.Add(item);
             }
         }

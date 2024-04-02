@@ -7,6 +7,7 @@ using BillModel = AccommodationManagerApp.Model.Bill;
 using System.Linq;
 using System;
 using AccommodationManagerApp.Model;
+using AccommodationManagerApp.Util;
 
 namespace AccommodationManagerApp.Forms.Bill
 {
@@ -58,7 +59,7 @@ namespace AccommodationManagerApp.Forms.Bill
         {
             comboBoxRoom.Enabled = false;
             comboBoxRoom.Text = _bill.Contract.Room.RoomNumber;
-            labelRent.Text = "Giá Phòng: " + _bill.Contract.Price.ToString();
+            labelRent.Text = "Giá Phòng: " + FormatText.IntegerToVnd(_bill.Contract.Price);
             txtbxElectric.Text = _bill.ElecQuantity.ToString();
             txtbxWater.Text = _bill.WaterQuantity.ToString();
             lblDate.Text = _bill.CreatedAtFormatted.ToString();

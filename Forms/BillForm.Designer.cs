@@ -79,7 +79,7 @@
             this.txtbxWater.AnimateReadOnly = false;
             this.txtbxWater.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtbxWater.Depth = 0;
-            this.txtbxWater.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtbxWater.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtbxWater.LeadingIcon = null;
             this.txtbxWater.Location = new System.Drawing.Point(134, 276);
             this.txtbxWater.MaxLength = 50;
@@ -97,7 +97,7 @@
             this.txtbxElectric.AnimateReadOnly = false;
             this.txtbxElectric.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtbxElectric.Depth = 0;
-            this.txtbxElectric.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtbxElectric.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtbxElectric.LeadingIcon = null;
             this.txtbxElectric.Location = new System.Drawing.Point(134, 348);
             this.txtbxElectric.MaxLength = 50;
@@ -204,12 +204,12 @@
             // 
             this.labelRent.AutoSize = true;
             this.labelRent.Depth = 0;
-            this.labelRent.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.labelRent.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            this.labelRent.Location = new System.Drawing.Point(294, 222);
+            this.labelRent.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.labelRent.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.labelRent.Location = new System.Drawing.Point(292, 237);
             this.labelRent.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelRent.Name = "labelRent";
-            this.labelRent.Size = new System.Drawing.Size(141, 29);
+            this.labelRent.Size = new System.Drawing.Size(141, 24);
             this.labelRent.TabIndex = 26;
             this.labelRent.Text = "--------------------";
             // 
@@ -256,23 +256,14 @@
             this.Controls.Add(this.txtbxWater);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnClose);
+            this.MaximumSize = new System.Drawing.Size(500, 500);
+            this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "BillForm";
             this.Text = "Nhập Thông Tin Hóa Đơn";
-            this.Controls.SetChildIndex(this.btnClose, 0);
-            this.Controls.SetChildIndex(this.pictureBox1, 0);
-            this.Controls.SetChildIndex(this.txtbxWater, 0);
-            this.Controls.SetChildIndex(this.txtbxElectric, 0);
-            this.Controls.SetChildIndex(this.lblElectric, 0);
-            this.Controls.SetChildIndex(this.lblWater, 0);
-            this.Controls.SetChildIndex(this.lblDate, 0);
-            this.Controls.SetChildIndex(this.comboBoxRoom, 0);
-            this.Controls.SetChildIndex(this.buttonSave, 0);
-            this.Controls.SetChildIndex(this.labelRent, 0);
-            this.Controls.SetChildIndex(this.materialLabel1, 0);
-            this.Controls.SetChildIndex(this.materialLabel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
