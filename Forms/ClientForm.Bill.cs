@@ -9,7 +9,7 @@ namespace AccommodationManagerApp.Forms
         {
             if (lstViewBill.SelectedItems.Count > 0)
             {
-                int index = lstViewBill.SelectedItems[0].Index;
+                var index = lstViewBill.SelectedItems[0].Index;
 
                 if (index < _Bills.Count) return _Bills[index];
             }
@@ -31,23 +31,6 @@ namespace AccommodationManagerApp.Forms
                 lstViewBill.Items.Add(item);
             }
         }
-        private void LoadFixedPriceToBills()
-        {
-            int waterFee = _billService.GetWaterPrice().Price;
-            int elecFee = _billService.GetElectricityPrice().Price;
-            int internetFee = _billService.GetInternetPrice().Price;
-
-            foreach (var Bill in _Bills)
-            {
-                if (Bill.InternetFee == 0 || Bill.ElecFee == 0 || Bill.WaterFee == 0)
-                {
-                    Bill.WaterFee = waterFee;
-                    Bill.ElecFee = elecFee;
-                    Bill.InternetFee = internetFee;
-                    _billService.Update(Bill.Id, Bill);
-                }
-            }
-        }
         private void buttonPreview_Click(object sender, System.EventArgs e)
         {
             var confirmForm = new ConfirmationForm("Bạn muốn xem chi tiết hóa đơn ?");
@@ -62,7 +45,7 @@ namespace AccommodationManagerApp.Forms
                 return;
             }
 
-            BillDetail billDetail = new BillDetail(_bill);
+            var billDetail = new BillDetail(_bill);
             billDetail.ShowDialog();
         }
     }

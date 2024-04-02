@@ -97,7 +97,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 24);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(595, 874);
+            this.panel1.Size = new System.Drawing.Size(627, 894);
             this.panel1.TabIndex = 0;
             // 
             // btnWord
@@ -154,7 +154,7 @@
             this.PanelHD.Location = new System.Drawing.Point(0, 0);
             this.PanelHD.Margin = new System.Windows.Forms.Padding(2);
             this.PanelHD.Name = "PanelHD";
-            this.PanelHD.Size = new System.Drawing.Size(595, 800);
+            this.PanelHD.Size = new System.Drawing.Size(627, 800);
             this.PanelHD.TabIndex = 1;
             // 
             // panel3
@@ -165,7 +165,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 732);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(595, 68);
+            this.panel3.Size = new System.Drawing.Size(627, 68);
             this.panel3.TabIndex = 27;
             // 
             // label45
@@ -263,7 +263,7 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.59916F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.40084F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
             this.tableLayoutPanel3.Controls.Add(this.label33, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.labelTotal, 2, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(64, 458);
@@ -292,10 +292,10 @@
             this.labelTotal.AutoSize = true;
             this.labelTotal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelTotal.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.Location = new System.Drawing.Point(353, 0);
+            this.labelTotal.Location = new System.Drawing.Point(352, 0);
             this.labelTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(107, 41);
+            this.labelTotal.Size = new System.Drawing.Size(108, 41);
             this.labelTotal.TabIndex = 17;
             this.labelTotal.Text = "-1";
             this.labelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -306,7 +306,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.47231F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.5277F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
             this.tableLayoutPanel2.Controls.Add(this.labelInternet, 3, 3);
             this.tableLayoutPanel2.Controls.Add(this.lalslasl, 2, 3);
             this.tableLayoutPanel2.Controls.Add(this.lblQuanOther, 1, 3);
@@ -341,10 +341,10 @@
             this.labelInternet.AutoSize = true;
             this.labelInternet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelInternet.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInternet.Location = new System.Drawing.Point(353, 107);
+            this.labelInternet.Location = new System.Drawing.Point(352, 107);
             this.labelInternet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelInternet.Name = "labelInternet";
-            this.labelInternet.Size = new System.Drawing.Size(107, 41);
+            this.labelInternet.Size = new System.Drawing.Size(108, 41);
             this.labelInternet.TabIndex = 30;
             this.labelInternet.Text = "-1";
             this.labelInternet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -354,7 +354,7 @@
             this.lalslasl.AutoSize = true;
             this.lalslasl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lalslasl.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lalslasl.Location = new System.Drawing.Point(249, 107);
+            this.lalslasl.Location = new System.Drawing.Point(248, 107);
             this.lalslasl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lalslasl.Name = "lalslasl";
             this.lalslasl.Size = new System.Drawing.Size(100, 41);
@@ -369,7 +369,7 @@
             this.lblQuanOther.Location = new System.Drawing.Point(166, 107);
             this.lblQuanOther.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQuanOther.Name = "lblQuanOther";
-            this.lblQuanOther.Size = new System.Drawing.Size(79, 41);
+            this.lblQuanOther.Size = new System.Drawing.Size(78, 41);
             this.lblQuanOther.TabIndex = 28;
             this.lblQuanOther.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -391,10 +391,10 @@
             this.labelElec.AutoSize = true;
             this.labelElec.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelElec.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelElec.Location = new System.Drawing.Point(353, 69);
+            this.labelElec.Location = new System.Drawing.Point(352, 69);
             this.labelElec.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelElec.Name = "labelElec";
-            this.labelElec.Size = new System.Drawing.Size(107, 38);
+            this.labelElec.Size = new System.Drawing.Size(108, 38);
             this.labelElec.TabIndex = 26;
             this.labelElec.Text = "-1";
             this.labelElec.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -404,7 +404,7 @@
             this.labelPriceElec.AutoSize = true;
             this.labelPriceElec.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelPriceElec.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPriceElec.Location = new System.Drawing.Point(249, 69);
+            this.labelPriceElec.Location = new System.Drawing.Point(248, 69);
             this.labelPriceElec.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPriceElec.Name = "labelPriceElec";
             this.labelPriceElec.Size = new System.Drawing.Size(100, 38);
@@ -420,7 +420,7 @@
             this.labelQtyElec.Location = new System.Drawing.Point(166, 69);
             this.labelQtyElec.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelQtyElec.Name = "labelQtyElec";
-            this.labelQtyElec.Size = new System.Drawing.Size(79, 38);
+            this.labelQtyElec.Size = new System.Drawing.Size(78, 38);
             this.labelQtyElec.TabIndex = 24;
             this.labelQtyElec.Text = "-1";
             this.labelQtyElec.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -446,7 +446,7 @@
             this.labelQtyWater.Location = new System.Drawing.Point(166, 32);
             this.labelQtyWater.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelQtyWater.Name = "labelQtyWater";
-            this.labelQtyWater.Size = new System.Drawing.Size(79, 37);
+            this.labelQtyWater.Size = new System.Drawing.Size(78, 37);
             this.labelQtyWater.TabIndex = 23;
             this.labelQtyWater.Text = "-1";
             this.labelQtyWater.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -456,7 +456,7 @@
             this.labelPriceWater.AutoSize = true;
             this.labelPriceWater.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelPriceWater.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPriceWater.Location = new System.Drawing.Point(249, 32);
+            this.labelPriceWater.Location = new System.Drawing.Point(248, 32);
             this.labelPriceWater.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPriceWater.Name = "labelPriceWater";
             this.labelPriceWater.Size = new System.Drawing.Size(100, 37);
@@ -469,10 +469,10 @@
             this.labelWater.AutoSize = true;
             this.labelWater.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelWater.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWater.Location = new System.Drawing.Point(353, 32);
+            this.labelWater.Location = new System.Drawing.Point(352, 32);
             this.labelWater.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWater.Name = "labelWater";
-            this.labelWater.Size = new System.Drawing.Size(107, 37);
+            this.labelWater.Size = new System.Drawing.Size(108, 37);
             this.labelWater.TabIndex = 21;
             this.labelWater.Text = "-1";
             this.labelWater.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -485,7 +485,7 @@
             this.lblQuanRent.Location = new System.Drawing.Point(166, 0);
             this.lblQuanRent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQuanRent.Name = "lblQuanRent";
-            this.lblQuanRent.Size = new System.Drawing.Size(79, 32);
+            this.lblQuanRent.Size = new System.Drawing.Size(78, 32);
             this.lblQuanRent.TabIndex = 20;
             this.lblQuanRent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -507,7 +507,7 @@
             this.lbllls.AutoSize = true;
             this.lbllls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbllls.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbllls.Location = new System.Drawing.Point(249, 0);
+            this.lbllls.Location = new System.Drawing.Point(248, 0);
             this.lbllls.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbllls.Name = "lbllls";
             this.lbllls.Size = new System.Drawing.Size(100, 32);
@@ -532,10 +532,10 @@
             this.labelRent.AutoSize = true;
             this.labelRent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelRent.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRent.Location = new System.Drawing.Point(353, 0);
+            this.labelRent.Location = new System.Drawing.Point(352, 0);
             this.labelRent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelRent.Name = "labelRent";
-            this.labelRent.Size = new System.Drawing.Size(107, 32);
+            this.labelRent.Size = new System.Drawing.Size(108, 32);
             this.labelRent.TabIndex = 16;
             this.labelRent.Text = "-1";
             this.labelRent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -687,7 +687,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(595, 121);
+            this.panel2.Size = new System.Drawing.Size(627, 121);
             this.panel2.TabIndex = 0;
             // 
             // materialLabel1
@@ -726,7 +726,7 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 900);
+            this.ClientSize = new System.Drawing.Size(632, 920);
             this.Controls.Add(this.panel1);
             this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_None;
             this.Margin = new System.Windows.Forms.Padding(2);

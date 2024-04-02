@@ -173,13 +173,12 @@
             this.labelWaterPrice = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel36 = new MaterialSkin.Controls.MaterialLabel();
             this.buttonEditFixedPrice = new MaterialSkin.Controls.MaterialButton();
-            this.materialComboBox2 = new MaterialSkin.Controls.MaterialComboBox();
+            this.comboBoxVolumn = new MaterialSkin.Controls.MaterialComboBox();
             this.cmbboxCatg = new MaterialSkin.Controls.MaterialComboBox();
             this.btnSearch = new MaterialSkin.Controls.MaterialButton();
             this.txtBoxSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.btnUpd = new MaterialSkin.Controls.MaterialButton();
             this.btnDelete = new MaterialSkin.Controls.MaterialButton();
-            this.btnAdd = new MaterialSkin.Controls.MaterialButton();
             this.btnPDF = new MaterialSkin.Controls.MaterialButton();
             this.lstViewBill = new MaterialSkin.Controls.MaterialListView();
             this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -2202,13 +2201,12 @@
             this.tabPageBills.Controls.Add(this.labelWaterPrice);
             this.tabPageBills.Controls.Add(this.materialLabel36);
             this.tabPageBills.Controls.Add(this.buttonEditFixedPrice);
-            this.tabPageBills.Controls.Add(this.materialComboBox2);
+            this.tabPageBills.Controls.Add(this.comboBoxVolumn);
             this.tabPageBills.Controls.Add(this.cmbboxCatg);
             this.tabPageBills.Controls.Add(this.btnSearch);
             this.tabPageBills.Controls.Add(this.txtBoxSearch);
             this.tabPageBills.Controls.Add(this.btnUpd);
             this.tabPageBills.Controls.Add(this.btnDelete);
-            this.tabPageBills.Controls.Add(this.btnAdd);
             this.tabPageBills.Controls.Add(this.btnPDF);
             this.tabPageBills.Controls.Add(this.lstViewBill);
             this.tabPageBills.ImageKey = "invoice.png";
@@ -2222,7 +2220,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::AccommodationManagerApp.Properties.Resources.icon_250;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(713, 95);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(189, 151);
@@ -2332,30 +2330,31 @@
             this.buttonEditFixedPrice.UseVisualStyleBackColor = true;
             this.buttonEditFixedPrice.Click += new System.EventHandler(this.buttonEditFixedPrice_Click);
             // 
-            // materialComboBox2
+            // comboBoxVolumn
             // 
-            this.materialComboBox2.AutoResize = false;
-            this.materialComboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialComboBox2.Depth = 0;
-            this.materialComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBox2.DropDownHeight = 174;
-            this.materialComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBox2.DropDownWidth = 121;
-            this.materialComboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialComboBox2.FormattingEnabled = true;
-            this.materialComboBox2.IntegralHeight = false;
-            this.materialComboBox2.ItemHeight = 43;
-            this.materialComboBox2.Items.AddRange(new object[] {
-            "Tăng ",
-            "Giảm"});
-            this.materialComboBox2.Location = new System.Drawing.Point(45, 23);
-            this.materialComboBox2.MaxDropDownItems = 4;
-            this.materialComboBox2.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBox2.Name = "materialComboBox2";
-            this.materialComboBox2.Size = new System.Drawing.Size(87, 49);
-            this.materialComboBox2.StartIndex = 0;
-            this.materialComboBox2.TabIndex = 19;
+            this.comboBoxVolumn.AutoResize = false;
+            this.comboBoxVolumn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxVolumn.Depth = 0;
+            this.comboBoxVolumn.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxVolumn.DropDownHeight = 174;
+            this.comboBoxVolumn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxVolumn.DropDownWidth = 121;
+            this.comboBoxVolumn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBoxVolumn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxVolumn.FormattingEnabled = true;
+            this.comboBoxVolumn.IntegralHeight = false;
+            this.comboBoxVolumn.ItemHeight = 43;
+            this.comboBoxVolumn.Items.AddRange(new object[] {
+            "Tất Cả",
+            "Tháng Này"});
+            this.comboBoxVolumn.Location = new System.Drawing.Point(45, 23);
+            this.comboBoxVolumn.MaxDropDownItems = 4;
+            this.comboBoxVolumn.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboBoxVolumn.Name = "comboBoxVolumn";
+            this.comboBoxVolumn.Size = new System.Drawing.Size(126, 49);
+            this.comboBoxVolumn.StartIndex = 0;
+            this.comboBoxVolumn.TabIndex = 19;
+            this.comboBoxVolumn.SelectedIndexChanged += new System.EventHandler(this.ComboBoxVolumn_SelectedIndexChanged);
             // 
             // cmbboxCatg
             // 
@@ -2372,18 +2371,12 @@
             this.cmbboxCatg.IntegralHeight = false;
             this.cmbboxCatg.ItemHeight = 43;
             this.cmbboxCatg.Items.AddRange(new object[] {
-            "Ngày",
-            "Phòng",
-            "Khách Hàng",
-            "Giá",
-            "Điện",
-            "Nước",
-            "Phí Thuê"});
-            this.cmbboxCatg.Location = new System.Drawing.Point(145, 23);
+            "Thời gian"});
+            this.cmbboxCatg.Location = new System.Drawing.Point(177, 23);
             this.cmbboxCatg.MaxDropDownItems = 4;
             this.cmbboxCatg.MouseState = MaterialSkin.MouseState.OUT;
             this.cmbboxCatg.Name = "cmbboxCatg";
-            this.cmbboxCatg.Size = new System.Drawing.Size(87, 49);
+            this.cmbboxCatg.Size = new System.Drawing.Size(116, 49);
             this.cmbboxCatg.StartIndex = 0;
             this.cmbboxCatg.TabIndex = 18;
             // 
@@ -2417,12 +2410,12 @@
             this.txtBoxSearch.ForeColor = System.Drawing.Color.Transparent;
             this.txtBoxSearch.Hint = "Tìm Kiếm";
             this.txtBoxSearch.LeadingIcon = null;
-            this.txtBoxSearch.Location = new System.Drawing.Point(244, 22);
+            this.txtBoxSearch.Location = new System.Drawing.Point(299, 22);
             this.txtBoxSearch.MaxLength = 50;
             this.txtBoxSearch.MouseState = MaterialSkin.MouseState.OUT;
             this.txtBoxSearch.Multiline = false;
             this.txtBoxSearch.Name = "txtBoxSearch";
-            this.txtBoxSearch.Size = new System.Drawing.Size(562, 50);
+            this.txtBoxSearch.Size = new System.Drawing.Size(507, 50);
             this.txtBoxSearch.TabIndex = 15;
             this.txtBoxSearch.Text = "";
             this.txtBoxSearch.TrailingIcon = null;
@@ -2446,7 +2439,7 @@
             this.btnUpd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnUpd.UseAccentColor = false;
             this.btnUpd.UseVisualStyleBackColor = true;
-            this.btnUpd.Click += new System.EventHandler(this.updateBill);
+            this.btnUpd.Click += new System.EventHandler(this.UpdateBill);
             // 
             // btnDelete
             // 
@@ -2456,7 +2449,7 @@
             this.btnDelete.Depth = 0;
             this.btnDelete.HighEmphasis = true;
             this.btnDelete.Icon = global::AccommodationManagerApp.Properties.Resources.delete;
-            this.btnDelete.Location = new System.Drawing.Point(805, 267);
+            this.btnDelete.Location = new System.Drawing.Point(805, 315);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDelete.Name = "btnDelete";
@@ -2467,28 +2460,7 @@
             this.btnDelete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnDelete.UseAccentColor = false;
             this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.deleteBill);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.AutoSize = false;
-            this.btnAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAdd.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnAdd.Depth = 0;
-            this.btnAdd.HighEmphasis = true;
-            this.btnAdd.Icon = global::AccommodationManagerApp.Properties.Resources.plus1;
-            this.btnAdd.Location = new System.Drawing.Point(674, 267);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnAdd.Size = new System.Drawing.Size(121, 36);
-            this.btnAdd.TabIndex = 2;
-            this.btnAdd.Text = "Thêm";
-            this.btnAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnAdd.UseAccentColor = false;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.addBill);
+            this.btnDelete.Click += new System.EventHandler(this.DeleteBill);
             // 
             // btnPDF
             // 
@@ -2498,18 +2470,18 @@
             this.btnPDF.Depth = 0;
             this.btnPDF.HighEmphasis = true;
             this.btnPDF.Icon = global::AccommodationManagerApp.Properties.Resources.preview;
-            this.btnPDF.Location = new System.Drawing.Point(805, 315);
+            this.btnPDF.Location = new System.Drawing.Point(674, 266);
             this.btnPDF.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPDF.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPDF.Name = "btnPDF";
             this.btnPDF.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnPDF.Size = new System.Drawing.Size(121, 36);
+            this.btnPDF.Size = new System.Drawing.Size(252, 37);
             this.btnPDF.TabIndex = 1;
             this.btnPDF.Text = "Xem Chi Tiết";
             this.btnPDF.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnPDF.UseAccentColor = false;
             this.btnPDF.UseVisualStyleBackColor = true;
-            this.btnPDF.Click += new System.EventHandler(this.previewBill);
+            this.btnPDF.Click += new System.EventHandler(this.PreviewBill);
             // 
             // lstViewBill
             // 
@@ -2569,7 +2541,7 @@
             // state
             // 
             this.state.Text = "Tình Trạng";
-            this.state.Width = 120;
+            this.state.Width = 150;
             // 
             // btnLogin
             // 
@@ -2592,7 +2564,7 @@
             this.btnLogin.UseAccentColor = false;
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Visible = false;
-            this.btnLogin.Click += new System.EventHandler(this.login);
+            this.btnLogin.Click += new System.EventHandler(this.Login);
             // 
             // mySqlConnection1
             // 
@@ -2653,7 +2625,7 @@
             this.btnLogout.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.btnLogout.UseAccentColor = false;
             this.btnLogout.UseVisualStyleBackColor = true;
-            this.btnLogout.Click += new System.EventHandler(this.logout);
+            this.btnLogout.Click += new System.EventHandler(this.Logout);
             // 
             // MainForm
             // 
@@ -2753,12 +2725,11 @@
         private MySqlConnector.MySqlConnection mySqlConnection1;
         private System.Windows.Forms.ColumnHeader id;
         private MaterialSkin.Controls.MaterialButton btnPDF;
-        private MaterialSkin.Controls.MaterialButton btnAdd;
         private MaterialSkin.Controls.MaterialButton btnUpd;
         private MaterialSkin.Controls.MaterialButton btnDelete;
         private MaterialSkin.Controls.MaterialButton btnSearch;
         private MaterialSkin.Controls.MaterialTextBox txtBoxSearch;
-        private MaterialSkin.Controls.MaterialComboBox materialComboBox2;
+        private MaterialSkin.Controls.MaterialComboBox comboBoxVolumn;
         private MaterialSkin.Controls.MaterialComboBox cmbboxCatg;
         private System.Windows.Forms.TabPage tabPageVehicle;
         private MaterialSkin.Controls.MaterialLabel materialLabel11;

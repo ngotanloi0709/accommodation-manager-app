@@ -86,11 +86,11 @@ namespace AccommodationManagerApp.Forms
             if (IsAllDataFilled())
             {
 
-                string vehicleName = textBoxName.Text;
-                VehicleCategory vehicleCategory = comboBoxCategory.SelectedItem.ToString().ToVehicleCategory();
-                string vehicleNumber = textBoxNumber.Text;
-                int? roomId = comboBoxRoom.Text.Equals("None") ? null : _roomService.GetIdByRoomNumber(comboBoxRoom.Text);
-                int price = int.Parse(textBoxPrice.Text);
+                var vehicleName = textBoxName.Text;
+                var vehicleCategory = comboBoxCategory.SelectedItem.ToString().ToVehicleCategory();
+                var vehicleNumber = textBoxNumber.Text;
+                var roomId = comboBoxRoom.Text.Equals("None") ? null : _roomService.GetIdByRoomNumber(comboBoxRoom.Text);
+                var price = int.Parse(textBoxPrice.Text);
                 if (_vehicle == null && _vehicleService.IsVehicleNumberExists(vehicleNumber))
                 {
                     new ToastForm("Tên phương tiện đã tồn tại").Show();

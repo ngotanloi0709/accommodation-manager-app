@@ -10,7 +10,7 @@ namespace AccommodationManagerApp.Forms
             Buildings = _buildingService.GetAll();
 
             foreach (var building in Buildings) {
-                ListViewItem item = new ListViewItem(string.IsNullOrEmpty(building.Name) ? Resources.NullData : building.Name);
+                var item = new ListViewItem(string.IsNullOrEmpty(building.Name) ? Resources.NullData : building.Name);
                 item.SubItems.Add(string.IsNullOrEmpty(building.Address) ? Resources.NullData : building.Address);
                 item.SubItems.Add(building.CreatedAt.ToString("dd/MM/yyyy"));
                 ListViewBuilding.Items.Add(item);
@@ -18,12 +18,12 @@ namespace AccommodationManagerApp.Forms
         }
 
         private void ListViewBuilding_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) {
-            Building building = IsSelectedBuildingValid();
+            var building = IsSelectedBuildingValid();
 
             if (building != null) {
-                string name = building.Name;
-                string address = building.Address;
-                string createdAt = building.CreatedAt.ToString("dd/MM/yyyy");
+                var name = building.Name;
+                var address = building.Address;
+                var createdAt = building.CreatedAt.ToString("dd/MM/yyyy");
                 
                 labelBuildingName.Text = name == null || name.Equals("") ? Resources.NullData : name;
                 labelBuildingAddress.Text = address == null || address.Equals("") ? Resources.NullData : address;
@@ -32,7 +32,7 @@ namespace AccommodationManagerApp.Forms
         }
 
         private void buttonEditBuilding_Click(object sender, System.EventArgs e) {
-            Building building = IsSelectedBuildingValid();
+            var building = IsSelectedBuildingValid();
 
             if (building != null) {
                 var buildingForm = new BuildingForm(building);
@@ -79,7 +79,7 @@ namespace AccommodationManagerApp.Forms
         }
 
         private void buttonDeleteBuilding_Click(object sender, System.EventArgs e) {
-            Building building = IsSelectedBuildingValid();
+            var building = IsSelectedBuildingValid();
 
             if (building != null) {
                 var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn xóa toà chung cư này không?");
@@ -102,7 +102,7 @@ namespace AccommodationManagerApp.Forms
 
         private Building IsSelectedBuildingValid() {
             if (ListViewBuilding.SelectedItems.Count > 0) {
-                int index = ListViewBuilding.SelectedItems[0].Index;
+                var index = ListViewBuilding.SelectedItems[0].Index;
                 if (index < Buildings.Count) {
                     return Buildings[index];
                 }

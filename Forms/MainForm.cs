@@ -1,4 +1,5 @@
-﻿using AccommodationManagerApp.Model;
+﻿using System;
+using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 using System.Collections.Generic;
@@ -49,11 +50,7 @@ namespace AccommodationManagerApp.Forms
             LoadUserData();
             LoadContractData();
             LoadFixedPriceData();
-            LoadFixedPriceToBills();
         }
-
-
-
         private void SetListViewGridEnable()
         {
             ListViewBuilding.GridLines = true;
@@ -65,12 +62,11 @@ namespace AccommodationManagerApp.Forms
             ListViewContract.GridLines = true;
             ListViewRoomUserList.GridLines = true;
         }
-
-        private void buttonCurrentUserInformationManagement_Click(object sender, System.EventArgs e)
+        private void buttonCurrentUserInformationManagement_Click(object sender, EventArgs e)
         {
             if (_authenticationService.IsAuthenticated())
             {
-                CurrentUserInformationForm userManagementForm =
+                var userManagementForm =
                     new CurrentUserInformationForm(_authenticationService.CurrentUser);
                 userManagementForm.ShowDialog();
                 LoadPersonalInformation();
@@ -80,7 +76,6 @@ namespace AccommodationManagerApp.Forms
                 new ToastForm("Vui lòng đăng nhập để sử dụng chức năng này", true).Show();
             }
         }
-
         private void LoadPersonalInformation()
         {
             if (_authenticationService.IsAuthenticated())
@@ -93,8 +88,7 @@ namespace AccommodationManagerApp.Forms
                 btnLogin.Visible = true;
             }
         }
-
-        private void logout(object sender, System.EventArgs e)
+        private void Logout(object sender, EventArgs e)
         {
             var confirmation = new ConfirmationForm("Bạn có chắc chắn muốn thoát");
             var result = confirmation.ShowDialog();
@@ -104,25 +98,23 @@ namespace AccommodationManagerApp.Forms
                 LoadPersonalInformation();
             }
         }
-        private void login(object sender, System.EventArgs e)
+        private void Login(object sender, EventArgs e)
         {
             var confirmation = new ConfirmationForm("Bạn có chắc chắn muốn đăng xuất");
             var result = confirmation.ShowDialog();
-            if (result == DialogResult.Yes)
+            if (result != DialogResult.Yes) return;
+            _authenticationService.Logout();
+            Close();
+
+            var loginFormThread = new Thread(() =>
             {
-                _authenticationService.Logout();
-                Close();
+                Application.SetCompatibleTextRenderingDefault(false);
+                var loginForm = new LoginForm();
+                Application.Run(loginForm);
+            });
 
-                Thread loginFormThread = new Thread(() =>
-                {
-                    Application.SetCompatibleTextRenderingDefault(false);
-                    LoginForm loginForm = new LoginForm();
-                    Application.Run(loginForm);
-                });
-
-                loginFormThread.SetApartmentState(ApartmentState.STA);
-                loginFormThread.Start();
-            }
+            loginFormThread.SetApartmentState(ApartmentState.STA);
+            loginFormThread.Start();
         }
     }
 }

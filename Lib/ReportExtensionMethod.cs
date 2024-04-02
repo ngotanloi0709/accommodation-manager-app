@@ -10,11 +10,11 @@ namespace ThuVienWinform.Report.AsposeWordExtension
     {
         public static void PutValue(this Table table, int row, int column, string text)
         {
-            Row r = table.Rows[row];
+            var r = table.Rows[row];
             if (r == null || text == null)
                 return;
 
-            Cell cell = r.Cells[column];
+            var cell = r.Cells[column];
             if (cell == null)
                 return;
 
@@ -35,7 +35,7 @@ namespace ThuVienWinform.Report.AsposeWordExtension
         {
             if (r == null)
                 return;
-            Cell cell = r.Cells[column];
+            var cell = r.Cells[column];
             if (cell == null)
                 return;
 
@@ -68,7 +68,7 @@ namespace ThuVienWinform.Report.AsposeWordExtension
         {
             if (r == null)
                 return;
-            for (int i = 0; i < r.Cells.Count; i++)
+            for (var i = 0; i < r.Cells.Count; i++)
                 r.ChangeFont(i, font_name, font_size);
         }
 
@@ -78,7 +78,7 @@ namespace ThuVienWinform.Report.AsposeWordExtension
             {
                 var sourceRow = table.Rows[index_source_row];
                 if (sourceRow != null)
-                    for (int i = 1; i <= count; i++)
+                    for (var i = 1; i <= count; i++)
                         table.Rows.Insert(index_insert, sourceRow.Clone(true));
             }
             catch { }
@@ -90,7 +90,7 @@ namespace ThuVienWinform.Report.AsposeWordExtension
                 var sourceRow1 = table.Rows[index_source_row_1];
                 var sourceRow2 = table.Rows[index_source_row_2];
                 if (sourceRow1 != null && sourceRow2 != null)
-                    for (int i = 1; i <= count; i++)
+                    for (var i = 1; i <= count; i++)
                     {
                         table.Rows.Insert(index_insert, sourceRow1.Clone(true));
                         table.Rows.Insert(index_source_row_2, sourceRow2.Clone(true));
@@ -102,14 +102,14 @@ namespace ThuVienWinform.Report.AsposeWordExtension
         {
             try
             {
-                int countNeedInsert = index_source_row.Count();
-                Row[] sourceRows = new Row[countNeedInsert];
-                for (int i = 0; i < countNeedInsert; i++)
+                var countNeedInsert = index_source_row.Count();
+                var sourceRows = new Row[countNeedInsert];
+                for (var i = 0; i < countNeedInsert; i++)
                     sourceRows[i] = table.Rows[index_source_row[i]];
 
-                for (int i = 1; i <= count; i++)
+                for (var i = 1; i <= count; i++)
                 {
-                    for (int j = 0; j < countNeedInsert; j++)
+                    for (var j = 0; j < countNeedInsert; j++)
                         table.Rows.Insert(index_source_row[j], sourceRows[j].Clone(true));
                 }
             }
@@ -121,14 +121,14 @@ namespace ThuVienWinform.Report.AsposeWordExtension
     {
         public static void SaveAndOpenFile(this Document doc, string filename = "tmp.doc")
         {
-            int dem = 0;
-            string thuMuc = "temp";
+            var dem = 0;
+            var thuMuc = "temp";
             if (!Directory.Exists(thuMuc))
                 Directory.CreateDirectory(thuMuc);
 
             while (true)
             {
-                string tenTep = $"{thuMuc}\\{dem + filename}";
+                var tenTep = $"{thuMuc}\\{dem + filename}";
                 try
                 {
                     doc.Save(tenTep);

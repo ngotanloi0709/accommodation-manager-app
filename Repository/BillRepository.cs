@@ -10,7 +10,7 @@ namespace AccommodationManagerApp.Repository
 
         public List<Bill> GetAllBillByUserId(int userId)
         {
-            return Context.Set<Bill>().Where(bill => bill.UserId == userId).ToList();
+            return Context.Set<Bill>().Where(bill => bill.UserId == userId && bill.Status != BillStatus.Edit).ToList();
         }
     }
 }

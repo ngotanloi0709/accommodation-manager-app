@@ -53,7 +53,7 @@ namespace AccommodationManagerApp.Forms {
         }
 
         private bool IsAllTextBoxFilled() {
-            bool result = string.IsNullOrEmpty(textBoxName.Text) || string.IsNullOrEmpty(textBoxAddress.Text);
+            var result = string.IsNullOrEmpty(textBoxName.Text) || string.IsNullOrEmpty(textBoxAddress.Text);
             
             if (result) {
                 new ToastForm("Vui lòng điền đầy đủ thông tin.", true).Show();

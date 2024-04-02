@@ -27,7 +27,7 @@ namespace AccommodationManagerApp.Forms
         }
         private bool IsAllTextBoxFilled()
         {
-            bool result = string.IsNullOrEmpty(txtReq.Text);
+            var result = string.IsNullOrEmpty(txtReq.Text);
             if(result)
                 new ToastForm("Vui lòng điền đầy đủ thông tin.", true).Show();
             return result;
@@ -58,7 +58,7 @@ namespace AccommodationManagerApp.Forms
         }
         private void close(object sender, System.EventArgs e)
         {
-            ConfirmationForm confirmationForm = new ConfirmationForm("Bạn có muốn thoát không ?");
+            var confirmationForm = new ConfirmationForm("Bạn có muốn thoát không ?");
             if (confirmationForm.ShowDialog() == DialogResult.Yes)
                 Close();
         }

@@ -6,6 +6,7 @@ using Room = AccommodationManagerApp.Model.Room;
 using BillModel = AccommodationManagerApp.Model.Bill;
 using System.Linq;
 using System;
+using AccommodationManagerApp.Model;
 
 namespace AccommodationManagerApp.Forms.Bill
 {
@@ -27,26 +28,18 @@ namespace AccommodationManagerApp.Forms.Bill
             if (_bill != null)
                 LoadData();
         }
-        private void buttonSave_Click(object sender, System.EventArgs e)
+        private void buttonSave_Click(object sender, EventArgs e)
         {
-            var confirmationForm = new ConfirmationForm("Xác nhận cập nhật");
+            var confirmationForm = new ConfirmationForm("Bạn có muốn cập nhật hóa đơn với " +
+                                                        "chi phí cố định trong tháng này và gửi hóa đơn cho người dùng ?");
             confirmationForm.ShowDialog();
             if(confirmationForm.DialogResult == DialogResult.Yes)
             {
                 CheckInput();
-                if (_bill == null)
-                {
-                    int electric = int.Parse(txtbxElectric.Text);
-                    int water = int.Parse(txtbxWater.Text);
-                    _contract = SelectContract();
-                    _billService.Add(new BillModel(electric, water, _contract.Id));
-                }
-                else
-                {
-                    _bill.ElecQuantity = int.Parse(txtbxElectric.Text);
-                    _bill.WaterQuantity = int.Parse(txtbxWater.Text);
-                    _billService.Update(_bill.Id, _bill);
-                }
+                _bill.ElecQuantity = int.Parse(txtbxElectric.Text);
+                _bill.WaterQuantity = int.Parse(txtbxWater.Text);
+                _bill.Status = BillStatus.Unpaid;
+                _billService.Update(_bill.Id, _bill);
                 new ToastForm("Cập nhật thành công");
                 Close();
             }
@@ -71,7 +64,7 @@ namespace AccommodationManagerApp.Forms.Bill
             txtbxWater.Text = _bill.WaterQuantity.ToString();
             lblDate.Text = _bill.CreatedAtFormatted.ToString();
         }
-        private void comboBoxRoom_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void comboBoxRoom_SelectedIndexChanged(object sender, EventArgs e)
         {
             _contract = SelectContract();
             if (_contract == null)
@@ -86,8 +79,8 @@ namespace AccommodationManagerApp.Forms.Bill
         }
         private Contract SelectContract()
         {
-            string numberRoom = comboBoxRoom.SelectedItem.ToString();
-            Room _room = _rooms.FirstOrDefault(room => room.RoomNumber == numberRoom);
+            var numberRoom = comboBoxRoom.SelectedItem.ToString();
+            var _room = _rooms.FirstOrDefault(room => room.RoomNumber == numberRoom);
             return _room?.Contracts.LastOrDefault();
         }
         private void SetUpComboBoxRoom()
@@ -96,9 +89,9 @@ namespace AccommodationManagerApp.Forms.Bill
 
             comboBoxRoom.Items.AddRange(_rooms.Select(room => room.RoomNumber).ToArray());
         }
-        private void btnClose_Click(object sender, System.EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            ConfirmationForm confirmationForm = new ConfirmationForm("Bạn có muốn thoát không ?");
+            var confirmationForm = new ConfirmationForm("Bạn có muốn thoát không ?");
             confirmationForm.ShowDialog();
             if (confirmationForm.DialogResult != DialogResult.Yes) return;
             Close();

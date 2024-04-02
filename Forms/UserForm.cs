@@ -80,7 +80,7 @@ namespace AccommodationManagerApp.Forms
 
         private bool IsAllTextBoxFilled()
         {
-            bool result = string.IsNullOrEmpty(textBoxName.Text) || string.IsNullOrEmpty(textBoxEmail.Text);
+            var result = string.IsNullOrEmpty(textBoxName.Text) || string.IsNullOrEmpty(textBoxEmail.Text);
 
             if (result)
             {

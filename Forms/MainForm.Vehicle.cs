@@ -10,7 +10,7 @@ namespace AccommodationManagerApp.Forms {
             ListViewVehicle.Items.Clear();
             Vehicles = _vehicleService.GetAllWithRoom();
             foreach (var vehicle in Vehicles) {
-                ListViewItem item = new ListViewItem(vehicle.Number);
+                var item = new ListViewItem(vehicle.Number);
                 item.SubItems.Add(vehicle.Name);
                 item.SubItems.Add(vehicle.Category.ToVietnamese().ToString());
                 if (vehicle.Room != null) {
@@ -25,13 +25,13 @@ namespace AccommodationManagerApp.Forms {
         }
 
         private void ListViewVehicle_SelectedIndexChanged(object sender, EventArgs e) {
-            Vehicle vehicle = IsSelectedVehicleValid();
+            var vehicle = IsSelectedVehicleValid();
             if (vehicle != null) {
-                string number = vehicle.Number;
-                string name = vehicle.Name;
-                string price = FormatText.IntegerToVnd(vehicle.Price);
-                string type = VehicleCategoryExtensions.ToVietnamese(vehicle.Category);
-                string roomNumber = vehicle.Room != null ? vehicle.Room.RoomNumber : Resources.NullData;
+                var number = vehicle.Number;
+                var name = vehicle.Name;
+                var price = FormatText.IntegerToVnd(vehicle.Price);
+                var type = VehicleCategoryExtensions.ToVietnamese(vehicle.Category);
+                var roomNumber = vehicle.Room != null ? vehicle.Room.RoomNumber : Resources.NullData;
                 labelVehicleNumber.Text = string.IsNullOrEmpty(number) ? Resources.NullData : number;
                 labelVehicleName.Text = string.IsNullOrEmpty(name) ? Resources.NullData : name;
                 lableVehiclePrice.Text = string.IsNullOrEmpty(price) ? Resources.NullData : price;
@@ -47,7 +47,7 @@ namespace AccommodationManagerApp.Forms {
         }
 
         private void buttonEditVehicle_Click(object sender, EventArgs e) {
-            Vehicle vehicle = IsSelectedVehicleValid();
+            var vehicle = IsSelectedVehicleValid();
             if (vehicle != null) {
                 var vehicleForm = new VehicleForm(vehicle);
                 vehicleForm.ShowDialog();
@@ -68,7 +68,7 @@ namespace AccommodationManagerApp.Forms {
         }
 
         private void buttonDeleteVehicle_Click(object sender, EventArgs e) {
-            Vehicle vehicle = IsSelectedVehicleValid();
+            var vehicle = IsSelectedVehicleValid();
             if (vehicle != null) {
                 var confirmation = new ConfirmationForm("Xác nhận xóa phương tiện?");
                 var result = confirmation.ShowDialog();
@@ -117,7 +117,7 @@ namespace AccommodationManagerApp.Forms {
 
         private Vehicle IsSelectedVehicleValid() {
             if (ListViewVehicle.SelectedItems.Count > 0) {
-                int index = ListViewVehicle.SelectedItems[0].Index;
+                var index = ListViewVehicle.SelectedItems[0].Index;
                 if (index >= 0 && index < Vehicles.Count) {
                     return Vehicles[index];
                 }

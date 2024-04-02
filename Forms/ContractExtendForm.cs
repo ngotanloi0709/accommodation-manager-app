@@ -54,7 +54,7 @@ namespace AccommodationManagerApp.Forms {
             Close();
         }
 
-        private void comboBoxMonth_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void comboBoxMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxMonth.Text.Equals("None"))
             {
@@ -62,7 +62,7 @@ namespace AccommodationManagerApp.Forms {
                 return;
             }
 
-            int months = int.Parse(comboBoxMonth.Text.Split(' ')[0]);
+            var months = int.Parse(comboBoxMonth.Text.Split(' ')[0]);
             var endDate = _contract.EndDate.AddMonths(months);
             labelContractEndDate.Text = endDate.ToString("dd/MM/yyyy");
         }

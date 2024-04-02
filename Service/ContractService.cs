@@ -45,7 +45,7 @@ namespace AccommodationManagerApp.Service {
         }
 
         public bool IsRoomContractsAllExpired(Room room) {
-            bool result = true;
+            var result = true;
 
             if (room.Contracts.Count == 0) return true;
             
@@ -59,7 +59,7 @@ namespace AccommodationManagerApp.Service {
         }
 
         public bool IsRoomAvailableWithToast(int? roomId) {
-            Room room = _roomRepository.GetByIdWithContract(roomId);
+            var room = _roomRepository.GetByIdWithContract(roomId);
 
             if (room == null) {
                 new ToastForm("Phòng không tồn tại", true).Show();
@@ -75,7 +75,7 @@ namespace AccommodationManagerApp.Service {
         }
 
         public bool IsRoomAvailable(int? roomId) {
-            Room room = _roomRepository.GetByIdWithContract(roomId);
+            var room = _roomRepository.GetByIdWithContract(roomId);
 
             if (room == null) {
                 return false;
@@ -89,7 +89,7 @@ namespace AccommodationManagerApp.Service {
         }
 
         public List<Room> GetAvailableRooms() {
-            List<Room> rooms = new List<Room>();
+            var rooms = new List<Room>();
 
             foreach (var room in _roomRepository.GetAll()) {
                 if (IsRoomAvailable(room.Id)) {

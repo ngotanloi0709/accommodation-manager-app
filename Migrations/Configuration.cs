@@ -48,12 +48,13 @@ namespace AccommodationManagerApp.Migrations {
                 context.Rooms.AddOrUpdate(new Room { RoomNumber = "302", BuildingId = null });
                 context.Rooms.AddOrUpdate(new Room { RoomNumber = "303", BuildingId = null });
             }
-
+            /*
             if (!context.Bills.Any()) {
                 context.Bills.AddOrUpdate(new Bill(100, 50, null));
                 context.Bills.AddOrUpdate(new Bill(150, 75, null));
                 context.Bills.AddOrUpdate(new Bill(200, 100, null));
-            }            
+            } 
+            */
             if (!context.Requests.Any())
             {
                 context.Requests.AddOrUpdate(new Request("Cúp điện kìa", null));
@@ -76,7 +77,7 @@ namespace AccommodationManagerApp.Migrations {
 
         private void CreateBuildingDeleteTrigger(DbContext context) {
             try {
-                string createTriggerSql = @"
+                var createTriggerSql = @"
                     CREATE TRIGGER SetNullOnBuildingDelete
                     BEFORE DELETE ON buildings
                     FOR EACH ROW
@@ -94,7 +95,7 @@ namespace AccommodationManagerApp.Migrations {
 
         private void CreateRoomDeleteTrigger(DbContext context) {
             try {
-                string createTriggerSql = @"
+                var createTriggerSql = @"
                     CREATE TRIGGER SetNullOnRoomDelete
                     BEFORE DELETE ON rooms
                     FOR EACH ROW
@@ -115,7 +116,7 @@ namespace AccommodationManagerApp.Migrations {
 
         private void CreateUserDeleteTrigger(DbContext context) {
             try {
-                string createTriggerSql = @"
+                var createTriggerSql = @"
                     CREATE TRIGGER SetNullOnUserDelete
                     BEFORE DELETE ON users
                     FOR EACH ROW

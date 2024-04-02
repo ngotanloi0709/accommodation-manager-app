@@ -34,7 +34,7 @@ namespace AccommodationManagerApp.Forms
         }
         private void InsertRequest(Request request)
         {
-            RequestForm requestForm = new RequestForm(request);
+            var requestForm = new RequestForm(request);
             requestForm.ShowDialog();
             LoadRequestData();
         }
@@ -55,7 +55,7 @@ namespace AccommodationManagerApp.Forms
         {
             if (lstViewReq.SelectedItems.Count > 0)
             {
-                int index = lstViewReq.SelectedItems[0].Index;
+                var index = lstViewReq.SelectedItems[0].Index;
                 if (index < _Requests.Count) return _Requests[index];
             }
             new ToastForm("Mời bạn chọn yêu cầu !", true).Show();

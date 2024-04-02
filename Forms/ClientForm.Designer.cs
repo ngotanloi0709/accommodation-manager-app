@@ -171,7 +171,7 @@
             this.tbCtrlClient.Multiline = true;
             this.tbCtrlClient.Name = "tbCtrlClient";
             this.tbCtrlClient.SelectedIndex = 0;
-            this.tbCtrlClient.Size = new System.Drawing.Size(1026, 811);
+            this.tbCtrlClient.Size = new System.Drawing.Size(1058, 853);
             this.tbCtrlClient.TabIndex = 25;
             // 
             // pgRequest
@@ -189,7 +189,7 @@
             this.pgRequest.Location = new System.Drawing.Point(4, 39);
             this.pgRequest.Name = "pgRequest";
             this.pgRequest.Padding = new System.Windows.Forms.Padding(3);
-            this.pgRequest.Size = new System.Drawing.Size(1018, 768);
+            this.pgRequest.Size = new System.Drawing.Size(1050, 810);
             this.pgRequest.TabIndex = 1;
             this.pgRequest.Text = "Yêu Cầu";
             this.pgRequest.UseVisualStyleBackColor = true;
@@ -397,7 +397,7 @@
             this.pgBill.ImageKey = "contract.png";
             this.pgBill.Location = new System.Drawing.Point(4, 39);
             this.pgBill.Name = "pgBill";
-            this.pgBill.Size = new System.Drawing.Size(1018, 768);
+            this.pgBill.Size = new System.Drawing.Size(1050, 810);
             this.pgBill.TabIndex = 2;
             this.pgBill.Text = "Hóa Đơn";
             this.pgBill.UseVisualStyleBackColor = true;
@@ -586,14 +586,14 @@
             // state
             // 
             this.state.Text = "Tình Trạng";
-            this.state.Width = 120;
+            this.state.Width = 150;
             // 
             // pgConfig
             // 
             this.pgConfig.ImageKey = "configuration.png";
             this.pgConfig.Location = new System.Drawing.Point(4, 39);
             this.pgConfig.Name = "pgConfig";
-            this.pgConfig.Size = new System.Drawing.Size(986, 690);
+            this.pgConfig.Size = new System.Drawing.Size(1018, 768);
             this.pgConfig.TabIndex = 3;
             this.pgConfig.Text = "Cài Đặt";
             this.pgConfig.UseVisualStyleBackColor = true;
@@ -602,7 +602,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1032, 878);
+            this.ClientSize = new System.Drawing.Size(1064, 920);
             this.Controls.Add(this.tbCtrlClient);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.buttonCurrentUserInformationManagement);

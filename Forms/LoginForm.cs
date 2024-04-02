@@ -15,16 +15,16 @@ namespace AccommodationManagerApp.Forms
         }
         private void login(object sender, EventArgs e)
         {
-            string email = txtEmail.Text;
-            string password = txtPass.Text;
+            var email = txtEmail.Text;
+            var password = txtPass.Text;
             try
             {
-                bool result = _authenticationService.Authenticate(email, password);
+                var result = _authenticationService.Authenticate(email, password);
                 if (result)
                 {
-                    SplashForm splashForm = new SplashForm();
+                    var splashForm = new SplashForm();
                     splashForm.Show();
-                    this.Hide();
+                    Hide();
                 }
                 else
                 {
@@ -43,7 +43,7 @@ namespace AccommodationManagerApp.Forms
             var result = confirm.ShowDialog();
             if (result == DialogResult.Yes)
             {
-                this.Close();
+                Close();
             }
         }
 

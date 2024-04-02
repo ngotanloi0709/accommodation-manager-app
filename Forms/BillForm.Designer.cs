@@ -79,7 +79,7 @@
             this.txtbxWater.AnimateReadOnly = false;
             this.txtbxWater.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtbxWater.Depth = 0;
-            this.txtbxWater.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtbxWater.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtbxWater.LeadingIcon = null;
             this.txtbxWater.Location = new System.Drawing.Point(134, 276);
             this.txtbxWater.MaxLength = 50;
@@ -97,7 +97,7 @@
             this.txtbxElectric.AnimateReadOnly = false;
             this.txtbxElectric.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtbxElectric.Depth = 0;
-            this.txtbxElectric.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtbxElectric.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtbxElectric.LeadingIcon = null;
             this.txtbxElectric.Location = new System.Drawing.Point(134, 348);
             this.txtbxElectric.MaxLength = 50;
@@ -119,9 +119,9 @@
             this.lblElectric.Location = new System.Drawing.Point(50, 287);
             this.lblElectric.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblElectric.Name = "lblElectric";
-            this.lblElectric.Size = new System.Drawing.Size(69, 24);
+            this.lblElectric.Size = new System.Drawing.Size(77, 24);
             this.lblElectric.TabIndex = 8;
-            this.lblElectric.Text = "Số Điện";
+            this.lblElectric.Text = "Số Nước";
             // 
             // lblWater
             // 
@@ -132,9 +132,9 @@
             this.lblWater.Location = new System.Drawing.Point(50, 357);
             this.lblWater.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblWater.Name = "lblWater";
-            this.lblWater.Size = new System.Drawing.Size(77, 24);
+            this.lblWater.Size = new System.Drawing.Size(69, 24);
             this.lblWater.TabIndex = 9;
-            this.lblWater.Text = "Số Nước";
+            this.lblWater.Text = "Số Điện";
             // 
             // mySqlCommand1
             // 
@@ -243,7 +243,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 578);
+            this.ClientSize = new System.Drawing.Size(500, 500);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.labelRent);
@@ -274,7 +274,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

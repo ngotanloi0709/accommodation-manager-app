@@ -11,7 +11,7 @@ namespace AccommodationManagerApp.Repository {
         protected readonly DbContext Context;
 
         protected Repository(AccommodationManagerAppContext context) {
-            this.Context = context;
+            Context = context;
         }
 
         public List<T> GetAll() {

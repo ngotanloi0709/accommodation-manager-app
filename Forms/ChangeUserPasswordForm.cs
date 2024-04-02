@@ -48,7 +48,7 @@ namespace AccommodationManagerApp.Forms
         }
 
         private bool IsAllTextBoxFilled() {
-            bool result = string.IsNullOrEmpty(textBoxPassword.Text) || string.IsNullOrEmpty(textBoxConfirmPassword.Text);
+            var result = string.IsNullOrEmpty(textBoxPassword.Text) || string.IsNullOrEmpty(textBoxConfirmPassword.Text);
             
             if (result) {
                 new ToastForm("Vui lòng điền đầy đủ các trường.", true).Show();

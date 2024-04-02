@@ -9,13 +9,12 @@ namespace AccommodationManagerApp.Model
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int ElecQuantity { get; set; }
-        public int WaterQuantity { get; set; }
+        public int ElecQuantity { get; set; } = 0;
+        public int WaterQuantity { get; set; } = 0;
         public int ElecFee { get; set; } = 0;
         public int WaterFee { get; set; } = 0;
         public int InternetFee { get; set; } = 0;
-        [EnumDataType(typeof(BillStatus))]
-        public BillStatus Status { get; set; } = BillStatus.Unpaid;
+        [EnumDataType(typeof(BillStatus))] public BillStatus Status { get; set; } = BillStatus.Edit;
         public int? ContractId { get; set; }
         [ForeignKey("ContractId")] public Contract Contract { get; set; }
         public int? UserId { get; set; }
@@ -27,16 +26,16 @@ namespace AccommodationManagerApp.Model
 
         public Bill() { }
 
-        public Bill(int elecQuantity, int waterQuantity, int? contractId)
+        public Bill(int? userId,int contractId, DateTime createdAt)
         {
-            ElecQuantity = elecQuantity;
-            WaterQuantity = waterQuantity;
             ContractId = contractId;
+            CreatedAt = createdAt;
+            UserId = userId;
         }
     }
-    
-public enum BillStatus
+    public enum BillStatus
     {
+        Edit,
         Unpaid,
         Paid
     }

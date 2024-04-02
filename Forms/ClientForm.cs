@@ -28,7 +28,6 @@ namespace AccommodationManagerApp.Forms
             LoadEntity();
             LoadBillData();
             LoadRequestData();
-            LoadFixedPriceToBills();
             LoadPersonalInformation();
         }
 
@@ -58,7 +57,7 @@ namespace AccommodationManagerApp.Forms
         {
             if (_authenticationService.IsAuthenticated())
             {
-                CurrentUserInformationForm userManagementForm = new CurrentUserInformationForm(_authenticationService.CurrentUser);
+                var userManagementForm = new CurrentUserInformationForm(_authenticationService.CurrentUser);
                 userManagementForm.ShowDialog();
             }
             else
@@ -76,10 +75,10 @@ namespace AccommodationManagerApp.Forms
                 _authenticationService.Logout();
                 Close();
 
-                Thread loginFormThread = new Thread(() =>
+                var loginFormThread = new Thread(() =>
                 {
                     Application.SetCompatibleTextRenderingDefault(false);
-                    LoginForm loginForm = new LoginForm();
+                    var loginForm = new LoginForm();
                     Application.Run(loginForm);
                 });
 

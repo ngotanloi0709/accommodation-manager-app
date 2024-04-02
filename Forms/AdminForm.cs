@@ -18,7 +18,7 @@ namespace AccommodationManagerApp.Forms
         {
             if (_authenticationService.IsAuthenticated())
             {
-                CurrentUserInformationForm userManagementForm = new CurrentUserInformationForm(_authenticationService.CurrentUser);
+                var userManagementForm = new CurrentUserInformationForm(_authenticationService.CurrentUser);
                 userManagementForm.ShowDialog();
             }
             else

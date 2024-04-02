@@ -12,7 +12,7 @@ namespace AccommodationManagerApp.Forms {
             Contracts = _contractService.GetAllWithUserAndRoom();
 
             foreach (var contract in Contracts) {
-                ListViewItem item = new ListViewItem(contract.User != null ? contract.User.Name : Resources.NullData);
+                var item = new ListViewItem(contract.User != null ? contract.User.Name : Resources.NullData);
                 item.SubItems.Add(contract.Room != null ? contract.Room.RoomNumber : Resources.NullData);
                 item.SubItems.Add(contract.Price.ToString());
                 item.SubItems.Add(string.IsNullOrEmpty(contract.StartDate.ToString())
@@ -31,14 +31,15 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        private void buttonAddContract_Click(object sender, System.EventArgs e) {
+        private void buttonAddContract_Click(object sender, EventArgs e) {
             var contractForm = new ContractForm(null);
             contractForm.ShowDialog();
             ShowContractDialogMessageResult(contractForm.DialogResult, false);
+            LoadBillData();
         }
 
-        private void buttonEditContract_Click(object sender, System.EventArgs e) {
-            Contract contract = IsSelectedContractValid();
+        private void buttonEditContract_Click(object sender, EventArgs e) {
+            var contract = IsSelectedContractValid();
             
             if (contract != null) {
                 if (contract.IsTerminated) {
@@ -57,7 +58,7 @@ namespace AccommodationManagerApp.Forms {
         }
 
         private void SelectContractAgain(Contract contract) {
-            int index = Contracts.IndexOf(contract);
+            var index = Contracts.IndexOf(contract);
 
             if (ListViewContract.Items.Count > index) {
                 ListViewContract.Items[index].Selected = true;
@@ -87,8 +88,8 @@ namespace AccommodationManagerApp.Forms {
             new ToastForm(message, dialogResult != DialogResult.OK).Show();
         }
 
-        private void buttonTerminateContract_Click(object sender, System.EventArgs e) {
-            Contract contract = IsSelectedContractValid();
+        private void buttonTerminateContract_Click(object sender, EventArgs e) {
+            var contract = IsSelectedContractValid();
 
             if (contract != null) {
                 if (contract.IsTerminated) {
@@ -110,8 +111,8 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        private void buttonExtendContract_Click(object sender, System.EventArgs e) {
-            Contract contract = IsSelectedContractValid();
+        private void buttonExtendContract_Click(object sender, EventArgs e) {
+            var contract = IsSelectedContractValid();
             
             if (contract != null) {
                 if (contract.IsTerminated) {
@@ -135,19 +136,19 @@ namespace AccommodationManagerApp.Forms {
         }
 
         private void ListViewContract_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) {
-            Contract contract = IsSelectedContractValid();
+            var contract = IsSelectedContractValid();
 
             if (contract != null) {
-                string tenantName = contract.User != null ? contract.User.Name : Resources.NullData;
-                string roomNumber = contract.Room != null ? contract.Room.RoomNumber : Resources.NullData;
-                string price = FormatText.IntegerToVnd(contract.Price);
-                string startDate = string.IsNullOrEmpty(contract.StartDate.ToString())
+                var tenantName = contract.User != null ? contract.User.Name : Resources.NullData;
+                var roomNumber = contract.Room != null ? contract.Room.RoomNumber : Resources.NullData;
+                var price = FormatText.IntegerToVnd(contract.Price);
+                var startDate = string.IsNullOrEmpty(contract.StartDate.ToString())
                     ? Resources.NullData
                     : contract.StartDate.ToString("dd/MM/yyyy");
-                string endDate = string.IsNullOrEmpty(contract.EndDate.ToString())
+                var endDate = string.IsNullOrEmpty(contract.EndDate.ToString())
                     ? Resources.NullData
                     : contract.EndDate.ToString("dd/MM/yyyy");
-                string isTerminated = contract.IsTerminated ? Resources.ContractTerminated : Resources.ContractInTime;
+                var isTerminated = contract.IsTerminated ? Resources.ContractTerminated : Resources.ContractInTime;
 
                 labelContractTenantName.Text = tenantName;
                 labelContractRoomNumber.Text = roomNumber;
@@ -160,10 +161,10 @@ namespace AccommodationManagerApp.Forms {
 
         private Contract IsSelectedContractValid() {
             if (ListViewContract.SelectedItems.Count > 0) {
-                int index = ListViewContract.SelectedItems[0].Index;
+                var index = ListViewContract.SelectedItems[0].Index;
 
                 if (index < Contracts.Count) {
-                    Contract contract = Contracts[index];
+                    var contract = Contracts[index];
 
                     return contract;
                 }
@@ -172,8 +173,8 @@ namespace AccommodationManagerApp.Forms {
             return null;
         }
 
-        private void buttonDelete_Click(object sender, System.EventArgs e) {
-            Contract contract = IsSelectedContractValid();
+        private void buttonDelete_Click(object sender, EventArgs e) {
+            var contract = IsSelectedContractValid();
 
             if (contract != null) {
                 var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn xóa hợp đồng này không?");
@@ -202,40 +203,40 @@ namespace AccommodationManagerApp.Forms {
             LoadRoomData();
         }
         
-        private void buttonReloadContract_Click(object sender, System.EventArgs e)
+        private void buttonReloadContract_Click(object sender, EventArgs e)
         {
             ContractForeignInformationReload();
             new ToastForm("Đã thực hiện tải lại dữ liệu hợp đồng").Show();
         }
 
-        private void btnWordExtract_Click(object sender, System.EventArgs e)
+        private void btnWordExtract_Click(object sender, EventArgs e)
         {
-            Contract contract = IsSelectedContractValid();
+            var contract = IsSelectedContractValid();
             if (contract != null)
             {
-                string date = DateTime.Now.ToString("dd/MM/yyyy");
-                string tenantName = contract.User != null ? contract.User.Name : Resources.NullData;
-                string tenantIdentityNumber = contract.User != null ? contract.User.IdentityNumber : Resources.NullData;
-                string tenantPhone = contract.User != null ? contract.User.Phone : Resources.NullData;
-                string dateOfBirth = contract.User != null ? contract.User.DateOfBirth.ToString("dd/MM/yyyy") : Resources.NullData;
-                string roomNumber = contract.Room != null ? contract.Room.RoomNumber : Resources.NullData;
-                string price = FormatText.IntegerToVnd(contract.Price);
-                string startDate = string.IsNullOrEmpty(contract.StartDate.ToString())
+                var date = DateTime.Now.ToString("dd/MM/yyyy");
+                var tenantName = contract.User != null ? contract.User.Name : Resources.NullData;
+                var tenantIdentityNumber = contract.User != null ? contract.User.IdentityNumber : Resources.NullData;
+                var tenantPhone = contract.User != null ? contract.User.Phone : Resources.NullData;
+                var dateOfBirth = contract.User != null ? contract.User.DateOfBirth.ToString("dd/MM/yyyy") : Resources.NullData;
+                var roomNumber = contract.Room != null ? contract.Room.RoomNumber : Resources.NullData;
+                var price = FormatText.IntegerToVnd(contract.Price);
+                var startDate = string.IsNullOrEmpty(contract.StartDate.ToString())
                     ? Resources.NullData
                     : contract.StartDate.ToString("dd/MM/yyyy");
-                string endDate = string.IsNullOrEmpty(contract.EndDate.ToString())
+                var endDate = string.IsNullOrEmpty(contract.EndDate.ToString())
                     ? Resources.NullData
                     : contract.EndDate.ToString("dd/MM/yyyy");
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                var saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "DOC Files|*.docx";
                 saveFileDialog.Title = "Save as DOCX";
                 saveFileDialog.FileName = "Contract.docx";
                 if(saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    string filePath = saveFileDialog.FileName;
+                    var filePath = saveFileDialog.FileName;
                     try
                     {
-                        Document doc = new Document("..\\..\\Template\\contract.docx");
+                        var doc = new Document("..\\..\\Template\\contract.docx");
                         doc.MailMerge.Execute(new string[] { "This_Date" }, new[] { date });
                         doc.MailMerge.Execute(new string[] { "Tennant_Name" }, new[] { tenantName });
                         doc.MailMerge.Execute(new string[] { "Tennant_CCCD" }, new[] { tenantIdentityNumber });

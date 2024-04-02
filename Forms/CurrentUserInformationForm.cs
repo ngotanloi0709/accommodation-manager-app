@@ -76,16 +76,16 @@ namespace AccommodationManagerApp.Repository {
 
         private void buttonEditAvatar_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog {
+            var openFileDialog = new OpenFileDialog {
                 Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG",
                 RestoreDirectory = true
             };
 
             if (openFileDialog.ShowDialog() == DialogResult.OK) {
-                Image image = Image.FromFile(openFileDialog.FileName);
-                Image compressedImage = _userService.CompressImage(image, 50);
+                var image = Image.FromFile(openFileDialog.FileName);
+                var compressedImage = _userService.CompressImage(image, 50);
 
-                using (MemoryStream ms = new MemoryStream()) {
+                using (var ms = new MemoryStream()) {
                     compressedImage.Save(ms, image.RawFormat);
                     _user.Avatar = ms.ToArray();
                 }

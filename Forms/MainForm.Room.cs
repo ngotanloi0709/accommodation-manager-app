@@ -12,7 +12,7 @@ namespace AccommodationManagerApp.Forms {
             Rooms = _roomService.GetAllWithBuildingAndUserAndContractWithUser();
 
             foreach (var room in Rooms) {
-                ListViewItem item = new ListViewItem(room.RoomNumber);
+                var item = new ListViewItem(room.RoomNumber);
                 item.SubItems.Add(room.Building != null ? room.Building.Name : Resources.NullData);
                 item.SubItems.Add(_roomService.GetCurrentTenantName(room));
                 item.SubItems.Add(room.Status.ToVietnamese());
@@ -22,19 +22,19 @@ namespace AccommodationManagerApp.Forms {
 
 
         private void ListViewRoom_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) {
-            Room room = IsSelectedRoomValid();
+            var room = IsSelectedRoomValid();
 
             if (room != null) {
-                string number = room.RoomNumber;
-                Building building = room.Building;
-                string status = room.Status.ToVietnamese();
+                var number = room.RoomNumber;
+                var building = room.Building;
+                var status = room.Status.ToVietnamese();
 
                 labelRoomNumber.Text = number == null || number.Equals("") ? Resources.NullData : number;
                 labelRoomTenant.Text = _roomService.GetCurrentTenantName(room);
                 labelRoomStatus.Text = status.Equals("") ? Resources.NullData : status;
 
                 if (building != null) {
-                    string buildingName = room.Building.Name;
+                    var buildingName = room.Building.Name;
                     labelRoomBuilding.Text = buildingName == null || buildingName.Equals("")
                         ? Resources.NullData
                         : buildingName;
@@ -49,10 +49,10 @@ namespace AccommodationManagerApp.Forms {
 
         private void LoadRoomUserList(Room room) {
             ListViewRoomUserList.Items.Clear();
-            List<User> users = room.Users;
+            var users = room.Users;
 
             foreach (var user in users) {
-                ListViewItem item = new ListViewItem(user.Name);
+                var item = new ListViewItem(user.Name);
                 item.SubItems.Add(user.Email);
                 ListViewRoomUserList.Items.Add(item);
             }
@@ -66,14 +66,14 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        private void buttonAddRoom_Click(object sender, System.EventArgs e) {
+        private void buttonAddRoom_Click(object sender, EventArgs e) {
             var roomForm = new RoomForm(null);
             roomForm.ShowDialog();
             ShowRoomDialogMessageResult(roomForm.DialogResult, false);
         }
 
-        private void buttonEditRoom_Click(object sender, System.EventArgs e) {
-            Room room = IsSelectedRoomValid();
+        private void buttonEditRoom_Click(object sender, EventArgs e) {
+            var room = IsSelectedRoomValid();
 
             if (room != null) {
                 var roomForm = new RoomForm(room);
@@ -111,8 +111,8 @@ namespace AccommodationManagerApp.Forms {
             new ToastForm(message, dialogResult != DialogResult.OK).Show();
         }
 
-        private void buttonDeleteRoom_Click(object sender, System.EventArgs e) {
-            Room room = IsSelectedRoomValid();
+        private void buttonDeleteRoom_Click(object sender, EventArgs e) {
+            var room = IsSelectedRoomValid();
             if (room != null) {
                 if (!IsRoomSafeDelete(room.Id)) {
                     return;
@@ -147,9 +147,9 @@ namespace AccommodationManagerApp.Forms {
 
         private Room IsSelectedRoomValid() {
             if (ListViewRoom.SelectedItems.Count > 0) {
-                int index = ListViewRoom.SelectedItems[0].Index;
+                var index = ListViewRoom.SelectedItems[0].Index;
                 if (index < Rooms.Count) {
-                    Room room = Rooms[index];
+                    var room = Rooms[index];
                     return room;
                 }
             }
@@ -171,13 +171,13 @@ namespace AccommodationManagerApp.Forms {
             LoadVehicleData();
         }
 
-        private void buttonReloadRoom_Click(object sender, System.EventArgs e) {
+        private void buttonReloadRoom_Click(object sender, EventArgs e) {
             LoadRoomData();
             new ToastForm("Đã thực hiện tải lại dữ liệu chung cư", false).Show();
         }
 
-        private void buttonAddResidentToRoom_Click(object sender, System.EventArgs e) {
-            Room room = IsSelectedRoomValid();
+        private void buttonAddResidentToRoom_Click(object sender, EventArgs e) {
+            var room = IsSelectedRoomValid();
             if (room != null) {
                 var residentForm = new ResidentForm(null, room);
                 residentForm.ShowDialog();
@@ -200,13 +200,13 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        private void buttonRemoveResidentFromRoom_Click(object sender, System.EventArgs e) {
-            Room room = IsSelectedRoomValid();
+        private void buttonRemoveResidentFromRoom_Click(object sender, EventArgs e) {
+            var room = IsSelectedRoomValid();
 
             if (ListViewRoomUserList.SelectedItems.Count > 0) {
-                string name = ListViewRoomUserList.SelectedItems[0].Text;
-                string email = ListViewRoomUserList.SelectedItems[0].SubItems[1].Text;
-                User user = _userService.GetByNameAndEmail(name, email);
+                var name = ListViewRoomUserList.SelectedItems[0].Text;
+                var email = ListViewRoomUserList.SelectedItems[0].SubItems[1].Text;
+                var user = _userService.GetByNameAndEmail(name, email);
 
                 if (user != null) {
                     var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn xóa nhân khẩu này không?");

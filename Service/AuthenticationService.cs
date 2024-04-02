@@ -10,12 +10,12 @@ namespace AccommodationManagerApp.Service {
         private readonly UserService _userService;
         
         public AuthenticationService(UserService userService) {
-            this._userService = userService;
+            _userService = userService;
         }
         
         public bool Authenticate(string email, string password) {
-            User user = _userService.GetUserByEmail(email);
-            bool result = user != null && user.Password == PasswordHelper.HashPassword(password);
+            var user = _userService.GetUserByEmail(email);
+            var result = user != null && user.Password == PasswordHelper.HashPassword(password);
             Console.WriteLine(PasswordHelper.HashPassword(password));
             if (result) {
                 CurrentUser = user;
