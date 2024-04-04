@@ -44,6 +44,11 @@ namespace AccommodationManagerApp.Service {
             return false;
         }
 
+        public Contract GetById(int? id)
+        {
+            return _contractRepository.GetById(id);
+        }
+
         public bool IsRoomContractsAllExpired(Room room) {
             var result = true;
 

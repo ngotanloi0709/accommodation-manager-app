@@ -40,6 +40,11 @@ namespace AccommodationManagerApp.Service {
             return null;
         }
 
+        public User GetById(int? id)
+        {
+            return _userRepository.GetById(id);
+        }
+
         public bool IsEmailExists(string text) {
             return _userRepository.GetByEmail(text) != null;
         }

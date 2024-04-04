@@ -12,5 +12,10 @@ namespace AccommodationManagerApp.Repository
         {
             return Context.Set<Bill>().Where(bill => bill.UserId == userId && bill.Status != BillStatus.Edit).ToList();
         }
+
+        public List<Bill> GetByUserIdInThisMonthAnhUnpaid()
+        {
+            return Context.Set<Bill>().Where(bill => bill.CreatedAt.Month == System.DateTime.Now.Month && bill.Status == BillStatus.Unpaid).ToList();
+        }
     }
 }
