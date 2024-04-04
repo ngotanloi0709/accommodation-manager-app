@@ -165,6 +165,7 @@
             this.columnRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageBills = new System.Windows.Forms.TabPage();
+            this.btnEmailThisMonth = new MaterialSkin.Controls.MaterialButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelInternetPrice = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel35 = new MaterialSkin.Controls.MaterialLabel();
@@ -2192,6 +2193,7 @@
             // tabPageBills
             // 
             this.tabPageBills.BackColor = System.Drawing.Color.White;
+            this.tabPageBills.Controls.Add(this.btnEmailThisMonth);
             this.tabPageBills.Controls.Add(this.pictureBox1);
             this.tabPageBills.Controls.Add(this.labelInternetPrice);
             this.tabPageBills.Controls.Add(this.materialLabel35);
@@ -2217,6 +2219,27 @@
             this.tabPageBills.Text = "Hoá đơn";
             this.tabPageBills.UseVisualStyleBackColor = true;
             // 
+            // btnEmailThisMonth
+            // 
+            this.btnEmailThisMonth.AutoSize = false;
+            this.btnEmailThisMonth.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnEmailThisMonth.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnEmailThisMonth.Depth = 0;
+            this.btnEmailThisMonth.HighEmphasis = true;
+            this.btnEmailThisMonth.Icon = global::AccommodationManagerApp.Properties.Resources.invoice;
+            this.btnEmailThisMonth.Location = new System.Drawing.Point(674, 419);
+            this.btnEmailThisMonth.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnEmailThisMonth.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnEmailThisMonth.Name = "btnEmailThisMonth";
+            this.btnEmailThisMonth.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnEmailThisMonth.Size = new System.Drawing.Size(252, 44);
+            this.btnEmailThisMonth.TabIndex = 49;
+            this.btnEmailThisMonth.Text = "Nhắc nhở đóng tiền tháng này";
+            this.btnEmailThisMonth.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnEmailThisMonth.UseAccentColor = false;
+            this.btnEmailThisMonth.UseVisualStyleBackColor = true;
+            this.btnEmailThisMonth.Click += new System.EventHandler(this.btnEmailThisMonth_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -2234,7 +2257,7 @@
             this.labelInternetPrice.Depth = 0;
             this.labelInternetPrice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelInternetPrice.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
-            this.labelInternetPrice.Location = new System.Drawing.Point(799, 513);
+            this.labelInternetPrice.Location = new System.Drawing.Point(793, 563);
             this.labelInternetPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelInternetPrice.Name = "labelInternetPrice";
             this.labelInternetPrice.Size = new System.Drawing.Size(127, 19);
@@ -2247,7 +2270,7 @@
             this.materialLabel35.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel35.Depth = 0;
             this.materialLabel35.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel35.Location = new System.Drawing.Point(677, 515);
+            this.materialLabel35.Location = new System.Drawing.Point(671, 565);
             this.materialLabel35.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel35.Name = "materialLabel35";
             this.materialLabel35.Size = new System.Drawing.Size(86, 19);
@@ -2261,7 +2284,7 @@
             this.labelElectricityPrice.Depth = 0;
             this.labelElectricityPrice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelElectricityPrice.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
-            this.labelElectricityPrice.Location = new System.Drawing.Point(799, 470);
+            this.labelElectricityPrice.Location = new System.Drawing.Point(793, 520);
             this.labelElectricityPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelElectricityPrice.Name = "labelElectricityPrice";
             this.labelElectricityPrice.Size = new System.Drawing.Size(127, 19);
@@ -2274,7 +2297,7 @@
             this.materialLabel34.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel34.Depth = 0;
             this.materialLabel34.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel34.Location = new System.Drawing.Point(679, 472);
+            this.materialLabel34.Location = new System.Drawing.Point(673, 522);
             this.materialLabel34.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel34.Name = "materialLabel34";
             this.materialLabel34.Size = new System.Drawing.Size(93, 19);
@@ -2288,7 +2311,7 @@
             this.labelWaterPrice.Depth = 0;
             this.labelWaterPrice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelWaterPrice.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
-            this.labelWaterPrice.Location = new System.Drawing.Point(799, 425);
+            this.labelWaterPrice.Location = new System.Drawing.Point(793, 475);
             this.labelWaterPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelWaterPrice.Name = "labelWaterPrice";
             this.labelWaterPrice.Size = new System.Drawing.Size(127, 19);
@@ -2301,7 +2324,7 @@
             this.materialLabel36.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel36.Depth = 0;
             this.materialLabel36.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel36.Location = new System.Drawing.Point(677, 427);
+            this.materialLabel36.Location = new System.Drawing.Point(671, 477);
             this.materialLabel36.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel36.Name = "materialLabel36";
             this.materialLabel36.Size = new System.Drawing.Size(116, 19);
@@ -2327,7 +2350,6 @@
             this.buttonEditFixedPrice.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.buttonEditFixedPrice.UseAccentColor = false;
             this.buttonEditFixedPrice.UseVisualStyleBackColor = true;
-            this.buttonEditFixedPrice.Click += new System.EventHandler(this.buttonEditFixedPrice_Click);
             // 
             // comboBoxVolumn
             // 
@@ -2605,7 +2627,7 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1000, 800);
@@ -2807,5 +2829,6 @@
         private System.Windows.Forms.ColumnHeader date;
         private System.Windows.Forms.ColumnHeader state;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private MaterialSkin.Controls.MaterialButton btnEmailThisMonth;
     }
 }

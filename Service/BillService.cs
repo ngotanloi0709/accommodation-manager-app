@@ -43,6 +43,8 @@ namespace AccommodationManagerApp.Service
 
         public List<Bill> GetAllBillByUserId(int userId) => _billRepository.GetAllBillByUserId(userId);
 
+        public List<Bill> GetByUserIdInThisMonthAnhUnpaid() => _billRepository.GetByUserIdInThisMonthAnhUnpaid();
+
         public FixedPrice GetWaterPrice() => _fixedPriceRepository.GetWaterPrice();
 
         public FixedPrice GetElectricityPrice() => _fixedPriceRepository.GetElectricityPrice();
