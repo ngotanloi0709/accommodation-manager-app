@@ -188,6 +188,17 @@
             this.room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.state = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabPageRequest = new System.Windows.Forms.TabPage();
+            this.buttonResponse = new MaterialSkin.Controls.MaterialButton();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.cmbbxReqCate = new MaterialSkin.Controls.MaterialComboBox();
+            this.btnReqSearch = new MaterialSkin.Controls.MaterialButton();
+            this.txtReqSearch = new MaterialSkin.Controls.MaterialTextBox();
+            this.lstViewReq = new MaterialSkin.Controls.MaterialListView();
+            this.idReq = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.desReq = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dateReq = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.stateReq = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.mySqlConnection1 = new MySqlConnector.MySqlConnection();
             this.labelCurrentUserEmail = new System.Windows.Forms.Label();
             this.buttonCurrentUserInformationManagement = new MaterialSkin.Controls.MaterialButton();
@@ -202,6 +213,8 @@
             this.tabPageVehicle.SuspendLayout();
             this.tabPageBills.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPageRequest.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // drawerImageList
@@ -217,6 +230,7 @@
             this.drawerImageList.Images.SetKeyName(6, "fleet.png");
             this.drawerImageList.Images.SetKeyName(7, "statistic.png");
             this.drawerImageList.Images.SetKeyName(8, "contract.png");
+            this.drawerImageList.Images.SetKeyName(9, "request.png");
             // 
             // tabPageContract
             // 
@@ -1834,6 +1848,7 @@
             this.materialTabControl.Controls.Add(this.tabPageContract);
             this.materialTabControl.Controls.Add(this.tabPageSystemUser);
             this.materialTabControl.Controls.Add(this.tabPageBills);
+            this.materialTabControl.Controls.Add(this.tabPageRequest);
             this.materialTabControl.Depth = 0;
             this.materialTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialTabControl.ImageList = this.drawerImageList;
@@ -2564,6 +2579,172 @@
             this.state.Text = "Tình Trạng";
             this.state.Width = 150;
             // 
+            // tabPageRequest
+            // 
+            this.tabPageRequest.BackColor = System.Drawing.Color.White;
+            this.tabPageRequest.Controls.Add(this.buttonResponse);
+            this.tabPageRequest.Controls.Add(this.pictureBox2);
+            this.tabPageRequest.Controls.Add(this.cmbbxReqCate);
+            this.tabPageRequest.Controls.Add(this.btnReqSearch);
+            this.tabPageRequest.Controls.Add(this.txtReqSearch);
+            this.tabPageRequest.Controls.Add(this.lstViewReq);
+            this.tabPageRequest.ImageKey = "request.png";
+            this.tabPageRequest.Location = new System.Drawing.Point(4, 39);
+            this.tabPageRequest.Name = "tabPageRequest";
+            this.tabPageRequest.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageRequest.Size = new System.Drawing.Size(986, 673);
+            this.tabPageRequest.TabIndex = 8;
+            this.tabPageRequest.Text = "Yêu Cầu";
+            this.tabPageRequest.UseVisualStyleBackColor = true;
+            // 
+            // buttonResponse
+            // 
+            this.buttonResponse.AutoSize = false;
+            this.buttonResponse.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonResponse.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonResponse.Depth = 0;
+            this.buttonResponse.HighEmphasis = true;
+            this.buttonResponse.Icon = global::AccommodationManagerApp.Properties.Resources.response;
+            this.buttonResponse.Location = new System.Drawing.Point(726, 300);
+            this.buttonResponse.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonResponse.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonResponse.Name = "buttonResponse";
+            this.buttonResponse.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonResponse.Size = new System.Drawing.Size(187, 39);
+            this.buttonResponse.TabIndex = 35;
+            this.buttonResponse.Text = "Phản hồi khách hàng";
+            this.buttonResponse.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonResponse.UseAccentColor = false;
+            this.buttonResponse.UseVisualStyleBackColor = true;
+            this.buttonResponse.Click += new System.EventHandler(this.buttonResponse_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::AccommodationManagerApp.Properties.Resources.icon_250;
+            this.pictureBox2.Location = new System.Drawing.Point(726, 109);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(187, 157);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 34;
+            this.pictureBox2.TabStop = false;
+            // 
+            // cmbbxReqCate
+            // 
+            this.cmbbxReqCate.AutoResize = false;
+            this.cmbbxReqCate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cmbbxReqCate.Depth = 0;
+            this.cmbbxReqCate.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbbxReqCate.DropDownHeight = 174;
+            this.cmbbxReqCate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbbxReqCate.DropDownWidth = 121;
+            this.cmbbxReqCate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cmbbxReqCate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cmbbxReqCate.FormattingEnabled = true;
+            this.cmbbxReqCate.IntegralHeight = false;
+            this.cmbbxReqCate.ItemHeight = 43;
+            this.cmbbxReqCate.Items.AddRange(new object[] {
+            "Ngày",
+            "Phòng",
+            "Khách Hàng",
+            "Giá",
+            "Điện",
+            "Nước",
+            "Phí Thuê"});
+            this.cmbbxReqCate.Location = new System.Drawing.Point(28, 42);
+            this.cmbbxReqCate.MaxDropDownItems = 4;
+            this.cmbbxReqCate.MouseState = MaterialSkin.MouseState.OUT;
+            this.cmbbxReqCate.Name = "cmbbxReqCate";
+            this.cmbbxReqCate.Size = new System.Drawing.Size(87, 49);
+            this.cmbbxReqCate.StartIndex = 0;
+            this.cmbbxReqCate.TabIndex = 33;
+            // 
+            // btnReqSearch
+            // 
+            this.btnReqSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnReqSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnReqSearch.Depth = 0;
+            this.btnReqSearch.HighEmphasis = true;
+            this.btnReqSearch.Icon = global::AccommodationManagerApp.Properties.Resources.search;
+            this.btnReqSearch.Location = new System.Drawing.Point(622, 48);
+            this.btnReqSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnReqSearch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnReqSearch.Name = "btnReqSearch";
+            this.btnReqSearch.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnReqSearch.Size = new System.Drawing.Size(106, 36);
+            this.btnReqSearch.TabIndex = 31;
+            this.btnReqSearch.Text = "Search";
+            this.btnReqSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnReqSearch.UseAccentColor = false;
+            this.btnReqSearch.UseCompatibleTextRendering = true;
+            this.btnReqSearch.UseVisualStyleBackColor = true;
+            // 
+            // txtReqSearch
+            // 
+            this.txtReqSearch.AnimateReadOnly = false;
+            this.txtReqSearch.BackColor = System.Drawing.SystemColors.Control;
+            this.txtReqSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtReqSearch.Depth = 0;
+            this.txtReqSearch.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtReqSearch.ForeColor = System.Drawing.Color.Transparent;
+            this.txtReqSearch.Hint = "Tìm Kiếm";
+            this.txtReqSearch.LeadingIcon = null;
+            this.txtReqSearch.Location = new System.Drawing.Point(121, 41);
+            this.txtReqSearch.MaxLength = 50;
+            this.txtReqSearch.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtReqSearch.Multiline = false;
+            this.txtReqSearch.Name = "txtReqSearch";
+            this.txtReqSearch.Size = new System.Drawing.Size(494, 50);
+            this.txtReqSearch.TabIndex = 32;
+            this.txtReqSearch.Text = "";
+            this.txtReqSearch.TrailingIcon = null;
+            // 
+            // lstViewReq
+            // 
+            this.lstViewReq.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.lstViewReq.AutoSizeTable = false;
+            this.lstViewReq.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lstViewReq.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lstViewReq.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.idReq,
+            this.desReq,
+            this.dateReq,
+            this.stateReq});
+            this.lstViewReq.Depth = 0;
+            this.lstViewReq.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lstViewReq.FullRowSelect = true;
+            this.lstViewReq.HideSelection = false;
+            this.lstViewReq.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lstViewReq.Location = new System.Drawing.Point(28, 109);
+            this.lstViewReq.MinimumSize = new System.Drawing.Size(200, 100);
+            this.lstViewReq.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.lstViewReq.MouseState = MaterialSkin.MouseState.OUT;
+            this.lstViewReq.Name = "lstViewReq";
+            this.lstViewReq.OwnerDraw = true;
+            this.lstViewReq.ShowGroups = false;
+            this.lstViewReq.Size = new System.Drawing.Size(676, 450);
+            this.lstViewReq.TabIndex = 30;
+            this.lstViewReq.UseCompatibleStateImageBehavior = false;
+            this.lstViewReq.View = System.Windows.Forms.View.Details;
+            // 
+            // idReq
+            // 
+            this.idReq.Text = "id";
+            // 
+            // desReq
+            // 
+            this.desReq.Text = "Nội Dung ";
+            this.desReq.Width = 300;
+            // 
+            // dateReq
+            // 
+            this.dateReq.Text = "Ngày Tạo";
+            this.dateReq.Width = 150;
+            // 
+            // stateReq
+            // 
+            this.stateReq.Text = "Tình Trạng";
+            this.stateReq.Width = 150;
+            // 
             // mySqlConnection1
             // 
             this.mySqlConnection1.ProvideClientCertificatesCallback = null;
@@ -2627,7 +2808,7 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1000, 800);
@@ -2662,9 +2843,16 @@
             this.tabPageBills.ResumeLayout(false);
             this.tabPageBills.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPageRequest.ResumeLayout(false);
+            this.tabPageRequest.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
+
+        private System.Windows.Forms.TabPage tabPageRequest;
+
+        private System.Windows.Forms.TabPage tabPage1;
 
         #endregion
 
@@ -2830,5 +3018,15 @@
         private System.Windows.Forms.ColumnHeader state;
         private System.Windows.Forms.PictureBox pictureBox1;
         private MaterialSkin.Controls.MaterialButton btnEmailThisMonth;
+        private MaterialSkin.Controls.MaterialListView lstViewReq;
+        private System.Windows.Forms.ColumnHeader idReq;
+        private System.Windows.Forms.ColumnHeader desReq;
+        private System.Windows.Forms.ColumnHeader dateReq;
+        private System.Windows.Forms.ColumnHeader stateReq;
+        private MaterialSkin.Controls.MaterialComboBox cmbbxReqCate;
+        private MaterialSkin.Controls.MaterialButton btnReqSearch;
+        private MaterialSkin.Controls.MaterialTextBox txtReqSearch;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private MaterialSkin.Controls.MaterialButton buttonResponse;
     }
 }

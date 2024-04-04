@@ -1,6 +1,6 @@
 ﻿using AccommodationManagerApp.Model;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using AccommodationManagerApp.Util;
 
 namespace AccommodationManagerApp.Forms
 {
@@ -47,7 +47,7 @@ namespace AccommodationManagerApp.Forms
                 var item = new ListViewItem(request.Id.ToString());
                 item.SubItems.Add(request.Des);
                 item.SubItems.Add(request.CreatedAtFormatted);
-                item.SubItems.Add(request.Status.ToString());
+                item.SubItems.Add(text: RequestStatusExtension.ToVietnamese(request.Status));
                 lstViewReq.Items.Add(item);
             }
         }

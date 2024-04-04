@@ -115,8 +115,8 @@ namespace AccommodationManagerApp.Forms
         {
             try
             {
-                User user = _userService.GetById(bill.UserId);
                 Contract contract = _contractService.GetById(bill.ContractId);
+                User user = _userService.GetById(contract.UserId);
                 string subject = "Reminder: Remind Unpaid Tennant Bill";
                 string body = "<html><body>";
                 body += "<h2>Dear " + user.Name + ",</h2>";
@@ -149,7 +149,7 @@ namespace AccommodationManagerApp.Forms
 
                 new ToastForm("Đã gửi email nhắc nhở cho " + user.Name, false).Show();
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 new ToastForm("Gửi email thất bại", true).Show();
             }

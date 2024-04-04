@@ -232,7 +232,7 @@ namespace AccommodationManagerApp.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap logout {
             get {
-                object obj = ResourceManager.GetObject("Logout", resourceCulture);
+                object obj = ResourceManager.GetObject("logout", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -332,6 +332,16 @@ namespace AccommodationManagerApp.Properties {
         internal static System.Drawing.Bitmap reload {
             get {
                 object obj = ResourceManager.GetObject("reload", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap response {
+            get {
+                object obj = ResourceManager.GetObject("response", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

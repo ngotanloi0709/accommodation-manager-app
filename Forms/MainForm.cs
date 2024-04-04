@@ -17,13 +17,14 @@ namespace AccommodationManagerApp.Forms
         private readonly VehicleService _vehicleService;
         private readonly UserService _userService;
         private readonly ContractService _contractService;
+        private readonly RequestService _requestService;
         private List<BillModel> Bills { get; set; }
         private List<Building> Buildings { get; set; }
         private List<Room> Rooms { get; set; }
         private List<Vehicle> Vehicles { get; set; }
         private List<User> Users { get; set; }
         private List<Contract> Contracts { get; set; }
-
+        private List<Request> _Requests;
         public MainForm()
         {
             _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
@@ -33,6 +34,7 @@ namespace AccommodationManagerApp.Forms
             _authenticationService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
             _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
             _contractService = ServiceLocator.ServiceProvider.GetService(typeof(ContractService)) as ContractService;
+            _requestService = ServiceLocator.ServiceProvider.GetService(typeof(RequestService)) as RequestService;
 
             InitializeComponent();
             LoadData();
@@ -49,6 +51,7 @@ namespace AccommodationManagerApp.Forms
             LoadUserData();
             LoadContractData();
             LoadFixedPriceData();
+            LoadRequestData();
         }
         private void SetListViewGridEnable()
         {
@@ -89,9 +92,5 @@ namespace AccommodationManagerApp.Forms
                 Close();
             }
         }
-
-
-
-        
     }
 }
