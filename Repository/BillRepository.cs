@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using AccommodationManagerApp.Model;
+﻿using AccommodationManagerApp.Model;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,6 +11,11 @@ namespace AccommodationManagerApp.Repository
         public List<Bill> GetAllBillByUserId(int userId)
         {
             return Context.Set<Bill>().Where(bill => bill.UserId == userId && bill.Status != BillStatus.Edit).ToList();
+        }
+
+        public List<Bill> GetByUserIdInThisMonthAnhUnpaid()
+        {
+            return Context.Set<Bill>().Where(bill => bill.CreatedAt.Month == System.DateTime.Now.Month && bill.Status == BillStatus.Unpaid).ToList();
         }
 
         public List<Bill> GetAllWithContractWithRoomAndUser() {

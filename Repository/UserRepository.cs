@@ -10,6 +10,11 @@ namespace AccommodationManagerApp.Repository {
             return Context.Set<User>().FirstOrDefault(u => u.Email == email);
         }
 
+        public User GetById(int? id)
+        {
+            return Context.Set<User>().FirstOrDefault(u => u.Id == id);
+        }
+
         public User GetByNameAndEmail(string name, string email) {
             return Context.Set<User>().FirstOrDefault(u => u.Name == name && u.Email == email && u.Role == UserRole.Tenant);
         }

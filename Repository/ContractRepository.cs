@@ -10,6 +10,11 @@ namespace AccommodationManagerApp.Repository {
             return Context.Set<Contract>().Include("User").Include("Room").ToList();
         }
 
+        public Contract GetById(int? id)
+        {
+            return Context.Set<Contract>().FirstOrDefault(c => c.Id == id);
+        }
+
         public List<Contract> GetByUserId(int userId) {
             return Context.Set<Contract>().Where(c => c.UserId == userId).ToList();
         }
