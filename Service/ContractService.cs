@@ -8,10 +8,12 @@ namespace AccommodationManagerApp.Service {
     public class ContractService {
         private readonly ContractRepository _contractRepository;
         private readonly RoomRepository _roomRepository;
+        private readonly BillService _billService;
 
-        public ContractService(ContractRepository contractRepository, RoomRepository roomRepository) {
+        public ContractService(ContractRepository contractRepository, RoomRepository roomRepository, BillService billService) {
             _contractRepository = contractRepository;
             _roomRepository = roomRepository;
+            _billService = billService;
         }
 
         public List<Contract> GetAllWithUserAndRoom() {
@@ -25,8 +27,10 @@ namespace AccommodationManagerApp.Service {
         public void TerminateContract(Contract contract) {
             if (!contract.IsTerminated) {
                 contract.IsTerminated = true;
+                contract.EndDate = DateTime.Now;
 
                 Update(contract);
+                _billService.DeleteGeneratedBillsAfterContractTermination(contract);
             }
         }
 

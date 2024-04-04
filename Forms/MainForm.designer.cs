@@ -33,9 +33,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.drawerImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabPageContract = new System.Windows.Forms.TabPage();
-            this.btnWordExtract = new MaterialSkin.Controls.MaterialButton();
+            this.ButtonExtractWord = new MaterialSkin.Controls.MaterialButton();
             this.buttonReloadContract = new MaterialSkin.Controls.MaterialFloatingActionButton();
-            this.buttonDelete = new MaterialSkin.Controls.MaterialButton();
+            this.ButtonDeleteContract = new MaterialSkin.Controls.MaterialButton();
             this.labelContractIsTerminated = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel20 = new MaterialSkin.Controls.MaterialLabel();
             this.ListViewContract = new MaterialSkin.Controls.MaterialListView();
@@ -44,9 +44,9 @@
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.buttonTerminateContract = new MaterialSkin.Controls.MaterialButton();
-            this.buttonExtendContract = new MaterialSkin.Controls.MaterialButton();
-            this.buttonEditContract = new MaterialSkin.Controls.MaterialButton();
+            this.ButtonTerminateContract = new MaterialSkin.Controls.MaterialButton();
+            this.ButtonExtendContract = new MaterialSkin.Controls.MaterialButton();
+            this.ButtonEditContract = new MaterialSkin.Controls.MaterialButton();
             this.labelContractTenantName = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel23 = new MaterialSkin.Controls.MaterialLabel();
             this.labelContractEndDate = new MaterialSkin.Controls.MaterialLabel();
@@ -57,7 +57,7 @@
             this.materialLabel29 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel31 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel33 = new MaterialSkin.Controls.MaterialLabel();
-            this.buttonAddContract = new MaterialSkin.Controls.MaterialButton();
+            this.ButtonAddContract = new MaterialSkin.Controls.MaterialButton();
             this.materialLabel18 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageSystemUser = new System.Windows.Forms.TabPage();
             this.materialLabel24 = new MaterialSkin.Controls.MaterialLabel();
@@ -165,6 +165,17 @@
             this.columnRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageBills = new System.Windows.Forms.TabPage();
+            this.ButtonUpdateBillStatus = new MaterialSkin.Controls.MaterialButton();
+            this.LabelBillContractEndDate = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel42 = new MaterialSkin.Controls.MaterialLabel();
+            this.LabelBillRoomNumber = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel40 = new MaterialSkin.Controls.MaterialLabel();
+            this.LabelBillContractValue = new MaterialSkin.Controls.MaterialLabel();
+            this.labelSoemthingss = new MaterialSkin.Controls.MaterialLabel();
+            this.LabelBillTotal = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel39 = new MaterialSkin.Controls.MaterialLabel();
+            this.LabelBillContractOwner = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel37 = new MaterialSkin.Controls.MaterialLabel();
             this.btnEmailThisMonth = new MaterialSkin.Controls.MaterialButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelInternetPrice = new MaterialSkin.Controls.MaterialLabel();
@@ -181,7 +192,7 @@
             this.btnUpd = new MaterialSkin.Controls.MaterialButton();
             this.btnDelete = new MaterialSkin.Controls.MaterialButton();
             this.btnPDF = new MaterialSkin.Controls.MaterialButton();
-            this.lstViewBill = new MaterialSkin.Controls.MaterialListView();
+            this.ListViewBill = new MaterialSkin.Controls.MaterialListView();
             this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.elec = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.water = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -221,15 +232,15 @@
             // tabPageContract
             // 
             this.tabPageContract.BackColor = System.Drawing.Color.White;
-            this.tabPageContract.Controls.Add(this.btnWordExtract);
+            this.tabPageContract.Controls.Add(this.ButtonExtractWord);
             this.tabPageContract.Controls.Add(this.buttonReloadContract);
-            this.tabPageContract.Controls.Add(this.buttonDelete);
+            this.tabPageContract.Controls.Add(this.ButtonDeleteContract);
             this.tabPageContract.Controls.Add(this.labelContractIsTerminated);
             this.tabPageContract.Controls.Add(this.materialLabel20);
             this.tabPageContract.Controls.Add(this.ListViewContract);
-            this.tabPageContract.Controls.Add(this.buttonTerminateContract);
-            this.tabPageContract.Controls.Add(this.buttonExtendContract);
-            this.tabPageContract.Controls.Add(this.buttonEditContract);
+            this.tabPageContract.Controls.Add(this.ButtonTerminateContract);
+            this.tabPageContract.Controls.Add(this.ButtonExtendContract);
+            this.tabPageContract.Controls.Add(this.ButtonEditContract);
             this.tabPageContract.Controls.Add(this.labelContractTenantName);
             this.tabPageContract.Controls.Add(this.materialLabel23);
             this.tabPageContract.Controls.Add(this.labelContractEndDate);
@@ -240,7 +251,7 @@
             this.tabPageContract.Controls.Add(this.materialLabel29);
             this.tabPageContract.Controls.Add(this.materialLabel31);
             this.tabPageContract.Controls.Add(this.materialLabel33);
-            this.tabPageContract.Controls.Add(this.buttonAddContract);
+            this.tabPageContract.Controls.Add(this.ButtonAddContract);
             this.tabPageContract.Controls.Add(this.materialLabel18);
             this.tabPageContract.ImageKey = "contract.png";
             this.tabPageContract.Location = new System.Drawing.Point(4, 39);
@@ -249,62 +260,62 @@
             this.tabPageContract.TabIndex = 5;
             this.tabPageContract.Text = "Hợp đồng";
             // 
-            // btnWordExtract
+            // ButtonExtractWord
             // 
-            this.btnWordExtract.AutoSize = false;
-            this.btnWordExtract.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnWordExtract.BackColor = System.Drawing.Color.Transparent;
-            this.btnWordExtract.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnWordExtract.Depth = 0;
-            this.btnWordExtract.HighEmphasis = true;
-            this.btnWordExtract.Icon = global::AccommodationManagerApp.Properties.Resources.contract;
-            this.btnWordExtract.Location = new System.Drawing.Point(738, 591);
-            this.btnWordExtract.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnWordExtract.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnWordExtract.Name = "btnWordExtract";
-            this.btnWordExtract.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnWordExtract.Size = new System.Drawing.Size(187, 36);
-            this.btnWordExtract.TabIndex = 50;
-            this.btnWordExtract.Text = "Xuất hợp đồng";
-            this.btnWordExtract.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnWordExtract.UseAccentColor = false;
-            this.btnWordExtract.UseVisualStyleBackColor = false;
-            this.btnWordExtract.Click += new System.EventHandler(this.btnWordExtract_Click);
+            this.ButtonExtractWord.AutoSize = false;
+            this.ButtonExtractWord.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ButtonExtractWord.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonExtractWord.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.ButtonExtractWord.Depth = 0;
+            this.ButtonExtractWord.HighEmphasis = true;
+            this.ButtonExtractWord.Icon = global::AccommodationManagerApp.Properties.Resources.contract;
+            this.ButtonExtractWord.Location = new System.Drawing.Point(587, 497);
+            this.ButtonExtractWord.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.ButtonExtractWord.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ButtonExtractWord.Name = "ButtonExtractWord";
+            this.ButtonExtractWord.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.ButtonExtractWord.Size = new System.Drawing.Size(337, 36);
+            this.ButtonExtractWord.TabIndex = 50;
+            this.ButtonExtractWord.Text = "Xuất hợp đồng File Word";
+            this.ButtonExtractWord.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.ButtonExtractWord.UseAccentColor = false;
+            this.ButtonExtractWord.UseVisualStyleBackColor = false;
+            this.ButtonExtractWord.Click += new System.EventHandler(this.ButtonExtractWord_Click);
             // 
             // buttonReloadContract
             // 
             this.buttonReloadContract.Depth = 0;
             this.buttonReloadContract.Icon = global::AccommodationManagerApp.Properties.Resources.reload;
-            this.buttonReloadContract.Location = new System.Drawing.Point(490, 581);
+            this.buttonReloadContract.Location = new System.Drawing.Point(453, 581);
             this.buttonReloadContract.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonReloadContract.Name = "buttonReloadContract";
             this.buttonReloadContract.Size = new System.Drawing.Size(56, 56);
             this.buttonReloadContract.TabIndex = 49;
             this.buttonReloadContract.Text = "materialFloatingActionButton2";
             this.buttonReloadContract.UseVisualStyleBackColor = true;
-            this.buttonReloadContract.Click += new System.EventHandler(this.buttonReloadContract_Click);
+            this.buttonReloadContract.Click += new System.EventHandler(this.ButtonReloadContract_Click);
             // 
-            // buttonDelete
+            // ButtonDeleteContract
             // 
-            this.buttonDelete.AutoSize = false;
-            this.buttonDelete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonDelete.BackColor = System.Drawing.Color.Transparent;
-            this.buttonDelete.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.buttonDelete.Depth = 0;
-            this.buttonDelete.HighEmphasis = true;
-            this.buttonDelete.Icon = global::AccommodationManagerApp.Properties.Resources.delete;
-            this.buttonDelete.Location = new System.Drawing.Point(737, 543);
-            this.buttonDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.buttonDelete.MouseState = MaterialSkin.MouseState.HOVER;
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonDelete.Size = new System.Drawing.Size(187, 36);
-            this.buttonDelete.TabIndex = 48;
-            this.buttonDelete.Text = "Xoá hợp đồng";
-            this.buttonDelete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.buttonDelete.UseAccentColor = false;
-            this.buttonDelete.UseVisualStyleBackColor = false;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            this.ButtonDeleteContract.AutoSize = false;
+            this.ButtonDeleteContract.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ButtonDeleteContract.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonDeleteContract.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.ButtonDeleteContract.Depth = 0;
+            this.ButtonDeleteContract.HighEmphasis = true;
+            this.ButtonDeleteContract.Icon = global::AccommodationManagerApp.Properties.Resources.delete;
+            this.ButtonDeleteContract.Location = new System.Drawing.Point(761, 449);
+            this.ButtonDeleteContract.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.ButtonDeleteContract.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ButtonDeleteContract.Name = "ButtonDeleteContract";
+            this.ButtonDeleteContract.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.ButtonDeleteContract.Size = new System.Drawing.Size(163, 36);
+            this.ButtonDeleteContract.TabIndex = 48;
+            this.ButtonDeleteContract.Text = "Xoá hợp đồng";
+            this.ButtonDeleteContract.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.ButtonDeleteContract.UseAccentColor = false;
+            this.ButtonDeleteContract.UseVisualStyleBackColor = false;
+            this.ButtonDeleteContract.Click += new System.EventHandler(this.ButtonDeleteContract_Click);
             // 
             // labelContractIsTerminated
             // 
@@ -355,7 +366,7 @@
             this.ListViewContract.MouseState = MaterialSkin.MouseState.OUT;
             this.ListViewContract.Name = "ListViewContract";
             this.ListViewContract.OwnerDraw = true;
-            this.ListViewContract.Size = new System.Drawing.Size(575, 587);
+            this.ListViewContract.Size = new System.Drawing.Size(579, 587);
             this.ListViewContract.TabIndex = 45;
             this.ListViewContract.UseCompatibleStateImageBehavior = false;
             this.ListViewContract.View = System.Windows.Forms.View.Details;
@@ -386,71 +397,71 @@
             this.columnHeader13.Text = "Hiệu lực";
             this.columnHeader13.Width = 116;
             // 
-            // buttonTerminateContract
+            // ButtonTerminateContract
             // 
-            this.buttonTerminateContract.AutoSize = false;
-            this.buttonTerminateContract.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonTerminateContract.BackColor = System.Drawing.Color.Transparent;
-            this.buttonTerminateContract.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.buttonTerminateContract.Depth = 0;
-            this.buttonTerminateContract.HighEmphasis = true;
-            this.buttonTerminateContract.Icon = global::AccommodationManagerApp.Properties.Resources.close;
-            this.buttonTerminateContract.Location = new System.Drawing.Point(737, 449);
-            this.buttonTerminateContract.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.buttonTerminateContract.MouseState = MaterialSkin.MouseState.HOVER;
-            this.buttonTerminateContract.Name = "buttonTerminateContract";
-            this.buttonTerminateContract.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonTerminateContract.Size = new System.Drawing.Size(187, 36);
-            this.buttonTerminateContract.TabIndex = 44;
-            this.buttonTerminateContract.Text = "Kết thúc hợp đồng";
-            this.buttonTerminateContract.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.buttonTerminateContract.UseAccentColor = false;
-            this.buttonTerminateContract.UseVisualStyleBackColor = false;
-            this.buttonTerminateContract.Click += new System.EventHandler(this.buttonTerminateContract_Click);
+            this.ButtonTerminateContract.AutoSize = false;
+            this.ButtonTerminateContract.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ButtonTerminateContract.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonTerminateContract.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.ButtonTerminateContract.Depth = 0;
+            this.ButtonTerminateContract.HighEmphasis = true;
+            this.ButtonTerminateContract.Icon = global::AccommodationManagerApp.Properties.Resources.close;
+            this.ButtonTerminateContract.Location = new System.Drawing.Point(762, 401);
+            this.ButtonTerminateContract.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.ButtonTerminateContract.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ButtonTerminateContract.Name = "ButtonTerminateContract";
+            this.ButtonTerminateContract.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.ButtonTerminateContract.Size = new System.Drawing.Size(162, 36);
+            this.ButtonTerminateContract.TabIndex = 44;
+            this.ButtonTerminateContract.Text = "Kết thúc hợp đồng";
+            this.ButtonTerminateContract.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.ButtonTerminateContract.UseAccentColor = false;
+            this.ButtonTerminateContract.UseVisualStyleBackColor = false;
+            this.ButtonTerminateContract.Click += new System.EventHandler(this.buttonTerminateContract_Click);
             // 
-            // buttonExtendContract
+            // ButtonExtendContract
             // 
-            this.buttonExtendContract.AutoSize = false;
-            this.buttonExtendContract.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonExtendContract.BackColor = System.Drawing.Color.Transparent;
-            this.buttonExtendContract.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.buttonExtendContract.Depth = 0;
-            this.buttonExtendContract.HighEmphasis = true;
-            this.buttonExtendContract.Icon = global::AccommodationManagerApp.Properties.Resources.contract;
-            this.buttonExtendContract.Location = new System.Drawing.Point(737, 401);
-            this.buttonExtendContract.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.buttonExtendContract.MouseState = MaterialSkin.MouseState.HOVER;
-            this.buttonExtendContract.Name = "buttonExtendContract";
-            this.buttonExtendContract.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonExtendContract.Size = new System.Drawing.Size(187, 36);
-            this.buttonExtendContract.TabIndex = 43;
-            this.buttonExtendContract.Text = "Gia hạn hợp đồng";
-            this.buttonExtendContract.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.buttonExtendContract.UseAccentColor = false;
-            this.buttonExtendContract.UseVisualStyleBackColor = false;
-            this.buttonExtendContract.Click += new System.EventHandler(this.buttonExtendContract_Click);
+            this.ButtonExtendContract.AutoSize = false;
+            this.ButtonExtendContract.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ButtonExtendContract.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonExtendContract.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.ButtonExtendContract.Depth = 0;
+            this.ButtonExtendContract.HighEmphasis = true;
+            this.ButtonExtendContract.Icon = global::AccommodationManagerApp.Properties.Resources.contract;
+            this.ButtonExtendContract.Location = new System.Drawing.Point(587, 401);
+            this.ButtonExtendContract.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.ButtonExtendContract.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ButtonExtendContract.Name = "ButtonExtendContract";
+            this.ButtonExtendContract.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.ButtonExtendContract.Size = new System.Drawing.Size(162, 36);
+            this.ButtonExtendContract.TabIndex = 43;
+            this.ButtonExtendContract.Text = "Gia hạn hợp đồng";
+            this.ButtonExtendContract.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.ButtonExtendContract.UseAccentColor = false;
+            this.ButtonExtendContract.UseVisualStyleBackColor = false;
+            this.ButtonExtendContract.Click += new System.EventHandler(this.buttonExtendContract_Click);
             // 
-            // buttonEditContract
+            // ButtonEditContract
             // 
-            this.buttonEditContract.AutoSize = false;
-            this.buttonEditContract.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonEditContract.BackColor = System.Drawing.Color.Transparent;
-            this.buttonEditContract.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.buttonEditContract.Depth = 0;
-            this.buttonEditContract.HighEmphasis = true;
-            this.buttonEditContract.Icon = global::AccommodationManagerApp.Properties.Resources.edit;
-            this.buttonEditContract.Location = new System.Drawing.Point(737, 495);
-            this.buttonEditContract.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.buttonEditContract.MouseState = MaterialSkin.MouseState.HOVER;
-            this.buttonEditContract.Name = "buttonEditContract";
-            this.buttonEditContract.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonEditContract.Size = new System.Drawing.Size(187, 36);
-            this.buttonEditContract.TabIndex = 42;
-            this.buttonEditContract.Text = "Sửa hợp đồng";
-            this.buttonEditContract.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.buttonEditContract.UseAccentColor = false;
-            this.buttonEditContract.UseVisualStyleBackColor = false;
-            this.buttonEditContract.Click += new System.EventHandler(this.buttonEditContract_Click);
+            this.ButtonEditContract.AutoSize = false;
+            this.ButtonEditContract.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ButtonEditContract.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonEditContract.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.ButtonEditContract.Depth = 0;
+            this.ButtonEditContract.HighEmphasis = true;
+            this.ButtonEditContract.Icon = global::AccommodationManagerApp.Properties.Resources.edit;
+            this.ButtonEditContract.Location = new System.Drawing.Point(587, 449);
+            this.ButtonEditContract.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.ButtonEditContract.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ButtonEditContract.Name = "ButtonEditContract";
+            this.ButtonEditContract.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.ButtonEditContract.Size = new System.Drawing.Size(162, 36);
+            this.ButtonEditContract.TabIndex = 42;
+            this.ButtonEditContract.Text = "Sửa hợp đồng";
+            this.ButtonEditContract.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.ButtonEditContract.UseAccentColor = false;
+            this.ButtonEditContract.UseVisualStyleBackColor = false;
+            this.ButtonEditContract.Click += new System.EventHandler(this.buttonEditContract_Click);
             // 
             // labelContractTenantName
             // 
@@ -592,27 +603,27 @@
             this.materialLabel33.TabIndex = 32;
             this.materialLabel33.Text = "Số phòng:";
             // 
-            // buttonAddContract
+            // ButtonAddContract
             // 
-            this.buttonAddContract.AutoSize = false;
-            this.buttonAddContract.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonAddContract.BackColor = System.Drawing.Color.Transparent;
-            this.buttonAddContract.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.buttonAddContract.Depth = 0;
-            this.buttonAddContract.HighEmphasis = true;
-            this.buttonAddContract.Icon = global::AccommodationManagerApp.Properties.Resources.plus;
-            this.buttonAddContract.Location = new System.Drawing.Point(737, 353);
-            this.buttonAddContract.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.buttonAddContract.MouseState = MaterialSkin.MouseState.HOVER;
-            this.buttonAddContract.Name = "buttonAddContract";
-            this.buttonAddContract.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonAddContract.Size = new System.Drawing.Size(187, 36);
-            this.buttonAddContract.TabIndex = 31;
-            this.buttonAddContract.Text = "Thêm hợp đồng";
-            this.buttonAddContract.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.buttonAddContract.UseAccentColor = false;
-            this.buttonAddContract.UseVisualStyleBackColor = false;
-            this.buttonAddContract.Click += new System.EventHandler(this.buttonAddContract_Click);
+            this.ButtonAddContract.AutoSize = false;
+            this.ButtonAddContract.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ButtonAddContract.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonAddContract.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.ButtonAddContract.Depth = 0;
+            this.ButtonAddContract.HighEmphasis = true;
+            this.ButtonAddContract.Icon = global::AccommodationManagerApp.Properties.Resources.plus;
+            this.ButtonAddContract.Location = new System.Drawing.Point(590, 353);
+            this.ButtonAddContract.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.ButtonAddContract.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ButtonAddContract.Name = "ButtonAddContract";
+            this.ButtonAddContract.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.ButtonAddContract.Size = new System.Drawing.Size(334, 36);
+            this.ButtonAddContract.TabIndex = 31;
+            this.ButtonAddContract.Text = "Thêm hợp đồng";
+            this.ButtonAddContract.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.ButtonAddContract.UseAccentColor = false;
+            this.ButtonAddContract.UseVisualStyleBackColor = false;
+            this.ButtonAddContract.Click += new System.EventHandler(this.buttonAddContract_Click);
             // 
             // materialLabel18
             // 
@@ -2193,6 +2204,17 @@
             // tabPageBills
             // 
             this.tabPageBills.BackColor = System.Drawing.Color.White;
+            this.tabPageBills.Controls.Add(this.ButtonUpdateBillStatus);
+            this.tabPageBills.Controls.Add(this.LabelBillContractEndDate);
+            this.tabPageBills.Controls.Add(this.materialLabel42);
+            this.tabPageBills.Controls.Add(this.LabelBillRoomNumber);
+            this.tabPageBills.Controls.Add(this.materialLabel40);
+            this.tabPageBills.Controls.Add(this.LabelBillContractValue);
+            this.tabPageBills.Controls.Add(this.labelSoemthingss);
+            this.tabPageBills.Controls.Add(this.LabelBillTotal);
+            this.tabPageBills.Controls.Add(this.materialLabel39);
+            this.tabPageBills.Controls.Add(this.LabelBillContractOwner);
+            this.tabPageBills.Controls.Add(this.materialLabel37);
             this.tabPageBills.Controls.Add(this.btnEmailThisMonth);
             this.tabPageBills.Controls.Add(this.pictureBox1);
             this.tabPageBills.Controls.Add(this.labelInternetPrice);
@@ -2209,7 +2231,7 @@
             this.tabPageBills.Controls.Add(this.btnUpd);
             this.tabPageBills.Controls.Add(this.btnDelete);
             this.tabPageBills.Controls.Add(this.btnPDF);
-            this.tabPageBills.Controls.Add(this.lstViewBill);
+            this.tabPageBills.Controls.Add(this.ListViewBill);
             this.tabPageBills.ImageKey = "invoice.png";
             this.tabPageBills.Location = new System.Drawing.Point(4, 39);
             this.tabPageBills.Name = "tabPageBills";
@@ -2219,6 +2241,157 @@
             this.tabPageBills.Text = "Hoá đơn";
             this.tabPageBills.UseVisualStyleBackColor = true;
             // 
+            // ButtonUpdateBillStatus
+            // 
+            this.ButtonUpdateBillStatus.AutoSize = false;
+            this.ButtonUpdateBillStatus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ButtonUpdateBillStatus.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.ButtonUpdateBillStatus.Depth = 0;
+            this.ButtonUpdateBillStatus.HighEmphasis = true;
+            this.ButtonUpdateBillStatus.Icon = global::AccommodationManagerApp.Properties.Resources.check_list;
+            this.ButtonUpdateBillStatus.Location = new System.Drawing.Point(674, 389);
+            this.ButtonUpdateBillStatus.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.ButtonUpdateBillStatus.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ButtonUpdateBillStatus.Name = "ButtonUpdateBillStatus";
+            this.ButtonUpdateBillStatus.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.ButtonUpdateBillStatus.Size = new System.Drawing.Size(252, 36);
+            this.ButtonUpdateBillStatus.TabIndex = 59;
+            this.ButtonUpdateBillStatus.Text = "Cập nhật trạng thái ";
+            this.ButtonUpdateBillStatus.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.ButtonUpdateBillStatus.UseAccentColor = false;
+            this.ButtonUpdateBillStatus.UseVisualStyleBackColor = true;
+            this.ButtonUpdateBillStatus.Click += new System.EventHandler(this.ButtonUpdateBillStatus_Click);
+            // 
+            // LabelBillContractEndDate
+            // 
+            this.LabelBillContractEndDate.AutoSize = true;
+            this.LabelBillContractEndDate.Depth = 0;
+            this.LabelBillContractEndDate.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.LabelBillContractEndDate.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.LabelBillContractEndDate.Location = new System.Drawing.Point(235, 631);
+            this.LabelBillContractEndDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LabelBillContractEndDate.Name = "LabelBillContractEndDate";
+            this.LabelBillContractEndDate.Size = new System.Drawing.Size(190, 24);
+            this.LabelBillContractEndDate.TabIndex = 58;
+            this.LabelBillContractEndDate.Text = "_____________________";
+            // 
+            // materialLabel42
+            // 
+            this.materialLabel42.AutoSize = true;
+            this.materialLabel42.Depth = 0;
+            this.materialLabel42.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel42.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel42.Location = new System.Drawing.Point(16, 631);
+            this.materialLabel42.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel42.Name = "materialLabel42";
+            this.materialLabel42.Size = new System.Drawing.Size(213, 24);
+            this.materialLabel42.TabIndex = 57;
+            this.materialLabel42.Text = "Ngày hết hạn hợp đồng:";
+            // 
+            // LabelBillRoomNumber
+            // 
+            this.LabelBillRoomNumber.AutoSize = true;
+            this.LabelBillRoomNumber.Depth = 0;
+            this.LabelBillRoomNumber.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.LabelBillRoomNumber.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.LabelBillRoomNumber.Location = new System.Drawing.Point(208, 590);
+            this.LabelBillRoomNumber.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LabelBillRoomNumber.Name = "LabelBillRoomNumber";
+            this.LabelBillRoomNumber.Size = new System.Drawing.Size(217, 24);
+            this.LabelBillRoomNumber.TabIndex = 56;
+            this.LabelBillRoomNumber.Text = "________________________";
+            // 
+            // materialLabel40
+            // 
+            this.materialLabel40.AutoSize = true;
+            this.materialLabel40.Depth = 0;
+            this.materialLabel40.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel40.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel40.Location = new System.Drawing.Point(16, 590);
+            this.materialLabel40.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel40.Name = "materialLabel40";
+            this.materialLabel40.Size = new System.Drawing.Size(89, 24);
+            this.materialLabel40.TabIndex = 55;
+            this.materialLabel40.Text = "Số phòng:";
+            // 
+            // LabelBillContractValue
+            // 
+            this.LabelBillContractValue.AutoSize = true;
+            this.LabelBillContractValue.Depth = 0;
+            this.LabelBillContractValue.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.LabelBillContractValue.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.LabelBillContractValue.Location = new System.Drawing.Point(208, 513);
+            this.LabelBillContractValue.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LabelBillContractValue.Name = "LabelBillContractValue";
+            this.LabelBillContractValue.Size = new System.Drawing.Size(217, 24);
+            this.LabelBillContractValue.TabIndex = 54;
+            this.LabelBillContractValue.Text = "________________________";
+            // 
+            // labelSoemthingss
+            // 
+            this.labelSoemthingss.AutoSize = true;
+            this.labelSoemthingss.Depth = 0;
+            this.labelSoemthingss.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.labelSoemthingss.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.labelSoemthingss.Location = new System.Drawing.Point(12, 513);
+            this.labelSoemthingss.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelSoemthingss.Name = "labelSoemthingss";
+            this.labelSoemthingss.Size = new System.Drawing.Size(163, 24);
+            this.labelSoemthingss.TabIndex = 53;
+            this.labelSoemthingss.Text = "Giá thuê niêm yết:";
+            // 
+            // LabelBillTotal
+            // 
+            this.LabelBillTotal.AutoSize = true;
+            this.LabelBillTotal.Depth = 0;
+            this.LabelBillTotal.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.LabelBillTotal.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.LabelBillTotal.Location = new System.Drawing.Point(208, 551);
+            this.LabelBillTotal.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LabelBillTotal.Name = "LabelBillTotal";
+            this.LabelBillTotal.Size = new System.Drawing.Size(217, 24);
+            this.LabelBillTotal.TabIndex = 52;
+            this.LabelBillTotal.Text = "________________________";
+            // 
+            // materialLabel39
+            // 
+            this.materialLabel39.AutoSize = true;
+            this.materialLabel39.Depth = 0;
+            this.materialLabel39.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel39.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel39.Location = new System.Drawing.Point(12, 551);
+            this.materialLabel39.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel39.Name = "materialLabel39";
+            this.materialLabel39.Size = new System.Drawing.Size(190, 24);
+            this.materialLabel39.TabIndex = 51;
+            this.materialLabel39.Text = "Tổng giá trị hoá đơn: ";
+            // 
+            // LabelBillContractOwner
+            // 
+            this.LabelBillContractOwner.AutoSize = true;
+            this.LabelBillContractOwner.Depth = 0;
+            this.LabelBillContractOwner.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.LabelBillContractOwner.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.LabelBillContractOwner.Location = new System.Drawing.Point(208, 472);
+            this.LabelBillContractOwner.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LabelBillContractOwner.Name = "LabelBillContractOwner";
+            this.LabelBillContractOwner.Size = new System.Drawing.Size(217, 24);
+            this.LabelBillContractOwner.TabIndex = 50;
+            this.LabelBillContractOwner.Text = "________________________";
+            // 
+            // materialLabel37
+            // 
+            this.materialLabel37.AutoSize = true;
+            this.materialLabel37.Depth = 0;
+            this.materialLabel37.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel37.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel37.Location = new System.Drawing.Point(12, 472);
+            this.materialLabel37.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel37.Name = "materialLabel37";
+            this.materialLabel37.Size = new System.Drawing.Size(130, 24);
+            this.materialLabel37.TabIndex = 49;
+            this.materialLabel37.Text = "Chủ hợp đồng:";
+            // 
             // btnEmailThisMonth
             // 
             this.btnEmailThisMonth.AutoSize = false;
@@ -2227,14 +2400,14 @@
             this.btnEmailThisMonth.Depth = 0;
             this.btnEmailThisMonth.HighEmphasis = true;
             this.btnEmailThisMonth.Icon = global::AccommodationManagerApp.Properties.Resources.invoice;
-            this.btnEmailThisMonth.Location = new System.Drawing.Point(674, 419);
+            this.btnEmailThisMonth.Location = new System.Drawing.Point(674, 437);
             this.btnEmailThisMonth.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnEmailThisMonth.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEmailThisMonth.Name = "btnEmailThisMonth";
             this.btnEmailThisMonth.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnEmailThisMonth.Size = new System.Drawing.Size(252, 44);
+            this.btnEmailThisMonth.Size = new System.Drawing.Size(255, 43);
             this.btnEmailThisMonth.TabIndex = 49;
-            this.btnEmailThisMonth.Text = "Nhắc nhở đóng tiền tháng này";
+            this.btnEmailThisMonth.Text = "Nhắc nhở đóng tiền tháng này qua Email";
             this.btnEmailThisMonth.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnEmailThisMonth.UseAccentColor = false;
             this.btnEmailThisMonth.UseVisualStyleBackColor = true;
@@ -2243,7 +2416,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(713, 95);
+            this.pictureBox1.Location = new System.Drawing.Point(713, 84);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(189, 151);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -2257,7 +2430,7 @@
             this.labelInternetPrice.Depth = 0;
             this.labelInternetPrice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelInternetPrice.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
-            this.labelInternetPrice.Location = new System.Drawing.Point(793, 563);
+            this.labelInternetPrice.Location = new System.Drawing.Point(795, 631);
             this.labelInternetPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelInternetPrice.Name = "labelInternetPrice";
             this.labelInternetPrice.Size = new System.Drawing.Size(127, 19);
@@ -2270,7 +2443,7 @@
             this.materialLabel35.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel35.Depth = 0;
             this.materialLabel35.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel35.Location = new System.Drawing.Point(671, 565);
+            this.materialLabel35.Location = new System.Drawing.Point(674, 633);
             this.materialLabel35.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel35.Name = "materialLabel35";
             this.materialLabel35.Size = new System.Drawing.Size(86, 19);
@@ -2284,7 +2457,7 @@
             this.labelElectricityPrice.Depth = 0;
             this.labelElectricityPrice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelElectricityPrice.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
-            this.labelElectricityPrice.Location = new System.Drawing.Point(793, 520);
+            this.labelElectricityPrice.Location = new System.Drawing.Point(795, 597);
             this.labelElectricityPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelElectricityPrice.Name = "labelElectricityPrice";
             this.labelElectricityPrice.Size = new System.Drawing.Size(127, 19);
@@ -2297,7 +2470,7 @@
             this.materialLabel34.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel34.Depth = 0;
             this.materialLabel34.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel34.Location = new System.Drawing.Point(673, 522);
+            this.materialLabel34.Location = new System.Drawing.Point(674, 597);
             this.materialLabel34.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel34.Name = "materialLabel34";
             this.materialLabel34.Size = new System.Drawing.Size(93, 19);
@@ -2311,7 +2484,7 @@
             this.labelWaterPrice.Depth = 0;
             this.labelWaterPrice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelWaterPrice.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
-            this.labelWaterPrice.Location = new System.Drawing.Point(793, 475);
+            this.labelWaterPrice.Location = new System.Drawing.Point(795, 560);
             this.labelWaterPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelWaterPrice.Name = "labelWaterPrice";
             this.labelWaterPrice.Size = new System.Drawing.Size(127, 19);
@@ -2323,8 +2496,9 @@
             this.materialLabel36.AutoSize = true;
             this.materialLabel36.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel36.Depth = 0;
-            this.materialLabel36.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel36.Location = new System.Drawing.Point(671, 477);
+            this.materialLabel36.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel36.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
+            this.materialLabel36.Location = new System.Drawing.Point(673, 562);
             this.materialLabel36.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel36.Name = "materialLabel36";
             this.materialLabel36.Size = new System.Drawing.Size(116, 19);
@@ -2339,17 +2513,18 @@
             this.buttonEditFixedPrice.Depth = 0;
             this.buttonEditFixedPrice.HighEmphasis = true;
             this.buttonEditFixedPrice.Icon = global::AccommodationManagerApp.Properties.Resources.invoice;
-            this.buttonEditFixedPrice.Location = new System.Drawing.Point(674, 363);
+            this.buttonEditFixedPrice.Location = new System.Drawing.Point(674, 341);
             this.buttonEditFixedPrice.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonEditFixedPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonEditFixedPrice.Name = "buttonEditFixedPrice";
             this.buttonEditFixedPrice.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonEditFixedPrice.Size = new System.Drawing.Size(252, 44);
+            this.buttonEditFixedPrice.Size = new System.Drawing.Size(252, 36);
             this.buttonEditFixedPrice.TabIndex = 20;
             this.buttonEditFixedPrice.Text = "Chỉnh sửa chi phí cố định";
             this.buttonEditFixedPrice.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.buttonEditFixedPrice.UseAccentColor = false;
             this.buttonEditFixedPrice.UseVisualStyleBackColor = true;
+            this.buttonEditFixedPrice.Click += new System.EventHandler(this.buttonEditFixedPrice_Click);
             // 
             // comboBoxVolumn
             // 
@@ -2449,7 +2624,7 @@
             this.btnUpd.Depth = 0;
             this.btnUpd.HighEmphasis = true;
             this.btnUpd.Icon = global::AccommodationManagerApp.Properties.Resources.edit;
-            this.btnUpd.Location = new System.Drawing.Point(674, 315);
+            this.btnUpd.Location = new System.Drawing.Point(674, 293);
             this.btnUpd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnUpd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpd.Name = "btnUpd";
@@ -2470,7 +2645,7 @@
             this.btnDelete.Depth = 0;
             this.btnDelete.HighEmphasis = true;
             this.btnDelete.Icon = global::AccommodationManagerApp.Properties.Resources.delete;
-            this.btnDelete.Location = new System.Drawing.Point(805, 315);
+            this.btnDelete.Location = new System.Drawing.Point(805, 293);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDelete.Name = "btnDelete";
@@ -2491,7 +2666,7 @@
             this.btnPDF.Depth = 0;
             this.btnPDF.HighEmphasis = true;
             this.btnPDF.Icon = global::AccommodationManagerApp.Properties.Resources.preview;
-            this.btnPDF.Location = new System.Drawing.Point(674, 266);
+            this.btnPDF.Location = new System.Drawing.Point(674, 244);
             this.btnPDF.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPDF.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPDF.Name = "btnPDF";
@@ -2504,35 +2679,36 @@
             this.btnPDF.UseVisualStyleBackColor = true;
             this.btnPDF.Click += new System.EventHandler(this.PreviewBill);
             // 
-            // lstViewBill
+            // ListViewBill
             // 
-            this.lstViewBill.Alignment = System.Windows.Forms.ListViewAlignment.Default;
-            this.lstViewBill.AutoSizeTable = false;
-            this.lstViewBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.lstViewBill.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstViewBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ListViewBill.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.ListViewBill.AutoSizeTable = false;
+            this.ListViewBill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ListViewBill.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ListViewBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.id,
             this.elec,
             this.water,
             this.room,
             this.date,
             this.state});
-            this.lstViewBill.Depth = 0;
-            this.lstViewBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lstViewBill.FullRowSelect = true;
-            this.lstViewBill.HideSelection = false;
-            this.lstViewBill.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lstViewBill.Location = new System.Drawing.Point(41, 95);
-            this.lstViewBill.MinimumSize = new System.Drawing.Size(200, 100);
-            this.lstViewBill.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.lstViewBill.MouseState = MaterialSkin.MouseState.OUT;
-            this.lstViewBill.Name = "lstViewBill";
-            this.lstViewBill.OwnerDraw = true;
-            this.lstViewBill.ShowGroups = false;
-            this.lstViewBill.Size = new System.Drawing.Size(615, 440);
-            this.lstViewBill.TabIndex = 0;
-            this.lstViewBill.UseCompatibleStateImageBehavior = false;
-            this.lstViewBill.View = System.Windows.Forms.View.Details;
+            this.ListViewBill.Depth = 0;
+            this.ListViewBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.ListViewBill.FullRowSelect = true;
+            this.ListViewBill.HideSelection = false;
+            this.ListViewBill.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.ListViewBill.Location = new System.Drawing.Point(0, 95);
+            this.ListViewBill.MinimumSize = new System.Drawing.Size(200, 100);
+            this.ListViewBill.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.ListViewBill.MouseState = MaterialSkin.MouseState.OUT;
+            this.ListViewBill.Name = "ListViewBill";
+            this.ListViewBill.OwnerDraw = true;
+            this.ListViewBill.ShowGroups = false;
+            this.ListViewBill.Size = new System.Drawing.Size(656, 373);
+            this.ListViewBill.TabIndex = 0;
+            this.ListViewBill.UseCompatibleStateImageBehavior = false;
+            this.ListViewBill.View = System.Windows.Forms.View.Details;
+            this.ListViewBill.SelectedIndexChanged += new System.EventHandler(this.ListViewBill_SelectedIndexChanged);
             // 
             // id
             // 
@@ -2541,13 +2717,13 @@
             // 
             // elec
             // 
-            this.elec.Text = "Điện";
-            this.elec.Width = 80;
+            this.elec.Text = "Số điện";
+            this.elec.Width = 90;
             // 
             // water
             // 
-            this.water.Text = "Nước";
-            this.water.Width = 80;
+            this.water.Text = "Số nước";
+            this.water.Width = 91;
             // 
             // room
             // 
@@ -2556,7 +2732,7 @@
             // 
             // date
             // 
-            this.date.Text = "Ngày Tạo";
+            this.date.Text = "Tháng";
             this.date.Width = 120;
             // 
             // state
@@ -2627,7 +2803,7 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1000, 800);
@@ -2711,7 +2887,7 @@
         private MaterialSkin.Controls.MaterialTextBox materialTextBox2;
         private MaterialSkin.Controls.MaterialFloatingActionButton buttonReloadBuilding;
         private System.Windows.Forms.TabPage tabPageBills;
-        private MaterialSkin.Controls.MaterialListView lstViewBill;
+        private MaterialSkin.Controls.MaterialListView ListViewBill;
         private MySqlConnector.MySqlConnection mySqlConnection1;
         private System.Windows.Forms.ColumnHeader id;
         private MaterialSkin.Controls.MaterialButton btnPDF;
@@ -2777,7 +2953,7 @@
         private MaterialSkin.Controls.MaterialButton buttonCurrentUserInformationManagement;
         private MaterialSkin.Controls.MaterialButton materialButton4;
         private MaterialSkin.Controls.MaterialLabel materialLabel18;
-        private MaterialSkin.Controls.MaterialButton buttonDelete;
+        private MaterialSkin.Controls.MaterialButton ButtonDeleteContract;
         private MaterialSkin.Controls.MaterialLabel labelContractIsTerminated;
         private MaterialSkin.Controls.MaterialLabel materialLabel20;
         private MaterialSkin.Controls.MaterialListView ListViewContract;
@@ -2786,9 +2962,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.ColumnHeader columnHeader12;
         private System.Windows.Forms.ColumnHeader columnHeader13;
-        private MaterialSkin.Controls.MaterialButton buttonTerminateContract;
-        private MaterialSkin.Controls.MaterialButton buttonExtendContract;
-        private MaterialSkin.Controls.MaterialButton buttonEditContract;
+        private MaterialSkin.Controls.MaterialButton ButtonTerminateContract;
+        private MaterialSkin.Controls.MaterialButton ButtonExtendContract;
+        private MaterialSkin.Controls.MaterialButton ButtonEditContract;
         private MaterialSkin.Controls.MaterialLabel labelContractTenantName;
         private MaterialSkin.Controls.MaterialLabel materialLabel23;
         private MaterialSkin.Controls.MaterialLabel labelContractEndDate;
@@ -2799,9 +2975,9 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel29;
         private MaterialSkin.Controls.MaterialLabel materialLabel31;
         private MaterialSkin.Controls.MaterialLabel materialLabel33;
-        private MaterialSkin.Controls.MaterialButton buttonAddContract;
+        private MaterialSkin.Controls.MaterialButton ButtonAddContract;
         private MaterialSkin.Controls.MaterialFloatingActionButton buttonReloadContract;
-        private MaterialSkin.Controls.MaterialButton btnWordExtract;
+        private MaterialSkin.Controls.MaterialButton ButtonExtractWord;
         private MaterialSkin.Controls.MaterialButton btnLogout;
         private MaterialSkin.Controls.MaterialLabel lableVehiclePrice;
         private MaterialSkin.Controls.MaterialLabel labelsomethign;
@@ -2830,5 +3006,16 @@
         private System.Windows.Forms.ColumnHeader state;
         private System.Windows.Forms.PictureBox pictureBox1;
         private MaterialSkin.Controls.MaterialButton btnEmailThisMonth;
+        private MaterialSkin.Controls.MaterialLabel LabelBillTotal;
+        private MaterialSkin.Controls.MaterialLabel materialLabel39;
+        private MaterialSkin.Controls.MaterialLabel LabelBillContractOwner;
+        private MaterialSkin.Controls.MaterialLabel materialLabel37;
+        private MaterialSkin.Controls.MaterialLabel LabelBillContractValue;
+        private MaterialSkin.Controls.MaterialLabel labelSoemthingss;
+        private MaterialSkin.Controls.MaterialLabel LabelBillContractEndDate;
+        private MaterialSkin.Controls.MaterialLabel materialLabel42;
+        private MaterialSkin.Controls.MaterialLabel LabelBillRoomNumber;
+        private MaterialSkin.Controls.MaterialLabel materialLabel40;
+        private MaterialSkin.Controls.MaterialButton ButtonUpdateBillStatus;
     }
 }

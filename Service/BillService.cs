@@ -4,14 +4,12 @@ using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
 using System.Collections.Generic;
 
-namespace AccommodationManagerApp.Service
-{
-    public class BillService
-    {
+namespace AccommodationManagerApp.Service {
+    public class BillService {
         private readonly BillRepository _billRepository;
         private readonly FixedPriceRepository _fixedPriceRepository;
-        public BillService(BillRepository billRepository, FixedPriceRepository fixedPriceRepository)
-        {
+
+        public BillService(BillRepository billRepository, FixedPriceRepository fixedPriceRepository) {
             _billRepository = billRepository;
             _fixedPriceRepository = fixedPriceRepository;
         }
@@ -20,28 +18,22 @@ namespace AccommodationManagerApp.Service
 
         public List<Bill> GetAll() => _billRepository.GetAll().ToList();
 
-        public Bill GetById(int id) => _billRepository.GetById(id);
-
         public void Update(int id, Bill bill) => _billRepository.Update(id, bill);
 
-        public int Delete(int id)
-        {
-            try
-            {
+        public int Delete(int id) {
+            try {
                 _billRepository.Delete(id);
                 return 1;
             }
-            catch (ArgumentNullException)
-            {
+            catch (ArgumentNullException) {
                 return 0;
             }
-            catch (Exception)
-            {
+            catch (Exception) {
                 return -1;
             }
         }
 
-        public List<Bill> GetAllBillByUserId(int userId) => _billRepository.GetAllBillByUserId(userId);
+        public List<Bill> GetAllByUserId(int userId) => _billRepository.GetAllBillByUserId(userId);
 
         public List<Bill> GetByUserIdInThisMonthAnhUnpaid() => _billRepository.GetByUserIdInThisMonthAnhUnpaid();
 
@@ -51,8 +43,7 @@ namespace AccommodationManagerApp.Service
 
         public FixedPrice GetInternetPrice() => _fixedPriceRepository.GetInternetPrice();
 
-        public void UpdateFixedPrice(int water, int electricity, int internet)
-        {
+        public void UpdateFixedPrice(int water, int electricity, int internet) {
             var waterPrice = GetWaterPrice();
             waterPrice.Price = water;
             _fixedPriceRepository.Update(waterPrice.Id, waterPrice);
@@ -66,25 +57,47 @@ namespace AccommodationManagerApp.Service
             _fixedPriceRepository.Update(internetPrice.Id, internetPrice);
         }
 
-        public bool IsFee(Bill bill) => bill.ElecFee == 0 || bill.InternetFee == 0 || bill.WaterFee == 0;
-
-        public bool IsQty(Bill bill) => bill.ElecQuantity == 0 || bill.WaterQuantity == 0;
-
-        public void GenerateBillByContract(Contract contract)
-        {
+        public void GenerateMissingBillsForContract(Contract contract) {
             var current = contract.StartDate;
-            while (current < contract.EndDate)
-            {
-                var bill = new Bill(contract.UserId, contract.Id, current);
-                if (current.Month == contract.StartDate.Month)
-                {
-                    bill.WaterFee = GetWaterPrice().Price;
-                    bill.ElecFee = GetElectricityPrice().Price;
-                    bill.InternetFee = GetInternetPrice().Price;
+            
+            int water = GetWaterPrice().Price;
+            int electricity = GetElectricityPrice().Price;
+            int internet = GetInternetPrice().Price;
+            
+            var bills = _billRepository.GetAllByContractId(contract.Id).ToList();
+            
+            while (current < contract.EndDate) {
+                var existingBill = bills.FirstOrDefault(bill => bill.DateOfBill.Month == current.Month && bill.DateOfBill.Year == current.Year);
+                if (existingBill == null) {
+                    var bill = new Bill(contract.UserId, contract.Id, current);
+                    bill.RentFee = contract.Price;
+                    
+                    if (current.Month == DateTime.Now.Month) {
+                        bill.WaterFee = water;
+                        bill.ElectricityFee = electricity;
+                        bill.InternetFee = internet;
+                    }
+            
+                    Add(bill);
                 }
-                Add(bill);
+            
                 current = current.AddMonths(1);
             }
+        }
+
+        public void DeleteGeneratedBillsAfterContractTermination(Contract contract) {
+            var bills = _billRepository.GetAllByContractId(contract.Id);
+            foreach (var bill in bills.Where(bill => bill.DateOfBill > contract.EndDate)) {
+                _billRepository.Delete(bill.Id);
+            }
+        }
+
+        public List<Bill> GetAllWithContractWithRoomAndUser() {
+            return _billRepository.GetAllWithContractWithRoomAndUser().ToList();
+        }
+
+        public bool IsBillGenerated(Contract contract) {
+            return _billRepository.GetAllByContractId(contract.Id).Count > 0;
         }
     }
 }

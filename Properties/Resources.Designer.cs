@@ -93,6 +93,16 @@ namespace AccommodationManagerApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap check_list {
+            get {
+                object obj = ResourceManager.GetObject("check-list", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close {
             get {
                 object obj = ResourceManager.GetObject("close", resourceCulture);
@@ -232,7 +242,7 @@ namespace AccommodationManagerApp.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap logout {
             get {
-                object obj = ResourceManager.GetObject("Logout", resourceCulture);
+                object obj = ResourceManager.GetObject("logout", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -382,6 +392,16 @@ namespace AccommodationManagerApp.Properties {
         internal static System.Drawing.Bitmap signature {
             get {
                 object obj = ResourceManager.GetObject("signature", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap skip {
+            get {
+                object obj = ResourceManager.GetObject("skip", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

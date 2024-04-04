@@ -24,14 +24,18 @@ namespace AccommodationManagerApp.Forms {
             _contract = contract;
             _rooms = _contractService.GetAvailableRooms();
             _users = _userService.GetAllWithRoleTenant();
-
+            
             InitializeComponent();
-
             SetUpComboBox();
+            
 
             if (_contract != null) {
                 SetUpData(_contract);
                 Text = "Chỉnh sửa hợp đồng";
+            }
+            else {
+                dateTimePickerContractStartDate.MinDate = DateTime.Now;
+                dateTimePickerContractStartDate.Value = DateTime.Now;
             }
         }
 
@@ -43,7 +47,8 @@ namespace AccommodationManagerApp.Forms {
             // Không cho sửa
             comboBoxContractRoom.Items.Add(contract.Room.RoomNumber);
             comboBoxContractRoom.SelectedIndex = 1;
-            comboBoxContractEndDate.Items.Add(contract.EndDate.Date.Subtract(contract.StartDate).Days / 30 + " tháng");
+            var month = (contract.EndDate.Year - contract.StartDate.Year) * 12 + contract.EndDate.Month - contract.StartDate.Month; 
+            comboBoxContractEndDate.Items.Add(month + " tháng");
             comboBoxContractEndDate.SelectedIndex = 1;
             comboBoxContractRoom.Enabled = false;
             comboBoxContractEndDate.Enabled = false;
@@ -114,7 +119,7 @@ namespace AccommodationManagerApp.Forms {
             var roomId = _roomService.GetIdByRoomNumber(comboBoxContractRoom.Text);
             var userId = _userService.GetIdByNameAndEmail(comboBoxContractTenant.Text, comboBoxContractTenantEmail.Text);
 
-            if (IsAllDataFilled()) {
+            if (IsAllDataFilled() && IsContractSafeToSave()) {
                 if (_contract == null) {
                     if (!_contractService.IsRoomAvailableWithToast(roomId)) return;
                     _contract = new Contract
@@ -127,7 +132,7 @@ namespace AccommodationManagerApp.Forms {
                             CultureInfo.CurrentCulture)
                     };
                     _contractService.Add(_contract);
-                    _billService.GenerateBillByContract(_contract);
+                    _billService.GenerateMissingBillsForContract(_contract);
                 }
                 else {
                     _contract.UserId = userId;
@@ -173,6 +178,16 @@ namespace AccommodationManagerApp.Forms {
                 return false;
             }
 
+            return true;
+        }
+
+        private bool IsContractSafeToSave() {
+            if (dateTimePickerContractStartDate.Value.Day > 28) {
+                new ToastForm("Vui lòng chọn ngày bắt đầu nhỏ hơn 28.").Show();
+                labelContractEndDate.Text = "Vui lòng chọn lại số tháng!";
+                return false;
+            }
+            
             return true;
         }
 

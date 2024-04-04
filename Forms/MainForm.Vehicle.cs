@@ -12,7 +12,7 @@ namespace AccommodationManagerApp.Forms {
             foreach (var vehicle in Vehicles) {
                 var item = new ListViewItem(vehicle.Number);
                 item.SubItems.Add(vehicle.Name);
-                item.SubItems.Add(vehicle.Category.ToVietnamese().ToString());
+                item.SubItems.Add(vehicle.Category.ToVietnamese());
                 if (vehicle.Room != null) {
                     item.SubItems.Add(vehicle.Room.RoomNumber);
                 }
@@ -75,7 +75,7 @@ namespace AccommodationManagerApp.Forms {
                 if (result == DialogResult.Yes) {
                     if (_vehicleService.Delete(vehicle.Id)) {
                         VehicleForeignInformationReload();
-                        new ToastForm("Xóa phương tiện thành công", false).Show();
+                        new ToastForm("Xóa phương tiện thành công").Show();
                     }
                     else {
                         new ToastForm("Xóa phương tiện thất bại", true).Show();
@@ -128,7 +128,7 @@ namespace AccommodationManagerApp.Forms {
 
         private void materialFloatingActionButton1_Click(object sender, EventArgs e) {
             LoadVehicleData();
-            new ToastForm("Dữ liệu phương tiện đã được tải lại", false).Show();
+            new ToastForm("Dữ liệu phương tiện đã được tải lại").Show();
         }
     }
 }
