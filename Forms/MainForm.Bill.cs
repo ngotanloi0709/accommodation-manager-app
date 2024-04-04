@@ -40,7 +40,7 @@ namespace AccommodationManagerApp.Forms {
 
             var billForm = new BillForm(bill, waterPrice, electricityPrice, internetPrice);
             billForm.ShowDialog();
-            SendEmail(_bill);
+            SendEmail(bill);
         }
 
         private void LoadBillData() {
@@ -95,19 +95,19 @@ namespace AccommodationManagerApp.Forms {
         }
 
         private void btnEmailThisMonth_Click(object sender, EventArgs e) {
-            List<BillModel> bills = _billService.GetByUserIdInThisMonthAnhUnpaid();
+            List<Bill> bills = _billService.GetByUserIdInThisMonthAnhUnpaid();
             if (bills.Count == 0) {
                 new ToastForm("Không có hóa đơn nào chưa thanh toán", true).Show();
                 return;
             }
             else {
-                foreach (BillModel bill in bills) {
+                foreach (Bill bill in bills) {
                     SendEmail(bill);
                 }
             }
         }
 
-        private void SendEmail(BillModel bill) {
+        private void SendEmail(Bill bill) {
             try {
                 User user = _userService.GetById(bill.UserId);
                 Contract contract = _contractService.GetById(bill.ContractId);
@@ -117,16 +117,19 @@ namespace AccommodationManagerApp.Forms {
                 body +=
                     "<p>You have an unpaid bill in this month. Please pay it as soon as possible. Bill information:</p>";
                 body += "<ul>";
-                body += "<li>Số điện: " + bill.ElecQuantity + " kWh  - Đơn giá: " + bill.ElecFee.ToString("N0") +
+                body += "<li>Số điện: " + bill.ElectricityQuantity + " kWh  - Đơn giá: " +
+                        bill.ElectricityFee.ToString("N0") +
                         " VND/kwh</li>";
                 body += "<li>Số nước: " + bill.WaterQuantity + " m3  - Đơn giá: " + bill.WaterFee.ToString("N0") +
                         " VND/m3</li>";
                 body += "<li>Tiền thuê nhà: " + contract.Price.ToString("N0") + " VND</li>";
-                body += "<li>Tổng tiền điện: " + (bill.ElecQuantity * bill.ElecFee).ToString("N0") + " VND</li>";
+                body += "<li>Tổng tiền điện: " + (bill.ElectricityQuantity * bill.ElectricityFee).ToString("N0") +
+                        " VND</li>";
                 body += "<li>Tổng tiền nước: " + (bill.WaterQuantity * bill.WaterFee).ToString("N0") + " VND</li>";
                 body += "<li>Internet: " + bill.InternetFee.ToString("N0") + " VND</li>";
                 body += "<li>Tổng tiền phải trả: " +
-                        (contract.Price + bill.ElecQuantity * bill.ElecFee + bill.WaterQuantity * bill.WaterFee +
+                        (contract.Price + bill.ElectricityQuantity * bill.ElectricityFee +
+                         bill.WaterQuantity * bill.WaterFee +
                          bill.InternetFee).ToString("N0") + " VND</li>";
                 body += "</ul>";
                 body += "<p>Please make sure you pay the bill. Thank you!</p>";
@@ -153,22 +156,21 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        private void ListViewBill_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var bill  = SelectBill();
+        private void ListViewBill_SelectedIndexChanged(object sender, EventArgs e) {
+            var bill = SelectBill();
 
             if (bill == null) {
                 return;
-            } 
-            
+            }
+
             LabelBillContractOwner.Text = bill.Contract.User.Name;
             LabelBillContractValue.Text = FormatText.IntegerToVnd(bill.Contract.Price);
             LabelBillTotal.Text = FormatText.IntegerToVnd(bill.GetTotalPrice());
             LabelBillRoomNumber.Text = bill.Contract.Room.RoomNumber;
             LabelBillContractEndDate.Text = bill.Contract.EndDate.ToString("dd/MM/yyyy");
         }
-        
-        
+
+
         private void ButtonUpdateBillStatus_Click(object sender, EventArgs e) {
             var bill = SelectBill();
 

@@ -15,7 +15,7 @@ namespace AccommodationManagerApp.Repository
 
         public List<Bill> GetByUserIdInThisMonthAnhUnpaid()
         {
-            return Context.Set<Bill>().Where(bill => bill.CreatedAt.Month == System.DateTime.Now.Month && bill.Status == BillStatus.Unpaid).ToList();
+            return Context.Set<Bill>().Where(bill => bill.DateOfBill.Month == System.DateTime.Now.Month && bill.Status == BillStatus.Unpaid).ToList();
         }
 
         public List<Bill> GetAllWithContractWithRoomAndUser() {
