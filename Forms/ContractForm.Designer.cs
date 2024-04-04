@@ -220,7 +220,7 @@ namespace AccommodationManagerApp.Forms {
             this.dateTimePickerContractStartDate.Name = "dateTimePickerContractStartDate";
             this.dateTimePickerContractStartDate.Size = new System.Drawing.Size(284, 26);
             this.dateTimePickerContractStartDate.TabIndex = 22;
-            this.dateTimePickerContractStartDate.Value = new System.DateTime(2024, 3, 28, 0, 0, 0, 0);
+            this.dateTimePickerContractStartDate.Value = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
             // 
             // materialLabel5
             // 

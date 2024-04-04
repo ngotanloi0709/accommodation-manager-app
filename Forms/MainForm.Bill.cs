@@ -2,84 +2,86 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using AccommodationManagerApp.Forms.Bill;
+using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Util;
-using BillModel = AccommodationManagerApp.Model.Bill;
-namespace AccommodationManagerApp.Forms
-{
-    public partial class MainForm
-    {
-        private BillModel _bill;
-        private BillModel SelectBill()
-        {
-            if(lstViewBill.SelectedItems.Count > 0)
-            {
-                var index = lstViewBill.SelectedItems[0].Index;                
-                if(index < Bills.Count) return Bills[index];
+
+namespace AccommodationManagerApp.Forms {
+    public partial class MainForm {
+        private Bill SelectBill() {
+            if (ListViewBill.SelectedItems.Count > 0) {
+                var index = ListViewBill.SelectedItems[0].Index;
+                if (index < Bills.Count) return Bills[index];
             }
-            new ToastForm("Mời chọn hóa đơn !", true).Show();
+
             return null;
         }
-        private void PreviewBill(object sender, System.EventArgs e)
-        {
-            _bill = SelectBill();
-            if (_bill == null) return;
-            var billDetail = new BillDetail(_bill);
+
+        private void PreviewBill(object sender, EventArgs e) {
+            var bill = SelectBill();
+
+            if (bill == null) {
+                new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
+                return;
+            } 
+            
+            var billDetail = new BillDetail(bill);
             billDetail.ShowDialog();
         }
-        private void InsertBill(BillModel bill)
-        {
-            var billForm = new BillForm(bill);
+
+        private void UpdateBill(object sender, EventArgs e) {
+            var bill = SelectBill();
+            
+            if (bill == null) {
+                new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
+                return;
+            } 
+            
+            var billForm = new BillForm(bill, waterPrice, electricityPrice, internetPrice);
             billForm.ShowDialog();
-            LoadBillData();
         }
-        private void UpdateBill(object sender, System.EventArgs e)
-        {
-            _bill = SelectBill();
-            if (_bill == null) return;
-            InsertBill(_bill);
-        }
-        private void LoadBillData()
-        {
-            Bills = _billService.GetAll();
+
+        private void LoadBillData() {
+            Bills = _billService.GetAllWithContractWithRoomAndUser();
             InsertBillIntoListView(Bills);
         }
-        private void LoadBillDataInThisMonth()
-        {
-            Bills = Bills.Where(bill => bill.CreatedAt.Month == DateTime.Now.Month).ToList();
+
+        private void LoadBillDataInThisMonth() {
+            Bills = Bills.Where(bill => bill.DateOfBill.Month == DateTime.Now.Month).ToList();
             InsertBillIntoListView(Bills);
         }
-        private void InsertBillIntoListView(List<BillModel> bills)
-        {
-            lstViewBill.Items.Clear();
-            foreach (var bill in bills)
-            {
+
+        private void InsertBillIntoListView(List<Bill> bills) {
+            ListViewBill.Items.Clear();
+            foreach (var bill in bills) {
                 var item = new ListViewItem(bill.Id.ToString());
-                item.SubItems.Add(bill.ElecQuantity.ToString());
+                item.SubItems.Add(bill.ElectricityQuantity.ToString());
                 item.SubItems.Add(bill.WaterQuantity.ToString());
-                item.SubItems.Add(bill.Contract?.Room.RoomNumber.ToString() ?? "Trống");
-                item.SubItems.Add(bill.CreatedAtFormatted);
+                item.SubItems.Add(bill.Contract?.Room.RoomNumber ?? "Trống");
+                item.SubItems.Add(bill.DateOfBillFormatted);
                 item.SubItems.Add(bill.Status.ToVietnamese());
-                lstViewBill.Items.Add(item);
+                ListViewBill.Items.Add(item);
             }
         }
-        private void DeleteBill(object sender, System.EventArgs e)
-        {
-            _bill = SelectBill();
-            if (_bill == null) return;
+
+        private void DeleteBill(object sender, EventArgs e) {
+            var bill  = SelectBill();
             
+            if (bill == null) {
+                new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
+                return;
+            } 
+
             var confirmation = new ConfirmationForm("Xác nhận xóa hóa đơn?");
             var result = confirmation.ShowDialog();
-            if (result == DialogResult.Yes)
-            {
-                _billService.Delete(_bill.Id);
+            
+            if (result == DialogResult.Yes) {
+                _billService.Delete(bill.Id);
                 LoadBillData();
             }
-        }    
-        private void ComboBoxVolumn_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (comboBoxVolumn.SelectedIndex)
-            {
+        }
+
+        private void ComboBoxVolumn_SelectedIndexChanged(object sender, EventArgs e) {
+            switch (comboBoxVolumn.SelectedIndex) {
                 case 0:
                     LoadBillData();
                     break;
@@ -88,7 +90,30 @@ namespace AccommodationManagerApp.Forms
                     break;
             }
         }
+        
+        private void ListViewBill_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var bill  = SelectBill();
+
+            if (bill == null) {
+                return;
+            } 
+            
+            LabelBillContractOwner.Text = bill.Contract.User.Name;
+            LabelBillContractValue.Text = FormatText.IntegerToVnd(bill.Contract.Price);
+            LabelBillTotal.Text = FormatText.IntegerToVnd(bill.GetTotalPrice());
+            LabelBillRoomNumber.Text = bill.Contract.Room.RoomNumber;
+            LabelBillContractEndDate.Text = bill.Contract.EndDate.ToString("dd/MM/yyyy");
+        }
+
+        private void ButtonUpdateBillStatus_Click(object sender, EventArgs e)
+        {
+            var bill = SelectBill();
+            
+            if (bill == null) {
+                new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
+                return;
+            } 
+        }
     }
 }
-
-

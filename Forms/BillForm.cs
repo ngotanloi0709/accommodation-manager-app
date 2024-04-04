@@ -1,105 +1,177 @@
-﻿using AccommodationManagerApp.Service;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using Contract = AccommodationManagerApp.Model.Contract;
-using Room = AccommodationManagerApp.Model.Room;
-using BillModel = AccommodationManagerApp.Model.Bill;
-using System.Linq;
-using System;
-using AccommodationManagerApp.Model;
+﻿using AccommodationManagerApp.Model;
+using AccommodationManagerApp.Service;
 using AccommodationManagerApp.Util;
+using System;
+using System.Windows.Forms;
 
-namespace AccommodationManagerApp.Forms.Bill
+namespace AccommodationManagerApp.Forms
 {
     public partial class BillForm : BaseForm
     {
-        private readonly BillModel _bill;
-        private readonly RoomService _roomService;
+        private readonly Bill _bill;
         private readonly BillService _billService;
-        private readonly List<Room> _rooms;
-        private Contract _contract;
-        public BillForm(BillModel bill)
+        private readonly VehicleService _vehicleService;
+        private int _contractRentPrice;
+        private int _fixedWaterPrice;
+        private int _fixedElectricityPrice;
+        private int _fixedInternetPrice;
+        private int _generatedVehiclePrice;
+
+
+        public BillForm(Bill bill, int fixedWaterPrice, int fixedElectricityPrice, int fixedInternetPrice)
         {
             InitializeComponent();
+            
             _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
-            _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
-            _rooms = _roomService.GetAll();
-            SetUpComboBoxRoom();
+            _vehicleService = ServiceLocator.ServiceProvider.GetService(typeof(VehicleService)) as VehicleService;
+            
             _bill = bill;
-            if (_bill != null)
-                LoadData();
+            _fixedWaterPrice = fixedWaterPrice;
+            _fixedElectricityPrice = fixedElectricityPrice;
+            _fixedInternetPrice = fixedInternetPrice;
+            _contractRentPrice = _bill.Contract.Price;
+            _generatedVehiclePrice = _vehicleService.GenerateVehicleFeeByRoomId(_bill.Contract.RoomId);
+
+            SetUpComboBoxRoom();
+            LoadData();
         }
-        private void buttonSave_Click(object sender, EventArgs e)
-        {
-            var confirmationForm = new ConfirmationForm("Bạn có muốn cập nhật hóa đơn với " +
-                                                        "chi phí cố định trong tháng này và gửi hóa đơn cho người dùng ?");
-            confirmationForm.ShowDialog();
-            if(confirmationForm.DialogResult == DialogResult.Yes)
-            {
-                CheckInput();
-                _bill.ElecQuantity = int.Parse(txtbxElectric.Text);
-                _bill.WaterQuantity = int.Parse(txtbxWater.Text);
-                _bill.Status = BillStatus.Unpaid;
-                _billService.Update(_bill.Id, _bill);
-                new ToastForm("Cập nhật thành công");
-                Close();
-            }
-        }
-        private void CheckInput()
-        {
-            if (string.IsNullOrWhiteSpace(txtbxElectric.Text) ||
-                string.IsNullOrWhiteSpace(txtbxWater.Text) || 
-                comboBoxRoom.SelectedItem?.ToString() == "Số Phòng")
-            {
-                new ToastForm("Mời điền đầy đủ thông tin", true);
-                return;
-            }
-        }
-        private void LoadData()
-        {
-            comboBoxRoom.Enabled = false;
-            comboBoxRoom.Text = _bill.Contract.Room.RoomNumber;
-            labelRent.Text = "Giá Phòng: " + FormatText.IntegerToVnd(_bill.Contract.Price);
-            txtbxElectric.Text = _bill.ElecQuantity.ToString();
-            txtbxWater.Text = _bill.WaterQuantity.ToString();
-            lblDate.Text = _bill.CreatedAtFormatted.ToString();
-        }
-        private void comboBoxRoom_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            _contract = SelectContract();
-            if (_contract == null)
-            {
-                labelRent.Text = "Giá phòng: ";
-                new ToastForm("Mời bạn chọn số phòng phù hợp", true);
-            }
-            else
-            {
-                labelRent.Text = "Giá Phòng: " + _contract.Price.ToString();
-            }
-        }
-        private Contract SelectContract()
-        {
-            var numberRoom = comboBoxRoom.SelectedItem.ToString();
-            var _room = _rooms.FirstOrDefault(room => room.RoomNumber == numberRoom);
-            return _room?.Contracts.LastOrDefault();
-        }
+
         private void SetUpComboBoxRoom()
         {
-            comboBoxRoom.Items.Add("Số Phòng");
-
-            comboBoxRoom.Items.AddRange(_rooms.Select(room => room.RoomNumber).ToArray());
+            ComboBoxRoom.Items.Add("Chọn số phòng");
+            ComboBoxRoom.Items.Add(_bill.Contract.Room.RoomNumber);
+            ComboBoxRoom.SelectedIndex = 1;
+            ComboBoxRoom.Enabled = false;
         }
-        private void btnClose_Click(object sender, EventArgs e)
+
+        private void LoadData()
         {
-            var confirmationForm = new ConfirmationForm("Bạn có muốn thoát không ?");
-            confirmationForm.ShowDialog();
-            if (confirmationForm.DialogResult != DialogResult.Yes) return;
+            LabelRentFee.Text = FormatText.IntegerToVnd(_contractRentPrice);
+            LabelDate.Text = _bill.DateOfBillFormatted;
+
+            TextBoxRent.Text = _bill.RentFee.ToString();
+            TextBoxElectricity.Text = _bill.ElectricityQuantity.ToString();
+            TextboxWater.Text = _bill.WaterQuantity.ToString();
+            TextBoxInternet.Text = _bill.InternetFee.ToString();
+            TextBoxVehicle.Text = _bill.VehicleFee.ToString();
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if (!IsInputAllFilled()) return;
+
+            var currentRentFee = int.Parse(TextBoxRent.Text);
+            var currentElectricityFee = _fixedElectricityPrice;
+            var currentWaterFee = _fixedWaterPrice;
+            var currentInternetFee = int.Parse(TextBoxInternet.Text);
+            var currentVehicleFee = int.Parse(TextBoxVehicle.Text);
+
+            _bill.RentFee = currentRentFee;
+            _bill.ElectricityFee = currentElectricityFee;
+            _bill.WaterFee = currentWaterFee;
+            _bill.InternetFee = currentInternetFee;
+            _bill.VehicleFee = currentVehicleFee;
+            _bill.ElectricityQuantity = int.Parse(TextBoxElectricity.Text);
+            _bill.WaterQuantity = int.Parse(TextboxWater.Text);
+            _bill.Status = BillStatus.Unpaid;
+            _billService.Update(_bill.Id, _bill);
+
+            new ToastForm("Cập nhật thành công").Show();
             Close();
         }
+
+        private bool IsInputAllFilled()
+        {
+            if (string.IsNullOrEmpty(TextBoxRent.Text))
+            {
+                new ToastForm("Mời nhập số tiền thuê!", true).Show();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TextBoxInternet.Text))
+            {
+                new ToastForm("Mời nhập số tiền Internet!", true).Show();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TextBoxVehicle.Text))
+            {
+                new ToastForm("Mời nhập số tiền gửi xe!", true).Show();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TextboxWater.Text))
+            {
+                new ToastForm("Mời nhập số  nước!", true).Show();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TextBoxElectricity.Text))
+            {
+                new ToastForm("Mời nhập số điện!", true).Show();
+                return false;
+            }
+
+            return true;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void txtbxWater_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
                 e.Handled = true;
+        }
+
+        private void buttonSkipRent_Click(object sender, EventArgs e)
+        {
+            TextBoxRent.Text = "0";
+        }
+
+        private void buttonSkipWater_Click(object sender, EventArgs e)
+        {
+            TextboxWater.Text = "0";
+        }
+
+        private void buttonSkipElectricity_Click(object sender, EventArgs e)
+        {
+            TextBoxElectricity.Text = "0";
+        }
+
+        private void buttonSkipInternet_Click(object sender, EventArgs e)
+        {
+            TextBoxInternet.Text = "0";
+        }
+
+        private void buttonSkipVehicle_Click(object sender, EventArgs e)
+        {
+            TextBoxVehicle.Text = "0";
+        }
+
+        private void buttonReloadVehicle_Click(object sender, EventArgs e)
+        {
+            TextBoxVehicle.Text = _generatedVehiclePrice.ToString();
+        }
+
+        private void ButtonLoadContractRentPrice_Click(object sender, EventArgs e)
+        {
+            TextBoxRent.Text = _contractRentPrice.ToString();
+        }
+
+        private void ButtonReloadInternet_Click(object sender, EventArgs e)
+        {
+            TextBoxInternet.Text = _fixedInternetPrice.ToString();
+        }
+
+        private void BillForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (DialogResult != DialogResult.OK)
+            {
+                DialogResult = DialogResult.Cancel;
+            }
         }
     }
 }

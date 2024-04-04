@@ -21,12 +21,12 @@ namespace AccommodationManagerApp.Forms
         }
         private void LoadBillData()
         {
-            _Bills = _billService.GetAllBillByUserId(_user.Id);
+            _Bills = _billService.GetAllByUserId(_user.Id);
             InsertBillIntoListView(_Bills);
         }
         private void LoadBillDataInThisMonth()
         {
-            _Bills = _Bills.Where(bill => bill.CreatedAt.Month == DateTime.Now.Month).ToList();
+            _Bills = _Bills.Where(bill => bill.DateOfBill.Month == DateTime.Now.Month).ToList();
             InsertBillIntoListView(_Bills);
         }
         private void InsertBillIntoListView(List<BillModel> bills)
@@ -35,10 +35,10 @@ namespace AccommodationManagerApp.Forms
             foreach (var bill in bills)
             {
                 var item = new ListViewItem(bill.Id.ToString());
-                item.SubItems.Add(bill.ElecQuantity.ToString());
+                item.SubItems.Add(bill.ElectricityQuantity.ToString());
                 item.SubItems.Add(bill.WaterQuantity.ToString());
                 item.SubItems.Add(bill.Contract?.Room.RoomNumber.ToString() ?? "Trống");
-                item.SubItems.Add(bill.CreatedAtFormatted);
+                item.SubItems.Add(bill.DateOfBillFormatted);
                 item.SubItems.Add(bill.Status.ToVietnamese());
                 lstViewBill.Items.Add(item);
             }

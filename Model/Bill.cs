@@ -9,11 +9,13 @@ namespace AccommodationManagerApp.Model
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int ElecQuantity { get; set; } = 0;
+        public int ElectricityQuantity { get; set; } = 0;
         public int WaterQuantity { get; set; } = 0;
-        public int ElecFee { get; set; } = 0;
+        public int ElectricityFee { get; set; } = 0;
         public int WaterFee { get; set; } = 0;
         public int InternetFee { get; set; } = 0;
+        public int VehicleFee { get; set; } = 0;
+        public int RentFee { get; set; } = 0;
         [EnumDataType(typeof(BillStatus))] public BillStatus Status { get; set; } = BillStatus.Edit;
         public int? ContractId { get; set; }
         [ForeignKey("ContractId")] public Contract Contract { get; set; }
@@ -21,16 +23,20 @@ namespace AccommodationManagerApp.Model
         [ForeignKey("UserId")] public User User { get; set; }
         // Date
         [DisplayFormat(DataFormatString = "dd/MM/yyyy HH:mm")]
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-        public string CreatedAtFormatted => CreatedAt.ToString("dd/MM/yyyy");
+        public DateTime DateOfBill { get; set; } = DateTime.Now;
+        public string DateOfBillFormatted => DateOfBill.ToString("dd/MM/yyyy");
 
         public Bill() { }
 
-        public Bill(int? userId,int contractId, DateTime createdAt)
+        public Bill(int? userId,int contractId, DateTime dateOfBill)
         {
             ContractId = contractId;
-            CreatedAt = createdAt;
+            DateOfBill = dateOfBill;
             UserId = userId;
+        }
+
+        public int GetTotalPrice() {
+            return ((WaterQuantity * WaterFee) + (ElectricityQuantity * ElectricityFee) + InternetFee + RentFee + VehicleFee);
         }
     }
     public enum BillStatus

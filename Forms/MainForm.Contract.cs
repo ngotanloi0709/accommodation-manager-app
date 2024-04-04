@@ -40,13 +40,13 @@ namespace AccommodationManagerApp.Forms {
 
         private void buttonEditContract_Click(object sender, EventArgs e) {
             var contract = IsSelectedContractValid();
-            
+
             if (contract != null) {
                 if (contract.IsTerminated) {
                     new ToastForm("Hợp đồng đã kết thúc - bị thanh lý, không thể chỉnh sửa", true).Show();
                     return;
                 }
-                
+
                 var contractForm = new ContractForm(contract);
                 contractForm.ShowDialog();
                 ShowContractDialogMessageResult(contractForm.DialogResult, true);
@@ -96,7 +96,7 @@ namespace AccommodationManagerApp.Forms {
                     new ToastForm("Hợp đồng đã kết thúc - bị thanh lý", true).Show();
                     return;
                 }
-                
+
                 var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn kết thúc hợp đồng này không?");
                 var result = confirmationForm.ShowDialog();
 
@@ -113,21 +113,21 @@ namespace AccommodationManagerApp.Forms {
 
         private void buttonExtendContract_Click(object sender, EventArgs e) {
             var contract = IsSelectedContractValid();
-            
+
             if (contract != null) {
                 if (contract.IsTerminated) {
                     new ToastForm("Hợp đồng đã kết thúc - bị thanh lý, không thể gia hạn", true).Show();
                     return;
                 }
-                
+
                 var contractForm = new ContractExtendForm(contract);
                 contractForm.ShowDialog();
-                
+
                 if (contractForm.DialogResult == DialogResult.OK) {
                     ContractForeignInformationReload();
                     new ToastForm("Gia hạn hợp đồng thành công", false).Show();
                 }
-                
+
                 SelectContractAgain(contract);
             }
             else {
@@ -173,10 +173,14 @@ namespace AccommodationManagerApp.Forms {
             return null;
         }
 
-        private void buttonDelete_Click(object sender, EventArgs e) {
+        private void ButtonDeleteContract_Click(object sender, EventArgs e) {
             var contract = IsSelectedContractValid();
 
             if (contract != null) {
+                if (!IsContractSafeToDelete(contract)) {
+                    return;
+                }
+                
                 var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn xóa hợp đồng này không?");
                 var result = confirmationForm.ShowDialog();
 
@@ -185,7 +189,7 @@ namespace AccommodationManagerApp.Forms {
 
                     if (deleteResult) {
                         ContractForeignInformationReload();
-                        new ToastForm("Xóa thông tin hợp đồng thành công", false).Show();
+                        new ToastForm("Xóa thông tin hợp đồng thành công").Show();
                     }
                     else {
                         new ToastForm("Xóa thông tin hợp đồng thất bại", true).Show();
@@ -196,29 +200,38 @@ namespace AccommodationManagerApp.Forms {
                 new ToastForm("Vui lòng chọn hợp đồng cần xóa", true).Show();
             }
         }
-        
+
+        private bool IsContractSafeToDelete(Contract contract) {
+            if (_billService.IsBillGenerated(contract)) {
+                new ToastForm("Hợp đồng đã tạo hóa đơn, không thể xóa", true).Show();
+                return false;
+            }
+
+            return true;
+        }
+
         private void ContractForeignInformationReload() {
             LoadContractData();
             LoadUserData();
             LoadRoomData();
+            LoadBillData();
         }
-        
-        private void buttonReloadContract_Click(object sender, EventArgs e)
-        {
+
+        private void ButtonReloadContract_Click(object sender, EventArgs e) {
             ContractForeignInformationReload();
             new ToastForm("Đã thực hiện tải lại dữ liệu hợp đồng").Show();
         }
 
-        private void btnWordExtract_Click(object sender, EventArgs e)
-        {
+        private void ButtonExtractWord_Click(object sender, EventArgs e) {
             var contract = IsSelectedContractValid();
-            if (contract != null)
-            {
+            if (contract != null) {
                 var date = DateTime.Now.ToString("dd/MM/yyyy");
                 var tenantName = contract.User != null ? contract.User.Name : Resources.NullData;
                 var tenantIdentityNumber = contract.User != null ? contract.User.IdentityNumber : Resources.NullData;
                 var tenantPhone = contract.User != null ? contract.User.Phone : Resources.NullData;
-                var dateOfBirth = contract.User != null ? contract.User.DateOfBirth.ToString("dd/MM/yyyy") : Resources.NullData;
+                var dateOfBirth = contract.User != null
+                    ? contract.User.DateOfBirth.ToString("dd/MM/yyyy")
+                    : Resources.NullData;
                 var roomNumber = contract.Room != null ? contract.Room.RoomNumber : Resources.NullData;
                 var price = FormatText.IntegerToVnd(contract.Price);
                 var startDate = string.IsNullOrEmpty(contract.StartDate.ToString())
@@ -231,11 +244,9 @@ namespace AccommodationManagerApp.Forms {
                 saveFileDialog.Filter = "DOC Files|*.docx";
                 saveFileDialog.Title = "Save as DOCX";
                 saveFileDialog.FileName = "Contract.docx";
-                if(saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
+                if (saveFileDialog.ShowDialog() == DialogResult.OK) {
                     var filePath = saveFileDialog.FileName;
-                    try
-                    {
+                    try {
                         var doc = new Document("..\\..\\Template\\contract.docx");
                         doc.MailMerge.Execute(new string[] { "This_Date" }, new[] { date });
                         doc.MailMerge.Execute(new string[] { "Tennant_Name" }, new[] { tenantName });
@@ -247,16 +258,16 @@ namespace AccommodationManagerApp.Forms {
                         doc.MailMerge.Execute(new string[] { "Start_Date" }, new[] { startDate });
                         doc.MailMerge.Execute(new string[] { "End_Date" }, new[] { endDate });
                         doc.Save(filePath);
-                        MessageBox.Show("Xuất Word thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Xuất Word thành công!", "Thông báo", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Lỗi khi xuất Word: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    catch (Exception ex) {
+                        MessageBox.Show("Lỗi khi xuất Word: " + ex.Message, "Lỗi", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
                     }
-                }   
+                }
             }
-            else 
-            {
+            else {
                 new ToastForm("Vui lòng chọn hợp đồng cần xuất", true).Show();
             }
         }

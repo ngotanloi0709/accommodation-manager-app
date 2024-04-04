@@ -5,52 +5,42 @@ using MaterialSkin.Controls;
 namespace AccommodationManagerApp.Forms {
     public partial class FixedPriceForm : BaseForm {
         private readonly BillService _billService;
-        public FixedPriceForm() {
+        private int _waterPrice = 0;
+        private int _electricityPrice = 0;
+        private int _internetPrice = 0;
+
+        public FixedPriceForm(int waterPrice, int electricityPrice, int internetPrice) {
+            this._waterPrice = waterPrice;
+            this._electricityPrice = electricityPrice;
+            this._internetPrice = internetPrice;
+
             _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
-            
+
             InitializeComponent();
-            
+
             LoadFixedPriceData();
         }
 
         private void LoadFixedPriceData() {
-            textBoxWaterPrice.Text = _billService.GetWaterPrice().Price.ToString();
-            textBoxElectricityPrice.Text = _billService.GetElectricityPrice().Price.ToString();
-            textBoxInternetPrice.Text = _billService.GetInternetPrice().Price.ToString();
+            textBoxWaterPrice.Text = _waterPrice.ToString();
+            textBoxElectricityPrice.Text = _electricityPrice.ToString();
+            textBoxInternetPrice.Text = _internetPrice.ToString();
         }
 
         private void buttonSave_Click(object sender, System.EventArgs e) {
             if (!IsAllDataFilled()) {
                 return;
             }
-            
+
             if (!IsSafeToUpdate()) {
                 return;
             }
 
-            _billService.UpdateFixedPrice(int.Parse(textBoxWaterPrice.Text), int.Parse(textBoxElectricityPrice.Text), int.Parse(textBoxInternetPrice.Text));
+            _billService.UpdateFixedPrice(int.Parse(textBoxWaterPrice.Text), int.Parse(textBoxElectricityPrice.Text),
+                int.Parse(textBoxInternetPrice.Text));
             DialogResult = DialogResult.OK;
         }
-
-        private bool IsSafeToUpdate() {
-            if (int.Parse(textBoxWaterPrice.Text) < 10000) {
-                new ToastForm("Đơn giá nước phải lớn hơn 10000").Show();
-                return false;
-            }
-            
-            if (int.Parse(textBoxElectricityPrice.Text) < 7500) {
-                new ToastForm("Đơn giá điện phải lớn hơn 1000").Show();
-                return false;
-            }
-            
-            if (int.Parse(textBoxInternetPrice.Text) < 50000) {
-                new ToastForm("Giá Internet phải lớn hơn 50000").Show();
-                return false;
-            }
-            
-            return true;
-        }
-
+        
         private bool IsAllDataFilled() {
             if (string.IsNullOrEmpty(textBoxWaterPrice.Text)) {
                 new ToastForm("Vui lòng nhập thông tin đơn giá nước").Show();
@@ -64,6 +54,25 @@ namespace AccommodationManagerApp.Forms {
 
             if (string.IsNullOrEmpty(textBoxInternetPrice.Text)) {
                 new ToastForm("Vui lòng nhập thông tin giá Internet").Show();
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool IsSafeToUpdate() {
+            if (int.Parse(textBoxWaterPrice.Text) < 10000) {
+                new ToastForm("Đơn giá nước phải lớn hơn 10000").Show();
+                return false;
+            }
+
+            if (int.Parse(textBoxElectricityPrice.Text) < 7500) {
+                new ToastForm("Đơn giá điện phải lớn hơn 7500").Show();
+                return false;
+            }
+
+            if (int.Parse(textBoxInternetPrice.Text) < 50000) {
+                new ToastForm("Giá Internet phải lớn hơn 50000").Show();
                 return false;
             }
 
