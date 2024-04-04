@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
 using System.Net;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Util;
+using Exception = System.Exception;
 
 namespace AccommodationManagerApp.Forms {
     public partial class MainForm {
@@ -40,7 +42,14 @@ namespace AccommodationManagerApp.Forms {
 
             var billForm = new BillForm(bill, waterPrice, electricityPrice, internetPrice);
             billForm.ShowDialog();
-            SendEmail(bill);
+            
+            if (billForm.DialogResult == DialogResult.OK) {
+                // Task.Run(() => {
+                //     SendEmail(bill);
+                //     LoadBillData();
+                // });
+                LoadBillData();
+            }
         }
 
         private void LoadBillData() {
@@ -95,15 +104,25 @@ namespace AccommodationManagerApp.Forms {
         }
 
         private void btnEmailThisMonth_Click(object sender, EventArgs e) {
+            var confirm = new ConfirmationForm("Xác nhận gửi mail cho danh sách chưa thanh toán trong tháng?");
+            var result = confirm.ShowDialog();
+            
+            if (result != DialogResult.Yes) {
+                return;
+            }
+            
             List<Bill> bills = _billService.GetByUserIdInThisMonthAnhUnpaid();
             if (bills.Count == 0) {
                 new ToastForm("Không có hóa đơn nào chưa thanh toán", true).Show();
-                return;
             }
             else {
-                foreach (Bill bill in bills) {
-                    SendEmail(bill);
-                }
+                Task.Run(() => {
+                    foreach (Bill bill in bills) {
+                        SendEmail(bill);
+                    }
+                });
+                
+                new ToastForm("Đã gửi mail cho danh sách chưa thanh toán!").Show();
             }
         }
 
@@ -148,11 +167,9 @@ namespace AccommodationManagerApp.Forms {
                 MailMessage mailMessage = new MailMessage(senderEmail, recipientEmail, subject, body);
                 mailMessage.IsBodyHtml = true;
                 smtpClient.Send(mailMessage);
-
-                new ToastForm("Đã gửi email nhắc nhở cho " + user.Name, false).Show();
             }
             catch (Exception e) {
-                new ToastForm("Gửi email thất bại", true).Show();
+                Console.WriteLine(e);
             }
         }
 
@@ -176,7 +193,6 @@ namespace AccommodationManagerApp.Forms {
 
             if (bill == null) {
                 new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
-                return;
             }
         }
     }

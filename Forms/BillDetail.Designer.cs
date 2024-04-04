@@ -90,7 +90,6 @@
             // 
             // panel1
             // 
-            this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.btnWord);
             this.panel1.Controls.Add(this.btn_ExportPDF);
             this.panel1.Controls.Add(this.PanelHD);
@@ -103,12 +102,11 @@
             // 
             // btnWord
             // 
-            this.btnWord.AutoSize = true;
             this.btnWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWord.Location = new System.Drawing.Point(432, 879);
+            this.btnWord.Location = new System.Drawing.Point(300, 720);
             this.btnWord.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnWord.Name = "btnWord";
-            this.btnWord.Size = new System.Drawing.Size(143, 37);
+            this.btnWord.Size = new System.Drawing.Size(134, 37);
             this.btnWord.TabIndex = 2;
             this.btnWord.Text = "Xuất Word";
             this.btnWord.UseVisualStyleBackColor = true;
@@ -116,9 +114,8 @@
             // 
             // btn_ExportPDF
             // 
-            this.btn_ExportPDF.AutoSize = true;
             this.btn_ExportPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ExportPDF.Location = new System.Drawing.Point(208, 879);
+            this.btn_ExportPDF.Location = new System.Drawing.Point(158, 720);
             this.btn_ExportPDF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_ExportPDF.Name = "btn_ExportPDF";
             this.btn_ExportPDF.Size = new System.Drawing.Size(133, 37);
@@ -197,7 +194,7 @@
             this.label42.Location = new System.Drawing.Point(94, 572);
             this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(64, 22);
+            this.label42.Size = new System.Drawing.Size(52, 18);
             this.label42.TabIndex = 23;
             this.label42.Text = "Chữ Ký";
             // 
@@ -208,7 +205,7 @@
             this.label41.Location = new System.Drawing.Point(62, 549);
             this.label41.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(164, 22);
+            this.label41.Size = new System.Drawing.Size(135, 18);
             this.label41.TabIndex = 22;
             this.label41.Text = "Người Thuê Ký Tên";
             // 
@@ -216,9 +213,9 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(81, 277);
+            this.label36.Location = new System.Drawing.Point(62, 229);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(134, 22);
+            this.label36.Size = new System.Drawing.Size(102, 16);
             this.label36.TabIndex = 17;
             this.label36.Text = "Direct Payment";
             // 
@@ -226,9 +223,9 @@
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(80, 247);
+            this.label35.Location = new System.Drawing.Point(60, 201);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(213, 23);
+            this.label35.Size = new System.Drawing.Size(169, 19);
             this.label35.TabIndex = 16;
             this.label35.Text = "Phương thức thanh toán:";
             // 
@@ -643,7 +640,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(418, 211);
+            this.label12.Location = new System.Drawing.Point(400, 210);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(70, 18);
@@ -752,7 +749,6 @@
             this.Padding = new System.Windows.Forms.Padding(3, 24, 2, 2);
             this.Text = "BillDetail";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.PanelHD.ResumeLayout(false);
             this.PanelHD.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

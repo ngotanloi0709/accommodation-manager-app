@@ -77,6 +77,7 @@ namespace AccommodationManagerApp.Forms
             _billService.Update(_bill.Id, _bill);
 
             new ToastForm("Cập nhật thành công").Show();
+            DialogResult = DialogResult.OK;
             Close();
         }
 

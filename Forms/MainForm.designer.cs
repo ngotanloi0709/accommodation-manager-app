@@ -2400,14 +2400,14 @@
             this.btnEmailThisMonth.Depth = 0;
             this.btnEmailThisMonth.HighEmphasis = true;
             this.btnEmailThisMonth.Icon = global::AccommodationManagerApp.Properties.Resources.invoice;
-            this.btnEmailThisMonth.Location = new System.Drawing.Point(674, 419);
+            this.btnEmailThisMonth.Location = new System.Drawing.Point(674, 437);
             this.btnEmailThisMonth.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnEmailThisMonth.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEmailThisMonth.Name = "btnEmailThisMonth";
             this.btnEmailThisMonth.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnEmailThisMonth.Size = new System.Drawing.Size(252, 44);
+            this.btnEmailThisMonth.Size = new System.Drawing.Size(255, 43);
             this.btnEmailThisMonth.TabIndex = 49;
-            this.btnEmailThisMonth.Text = "Nhắc nhở đóng tiền tháng này";
+            this.btnEmailThisMonth.Text = "Nhắc nhở đóng tiền tháng này qua Email";
             this.btnEmailThisMonth.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnEmailThisMonth.UseAccentColor = false;
             this.btnEmailThisMonth.UseVisualStyleBackColor = true;
@@ -2803,7 +2803,7 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1000, 800);

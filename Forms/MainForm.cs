@@ -96,6 +96,6 @@ namespace AccommodationManagerApp.Forms
 
 
 
-        
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using AccommodationManagerApp.Service;
+﻿using AccommodationManagerApp.Model;
+using AccommodationManagerApp.Service;
 using AccommodationManagerApp.Util;
 using Aspose.Words;
 using PdfSharp.Drawing;
@@ -6,7 +7,6 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using AccommodationManagerApp.Model;
 
 namespace AccommodationManagerApp.Forms
 {
@@ -17,10 +17,10 @@ namespace AccommodationManagerApp.Forms
         public BillDetail(Bill bill)
         {
             InitializeComponent();
-            
+
             _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
             _bill = bill;
-            
+
             LoadBillDetail();
         }
 
@@ -33,7 +33,7 @@ namespace AccommodationManagerApp.Forms
             var internetPrice = _bill.InternetFee;
             var vehiclePrice = _bill.VehicleFee;
             var rentPrice = _bill.RentFee;
-            
+
             LabelRoomId.Text = _bill.Contract.Room.RoomNumber;
             LabelDate.Text = _bill.DateOfBillFormatted;
             LabelRent.Text = FormatText.IntegerToVnd(rentPrice);
@@ -56,7 +56,7 @@ namespace AccommodationManagerApp.Forms
             saveFileDialog.FileName = "BillDetail.pdf";
 
             if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
-            
+
             var filePath = saveFileDialog.FileName;
 
             try
