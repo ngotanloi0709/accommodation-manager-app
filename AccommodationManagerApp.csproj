@@ -214,6 +214,12 @@
     <Compile Include="Forms\BillForm.Designer.cs">
       <DependentUpon>BillForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\BillStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BillStatusForm.Designer.cs">
+      <DependentUpon>BillStatusForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ClientForm.Bill.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -502,6 +508,7 @@
     <None Include="Resources\download.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\skip.png" />
     <None Include="Resources\view.png" />
     <None Include="Resources\user_no_color.png" />
     <None Include="Resources\user.png" />
@@ -531,6 +538,11 @@
     <None Include="Resources\invoice.png" />
     <None Include="Resources\preview.png" />
     <None Include="Resources\response.png" />
+    <None Include="Resources\free.png" />
+    <None Include="Resources\free_red.png" />
+    <None Include="Resources\free1.png" />
+    <None Include="Resources\next.png" />
+    <None Include="Resources\check-list.png" />
     <Content Include="Resources\Roboto-Medium.ttf" />
     <Content Include="Resources\Roboto-Regular.ttf" />
     <None Include="Resources\signature.jpg" />

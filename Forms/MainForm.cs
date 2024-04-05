@@ -1,10 +1,9 @@
-﻿using System;
-using AccommodationManagerApp.Model;
+﻿using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using BillModel = AccommodationManagerApp.Model.Bill;
 
 namespace AccommodationManagerApp.Forms
 {
@@ -18,13 +17,18 @@ namespace AccommodationManagerApp.Forms
         private readonly UserService _userService;
         private readonly ContractService _contractService;
         private readonly RequestService _requestService;
-        private List<BillModel> Bills { get; set; }
+        private List<Bill> Bills { get; set; }
         private List<Building> Buildings { get; set; }
         private List<Room> Rooms { get; set; }
         private List<Vehicle> Vehicles { get; set; }
         private List<User> Users { get; set; }
         private List<Contract> Contracts { get; set; }
         private List<Request> _Requests;
+
+        private int waterPrice = 0;
+        private int electricityPrice = 0;
+        private int internetPrice = 0;
+
         public MainForm()
         {
             _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
@@ -60,7 +64,7 @@ namespace AccommodationManagerApp.Forms
             ListViewVehicle.GridLines = true;
             ListViewUser.GridLines = true;
             ListViewUserRentList.GridLines = true;
-            lstViewBill.GridLines = true;
+            ListViewBill.GridLines = true;
             ListViewContract.GridLines = true;
             ListViewRoomUserList.GridLines = true;
         }

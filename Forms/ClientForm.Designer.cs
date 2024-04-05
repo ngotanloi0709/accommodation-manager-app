@@ -147,7 +147,7 @@
             this.tbCtrlClient.Multiline = true;
             this.tbCtrlClient.Name = "tbCtrlClient";
             this.tbCtrlClient.SelectedIndex = 0;
-            this.tbCtrlClient.Size = new System.Drawing.Size(994, 733);
+            this.tbCtrlClient.Size = new System.Drawing.Size(1090, 931);
             this.tbCtrlClient.TabIndex = 25;
             // 
             // pgRequest
@@ -165,7 +165,7 @@
             this.pgRequest.Location = new System.Drawing.Point(4, 39);
             this.pgRequest.Name = "pgRequest";
             this.pgRequest.Padding = new System.Windows.Forms.Padding(3);
-            this.pgRequest.Size = new System.Drawing.Size(986, 690);
+            this.pgRequest.Size = new System.Drawing.Size(1082, 888);
             this.pgRequest.TabIndex = 1;
             this.pgRequest.Text = "Yêu Cầu";
             this.pgRequest.UseVisualStyleBackColor = true;
@@ -372,7 +372,7 @@
             this.pgBill.ImageKey = "contract.png";
             this.pgBill.Location = new System.Drawing.Point(4, 39);
             this.pgBill.Name = "pgBill";
-            this.pgBill.Size = new System.Drawing.Size(1050, 810);
+            this.pgBill.Size = new System.Drawing.Size(1082, 888);
             this.pgBill.TabIndex = 2;
             this.pgBill.Text = "Hóa Đơn";
             this.pgBill.UseVisualStyleBackColor = true;
@@ -522,7 +522,7 @@
             this.lstViewBill.Name = "lstViewBill";
             this.lstViewBill.OwnerDraw = true;
             this.lstViewBill.ShowGroups = false;
-            this.lstViewBill.Size = new System.Drawing.Size(615, 440);
+            this.lstViewBill.Size = new System.Drawing.Size(615, 561);
             this.lstViewBill.TabIndex = 49;
             this.lstViewBill.UseCompatibleStateImageBehavior = false;
             this.lstViewBill.View = System.Windows.Forms.View.Details;
@@ -534,13 +534,13 @@
             // 
             // elec
             // 
-            this.elec.Text = "Điện";
-            this.elec.Width = 80;
+            this.elec.Text = "Số điện";
+            this.elec.Width = 81;
             // 
             // water
             // 
-            this.water.Text = "Nước";
-            this.water.Width = 80;
+            this.water.Text = "Số nước";
+            this.water.Width = 89;
             // 
             // room
             // 
@@ -571,7 +571,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 800);
+            this.ClientSize = new System.Drawing.Size(1096, 998);
             this.Controls.Add(this.tbCtrlClient);
             this.Controls.Add(this.buttonCurrentUserInformationManagement);
             this.Controls.Add(this.btnLogout);

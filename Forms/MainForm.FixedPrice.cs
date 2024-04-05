@@ -4,13 +4,17 @@ using AccommodationManagerApp.Util;
 namespace AccommodationManagerApp.Forms {
     public partial class MainForm {
         private void LoadFixedPriceData() {
-            labelWaterPrice.Text = FormatText.IntegerToVnd(_billService.GetWaterPrice().Price);
-            labelElectricityPrice.Text = FormatText.IntegerToVnd(_billService.GetElectricityPrice().Price);
-            labelInternetPrice.Text = FormatText.IntegerToVnd(_billService.GetInternetPrice().Price);
+            waterPrice = _billService.GetWaterPrice().Price;
+            electricityPrice = _billService.GetElectricityPrice().Price;
+            internetPrice = _billService.GetInternetPrice().Price;
+            
+            labelWaterPrice.Text = FormatText.IntegerToVnd(waterPrice);
+            labelElectricityPrice.Text = FormatText.IntegerToVnd(electricityPrice);
+            labelInternetPrice.Text = FormatText.IntegerToVnd(internetPrice);
         }
 
         private void buttonEditFixedPrice_Click(object sender, System.EventArgs e) {
-            var fixedPriceForm = new FixedPriceForm();
+            var fixedPriceForm = new FixedPriceForm(waterPrice, electricityPrice, internetPrice);
             fixedPriceForm.ShowDialog();
             
             if (fixedPriceForm.DialogResult == DialogResult.Cancel) {

@@ -6,7 +6,7 @@ namespace AccommodationManagerApp.Repository {
     public class RoomRepository : Repository<Room> {
         public RoomRepository(AccommodationManagerAppContext context) : base(context) {}
 
-        public List<Room> GetAllWithBuildingAndUserAndContractWithUser() {
+        public IEnumerable<Room> GetAllWithBuildingAndUserAndContractWithUser() {
             return Context.Set<Room>().Include("Building").Include("Users").Include("Contracts").Include("Contracts.User").ToList();
         }
 
@@ -16,6 +16,10 @@ namespace AccommodationManagerApp.Repository {
 
         public Room GetByIdWithContract(int? id) {
             return Context.Set<Room>().Include("Contracts").FirstOrDefault(r => r.Id == id);
+        }
+
+        public IEnumerable<Room> GetAllWithNotTerminatedContract() {
+            return Context.Set<Room>().Include("Contracts").Where(r => r.Contracts.Any(c => c.IsTerminated == false)).ToList();
         }
     }
 }

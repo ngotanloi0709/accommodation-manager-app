@@ -87,5 +87,9 @@ namespace AccommodationManagerApp.Service {
         public Room GetById(int roomId) {
             return _roomRepository.GetById(roomId);
         }
+
+        public List<Room> GetAllWithNotTerminatedContract() {
+            return _roomRepository.GetAllWithNotTerminatedContract().ToList();
+        }
     }
 }
