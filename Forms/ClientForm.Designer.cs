@@ -36,6 +36,7 @@
             this.imgLstClient = new System.Windows.Forms.ImageList(this.components);
             this.tbCtrlClient = new MaterialSkin.Controls.MaterialTabControl();
             this.pgRequest = new System.Windows.Forms.TabPage();
+            this.buttonResponse = new MaterialSkin.Controls.MaterialButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnUpd = new MaterialSkin.Controls.MaterialButton();
             this.btnDelete = new MaterialSkin.Controls.MaterialButton();
@@ -147,12 +148,13 @@
             this.tbCtrlClient.Multiline = true;
             this.tbCtrlClient.Name = "tbCtrlClient";
             this.tbCtrlClient.SelectedIndex = 0;
-            this.tbCtrlClient.Size = new System.Drawing.Size(1090, 931);
+            this.tbCtrlClient.Size = new System.Drawing.Size(994, 733);
             this.tbCtrlClient.TabIndex = 25;
             // 
             // pgRequest
             // 
             this.pgRequest.BackColor = System.Drawing.Color.White;
+            this.pgRequest.Controls.Add(this.buttonResponse);
             this.pgRequest.Controls.Add(this.pictureBox1);
             this.pgRequest.Controls.Add(this.btnUpd);
             this.pgRequest.Controls.Add(this.btnDelete);
@@ -165,10 +167,31 @@
             this.pgRequest.Location = new System.Drawing.Point(4, 39);
             this.pgRequest.Name = "pgRequest";
             this.pgRequest.Padding = new System.Windows.Forms.Padding(3);
-            this.pgRequest.Size = new System.Drawing.Size(1082, 888);
+            this.pgRequest.Size = new System.Drawing.Size(986, 690);
             this.pgRequest.TabIndex = 1;
             this.pgRequest.Text = "Yêu Cầu";
             this.pgRequest.UseVisualStyleBackColor = true;
+            // 
+            // buttonResponse
+            // 
+            this.buttonResponse.AutoSize = false;
+            this.buttonResponse.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonResponse.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonResponse.Depth = 0;
+            this.buttonResponse.HighEmphasis = true;
+            this.buttonResponse.Icon = global::AccommodationManagerApp.Properties.Resources.preview;
+            this.buttonResponse.Location = new System.Drawing.Point(754, 407);
+            this.buttonResponse.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonResponse.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonResponse.Name = "buttonResponse";
+            this.buttonResponse.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonResponse.Size = new System.Drawing.Size(187, 39);
+            this.buttonResponse.TabIndex = 34;
+            this.buttonResponse.Text = "Phản Hồi";
+            this.buttonResponse.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonResponse.UseAccentColor = false;
+            this.buttonResponse.UseVisualStyleBackColor = true;
+            this.buttonResponse.Click += new System.EventHandler(this.buttonResponse_Click);
             // 
             // pictureBox1
             // 
@@ -372,7 +395,7 @@
             this.pgBill.ImageKey = "contract.png";
             this.pgBill.Location = new System.Drawing.Point(4, 39);
             this.pgBill.Name = "pgBill";
-            this.pgBill.Size = new System.Drawing.Size(1082, 888);
+            this.pgBill.Size = new System.Drawing.Size(986, 690);
             this.pgBill.TabIndex = 2;
             this.pgBill.Text = "Hóa Đơn";
             this.pgBill.UseVisualStyleBackColor = true;
@@ -562,7 +585,7 @@
             this.pgConfig.ImageKey = "configuration.png";
             this.pgConfig.Location = new System.Drawing.Point(4, 39);
             this.pgConfig.Name = "pgConfig";
-            this.pgConfig.Size = new System.Drawing.Size(1050, 810);
+            this.pgConfig.Size = new System.Drawing.Size(986, 690);
             this.pgConfig.TabIndex = 3;
             this.pgConfig.Text = "Cài Đặt";
             this.pgConfig.UseVisualStyleBackColor = true;
@@ -571,13 +594,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 998);
+            this.ClientSize = new System.Drawing.Size(1000, 800);
             this.Controls.Add(this.tbCtrlClient);
             this.Controls.Add(this.buttonCurrentUserInformationManagement);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.lblEmail);
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.tbCtrlClient;
+            this.MaximumSize = new System.Drawing.Size(1000, 800);
+            this.MinimumSize = new System.Drawing.Size(1000, 800);
             this.Name = "ClientForm";
             this.Text = "";
             this.tbCtrlClient.ResumeLayout(false);
@@ -626,5 +651,6 @@
         private MaterialSkin.Controls.MaterialComboBox cmbboxCatg;
         private MaterialSkin.Controls.MaterialButton btnSearch;
         private MaterialSkin.Controls.MaterialTextBox txtBoxSearch;
+        private MaterialSkin.Controls.MaterialButton buttonResponse;
     }
 }

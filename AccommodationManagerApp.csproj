@@ -256,6 +256,21 @@
     <Compile Include="Forms\MainForm.FixedPrice.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\MainForm.Request.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PreviewRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PreviewRequestForm.Designer.cs">
+      <DependentUpon>PreviewRequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PreviewResponseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PreviewResponseForm.Designer.cs">
+      <DependentUpon>PreviewResponseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\RequestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,6 +346,12 @@
     <Compile Include="Forms\MainForm.Vehicle.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\ResponseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResponseForm.Designer.cs">
+      <DependentUpon>ResponseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SplashForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -368,6 +389,7 @@
     <Compile Include="Model\Contract.cs" />
     <Compile Include="Model\FixedPrice.cs" />
     <Compile Include="Model\Request.cs" />
+    <Compile Include="Model\Response.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Vehicle.cs" />
@@ -385,6 +407,7 @@
     <Compile Include="Repository\InitLogRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\RequestRepository.cs" />
+    <Compile Include="Repository\ResponseRepository.cs" />
     <Compile Include="Repository\RoomRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Repository\VehicleRepository.cs" />
@@ -393,6 +416,7 @@
     <Compile Include="Service\BuildingService.cs" />
     <Compile Include="Service\ContractService.cs" />
     <Compile Include="Service\RequestService.cs" />
+    <Compile Include="Service\ResponseService.cs" />
     <Compile Include="Service\ServiceLocator.cs" />
     <Compile Include="Service\RoomService.cs" />
     <Compile Include="Service\UserService.cs" />
@@ -403,6 +427,7 @@
     <Compile Include="Util\InitLog.cs" />
     <Compile Include="Util\InputHelper.cs" />
     <Compile Include="Util\PasswordHelper.cs" />
+    <Compile Include="Util\RequestStatusExtension.cs" />
     <Compile Include="Util\RoomStatusExtensions.cs" />
     <Compile Include="Util\VehicleCategoryExtensions.cs" />
     <EmbeddedResource Include="Forms\BaseForm.resx">
@@ -425,6 +450,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FixedPriceForm.resx">
       <DependentUpon>FixedPriceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PreviewRequestForm.resx">
+      <DependentUpon>PreviewRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PreviewResponseForm.resx">
+      <DependentUpon>PreviewResponseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RequestForm.resx">
       <DependentUpon>RequestForm.cs</DependentUpon>
@@ -450,6 +481,9 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResponseForm.resx">
+      <DependentUpon>ResponseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SplashForm.resx">
       <DependentUpon>SplashForm.cs</DependentUpon>
@@ -521,11 +555,13 @@
     <None Include="Resources\icon-250.png" />
     <None Include="Resources\invoice.png" />
     <None Include="Resources\preview.png" />
+    <None Include="Resources\response.png" />
     <None Include="Resources\free.png" />
     <None Include="Resources\free_red.png" />
     <None Include="Resources\free1.png" />
     <None Include="Resources\next.png" />
     <None Include="Resources\check-list.png" />
+    <None Include="Resources\email.png" />
     <Content Include="Resources\Roboto-Medium.ttf" />
     <Content Include="Resources\Roboto-Regular.ttf" />
     <None Include="Resources\signature.jpg" />

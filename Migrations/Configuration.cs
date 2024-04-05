@@ -48,19 +48,6 @@ namespace AccommodationManagerApp.Migrations {
                 context.Rooms.AddOrUpdate(new Room { RoomNumber = "302", BuildingId = null });
                 context.Rooms.AddOrUpdate(new Room { RoomNumber = "303", BuildingId = null });
             }
-            /*
-            if (!context.Bills.Any()) {
-                context.Bills.AddOrUpdate(new Bill(100, 50, null));
-                context.Bills.AddOrUpdate(new Bill(150, 75, null));
-                context.Bills.AddOrUpdate(new Bill(200, 100, null));
-            } 
-            */
-            if (!context.Requests.Any())
-            {
-                context.Requests.AddOrUpdate(new Request("Cúp điện kìa", null));
-                context.Requests.AddOrUpdate(new Request("Tiền nhà gì đóng hoài vậy", null));
-                context.Requests.AddOrUpdate(new Request("Không được chửi thề", null));
-            }
             if (!context.Vehicles.Any()) {
                 context.Vehicles.AddOrUpdate(new Vehicle { Name = "Honda", Number = "63D-0301", RoomId = null });
                 context.Vehicles.AddOrUpdate(new Vehicle { Name = "Yamaha", Number = "86F-31235", RoomId = null });
@@ -72,6 +59,18 @@ namespace AccommodationManagerApp.Migrations {
                 context.FixedPrices.AddOrUpdate(new FixedPrice { Type = FixedPriceType.Water, Price = 10000 });
                 context.FixedPrices.AddOrUpdate(new FixedPrice { Type = FixedPriceType.Electricity, Price = 7500 });
                 context.FixedPrices.AddOrUpdate(new FixedPrice { Type = FixedPriceType.Internet, Price = 100000 });
+            }
+            if (!context.Requests.Any())
+            {
+                context.Requests.AddOrUpdate(new Request("Cúp điện kìa", null));
+                context.Requests.AddOrUpdate(new Request("Tiền nhà gì đóng hoài vậy", null));
+                context.Requests.AddOrUpdate(new Request("Không được chửi thề", null));
+            }
+            if (!context.Responses.Any())
+            {
+                context.Responses.AddOrUpdate(new Response("Giải pháp 1", null));
+                context.Responses.AddOrUpdate(new Response("Giải pháp 2", null));
+                context.Responses.AddOrUpdate(new Response("Giải pháp 3", null));
             }
         }
 

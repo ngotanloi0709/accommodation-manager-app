@@ -18,7 +18,7 @@ namespace AccommodationManagerApp.Repository {
             return Context.Set<T>().ToList();
         }
 
-        public T GetById(int id) {
+        public T GetById(int? id) {
             return Context.Set<T>().Find(id);
         }
 
@@ -61,6 +61,8 @@ namespace AccommodationManagerApp.Repository {
         public DbSet<Contract> Contracts { get; set; }
         public DbSet<FixedPrice> FixedPrices { get; set; }
         public DbSet<Request> Requests { get; set; }
+        public DbSet<Response> Responses { get; set; }
+
         public AccommodationManagerAppContext() : base("name=MySqlConnectionString") {
             Database.SetInitializer(
                 new MigrateDatabaseToLatestVersion<AccommodationManagerAppContext, Configuration>());

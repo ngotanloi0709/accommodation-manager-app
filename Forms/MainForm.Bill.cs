@@ -128,8 +128,8 @@ namespace AccommodationManagerApp.Forms {
 
         private void SendEmail(Bill bill) {
             try {
-                User user = _userService.GetById(bill.UserId);
                 Contract contract = _contractService.GetById(bill.ContractId);
+                User user = _userService.GetById(contract.UserId);
                 string subject = "Reminder: Remind Unpaid Tennant Bill";
                 string body = "<html><body>";
                 body += "<h2>Dear " + user.Name + ",</h2>";
