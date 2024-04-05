@@ -25,5 +25,21 @@ namespace AccommodationManagerApp.Repository
         public List<Bill> GetAllByContractId(int contract_id) {
             return Context.Set<Bill>().Where(bill => bill.ContractId == contract_id).ToList();
         }
+
+        public List<Bill> GetBillUnpaidByMonthAndYear(int month, int year)
+        {
+            return Context.Set<Bill>().Where(bill => bill.DateOfBill.Month == month && bill.DateOfBill.Year == year && bill.Status == BillStatus.Unpaid).ToList();
+        }
+
+        public List<Bill> GetBillPaidByMonthAndYear(int month, int year)
+        {
+            return Context.Set<Bill>().Where(bill => bill.DateOfBill.Month == month && bill.DateOfBill.Year == year && bill.Status == BillStatus.Paid).ToList();
+        }
+
+        public List<Bill> GetBillIsUpdatedByMonthAndYear(int month, int year)
+        {
+            return Context.Set<Bill>().Where(bill => bill.DateOfBill.Month == month && bill.DateOfBill.Year == year && bill.Status == BillStatus.Edit).ToList();
+
+        }
     }
 }

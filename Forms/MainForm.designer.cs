@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.drawerImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabPageContract = new System.Windows.Forms.TabPage();
@@ -142,6 +145,13 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPageHome = new System.Windows.Forms.TabPage();
+            this.materialLabel41 = new MaterialSkin.Controls.MaterialLabel();
+            this.RoomInBuildingChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.materialLabel38 = new MaterialSkin.Controls.MaterialLabel();
+            this.pieChartPaidBillAndUnpaidBill = new LiveCharts.WinForms.PieChart();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.btnReloadChart = new MaterialSkin.Controls.MaterialButton();
+            this.paidAndUnpaidChart = new LiveCharts.WinForms.CartesianChart();
             this.tabPageVehicle = new System.Windows.Forms.TabPage();
             this.lableVehiclePrice = new MaterialSkin.Controls.MaterialLabel();
             this.labelsomethign = new MaterialSkin.Controls.MaterialLabel();
@@ -210,6 +220,8 @@
             this.tabPageRoom.SuspendLayout();
             this.tabPageBuilding.SuspendLayout();
             this.materialTabControl.SuspendLayout();
+            this.tabPageHome.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RoomInBuildingChart)).BeginInit();
             this.tabPageVehicle.SuspendLayout();
             this.tabPageBills.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -1859,12 +1871,111 @@
             // tabPageHome
             // 
             this.tabPageHome.BackColor = System.Drawing.Color.White;
+            this.tabPageHome.Controls.Add(this.materialLabel41);
+            this.tabPageHome.Controls.Add(this.RoomInBuildingChart);
+            this.tabPageHome.Controls.Add(this.materialLabel38);
+            this.tabPageHome.Controls.Add(this.pieChartPaidBillAndUnpaidBill);
+            this.tabPageHome.Controls.Add(this.materialLabel2);
+            this.tabPageHome.Controls.Add(this.btnReloadChart);
+            this.tabPageHome.Controls.Add(this.paidAndUnpaidChart);
             this.tabPageHome.ImageKey = "statistic.png";
             this.tabPageHome.Location = new System.Drawing.Point(4, 39);
             this.tabPageHome.Name = "tabPageHome";
             this.tabPageHome.Size = new System.Drawing.Size(986, 673);
             this.tabPageHome.TabIndex = 7;
             this.tabPageHome.Text = "Trang chủ";
+            // 
+            // materialLabel41
+            // 
+            this.materialLabel41.AutoSize = true;
+            this.materialLabel41.Depth = 0;
+            this.materialLabel41.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel41.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel41.Location = new System.Drawing.Point(510, 634);
+            this.materialLabel41.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel41.Name = "materialLabel41";
+            this.materialLabel41.Size = new System.Drawing.Size(250, 24);
+            this.materialLabel41.TabIndex = 65;
+            this.materialLabel41.Text = "Biểu đồ số tòa nhà từng khu";
+            // 
+            // RoomInBuildingChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.RoomInBuildingChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.RoomInBuildingChart.Legends.Add(legend1);
+            this.RoomInBuildingChart.Location = new System.Drawing.Point(480, 398);
+            this.RoomInBuildingChart.Name = "RoomInBuildingChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Number of room";
+            this.RoomInBuildingChart.Series.Add(series1);
+            this.RoomInBuildingChart.Size = new System.Drawing.Size(413, 233);
+            this.RoomInBuildingChart.TabIndex = 64;
+            this.RoomInBuildingChart.Text = "chart1";
+            // 
+            // materialLabel38
+            // 
+            this.materialLabel38.AutoSize = true;
+            this.materialLabel38.Depth = 0;
+            this.materialLabel38.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel38.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel38.Location = new System.Drawing.Point(143, 634);
+            this.materialLabel38.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel38.Name = "materialLabel38";
+            this.materialLabel38.Size = new System.Drawing.Size(264, 24);
+            this.materialLabel38.TabIndex = 63;
+            this.materialLabel38.Text = "Biểu đồ phân loại cái hóa đơn";
+            // 
+            // pieChartPaidBillAndUnpaidBill
+            // 
+            this.pieChartPaidBillAndUnpaidBill.Location = new System.Drawing.Point(72, 404);
+            this.pieChartPaidBillAndUnpaidBill.Name = "pieChartPaidBillAndUnpaidBill";
+            this.pieChartPaidBillAndUnpaidBill.Size = new System.Drawing.Size(402, 227);
+            this.pieChartPaidBillAndUnpaidBill.TabIndex = 62;
+            this.pieChartPaidBillAndUnpaidBill.Text = "pieChart1";
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel2.Location = new System.Drawing.Point(225, 359);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(439, 24);
+            this.materialLabel2.TabIndex = 61;
+            this.materialLabel2.Text = "Biểu đồ số tiền đã thanh toán và chưa thanh toán";
+            // 
+            // btnReloadChart
+            // 
+            this.btnReloadChart.AutoSize = false;
+            this.btnReloadChart.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnReloadChart.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnReloadChart.Depth = 0;
+            this.btnReloadChart.HighEmphasis = true;
+            this.btnReloadChart.Icon = global::AccommodationManagerApp.Properties.Resources.check_list;
+            this.btnReloadChart.Location = new System.Drawing.Point(106, 15);
+            this.btnReloadChart.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnReloadChart.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnReloadChart.Name = "btnReloadChart";
+            this.btnReloadChart.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnReloadChart.Size = new System.Drawing.Size(749, 36);
+            this.btnReloadChart.TabIndex = 60;
+            this.btnReloadChart.Text = "Cập nhật dữ liệu thống kê";
+            this.btnReloadChart.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnReloadChart.UseAccentColor = false;
+            this.btnReloadChart.UseVisualStyleBackColor = true;
+            this.btnReloadChart.Click += new System.EventHandler(this.btnReloadChart_Click);
+            // 
+            // paidAndUnpaidChart
+            // 
+            this.paidAndUnpaidChart.Location = new System.Drawing.Point(72, 78);
+            this.paidAndUnpaidChart.Name = "paidAndUnpaidChart";
+            this.paidAndUnpaidChart.Size = new System.Drawing.Size(783, 278);
+            this.paidAndUnpaidChart.TabIndex = 0;
+            this.paidAndUnpaidChart.Text = "Paid And Unpaid Bill Amount Chart";
             // 
             // tabPageVehicle
             // 
@@ -2803,7 +2914,7 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1000, 800);
@@ -2821,6 +2932,7 @@
             this.Padding = new System.Windows.Forms.Padding(3, 80, 3, 4);
             this.Sizable = false;
             this.Text = "";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabPageContract.ResumeLayout(false);
             this.tabPageContract.PerformLayout();
             this.tabPageSystemUser.ResumeLayout(false);
@@ -2833,6 +2945,9 @@
             this.tabPageBuilding.ResumeLayout(false);
             this.tabPageBuilding.PerformLayout();
             this.materialTabControl.ResumeLayout(false);
+            this.tabPageHome.ResumeLayout(false);
+            this.tabPageHome.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RoomInBuildingChart)).EndInit();
             this.tabPageVehicle.ResumeLayout(false);
             this.tabPageVehicle.PerformLayout();
             this.tabPageBills.ResumeLayout(false);
@@ -3017,5 +3132,12 @@
         private MaterialSkin.Controls.MaterialLabel LabelBillRoomNumber;
         private MaterialSkin.Controls.MaterialLabel materialLabel40;
         private MaterialSkin.Controls.MaterialButton ButtonUpdateBillStatus;
+        private LiveCharts.WinForms.CartesianChart paidAndUnpaidChart;
+        private MaterialSkin.Controls.MaterialButton btnReloadChart;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private LiveCharts.WinForms.PieChart pieChartPaidBillAndUnpaidBill;
+        private MaterialSkin.Controls.MaterialLabel materialLabel38;
+        private System.Windows.Forms.DataVisualization.Charting.Chart RoomInBuildingChart;
+        private MaterialSkin.Controls.MaterialLabel materialLabel41;
     }
 }
