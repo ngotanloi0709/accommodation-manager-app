@@ -18,7 +18,7 @@ namespace AccommodationManagerApp.Repository {
             return Context.Set<T>().ToList();
         }
 
-        public T GetById(int id) {
+        public T GetById(int? id) {
             return Context.Set<T>().Find(id);
         }
 

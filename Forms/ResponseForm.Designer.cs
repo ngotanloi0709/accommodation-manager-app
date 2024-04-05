@@ -28,68 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelUserName = new MaterialSkin.Controls.MaterialLabel();
-            this.textBoxDesRequest = new MaterialSkin.Controls.MaterialMultiLineTextBox();
-            this.labelDateRequest = new MaterialSkin.Controls.MaterialLabel();
-            this.textBoxResponse = new MaterialSkin.Controls.MaterialMultiLineTextBox();
             this.buttonResponse = new MaterialSkin.Controls.MaterialButton();
+            this.labelResponseDate = new MaterialSkin.Controls.MaterialLabel();
+            this.textBoxDesResponse = new MaterialSkin.Controls.MaterialMultiLineTextBox();
+            this.labelResponseUser = new MaterialSkin.Controls.MaterialLabel();
+            this.buttonResponseEmail = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
-            // 
-            // labelUserName
-            // 
-            this.labelUserName.AutoSize = true;
-            this.labelUserName.Depth = 0;
-            this.labelUserName.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.labelUserName.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelUserName.Location = new System.Drawing.Point(32, 85);
-            this.labelUserName.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(175, 24);
-            this.labelUserName.TabIndex = 0;
-            this.labelUserName.Text = "Tên người yêu cầu  ";
-            // 
-            // textBoxDesRequest
-            // 
-            this.textBoxDesRequest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.textBoxDesRequest.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDesRequest.Depth = 0;
-            this.textBoxDesRequest.Enabled = false;
-            this.textBoxDesRequest.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxDesRequest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBoxDesRequest.Location = new System.Drawing.Point(36, 115);
-            this.textBoxDesRequest.MouseState = MaterialSkin.MouseState.HOVER;
-            this.textBoxDesRequest.Name = "textBoxDesRequest";
-            this.textBoxDesRequest.Size = new System.Drawing.Size(654, 112);
-            this.textBoxDesRequest.TabIndex = 2;
-            this.textBoxDesRequest.Text = "";
-            // 
-            // labelDateRequest
-            // 
-            this.labelDateRequest.AutoSize = true;
-            this.labelDateRequest.Depth = 0;
-            this.labelDateRequest.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.labelDateRequest.FontType = MaterialSkin.MaterialSkinManager.fontType.Subtitle1;
-            this.labelDateRequest.Location = new System.Drawing.Point(589, 230);
-            this.labelDateRequest.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelDateRequest.Name = "labelDateRequest";
-            this.labelDateRequest.Size = new System.Drawing.Size(101, 19);
-            this.labelDateRequest.TabIndex = 3;
-            this.labelDateRequest.Text = "Ngày Yêu Cầu";
-            this.labelDateRequest.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // textBoxResponse
-            // 
-            this.textBoxResponse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.textBoxResponse.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxResponse.Depth = 0;
-            this.textBoxResponse.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxResponse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBoxResponse.Location = new System.Drawing.Point(36, 288);
-            this.textBoxResponse.MouseState = MaterialSkin.MouseState.HOVER;
-            this.textBoxResponse.Name = "textBoxResponse";
-            this.textBoxResponse.Size = new System.Drawing.Size(536, 43);
-            this.textBoxResponse.TabIndex = 4;
-            this.textBoxResponse.Text = "";
             // 
             // buttonResponse
             // 
@@ -98,31 +42,93 @@
             this.buttonResponse.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.buttonResponse.Depth = 0;
             this.buttonResponse.HighEmphasis = true;
-            this.buttonResponse.Icon = null;
-            this.buttonResponse.Location = new System.Drawing.Point(579, 288);
+            this.buttonResponse.Icon = global::AccommodationManagerApp.Properties.Resources.icon_black;
+            this.buttonResponse.Location = new System.Drawing.Point(127, 441);
             this.buttonResponse.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonResponse.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonResponse.Name = "buttonResponse";
             this.buttonResponse.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonResponse.Size = new System.Drawing.Size(111, 43);
-            this.buttonResponse.TabIndex = 5;
-            this.buttonResponse.Text = "SEND";
+            this.buttonResponse.Size = new System.Drawing.Size(130, 36);
+            this.buttonResponse.TabIndex = 7;
+            this.buttonResponse.Text = "Qua Ứng Dụng";
             this.buttonResponse.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.buttonResponse.UseAccentColor = false;
             this.buttonResponse.UseVisualStyleBackColor = true;
+            this.buttonResponse.Click += new System.EventHandler(this.buttonResponse_Click);
+            // 
+            // labelResponseDate
+            // 
+            this.labelResponseDate.AutoSize = true;
+            this.labelResponseDate.Depth = 0;
+            this.labelResponseDate.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelResponseDate.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.labelResponseDate.Location = new System.Drawing.Point(386, 407);
+            this.labelResponseDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelResponseDate.Name = "labelResponseDate";
+            this.labelResponseDate.Size = new System.Drawing.Size(69, 17);
+            this.labelResponseDate.TabIndex = 6;
+            this.labelResponseDate.Text = "Ngày đăng";
+            // 
+            // textBoxDesResponse
+            // 
+            this.textBoxDesResponse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.textBoxDesResponse.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDesResponse.Depth = 0;
+            this.textBoxDesResponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxDesResponse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.textBoxDesResponse.Location = new System.Drawing.Point(42, 110);
+            this.textBoxDesResponse.MouseState = MaterialSkin.MouseState.HOVER;
+            this.textBoxDesResponse.Name = "textBoxDesResponse";
+            this.textBoxDesResponse.Size = new System.Drawing.Size(424, 281);
+            this.textBoxDesResponse.TabIndex = 5;
+            this.textBoxDesResponse.Text = "";
+            // 
+            // labelResponseUser
+            // 
+            this.labelResponseUser.AutoSize = true;
+            this.labelResponseUser.Depth = 0;
+            this.labelResponseUser.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelResponseUser.Location = new System.Drawing.Point(39, 85);
+            this.labelResponseUser.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelResponseUser.Name = "labelResponseUser";
+            this.labelResponseUser.Size = new System.Drawing.Size(138, 19);
+            this.labelResponseUser.TabIndex = 4;
+            this.labelResponseUser.Text = "Tên Người Yêu Cầu";
+            // 
+            // buttonResponseEmail
+            // 
+            this.buttonResponseEmail.AutoSize = false;
+            this.buttonResponseEmail.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonResponseEmail.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonResponseEmail.Depth = 0;
+            this.buttonResponseEmail.HighEmphasis = true;
+            this.buttonResponseEmail.Icon = global::AccommodationManagerApp.Properties.Resources.email;
+            this.buttonResponseEmail.Location = new System.Drawing.Point(265, 441);
+            this.buttonResponseEmail.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonResponseEmail.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonResponseEmail.Name = "buttonResponseEmail";
+            this.buttonResponseEmail.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonResponseEmail.Size = new System.Drawing.Size(130, 36);
+            this.buttonResponseEmail.TabIndex = 8;
+            this.buttonResponseEmail.Text = "Qua Email";
+            this.buttonResponseEmail.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonResponseEmail.UseAccentColor = false;
+            this.buttonResponseEmail.UseVisualStyleBackColor = true;
+            this.buttonResponseEmail.Click += new System.EventHandler(this.buttonResponseEmail_Click);
             // 
             // ResponseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(720, 361);
+            this.ClientSize = new System.Drawing.Size(510, 500);
+            this.Controls.Add(this.buttonResponseEmail);
             this.Controls.Add(this.buttonResponse);
-            this.Controls.Add(this.textBoxResponse);
-            this.Controls.Add(this.labelDateRequest);
-            this.Controls.Add(this.textBoxDesRequest);
-            this.Controls.Add(this.labelUserName);
-            this.MinimumSize = new System.Drawing.Size(720, 350);
+            this.Controls.Add(this.labelResponseDate);
+            this.Controls.Add(this.textBoxDesResponse);
+            this.Controls.Add(this.labelResponseUser);
+            this.MaximumSize = new System.Drawing.Size(510, 500);
+            this.MinimumSize = new System.Drawing.Size(510, 500);
             this.Name = "ResponseForm";
             this.Text = "Phản Hồi";
             this.ResumeLayout(false);
@@ -132,10 +138,10 @@
 
         #endregion
 
-        private MaterialSkin.Controls.MaterialLabel labelUserName;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox textBoxDesRequest;
-        private MaterialSkin.Controls.MaterialLabel labelDateRequest;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox textBoxResponse;
         private MaterialSkin.Controls.MaterialButton buttonResponse;
+        private MaterialSkin.Controls.MaterialLabel labelResponseDate;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox textBoxDesResponse;
+        private MaterialSkin.Controls.MaterialLabel labelResponseUser;
+        private MaterialSkin.Controls.MaterialButton buttonResponseEmail;
     }
 }

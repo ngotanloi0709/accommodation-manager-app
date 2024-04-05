@@ -259,6 +259,18 @@
     <Compile Include="Forms\MainForm.Request.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\PreviewRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PreviewRequestForm.Designer.cs">
+      <DependentUpon>PreviewRequestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PreviewResponseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PreviewResponseForm.Designer.cs">
+      <DependentUpon>PreviewResponseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\RequestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -439,6 +451,12 @@
     <EmbeddedResource Include="Forms\FixedPriceForm.resx">
       <DependentUpon>FixedPriceForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PreviewRequestForm.resx">
+      <DependentUpon>PreviewRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PreviewResponseForm.resx">
+      <DependentUpon>PreviewResponseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\RequestForm.resx">
       <DependentUpon>RequestForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -543,6 +561,7 @@
     <None Include="Resources\free1.png" />
     <None Include="Resources\next.png" />
     <None Include="Resources\check-list.png" />
+    <None Include="Resources\email.png" />
     <Content Include="Resources\Roboto-Medium.ttf" />
     <Content Include="Resources\Roboto-Regular.ttf" />
     <None Include="Resources\signature.jpg" />

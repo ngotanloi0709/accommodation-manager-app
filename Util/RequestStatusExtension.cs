@@ -11,8 +11,6 @@ namespace AccommodationManagerApp.Util
             {
                 case RequestStatus.Unsolve:
                     return "Chưa Xử Lý";
-                case RequestStatus.Solving:
-                    return "Đang Xử Lý";
                 case RequestStatus.Solved:
                     return "Đã Xử Lý";
                 default:

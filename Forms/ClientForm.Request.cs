@@ -61,5 +61,16 @@ namespace AccommodationManagerApp.Forms
             new ToastForm("Mời bạn chọn yêu cầu !", true).Show();
             return null;
         }
+        private void buttonResponse_Click(object sender, System.EventArgs e)
+        {
+            _request = SelectRequest();
+            if (_request == null) return;
+            if (_request.Status == RequestStatus.Unsolve)
+            {
+                new ToastForm("Yêu cầu của bạn chưa được phản hồi !", true).Show();
+                return;
+            }
+            new PreviewResponseForm(_request).ShowDialog();
+        }
     }
 }

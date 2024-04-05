@@ -20,7 +20,6 @@ namespace AccommodationManagerApp.Model
         // Foreign Key
         public int? UserId { get; set; }
         [ForeignKey("UserId")] public User User { get; set; }
-        
         public Request() { }
         public Request(string description,int? userId)
         {
@@ -31,7 +30,6 @@ namespace AccommodationManagerApp.Model
     public enum RequestStatus
     {
         Unsolve = 0,
-        Solving = 1,
-        Solved = 2
+        Solved = 1
     }
 }

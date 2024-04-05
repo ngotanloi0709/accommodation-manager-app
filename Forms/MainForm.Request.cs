@@ -25,8 +25,10 @@ namespace AccommodationManagerApp.Forms
         private void buttonResponse_Click(object sender, EventArgs e)
         {
             _request = SelectRequest();
-            var responseForm = new ResponseForm(_request);
-            responseForm.ShowDialog();
+            if (_request == null) return;
+            var previewRequestForm = new PreviewRequestForm(_request);
+            previewRequestForm.ShowDialog();
+            LoadRequestData();
         }
         private Request SelectRequest()
         {

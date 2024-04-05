@@ -27,7 +27,7 @@ namespace AccommodationManagerApp.Service
             return _responseRepository.GetAll().ToList();
         }
 
-        public Response GetById(int id)
+        public Response GetById(int? id)
         {
             return _responseRepository.GetById(id);
         }
@@ -47,5 +47,6 @@ namespace AccommodationManagerApp.Service
                 return false;
             }
         }
+        public Response GetResponseByRequestId(int id) => _responseRepository.GetResponseByRequestId(id);
     }
 }
