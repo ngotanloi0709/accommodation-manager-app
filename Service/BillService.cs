@@ -37,6 +37,12 @@ namespace AccommodationManagerApp.Service {
 
         public List<Bill> GetByUserIdInThisMonthAnhUnpaid() => _billRepository.GetByUserIdInThisMonthAnhUnpaid();
 
+        public List<Bill> GetBillUnpaidByMonthAndYear(int month, int year) => _billRepository.GetBillUnpaidByMonthAndYear(month, year);
+
+        public List<Bill> GetBillPaidByMonthAndYear(int month, int year) => _billRepository.GetBillPaidByMonthAndYear(month, year);
+
+        public List<Bill> GetBillIsUpdatedByMonthAndYear(int month, int year) => _billRepository.GetBillIsUpdatedByMonthAndYear(month, year);
+
         public FixedPrice GetWaterPrice() => _fixedPriceRepository.GetWaterPrice();
 
         public FixedPrice GetElectricityPrice() => _fixedPriceRepository.GetElectricityPrice();

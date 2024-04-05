@@ -25,6 +25,11 @@ namespace AccommodationManagerApp.Service {
             return _roomRepository.GetAllWithBuildingAndUserAndContractWithUser().ToList();
         }
 
+        public List<Room> GetAllWithBuildingId(int buildingId)
+        {
+            return _roomRepository.GetAllWithBuildingId(buildingId).ToList();
+        }
+
         public bool Delete(int id) {
             try
             {
