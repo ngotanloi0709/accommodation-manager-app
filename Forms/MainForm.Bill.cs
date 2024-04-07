@@ -139,13 +139,11 @@ namespace AccommodationManagerApp.Forms {
         private void ListViewBill_SelectedIndexChanged(object sender, EventArgs e) {
             var bill = SelectBill();
             if (bill == null)  return;
-            /*
             LabelBillContractOwner.Text = bill.Contract.User.Name;
             LabelBillContractValue.Text = FormatText.IntegerToVnd(bill.Contract.Price);
             LabelBillTotal.Text = FormatText.IntegerToVnd(bill.GetTotalPrice());
             LabelBillRoomNumber.Text = bill.Contract.Room.RoomNumber;
             LabelBillContractEndDate.Text = bill.Contract.EndDate.ToString("dd/MM/yyyy");
-            */
         }
 
         private void ButtonUpdateBillStatus_Click(object sender, EventArgs e) {
