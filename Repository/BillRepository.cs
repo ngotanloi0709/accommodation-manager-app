@@ -13,10 +13,7 @@ namespace AccommodationManagerApp.Repository
             return Context.Set<Bill>().Where(bill => bill.UserId == userId && bill.Status != BillStatus.Edit).ToList();
         }
 
-        public List<Bill> GetByUserIdInThisMonthAnhUnpaid()
-        {
-            return Context.Set<Bill>().Where(bill => bill.DateOfBill.Month == System.DateTime.Now.Month && bill.Status == BillStatus.Unpaid).ToList();
-        }
+        public List<Bill> GetByUserIdInThisMonthAnhUnpaid() => Context.Set<Bill>().Where(bill => bill.DateOfBill.Month == System.DateTime.Now.Month && bill.Status == BillStatus.Unpaid).ToList();
 
         public List<Bill> GetAllWithContractWithRoomAndUser() {
             return Context.Set<Bill>().Include("Contract").Include("Contract.Room").Include("Contract.User").ToList();

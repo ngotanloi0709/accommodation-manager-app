@@ -16,29 +16,20 @@ namespace AccommodationManagerApp.Forms {
                 var index = ListViewBill.SelectedItems[0].Index;
                 if (index < Bills.Count) return Bills[index];
             }
-
+            new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
             return null;
         }
 
         private void PreviewBill(object sender, EventArgs e) {
             var bill = SelectBill();
-
-            if (bill == null) {
-                new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
-                return;
-            }
-
+            if (bill == null) return;
             var billDetail = new BillDetail(bill);
             billDetail.ShowDialog();
         }
 
         private void UpdateBill(object sender, EventArgs e) {
             var bill = SelectBill();
-
-            if (bill == null) {
-                new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
-                return;
-            }
+            if (bill == null) return;
 
             var billForm = new BillForm(bill, waterPrice, electricityPrice, internetPrice);
             billForm.ShowDialog();
@@ -52,16 +43,6 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        private void LoadBillData() {
-            Bills = _billService.GetAllWithContractWithRoomAndUser();
-            InsertBillIntoListView(Bills);
-        }
-
-        private void LoadBillDataInThisMonth() {
-            Bills = Bills.Where(bill => bill.DateOfBill.Month == DateTime.Now.Month).ToList();
-            InsertBillIntoListView(Bills);
-        }
-
         private void InsertBillIntoListView(List<Bill> bills) {
             ListViewBill.Items.Clear();
             foreach (var bill in bills) {
@@ -69,6 +50,7 @@ namespace AccommodationManagerApp.Forms {
                 item.SubItems.Add(bill.ElectricityQuantity.ToString());
                 item.SubItems.Add(bill.WaterQuantity.ToString());
                 item.SubItems.Add(bill.Contract?.Room.RoomNumber ?? "Trống");
+                item.SubItems.Add(bill.User.Name);
                 item.SubItems.Add(bill.DateOfBillFormatted);
                 item.SubItems.Add(bill.Status.ToVietnamese());
                 ListViewBill.Items.Add(item);
@@ -77,12 +59,7 @@ namespace AccommodationManagerApp.Forms {
 
         private void DeleteBill(object sender, EventArgs e) {
             var bill = SelectBill();
-
-            if (bill == null) {
-                new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
-                return;
-            }
-
+            if (bill == null) return;
             var confirmation = new ConfirmationForm("Xác nhận xóa hóa đơn?");
             var result = confirmation.ShowDialog();
 
@@ -92,25 +69,11 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        private void ComboBoxVolumn_SelectedIndexChanged(object sender, EventArgs e) {
-            switch (comboBoxVolumn.SelectedIndex) {
-                case 0:
-                    LoadBillData();
-                    break;
-                case 1:
-                    LoadBillDataInThisMonth();
-                    break;
-            }
-        }
-
         private void btnEmailThisMonth_Click(object sender, EventArgs e) {
             var confirm = new ConfirmationForm("Xác nhận gửi mail cho danh sách chưa thanh toán trong tháng?");
             var result = confirm.ShowDialog();
-            
-            if (result != DialogResult.Yes) {
-                return;
-            }
-            
+            if (result != DialogResult.Yes) return;
+
             List<Bill> bills = _billService.GetByUserIdInThisMonthAnhUnpaid();
             if (bills.Count == 0) {
                 new ToastForm("Không có hóa đơn nào chưa thanh toán", true).Show();
@@ -175,24 +138,44 @@ namespace AccommodationManagerApp.Forms {
 
         private void ListViewBill_SelectedIndexChanged(object sender, EventArgs e) {
             var bill = SelectBill();
-
-            if (bill == null) {
-                return;
-            }
-
+            if (bill == null)  return;
+            /*
             LabelBillContractOwner.Text = bill.Contract.User.Name;
             LabelBillContractValue.Text = FormatText.IntegerToVnd(bill.Contract.Price);
             LabelBillTotal.Text = FormatText.IntegerToVnd(bill.GetTotalPrice());
             LabelBillRoomNumber.Text = bill.Contract.Room.RoomNumber;
             LabelBillContractEndDate.Text = bill.Contract.EndDate.ToString("dd/MM/yyyy");
+            */
         }
-
 
         private void ButtonUpdateBillStatus_Click(object sender, EventArgs e) {
             var bill = SelectBill();
+            if (bill == null) return;
+        }
 
-            if (bill == null) {
-                new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
+        // Query System
+        private void LoadBillData()
+        {
+            Bills = _billService.GetAllWithContractWithRoomAndUser();
+            InsertBillIntoListView(Bills);
+        }
+
+        private void LoadBillDataInThisMonth()
+        {
+            Bills = Bills.Where(bill => bill.DateOfBill.Month == DateTime.Now.Month).ToList();
+            InsertBillIntoListView(Bills);
+        }
+
+        private void ComboBoxVolumn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBoxVolumn.SelectedIndex)
+            {
+                case 0:
+                    LoadBillData();
+                    break;
+                case 1:
+                    LoadBillDataInThisMonth();
+                    break;
             }
         }
     }
