@@ -27,6 +27,7 @@ namespace AccommodationManagerApp.Repository {
             return Context.Set<User>().Where(u => u.Role == UserRole.Tenant).ToList();
         }
 
+        public User GetByName(string name) => Context.Set<User>().FirstOrDefault(user => user.Name == name);
         public List<User> GetAllByName(string name) {
             return Context.Set<User>().Where(u => u.Name.Contains(name) && u.Role == UserRole.Tenant).ToList();
         }

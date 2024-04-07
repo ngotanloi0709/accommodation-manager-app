@@ -11,25 +11,33 @@ using Exception = System.Exception;
 
 namespace AccommodationManagerApp.Forms {
     public partial class MainForm {
+        private int queryRouter;
         private Bill SelectBill() {
             if (ListViewBill.SelectedItems.Count > 0) {
                 var index = ListViewBill.SelectedItems[0].Index;
                 if (index < Bills.Count) return Bills[index];
             }
-            new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
             return null;
         }
 
         private void PreviewBill(object sender, EventArgs e) {
             var bill = SelectBill();
-            if (bill == null) return;
-            var billDetail = new BillDetail(bill);
+            if (bill == null)
+            {
+                new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
+                return;
+            }
+                var billDetail = new BillDetail(bill);
             billDetail.ShowDialog();
         }
 
         private void UpdateBill(object sender, EventArgs e) {
             var bill = SelectBill();
-            if (bill == null) return;
+            if (bill == null)
+            {
+                new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
+                return;
+            }
 
             var billForm = new BillForm(bill, waterPrice, electricityPrice, internetPrice);
             billForm.ShowDialog();
@@ -59,7 +67,11 @@ namespace AccommodationManagerApp.Forms {
 
         private void DeleteBill(object sender, EventArgs e) {
             var bill = SelectBill();
-            if (bill == null) return;
+            if (bill == null)
+            {
+                new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
+                return;
+            }
             var confirmation = new ConfirmationForm("Xác nhận xóa hóa đơn?");
             var result = confirmation.ShowDialog();
 
@@ -138,7 +150,11 @@ namespace AccommodationManagerApp.Forms {
 
         private void ListViewBill_SelectedIndexChanged(object sender, EventArgs e) {
             var bill = SelectBill();
-            if (bill == null)  return;
+            if (bill == null)
+            {
+                new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
+                return;
+            }
             LabelBillContractOwner.Text = bill.Contract.User.Name;
             LabelBillContractValue.Text = FormatText.IntegerToVnd(bill.Contract.Price);
             LabelBillTotal.Text = FormatText.IntegerToVnd(bill.GetTotalPrice());
@@ -148,7 +164,11 @@ namespace AccommodationManagerApp.Forms {
 
         private void ButtonUpdateBillStatus_Click(object sender, EventArgs e) {
             var bill = SelectBill();
-            if (bill == null) return;
+            if (bill == null)
+            {
+                new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
+                return;
+            }
         }
 
         // Query System
@@ -163,7 +183,38 @@ namespace AccommodationManagerApp.Forms {
             Bills = Bills.Where(bill => bill.DateOfBill.Month == DateTime.Now.Month).ToList();
             InsertBillIntoListView(Bills);
         }
+        /*
+            Phân Loại
+            Tình Trạng
+            Thời gian
+            Số Phòng
+            Giá Tiền
+        */
+     
+        private void ComboBoxCatg_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            queryRouter = comboBoxCatg.SelectedIndex;
+            switch(queryRouter)
+            {
+                case 0:
+                    LoadBillData();
+                    SetUpComboBoxVolumn(new List<string> { "Mức độ" });
+                    break;
+                case 1:
+                    SetUpComboBoxVolumn(new List<string> { "Đang Chỉnh Sửa", "Chưa Thanh Toán", "Đã Thanh Toán" });
+                    break;
+                case 2:
+                    SetUpComboBoxVolumn(new List<string> { "Tháng này", "Tháng Sau", "Tháng Trước" });
+                    break;
+                case 3:
+                    SetUpComboBoxVolumn(Rooms.Select(room => room.RoomNumber).ToList());
+                    break;
+                case 4:
+                    SetUpComboBoxVolumn(new List<string> { "Tăng", "Giảm" });
+                    break;
+            }
 
+        }
         private void ComboBoxVolumn_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (comboBoxVolumn.SelectedIndex)
@@ -176,5 +227,40 @@ namespace AccommodationManagerApp.Forms {
                     break;
             }
         }
+        private void SetUpComboBoxVolumn(List<string> volumn)
+        {
+            comboBoxVolumn.Items.Clear();
+            comboBoxVolumn.Items.AddRange(volumn.ToArray());
+            comboBoxVolumn.SelectedIndex = 0;
+        }
+        private void TxtBoxSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !string.IsNullOrEmpty(txtBoxSearch.Text))
+            {
+                var user = _userService.GetByName(txtBoxSearch.Text);
+                if (user == null)
+                {
+                    new ToastForm("Tên người tìm kiếm không tồn tại !", true).Show();
+                }
+            }
+        }
+        private void ButtonPriceSearch_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxMinPrice.Text) || string.IsNullOrEmpty(textBoxMaxPrice.Text)) return;
+
+            int minPrice, maxPrice;
+            if (!int.TryParse(textBoxMinPrice.Text, out minPrice) || !int.TryParse(textBoxMaxPrice.Text, out maxPrice))
+            {
+                new ToastForm("Lưu ý: giá trị nhập vào không hợp lệ!", true).Show();
+                return;
+            }
+
+            if (minPrice > maxPrice)
+            {
+                new ToastForm("Lưu ý: giá sàn thấp hơn giá trần", true).Show();
+                return;
+            }
+        }
     }
 }
+

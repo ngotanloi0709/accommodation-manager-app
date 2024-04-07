@@ -109,7 +109,7 @@ namespace AccommodationManagerApp.Service {
         public List<User> GetAllWithRoleTenant() {
             return _userRepository.GetAllWithRoleTenant();
         }
-
+        public User GetByName(string name) => _userRepository.GetByName(name);
         public List<String> GetAllEmailByName(string name) {
             var users = _userRepository.GetAllByName(name);
             var emails = new List<string>();
