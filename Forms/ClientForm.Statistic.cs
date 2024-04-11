@@ -53,7 +53,7 @@ namespace AccommodationManagerApp.Forms
             electricityAndWaterChart.AxisY.Add(new LiveCharts.Wpf.Axis
             {
                 Title = "Số lượng",
-                LabelFormatter = value => value.ToString(),
+                LabelFormatter = value => value.ToString("N0"),
             });
             electricityAndWaterChart.LegendLocation = LiveCharts.LegendLocation.Right;
             electricityAndWaterChart.Series.Clear();

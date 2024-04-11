@@ -14,6 +14,7 @@ namespace AccommodationManagerApp.Repository {
             return Context.Set<Room>().FirstOrDefault(r => r.RoomNumber == roomNumber);
         }
 
+
         public Room GetByIdWithContract(int? id) {
             return Context.Set<Room>().Include("Contracts").FirstOrDefault(r => r.Id == id);
         }

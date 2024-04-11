@@ -89,7 +89,8 @@ namespace AccommodationManagerApp.Service {
             return _roomRepository.GetById((int) id) != null;
         }
 
-        public Room GetById(int roomId) {
+
+        public Room GetById(int? roomId) {
             return _roomRepository.GetById(roomId);
         }
 

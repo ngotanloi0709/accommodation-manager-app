@@ -40,6 +40,7 @@ namespace AccommodationManagerApp.Service {
             return null;
         }
 
+
         public User GetById(int? id)
         {
             return _userRepository.GetById(id);

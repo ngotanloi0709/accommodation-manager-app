@@ -129,13 +129,16 @@ namespace AccommodationManagerApp.Forms {
         private void SendEmail(Bill bill) {
             try {
                 Contract contract = _contractService.GetById(bill.ContractId);
+                Room room = _roomService.GetById(contract.RoomId);
                 User user = _userService.GetById(contract.UserId);
                 string subject = "Reminder: Remind Unpaid Tennant Bill";
                 string body = "<html><body>";
-                body += "<h2>Dear " + user.Name + ",</h2>";
+                body += "<h2>Gửi " + user.Name + ",</h2>";
                 body +=
-                    "<p>You have an unpaid bill in this month. Please pay it as soon as possible. Bill information:</p>";
+                    "<p>Bạn có một hóa đơn chưa được thanh toán tháng này, hãy chú ý thanh toán sớm nhất:</p>";
                 body += "<ul style=`list-style-type:none`>";
+                body += "<li>Tiền thuê nhà tháng: " + bill.DateOfBill.Month + " </li>";
+                body += "<li>Phòng số: " + room.RoomNumber + " </li>";
                 body += "<li>Số điện: " + bill.ElectricityQuantity + " kWh  - Đơn giá: " +
                         bill.ElectricityFee.ToString("N0") +
                         " VND/kwh</li>";
@@ -152,9 +155,9 @@ namespace AccommodationManagerApp.Forms {
                          bill.WaterQuantity * bill.WaterFee +
                          bill.InternetFee + bill.VehicleFee).ToString("N0") + " VND</li>";
                 body += "</ul>";
-                body += "<p>Please make sure you pay the bill. Thank you!</p>";
-                body += "<p>Best regards,</p>";
-                body += "<p>Accommodation Manager</p>";
+                body += "<p>Hãy chắc chắn bạn sẽ thanh toán, cảm ơn!</p>";
+                body += "<p>Trân trọng,</p>";
+                body += "<p>Quản lý nhà trọ</p>";
                 body += "</body></html>";
 
                 string senderEmail = "www.khuanhuan1964@gmail.com";

@@ -523,6 +523,10 @@
     <Compile Include="Forms\ClientForm.Statistic.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\MainForm.Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <None Include="Forms\MainForm.Designer.Dashboard" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
