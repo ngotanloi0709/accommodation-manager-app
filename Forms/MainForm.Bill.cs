@@ -11,7 +11,6 @@ using Exception = System.Exception;
 
 namespace AccommodationManagerApp.Forms {
     public partial class MainForm {
-        private int queryRouter;
         private Bill SelectBill() {
             if (ListViewBill.SelectedItems.Count > 0) {
                 var index = ListViewBill.SelectedItems[0].Index;
@@ -177,89 +176,19 @@ namespace AccommodationManagerApp.Forms {
             Bills = _billService.GetAllWithContractWithRoomAndUser();
             InsertBillIntoListView(Bills);
         }
+        private void buttonPriceSearch_Click(object sender, EventArgs e)
+        {
+            string text = textBoxSearch.Text;
+            
+            BillStatus state = BillUtils.ToBillStatus((string)comboBoxState.SelectedItem);
+            string time = (string)comboBoxTime.SelectedItem;
+            
+            int? minPrice = int.TryParse(textBoxMinPrice.Text, out int min) ? min : (int?)null;
+            int? maxPrice = int.TryParse(textBoxMaxPrice.Text, out int max) ? max : (int?)null;
+            
+            if (min > max) new ToastForm("Xin nhập giá sàn thấp hơn giá trần",true); return;
 
-        private void LoadBillDataInThisMonth()
-        {
-            Bills = Bills.Where(bill => bill.DateOfBill.Month == DateTime.Now.Month).ToList();
-            InsertBillIntoListView(Bills);
-        }
-        /*
-            Phân Loại
-            Tình Trạng
-            Thời gian
-            Số Phòng
-            Giá Tiền
-        */
-     
-        private void ComboBoxCatg_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            queryRouter = comboBoxCatg.SelectedIndex;
-            switch(queryRouter)
-            {
-                case 0:
-                    LoadBillData();
-                    SetUpComboBoxVolumn(new List<string> { "Mức độ" });
-                    break;
-                case 1:
-                    SetUpComboBoxVolumn(new List<string> { "Đang Chỉnh Sửa", "Chưa Thanh Toán", "Đã Thanh Toán" });
-                    break;
-                case 2:
-                    SetUpComboBoxVolumn(new List<string> { "Tháng này", "Tháng Sau", "Tháng Trước" });
-                    break;
-                case 3:
-                    SetUpComboBoxVolumn(Rooms.Select(room => room.RoomNumber).ToList());
-                    break;
-                case 4:
-                    SetUpComboBoxVolumn(new List<string> { "Tăng", "Giảm" });
-                    break;
-            }
 
-        }
-        private void ComboBoxVolumn_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (comboBoxVolumn.SelectedIndex)
-            {
-                case 0:
-                    LoadBillData();
-                    break;
-                case 1:
-                    LoadBillDataInThisMonth();
-                    break;
-            }
-        }
-        private void SetUpComboBoxVolumn(List<string> volumn)
-        {
-            comboBoxVolumn.Items.Clear();
-            comboBoxVolumn.Items.AddRange(volumn.ToArray());
-            comboBoxVolumn.SelectedIndex = 0;
-        }
-        private void TxtBoxSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter && !string.IsNullOrEmpty(txtBoxSearch.Text))
-            {
-                var user = _userService.GetByName(txtBoxSearch.Text);
-                if (user == null)
-                {
-                    new ToastForm("Tên người tìm kiếm không tồn tại !", true).Show();
-                }
-            }
-        }
-        private void ButtonPriceSearch_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBoxMinPrice.Text) || string.IsNullOrEmpty(textBoxMaxPrice.Text)) return;
-
-            int minPrice, maxPrice;
-            if (!int.TryParse(textBoxMinPrice.Text, out minPrice) || !int.TryParse(textBoxMaxPrice.Text, out maxPrice))
-            {
-                new ToastForm("Lưu ý: giá trị nhập vào không hợp lệ!", true).Show();
-                return;
-            }
-
-            if (minPrice > maxPrice)
-            {
-                new ToastForm("Lưu ý: giá sàn thấp hơn giá trần", true).Show();
-                return;
-            }
         }
     }
 }

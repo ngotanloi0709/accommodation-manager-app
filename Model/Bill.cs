@@ -53,6 +53,7 @@ namespace AccommodationManagerApp.Model
     {
         Edit,
         Unpaid,
-        Paid
+        Paid,
+        Null
     }
 }

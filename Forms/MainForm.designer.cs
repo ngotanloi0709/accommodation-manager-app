@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.drawerImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabPageContract = new System.Windows.Forms.TabPage();
@@ -172,6 +172,7 @@
             this.columnRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageBills = new System.Windows.Forms.TabPage();
+            this.comboBoxState = new MaterialSkin.Controls.MaterialComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.materialLabel50 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel49 = new MaterialSkin.Controls.MaterialLabel();
@@ -201,8 +202,8 @@
             this.materialLabel36 = new MaterialSkin.Controls.MaterialLabel();
             this.buttonEditFixedPrice = new MaterialSkin.Controls.MaterialButton();
             this.comboBoxVolumn = new MaterialSkin.Controls.MaterialComboBox();
-            this.comboBoxCatg = new MaterialSkin.Controls.MaterialComboBox();
-            this.txtBoxSearch = new MaterialSkin.Controls.MaterialTextBox();
+            this.comboBoxTime = new MaterialSkin.Controls.MaterialComboBox();
+            this.textBoxSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.btnUpd = new MaterialSkin.Controls.MaterialButton();
             this.btnDelete = new MaterialSkin.Controls.MaterialButton();
             this.btnPDF = new MaterialSkin.Controls.MaterialButton();
@@ -1910,16 +1911,16 @@
             // 
             // RoomInBuildingChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.RoomInBuildingChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.RoomInBuildingChart.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.RoomInBuildingChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.RoomInBuildingChart.Legends.Add(legend1);
             this.RoomInBuildingChart.Location = new System.Drawing.Point(480, 398);
             this.RoomInBuildingChart.Name = "RoomInBuildingChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Number of room";
-            this.RoomInBuildingChart.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Number of room";
+            this.RoomInBuildingChart.Series.Add(series1);
             this.RoomInBuildingChart.Size = new System.Drawing.Size(413, 233);
             this.RoomInBuildingChart.TabIndex = 64;
             this.RoomInBuildingChart.Text = "chart1";
@@ -2299,6 +2300,7 @@
             // tabPageBills
             // 
             this.tabPageBills.BackColor = System.Drawing.Color.White;
+            this.tabPageBills.Controls.Add(this.comboBoxState);
             this.tabPageBills.Controls.Add(this.pictureBox1);
             this.tabPageBills.Controls.Add(this.materialLabel50);
             this.tabPageBills.Controls.Add(this.materialLabel49);
@@ -2328,8 +2330,8 @@
             this.tabPageBills.Controls.Add(this.materialLabel36);
             this.tabPageBills.Controls.Add(this.buttonEditFixedPrice);
             this.tabPageBills.Controls.Add(this.comboBoxVolumn);
-            this.tabPageBills.Controls.Add(this.comboBoxCatg);
-            this.tabPageBills.Controls.Add(this.txtBoxSearch);
+            this.tabPageBills.Controls.Add(this.comboBoxTime);
+            this.tabPageBills.Controls.Add(this.textBoxSearch);
             this.tabPageBills.Controls.Add(this.btnUpd);
             this.tabPageBills.Controls.Add(this.btnDelete);
             this.tabPageBills.Controls.Add(this.btnPDF);
@@ -2343,10 +2345,37 @@
             this.tabPageBills.Text = "Hoá đơn";
             this.tabPageBills.UseVisualStyleBackColor = true;
             // 
+            // comboBoxState
+            // 
+            this.comboBoxState.AutoResize = false;
+            this.comboBoxState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxState.Depth = 0;
+            this.comboBoxState.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxState.DropDownHeight = 174;
+            this.comboBoxState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxState.DropDownWidth = 121;
+            this.comboBoxState.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBoxState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxState.FormattingEnabled = true;
+            this.comboBoxState.IntegralHeight = false;
+            this.comboBoxState.ItemHeight = 43;
+            this.comboBoxState.Items.AddRange(new object[] {
+            "Tình Trạng",
+            "Đang Chỉnh Sửa",
+            "Chưa Thanh Toán",
+            "Đã Thanh Toán"});
+            this.comboBoxState.Location = new System.Drawing.Point(3, 27);
+            this.comboBoxState.MaxDropDownItems = 4;
+            this.comboBoxState.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboBoxState.Name = "comboBoxState";
+            this.comboBoxState.Size = new System.Drawing.Size(132, 49);
+            this.comboBoxState.StartIndex = 0;
+            this.comboBoxState.TabIndex = 69;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::AccommodationManagerApp.Properties.Resources.icon_250;
-            this.pictureBox1.Location = new System.Drawing.Point(738, 110);
+            this.pictureBox1.Location = new System.Drawing.Point(741, 108);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(194, 168);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -2358,24 +2387,24 @@
             this.materialLabel50.Depth = 0;
             this.materialLabel50.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel50.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
-            this.materialLabel50.Location = new System.Drawing.Point(6, 72);
+            this.materialLabel50.Location = new System.Drawing.Point(123, 79);
             this.materialLabel50.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel50.Name = "materialLabel50";
-            this.materialLabel50.Size = new System.Drawing.Size(175, 14);
+            this.materialLabel50.Size = new System.Drawing.Size(136, 14);
             this.materialLabel50.TabIndex = 67;
-            this.materialLabel50.Text = "Chọn thuộc tính hình tìm kiếm";
+            this.materialLabel50.Text = "Chọn thời gian tìm kiếm";
             // 
             // materialLabel49
             // 
             this.materialLabel49.Depth = 0;
             this.materialLabel49.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel49.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
-            this.materialLabel49.Location = new System.Drawing.Point(340, 75);
+            this.materialLabel49.Location = new System.Drawing.Point(269, 79);
             this.materialLabel49.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel49.Name = "materialLabel49";
-            this.materialLabel49.Size = new System.Drawing.Size(197, 14);
+            this.materialLabel49.Size = new System.Drawing.Size(144, 14);
             this.materialLabel49.TabIndex = 66;
-            this.materialLabel49.Text = "Lưu ý: sau khi nhập tên bấm Enter";
+            this.materialLabel49.Text = "Chọn hình thức tìm kiếm";
             // 
             // materialLabel48
             // 
@@ -2383,7 +2412,7 @@
             this.materialLabel48.Depth = 0;
             this.materialLabel48.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel48.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
-            this.materialLabel48.Location = new System.Drawing.Point(537, 76);
+            this.materialLabel48.Location = new System.Drawing.Point(576, 79);
             this.materialLabel48.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel48.Name = "materialLabel48";
             this.materialLabel48.Size = new System.Drawing.Size(359, 14);
@@ -2398,7 +2427,7 @@
             this.buttonPriceSearch.Depth = 0;
             this.buttonPriceSearch.HighEmphasis = true;
             this.buttonPriceSearch.Icon = global::AccommodationManagerApp.Properties.Resources.search;
-            this.buttonPriceSearch.Location = new System.Drawing.Point(856, 28);
+            this.buttonPriceSearch.Location = new System.Drawing.Point(897, 32);
             this.buttonPriceSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonPriceSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonPriceSearch.Name = "buttonPriceSearch";
@@ -2408,7 +2437,7 @@
             this.buttonPriceSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.buttonPriceSearch.UseAccentColor = false;
             this.buttonPriceSearch.UseVisualStyleBackColor = true;
-            this.buttonPriceSearch.Click += new System.EventHandler(this.ButtonPriceSearch_Click);
+            this.buttonPriceSearch.Click += new System.EventHandler(this.buttonPriceSearch_Click);
             // 
             // materialLabel47
             // 
@@ -2416,7 +2445,7 @@
             this.materialLabel47.Depth = 0;
             this.materialLabel47.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel47.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel47.Location = new System.Drawing.Point(698, 36);
+            this.materialLabel47.Location = new System.Drawing.Point(742, 39);
             this.materialLabel47.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel47.Name = "materialLabel47";
             this.materialLabel47.Size = new System.Drawing.Size(45, 24);
@@ -2429,7 +2458,7 @@
             this.materialLabel46.Depth = 0;
             this.materialLabel46.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel46.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel46.Location = new System.Drawing.Point(541, 36);
+            this.materialLabel46.Location = new System.Drawing.Point(593, 39);
             this.materialLabel46.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel46.Name = "materialLabel46";
             this.materialLabel46.Size = new System.Drawing.Size(45, 24);
@@ -2444,7 +2473,7 @@
             this.textBoxMaxPrice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.textBoxMaxPrice.Hint = "giá trần";
             this.textBoxMaxPrice.LeadingIcon = null;
-            this.textBoxMaxPrice.Location = new System.Drawing.Point(749, 23);
+            this.textBoxMaxPrice.Location = new System.Drawing.Point(790, 26);
             this.textBoxMaxPrice.MaxLength = 50;
             this.textBoxMaxPrice.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxMaxPrice.Multiline = false;
@@ -2462,7 +2491,7 @@
             this.textBoxMinPrice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.textBoxMinPrice.Hint = "giá sàn";
             this.textBoxMinPrice.LeadingIcon = null;
-            this.textBoxMinPrice.Location = new System.Drawing.Point(592, 23);
+            this.textBoxMinPrice.Location = new System.Drawing.Point(640, 26);
             this.textBoxMinPrice.MaxLength = 50;
             this.textBoxMinPrice.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxMinPrice.Multiline = false;
@@ -2480,7 +2509,7 @@
             this.ButtonUpdateBillStatus.Depth = 0;
             this.ButtonUpdateBillStatus.HighEmphasis = true;
             this.ButtonUpdateBillStatus.Icon = global::AccommodationManagerApp.Properties.Resources.check_list;
-            this.ButtonUpdateBillStatus.Location = new System.Drawing.Point(738, 433);
+            this.ButtonUpdateBillStatus.Location = new System.Drawing.Point(741, 431);
             this.ButtonUpdateBillStatus.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.ButtonUpdateBillStatus.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonUpdateBillStatus.Name = "ButtonUpdateBillStatus";
@@ -2499,7 +2528,7 @@
             this.LabelBillContractEndDate.Depth = 0;
             this.LabelBillContractEndDate.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.LabelBillContractEndDate.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.LabelBillContractEndDate.Location = new System.Drawing.Point(177, 582);
+            this.LabelBillContractEndDate.Location = new System.Drawing.Point(180, 580);
             this.LabelBillContractEndDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.LabelBillContractEndDate.Name = "LabelBillContractEndDate";
             this.LabelBillContractEndDate.Size = new System.Drawing.Size(127, 17);
@@ -2512,7 +2541,7 @@
             this.materialLabel42.Depth = 0;
             this.materialLabel42.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel42.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel42.Location = new System.Drawing.Point(22, 582);
+            this.materialLabel42.Location = new System.Drawing.Point(25, 580);
             this.materialLabel42.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel42.Name = "materialLabel42";
             this.materialLabel42.Size = new System.Drawing.Size(149, 17);
@@ -2525,7 +2554,7 @@
             this.LabelBillRoomNumber.Depth = 0;
             this.LabelBillRoomNumber.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.LabelBillRoomNumber.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.LabelBillRoomNumber.Location = new System.Drawing.Point(159, 559);
+            this.LabelBillRoomNumber.Location = new System.Drawing.Point(162, 557);
             this.LabelBillRoomNumber.MouseState = MaterialSkin.MouseState.HOVER;
             this.LabelBillRoomNumber.Name = "LabelBillRoomNumber";
             this.LabelBillRoomNumber.Size = new System.Drawing.Size(145, 17);
@@ -2538,7 +2567,7 @@
             this.materialLabel40.Depth = 0;
             this.materialLabel40.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel40.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel40.Location = new System.Drawing.Point(90, 559);
+            this.materialLabel40.Location = new System.Drawing.Point(93, 557);
             this.materialLabel40.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel40.Name = "materialLabel40";
             this.materialLabel40.Size = new System.Drawing.Size(63, 17);
@@ -2551,7 +2580,7 @@
             this.LabelBillContractValue.Depth = 0;
             this.LabelBillContractValue.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.LabelBillContractValue.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.LabelBillContractValue.Location = new System.Drawing.Point(159, 502);
+            this.LabelBillContractValue.Location = new System.Drawing.Point(162, 500);
             this.LabelBillContractValue.MouseState = MaterialSkin.MouseState.HOVER;
             this.LabelBillContractValue.Name = "LabelBillContractValue";
             this.LabelBillContractValue.Size = new System.Drawing.Size(145, 17);
@@ -2564,7 +2593,7 @@
             this.labelSoemthingss.Depth = 0;
             this.labelSoemthingss.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelSoemthingss.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.labelSoemthingss.Location = new System.Drawing.Point(42, 502);
+            this.labelSoemthingss.Location = new System.Drawing.Point(45, 500);
             this.labelSoemthingss.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelSoemthingss.Name = "labelSoemthingss";
             this.labelSoemthingss.Size = new System.Drawing.Size(111, 17);
@@ -2577,7 +2606,7 @@
             this.LabelBillTotal.Depth = 0;
             this.LabelBillTotal.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.LabelBillTotal.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.LabelBillTotal.Location = new System.Drawing.Point(159, 531);
+            this.LabelBillTotal.Location = new System.Drawing.Point(162, 529);
             this.LabelBillTotal.MouseState = MaterialSkin.MouseState.HOVER;
             this.LabelBillTotal.Name = "LabelBillTotal";
             this.LabelBillTotal.Size = new System.Drawing.Size(145, 17);
@@ -2590,7 +2619,7 @@
             this.materialLabel39.Depth = 0;
             this.materialLabel39.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel39.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel39.Location = new System.Drawing.Point(22, 531);
+            this.materialLabel39.Location = new System.Drawing.Point(25, 529);
             this.materialLabel39.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel39.Name = "materialLabel39";
             this.materialLabel39.Size = new System.Drawing.Size(131, 17);
@@ -2603,7 +2632,7 @@
             this.LabelBillContractOwner.Depth = 0;
             this.LabelBillContractOwner.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.LabelBillContractOwner.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.LabelBillContractOwner.Location = new System.Drawing.Point(159, 476);
+            this.LabelBillContractOwner.Location = new System.Drawing.Point(162, 474);
             this.LabelBillContractOwner.MouseState = MaterialSkin.MouseState.HOVER;
             this.LabelBillContractOwner.Name = "LabelBillContractOwner";
             this.LabelBillContractOwner.Size = new System.Drawing.Size(145, 17);
@@ -2616,7 +2645,7 @@
             this.materialLabel37.Depth = 0;
             this.materialLabel37.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel37.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel37.Location = new System.Drawing.Point(62, 476);
+            this.materialLabel37.Location = new System.Drawing.Point(65, 474);
             this.materialLabel37.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel37.Name = "materialLabel37";
             this.materialLabel37.Size = new System.Drawing.Size(91, 17);
@@ -2631,7 +2660,7 @@
             this.btnEmailThisMonth.Depth = 0;
             this.btnEmailThisMonth.HighEmphasis = true;
             this.btnEmailThisMonth.Icon = global::AccommodationManagerApp.Properties.Resources.invoice;
-            this.btnEmailThisMonth.Location = new System.Drawing.Point(738, 384);
+            this.btnEmailThisMonth.Location = new System.Drawing.Point(741, 382);
             this.btnEmailThisMonth.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnEmailThisMonth.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEmailThisMonth.Name = "btnEmailThisMonth";
@@ -2651,7 +2680,7 @@
             this.labelInternetPrice.Depth = 0;
             this.labelInternetPrice.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelInternetPrice.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.labelInternetPrice.Location = new System.Drawing.Point(427, 532);
+            this.labelInternetPrice.Location = new System.Drawing.Point(430, 530);
             this.labelInternetPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelInternetPrice.Name = "labelInternetPrice";
             this.labelInternetPrice.Size = new System.Drawing.Size(109, 17);
@@ -2665,7 +2694,7 @@
             this.materialLabel35.Depth = 0;
             this.materialLabel35.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel35.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel35.Location = new System.Drawing.Point(333, 532);
+            this.materialLabel35.Location = new System.Drawing.Point(336, 530);
             this.materialLabel35.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel35.Name = "materialLabel35";
             this.materialLabel35.Size = new System.Drawing.Size(77, 17);
@@ -2679,7 +2708,7 @@
             this.labelElectricityPrice.Depth = 0;
             this.labelElectricityPrice.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelElectricityPrice.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.labelElectricityPrice.Location = new System.Drawing.Point(427, 504);
+            this.labelElectricityPrice.Location = new System.Drawing.Point(430, 502);
             this.labelElectricityPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelElectricityPrice.Name = "labelElectricityPrice";
             this.labelElectricityPrice.Size = new System.Drawing.Size(109, 17);
@@ -2693,7 +2722,7 @@
             this.materialLabel34.Depth = 0;
             this.materialLabel34.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel34.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel34.Location = new System.Drawing.Point(332, 504);
+            this.materialLabel34.Location = new System.Drawing.Point(335, 502);
             this.materialLabel34.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel34.Name = "materialLabel34";
             this.materialLabel34.Size = new System.Drawing.Size(78, 17);
@@ -2707,7 +2736,7 @@
             this.labelWaterPrice.Depth = 0;
             this.labelWaterPrice.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.labelWaterPrice.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.labelWaterPrice.Location = new System.Drawing.Point(427, 476);
+            this.labelWaterPrice.Location = new System.Drawing.Point(430, 474);
             this.labelWaterPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelWaterPrice.Name = "labelWaterPrice";
             this.labelWaterPrice.Size = new System.Drawing.Size(109, 17);
@@ -2721,7 +2750,7 @@
             this.materialLabel36.Depth = 0;
             this.materialLabel36.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel36.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel36.Location = new System.Drawing.Point(310, 476);
+            this.materialLabel36.Location = new System.Drawing.Point(313, 474);
             this.materialLabel36.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel36.Name = "materialLabel36";
             this.materialLabel36.Size = new System.Drawing.Size(100, 17);
@@ -2736,7 +2765,7 @@
             this.buttonEditFixedPrice.Depth = 0;
             this.buttonEditFixedPrice.HighEmphasis = true;
             this.buttonEditFixedPrice.Icon = global::AccommodationManagerApp.Properties.Resources.invoice;
-            this.buttonEditFixedPrice.Location = new System.Drawing.Point(738, 487);
+            this.buttonEditFixedPrice.Location = new System.Drawing.Point(741, 485);
             this.buttonEditFixedPrice.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonEditFixedPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonEditFixedPrice.Name = "buttonEditFixedPrice";
@@ -2764,65 +2793,72 @@
             this.comboBoxVolumn.IntegralHeight = false;
             this.comboBoxVolumn.ItemHeight = 43;
             this.comboBoxVolumn.Items.AddRange(new object[] {
-            "Mức độ"});
-            this.comboBoxVolumn.Location = new System.Drawing.Point(140, 20);
+            "Tên Người",
+            "Số Phòng"});
+            this.comboBoxVolumn.Location = new System.Drawing.Point(273, 27);
             this.comboBoxVolumn.MaxDropDownItems = 4;
             this.comboBoxVolumn.MouseState = MaterialSkin.MouseState.OUT;
             this.comboBoxVolumn.Name = "comboBoxVolumn";
-            this.comboBoxVolumn.Size = new System.Drawing.Size(197, 49);
+            this.comboBoxVolumn.Size = new System.Drawing.Size(120, 49);
             this.comboBoxVolumn.StartIndex = 0;
             this.comboBoxVolumn.TabIndex = 19;
-            this.comboBoxVolumn.SelectedIndexChanged += new System.EventHandler(this.ComboBoxVolumn_SelectedIndexChanged);
             // 
-            // comboBoxCatg
+            // comboBoxTime
             // 
-            this.comboBoxCatg.AutoResize = false;
-            this.comboBoxCatg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxCatg.Depth = 0;
-            this.comboBoxCatg.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.comboBoxCatg.DropDownHeight = 174;
-            this.comboBoxCatg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCatg.DropDownWidth = 121;
-            this.comboBoxCatg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.comboBoxCatg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxCatg.FormattingEnabled = true;
-            this.comboBoxCatg.IntegralHeight = false;
-            this.comboBoxCatg.ItemHeight = 43;
-            this.comboBoxCatg.Items.AddRange(new object[] {
-            "Tất Cả",
-            "Tình Trạng",
-            "Thời gian",
-            "Số Phòng",
-            "Giá Tiền"});
-            this.comboBoxCatg.Location = new System.Drawing.Point(6, 20);
-            this.comboBoxCatg.MaxDropDownItems = 4;
-            this.comboBoxCatg.MouseState = MaterialSkin.MouseState.OUT;
-            this.comboBoxCatg.Name = "comboBoxCatg";
-            this.comboBoxCatg.Size = new System.Drawing.Size(128, 49);
-            this.comboBoxCatg.StartIndex = 0;
-            this.comboBoxCatg.TabIndex = 18;
-            this.comboBoxCatg.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCatg_SelectedIndexChanged);
+            this.comboBoxTime.AutoResize = false;
+            this.comboBoxTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxTime.Depth = 0;
+            this.comboBoxTime.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxTime.DropDownHeight = 174;
+            this.comboBoxTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTime.DropDownWidth = 121;
+            this.comboBoxTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBoxTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxTime.FormattingEnabled = true;
+            this.comboBoxTime.IntegralHeight = false;
+            this.comboBoxTime.ItemHeight = 43;
+            this.comboBoxTime.Items.AddRange(new object[] {
+            "Tháng Này",
+            "Năm Nay",
+            "Lịch Sử",
+            "Tháng 01",
+            "Tháng 02",
+            "Tháng 03",
+            "Tháng 04",
+            "Tháng 05",
+            "Tháng 06",
+            "Tháng 07",
+            "Tháng 08",
+            "Tháng 09",
+            "Tháng 10",
+            "Tháng 11",
+            "Tháng 12"});
+            this.comboBoxTime.Location = new System.Drawing.Point(141, 27);
+            this.comboBoxTime.MaxDropDownItems = 4;
+            this.comboBoxTime.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboBoxTime.Name = "comboBoxTime";
+            this.comboBoxTime.Size = new System.Drawing.Size(128, 49);
+            this.comboBoxTime.StartIndex = 0;
+            this.comboBoxTime.TabIndex = 18;
             // 
-            // txtBoxSearch
+            // textBoxSearch
             // 
-            this.txtBoxSearch.AnimateReadOnly = false;
-            this.txtBoxSearch.BackColor = System.Drawing.SystemColors.Control;
-            this.txtBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBoxSearch.Depth = 0;
-            this.txtBoxSearch.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtBoxSearch.ForeColor = System.Drawing.Color.Transparent;
-            this.txtBoxSearch.Hint = "Nhập tên người đóng";
-            this.txtBoxSearch.LeadingIcon = null;
-            this.txtBoxSearch.Location = new System.Drawing.Point(343, 22);
-            this.txtBoxSearch.MaxLength = 50;
-            this.txtBoxSearch.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtBoxSearch.Multiline = false;
-            this.txtBoxSearch.Name = "txtBoxSearch";
-            this.txtBoxSearch.Size = new System.Drawing.Size(194, 50);
-            this.txtBoxSearch.TabIndex = 15;
-            this.txtBoxSearch.Text = "";
-            this.txtBoxSearch.TrailingIcon = null;
-            this.txtBoxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtBoxSearch_KeyDown);
+            this.textBoxSearch.AnimateReadOnly = false;
+            this.textBoxSearch.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxSearch.Depth = 0;
+            this.textBoxSearch.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxSearch.ForeColor = System.Drawing.Color.Transparent;
+            this.textBoxSearch.LeadingIcon = null;
+            this.textBoxSearch.Location = new System.Drawing.Point(396, 26);
+            this.textBoxSearch.MaxLength = 50;
+            this.textBoxSearch.MouseState = MaterialSkin.MouseState.OUT;
+            this.textBoxSearch.Multiline = false;
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(194, 50);
+            this.textBoxSearch.TabIndex = 15;
+            this.textBoxSearch.Text = "";
+            this.textBoxSearch.TrailingIcon = null;
             // 
             // btnUpd
             // 
@@ -2832,7 +2868,7 @@
             this.btnUpd.Depth = 0;
             this.btnUpd.HighEmphasis = true;
             this.btnUpd.Icon = global::AccommodationManagerApp.Properties.Resources.edit;
-            this.btnUpd.Location = new System.Drawing.Point(738, 336);
+            this.btnUpd.Location = new System.Drawing.Point(741, 334);
             this.btnUpd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnUpd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpd.Name = "btnUpd";
@@ -2853,7 +2889,7 @@
             this.btnDelete.Depth = 0;
             this.btnDelete.HighEmphasis = true;
             this.btnDelete.Icon = global::AccommodationManagerApp.Properties.Resources.delete;
-            this.btnDelete.Location = new System.Drawing.Point(842, 336);
+            this.btnDelete.Location = new System.Drawing.Point(845, 334);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDelete.Name = "btnDelete";
@@ -2874,7 +2910,7 @@
             this.btnPDF.Depth = 0;
             this.btnPDF.HighEmphasis = true;
             this.btnPDF.Icon = global::AccommodationManagerApp.Properties.Resources.preview;
-            this.btnPDF.Location = new System.Drawing.Point(738, 287);
+            this.btnPDF.Location = new System.Drawing.Point(741, 285);
             this.btnPDF.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPDF.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPDF.Name = "btnPDF";
@@ -2906,7 +2942,7 @@
             this.ListViewBill.FullRowSelect = true;
             this.ListViewBill.HideSelection = false;
             this.ListViewBill.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ListViewBill.Location = new System.Drawing.Point(0, 95);
+            this.ListViewBill.Location = new System.Drawing.Point(3, 93);
             this.ListViewBill.MinimumSize = new System.Drawing.Size(200, 100);
             this.ListViewBill.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ListViewBill.MouseState = MaterialSkin.MouseState.OUT;
@@ -3361,9 +3397,9 @@
         private MaterialSkin.Controls.MaterialButton btnPDF;
         private MaterialSkin.Controls.MaterialButton btnUpd;
         private MaterialSkin.Controls.MaterialButton btnDelete;
-        private MaterialSkin.Controls.MaterialTextBox txtBoxSearch;
+        private MaterialSkin.Controls.MaterialTextBox textBoxSearch;
         private MaterialSkin.Controls.MaterialComboBox comboBoxVolumn;
-        private MaterialSkin.Controls.MaterialComboBox comboBoxCatg;
+        private MaterialSkin.Controls.MaterialComboBox comboBoxTime;
         private System.Windows.Forms.TabPage tabPageVehicle;
         private MaterialSkin.Controls.MaterialLabel materialLabel11;
         private MaterialSkin.Controls.MaterialListView ListViewVehicle;
@@ -3513,5 +3549,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel49;
         private MaterialSkin.Controls.MaterialLabel materialLabel50;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private MaterialSkin.Controls.MaterialComboBox comboBoxState;
     }
 }

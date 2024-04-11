@@ -14,17 +14,10 @@ namespace AccommodationManagerApp.Repository {
             return Context.Set<Room>().FirstOrDefault(r => r.RoomNumber == roomNumber);
         }
 
-        public Room GetByIdWithContract(int? id) {
-            return Context.Set<Room>().Include("Contracts").FirstOrDefault(r => r.Id == id);
-        }
+        public Room GetByIdWithContract(int? id) => Context.Set<Room>().Include("Contracts").FirstOrDefault(r => r.Id == id);
 
-        public List<Room> GetAllWithBuildingId(int buildingId)
-        {
-            return Context.Set<Room>().Where(r => r.BuildingId == buildingId).ToList();
-        }
+        public List<Room> GetAllWithBuildingId(int buildingId) => Context.Set<Room>().Where(r => r.BuildingId == buildingId).ToList();
 
-        public IEnumerable<Room> GetAllWithNotTerminatedContract() {
-            return Context.Set<Room>().Include("Contracts").Where(r => r.Contracts.Any(c => c.IsTerminated == false)).ToList();
-        }
+        public IEnumerable<Room> GetAllWithNotTerminatedContract()  => Context.Set<Room>().Include("Contracts").Where(r => r.Contracts.Any(c => c.IsTerminated == false)).ToList();
     }
 }

@@ -11,36 +11,27 @@ namespace AccommodationManagerApp.Forms
         private BillModel _bill;
         private BillModel SelectBill()
         {
-            if (lstViewBill.SelectedItems.Count > 0)
+            if (ListViewBill.SelectedItems.Count > 0)
             {
-                var index = lstViewBill.SelectedItems[0].Index;
+                var index = ListViewBill.SelectedItems[0].Index;
 
                 if (index < _Bills.Count) return _Bills[index];
             }
             return null;
         }
-        private void LoadBillData()
-        {
-            _Bills = _billService.GetAllByUserId(_user.Id);
-            InsertBillIntoListView(_Bills);
-        }
-        private void LoadBillDataInThisMonth()
-        {
-            _Bills = _Bills.Where(bill => bill.DateOfBill.Month == DateTime.Now.Month).ToList();
-            InsertBillIntoListView(_Bills);
-        }
         private void InsertBillIntoListView(List<BillModel> bills)
         {
-            lstViewBill.Items.Clear();
+            ListViewBill.Items.Clear();
             foreach (var bill in bills)
             {
                 var item = new ListViewItem(bill.Id.ToString());
                 item.SubItems.Add(bill.ElectricityQuantity.ToString());
                 item.SubItems.Add(bill.WaterQuantity.ToString());
                 item.SubItems.Add(bill.Contract?.Room.RoomNumber.ToString() ?? "Trống");
+                item.SubItems.Add(bill.User.Name);
                 item.SubItems.Add(bill.DateOfBillFormatted);
                 item.SubItems.Add(bill.Status.ToVietnamese());
-                lstViewBill.Items.Add(item);
+                ListViewBill.Items.Add(item);
             }
         }
         private void buttonPreview_Click(object sender, System.EventArgs e)
@@ -60,19 +51,41 @@ namespace AccommodationManagerApp.Forms
             var billDetail = new BillDetail(_bill);
             billDetail.ShowDialog();
         }
-        private void ComboBoxVolumn_SelectedIndexChanged(object sender, EventArgs e)
+
+        // Query System
+        private void LoadBillData()
         {
-            switch (comboBoxVolumn.SelectedIndex)
+            _Bills = _billService.GetAllByUserIdWithContractWithRoomAndUser(_user.Id);
+            InsertBillIntoListView(_Bills);
+        }
+
+        private void ComboBoxCatg_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int queryRouter;
+            queryRouter = comboBoxCatg.SelectedIndex;
+            switch (queryRouter)
             {
                 case 0:
                     LoadBillData();
+                    SetUpComboBoxVolumn(new List<string> { "Mức độ" });
                     break;
                 case 1:
-                    LoadBillDataInThisMonth();
+                    SetUpComboBoxVolumn(new List<string> { "Chưa Thanh Toán", "Đã Thanh Toán" });
                     break;
-
-
+                case 2:
+                    SetUpComboBoxVolumn(new List<string> { "Tháng này", "Tháng Sau", "Tháng Trước" });
+                    break;
+                case 3:
+                    SetUpComboBoxVolumn(new List<string> { "Tăng", "Giảm" });
+                    break;
             }
+        }
+
+        private void SetUpComboBoxVolumn(List<string> volumn)
+        {
+            comboBoxVolumn.Items.Clear();
+            comboBoxVolumn.Items.AddRange(volumn.ToArray());
+            comboBoxVolumn.SelectedIndex = 0;
         }
     }
 }

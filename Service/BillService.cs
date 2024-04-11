@@ -33,7 +33,9 @@ namespace AccommodationManagerApp.Service {
             }
         }
 
-        public List<Bill> GetAllByUserId(int userId) => _billRepository.GetAllBillByUserId(userId);
+        public List<Bill> GetBillByStatus(BillStatus status) => _billRepository.GetBillByStatus(status);
+
+        public List<Bill> GetAllByUserIdWithContractWithRoomAndUser(int userId) => _billRepository.GetAllByUserIdWithContractWithRoomAndUser(userId);
 
         public List<Bill> GetByUserIdInThisMonthAnhUnpaid() => _billRepository.GetByUserIdInThisMonthAnhUnpaid();
 
@@ -98,12 +100,10 @@ namespace AccommodationManagerApp.Service {
             }
         }
 
-        public List<Bill> GetAllWithContractWithRoomAndUser() {
-            return _billRepository.GetAllWithContractWithRoomAndUser().ToList();
-        }
+        public List<Bill> GetAllWithContractWithRoomAndUser()  => _billRepository.GetAllWithContractWithRoomAndUser().ToList();
 
-        public bool IsBillGenerated(Contract contract) {
-            return _billRepository.GetAllByContractId(contract.Id).Count > 0;
-        }
+        public bool IsBillGenerated(Contract contract) => _billRepository.GetAllByContractId(contract.Id).Count > 0;
+
+        public List<Bill> GetByCustomizeQuery() => null;
     }
 }
