@@ -19,8 +19,9 @@ namespace AccommodationManagerApp {
             ActiveMigration();
             
             var authenticationService = _serviceProvider.GetService<AuthenticationService>();
-            authenticationService.Authenticate("ngotanloi0709@gmail.com", "123");
-            //authenticationService.Authenticate("www.khanhhuan@gmail.com", "123");
+            //authenticationService.Authenticate("ngotanloi0709@gmail.com", "123");
+            
+            authenticationService.Authenticate("www.khanhhuan@gmail.com", "123");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

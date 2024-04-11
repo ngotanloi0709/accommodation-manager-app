@@ -68,13 +68,13 @@
             this.state = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pgConfig = new System.Windows.Forms.TabPage();
             this.pgStatistic = new System.Windows.Forms.TabPage();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.paidAndUnpaidChart = new LiveCharts.WinForms.PieChart();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.requestChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btnReloadChart = new MaterialSkin.Controls.MaterialButton();
             this.materialLabel13 = new MaterialSkin.Controls.MaterialLabel();
             this.electricityAndWaterChart = new LiveCharts.WinForms.CartesianChart();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.tbCtrlClient.SuspendLayout();
             this.pgRequest.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -635,11 +635,24 @@
             this.pgStatistic.TabIndex = 4;
             this.pgStatistic.Text = "Thống kê ";
             // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.materialLabel2.Location = new System.Drawing.Point(822, 752);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(175, 29);
+            this.materialLabel2.TabIndex = 65;
+            this.materialLabel2.Text = "Biểu đồ hóa đơn";
+            // 
             // paidAndUnpaidChart
             // 
-            this.paidAndUnpaidChart.Location = new System.Drawing.Point(798, 470);
+            this.paidAndUnpaidChart.Location = new System.Drawing.Point(755, 454);
             this.paidAndUnpaidChart.Name = "paidAndUnpaidChart";
-            this.paidAndUnpaidChart.Size = new System.Drawing.Size(335, 279);
+            this.paidAndUnpaidChart.Size = new System.Drawing.Size(357, 295);
             this.paidAndUnpaidChart.TabIndex = 64;
             this.paidAndUnpaidChart.Text = "pieChart1";
             // 
@@ -666,9 +679,9 @@
             this.requestChart.Name = "requestChart";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "NumberRequest";
+            series1.Name = "Số yêu cầu";
             this.requestChart.Series.Add(series1);
-            this.requestChart.Size = new System.Drawing.Size(734, 295);
+            this.requestChart.Size = new System.Drawing.Size(710, 295);
             this.requestChart.TabIndex = 62;
             this.requestChart.Text = "chart1";
             // 
@@ -698,33 +711,20 @@
             this.materialLabel13.Depth = 0;
             this.materialLabel13.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel13.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            this.materialLabel13.Location = new System.Drawing.Point(375, 422);
+            this.materialLabel13.Location = new System.Drawing.Point(352, 405);
             this.materialLabel13.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel13.Name = "materialLabel13";
-            this.materialLabel13.Size = new System.Drawing.Size(465, 29);
+            this.materialLabel13.Size = new System.Drawing.Size(362, 29);
             this.materialLabel13.TabIndex = 33;
-            this.materialLabel13.Text = "Biểu đồ số điện số nước trong 12 tháng qua";
+            this.materialLabel13.Text = "Biểu đồ nợ còn tồn trong 12 tháng";
             // 
             // electricityAndWaterChart
             // 
-            this.electricityAndWaterChart.Location = new System.Drawing.Point(96, 78);
+            this.electricityAndWaterChart.Location = new System.Drawing.Point(51, 78);
             this.electricityAndWaterChart.Name = "electricityAndWaterChart";
             this.electricityAndWaterChart.Size = new System.Drawing.Size(994, 324);
             this.electricityAndWaterChart.TabIndex = 0;
             this.electricityAndWaterChart.Text = "cartesianChart1";
-            // 
-            // materialLabel2
-            // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            this.materialLabel2.Location = new System.Drawing.Point(883, 752);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(175, 29);
-            this.materialLabel2.TabIndex = 65;
-            this.materialLabel2.Text = "Biểu đồ hóa đơn";
             // 
             // ClientForm
             // 

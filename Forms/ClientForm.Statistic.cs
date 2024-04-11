@@ -61,33 +61,25 @@ namespace AccommodationManagerApp.Forms
             {
                 new LineSeries
                 {
-                    Title = "Số điện",
-                    Values = new ChartValues<int> { CountElectric((nowDate - 11), DateTime.Now.Year), CountElectric((nowDate - 10), DateTime.Now.Year), CountElectric((nowDate - 9), DateTime.Now.Year), CountElectric((nowDate - 8), DateTime.Now.Year), CountElectric((nowDate - 7), DateTime.Now.Year), CountElectric((nowDate - 6), DateTime.Now.Year), CountElectric((nowDate - 5), DateTime.Now.Year), CountElectric((nowDate - 4), DateTime.Now.Year), CountElectric((nowDate - 3), DateTime.Now.Year), CountElectric((nowDate - 2), DateTime.Now.Year), CountElectric((nowDate - 1), DateTime.Now.Year), CountElectric((nowDate), DateTime.Now.Year) },
+                    Title = "Số nợ",
+                    Values = new ChartValues<double> { CountUnpaidBillByMonthAndYear((nowDate - 11), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 10), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 9), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 8), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 7), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 6), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 5), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 4), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 3), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 2), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 1), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate), DateTime.Now.Year) },
                     PointGeometry = DefaultGeometries.Circle,
                     PointGeometrySize = 15,
                     LineSmoothness = 0
                 },
-                new LineSeries
-                {
-                    Title = "Số nước",
-                    Values = new ChartValues<int> { CountWater((nowDate - 11), DateTime.Now.Year), CountWater((nowDate - 10), DateTime.Now.Year), CountWater((nowDate - 9), DateTime.Now.Year), CountWater((nowDate - 8), DateTime.Now.Year), CountWater((nowDate - 7), DateTime.Now.Year), CountWater((nowDate - 6), DateTime.Now.Year), CountWater((nowDate - 5), DateTime.Now.Year), CountWater((nowDate - 4), DateTime.Now.Year), CountWater((nowDate - 3), DateTime.Now.Year), CountWater((nowDate - 2), DateTime.Now.Year), CountWater((nowDate - 1), DateTime.Now.Year), CountWater((nowDate), DateTime.Now.Year) },
-                    PointGeometry = DefaultGeometries.Circle,
-                    PointGeometrySize = 15,
-                    LineSmoothness = 0
-                }
             };
 
         }
 
         private void drawRequestChart()
         {
-            requestChart.Series["NumberRequest"].Points.Clear();
+            requestChart.Series["Số yêu cầu"].Points.Clear();
             int nowDate = DateTime.Now.Month;
             for (int i = (nowDate -2); i <= (nowDate); i++)
             {
                 List<Request> requests = _requestService.GetAllByUserId(_user.Id);
                 List<Request> requestMonth = requests.Where(request => request.CreatedAt.Month == i).ToList();
-                requestChart.Series["NumberRequest"].Points.AddXY("Tháng " + i, requestMonth.Count);
+                requestChart.Series["Số yêu cầu"].Points.AddXY("Tháng " + i, requestMonth.Count);
             }
         }
 
@@ -172,6 +164,93 @@ namespace AccommodationManagerApp.Forms
             }
         }
 
+        private double CountUnpaidBillByMonthAndYear(int month, int year)
+        {
+            List<Bill> _bill = _billService.GetAllByUserId(_user.Id);
+            if (month <= 0)
+            {
+                month += 12;
+                year -= 1;
+                return CountUnpaidBillByMonthAndYear(month, year);
+            }
+            else if (month > 12)
+            {
+                month -= 12;
+                year += 1;
+                return CountUnpaidBillByMonthAndYear(month, year);
+            }
+            else
+            {
+                List<Bill> result = _bill.Where(bill => bill.DateOfBill.Month == month && bill.DateOfBill.Year == year && bill.Status == BillStatus.Unpaid).ToList();
+                double total = 0;
+                foreach (Bill bill in result)
+                {
+                    total = total + bill.ElectricityQuantity * bill.ElectricityFee + bill.WaterQuantity * bill.WaterFee + bill.InternetFee + bill.RentFee + bill.VehicleFee;
+                }
+                return total;
+            }
+        }
 
+        private void btnReloadChart_Click(object sender, System.EventArgs e)
+        {
+        
+            reloadCasesianChart();
+            reloadRequestChart();
+            reloadPieChart();
+        }
+
+        private void reloadCasesianChart() {
+            int nowDate = DateTime.Now.Month;
+            electricityAndWaterChart.Series.Clear();
+            electricityAndWaterChart.Series = new LiveCharts.SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title = "Số nợ",
+                    Values = new ChartValues<double> { CountUnpaidBillByMonthAndYear((nowDate - 11), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 10), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 9), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 8), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 7), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 6), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 5), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 4), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 3), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 2), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate - 1), DateTime.Now.Year), CountUnpaidBillByMonthAndYear((nowDate), DateTime.Now.Year) },
+                    PointGeometry = DefaultGeometries.Circle,
+                    PointGeometrySize = 15,
+                    LineSmoothness = 0
+                },
+            };
+        }
+
+        private void reloadRequestChart()
+        {
+            requestChart.Series["Số yêu cầu"].Points.Clear();
+            int nowDate = DateTime.Now.Month;
+            for (int i = (nowDate - 2); i <= (nowDate); i++)
+            {
+                List<Request> requests = _requestService.GetAllByUserId(_user.Id);
+                List<Request> requestMonth = requests.Where(request => request.CreatedAt.Month == i).ToList();
+                requestChart.Series["Số yêu cầu"].Points.AddXY("Tháng " + i, requestMonth.Count);
+            }
+        }
+
+        private void reloadPieChart()
+        {
+            paidAndUnpaidChart.Series.Clear();
+            List<Bill> _bills = _billService.GetAllBillByUserIdIncludeEdit(_user.Id);
+            List<Bill> _billUnpaid = _bills.Where(bill => bill.Status == BillStatus.Unpaid).ToList();
+            List<Bill> _billPaid = _bills.Where(bill => bill.Status == BillStatus.Paid).ToList();
+            List<Bill> _billUpdate = _bills.Where(bill => bill.Status == BillStatus.Edit).ToList();
+            SeriesCollection series = new SeriesCollection();
+            series.Add(new PieSeries
+            {
+                Title = "Đã thanh toán",
+                Values = new ChartValues<int> { _billPaid.Count }
+            });
+            series.Add(new PieSeries
+            {
+                Title = "Chưa thanh toán",
+                Values = new ChartValues<int> { _billUnpaid.Count }
+            });
+            series.Add(new PieSeries
+            {
+                Title = "Đang cập nhật",
+                Values = new ChartValues<int> { _billUpdate.Count }
+            });
+            paidAndUnpaidChart.Series = series;
+        }
     }
 }
