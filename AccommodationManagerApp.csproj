@@ -454,6 +454,9 @@
     <EmbeddedResource Include="Forms\BillForm.resx">
       <DependentUpon>BillForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BillStatusForm.resx">
+      <DependentUpon>BillStatusForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ContractExtendForm.resx">
       <DependentUpon>ContractExtendForm.cs</DependentUpon>
     </EmbeddedResource>

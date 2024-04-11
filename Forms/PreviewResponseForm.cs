@@ -7,11 +7,14 @@ namespace AccommodationManagerApp.Forms
     {
         private readonly Response _response;
         private readonly ResponseService _responseService;
+        
         public PreviewResponseForm(Request request)
         {
+            InitializeComponent();
+            
             _responseService = ServiceLocator.ServiceProvider.GetService(typeof(ResponseService)) as ResponseService;
             _response = _responseService.GetResponseByRequestId(request.Id);
-            InitializeComponent();
+            
             SetUpRequestForm();
         }
 

@@ -26,20 +26,135 @@ namespace AccommodationManagerApp.Forms {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.switchSex = new MaterialSkin.Controls.MaterialSwitch();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.dateTimePickerDateOfBirth = new System.Windows.Forms.DateTimePicker();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.textBoxEmail = new MaterialSkin.Controls.MaterialTextBox();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.textBoxIdentityNumber = new MaterialSkin.Controls.MaterialTextBox();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.textBoxPhone = new MaterialSkin.Controls.MaterialTextBox();
             this.textBoxName = new MaterialSkin.Controls.MaterialTextBox();
             this.buttonSave = new MaterialSkin.Controls.MaterialButton();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.textBoxIdentityNumber = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.textBoxEmail = new MaterialSkin.Controls.MaterialTextBox();
-            this.dateTimePickerDateOfBirth = new System.Windows.Forms.DateTimePicker();
-            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
-            this.switchSex = new MaterialSkin.Controls.MaterialSwitch();
-            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
+            // 
+            // materialLabel6
+            // 
+            this.materialLabel6.AutoSize = true;
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel6.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel6.Location = new System.Drawing.Point(43, 379);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(81, 24);
+            this.materialLabel6.TabIndex = 17;
+            this.materialLabel6.Text = "Giới tính:";
+            // 
+            // switchSex
+            // 
+            this.switchSex.AutoSize = true;
+            this.switchSex.Depth = 0;
+            this.switchSex.Location = new System.Drawing.Point(179, 374);
+            this.switchSex.Margin = new System.Windows.Forms.Padding(0);
+            this.switchSex.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.switchSex.MouseState = MaterialSkin.MouseState.HOVER;
+            this.switchSex.Name = "switchSex";
+            this.switchSex.Ripple = true;
+            this.switchSex.Size = new System.Drawing.Size(79, 37);
+            this.switchSex.TabIndex = 16;
+            this.switchSex.Text = "Nữ";
+            this.switchSex.UseVisualStyleBackColor = true;
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel5.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel5.Location = new System.Drawing.Point(43, 263);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(94, 24);
+            this.materialLabel5.TabIndex = 15;
+            this.materialLabel5.Text = "Ngày sinh:";
+            // 
+            // dateTimePickerDateOfBirth
+            // 
+            this.dateTimePickerDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dateTimePickerDateOfBirth.Location = new System.Drawing.Point(179, 263);
+            this.dateTimePickerDateOfBirth.MaxDate = new System.DateTime(2010, 12, 31, 0, 0, 0, 0);
+            this.dateTimePickerDateOfBirth.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.dateTimePickerDateOfBirth.Name = "dateTimePickerDateOfBirth";
+            this.dateTimePickerDateOfBirth.Size = new System.Drawing.Size(330, 26);
+            this.dateTimePickerDateOfBirth.TabIndex = 14;
+            this.dateTimePickerDateOfBirth.Value = new System.DateTime(2010, 12, 31, 0, 0, 0, 0);
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel4.Location = new System.Drawing.Point(43, 322);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(55, 24);
+            this.materialLabel4.TabIndex = 13;
+            this.materialLabel4.Text = "Email:";
+            // 
+            // textBoxEmail
+            // 
+            this.textBoxEmail.AnimateReadOnly = false;
+            this.textBoxEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxEmail.Depth = 0;
+            this.textBoxEmail.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxEmail.Hint = "Nhập Email";
+            this.textBoxEmail.LeadingIcon = null;
+            this.textBoxEmail.Location = new System.Drawing.Point(179, 304);
+            this.textBoxEmail.MaxLength = 50;
+            this.textBoxEmail.MouseState = MaterialSkin.MouseState.OUT;
+            this.textBoxEmail.Multiline = false;
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(330, 50);
+            this.textBoxEmail.TabIndex = 12;
+            this.textBoxEmail.Text = "";
+            this.textBoxEmail.TrailingIcon = null;
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel3.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel3.Location = new System.Drawing.Point(43, 208);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(115, 24);
+            this.materialLabel3.TabIndex = 11;
+            this.materialLabel3.Text = "Số căn cước:";
+            // 
+            // textBoxIdentityNumber
+            // 
+            this.textBoxIdentityNumber.AnimateReadOnly = false;
+            this.textBoxIdentityNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxIdentityNumber.Depth = 0;
+            this.textBoxIdentityNumber.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxIdentityNumber.Hint = "Nhập số căn cước";
+            this.textBoxIdentityNumber.LeadingIcon = null;
+            this.textBoxIdentityNumber.Location = new System.Drawing.Point(179, 193);
+            this.textBoxIdentityNumber.MaxLength = 50;
+            this.textBoxIdentityNumber.MouseState = MaterialSkin.MouseState.OUT;
+            this.textBoxIdentityNumber.Multiline = false;
+            this.textBoxIdentityNumber.Name = "textBoxIdentityNumber";
+            this.textBoxIdentityNumber.Size = new System.Drawing.Size(330, 50);
+            this.textBoxIdentityNumber.TabIndex = 10;
+            this.textBoxIdentityNumber.Text = "";
+            this.textBoxIdentityNumber.TrailingIcon = null;
+            this.textBoxIdentityNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPhone_KeyPress);
             // 
             // materialLabel2
             // 
@@ -125,121 +240,6 @@ namespace AccommodationManagerApp.Forms {
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // materialLabel3
-            // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel3.Location = new System.Drawing.Point(43, 208);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(115, 24);
-            this.materialLabel3.TabIndex = 11;
-            this.materialLabel3.Text = "Số căn cước:";
-            // 
-            // textBoxIdentityNumber
-            // 
-            this.textBoxIdentityNumber.AnimateReadOnly = false;
-            this.textBoxIdentityNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxIdentityNumber.Depth = 0;
-            this.textBoxIdentityNumber.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxIdentityNumber.Hint = "Nhập số căn cước";
-            this.textBoxIdentityNumber.LeadingIcon = null;
-            this.textBoxIdentityNumber.Location = new System.Drawing.Point(179, 193);
-            this.textBoxIdentityNumber.MaxLength = 50;
-            this.textBoxIdentityNumber.MouseState = MaterialSkin.MouseState.OUT;
-            this.textBoxIdentityNumber.Multiline = false;
-            this.textBoxIdentityNumber.Name = "textBoxIdentityNumber";
-            this.textBoxIdentityNumber.Size = new System.Drawing.Size(330, 50);
-            this.textBoxIdentityNumber.TabIndex = 10;
-            this.textBoxIdentityNumber.Text = "";
-            this.textBoxIdentityNumber.TrailingIcon = null;
-            this.textBoxIdentityNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPhone_KeyPress);
-            // 
-            // materialLabel4
-            // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel4.Location = new System.Drawing.Point(43, 322);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(55, 24);
-            this.materialLabel4.TabIndex = 13;
-            this.materialLabel4.Text = "Email:";
-            // 
-            // textBoxEmail
-            // 
-            this.textBoxEmail.AnimateReadOnly = false;
-            this.textBoxEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxEmail.Depth = 0;
-            this.textBoxEmail.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxEmail.Hint = "Nhập Email";
-            this.textBoxEmail.LeadingIcon = null;
-            this.textBoxEmail.Location = new System.Drawing.Point(179, 304);
-            this.textBoxEmail.MaxLength = 50;
-            this.textBoxEmail.MouseState = MaterialSkin.MouseState.OUT;
-            this.textBoxEmail.Multiline = false;
-            this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(330, 50);
-            this.textBoxEmail.TabIndex = 12;
-            this.textBoxEmail.Text = "";
-            this.textBoxEmail.TrailingIcon = null;
-            // 
-            // dateTimePickerDateOfBirth
-            // 
-            this.dateTimePickerDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dateTimePickerDateOfBirth.Location = new System.Drawing.Point(179, 263);
-            this.dateTimePickerDateOfBirth.MaxDate = new System.DateTime(2010, 12, 31, 0, 0, 0, 0);
-            this.dateTimePickerDateOfBirth.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.dateTimePickerDateOfBirth.Name = "dateTimePickerDateOfBirth";
-            this.dateTimePickerDateOfBirth.Size = new System.Drawing.Size(330, 26);
-            this.dateTimePickerDateOfBirth.TabIndex = 14;
-            this.dateTimePickerDateOfBirth.Value = new System.DateTime(2010, 12, 31, 0, 0, 0, 0);
-            // 
-            // materialLabel5
-            // 
-            this.materialLabel5.AutoSize = true;
-            this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel5.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel5.Location = new System.Drawing.Point(43, 263);
-            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(94, 24);
-            this.materialLabel5.TabIndex = 15;
-            this.materialLabel5.Text = "Ngày sinh:";
-            // 
-            // switchSex
-            // 
-            this.switchSex.AutoSize = true;
-            this.switchSex.Depth = 0;
-            this.switchSex.Location = new System.Drawing.Point(179, 374);
-            this.switchSex.Margin = new System.Windows.Forms.Padding(0);
-            this.switchSex.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.switchSex.MouseState = MaterialSkin.MouseState.HOVER;
-            this.switchSex.Name = "switchSex";
-            this.switchSex.Ripple = true;
-            this.switchSex.Size = new System.Drawing.Size(79, 37);
-            this.switchSex.TabIndex = 16;
-            this.switchSex.Text = "Nữ";
-            this.switchSex.UseVisualStyleBackColor = true;
-            // 
-            // materialLabel6
-            // 
-            this.materialLabel6.AutoSize = true;
-            this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel6.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel6.Location = new System.Drawing.Point(43, 379);
-            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(81, 24);
-            this.materialLabel6.TabIndex = 17;
-            this.materialLabel6.Text = "Giới tính:";
-            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,19 +263,6 @@ namespace AccommodationManagerApp.Forms {
             this.Name = "UserForm";
             this.Text = "Thêm thông tin người thuê";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserForm_FormClosing);
-            this.Controls.SetChildIndex(this.buttonSave, 0);
-            this.Controls.SetChildIndex(this.textBoxName, 0);
-            this.Controls.SetChildIndex(this.textBoxPhone, 0);
-            this.Controls.SetChildIndex(this.materialLabel1, 0);
-            this.Controls.SetChildIndex(this.materialLabel2, 0);
-            this.Controls.SetChildIndex(this.textBoxIdentityNumber, 0);
-            this.Controls.SetChildIndex(this.materialLabel3, 0);
-            this.Controls.SetChildIndex(this.textBoxEmail, 0);
-            this.Controls.SetChildIndex(this.materialLabel4, 0);
-            this.Controls.SetChildIndex(this.dateTimePickerDateOfBirth, 0);
-            this.Controls.SetChildIndex(this.materialLabel5, 0);
-            this.Controls.SetChildIndex(this.switchSex, 0);
-            this.Controls.SetChildIndex(this.materialLabel6, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 

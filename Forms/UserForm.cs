@@ -12,18 +12,19 @@ namespace AccommodationManagerApp.Forms
 
         public UserForm(User user, bool isCurrentUser = false)
         {
+            InitializeComponent();
+            
             _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
             _user = user;
-            InitializeComponent();
 
             if (_user != null)
             {
-                setUpData(_user);
+                SetUpData(_user);
                 Text = isCurrentUser ? "Chỉnh sửa thông tin cá nhân" : "Chỉnh sửa thông tin người dùng";
             }
         }
 
-        private void setUpData(User user)
+        private void SetUpData(User user)
         {
             textBoxName.Text = user.Name;
             textBoxPhone.Text = user.Phone;
@@ -85,6 +86,24 @@ namespace AccommodationManagerApp.Forms
             if (result)
             {
                 new ToastForm("Vui lòng điền đầy đủ thông tin.", true).Show();
+            }
+            
+            if (!InputHelper.IsValidInputNumber(textBoxIdentityNumber.Text))
+            {
+                new ToastForm("Vui lòng nhập số chứng minh/căn cước hợp lệ", true).Show();
+                return false;
+            }
+            
+            if (!InputHelper.IsValidInputNumber(textBoxPhone.Text))
+            {
+                new ToastForm("Vui lòng nhập số điện thoại hợp lệ", true).Show();
+                return false;
+            }
+            
+            if (!InputHelper.IsValidInputEmail(textBoxEmail.Text))
+            {
+                new ToastForm("Vui lòng nhập Email hợp lệ", true).Show();
+                return false;
             }
 
             return !result;

@@ -103,7 +103,6 @@ namespace AccommodationManagerApp.Forms
             drawCasteriaChart();
             drawPieChart();
             drawRoomInBuildingChart();
-
         }
         private void drawCasteriaChart()
         {
@@ -318,6 +317,5 @@ namespace AccommodationManagerApp.Forms
 
             pieChartPaidBillAndUnpaidBill.Series = series;
         }
-
     }
 }

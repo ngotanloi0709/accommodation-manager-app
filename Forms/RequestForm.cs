@@ -14,11 +14,12 @@ namespace AccommodationManagerApp.Forms
         public RequestForm(Request request)
         {
             InitializeComponent();
+            
             _requestService = ServiceLocator.ServiceProvider.GetService(typeof(RequestService)) as RequestService;
             _authenticaitonService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
             _request = request;
-            if (_request != null)
-                SetUpData();
+            
+            if (_request != null) SetUpData();
         }
 
         private void SetUpData()

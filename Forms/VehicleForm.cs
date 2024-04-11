@@ -17,12 +17,13 @@ namespace AccommodationManagerApp.Forms
 
         public VehicleForm(Vehicle vehicle)
         {
+            InitializeComponent();
+            
             _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
             _vehicleService = ServiceLocator.ServiceProvider.GetService(typeof(VehicleService)) as VehicleService;
             _vehicle = vehicle;
             _rooms = _roomService.GetAll();
 
-            InitializeComponent();
             SetUpComboBoxes();
 
             if (_vehicle != null)
@@ -137,7 +138,7 @@ namespace AccommodationManagerApp.Forms
                 return false;
             }
 
-            if (!InputHelper.IsValidPrice(textBoxPrice.Text))
+            if (!InputHelper.IsValidInputNumber(textBoxPrice.Text))
             {
                 new ToastForm("Vui lòng nhập số tiền hợp lệ", true).Show();
                 return false;

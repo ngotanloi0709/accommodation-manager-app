@@ -15,7 +15,7 @@ namespace AccommodationManagerApp.Model
         public string Password { get; set; }
         [EnumDataType(typeof(UserRole))] public UserRole Role { get; set; } = UserRole.Tenant;
         public bool IsFemale { get; set; }
-        public DateTime DateOfBirth { get; set; } = new DateTime(1900, 1, 1);
+        public DateTime DateOfBirth { get; set; } = new DateTime(2000, 1, 1);
         public string Phone { get; set; }
         public string IdentityNumber { get; set; }
         public byte[] Avatar { get; set; }
