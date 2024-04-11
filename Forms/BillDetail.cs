@@ -33,6 +33,7 @@ namespace AccommodationManagerApp.Forms
             var internetPrice = _bill.InternetFee;
             var vehiclePrice = _bill.VehicleFee;
             var rentPrice = _bill.RentFee;
+            Console.WriteLine(rentPrice);
 
             LabelRoomId.Text = _bill.Contract.Room.RoomNumber;
             LabelDate.Text = _bill.DateOfBillFormatted;
@@ -41,7 +42,7 @@ namespace AccommodationManagerApp.Forms
             LabelElectricityQuantity.Text = electricityQuantity.ToString();
             LabelWaterPrice.Text = FormatText.IntegerToVnd(waterPrice);
             LabelElectricityPrice.Text = FormatText.IntegerToVnd(electricityPrice);
-            LabelInternetPrice.Text = FormatText.IntegerToVnd(internetPrice);
+            LabelInternetTotalPrice.Text = FormatText.IntegerToVnd(internetPrice);
             LabelWaterTotalPrice.Text = FormatText.IntegerToVnd((waterQuantity * waterPrice));
             LabelElectricityTotalPrice.Text = FormatText.IntegerToVnd((electricityQuantity * electricityPrice));
             LabelVehicleTotalPrice.Text = FormatText.IntegerToVnd(vehiclePrice);
@@ -123,23 +124,28 @@ namespace AccommodationManagerApp.Forms
 
                 try
                 {
-                    var doc = new Document("..\\..\\Template\\baocao.doc");
+                    var doc = new Document("..\\..\\Template\\Invoice.docx");
 
                     doc.MailMerge.Execute(new string[] { "Ho_Ten" }, new[] { lblName.Text });
                     doc.MailMerge.Execute(new string[] { "Date_Bill" }, new[] { LabelDate.Text });
                     doc.MailMerge.Execute(new string[] { "Room_ID" }, new[] { LabelRoomId.Text });
+                    doc.MailMerge.Execute(new string[] { "Room_ID" }, new[] { LabelRoomId.Text });
+                    doc.MailMerge.Execute(new string[] { "User_Email" }, new[] { LabelEmail.Text });
                     doc.MailMerge.Execute(new string[] { "Quan_Rent" }, new[] { lblQuanRent.Text });
                     doc.MailMerge.Execute(new string[] { "Quan_Water" }, new[] { LabelWaterQuantity.Text });
                     doc.MailMerge.Execute(new string[] { "Quan_Elec" }, new[] { LabelElectricityQuantity.Text });
-                    doc.MailMerge.Execute(new string[] { "Quan_Other" }, new[] { lblQuanOther.Text });
+                    doc.MailMerge.Execute(new string[] { "Quan_Internet" }, new[] { lblQuanInternet.Text });
+                    doc.MailMerge.Execute(new string[] { "Quan_Vehicle" }, new[] { lblQuanVehicle.Text });
                     doc.MailMerge.Execute(new string[] { "Price_Rent" }, new[] { lbllls.Text });
                     doc.MailMerge.Execute(new string[] { "Price_Water" }, new[] { LabelWaterPrice.Text });
                     doc.MailMerge.Execute(new string[] { "Price_Elec" }, new[] { LabelElectricityPrice.Text });
-                    doc.MailMerge.Execute(new string[] { "Price_Other" }, new[] { lalslasl.Text });
+                    doc.MailMerge.Execute(new string[] { "Price_Internet" }, new[] { LabelInternetPrice.Text });
+                    doc.MailMerge.Execute(new string[] { "Price_Vehicle" }, new[] { LabelVehiclePrice.Text });
                     doc.MailMerge.Execute(new string[] { "Total_Rent" }, new[] { LabelRent.Text });
                     doc.MailMerge.Execute(new string[] { "Total_Water" }, new[] { LabelWaterTotalPrice.Text });
                     doc.MailMerge.Execute(new string[] { "Total_Elec" }, new[] { LabelElectricityTotalPrice.Text });
-                    doc.MailMerge.Execute(new string[] { "Total_Other" }, new[] { LabelInternetPrice.Text });
+                    doc.MailMerge.Execute(new string[] { "Total_Internet" }, new[] { LabelInternetTotalPrice.Text });
+                    doc.MailMerge.Execute(new string[] { "Total_Vehicle" }, new[] { LabelVehicleTotalPrice.Text });
                     doc.MailMerge.Execute(new string[] { "Total_Price" }, new[] { LabelTotalPrice.Text });
                     doc.Save(filePath);
 

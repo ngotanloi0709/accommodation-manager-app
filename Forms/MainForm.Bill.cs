@@ -135,21 +135,22 @@ namespace AccommodationManagerApp.Forms {
                 body += "<h2>Dear " + user.Name + ",</h2>";
                 body +=
                     "<p>You have an unpaid bill in this month. Please pay it as soon as possible. Bill information:</p>";
-                body += "<ul>";
+                body += "<ul style=`list-style-type:none`>";
                 body += "<li>Số điện: " + bill.ElectricityQuantity + " kWh  - Đơn giá: " +
                         bill.ElectricityFee.ToString("N0") +
                         " VND/kwh</li>";
                 body += "<li>Số nước: " + bill.WaterQuantity + " m3  - Đơn giá: " + bill.WaterFee.ToString("N0") +
                         " VND/m3</li>";
-                body += "<li>Tiền thuê nhà: " + contract.Price.ToString("N0") + " VND</li>";
+                body += "<li>Tiền thuê nhà: " + bill.RentFee.ToString("N0") + " VND</li>";
                 body += "<li>Tổng tiền điện: " + (bill.ElectricityQuantity * bill.ElectricityFee).ToString("N0") +
                         " VND</li>";
                 body += "<li>Tổng tiền nước: " + (bill.WaterQuantity * bill.WaterFee).ToString("N0") + " VND</li>";
                 body += "<li>Internet: " + bill.InternetFee.ToString("N0") + " VND</li>";
+                body += "<li>Phí gửi xe: " + bill.VehicleFee.ToString("N0") + " VND</li>";
                 body += "<li>Tổng tiền phải trả: " +
-                        (contract.Price + bill.ElectricityQuantity * bill.ElectricityFee +
+                        (bill.RentFee + bill.ElectricityQuantity * bill.ElectricityFee +
                          bill.WaterQuantity * bill.WaterFee +
-                         bill.InternetFee).ToString("N0") + " VND</li>";
+                         bill.InternetFee + bill.VehicleFee).ToString("N0") + " VND</li>";
                 body += "</ul>";
                 body += "<p>Please make sure you pay the bill. Thank you!</p>";
                 body += "<p>Best regards,</p>";
