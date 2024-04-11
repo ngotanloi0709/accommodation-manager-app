@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientForm));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblEmail = new System.Windows.Forms.Label();
             this.btnLogout = new MaterialSkin.Controls.MaterialButton();
             this.buttonCurrentUserInformationManagement = new MaterialSkin.Controls.MaterialButton();
@@ -64,20 +67,31 @@
             this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.state = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pgConfig = new System.Windows.Forms.TabPage();
+            this.pgStatistic = new System.Windows.Forms.TabPage();
+            this.paidAndUnpaidChart = new LiveCharts.WinForms.PieChart();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.requestChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnReloadChart = new MaterialSkin.Controls.MaterialButton();
+            this.materialLabel13 = new MaterialSkin.Controls.MaterialLabel();
+            this.electricityAndWaterChart = new LiveCharts.WinForms.CartesianChart();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.tbCtrlClient.SuspendLayout();
             this.pgRequest.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pgBill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pgStatistic.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.requestChart)).BeginInit();
             this.SuspendLayout();
             // 
             // lblEmail
             // 
             this.lblEmail.BackColor = System.Drawing.Color.Transparent;
             this.lblEmail.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(270, 25);
+            this.lblEmail.Location = new System.Drawing.Point(360, 31);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(246, 36);
+            this.lblEmail.Size = new System.Drawing.Size(328, 44);
             this.lblEmail.TabIndex = 19;
             this.lblEmail.Text = "user@email.com";
             this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -91,12 +105,12 @@
             this.btnLogout.Depth = 0;
             this.btnLogout.HighEmphasis = true;
             this.btnLogout.Icon = global::AccommodationManagerApp.Properties.Resources.logout;
-            this.btnLogout.Location = new System.Drawing.Point(814, 28);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnLogout.Location = new System.Drawing.Point(1085, 34);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnLogout.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnLogout.Size = new System.Drawing.Size(134, 36);
+            this.btnLogout.Size = new System.Drawing.Size(179, 44);
             this.btnLogout.TabIndex = 20;
             this.btnLogout.Text = "Đăng Xuất";
             this.btnLogout.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
@@ -113,12 +127,12 @@
             this.buttonCurrentUserInformationManagement.Depth = 0;
             this.buttonCurrentUserInformationManagement.HighEmphasis = true;
             this.buttonCurrentUserInformationManagement.Icon = global::AccommodationManagerApp.Properties.Resources.user_no_color;
-            this.buttonCurrentUserInformationManagement.Location = new System.Drawing.Point(79, 25);
-            this.buttonCurrentUserInformationManagement.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonCurrentUserInformationManagement.Location = new System.Drawing.Point(105, 31);
+            this.buttonCurrentUserInformationManagement.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.buttonCurrentUserInformationManagement.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonCurrentUserInformationManagement.Name = "buttonCurrentUserInformationManagement";
             this.buttonCurrentUserInformationManagement.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonCurrentUserInformationManagement.Size = new System.Drawing.Size(189, 36);
+            this.buttonCurrentUserInformationManagement.Size = new System.Drawing.Size(252, 44);
             this.buttonCurrentUserInformationManagement.TabIndex = 21;
             this.buttonCurrentUserInformationManagement.Text = "Thông tin cá nhân";
             this.buttonCurrentUserInformationManagement.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
@@ -140,15 +154,17 @@
             this.tbCtrlClient.Controls.Add(this.pgRequest);
             this.tbCtrlClient.Controls.Add(this.pgBill);
             this.tbCtrlClient.Controls.Add(this.pgConfig);
+            this.tbCtrlClient.Controls.Add(this.pgStatistic);
             this.tbCtrlClient.Depth = 0;
             this.tbCtrlClient.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbCtrlClient.ImageList = this.imgLstClient;
-            this.tbCtrlClient.Location = new System.Drawing.Point(3, 64);
+            this.tbCtrlClient.Location = new System.Drawing.Point(5, 97);
+            this.tbCtrlClient.Margin = new System.Windows.Forms.Padding(4);
             this.tbCtrlClient.MouseState = MaterialSkin.MouseState.HOVER;
             this.tbCtrlClient.Multiline = true;
             this.tbCtrlClient.Name = "tbCtrlClient";
             this.tbCtrlClient.SelectedIndex = 0;
-            this.tbCtrlClient.Size = new System.Drawing.Size(994, 733);
+            this.tbCtrlClient.Size = new System.Drawing.Size(1317, 872);
             this.tbCtrlClient.TabIndex = 25;
             // 
             // pgRequest
@@ -165,9 +181,10 @@
             this.pgRequest.Controls.Add(this.txtReqSearch);
             this.pgRequest.ImageKey = "request.png";
             this.pgRequest.Location = new System.Drawing.Point(4, 39);
+            this.pgRequest.Margin = new System.Windows.Forms.Padding(4);
             this.pgRequest.Name = "pgRequest";
-            this.pgRequest.Padding = new System.Windows.Forms.Padding(3);
-            this.pgRequest.Size = new System.Drawing.Size(986, 690);
+            this.pgRequest.Padding = new System.Windows.Forms.Padding(4);
+            this.pgRequest.Size = new System.Drawing.Size(1309, 829);
             this.pgRequest.TabIndex = 1;
             this.pgRequest.Text = "Yêu Cầu";
             this.pgRequest.UseVisualStyleBackColor = true;
@@ -180,12 +197,12 @@
             this.buttonResponse.Depth = 0;
             this.buttonResponse.HighEmphasis = true;
             this.buttonResponse.Icon = global::AccommodationManagerApp.Properties.Resources.preview;
-            this.buttonResponse.Location = new System.Drawing.Point(754, 407);
-            this.buttonResponse.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonResponse.Location = new System.Drawing.Point(1005, 501);
+            this.buttonResponse.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.buttonResponse.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonResponse.Name = "buttonResponse";
             this.buttonResponse.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonResponse.Size = new System.Drawing.Size(187, 39);
+            this.buttonResponse.Size = new System.Drawing.Size(249, 48);
             this.buttonResponse.TabIndex = 34;
             this.buttonResponse.Text = "Phản Hồi";
             this.buttonResponse.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -195,9 +212,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(754, 130);
+            this.pictureBox1.Location = new System.Drawing.Point(1005, 160);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(187, 157);
+            this.pictureBox1.Size = new System.Drawing.Size(249, 193);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 33;
             this.pictureBox1.TabStop = false;
@@ -210,12 +228,12 @@
             this.btnUpd.Depth = 0;
             this.btnUpd.HighEmphasis = true;
             this.btnUpd.Icon = global::AccommodationManagerApp.Properties.Resources.edit;
-            this.btnUpd.Location = new System.Drawing.Point(754, 305);
-            this.btnUpd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnUpd.Location = new System.Drawing.Point(1005, 375);
+            this.btnUpd.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnUpd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpd.Name = "btnUpd";
             this.btnUpd.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnUpd.Size = new System.Drawing.Size(187, 39);
+            this.btnUpd.Size = new System.Drawing.Size(249, 48);
             this.btnUpd.TabIndex = 32;
             this.btnUpd.Text = "Cập Nhật";
             this.btnUpd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -231,12 +249,12 @@
             this.btnDelete.Depth = 0;
             this.btnDelete.HighEmphasis = true;
             this.btnDelete.Icon = global::AccommodationManagerApp.Properties.Resources.delete;
-            this.btnDelete.Location = new System.Drawing.Point(853, 356);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnDelete.Location = new System.Drawing.Point(1137, 438);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnDelete.Size = new System.Drawing.Size(88, 39);
+            this.btnDelete.Size = new System.Drawing.Size(117, 48);
             this.btnDelete.TabIndex = 31;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -252,12 +270,12 @@
             this.btnAdd.Depth = 0;
             this.btnAdd.HighEmphasis = true;
             this.btnAdd.Icon = global::AccommodationManagerApp.Properties.Resources.plus1;
-            this.btnAdd.Location = new System.Drawing.Point(754, 356);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAdd.Location = new System.Drawing.Point(1005, 438);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnAdd.Size = new System.Drawing.Size(91, 39);
+            this.btnAdd.Size = new System.Drawing.Size(121, 48);
             this.btnAdd.TabIndex = 30;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -281,14 +299,15 @@
             this.lstViewReq.FullRowSelect = true;
             this.lstViewReq.HideSelection = false;
             this.lstViewReq.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lstViewReq.Location = new System.Drawing.Point(28, 109);
-            this.lstViewReq.MinimumSize = new System.Drawing.Size(200, 100);
+            this.lstViewReq.Location = new System.Drawing.Point(37, 134);
+            this.lstViewReq.Margin = new System.Windows.Forms.Padding(4);
+            this.lstViewReq.MinimumSize = new System.Drawing.Size(267, 123);
             this.lstViewReq.MouseLocation = new System.Drawing.Point(-1, -1);
             this.lstViewReq.MouseState = MaterialSkin.MouseState.OUT;
             this.lstViewReq.Name = "lstViewReq";
             this.lstViewReq.OwnerDraw = true;
             this.lstViewReq.ShowGroups = false;
-            this.lstViewReq.Size = new System.Drawing.Size(700, 450);
+            this.lstViewReq.Size = new System.Drawing.Size(933, 554);
             this.lstViewReq.TabIndex = 29;
             this.lstViewReq.UseCompatibleStateImageBehavior = false;
             this.lstViewReq.View = System.Windows.Forms.View.Details;
@@ -334,11 +353,12 @@
             "Điện",
             "Nước",
             "Phí Thuê"});
-            this.cmbbxReqCate.Location = new System.Drawing.Point(32, 37);
+            this.cmbbxReqCate.Location = new System.Drawing.Point(43, 46);
+            this.cmbbxReqCate.Margin = new System.Windows.Forms.Padding(4);
             this.cmbbxReqCate.MaxDropDownItems = 4;
             this.cmbbxReqCate.MouseState = MaterialSkin.MouseState.OUT;
             this.cmbbxReqCate.Name = "cmbbxReqCate";
-            this.cmbbxReqCate.Size = new System.Drawing.Size(87, 49);
+            this.cmbbxReqCate.Size = new System.Drawing.Size(115, 49);
             this.cmbbxReqCate.StartIndex = 0;
             this.cmbbxReqCate.TabIndex = 26;
             // 
@@ -349,8 +369,8 @@
             this.btnReqSearch.Depth = 0;
             this.btnReqSearch.HighEmphasis = true;
             this.btnReqSearch.Icon = global::AccommodationManagerApp.Properties.Resources.search;
-            this.btnReqSearch.Location = new System.Drawing.Point(661, 40);
-            this.btnReqSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnReqSearch.Location = new System.Drawing.Point(881, 49);
+            this.btnReqSearch.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnReqSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnReqSearch.Name = "btnReqSearch";
             this.btnReqSearch.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -372,12 +392,13 @@
             this.txtReqSearch.ForeColor = System.Drawing.Color.Transparent;
             this.txtReqSearch.Hint = "Tìm Kiếm";
             this.txtReqSearch.LeadingIcon = null;
-            this.txtReqSearch.Location = new System.Drawing.Point(125, 36);
+            this.txtReqSearch.Location = new System.Drawing.Point(167, 44);
+            this.txtReqSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtReqSearch.MaxLength = 50;
             this.txtReqSearch.MouseState = MaterialSkin.MouseState.OUT;
             this.txtReqSearch.Multiline = false;
             this.txtReqSearch.Name = "txtReqSearch";
-            this.txtReqSearch.Size = new System.Drawing.Size(529, 50);
+            this.txtReqSearch.Size = new System.Drawing.Size(705, 50);
             this.txtReqSearch.TabIndex = 25;
             this.txtReqSearch.Text = "";
             this.txtReqSearch.TrailingIcon = null;
@@ -394,8 +415,9 @@
             this.pgBill.Controls.Add(this.lstViewBill);
             this.pgBill.ImageKey = "contract.png";
             this.pgBill.Location = new System.Drawing.Point(4, 39);
+            this.pgBill.Margin = new System.Windows.Forms.Padding(4);
             this.pgBill.Name = "pgBill";
-            this.pgBill.Size = new System.Drawing.Size(986, 690);
+            this.pgBill.Size = new System.Drawing.Size(1309, 829);
             this.pgBill.TabIndex = 2;
             this.pgBill.Text = "Hóa Đơn";
             this.pgBill.UseVisualStyleBackColor = true;
@@ -417,11 +439,12 @@
             this.comboBoxVolumn.Items.AddRange(new object[] {
             "Tất Cả",
             "Tháng Này"});
-            this.comboBoxVolumn.Location = new System.Drawing.Point(38, 25);
+            this.comboBoxVolumn.Location = new System.Drawing.Point(51, 31);
+            this.comboBoxVolumn.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxVolumn.MaxDropDownItems = 4;
             this.comboBoxVolumn.MouseState = MaterialSkin.MouseState.OUT;
             this.comboBoxVolumn.Name = "comboBoxVolumn";
-            this.comboBoxVolumn.Size = new System.Drawing.Size(126, 49);
+            this.comboBoxVolumn.Size = new System.Drawing.Size(167, 49);
             this.comboBoxVolumn.StartIndex = 0;
             this.comboBoxVolumn.TabIndex = 69;
             this.comboBoxVolumn.SelectedIndexChanged += new System.EventHandler(this.ComboBoxVolumn_SelectedIndexChanged);
@@ -442,11 +465,12 @@
             this.cmbboxCatg.ItemHeight = 43;
             this.cmbboxCatg.Items.AddRange(new object[] {
             "Thời gian"});
-            this.cmbboxCatg.Location = new System.Drawing.Point(170, 25);
+            this.cmbboxCatg.Location = new System.Drawing.Point(227, 31);
+            this.cmbboxCatg.Margin = new System.Windows.Forms.Padding(4);
             this.cmbboxCatg.MaxDropDownItems = 4;
             this.cmbboxCatg.MouseState = MaterialSkin.MouseState.OUT;
             this.cmbboxCatg.Name = "cmbboxCatg";
-            this.cmbboxCatg.Size = new System.Drawing.Size(116, 49);
+            this.cmbboxCatg.Size = new System.Drawing.Size(153, 49);
             this.cmbboxCatg.StartIndex = 0;
             this.cmbboxCatg.TabIndex = 68;
             // 
@@ -457,8 +481,8 @@
             this.btnSearch.Depth = 0;
             this.btnSearch.HighEmphasis = true;
             this.btnSearch.Icon = global::AccommodationManagerApp.Properties.Resources.search;
-            this.btnSearch.Location = new System.Drawing.Point(813, 32);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnSearch.Location = new System.Drawing.Point(1084, 39);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -480,21 +504,23 @@
             this.txtBoxSearch.ForeColor = System.Drawing.Color.Transparent;
             this.txtBoxSearch.Hint = "Tìm Kiếm";
             this.txtBoxSearch.LeadingIcon = null;
-            this.txtBoxSearch.Location = new System.Drawing.Point(292, 24);
+            this.txtBoxSearch.Location = new System.Drawing.Point(389, 30);
+            this.txtBoxSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtBoxSearch.MaxLength = 50;
             this.txtBoxSearch.MouseState = MaterialSkin.MouseState.OUT;
             this.txtBoxSearch.Multiline = false;
             this.txtBoxSearch.Name = "txtBoxSearch";
-            this.txtBoxSearch.Size = new System.Drawing.Size(507, 50);
+            this.txtBoxSearch.Size = new System.Drawing.Size(676, 50);
             this.txtBoxSearch.TabIndex = 67;
             this.txtBoxSearch.Text = "";
             this.txtBoxSearch.TrailingIcon = null;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(710, 94);
+            this.pictureBox2.Location = new System.Drawing.Point(947, 116);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(189, 151);
+            this.pictureBox2.Size = new System.Drawing.Size(252, 186);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 65;
             this.pictureBox2.TabStop = false;
@@ -507,12 +533,12 @@
             this.buttonPreview.Depth = 0;
             this.buttonPreview.HighEmphasis = true;
             this.buttonPreview.Icon = global::AccommodationManagerApp.Properties.Resources.preview;
-            this.buttonPreview.Location = new System.Drawing.Point(710, 254);
-            this.buttonPreview.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonPreview.Location = new System.Drawing.Point(947, 313);
+            this.buttonPreview.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.buttonPreview.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonPreview.Name = "buttonPreview";
             this.buttonPreview.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonPreview.Size = new System.Drawing.Size(189, 36);
+            this.buttonPreview.Size = new System.Drawing.Size(252, 44);
             this.buttonPreview.TabIndex = 50;
             this.buttonPreview.Text = "Xem Chi Tiết";
             this.buttonPreview.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -538,14 +564,15 @@
             this.lstViewBill.FullRowSelect = true;
             this.lstViewBill.HideSelection = false;
             this.lstViewBill.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lstViewBill.Location = new System.Drawing.Point(38, 94);
-            this.lstViewBill.MinimumSize = new System.Drawing.Size(200, 100);
+            this.lstViewBill.Location = new System.Drawing.Point(51, 116);
+            this.lstViewBill.Margin = new System.Windows.Forms.Padding(4);
+            this.lstViewBill.MinimumSize = new System.Drawing.Size(267, 123);
             this.lstViewBill.MouseLocation = new System.Drawing.Point(-1, -1);
             this.lstViewBill.MouseState = MaterialSkin.MouseState.OUT;
             this.lstViewBill.Name = "lstViewBill";
             this.lstViewBill.OwnerDraw = true;
             this.lstViewBill.ShowGroups = false;
-            this.lstViewBill.Size = new System.Drawing.Size(615, 561);
+            this.lstViewBill.Size = new System.Drawing.Size(820, 690);
             this.lstViewBill.TabIndex = 49;
             this.lstViewBill.UseCompatibleStateImageBehavior = false;
             this.lstViewBill.View = System.Windows.Forms.View.Details;
@@ -584,27 +611,139 @@
             // 
             this.pgConfig.ImageKey = "configuration.png";
             this.pgConfig.Location = new System.Drawing.Point(4, 39);
+            this.pgConfig.Margin = new System.Windows.Forms.Padding(4);
             this.pgConfig.Name = "pgConfig";
-            this.pgConfig.Size = new System.Drawing.Size(986, 690);
+            this.pgConfig.Size = new System.Drawing.Size(1309, 829);
             this.pgConfig.TabIndex = 3;
             this.pgConfig.Text = "Cài Đặt";
             this.pgConfig.UseVisualStyleBackColor = true;
             // 
+            // pgStatistic
+            // 
+            this.pgStatistic.BackColor = System.Drawing.Color.White;
+            this.pgStatistic.Controls.Add(this.materialLabel2);
+            this.pgStatistic.Controls.Add(this.paidAndUnpaidChart);
+            this.pgStatistic.Controls.Add(this.materialLabel1);
+            this.pgStatistic.Controls.Add(this.requestChart);
+            this.pgStatistic.Controls.Add(this.btnReloadChart);
+            this.pgStatistic.Controls.Add(this.materialLabel13);
+            this.pgStatistic.Controls.Add(this.electricityAndWaterChart);
+            this.pgStatistic.ImageKey = "homepage.png";
+            this.pgStatistic.Location = new System.Drawing.Point(4, 39);
+            this.pgStatistic.Name = "pgStatistic";
+            this.pgStatistic.Size = new System.Drawing.Size(1309, 829);
+            this.pgStatistic.TabIndex = 4;
+            this.pgStatistic.Text = "Thống kê ";
+            // 
+            // paidAndUnpaidChart
+            // 
+            this.paidAndUnpaidChart.Location = new System.Drawing.Point(798, 470);
+            this.paidAndUnpaidChart.Name = "paidAndUnpaidChart";
+            this.paidAndUnpaidChart.Size = new System.Drawing.Size(335, 279);
+            this.paidAndUnpaidChart.TabIndex = 64;
+            this.paidAndUnpaidChart.Text = "pieChart1";
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.materialLabel1.Location = new System.Drawing.Point(65, 752);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(407, 29);
+            this.materialLabel1.TabIndex = 63;
+            this.materialLabel1.Text = "Biểu đồ số yêu cầu trong vòng 3 tháng";
+            // 
+            // requestChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.requestChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.requestChart.Legends.Add(legend1);
+            this.requestChart.Location = new System.Drawing.Point(22, 454);
+            this.requestChart.Name = "requestChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "NumberRequest";
+            this.requestChart.Series.Add(series1);
+            this.requestChart.Size = new System.Drawing.Size(734, 295);
+            this.requestChart.TabIndex = 62;
+            this.requestChart.Text = "chart1";
+            // 
+            // btnReloadChart
+            // 
+            this.btnReloadChart.AutoSize = false;
+            this.btnReloadChart.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnReloadChart.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnReloadChart.Depth = 0;
+            this.btnReloadChart.HighEmphasis = true;
+            this.btnReloadChart.Icon = global::AccommodationManagerApp.Properties.Resources.check_list;
+            this.btnReloadChart.Location = new System.Drawing.Point(126, 20);
+            this.btnReloadChart.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnReloadChart.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnReloadChart.Name = "btnReloadChart";
+            this.btnReloadChart.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnReloadChart.Size = new System.Drawing.Size(964, 36);
+            this.btnReloadChart.TabIndex = 61;
+            this.btnReloadChart.Text = "Cập nhật dữ liệu thống kê";
+            this.btnReloadChart.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnReloadChart.UseAccentColor = false;
+            this.btnReloadChart.UseVisualStyleBackColor = true;
+            // 
+            // materialLabel13
+            // 
+            this.materialLabel13.AutoSize = true;
+            this.materialLabel13.Depth = 0;
+            this.materialLabel13.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel13.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.materialLabel13.Location = new System.Drawing.Point(375, 422);
+            this.materialLabel13.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel13.Name = "materialLabel13";
+            this.materialLabel13.Size = new System.Drawing.Size(465, 29);
+            this.materialLabel13.TabIndex = 33;
+            this.materialLabel13.Text = "Biểu đồ số điện số nước trong 12 tháng qua";
+            // 
+            // electricityAndWaterChart
+            // 
+            this.electricityAndWaterChart.Location = new System.Drawing.Point(96, 78);
+            this.electricityAndWaterChart.Name = "electricityAndWaterChart";
+            this.electricityAndWaterChart.Size = new System.Drawing.Size(994, 324);
+            this.electricityAndWaterChart.TabIndex = 0;
+            this.electricityAndWaterChart.Text = "cartesianChart1";
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.materialLabel2.Location = new System.Drawing.Point(883, 752);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(175, 29);
+            this.materialLabel2.TabIndex = 65;
+            this.materialLabel2.Text = "Biểu đồ hóa đơn";
+            // 
             // ClientForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 800);
+            this.ClientSize = new System.Drawing.Size(1327, 974);
             this.Controls.Add(this.tbCtrlClient);
             this.Controls.Add(this.buttonCurrentUserInformationManagement);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.lblEmail);
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.tbCtrlClient;
-            this.MaximumSize = new System.Drawing.Size(1000, 800);
-            this.MinimumSize = new System.Drawing.Size(1000, 800);
+            this.Margin = new System.Windows.Forms.Padding(5);
+            this.MaximumSize = new System.Drawing.Size(1327, 974);
+            this.MinimumSize = new System.Drawing.Size(1327, 974);
             this.Name = "ClientForm";
+            this.Padding = new System.Windows.Forms.Padding(5, 97, 5, 5);
             this.Text = "";
+            this.Load += new System.EventHandler(this.ClientFormOnLoad);
             this.tbCtrlClient.ResumeLayout(false);
             this.pgRequest.ResumeLayout(false);
             this.pgRequest.PerformLayout();
@@ -612,6 +751,9 @@
             this.pgBill.ResumeLayout(false);
             this.pgBill.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pgStatistic.ResumeLayout(false);
+            this.pgStatistic.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.requestChart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -652,5 +794,13 @@
         private MaterialSkin.Controls.MaterialButton btnSearch;
         private MaterialSkin.Controls.MaterialTextBox txtBoxSearch;
         private MaterialSkin.Controls.MaterialButton buttonResponse;
+        private System.Windows.Forms.TabPage pgStatistic;
+        private LiveCharts.WinForms.CartesianChart electricityAndWaterChart;
+        private MaterialSkin.Controls.MaterialLabel materialLabel13;
+        private MaterialSkin.Controls.MaterialButton btnReloadChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart requestChart;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private LiveCharts.WinForms.PieChart paidAndUnpaidChart;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
     }
 }

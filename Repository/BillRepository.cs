@@ -13,6 +13,11 @@ namespace AccommodationManagerApp.Repository
             return Context.Set<Bill>().Where(bill => bill.UserId == userId && bill.Status != BillStatus.Edit).ToList();
         }
 
+        public List<Bill> GetAllBillByUserIdIncludeEdit(int userId)
+        {
+            return Context.Set<Bill>().Where(bill => bill.UserId == userId).ToList();
+        }
+
         public List<Bill> GetByUserIdInThisMonthAnhUnpaid()
         {
             return Context.Set<Bill>().Where(bill => bill.DateOfBill.Month == System.DateTime.Now.Month && bill.Status == BillStatus.Unpaid).ToList();

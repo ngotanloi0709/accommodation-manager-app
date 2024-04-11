@@ -37,6 +37,8 @@ namespace AccommodationManagerApp.Service {
 
         public List<Bill> GetByUserIdInThisMonthAnhUnpaid() => _billRepository.GetByUserIdInThisMonthAnhUnpaid();
 
+        public List<Bill> GetAllBillByUserIdIncludeEdit(int userId) => _billRepository.GetAllBillByUserIdIncludeEdit(userId);
+
         public List<Bill> GetBillUnpaidByMonthAndYear(int month, int year) => _billRepository.GetBillUnpaidByMonthAndYear(month, year);
 
         public List<Bill> GetBillPaidByMonthAndYear(int month, int year) => _billRepository.GetBillPaidByMonthAndYear(month, year);
