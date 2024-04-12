@@ -85,6 +85,14 @@
             this.materialLabel36 = new MaterialSkin.Controls.MaterialLabel();
             this.buttonPreview = new MaterialSkin.Controls.MaterialButton();
             this.pgConfig = new System.Windows.Forms.TabPage();
+            this.labelReqState = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel38 = new MaterialSkin.Controls.MaterialLabel();
+            this.labelReqDate = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel43 = new MaterialSkin.Controls.MaterialLabel();
+            this.labelReqContent = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel45 = new MaterialSkin.Controls.MaterialLabel();
+            this.labelReqUser = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel65 = new MaterialSkin.Controls.MaterialLabel();
             this.tbCtrlClient.SuspendLayout();
             this.pgRequest.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -175,6 +183,14 @@
             // pgRequest
             // 
             this.pgRequest.BackColor = System.Drawing.Color.White;
+            this.pgRequest.Controls.Add(this.labelReqState);
+            this.pgRequest.Controls.Add(this.materialLabel38);
+            this.pgRequest.Controls.Add(this.labelReqDate);
+            this.pgRequest.Controls.Add(this.materialLabel43);
+            this.pgRequest.Controls.Add(this.labelReqContent);
+            this.pgRequest.Controls.Add(this.materialLabel45);
+            this.pgRequest.Controls.Add(this.labelReqUser);
+            this.pgRequest.Controls.Add(this.materialLabel65);
             this.pgRequest.Controls.Add(this.buttonResponse);
             this.pgRequest.Controls.Add(this.pictureBox1);
             this.pgRequest.Controls.Add(this.btnUpd);
@@ -201,24 +217,24 @@
             this.buttonResponse.Depth = 0;
             this.buttonResponse.HighEmphasis = true;
             this.buttonResponse.Icon = global::AccommodationManagerApp.Properties.Resources.preview;
-            this.buttonResponse.Location = new System.Drawing.Point(754, 407);
+            this.buttonResponse.Location = new System.Drawing.Point(679, 399);
             this.buttonResponse.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonResponse.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonResponse.Name = "buttonResponse";
             this.buttonResponse.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonResponse.Size = new System.Drawing.Size(187, 39);
+            this.buttonResponse.Size = new System.Drawing.Size(179, 39);
             this.buttonResponse.TabIndex = 34;
             this.buttonResponse.Text = "Phản Hồi";
             this.buttonResponse.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.buttonResponse.UseAccentColor = false;
             this.buttonResponse.UseVisualStyleBackColor = true;
-            this.buttonResponse.Click += new System.EventHandler(this.buttonResponse_Click);
+            this.buttonResponse.Click += new System.EventHandler(this.ButtonResponse_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(754, 130);
+            this.pictureBox1.Location = new System.Drawing.Point(679, 122);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(187, 157);
+            this.pictureBox1.Size = new System.Drawing.Size(179, 157);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 33;
             this.pictureBox1.TabStop = false;
@@ -231,12 +247,12 @@
             this.btnUpd.Depth = 0;
             this.btnUpd.HighEmphasis = true;
             this.btnUpd.Icon = global::AccommodationManagerApp.Properties.Resources.edit;
-            this.btnUpd.Location = new System.Drawing.Point(754, 305);
+            this.btnUpd.Location = new System.Drawing.Point(679, 297);
             this.btnUpd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnUpd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpd.Name = "btnUpd";
             this.btnUpd.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnUpd.Size = new System.Drawing.Size(187, 39);
+            this.btnUpd.Size = new System.Drawing.Size(179, 39);
             this.btnUpd.TabIndex = 32;
             this.btnUpd.Text = "Cập Nhật";
             this.btnUpd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -252,12 +268,12 @@
             this.btnDelete.Depth = 0;
             this.btnDelete.HighEmphasis = true;
             this.btnDelete.Icon = global::AccommodationManagerApp.Properties.Resources.delete;
-            this.btnDelete.Location = new System.Drawing.Point(853, 356);
+            this.btnDelete.Location = new System.Drawing.Point(778, 348);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnDelete.Size = new System.Drawing.Size(88, 39);
+            this.btnDelete.Size = new System.Drawing.Size(80, 39);
             this.btnDelete.TabIndex = 31;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -273,7 +289,7 @@
             this.btnAdd.Depth = 0;
             this.btnAdd.HighEmphasis = true;
             this.btnAdd.Icon = global::AccommodationManagerApp.Properties.Resources.plus1;
-            this.btnAdd.Location = new System.Drawing.Point(754, 356);
+            this.btnAdd.Location = new System.Drawing.Point(679, 348);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAdd.Name = "btnAdd";
@@ -302,17 +318,18 @@
             this.lstViewReq.FullRowSelect = true;
             this.lstViewReq.HideSelection = false;
             this.lstViewReq.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lstViewReq.Location = new System.Drawing.Point(28, 109);
+            this.lstViewReq.Location = new System.Drawing.Point(28, 108);
             this.lstViewReq.MinimumSize = new System.Drawing.Size(200, 100);
             this.lstViewReq.MouseLocation = new System.Drawing.Point(-1, -1);
             this.lstViewReq.MouseState = MaterialSkin.MouseState.OUT;
             this.lstViewReq.Name = "lstViewReq";
             this.lstViewReq.OwnerDraw = true;
             this.lstViewReq.ShowGroups = false;
-            this.lstViewReq.Size = new System.Drawing.Size(700, 450);
+            this.lstViewReq.Size = new System.Drawing.Size(635, 451);
             this.lstViewReq.TabIndex = 29;
             this.lstViewReq.UseCompatibleStateImageBehavior = false;
             this.lstViewReq.View = System.Windows.Forms.View.Details;
+            this.lstViewReq.SelectedIndexChanged += new System.EventHandler(this.LstViewReq_SelectedIndexChanged);
             // 
             // idReq
             // 
@@ -930,6 +947,109 @@
             this.pgConfig.Text = "Cài Đặt";
             this.pgConfig.UseVisualStyleBackColor = true;
             // 
+            // labelReqState
+            // 
+            this.labelReqState.AutoSize = true;
+            this.labelReqState.Depth = 0;
+            this.labelReqState.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelReqState.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.labelReqState.Location = new System.Drawing.Point(765, 538);
+            this.labelReqState.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelReqState.Name = "labelReqState";
+            this.labelReqState.Size = new System.Drawing.Size(127, 17);
+            this.labelReqState.TabIndex = 76;
+            this.labelReqState.Text = "_____________________";
+            // 
+            // materialLabel38
+            // 
+            this.materialLabel38.AutoSize = true;
+            this.materialLabel38.Depth = 0;
+            this.materialLabel38.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel38.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.materialLabel38.Location = new System.Drawing.Point(667, 538);
+            this.materialLabel38.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel38.Name = "materialLabel38";
+            this.materialLabel38.Size = new System.Drawing.Size(74, 17);
+            this.materialLabel38.TabIndex = 75;
+            this.materialLabel38.Text = "Tình Trạng: ";
+            // 
+            // labelReqDate
+            // 
+            this.labelReqDate.AutoSize = true;
+            this.labelReqDate.Depth = 0;
+            this.labelReqDate.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelReqDate.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.labelReqDate.Location = new System.Drawing.Point(747, 515);
+            this.labelReqDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelReqDate.Name = "labelReqDate";
+            this.labelReqDate.Size = new System.Drawing.Size(145, 17);
+            this.labelReqDate.TabIndex = 74;
+            this.labelReqDate.Text = "________________________";
+            // 
+            // materialLabel43
+            // 
+            this.materialLabel43.AutoSize = true;
+            this.materialLabel43.Depth = 0;
+            this.materialLabel43.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel43.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.materialLabel43.Location = new System.Drawing.Point(675, 515);
+            this.materialLabel43.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel43.Name = "materialLabel43";
+            this.materialLabel43.Size = new System.Drawing.Size(62, 17);
+            this.materialLabel43.TabIndex = 73;
+            this.materialLabel43.Text = "Ngày Gửi:";
+            // 
+            // labelReqContent
+            // 
+            this.labelReqContent.Depth = 0;
+            this.labelReqContent.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelReqContent.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.labelReqContent.Location = new System.Drawing.Point(750, 484);
+            this.labelReqContent.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelReqContent.Name = "labelReqContent";
+            this.labelReqContent.Size = new System.Drawing.Size(220, 17);
+            this.labelReqContent.TabIndex = 72;
+            this.labelReqContent.Text = "________________________";
+            // 
+            // materialLabel45
+            // 
+            this.materialLabel45.AutoSize = true;
+            this.materialLabel45.Depth = 0;
+            this.materialLabel45.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel45.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.materialLabel45.Location = new System.Drawing.Point(676, 484);
+            this.materialLabel45.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel45.Name = "materialLabel45";
+            this.materialLabel45.Size = new System.Drawing.Size(61, 17);
+            this.materialLabel45.TabIndex = 71;
+            this.materialLabel45.Text = "Nội Dung:";
+            // 
+            // labelReqUser
+            // 
+            this.labelReqUser.AutoSize = true;
+            this.labelReqUser.Depth = 0;
+            this.labelReqUser.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelReqUser.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.labelReqUser.Location = new System.Drawing.Point(750, 458);
+            this.labelReqUser.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelReqUser.Name = "labelReqUser";
+            this.labelReqUser.Size = new System.Drawing.Size(145, 17);
+            this.labelReqUser.TabIndex = 70;
+            this.labelReqUser.Text = "________________________";
+            // 
+            // materialLabel65
+            // 
+            this.materialLabel65.AutoSize = true;
+            this.materialLabel65.Depth = 0;
+            this.materialLabel65.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel65.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.materialLabel65.Location = new System.Drawing.Point(676, 458);
+            this.materialLabel65.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel65.Name = "materialLabel65";
+            this.materialLabel65.Size = new System.Drawing.Size(68, 17);
+            this.materialLabel65.TabIndex = 69;
+            this.materialLabel65.Text = "Người gửi: ";
+            // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1013,5 +1133,13 @@
         private MaterialSkin.Controls.MaterialComboBox comboBoxTime;
         private MaterialSkin.Controls.MaterialLabel materialLabel50;
         private MaterialSkin.Controls.MaterialLabel materialLabel48;
+        private MaterialSkin.Controls.MaterialLabel labelReqState;
+        private MaterialSkin.Controls.MaterialLabel materialLabel38;
+        private MaterialSkin.Controls.MaterialLabel labelReqDate;
+        private MaterialSkin.Controls.MaterialLabel materialLabel43;
+        private MaterialSkin.Controls.MaterialLabel labelReqContent;
+        private MaterialSkin.Controls.MaterialLabel materialLabel45;
+        private MaterialSkin.Controls.MaterialLabel labelReqUser;
+        private MaterialSkin.Controls.MaterialLabel materialLabel65;
     }
 }
