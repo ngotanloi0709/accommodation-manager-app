@@ -169,12 +169,13 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        // Query System
         private void LoadBillData()
         {
             Bills = _billService.GetAllWithContractWithRoomAndUser();
             InsertBillIntoListView(Bills);
         }
+
+        // Query System
         private void buttonPriceSearch_Click(object sender, EventArgs e)
         {
             BillStatus state = BillUtils.ToBillStatus((string)comboBoxState.SelectedItem);

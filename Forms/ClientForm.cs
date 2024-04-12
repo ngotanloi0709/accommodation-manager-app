@@ -60,7 +60,7 @@ namespace AccommodationManagerApp.Forms
             }
         }
 
-        private void logout(object sender, System.EventArgs e)
+        private void Logout(object sender, System.EventArgs e)
         {
             var confirmation = new ConfirmationForm("Bạn có muốn đăng xuất");
             var result = confirmation.ShowDialog();

@@ -1,4 +1,5 @@
-﻿using AccommodationManagerApp.Util;
+﻿using AccommodationManagerApp.Model;
+using AccommodationManagerApp.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +26,7 @@ namespace AccommodationManagerApp.Forms
             foreach (var bill in bills)
             {
                 var item = new ListViewItem(bill.Id.ToString());
-                item.SubItems.Add(bill.ElectricityQuantity.ToString());
-                item.SubItems.Add(bill.WaterQuantity.ToString());
+                item.SubItems.Add(FormatText.IntegerToVnd(bill.RentFee));
                 item.SubItems.Add(bill.Contract?.Room.RoomNumber.ToString() ?? "Trống");
                 item.SubItems.Add(bill.User.Name);
                 item.SubItems.Add(bill.DateOfBillFormatted);
@@ -52,40 +52,29 @@ namespace AccommodationManagerApp.Forms
             billDetail.ShowDialog();
         }
 
-        // Query System
         private void LoadBillData()
         {
             _Bills = _billService.GetAllByUserIdWithContractWithRoomAndUser(_user.Id);
             InsertBillIntoListView(_Bills);
         }
+        // Query System
 
-        private void ComboBoxCatg_SelectedIndexChanged(object sender, EventArgs e)
+        private void ButtonPriceSearch_Click(object sender, EventArgs e)
         {
-            int queryRouter;
-            queryRouter = comboBoxCatg.SelectedIndex;
-            switch (queryRouter)
+            BillStatus state = BillUtils.ToBillStatus((string)comboBoxState.SelectedItem);
+            List<object> time = BillUtils.ChangeTextToDate((string)comboBoxTime.SelectedItem);
+            List<string> text = new List<string> { null, null};
+            int? minPrice = int.TryParse(textBoxMinPrice.Text, out int min) ? min : (int?)null;
+            int? maxPrice = int.TryParse(textBoxMaxPrice.Text, out int max) ? max : (int?)null;
+
+            if (BillUtils.CheckMinMaxPrice(minPrice, maxPrice))
             {
-                case 0:
-                    LoadBillData();
-                    SetUpComboBoxVolumn(new List<string> { "Mức độ" });
-                    break;
-                case 1:
-                    SetUpComboBoxVolumn(new List<string> { "Chưa Thanh Toán", "Đã Thanh Toán" });
-                    break;
-                case 2:
-                    SetUpComboBoxVolumn(new List<string> { "Tháng này", "Tháng Sau", "Tháng Trước" });
-                    break;
-                case 3:
-                    SetUpComboBoxVolumn(new List<string> { "Tăng", "Giảm" });
-                    break;
+                var queryBills = _billService.GetByCustomizeQuery(_Bills, state, time, text, minPrice, maxPrice);
+                InsertBillIntoListView(queryBills);
             }
-        }
-
-        private void SetUpComboBoxVolumn(List<string> volumn)
-        {
-            comboBoxVolumn.Items.Clear();
-            comboBoxVolumn.Items.AddRange(volumn.ToArray());
-            comboBoxVolumn.SelectedIndex = 0;
+            else
+                new ToastForm("Xin mời nhập giá sàn thấp hơn giá trần", true).Show();
+            return;
         }
     }
 }
