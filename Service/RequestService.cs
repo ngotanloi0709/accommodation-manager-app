@@ -59,5 +59,7 @@ namespace AccommodationManagerApp.Service
         {
             return _requestRepository.GetAllByUserId(id);
         }
+
+        public List<Request> GetAllWithUser() => _requestRepository.GetAllWithUser();
     }
 }

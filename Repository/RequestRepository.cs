@@ -11,5 +11,7 @@ namespace AccommodationManagerApp.Repository
         {
             return Context.Set<Request>().Where(u => u.UserId == id).ToList();
         }
+
+        public List<Request> GetAllWithUser() => Context.Set<Request>().Include("User").ToList();
     }
 }
