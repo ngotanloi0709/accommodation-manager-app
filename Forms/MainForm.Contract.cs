@@ -291,9 +291,9 @@ namespace AccommodationManagerApp.Forms {
                 new ToastForm("Xin chọn ngày tháng phù hợp", true).Show();
                 return;
             }
-            List<string> text = QueryUtils.ChangeSearchInput((string)comboBoxContractSearch.SelectedItem, textBoxContractSearch.Text);
             int? minPrice = int.TryParse(textBoxContractMinPrice.Text, out int min) ? min : (int?)null;
             int? maxPrice = int.TryParse(textBoxContractMaxPrice.Text, out int max) ? max : (int?)null;
+            List<string> text = QueryUtils.ChangeSearchInput((string)comboBoxContractSearch.SelectedItem, textBoxContractSearch.Text);
             if (QueryUtils.CheckMinMaxPrice(minPrice, maxPrice))
             {
                 var queryContract = _contractService.GetByCustomizeQuery(Contracts,startDate, endDate, text, minPrice, maxPrice);

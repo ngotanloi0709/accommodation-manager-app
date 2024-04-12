@@ -44,7 +44,7 @@ namespace AccommodationManagerApp.Util
                 case "Lịch Sử":
                     return 0;
                 case "Tháng Này":
-                    return DateTime.Now.Month;
+                    return -2;
                 case "Năm Nay":
                     return DateTime.Now.Year;
                 case "Tháng 01":
@@ -79,6 +79,7 @@ namespace AccommodationManagerApp.Util
         public static List<object> ChangeTextToDate(this string text)
         {
             int router = TimeToNumber(text);
+            if(router == -2) return new List<object>() { false, DateTime.Now.Month, DateTime.Now.Year };
             if (router == -1) return new List<object>() { false, null, null };
             if (router == 0) return new List<object>() { true, null, null};
             if (router <= 12) return new List<object>() { false, router, null };
