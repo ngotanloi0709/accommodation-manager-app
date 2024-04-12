@@ -409,6 +409,12 @@
     <Compile Include="Forms\ViewUserInformation.Designer.cs">
       <DependentUpon>ViewUserInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ViewUserRoomInfor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ViewUserRoomInfor.Designer.cs">
+      <DependentUpon>ViewUserRoomInfor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ViewUserTransactionInfor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -544,6 +550,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ViewUserInformation.resx">
       <DependentUpon>ViewUserInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ViewUserRoomInfor.resx">
+      <DependentUpon>ViewUserRoomInfor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ViewUserTransactionInfor.resx">
       <DependentUpon>ViewUserTransactionInfor.cs</DependentUpon>
