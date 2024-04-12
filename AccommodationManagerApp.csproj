@@ -547,6 +547,7 @@
     <None Include="Resources\next.png" />
     <None Include="Resources\check-list.png" />
     <None Include="Resources\email.png" />
+    <None Include="Resources\ParkLine-apartment-in-Miami-FL.jpg" />
     <Content Include="Resources\Roboto-Medium.ttf" />
     <Content Include="Resources\Roboto-Regular.ttf" />
     <None Include="Resources\signature.jpg" />
