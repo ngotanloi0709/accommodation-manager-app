@@ -19,11 +19,11 @@ namespace AccommodationManagerApp {
             ActiveMigration();
             
             var authenticationService = _serviceProvider.GetService<AuthenticationService>();
-            // authenticationService.Authenticate("ngotanloi0709@gmail.com", "123");
-            authenticationService.Authenticate("ql7769663@gmail.com", "123");
+            authenticationService.Authenticate("ngotanloi0709@gmail.com", "123");
+            // authenticationService.Authenticate("ql7769663@gmail.com", "123");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ClientForm());
+            Application.Run(new MainForm());
         }
 
         private static void ConfigureServices()
@@ -42,7 +42,6 @@ namespace AccommodationManagerApp {
             services.AddSingleton<BillService>();
             services.AddSingleton<ContractService>();
             services.AddSingleton<RequestService>();
-            services.AddSingleton<ResponseService>();
             // Repositories
             services.AddSingleton<BillRepository>();
             services.AddSingleton<UserRepository>();
@@ -52,7 +51,6 @@ namespace AccommodationManagerApp {
             services.AddSingleton<InitLogRepository>();
             services.AddSingleton<ContractRepository>();
             services.AddSingleton<RequestRepository>();
-            services.AddSingleton<ResponseRepository>();
             services.AddSingleton<FixedPriceRepository>();
 
             _serviceProvider = services.BuildServiceProvider();
