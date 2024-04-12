@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.drawerImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabPageContract = new System.Windows.Forms.TabPage();
@@ -244,6 +244,8 @@
             this.dateBill = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.stateBill = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageRequest = new System.Windows.Forms.TabPage();
+            this.comboBoxReqState = new MaterialSkin.Controls.MaterialComboBox();
+            this.comboBoxReqTime = new MaterialSkin.Controls.MaterialComboBox();
             this.labelReqState = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel38 = new MaterialSkin.Controls.MaterialLabel();
             this.labelReqDate = new MaterialSkin.Controls.MaterialLabel();
@@ -254,9 +256,6 @@
             this.materialLabel65 = new MaterialSkin.Controls.MaterialLabel();
             this.buttonResponse = new MaterialSkin.Controls.MaterialButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.cmbbxReqCate = new MaterialSkin.Controls.MaterialComboBox();
-            this.btnReqSearch = new MaterialSkin.Controls.MaterialButton();
-            this.txtReqSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.lstViewReq = new MaterialSkin.Controls.MaterialListView();
             this.idReq = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.desReq = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -266,6 +265,9 @@
             this.labelCurrentUserEmail = new System.Windows.Forms.Label();
             this.buttonCurrentUserInformationManagement = new MaterialSkin.Controls.MaterialButton();
             this.btnLogout = new MaterialSkin.Controls.MaterialButton();
+            this.comboBoxReqSearch = new MaterialSkin.Controls.MaterialComboBox();
+            this.textBoxReqSearch = new MaterialSkin.Controls.MaterialTextBox();
+            this.buttonReqSearch = new MaterialSkin.Controls.MaterialButton();
             this.tabPageContract.SuspendLayout();
             this.tabPageSystemUser.SuspendLayout();
             this.tabPageTenants.SuspendLayout();
@@ -2437,16 +2439,16 @@
             // 
             // RoomInBuildingChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.RoomInBuildingChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.RoomInBuildingChart.Legends.Add(legend2);
+            chartArea3.Name = "ChartArea1";
+            this.RoomInBuildingChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.RoomInBuildingChart.Legends.Add(legend3);
             this.RoomInBuildingChart.Location = new System.Drawing.Point(480, 398);
             this.RoomInBuildingChart.Name = "RoomInBuildingChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Number of room";
-            this.RoomInBuildingChart.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Number of room";
+            this.RoomInBuildingChart.Series.Add(series3);
             this.RoomInBuildingChart.Size = new System.Drawing.Size(413, 233);
             this.RoomInBuildingChart.TabIndex = 64;
             this.RoomInBuildingChart.Text = "chart1";
@@ -3594,6 +3596,11 @@
             // tabPageRequest
             // 
             this.tabPageRequest.BackColor = System.Drawing.Color.White;
+            this.tabPageRequest.Controls.Add(this.buttonReqSearch);
+            this.tabPageRequest.Controls.Add(this.textBoxReqSearch);
+            this.tabPageRequest.Controls.Add(this.comboBoxReqSearch);
+            this.tabPageRequest.Controls.Add(this.comboBoxReqState);
+            this.tabPageRequest.Controls.Add(this.comboBoxReqTime);
             this.tabPageRequest.Controls.Add(this.labelReqState);
             this.tabPageRequest.Controls.Add(this.materialLabel38);
             this.tabPageRequest.Controls.Add(this.labelReqDate);
@@ -3604,9 +3611,6 @@
             this.tabPageRequest.Controls.Add(this.materialLabel65);
             this.tabPageRequest.Controls.Add(this.buttonResponse);
             this.tabPageRequest.Controls.Add(this.pictureBox2);
-            this.tabPageRequest.Controls.Add(this.cmbbxReqCate);
-            this.tabPageRequest.Controls.Add(this.btnReqSearch);
-            this.tabPageRequest.Controls.Add(this.txtReqSearch);
             this.tabPageRequest.Controls.Add(this.lstViewReq);
             this.tabPageRequest.ImageKey = "request.png";
             this.tabPageRequest.Location = new System.Drawing.Point(4, 39);
@@ -3616,6 +3620,71 @@
             this.tabPageRequest.TabIndex = 8;
             this.tabPageRequest.Text = "Yêu Cầu";
             this.tabPageRequest.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxReqState
+            // 
+            this.comboBoxReqState.AutoResize = false;
+            this.comboBoxReqState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxReqState.Depth = 0;
+            this.comboBoxReqState.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxReqState.DropDownHeight = 174;
+            this.comboBoxReqState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxReqState.DropDownWidth = 121;
+            this.comboBoxReqState.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBoxReqState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxReqState.FormattingEnabled = true;
+            this.comboBoxReqState.IntegralHeight = false;
+            this.comboBoxReqState.ItemHeight = 43;
+            this.comboBoxReqState.Items.AddRange(new object[] {
+            "Tình Trạng",
+            "Chưa Xử Lý",
+            "Đã Xử Lý"});
+            this.comboBoxReqState.Location = new System.Drawing.Point(162, 24);
+            this.comboBoxReqState.MaxDropDownItems = 4;
+            this.comboBoxReqState.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboBoxReqState.Name = "comboBoxReqState";
+            this.comboBoxReqState.Size = new System.Drawing.Size(132, 49);
+            this.comboBoxReqState.StartIndex = 0;
+            this.comboBoxReqState.TabIndex = 70;
+            // 
+            // comboBoxReqTime
+            // 
+            this.comboBoxReqTime.AutoResize = false;
+            this.comboBoxReqTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxReqTime.Depth = 0;
+            this.comboBoxReqTime.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxReqTime.DropDownHeight = 174;
+            this.comboBoxReqTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxReqTime.DropDownWidth = 121;
+            this.comboBoxReqTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBoxReqTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxReqTime.FormattingEnabled = true;
+            this.comboBoxReqTime.IntegralHeight = false;
+            this.comboBoxReqTime.ItemHeight = 43;
+            this.comboBoxReqTime.Items.AddRange(new object[] {
+            "Tất Cả",
+            "Tháng Này",
+            "Năm Nay",
+            "Lịch Sử",
+            "Tháng 01",
+            "Tháng 02",
+            "Tháng 03",
+            "Tháng 04",
+            "Tháng 05",
+            "Tháng 06",
+            "Tháng 07",
+            "Tháng 08",
+            "Tháng 09",
+            "Tháng 10",
+            "Tháng 11",
+            "Tháng 12"});
+            this.comboBoxReqTime.Location = new System.Drawing.Point(28, 24);
+            this.comboBoxReqTime.MaxDropDownItems = 4;
+            this.comboBoxReqTime.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboBoxReqTime.Name = "comboBoxReqTime";
+            this.comboBoxReqTime.Size = new System.Drawing.Size(128, 49);
+            this.comboBoxReqTime.StartIndex = 0;
+            this.comboBoxReqTime.TabIndex = 69;
             // 
             // labelReqState
             // 
@@ -3751,76 +3820,6 @@
             this.pictureBox2.TabIndex = 34;
             this.pictureBox2.TabStop = false;
             // 
-            // cmbbxReqCate
-            // 
-            this.cmbbxReqCate.AutoResize = false;
-            this.cmbbxReqCate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cmbbxReqCate.Depth = 0;
-            this.cmbbxReqCate.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbbxReqCate.DropDownHeight = 174;
-            this.cmbbxReqCate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbbxReqCate.DropDownWidth = 121;
-            this.cmbbxReqCate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.cmbbxReqCate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cmbbxReqCate.FormattingEnabled = true;
-            this.cmbbxReqCate.IntegralHeight = false;
-            this.cmbbxReqCate.ItemHeight = 43;
-            this.cmbbxReqCate.Items.AddRange(new object[] {
-            "Ngày",
-            "Phòng",
-            "Khách Hàng",
-            "Giá",
-            "Điện",
-            "Nước",
-            "Phí Thuê"});
-            this.cmbbxReqCate.Location = new System.Drawing.Point(28, 42);
-            this.cmbbxReqCate.MaxDropDownItems = 4;
-            this.cmbbxReqCate.MouseState = MaterialSkin.MouseState.OUT;
-            this.cmbbxReqCate.Name = "cmbbxReqCate";
-            this.cmbbxReqCate.Size = new System.Drawing.Size(87, 49);
-            this.cmbbxReqCate.StartIndex = 0;
-            this.cmbbxReqCate.TabIndex = 33;
-            // 
-            // btnReqSearch
-            // 
-            this.btnReqSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnReqSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnReqSearch.Depth = 0;
-            this.btnReqSearch.HighEmphasis = true;
-            this.btnReqSearch.Icon = global::AccommodationManagerApp.Properties.Resources.search;
-            this.btnReqSearch.Location = new System.Drawing.Point(622, 48);
-            this.btnReqSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnReqSearch.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnReqSearch.Name = "btnReqSearch";
-            this.btnReqSearch.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnReqSearch.Size = new System.Drawing.Size(106, 36);
-            this.btnReqSearch.TabIndex = 31;
-            this.btnReqSearch.Text = "Search";
-            this.btnReqSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnReqSearch.UseAccentColor = false;
-            this.btnReqSearch.UseCompatibleTextRendering = true;
-            this.btnReqSearch.UseVisualStyleBackColor = true;
-            // 
-            // txtReqSearch
-            // 
-            this.txtReqSearch.AnimateReadOnly = false;
-            this.txtReqSearch.BackColor = System.Drawing.SystemColors.Control;
-            this.txtReqSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtReqSearch.Depth = 0;
-            this.txtReqSearch.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtReqSearch.ForeColor = System.Drawing.Color.Transparent;
-            this.txtReqSearch.Hint = "Tìm Kiếm";
-            this.txtReqSearch.LeadingIcon = null;
-            this.txtReqSearch.Location = new System.Drawing.Point(121, 41);
-            this.txtReqSearch.MaxLength = 50;
-            this.txtReqSearch.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtReqSearch.Multiline = false;
-            this.txtReqSearch.Name = "txtReqSearch";
-            this.txtReqSearch.Size = new System.Drawing.Size(494, 50);
-            this.txtReqSearch.TabIndex = 32;
-            this.txtReqSearch.Text = "";
-            this.txtReqSearch.TrailingIcon = null;
-            // 
             // lstViewReq
             // 
             this.lstViewReq.Alignment = System.Windows.Forms.ListViewAlignment.Default;
@@ -3929,6 +3928,69 @@
             this.btnLogout.UseAccentColor = false;
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.Logout);
+            // 
+            // comboBoxReqSearch
+            // 
+            this.comboBoxReqSearch.AutoResize = false;
+            this.comboBoxReqSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxReqSearch.Depth = 0;
+            this.comboBoxReqSearch.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxReqSearch.DropDownHeight = 174;
+            this.comboBoxReqSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxReqSearch.DropDownWidth = 121;
+            this.comboBoxReqSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBoxReqSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxReqSearch.FormattingEnabled = true;
+            this.comboBoxReqSearch.IntegralHeight = false;
+            this.comboBoxReqSearch.ItemHeight = 43;
+            this.comboBoxReqSearch.Items.AddRange(new object[] {
+            "Tên Người"});
+            this.comboBoxReqSearch.Location = new System.Drawing.Point(300, 24);
+            this.comboBoxReqSearch.MaxDropDownItems = 4;
+            this.comboBoxReqSearch.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboBoxReqSearch.Name = "comboBoxReqSearch";
+            this.comboBoxReqSearch.Size = new System.Drawing.Size(165, 49);
+            this.comboBoxReqSearch.StartIndex = 0;
+            this.comboBoxReqSearch.TabIndex = 71;
+            // 
+            // textBoxReqSearch
+            // 
+            this.textBoxReqSearch.AnimateReadOnly = false;
+            this.textBoxReqSearch.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxReqSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxReqSearch.Depth = 0;
+            this.textBoxReqSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxReqSearch.ForeColor = System.Drawing.Color.Transparent;
+            this.textBoxReqSearch.LeadingIcon = null;
+            this.textBoxReqSearch.Location = new System.Drawing.Point(471, 25);
+            this.textBoxReqSearch.MaxLength = 50;
+            this.textBoxReqSearch.MouseState = MaterialSkin.MouseState.OUT;
+            this.textBoxReqSearch.Multiline = false;
+            this.textBoxReqSearch.Name = "textBoxReqSearch";
+            this.textBoxReqSearch.Size = new System.Drawing.Size(306, 50);
+            this.textBoxReqSearch.TabIndex = 72;
+            this.textBoxReqSearch.Text = "";
+            this.textBoxReqSearch.TrailingIcon = null;
+            // 
+            // buttonReqSearch
+            // 
+            this.buttonReqSearch.AutoSize = false;
+            this.buttonReqSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonReqSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonReqSearch.Depth = 0;
+            this.buttonReqSearch.HighEmphasis = true;
+            this.buttonReqSearch.Icon = global::AccommodationManagerApp.Properties.Resources.search;
+            this.buttonReqSearch.Location = new System.Drawing.Point(784, 32);
+            this.buttonReqSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonReqSearch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonReqSearch.Name = "buttonReqSearch";
+            this.buttonReqSearch.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonReqSearch.Size = new System.Drawing.Size(40, 36);
+            this.buttonReqSearch.TabIndex = 73;
+            this.buttonReqSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonReqSearch.UseAccentColor = false;
+            this.buttonReqSearch.UseVisualStyleBackColor = true;
+            this.buttonReqSearch.Click += new System.EventHandler(this.ButtonReqSearch_Click);
             // 
             // MainForm
             // 
@@ -4136,9 +4198,6 @@
         private System.Windows.Forms.ColumnHeader desReq;
         private System.Windows.Forms.ColumnHeader dateReq;
         private System.Windows.Forms.ColumnHeader stateReq;
-        private MaterialSkin.Controls.MaterialComboBox cmbbxReqCate;
-        private MaterialSkin.Controls.MaterialButton btnReqSearch;
-        private MaterialSkin.Controls.MaterialTextBox txtReqSearch;
         private System.Windows.Forms.PictureBox pictureBox2;
         private MaterialSkin.Controls.MaterialButton buttonResponse;
         private MaterialSkin.Controls.MaterialButton ButtonUpdateBillStatus;
@@ -4212,5 +4271,10 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel45;
         private MaterialSkin.Controls.MaterialLabel labelReqUser;
         private MaterialSkin.Controls.MaterialLabel materialLabel65;
+        private MaterialSkin.Controls.MaterialComboBox comboBoxReqTime;
+        private MaterialSkin.Controls.MaterialComboBox comboBoxReqState;
+        private MaterialSkin.Controls.MaterialComboBox comboBoxReqSearch;
+        private MaterialSkin.Controls.MaterialTextBox textBoxReqSearch;
+        private MaterialSkin.Controls.MaterialButton buttonReqSearch;
     }
 }

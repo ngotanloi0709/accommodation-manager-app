@@ -52,16 +52,20 @@ namespace AccommodationManagerApp.Forms
         private void LstViewReq_SelectedIndexChanged(object sender, EventArgs e)
         {
             var _request = SelectRequest();
-            if (_request == null)
-            {
-                new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
-                return;
-            }
             labelReqUser.Text = _request.User.Name;
             labelReqContent.Text = _request.Des;
             labelReqDate.Text = _request.CreatedAtFormatted;
             labelReqState.Text = RequestStatusExtension.ToVietnamese(_request.Status);
+        }
 
+        // Query System
+        private void ButtonReqSearch_Click(object sender, EventArgs e)
+        {
+            List<object> time = QueryUtils.ChangeTextToDate(comboBoxReqTime.SelectedItem.ToString());
+            RequestStatus status = RequestStatusExtension.ToRequestStatus(comboBoxReqState.SelectedItem.ToString());
+            List<string> text = QueryUtils.ChangeSearchInput((string)comboBoxReqSearch.SelectedItem, textBoxReqSearch.Text);
+            var queryRequests = _requestService.GetByCustomizeQuery(_Requests, time, status, text);
+            InsertRequestIntoListView(queryRequests);
         }
     }
 }
