@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.drawerImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabPageContract = new System.Windows.Forms.TabPage();
@@ -244,13 +244,13 @@
             this.dateBill = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.stateBill = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageRequest = new System.Windows.Forms.TabPage();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.labelReqState = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel38 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel41 = new MaterialSkin.Controls.MaterialLabel();
+            this.labelReqDate = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel43 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel44 = new MaterialSkin.Controls.MaterialLabel();
+            this.labelReqContent = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel45 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel64 = new MaterialSkin.Controls.MaterialLabel();
+            this.labelReqUser = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel65 = new MaterialSkin.Controls.MaterialLabel();
             this.buttonResponse = new MaterialSkin.Controls.MaterialButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -2437,16 +2437,16 @@
             // 
             // RoomInBuildingChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.RoomInBuildingChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.RoomInBuildingChart.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.RoomInBuildingChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.RoomInBuildingChart.Legends.Add(legend2);
             this.RoomInBuildingChart.Location = new System.Drawing.Point(480, 398);
             this.RoomInBuildingChart.Name = "RoomInBuildingChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Number of room";
-            this.RoomInBuildingChart.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Number of room";
+            this.RoomInBuildingChart.Series.Add(series2);
             this.RoomInBuildingChart.Size = new System.Drawing.Size(413, 233);
             this.RoomInBuildingChart.TabIndex = 64;
             this.RoomInBuildingChart.Text = "chart1";
@@ -3594,13 +3594,13 @@
             // tabPageRequest
             // 
             this.tabPageRequest.BackColor = System.Drawing.Color.White;
-            this.tabPageRequest.Controls.Add(this.materialLabel2);
+            this.tabPageRequest.Controls.Add(this.labelReqState);
             this.tabPageRequest.Controls.Add(this.materialLabel38);
-            this.tabPageRequest.Controls.Add(this.materialLabel41);
+            this.tabPageRequest.Controls.Add(this.labelReqDate);
             this.tabPageRequest.Controls.Add(this.materialLabel43);
-            this.tabPageRequest.Controls.Add(this.materialLabel44);
+            this.tabPageRequest.Controls.Add(this.labelReqContent);
             this.tabPageRequest.Controls.Add(this.materialLabel45);
-            this.tabPageRequest.Controls.Add(this.materialLabel64);
+            this.tabPageRequest.Controls.Add(this.labelReqUser);
             this.tabPageRequest.Controls.Add(this.materialLabel65);
             this.tabPageRequest.Controls.Add(this.buttonResponse);
             this.tabPageRequest.Controls.Add(this.pictureBox2);
@@ -3617,18 +3617,18 @@
             this.tabPageRequest.Text = "Yêu Cầu";
             this.tabPageRequest.UseVisualStyleBackColor = true;
             // 
-            // materialLabel2
+            // labelReqState
             // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel2.Location = new System.Drawing.Point(710, 427);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(127, 17);
-            this.materialLabel2.TabIndex = 68;
-            this.materialLabel2.Text = "_____________________";
+            this.labelReqState.AutoSize = true;
+            this.labelReqState.Depth = 0;
+            this.labelReqState.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelReqState.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.labelReqState.Location = new System.Drawing.Point(710, 427);
+            this.labelReqState.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelReqState.Name = "labelReqState";
+            this.labelReqState.Size = new System.Drawing.Size(127, 17);
+            this.labelReqState.TabIndex = 68;
+            this.labelReqState.Text = "_____________________";
             // 
             // materialLabel38
             // 
@@ -3643,18 +3643,18 @@
             this.materialLabel38.TabIndex = 67;
             this.materialLabel38.Text = "Tình Trạng: ";
             // 
-            // materialLabel41
+            // labelReqDate
             // 
-            this.materialLabel41.AutoSize = true;
-            this.materialLabel41.Depth = 0;
-            this.materialLabel41.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel41.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel41.Location = new System.Drawing.Point(692, 404);
-            this.materialLabel41.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel41.Name = "materialLabel41";
-            this.materialLabel41.Size = new System.Drawing.Size(145, 17);
-            this.materialLabel41.TabIndex = 66;
-            this.materialLabel41.Text = "________________________";
+            this.labelReqDate.AutoSize = true;
+            this.labelReqDate.Depth = 0;
+            this.labelReqDate.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelReqDate.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.labelReqDate.Location = new System.Drawing.Point(692, 404);
+            this.labelReqDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelReqDate.Name = "labelReqDate";
+            this.labelReqDate.Size = new System.Drawing.Size(145, 17);
+            this.labelReqDate.TabIndex = 66;
+            this.labelReqDate.Text = "________________________";
             // 
             // materialLabel43
             // 
@@ -3669,17 +3669,17 @@
             this.materialLabel43.TabIndex = 65;
             this.materialLabel43.Text = "Ngày Gửi:";
             // 
-            // materialLabel44
+            // labelReqContent
             // 
-            this.materialLabel44.Depth = 0;
-            this.materialLabel44.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel44.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel44.Location = new System.Drawing.Point(695, 373);
-            this.materialLabel44.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel44.Name = "materialLabel44";
-            this.materialLabel44.Size = new System.Drawing.Size(259, 17);
-            this.materialLabel44.TabIndex = 64;
-            this.materialLabel44.Text = "________________________";
+            this.labelReqContent.Depth = 0;
+            this.labelReqContent.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelReqContent.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.labelReqContent.Location = new System.Drawing.Point(695, 373);
+            this.labelReqContent.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelReqContent.Name = "labelReqContent";
+            this.labelReqContent.Size = new System.Drawing.Size(253, 17);
+            this.labelReqContent.TabIndex = 64;
+            this.labelReqContent.Text = "________________________";
             // 
             // materialLabel45
             // 
@@ -3694,18 +3694,18 @@
             this.materialLabel45.TabIndex = 63;
             this.materialLabel45.Text = "Nội Dung:";
             // 
-            // materialLabel64
+            // labelReqUser
             // 
-            this.materialLabel64.AutoSize = true;
-            this.materialLabel64.Depth = 0;
-            this.materialLabel64.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel64.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel64.Location = new System.Drawing.Point(695, 347);
-            this.materialLabel64.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel64.Name = "materialLabel64";
-            this.materialLabel64.Size = new System.Drawing.Size(145, 17);
-            this.materialLabel64.TabIndex = 60;
-            this.materialLabel64.Text = "________________________";
+            this.labelReqUser.AutoSize = true;
+            this.labelReqUser.Depth = 0;
+            this.labelReqUser.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.labelReqUser.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.labelReqUser.Location = new System.Drawing.Point(695, 347);
+            this.labelReqUser.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelReqUser.Name = "labelReqUser";
+            this.labelReqUser.Size = new System.Drawing.Size(145, 17);
+            this.labelReqUser.TabIndex = 60;
+            this.labelReqUser.Text = "________________________";
             // 
             // materialLabel65
             // 
@@ -4204,13 +4204,13 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
         private MaterialSkin.Controls.MaterialLabel materialLabel60;
         private MaterialSkin.Controls.MaterialLabel materialLabel62;
-        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialLabel labelReqState;
         private MaterialSkin.Controls.MaterialLabel materialLabel38;
-        private MaterialSkin.Controls.MaterialLabel materialLabel41;
+        private MaterialSkin.Controls.MaterialLabel labelReqDate;
         private MaterialSkin.Controls.MaterialLabel materialLabel43;
-        private MaterialSkin.Controls.MaterialLabel materialLabel44;
+        private MaterialSkin.Controls.MaterialLabel labelReqContent;
         private MaterialSkin.Controls.MaterialLabel materialLabel45;
-        private MaterialSkin.Controls.MaterialLabel materialLabel64;
+        private MaterialSkin.Controls.MaterialLabel labelReqUser;
         private MaterialSkin.Controls.MaterialLabel materialLabel65;
     }
 }

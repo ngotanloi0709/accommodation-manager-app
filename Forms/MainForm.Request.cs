@@ -31,7 +31,11 @@ namespace AccommodationManagerApp.Forms
         private void ButtonResponse_Click(object sender, EventArgs e)
         {
             _request = SelectRequest();
-            if (_request == null) return;
+            if (_request == null)
+            {
+                new ToastForm("Mời bạn chọn yêu cầu !", true).Show();
+                return;
+            }
             _request.Status = RequestStatus.Solved;
             _requestService.Update(_request.Id,_request);
             LoadRequestData();
@@ -43,7 +47,6 @@ namespace AccommodationManagerApp.Forms
                 var index = lstViewReq.SelectedItems[0].Index;
                 if (index < _Requests.Count) return _Requests[index];
             }
-            new ToastForm("Mời bạn chọn yêu cầu !", true).Show();
             return null;
         }
         private void LstViewReq_SelectedIndexChanged(object sender, EventArgs e)
@@ -54,6 +57,10 @@ namespace AccommodationManagerApp.Forms
                 new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
                 return;
             }
+            labelReqUser.Text = _request.User.Name;
+            labelReqContent.Text = _request.Des;
+            labelReqDate.Text = _request.CreatedAtFormatted;
+            labelReqState.Text = RequestStatusExtension.ToVietnamese(_request.Status);
 
         }
     }
