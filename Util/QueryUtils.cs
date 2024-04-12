@@ -148,5 +148,17 @@ namespace AccommodationManagerApp.Util
             }
         }
        
+    
+        public static bool? TerminateContract(this string status)
+        {
+            switch(status)
+            {
+                case "Còn Hiệu Lực":
+                    return true;
+                case "Hết Hiệu Lực":
+                    return false;
+                default: return null;
+            }
+        }
     }
 }

@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.drawerImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabPageContract = new System.Windows.Forms.TabPage();
@@ -40,12 +40,7 @@
             this.comboBoxContractStartDate = new MaterialSkin.Controls.MaterialComboBox();
             this.materialLabel18 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel51 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel52 = new MaterialSkin.Controls.MaterialLabel();
             this.buttonContractSearch = new MaterialSkin.Controls.MaterialButton();
-            this.materialLabel53 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel54 = new MaterialSkin.Controls.MaterialLabel();
-            this.textBoxContractMaxPrice = new MaterialSkin.Controls.MaterialTextBox();
-            this.textBoxContractMinPrice = new MaterialSkin.Controls.MaterialTextBox();
             this.comboBoxContractSearch = new MaterialSkin.Controls.MaterialComboBox();
             this.comboBoxContractEndDate = new MaterialSkin.Controls.MaterialComboBox();
             this.textBoxContractSearch = new MaterialSkin.Controls.MaterialTextBox();
@@ -244,6 +239,9 @@
             this.dateBill = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.stateBill = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageRequest = new System.Windows.Forms.TabPage();
+            this.buttonReqSearch = new MaterialSkin.Controls.MaterialButton();
+            this.textBoxReqSearch = new MaterialSkin.Controls.MaterialTextBox();
+            this.comboBoxReqSearch = new MaterialSkin.Controls.MaterialComboBox();
             this.comboBoxReqState = new MaterialSkin.Controls.MaterialComboBox();
             this.comboBoxReqTime = new MaterialSkin.Controls.MaterialComboBox();
             this.labelReqState = new MaterialSkin.Controls.MaterialLabel();
@@ -265,9 +263,7 @@
             this.labelCurrentUserEmail = new System.Windows.Forms.Label();
             this.buttonCurrentUserInformationManagement = new MaterialSkin.Controls.MaterialButton();
             this.btnLogout = new MaterialSkin.Controls.MaterialButton();
-            this.comboBoxReqSearch = new MaterialSkin.Controls.MaterialComboBox();
-            this.textBoxReqSearch = new MaterialSkin.Controls.MaterialTextBox();
-            this.buttonReqSearch = new MaterialSkin.Controls.MaterialButton();
+            this.comboBoxContractTerminate = new MaterialSkin.Controls.MaterialComboBox();
             this.tabPageContract.SuspendLayout();
             this.tabPageSystemUser.SuspendLayout();
             this.tabPageTenants.SuspendLayout();
@@ -302,16 +298,12 @@
             // tabPageContract
             // 
             this.tabPageContract.BackColor = System.Drawing.Color.White;
+            this.tabPageContract.Controls.Add(this.comboBoxContractTerminate);
             this.tabPageContract.Controls.Add(this.materialLabel55);
             this.tabPageContract.Controls.Add(this.comboBoxContractStartDate);
             this.tabPageContract.Controls.Add(this.materialLabel18);
             this.tabPageContract.Controls.Add(this.materialLabel51);
-            this.tabPageContract.Controls.Add(this.materialLabel52);
             this.tabPageContract.Controls.Add(this.buttonContractSearch);
-            this.tabPageContract.Controls.Add(this.materialLabel53);
-            this.tabPageContract.Controls.Add(this.materialLabel54);
-            this.tabPageContract.Controls.Add(this.textBoxContractMaxPrice);
-            this.tabPageContract.Controls.Add(this.textBoxContractMinPrice);
             this.tabPageContract.Controls.Add(this.comboBoxContractSearch);
             this.tabPageContract.Controls.Add(this.comboBoxContractEndDate);
             this.tabPageContract.Controls.Add(this.textBoxContractSearch);
@@ -402,32 +394,19 @@
             this.materialLabel18.Name = "materialLabel18";
             this.materialLabel18.Size = new System.Drawing.Size(114, 14);
             this.materialLabel18.TabIndex = 80;
-            this.materialLabel18.Text = "Hiệu Lực Hợp Đồng";
+            this.materialLabel18.Text = "Thời Hạn Hợp Đồng";
             // 
             // materialLabel51
             // 
             this.materialLabel51.Depth = 0;
             this.materialLabel51.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel51.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
-            this.materialLabel51.Location = new System.Drawing.Point(281, 66);
+            this.materialLabel51.Location = new System.Drawing.Point(479, 66);
             this.materialLabel51.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel51.Name = "materialLabel51";
             this.materialLabel51.Size = new System.Drawing.Size(144, 14);
             this.materialLabel51.TabIndex = 79;
             this.materialLabel51.Text = "Chọn hình thức tìm kiếm";
-            // 
-            // materialLabel52
-            // 
-            this.materialLabel52.AutoSize = true;
-            this.materialLabel52.Depth = 0;
-            this.materialLabel52.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel52.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
-            this.materialLabel52.Location = new System.Drawing.Point(576, 66);
-            this.materialLabel52.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel52.Name = "materialLabel52";
-            this.materialLabel52.Size = new System.Drawing.Size(359, 14);
-            this.materialLabel52.TabIndex = 78;
-            this.materialLabel52.Text = "Mời nhập khoảng giá để tìm kiếm, Lưu ý: giá sàn thấp hơn giá trần";
             // 
             // buttonContractSearch
             // 
@@ -437,7 +416,7 @@
             this.buttonContractSearch.Depth = 0;
             this.buttonContractSearch.HighEmphasis = true;
             this.buttonContractSearch.Icon = global::AccommodationManagerApp.Properties.Resources.search;
-            this.buttonContractSearch.Location = new System.Drawing.Point(897, 19);
+            this.buttonContractSearch.Location = new System.Drawing.Point(795, 19);
             this.buttonContractSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonContractSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonContractSearch.Name = "buttonContractSearch";
@@ -448,68 +427,6 @@
             this.buttonContractSearch.UseAccentColor = false;
             this.buttonContractSearch.UseVisualStyleBackColor = true;
             this.buttonContractSearch.Click += new System.EventHandler(this.ButtonContractSearch_Click);
-            // 
-            // materialLabel53
-            // 
-            this.materialLabel53.AutoSize = true;
-            this.materialLabel53.Depth = 0;
-            this.materialLabel53.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel53.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel53.Location = new System.Drawing.Point(742, 26);
-            this.materialLabel53.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel53.Name = "materialLabel53";
-            this.materialLabel53.Size = new System.Drawing.Size(45, 24);
-            this.materialLabel53.TabIndex = 76;
-            this.materialLabel53.Text = "Max:";
-            // 
-            // materialLabel54
-            // 
-            this.materialLabel54.AutoSize = true;
-            this.materialLabel54.Depth = 0;
-            this.materialLabel54.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel54.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel54.Location = new System.Drawing.Point(593, 26);
-            this.materialLabel54.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel54.Name = "materialLabel54";
-            this.materialLabel54.Size = new System.Drawing.Size(45, 24);
-            this.materialLabel54.TabIndex = 75;
-            this.materialLabel54.Text = "Min: ";
-            // 
-            // textBoxContractMaxPrice
-            // 
-            this.textBoxContractMaxPrice.AnimateReadOnly = false;
-            this.textBoxContractMaxPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxContractMaxPrice.Depth = 0;
-            this.textBoxContractMaxPrice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxContractMaxPrice.Hint = "giá trần";
-            this.textBoxContractMaxPrice.LeadingIcon = null;
-            this.textBoxContractMaxPrice.Location = new System.Drawing.Point(790, 13);
-            this.textBoxContractMaxPrice.MaxLength = 50;
-            this.textBoxContractMaxPrice.MouseState = MaterialSkin.MouseState.OUT;
-            this.textBoxContractMaxPrice.Multiline = false;
-            this.textBoxContractMaxPrice.Name = "textBoxContractMaxPrice";
-            this.textBoxContractMaxPrice.Size = new System.Drawing.Size(100, 50);
-            this.textBoxContractMaxPrice.TabIndex = 74;
-            this.textBoxContractMaxPrice.Text = "";
-            this.textBoxContractMaxPrice.TrailingIcon = null;
-            // 
-            // textBoxContractMinPrice
-            // 
-            this.textBoxContractMinPrice.AnimateReadOnly = false;
-            this.textBoxContractMinPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxContractMinPrice.Depth = 0;
-            this.textBoxContractMinPrice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxContractMinPrice.Hint = "giá sàn";
-            this.textBoxContractMinPrice.LeadingIcon = null;
-            this.textBoxContractMinPrice.Location = new System.Drawing.Point(640, 13);
-            this.textBoxContractMinPrice.MaxLength = 50;
-            this.textBoxContractMinPrice.MouseState = MaterialSkin.MouseState.OUT;
-            this.textBoxContractMinPrice.Multiline = false;
-            this.textBoxContractMinPrice.Name = "textBoxContractMinPrice";
-            this.textBoxContractMinPrice.Size = new System.Drawing.Size(100, 50);
-            this.textBoxContractMinPrice.TabIndex = 73;
-            this.textBoxContractMinPrice.Text = "";
-            this.textBoxContractMinPrice.TrailingIcon = null;
             // 
             // comboBoxContractSearch
             // 
@@ -528,7 +445,7 @@
             this.comboBoxContractSearch.Items.AddRange(new object[] {
             "Tên Người",
             "Số Phòng"});
-            this.comboBoxContractSearch.Location = new System.Drawing.Point(273, 14);
+            this.comboBoxContractSearch.Location = new System.Drawing.Point(471, 14);
             this.comboBoxContractSearch.MaxDropDownItems = 4;
             this.comboBoxContractSearch.MouseState = MaterialSkin.MouseState.OUT;
             this.comboBoxContractSearch.Name = "comboBoxContractSearch";
@@ -582,7 +499,7 @@
             this.textBoxContractSearch.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.textBoxContractSearch.ForeColor = System.Drawing.Color.Transparent;
             this.textBoxContractSearch.LeadingIcon = null;
-            this.textBoxContractSearch.Location = new System.Drawing.Point(396, 13);
+            this.textBoxContractSearch.Location = new System.Drawing.Point(594, 13);
             this.textBoxContractSearch.MaxLength = 50;
             this.textBoxContractSearch.MouseState = MaterialSkin.MouseState.OUT;
             this.textBoxContractSearch.Multiline = false;
@@ -2439,16 +2356,16 @@
             // 
             // RoomInBuildingChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.RoomInBuildingChart.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.RoomInBuildingChart.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.RoomInBuildingChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.RoomInBuildingChart.Legends.Add(legend1);
             this.RoomInBuildingChart.Location = new System.Drawing.Point(480, 398);
             this.RoomInBuildingChart.Name = "RoomInBuildingChart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Number of room";
-            this.RoomInBuildingChart.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Number of room";
+            this.RoomInBuildingChart.Series.Add(series1);
             this.RoomInBuildingChart.Size = new System.Drawing.Size(413, 233);
             this.RoomInBuildingChart.TabIndex = 64;
             this.RoomInBuildingChart.Text = "chart1";
@@ -3621,6 +3538,69 @@
             this.tabPageRequest.Text = "Yêu Cầu";
             this.tabPageRequest.UseVisualStyleBackColor = true;
             // 
+            // buttonReqSearch
+            // 
+            this.buttonReqSearch.AutoSize = false;
+            this.buttonReqSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonReqSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonReqSearch.Depth = 0;
+            this.buttonReqSearch.HighEmphasis = true;
+            this.buttonReqSearch.Icon = global::AccommodationManagerApp.Properties.Resources.search;
+            this.buttonReqSearch.Location = new System.Drawing.Point(784, 32);
+            this.buttonReqSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonReqSearch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonReqSearch.Name = "buttonReqSearch";
+            this.buttonReqSearch.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonReqSearch.Size = new System.Drawing.Size(40, 36);
+            this.buttonReqSearch.TabIndex = 73;
+            this.buttonReqSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonReqSearch.UseAccentColor = false;
+            this.buttonReqSearch.UseVisualStyleBackColor = true;
+            this.buttonReqSearch.Click += new System.EventHandler(this.ButtonReqSearch_Click);
+            // 
+            // textBoxReqSearch
+            // 
+            this.textBoxReqSearch.AnimateReadOnly = false;
+            this.textBoxReqSearch.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxReqSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxReqSearch.Depth = 0;
+            this.textBoxReqSearch.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxReqSearch.ForeColor = System.Drawing.Color.Transparent;
+            this.textBoxReqSearch.LeadingIcon = null;
+            this.textBoxReqSearch.Location = new System.Drawing.Point(471, 25);
+            this.textBoxReqSearch.MaxLength = 50;
+            this.textBoxReqSearch.MouseState = MaterialSkin.MouseState.OUT;
+            this.textBoxReqSearch.Multiline = false;
+            this.textBoxReqSearch.Name = "textBoxReqSearch";
+            this.textBoxReqSearch.Size = new System.Drawing.Size(306, 50);
+            this.textBoxReqSearch.TabIndex = 72;
+            this.textBoxReqSearch.Text = "";
+            this.textBoxReqSearch.TrailingIcon = null;
+            // 
+            // comboBoxReqSearch
+            // 
+            this.comboBoxReqSearch.AutoResize = false;
+            this.comboBoxReqSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxReqSearch.Depth = 0;
+            this.comboBoxReqSearch.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxReqSearch.DropDownHeight = 174;
+            this.comboBoxReqSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxReqSearch.DropDownWidth = 121;
+            this.comboBoxReqSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBoxReqSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxReqSearch.FormattingEnabled = true;
+            this.comboBoxReqSearch.IntegralHeight = false;
+            this.comboBoxReqSearch.ItemHeight = 43;
+            this.comboBoxReqSearch.Items.AddRange(new object[] {
+            "Tên Người"});
+            this.comboBoxReqSearch.Location = new System.Drawing.Point(300, 24);
+            this.comboBoxReqSearch.MaxDropDownItems = 4;
+            this.comboBoxReqSearch.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboBoxReqSearch.Name = "comboBoxReqSearch";
+            this.comboBoxReqSearch.Size = new System.Drawing.Size(165, 49);
+            this.comboBoxReqSearch.StartIndex = 0;
+            this.comboBoxReqSearch.TabIndex = 71;
+            // 
             // comboBoxReqState
             // 
             this.comboBoxReqState.AutoResize = false;
@@ -3929,68 +3909,31 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.Logout);
             // 
-            // comboBoxReqSearch
+            // comboBoxContractTerminate
             // 
-            this.comboBoxReqSearch.AutoResize = false;
-            this.comboBoxReqSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxReqSearch.Depth = 0;
-            this.comboBoxReqSearch.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.comboBoxReqSearch.DropDownHeight = 174;
-            this.comboBoxReqSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxReqSearch.DropDownWidth = 121;
-            this.comboBoxReqSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.comboBoxReqSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxReqSearch.FormattingEnabled = true;
-            this.comboBoxReqSearch.IntegralHeight = false;
-            this.comboBoxReqSearch.ItemHeight = 43;
-            this.comboBoxReqSearch.Items.AddRange(new object[] {
-            "Tên Người"});
-            this.comboBoxReqSearch.Location = new System.Drawing.Point(300, 24);
-            this.comboBoxReqSearch.MaxDropDownItems = 4;
-            this.comboBoxReqSearch.MouseState = MaterialSkin.MouseState.OUT;
-            this.comboBoxReqSearch.Name = "comboBoxReqSearch";
-            this.comboBoxReqSearch.Size = new System.Drawing.Size(165, 49);
-            this.comboBoxReqSearch.StartIndex = 0;
-            this.comboBoxReqSearch.TabIndex = 71;
-            // 
-            // textBoxReqSearch
-            // 
-            this.textBoxReqSearch.AnimateReadOnly = false;
-            this.textBoxReqSearch.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxReqSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxReqSearch.Depth = 0;
-            this.textBoxReqSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxReqSearch.ForeColor = System.Drawing.Color.Transparent;
-            this.textBoxReqSearch.LeadingIcon = null;
-            this.textBoxReqSearch.Location = new System.Drawing.Point(471, 25);
-            this.textBoxReqSearch.MaxLength = 50;
-            this.textBoxReqSearch.MouseState = MaterialSkin.MouseState.OUT;
-            this.textBoxReqSearch.Multiline = false;
-            this.textBoxReqSearch.Name = "textBoxReqSearch";
-            this.textBoxReqSearch.Size = new System.Drawing.Size(306, 50);
-            this.textBoxReqSearch.TabIndex = 72;
-            this.textBoxReqSearch.Text = "";
-            this.textBoxReqSearch.TrailingIcon = null;
-            // 
-            // buttonReqSearch
-            // 
-            this.buttonReqSearch.AutoSize = false;
-            this.buttonReqSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonReqSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.buttonReqSearch.Depth = 0;
-            this.buttonReqSearch.HighEmphasis = true;
-            this.buttonReqSearch.Icon = global::AccommodationManagerApp.Properties.Resources.search;
-            this.buttonReqSearch.Location = new System.Drawing.Point(784, 32);
-            this.buttonReqSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.buttonReqSearch.MouseState = MaterialSkin.MouseState.HOVER;
-            this.buttonReqSearch.Name = "buttonReqSearch";
-            this.buttonReqSearch.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonReqSearch.Size = new System.Drawing.Size(40, 36);
-            this.buttonReqSearch.TabIndex = 73;
-            this.buttonReqSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.buttonReqSearch.UseAccentColor = false;
-            this.buttonReqSearch.UseVisualStyleBackColor = true;
-            this.buttonReqSearch.Click += new System.EventHandler(this.ButtonReqSearch_Click);
+            this.comboBoxContractTerminate.AutoResize = false;
+            this.comboBoxContractTerminate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxContractTerminate.Depth = 0;
+            this.comboBoxContractTerminate.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxContractTerminate.DropDownHeight = 174;
+            this.comboBoxContractTerminate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxContractTerminate.DropDownWidth = 121;
+            this.comboBoxContractTerminate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBoxContractTerminate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxContractTerminate.FormattingEnabled = true;
+            this.comboBoxContractTerminate.IntegralHeight = false;
+            this.comboBoxContractTerminate.ItemHeight = 43;
+            this.comboBoxContractTerminate.Items.AddRange(new object[] {
+            "Hiệu Lực Hợp Đồng",
+            "Còn Hiệu Lực",
+            "Hết Hiệu Lực"});
+            this.comboBoxContractTerminate.Location = new System.Drawing.Point(275, 13);
+            this.comboBoxContractTerminate.MaxDropDownItems = 4;
+            this.comboBoxContractTerminate.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboBoxContractTerminate.Name = "comboBoxContractTerminate";
+            this.comboBoxContractTerminate.Size = new System.Drawing.Size(190, 49);
+            this.comboBoxContractTerminate.StartIndex = 0;
+            this.comboBoxContractTerminate.TabIndex = 83;
             // 
             // MainForm
             // 
@@ -4231,12 +4174,7 @@
         private MaterialSkin.Controls.MaterialComboBox comboBoxContractStartDate;
         private MaterialSkin.Controls.MaterialLabel materialLabel18;
         private MaterialSkin.Controls.MaterialLabel materialLabel51;
-        private MaterialSkin.Controls.MaterialLabel materialLabel52;
         private MaterialSkin.Controls.MaterialButton buttonContractSearch;
-        private MaterialSkin.Controls.MaterialLabel materialLabel53;
-        private MaterialSkin.Controls.MaterialLabel materialLabel54;
-        private MaterialSkin.Controls.MaterialTextBox textBoxContractMaxPrice;
-        private MaterialSkin.Controls.MaterialTextBox textBoxContractMinPrice;
         private MaterialSkin.Controls.MaterialComboBox comboBoxContractSearch;
         private MaterialSkin.Controls.MaterialComboBox comboBoxContractEndDate;
         private MaterialSkin.Controls.MaterialTextBox textBoxContractSearch;
@@ -4276,5 +4214,6 @@
         private MaterialSkin.Controls.MaterialComboBox comboBoxReqSearch;
         private MaterialSkin.Controls.MaterialTextBox textBoxReqSearch;
         private MaterialSkin.Controls.MaterialButton buttonReqSearch;
+        private MaterialSkin.Controls.MaterialComboBox comboBoxContractTerminate;
     }
 }
