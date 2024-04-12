@@ -18,7 +18,15 @@ namespace AccommodationManagerApp.Repository
                 .ToList();
         }
 
-        public List<Bill> GetByUserIdInThisMonthAnhUnpaid() => Context.Set<Bill>().Where(bill => bill.DateOfBill.Month == System.DateTime.Now.Month && bill.Status == BillStatus.Unpaid).ToList();
+        public List<Bill> GetAllBillByUserIdIncludeEdit(int userId)
+        {
+            return Context.Set<Bill>().Where(bill => bill.UserId == userId).ToList();
+        }
+
+        public List<Bill> GetByUserIdInThisMonthAnhUnpaid()
+        {
+            return Context.Set<Bill>().Where(bill => bill.DateOfBill.Month == System.DateTime.Now.Month && bill.Status == BillStatus.Unpaid).ToList();
+        }
 
         public List<Bill> GetAllWithContractWithRoomAndUser() => Context.Set<Bill>().Include("Contract").Include("Contract.Room").Include("Contract.User").ToList();
 
@@ -47,6 +55,10 @@ namespace AccommodationManagerApp.Repository
         
         public List<Bill> GetAllUnpaidBill() {
             return Context.Set<Bill>().Include("User").Where(bill => bill.Status == BillStatus.Unpaid).ToList();
+        }
+
+        public List<Bill> GetAllByUserId(int userId) {
+            return Context.Set<Bill>().Where(bill => bill.User.Id == userId).ToList();
         }
     }
 }

@@ -21,5 +21,10 @@ namespace AccommodationManagerApp.Repository {
         public List<Contract> GetByUserIdAndNonExpiredWithRoom(int userId) {
             return Context.Set<Contract>().Include("Room").Where(c => c.UserId == userId && c.IsTerminated == false).ToList();
         }
+
+        public List<Contract> GetByRoomIdAndNonExpired(int roomId)
+        {
+            return Context.Set<Contract>().Where(c => c.RoomId == roomId && c.IsTerminated == false).ToList();
+        }
     }
 }

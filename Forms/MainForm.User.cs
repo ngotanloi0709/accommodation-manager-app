@@ -264,5 +264,17 @@ namespace AccommodationManagerApp.Forms {
             var queryUser = _userService.GetByCustomizeQuery(Users, isFemale, text);
             InsertUserIntoListView(queryUser);
         }
+
+        private void btnViewInfor_Click(object sender, EventArgs e)
+        {
+            User user = IsSelectedUserValid();
+            if(user == null)
+            {
+                new ToastForm("Vui lòng chọn người thuê cần xem thông tin", true).Show();
+                return;
+            }
+            ViewUserInformation viewUserInformation = new ViewUserInformation(user);
+            viewUserInformation.ShowDialog();
+        }
     }
 }

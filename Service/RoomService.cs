@@ -66,6 +66,11 @@ namespace AccommodationManagerApp.Service {
         public bool IsRoomNumberExists(string roomNumber) {
             return _roomRepository.GetByRoomNumber(roomNumber) != null;
         }
+
+        public List<Room> GetAllWithBuildingIdAndNotTerminatedContract(int buildingId)
+        {
+            return _roomRepository.GetAllWithBuildingIdAndNotTerminatedContract(buildingId).ToList();
+        }
         
         public String GetCurrentTenantName(Room room) {
             if (room.Contracts.Count == 0) {
@@ -89,7 +94,8 @@ namespace AccommodationManagerApp.Service {
             return _roomRepository.GetById((int) id) != null;
         }
 
-        public Room GetById(int roomId) {
+
+        public Room GetById(int? roomId) {
             return _roomRepository.GetById(roomId);
         }
 
