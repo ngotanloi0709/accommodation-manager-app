@@ -17,6 +17,8 @@ namespace AccommodationManagerApp.Forms {
         private BillService _billService;
 
         public ContractForm(Contract contract) {
+            InitializeComponent();
+            
             _contractService = ServiceLocator.ServiceProvider.GetService(typeof(ContractService)) as ContractService;
             _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
             _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
@@ -25,9 +27,7 @@ namespace AccommodationManagerApp.Forms {
             _rooms = _contractService.GetAvailableRooms();
             _users = _userService.GetAllWithRoleTenant();
             
-            InitializeComponent();
             SetUpComboBox();
-            
 
             if (_contract != null) {
                 SetUpData(_contract);
@@ -168,7 +168,7 @@ namespace AccommodationManagerApp.Forms {
                 return false;
             }
 
-            if (!InputHelper.IsValidPrice(textBoxPrice.Text)) {
+            if (!InputHelper.IsValidInputNumber(textBoxPrice.Text)) {
                 new ToastForm("Vui lòng nhập giá căn hộ hợp lệ").Show();
                 return false;
             }

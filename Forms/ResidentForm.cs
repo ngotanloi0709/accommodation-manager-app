@@ -13,12 +13,12 @@ namespace AccommodationManagerApp.Forms
         
         public ResidentForm(User user, Room room)
         {
+            InitializeComponent();
+            
             _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
             _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
             _user = user;
             _room = room;
-            
-            InitializeComponent();
 
             if (_user != null) {
                 SetUpDataForUser();

@@ -178,13 +178,7 @@
             this.Sizable = false;
             this.Text = "Thêm thông tin căn hộ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RoomForm_FormClosing);
-            this.Controls.SetChildIndex(this.materialLabel1, 0);
-            this.Controls.SetChildIndex(this.textBoxRoomName, 0);
-            this.Controls.SetChildIndex(this.materialLabel2, 0);
-            this.Controls.SetChildIndex(this.ButtonSave, 0);
-            this.Controls.SetChildIndex(this.materialLabel4, 0);
-            this.Controls.SetChildIndex(this.comboBoxRoomBuilding, 0);
-            this.Controls.SetChildIndex(this.comboBoxRoomStatus, 0);
+            this.Load += new System.EventHandler(this.RoomForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

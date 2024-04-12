@@ -107,5 +107,12 @@ namespace AccommodationManagerApp.Service {
             );
             return filteredRooms.ToList();
         }
+        
+        public Contract GetCurrentContract(Room room) {
+            if (room.Contracts.Count == 0) {
+                return null;
+            }
+            return room.Contracts.FirstOrDefault(contract => contract.EndDate > DateTime.Now && !contract.IsTerminated && contract.User != null);
+        }
     }
 }

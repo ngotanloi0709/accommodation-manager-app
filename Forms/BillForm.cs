@@ -88,10 +88,22 @@ namespace AccommodationManagerApp.Forms
                 new ToastForm("Mời nhập số tiền thuê!", true).Show();
                 return false;
             }
+            
+            if (!InputHelper.IsValidInputNumber(TextBoxRent.Text))
+            {
+                new ToastForm("Vui lòng nhập số tiền thuê hợp lệ", true).Show();
+                return false;
+            }
 
             if (string.IsNullOrWhiteSpace(TextBoxInternet.Text))
             {
                 new ToastForm("Mời nhập số tiền Internet!", true).Show();
+                return false;
+            }
+            
+            if (!InputHelper.IsValidInputNumber(TextBoxInternet.Text))
+            {
+                new ToastForm("Vui lòng nhập số tiền Internet hợp lệ", true).Show();
                 return false;
             }
 
@@ -100,10 +112,22 @@ namespace AccommodationManagerApp.Forms
                 new ToastForm("Mời nhập số tiền gửi xe!", true).Show();
                 return false;
             }
+            
+            if (!InputHelper.IsValidInputNumber(TextBoxVehicle.Text))
+            {
+                new ToastForm("Vui lòng nhập số tiền gửi xe hợp lệ", true).Show();
+                return false;
+            }
 
             if (string.IsNullOrWhiteSpace(TextboxWater.Text))
             {
-                new ToastForm("Mời nhập số  nước!", true).Show();
+                new ToastForm("Mời nhập số nước!", true).Show();
+                return false;
+            }
+            
+            if (!InputHelper.IsValidInputNumber(TextboxWater.Text))
+            {
+                new ToastForm("Vui lòng nhập số tiền nước hợp lệ", true).Show();
                 return false;
             }
 
@@ -112,7 +136,13 @@ namespace AccommodationManagerApp.Forms
                 new ToastForm("Mời nhập số điện!", true).Show();
                 return false;
             }
-
+            
+            if (!InputHelper.IsValidInputNumber(TextBoxElectricity.Text))
+            {
+                new ToastForm("Vui lòng nhập số tiền điện hợp lệ", true).Show();
+                return false;
+            }
+            
             return true;
         }
 

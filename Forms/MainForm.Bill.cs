@@ -39,13 +39,14 @@ namespace AccommodationManagerApp.Forms {
 
             var billForm = new BillForm(bill, waterPrice, electricityPrice, internetPrice);
             billForm.ShowDialog();
-            
+
             if (billForm.DialogResult == DialogResult.OK) {
                 // Task.Run(() => {
                 //     SendEmail(bill);
                 //     LoadBillData();
                 // });
                 LoadBillData();
+                SelectBillAgain(bill);
             }
         }
 
@@ -56,7 +57,7 @@ namespace AccommodationManagerApp.Forms {
                 item.SubItems.Add(FormatText.IntegerToVnd(bill.RentFee));
                 item.SubItems.Add(bill.Contract?.Room.RoomNumber ?? "Trống");
                 item.SubItems.Add(bill.User.Name);
-                item.SubItems.Add(bill.DateOfBillFormatted);
+                item.SubItems.Add(bill.DateOfBill.ToString("MM/yyyy"));
                 item.SubItems.Add(bill.Status.ToVietnamese());
                 ListViewBill.Items.Add(item);
             }
@@ -94,7 +95,7 @@ namespace AccommodationManagerApp.Forms {
                         SendEmail(bill);
                     }
                 });
-                
+
                 new ToastForm("Đã gửi mail cho danh sách chưa thanh toán!").Show();
             }
         }
@@ -166,6 +167,26 @@ namespace AccommodationManagerApp.Forms {
             {
                 new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
                 return;
+            }
+            
+            var billStatusForm = new BillStatusForm(bill);
+            billStatusForm.ShowDialog();
+
+            if (billStatusForm.DialogResult == DialogResult.Cancel) return;
+            
+            if (billStatusForm.DialogResult == DialogResult.OK) {
+                new ToastForm("Cập nhật trạng thái hoá đơn thành công!").Show();
+                LoadBillData();
+                SelectBillAgain(bill);
+            }
+        }
+
+        private void SelectBillAgain(Bill bill) {
+            var index = Bills.IndexOf(bill);
+
+            if (ListViewBill.Items.Count > index) {
+                ListViewBill.Items[index].Selected = true;
+                ListViewBill.Select();
             }
         }
 

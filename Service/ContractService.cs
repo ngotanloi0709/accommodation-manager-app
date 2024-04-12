@@ -138,7 +138,7 @@ namespace AccommodationManagerApp.Service {
                 (end[1] == null || contract.EndDate.Month <= (int) end[1]) &&
                 (text[0] == null || text[0].Equals(contract.User.Name, StringComparison.OrdinalIgnoreCase)) &&
                 (text[1] == null || text[1].Equals(contract.Room.RoomNumber, StringComparison.OrdinalIgnoreCase)) &&
-                (terminated == null || contract.IsTerminated == terminated)
+                (terminated == null || contract.IsTerminated == !terminated)
             );
             return filteredContract.ToList();
         }

@@ -18,8 +18,19 @@ namespace AccommodationManagerApp.Forms {
         private void InsertUserIntoListView(List<User> users)
         {
             ListViewUser.Items.Clear();
-            foreach (var user in users)
-            {
+            foreach (var user in users) {
+                var item = new ListViewItem(string.IsNullOrEmpty(user.Name) ? Resources.NullData : user.Name);
+                item.SubItems.Add(string.IsNullOrEmpty(user.Phone) ? Resources.NullData : user.Phone);
+                item.SubItems.Add(string.IsNullOrEmpty(user.IdentityNumber) ? Resources.NullData : user.IdentityNumber);
+                ListViewUser.Items.Add(item);
+            }
+        }
+
+        private void LoadUserDataWithUnpaidBill() {
+            ListViewUser.Items.Clear();
+            Users = _userService.GetAllWithRoleTenantAndWithContractAndRoomWhereHasUnpaidBill();
+
+            foreach (var user in Users) {
                 var item = new ListViewItem(user.Name);
                 item.SubItems.Add(user.Phone);
                 item.SubItems.Add(user.IdentityNumber);
@@ -236,7 +247,13 @@ namespace AccommodationManagerApp.Forms {
         private void buttonReloadUser_Click(object sender, EventArgs e)
         {
             LoadUserData();
-            new ToastForm("Đã thực hiện tải lại dữ liệu người thuê").Show();
+            new ToastForm("Đã thực hiện tải dữ liệu người thuê").Show();
+        }
+        
+        private void ButtonUserUnpaid_Click(object sender, EventArgs e)
+        {
+            LoadUserDataWithUnpaidBill();
+            new ToastForm("Đã thực hiện tải dữ liệu người thuê nợ tiền").Show();
         }
 
         // Query System

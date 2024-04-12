@@ -44,5 +44,9 @@ namespace AccommodationManagerApp.Repository
         }
 
         public List<Bill> GetBillByStatus(BillStatus status) => Context.Set<Bill>().Where(bill => bill.Status == status).ToList(); 
+        
+        public List<Bill> GetAllUnpaidBill() {
+            return Context.Set<Bill>().Include("User").Where(bill => bill.Status == BillStatus.Unpaid).ToList();
+        }
     }
 }

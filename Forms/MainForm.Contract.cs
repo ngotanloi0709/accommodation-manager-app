@@ -7,8 +7,10 @@ using AccommodationManagerApp.Util;
 using Aspose.Words;
 
 namespace AccommodationManagerApp.Forms {
-    public partial class MainForm {
-        private void LoadContractData() {
+    public partial class MainForm
+    {
+        private void LoadContractData()
+        {
             Contracts = _contractService.GetAllWithUserAndRoom();
             InsertContractToListView(Contracts);
         }
@@ -39,18 +41,22 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        private void buttonAddContract_Click(object sender, EventArgs e) {
+        private void buttonAddContract_Click(object sender, EventArgs e)
+        {
             var contractForm = new ContractForm(null);
             contractForm.ShowDialog();
             ShowContractDialogMessageResult(contractForm.DialogResult, false);
             LoadBillData();
         }
 
-        private void buttonEditContract_Click(object sender, EventArgs e) {
+        private void buttonEditContract_Click(object sender, EventArgs e)
+        {
             var contract = IsSelectedContractValid();
 
-            if (contract != null) {
-                if (contract.IsTerminated) {
+            if (contract != null)
+            {
+                if (contract.IsTerminated)
+                {
                     new ToastForm("Hợp đồng đã kết thúc - bị thanh lý, không thể chỉnh sửa", true).Show();
                     return;
                 }
@@ -60,27 +66,33 @@ namespace AccommodationManagerApp.Forms {
                 ShowContractDialogMessageResult(contractForm.DialogResult, true);
                 SelectContractAgain(contract);
             }
-            else {
+            else
+            {
                 new ToastForm("Vui lòng chọn hợp đồng cần sửa", true).Show();
             }
         }
 
-        private void SelectContractAgain(Contract contract) {
+        private void SelectContractAgain(Contract contract)
+        {
             var index = Contracts.IndexOf(contract);
 
-            if (ListViewContract.Items.Count > index) {
+            if (ListViewContract.Items.Count > index)
+            {
                 ListViewContract.Items[index].Selected = true;
                 ListViewContract.Select();
             }
         }
 
-        private void ShowContractDialogMessageResult(DialogResult dialogResult, bool isEdit) {
+        private void ShowContractDialogMessageResult(DialogResult dialogResult, bool isEdit)
+        {
             string message;
-            if (dialogResult == DialogResult.Cancel) {
+            if (dialogResult == DialogResult.Cancel)
+            {
                 return;
             }
 
-            if (dialogResult == DialogResult.OK) {
+            if (dialogResult == DialogResult.OK)
+            {
                 DialogResult = DialogResult.OK;
 
                 ContractForeignInformationReload();
@@ -89,18 +101,22 @@ namespace AccommodationManagerApp.Forms {
                     ? "Sửa thông tin hợp đồng thành công"
                     : "Thêm thông tin hợp đồng thành công";
             }
-            else {
+            else
+            {
                 message = isEdit ? "Sửa thông tin hợp đồng thất bại" : "Thêm thông tin hợp đồng thất bại";
             }
 
             new ToastForm(message, dialogResult != DialogResult.OK).Show();
         }
 
-        private void buttonTerminateContract_Click(object sender, EventArgs e) {
+        private void buttonTerminateContract_Click(object sender, EventArgs e)
+        {
             var contract = IsSelectedContractValid();
 
-            if (contract != null) {
-                if (contract.IsTerminated) {
+            if (contract != null)
+            {
+                if (contract.IsTerminated)
+                {
                     new ToastForm("Hợp đồng đã kết thúc - bị thanh lý", true).Show();
                     return;
                 }
@@ -108,22 +124,27 @@ namespace AccommodationManagerApp.Forms {
                 var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn kết thúc hợp đồng này không?");
                 var result = confirmationForm.ShowDialog();
 
-                if (result == DialogResult.Yes) {
+                if (result == DialogResult.Yes)
+                {
                     _contractService.TerminateContract(contract);
                     ContractForeignInformationReload();
                     new ToastForm("Hợp đồng đã thanh lý").Show();
                 }
             }
-            else {
+            else
+            {
                 new ToastForm("Vui lòng chọn hợp đồng cần thao tác", true).Show();
             }
         }
 
-        private void buttonExtendContract_Click(object sender, EventArgs e) {
+        private void buttonExtendContract_Click(object sender, EventArgs e)
+        {
             var contract = IsSelectedContractValid();
 
-            if (contract != null) {
-                if (contract.IsTerminated) {
+            if (contract != null)
+            {
+                if (contract.IsTerminated)
+                {
                     new ToastForm("Hợp đồng đã kết thúc - bị thanh lý, không thể gia hạn", true).Show();
                     return;
                 }
@@ -131,22 +152,26 @@ namespace AccommodationManagerApp.Forms {
                 var contractForm = new ContractExtendForm(contract);
                 contractForm.ShowDialog();
 
-                if (contractForm.DialogResult == DialogResult.OK) {
+                if (contractForm.DialogResult == DialogResult.OK)
+                {
                     ContractForeignInformationReload();
                     new ToastForm("Gia hạn hợp đồng thành công", false).Show();
                 }
 
                 SelectContractAgain(contract);
             }
-            else {
+            else
+            {
                 new ToastForm("Vui lòng chọn hợp đồng cần sửa", true).Show();
             }
         }
 
-        private void ListViewContract_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) {
+        private void ListViewContract_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
             var contract = IsSelectedContractValid();
 
-            if (contract != null) {
+            if (contract != null)
+            {
                 var tenantName = contract.User != null ? contract.User.Name : Resources.NullData;
                 var roomNumber = contract.Room != null ? contract.Room.RoomNumber : Resources.NullData;
                 var price = FormatText.IntegerToVnd(contract.Price);
@@ -167,11 +192,14 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        private Contract IsSelectedContractValid() {
-            if (ListViewContract.SelectedItems.Count > 0) {
+        private Contract IsSelectedContractValid()
+        {
+            if (ListViewContract.SelectedItems.Count > 0)
+            {
                 var index = ListViewContract.SelectedItems[0].Index;
 
-                if (index < Contracts.Count) {
+                if (index < Contracts.Count)
+                {
                     var contract = Contracts[index];
 
                     return contract;
@@ -181,36 +209,45 @@ namespace AccommodationManagerApp.Forms {
             return null;
         }
 
-        private void ButtonDeleteContract_Click(object sender, EventArgs e) {
+        private void ButtonDeleteContract_Click(object sender, EventArgs e)
+        {
             var contract = IsSelectedContractValid();
 
-            if (contract != null) {
-                if (!IsContractSafeToDelete(contract)) {
+            if (contract != null)
+            {
+                if (!IsContractSafeToDelete(contract))
+                {
                     return;
                 }
-                
+
                 var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn xóa hợp đồng này không?");
                 var result = confirmationForm.ShowDialog();
 
-                if (result == DialogResult.Yes) {
+                if (result == DialogResult.Yes)
+                {
                     var deleteResult = _contractService.Delete(contract.Id);
 
-                    if (deleteResult) {
+                    if (deleteResult)
+                    {
                         ContractForeignInformationReload();
                         new ToastForm("Xóa thông tin hợp đồng thành công").Show();
                     }
-                    else {
+                    else
+                    {
                         new ToastForm("Xóa thông tin hợp đồng thất bại", true).Show();
                     }
                 }
             }
-            else {
+            else
+            {
                 new ToastForm("Vui lòng chọn hợp đồng cần xóa", true).Show();
             }
         }
 
-        private bool IsContractSafeToDelete(Contract contract) {
-            if (_billService.IsBillGenerated(contract)) {
+        private bool IsContractSafeToDelete(Contract contract)
+        {
+            if (_billService.IsBillGenerated(contract))
+            {
                 new ToastForm("Hợp đồng đã tạo hóa đơn, không thể xóa", true).Show();
                 return false;
             }
@@ -218,21 +255,25 @@ namespace AccommodationManagerApp.Forms {
             return true;
         }
 
-        private void ContractForeignInformationReload() {
+        private void ContractForeignInformationReload()
+        {
             LoadContractData();
             LoadUserData();
             LoadRoomData();
             LoadBillData();
         }
 
-        private void ButtonReloadContract_Click(object sender, EventArgs e) {
+        private void ButtonReloadContract_Click(object sender, EventArgs e)
+        {
             ContractForeignInformationReload();
             new ToastForm("Đã thực hiện tải lại dữ liệu hợp đồng").Show();
         }
 
-        private void ButtonExtractWord_Click(object sender, EventArgs e) {
+        private void ButtonExtractWord_Click(object sender, EventArgs e)
+        {
             var contract = IsSelectedContractValid();
-            if (contract != null) {
+            if (contract != null)
+            {
                 var date = DateTime.Now.ToString("dd/MM/yyyy");
                 var tenantName = contract.User != null ? contract.User.Name : Resources.NullData;
                 var tenantIdentityNumber = contract.User != null ? contract.User.IdentityNumber : Resources.NullData;
@@ -252,9 +293,11 @@ namespace AccommodationManagerApp.Forms {
                 saveFileDialog.Filter = "DOC Files|*.docx";
                 saveFileDialog.Title = "Save as DOCX";
                 saveFileDialog.FileName = "Contract.docx";
-                if (saveFileDialog.ShowDialog() == DialogResult.OK) {
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
                     var filePath = saveFileDialog.FileName;
-                    try {
+                    try
+                    {
                         var doc = new Document("..\\..\\Template\\contract.docx");
                         doc.MailMerge.Execute(new string[] { "This_Date" }, new[] { date });
                         doc.MailMerge.Execute(new string[] { "Tennant_Name" }, new[] { tenantName });
@@ -269,13 +312,15 @@ namespace AccommodationManagerApp.Forms {
                         MessageBox.Show("Xuất Word thành công!", "Thông báo", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                     }
-                    catch (Exception ex) {
+                    catch (Exception ex)
+                    {
                         MessageBox.Show("Lỗi khi xuất Word: " + ex.Message, "Lỗi", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                     }
                 }
             }
-            else {
+            else
+            {
                 new ToastForm("Vui lòng chọn hợp đồng cần xuất", true).Show();
             }
         }
@@ -286,17 +331,40 @@ namespace AccommodationManagerApp.Forms {
             List<object> startDate = QueryUtils.ChangeTextToDate((string)comboBoxContractStartDate.SelectedItem);
             List<object> endDate = QueryUtils.ChangeTextToDate((string)comboBoxContractEndDate.SelectedItem);
 
-            if (!QueryUtils.CheckContractDate(startDate, endDate)) 
+            if (!QueryUtils.CheckContractDate(startDate, endDate))
             {
                 new ToastForm("Xin chọn ngày tháng phù hợp", true).Show();
                 return;
             }
-            List<string> text = QueryUtils.ChangeSearchInput((string)comboBoxContractSearch.SelectedItem, textBoxContractSearch.Text);
-            bool? terminated = QueryUtils.TerminateContract((string) comboBoxContractTerminate.SelectedItem);
-            var queryContract = _contractService.GetByCustomizeQuery(Contracts,startDate, endDate, text, terminated);
+
+            List<string> text = QueryUtils.ChangeSearchInput((string)comboBoxContractSearch.SelectedItem,
+                textBoxContractSearch.Text);
+            bool? terminated = QueryUtils.TerminateContract((string)comboBoxContractTerminate.SelectedItem);
+            var queryContract = _contractService.GetByCustomizeQuery(Contracts, startDate, endDate, text, terminated);
             InsertContractToListView(queryContract);
             return;
+        }
+    
 
+    private void ButtonCheckContractBills_Click(object sender, EventArgs e)
+        {
+            var contract = IsSelectedContractValid();
+
+            if (contract == null) return;
+            
+            if (contract.IsTerminated) {
+                new ToastForm("Hợp đồng đã kết thúc - bị thanh lý, không thể khởi tạo hoá đơn", true).Show();
+                return;
+            }
+            
+            var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn tiến hành tạo những hoá đơn còn thiếu của hợp đồng này không?");
+            var result = confirmationForm.ShowDialog();
+
+            if (result != DialogResult.Yes) return;
+            
+            _billService.GenerateMissingBillsForContract(contract);
+            new ToastForm("Khởi tạo lại các hóa đơn còn thiếu thành công").Show();
+            ContractForeignInformationReload();
         }
     }
 }

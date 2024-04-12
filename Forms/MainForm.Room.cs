@@ -240,5 +240,26 @@ namespace AccommodationManagerApp.Forms {
             var queryRoom = _roomService.GetByCustomizeQuery(Rooms, building, state, text);
             InsertRoomIntoListView(queryRoom);
         }
+        
+        private void ButtonRoomContract_Click(object sender, EventArgs e)
+        {
+            var room = IsSelectedRoomValid();
+            
+            if (room == null)
+            {
+                new ToastForm("Vui lòng chọn căn hộ", true).Show();
+                return;
+            }
+
+            Contract contract = _roomService.GetCurrentContract(room);
+            
+            if (contract == null)
+            {
+                new ToastForm("Không tìm thấy hợp đồng", true).Show();
+                return;
+            }
+            
+            new ContractInfomationForm(contract).Show();
+        }
     }
 }

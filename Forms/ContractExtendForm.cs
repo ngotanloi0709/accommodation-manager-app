@@ -11,11 +11,11 @@ namespace AccommodationManagerApp.Forms {
         private readonly BillService _billService;
 
         public ContractExtendForm(Contract contract) {
+            InitializeComponent();
+            
             _contract = contract;
             _contractService = ServiceLocator.ServiceProvider.GetService(typeof(ContractService)) as ContractService;
             _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
-
-            InitializeComponent();
 
             if (_contract == null) {
                 new ToastForm("Đã có lỗi xảy ra. Vui lòng thử lại", true).Show();
