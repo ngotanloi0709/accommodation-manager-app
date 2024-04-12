@@ -35,6 +35,7 @@ namespace AccommodationManagerApp.Model
         FourWheel,
         ThreeWheel,
         Bicycle,
-        ElectricBicycle
+        ElectricBicycle,
+        Null
     }
 }

@@ -112,5 +112,14 @@ namespace AccommodationManagerApp.Util
             }
             return false;
         }
+
+        public static List<string> ChangeVehicleSearchInput(string selection, string input)
+        {
+            if (input == "") return new List<string>() { null, null, null };
+            if (selection.Equals("Tên Phương Tiện")) return new List<string>() { input, null, null };
+            if (selection.Equals("Số Phòng")) return new List<string>() { null, input, null };
+            if (selection.Equals("Biển Số")) return new List<string>() { null, null, input };
+            return null;
+        }
     }
 }

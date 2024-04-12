@@ -176,13 +176,11 @@
             this.materialLabel19 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel21 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel22 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialMaskedTextBox1 = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.ListViewVehicle = new MaterialSkin.Controls.MaterialListView();
             this.columnNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageBills = new System.Windows.Forms.TabPage();
             this.comboBoxState = new MaterialSkin.Controls.MaterialComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -247,6 +245,13 @@
             this.labelCurrentUserEmail = new System.Windows.Forms.Label();
             this.buttonCurrentUserInformationManagement = new MaterialSkin.Controls.MaterialButton();
             this.btnLogout = new MaterialSkin.Controls.MaterialButton();
+            this.comboBoxVehiclesType = new MaterialSkin.Controls.MaterialComboBox();
+            this.comboBoxVehiclesSearch = new MaterialSkin.Controls.MaterialComboBox();
+            this.textBoxVehiclesSearch = new MaterialSkin.Controls.MaterialTextBox();
+            this.buttonVehiclesSearch = new MaterialSkin.Controls.MaterialButton();
+            this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel56 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel57 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageContract.SuspendLayout();
             this.tabPageSystemUser.SuspendLayout();
             this.tabPageTenants.SuspendLayout();
@@ -2225,6 +2230,13 @@
             // tabPageVehicle
             // 
             this.tabPageVehicle.BackColor = System.Drawing.Color.White;
+            this.tabPageVehicle.Controls.Add(this.materialLabel57);
+            this.tabPageVehicle.Controls.Add(this.materialLabel56);
+            this.tabPageVehicle.Controls.Add(this.materialLabel11);
+            this.tabPageVehicle.Controls.Add(this.buttonVehiclesSearch);
+            this.tabPageVehicle.Controls.Add(this.textBoxVehiclesSearch);
+            this.tabPageVehicle.Controls.Add(this.comboBoxVehiclesSearch);
+            this.tabPageVehicle.Controls.Add(this.comboBoxVehiclesType);
             this.tabPageVehicle.Controls.Add(this.lableVehiclePrice);
             this.tabPageVehicle.Controls.Add(this.labelsomethign);
             this.tabPageVehicle.Controls.Add(this.materialFloatingActionButton1);
@@ -2239,9 +2251,7 @@
             this.tabPageVehicle.Controls.Add(this.materialLabel19);
             this.tabPageVehicle.Controls.Add(this.materialLabel21);
             this.tabPageVehicle.Controls.Add(this.materialLabel22);
-            this.tabPageVehicle.Controls.Add(this.materialMaskedTextBox1);
             this.tabPageVehicle.Controls.Add(this.ListViewVehicle);
-            this.tabPageVehicle.Controls.Add(this.materialLabel11);
             this.tabPageVehicle.ImageKey = "fleet.png";
             this.tabPageVehicle.Location = new System.Drawing.Point(4, 39);
             this.tabPageVehicle.Name = "tabPageVehicle";
@@ -2455,48 +2465,6 @@
             this.materialLabel22.TabIndex = 14;
             this.materialLabel22.Text = "Biển số xe:";
             // 
-            // materialMaskedTextBox1
-            // 
-            this.materialMaskedTextBox1.AllowPromptAsInput = true;
-            this.materialMaskedTextBox1.AnimateReadOnly = false;
-            this.materialMaskedTextBox1.AsciiOnly = false;
-            this.materialMaskedTextBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.materialMaskedTextBox1.BeepOnError = false;
-            this.materialMaskedTextBox1.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.materialMaskedTextBox1.Depth = 0;
-            this.materialMaskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialMaskedTextBox1.HidePromptOnLeave = false;
-            this.materialMaskedTextBox1.HideSelection = true;
-            this.materialMaskedTextBox1.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
-            this.materialMaskedTextBox1.LeadingIcon = null;
-            this.materialMaskedTextBox1.Location = new System.Drawing.Point(549, 24);
-            this.materialMaskedTextBox1.Mask = "";
-            this.materialMaskedTextBox1.MaxLength = 32767;
-            this.materialMaskedTextBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialMaskedTextBox1.Name = "materialMaskedTextBox1";
-            this.materialMaskedTextBox1.PasswordChar = '\0';
-            this.materialMaskedTextBox1.PrefixSuffixText = null;
-            this.materialMaskedTextBox1.PromptChar = '_';
-            this.materialMaskedTextBox1.ReadOnly = false;
-            this.materialMaskedTextBox1.RejectInputOnFirstFailure = false;
-            this.materialMaskedTextBox1.ResetOnPrompt = true;
-            this.materialMaskedTextBox1.ResetOnSpace = true;
-            this.materialMaskedTextBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.materialMaskedTextBox1.SelectedText = "";
-            this.materialMaskedTextBox1.SelectionLength = 0;
-            this.materialMaskedTextBox1.SelectionStart = 0;
-            this.materialMaskedTextBox1.ShortcutsEnabled = true;
-            this.materialMaskedTextBox1.Size = new System.Drawing.Size(382, 48);
-            this.materialMaskedTextBox1.SkipLiterals = true;
-            this.materialMaskedTextBox1.TabIndex = 2;
-            this.materialMaskedTextBox1.TabStop = false;
-            this.materialMaskedTextBox1.Text = "Tìm kiếm";
-            this.materialMaskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.materialMaskedTextBox1.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.materialMaskedTextBox1.TrailingIcon = null;
-            this.materialMaskedTextBox1.UseSystemPasswordChar = false;
-            this.materialMaskedTextBox1.ValidatingType = null;
-            // 
             // ListViewVehicle
             // 
             this.ListViewVehicle.AutoSizeTable = false;
@@ -2543,19 +2511,6 @@
             // 
             this.columnRoom.Text = "Phòng";
             this.columnRoom.Width = 130;
-            // 
-            // materialLabel11
-            // 
-            this.materialLabel11.AutoSize = true;
-            this.materialLabel11.Depth = 0;
-            this.materialLabel11.Font = new System.Drawing.Font("Roboto Light", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel11.FontType = MaterialSkin.MaterialSkinManager.fontType.H2;
-            this.materialLabel11.Location = new System.Drawing.Point(3, 0);
-            this.materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel11.Name = "materialLabel11";
-            this.materialLabel11.Size = new System.Drawing.Size(524, 72);
-            this.materialLabel11.TabIndex = 0;
-            this.materialLabel11.Text = "Quản lý phương tiện";
             // 
             // tabPageBills
             // 
@@ -3553,6 +3508,136 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.Logout);
             // 
+            // comboBoxVehiclesType
+            // 
+            this.comboBoxVehiclesType.AutoResize = false;
+            this.comboBoxVehiclesType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxVehiclesType.Depth = 0;
+            this.comboBoxVehiclesType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxVehiclesType.DropDownHeight = 174;
+            this.comboBoxVehiclesType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxVehiclesType.DropDownWidth = 121;
+            this.comboBoxVehiclesType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBoxVehiclesType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxVehiclesType.FormattingEnabled = true;
+            this.comboBoxVehiclesType.IntegralHeight = false;
+            this.comboBoxVehiclesType.ItemHeight = 43;
+            this.comboBoxVehiclesType.Items.AddRange(new object[] {
+            "Tất Cả",
+            "Xe hai bánh",
+            "Xe ba bánh",
+            "Xe bốn bánh",
+            "Xe đạp",
+            "Xe đạp điện"});
+            this.comboBoxVehiclesType.Location = new System.Drawing.Point(3, 16);
+            this.comboBoxVehiclesType.MaxDropDownItems = 4;
+            this.comboBoxVehiclesType.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboBoxVehiclesType.Name = "comboBoxVehiclesType";
+            this.comboBoxVehiclesType.Size = new System.Drawing.Size(132, 49);
+            this.comboBoxVehiclesType.StartIndex = 0;
+            this.comboBoxVehiclesType.TabIndex = 82;
+            // 
+            // comboBoxVehiclesSearch
+            // 
+            this.comboBoxVehiclesSearch.AutoResize = false;
+            this.comboBoxVehiclesSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxVehiclesSearch.Depth = 0;
+            this.comboBoxVehiclesSearch.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxVehiclesSearch.DropDownHeight = 174;
+            this.comboBoxVehiclesSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxVehiclesSearch.DropDownWidth = 121;
+            this.comboBoxVehiclesSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBoxVehiclesSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxVehiclesSearch.FormattingEnabled = true;
+            this.comboBoxVehiclesSearch.IntegralHeight = false;
+            this.comboBoxVehiclesSearch.ItemHeight = 43;
+            this.comboBoxVehiclesSearch.Items.AddRange(new object[] {
+            "Tên Phương Tiện",
+            "Biển Số",
+            "Số Phòng"});
+            this.comboBoxVehiclesSearch.Location = new System.Drawing.Point(141, 16);
+            this.comboBoxVehiclesSearch.MaxDropDownItems = 4;
+            this.comboBoxVehiclesSearch.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboBoxVehiclesSearch.Name = "comboBoxVehiclesSearch";
+            this.comboBoxVehiclesSearch.Size = new System.Drawing.Size(174, 49);
+            this.comboBoxVehiclesSearch.StartIndex = 0;
+            this.comboBoxVehiclesSearch.TabIndex = 83;
+            // 
+            // textBoxVehiclesSearch
+            // 
+            this.textBoxVehiclesSearch.AnimateReadOnly = false;
+            this.textBoxVehiclesSearch.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxVehiclesSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxVehiclesSearch.Depth = 0;
+            this.textBoxVehiclesSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxVehiclesSearch.ForeColor = System.Drawing.Color.Transparent;
+            this.textBoxVehiclesSearch.LeadingIcon = null;
+            this.textBoxVehiclesSearch.Location = new System.Drawing.Point(321, 15);
+            this.textBoxVehiclesSearch.MaxLength = 50;
+            this.textBoxVehiclesSearch.MouseState = MaterialSkin.MouseState.OUT;
+            this.textBoxVehiclesSearch.Multiline = false;
+            this.textBoxVehiclesSearch.Name = "textBoxVehiclesSearch";
+            this.textBoxVehiclesSearch.Size = new System.Drawing.Size(285, 50);
+            this.textBoxVehiclesSearch.TabIndex = 84;
+            this.textBoxVehiclesSearch.Text = "";
+            this.textBoxVehiclesSearch.TrailingIcon = null;
+            // 
+            // buttonVehiclesSearch
+            // 
+            this.buttonVehiclesSearch.AutoSize = false;
+            this.buttonVehiclesSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonVehiclesSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonVehiclesSearch.Depth = 0;
+            this.buttonVehiclesSearch.HighEmphasis = true;
+            this.buttonVehiclesSearch.Icon = global::AccommodationManagerApp.Properties.Resources.search;
+            this.buttonVehiclesSearch.Location = new System.Drawing.Point(613, 22);
+            this.buttonVehiclesSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonVehiclesSearch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonVehiclesSearch.Name = "buttonVehiclesSearch";
+            this.buttonVehiclesSearch.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonVehiclesSearch.Size = new System.Drawing.Size(40, 36);
+            this.buttonVehiclesSearch.TabIndex = 85;
+            this.buttonVehiclesSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonVehiclesSearch.UseAccentColor = false;
+            this.buttonVehiclesSearch.UseVisualStyleBackColor = true;
+            this.buttonVehiclesSearch.Click += new System.EventHandler(this.ButtonVehiclesSearch_Click);
+            // 
+            // materialLabel11
+            // 
+            this.materialLabel11.Depth = 0;
+            this.materialLabel11.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel11.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
+            this.materialLabel11.Location = new System.Drawing.Point(7, 73);
+            this.materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel11.Name = "materialLabel11";
+            this.materialLabel11.Size = new System.Drawing.Size(139, 14);
+            this.materialLabel11.TabIndex = 86;
+            this.materialLabel11.Text = "Chọn Loại Phương Tiện";
+            // 
+            // materialLabel56
+            // 
+            this.materialLabel56.Depth = 0;
+            this.materialLabel56.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel56.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
+            this.materialLabel56.Location = new System.Drawing.Point(152, 72);
+            this.materialLabel56.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel56.Name = "materialLabel56";
+            this.materialLabel56.Size = new System.Drawing.Size(146, 14);
+            this.materialLabel56.TabIndex = 87;
+            this.materialLabel56.Text = "Chọn Hình Thức Tìm Kiếm";
+            // 
+            // materialLabel57
+            // 
+            this.materialLabel57.Depth = 0;
+            this.materialLabel57.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel57.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
+            this.materialLabel57.Location = new System.Drawing.Point(318, 73);
+            this.materialLabel57.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel57.Name = "materialLabel57";
+            this.materialLabel57.Size = new System.Drawing.Size(181, 14);
+            this.materialLabel57.TabIndex = 88;
+            this.materialLabel57.Text = "Xin Nhập Kiểu Dữ Liệu Phù Hợp";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3656,7 +3741,6 @@
         private MaterialSkin.Controls.MaterialComboBox comboBoxVolumn;
         private MaterialSkin.Controls.MaterialComboBox comboBoxTime;
         private System.Windows.Forms.TabPage tabPageVehicle;
-        private MaterialSkin.Controls.MaterialLabel materialLabel11;
         private MaterialSkin.Controls.MaterialListView ListViewVehicle;
         private System.Windows.Forms.ColumnHeader columnNumber;
         private System.Windows.Forms.ColumnHeader columnName;
@@ -3667,7 +3751,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel19;
         private MaterialSkin.Controls.MaterialLabel materialLabel21;
         private MaterialSkin.Controls.MaterialLabel materialLabel22;
-        private MaterialSkin.Controls.MaterialMaskedTextBox materialMaskedTextBox1;
         private MaterialSkin.Controls.MaterialButton buttonDeleteVehicle;
         private MaterialSkin.Controls.MaterialButton buttonEditVehicle;
         private MaterialSkin.Controls.MaterialButton buttonAddVehicle;
@@ -3816,5 +3899,12 @@
         private MaterialSkin.Controls.MaterialComboBox comboBoxContractEndDate;
         private MaterialSkin.Controls.MaterialTextBox textBoxContractSearch;
         private MaterialSkin.Controls.MaterialLabel materialLabel55;
+        private MaterialSkin.Controls.MaterialComboBox comboBoxVehiclesType;
+        private MaterialSkin.Controls.MaterialComboBox comboBoxVehiclesSearch;
+        private MaterialSkin.Controls.MaterialTextBox textBoxVehiclesSearch;
+        private MaterialSkin.Controls.MaterialButton buttonVehiclesSearch;
+        private MaterialSkin.Controls.MaterialLabel materialLabel11;
+        private MaterialSkin.Controls.MaterialLabel materialLabel56;
+        private MaterialSkin.Controls.MaterialLabel materialLabel57;
     }
 }
