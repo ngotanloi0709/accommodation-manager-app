@@ -20,7 +20,6 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-
         private void ListViewRoom_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) {
             var room = IsSelectedRoomValid();
 
@@ -226,6 +225,27 @@ namespace AccommodationManagerApp.Forms {
             else {
                 new ToastForm("Vui lòng chọn nhân khẩu", true).Show();
             }
+        }
+        
+        private void ButtonRoomContract_Click(object sender, EventArgs e)
+        {
+            var room = IsSelectedRoomValid();
+            
+            if (room == null)
+            {
+                new ToastForm("Vui lòng chọn căn hộ", true).Show();
+                return;
+            }
+
+            Contract contract = _roomService.GetCurrentContract(room);
+            
+            if (contract == null)
+            {
+                new ToastForm("Không tìm thấy hợp đồng", true).Show();
+                return;
+            }
+            
+            new ContractInfomationForm(contract).Show();
         }
     }
 }

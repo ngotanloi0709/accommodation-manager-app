@@ -70,7 +70,7 @@ namespace AccommodationManagerApp.Forms {
                 item.SubItems.Add(bill.ElectricityQuantity.ToString());
                 item.SubItems.Add(bill.WaterQuantity.ToString());
                 item.SubItems.Add(bill.Contract?.Room.RoomNumber ?? "Trống");
-                item.SubItems.Add(bill.DateOfBillFormatted);
+                item.SubItems.Add(bill.DateOfBill.ToString("MM/yyyy"));
                 item.SubItems.Add(bill.Status.ToVietnamese());
                 ListViewBill.Items.Add(item);
             }

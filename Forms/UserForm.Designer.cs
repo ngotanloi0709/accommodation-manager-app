@@ -39,6 +39,8 @@ namespace AccommodationManagerApp.Forms {
             this.textBoxPhone = new MaterialSkin.Controls.MaterialTextBox();
             this.textBoxName = new MaterialSkin.Controls.MaterialTextBox();
             this.buttonSave = new MaterialSkin.Controls.MaterialButton();
+            this.ComboBoxRole = new MaterialSkin.Controls.MaterialComboBox();
+            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // materialLabel6
@@ -227,7 +229,7 @@ namespace AccommodationManagerApp.Forms {
             this.buttonSave.Depth = 0;
             this.buttonSave.HighEmphasis = true;
             this.buttonSave.Icon = null;
-            this.buttonSave.Location = new System.Drawing.Point(422, 375);
+            this.buttonSave.Location = new System.Drawing.Point(422, 438);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonSave.Name = "buttonSave";
@@ -240,11 +242,48 @@ namespace AccommodationManagerApp.Forms {
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // ComboBoxRole
+            // 
+            this.ComboBoxRole.AutoResize = false;
+            this.ComboBoxRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ComboBoxRole.Depth = 0;
+            this.ComboBoxRole.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.ComboBoxRole.DropDownHeight = 174;
+            this.ComboBoxRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxRole.DropDownWidth = 121;
+            this.ComboBoxRole.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.ComboBoxRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ComboBoxRole.FormattingEnabled = true;
+            this.ComboBoxRole.IntegralHeight = false;
+            this.ComboBoxRole.ItemHeight = 43;
+            this.ComboBoxRole.Location = new System.Drawing.Point(371, 369);
+            this.ComboBoxRole.MaxDropDownItems = 4;
+            this.ComboBoxRole.MouseState = MaterialSkin.MouseState.OUT;
+            this.ComboBoxRole.Name = "ComboBoxRole";
+            this.ComboBoxRole.Size = new System.Drawing.Size(138, 49);
+            this.ComboBoxRole.StartIndex = 0;
+            this.ComboBoxRole.TabIndex = 18;
+            // 
+            // materialLabel7
+            // 
+            this.materialLabel7.AutoSize = true;
+            this.materialLabel7.Depth = 0;
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel7.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel7.Location = new System.Drawing.Point(300, 379);
+            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel7.Name = "materialLabel7";
+            this.materialLabel7.Size = new System.Drawing.Size(65, 24);
+            this.materialLabel7.TabIndex = 19;
+            this.materialLabel7.Text = "Vai trò:";
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(543, 440);
+            this.ClientSize = new System.Drawing.Size(543, 495);
+            this.Controls.Add(this.materialLabel7);
+            this.Controls.Add(this.ComboBoxRole);
             this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.switchSex);
             this.Controls.Add(this.materialLabel5);
@@ -258,10 +297,10 @@ namespace AccommodationManagerApp.Forms {
             this.Controls.Add(this.textBoxPhone);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.buttonSave);
-            this.MaximumSize = new System.Drawing.Size(543, 440);
-            this.MinimumSize = new System.Drawing.Size(543, 440);
+            this.MaximumSize = new System.Drawing.Size(543, 495);
+            this.MinimumSize = new System.Drawing.Size(543, 495);
             this.Name = "UserForm";
-            this.Text = "Thêm thông tin người thuê";
+            this.Text = "Thêm thông tin người dùng";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -283,5 +322,7 @@ namespace AccommodationManagerApp.Forms {
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialSwitch switchSex;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
+        private MaterialSkin.Controls.MaterialComboBox ComboBoxRole;
+        private MaterialSkin.Controls.MaterialLabel materialLabel7;
     }
 }

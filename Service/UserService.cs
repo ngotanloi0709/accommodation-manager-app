@@ -12,10 +12,11 @@ namespace AccommodationManagerApp.Service {
     public class UserService {
         private readonly UserRepository _userRepository;
         private readonly ContractRepository _contractRepository;
-
-        public UserService(UserRepository userRepository, ContractRepository contractRepository) {
+        private readonly BillRepository _billRepository;
+        public UserService(UserRepository userRepository, ContractRepository contractRepository, BillRepository billRepository) {
             _userRepository = userRepository;
             _contractRepository = contractRepository;
+            _billRepository = billRepository;
         }
 
         public User GetUserByEmail(string email) {
@@ -123,6 +124,17 @@ namespace AccommodationManagerApp.Service {
 
         public User GetByNameAndEmail(string name, string email) {
             return _userRepository.GetByNameAndEmail(name, email);
+        }
+
+        public List<User> GetAllWithRoleTenantAndWithContractAndRoomWhereHasUnpaidBill() {
+            var users = _billRepository.GetAllUnpaidBill().Select(bill => bill.User).ToList();
+            var distinctUsers = users.Distinct().ToList();
+            
+            return distinctUsers;
+        }
+
+        public List<User> GetAllWithRoleNotTenantAndWithContractAndRoom() {
+            return _userRepository.GetAllWithRoleNotTenantAndWithContractAndRoom();
         }
     }
 }

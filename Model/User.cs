@@ -32,7 +32,7 @@ namespace AccommodationManagerApp.Model
             Role = role;
         }
         
-        public User(string email, string name, string password, bool isFemale, string phone, string identityNumber, DateTime dateOfBirth) {
+        public User(string email, string name, string password, bool isFemale, string phone, string identityNumber, DateTime dateOfBirth, UserRole role) {
             Email = email;
             Name = name;
             Password = password;
@@ -40,6 +40,7 @@ namespace AccommodationManagerApp.Model
             Phone = phone;
             IdentityNumber = identityNumber;
             DateOfBirth = dateOfBirth;
+            Role = role;
         }
     }
     
