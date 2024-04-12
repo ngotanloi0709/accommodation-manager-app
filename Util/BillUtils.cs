@@ -1,12 +1,12 @@
 ﻿using AccommodationManagerApp.Model;
 using System;
-using System.Xml.Serialization;
+using System.Collections.Generic;
 
 namespace AccommodationManagerApp.Util
 {
     public static class BillUtils
     {
-        public static string ToVietnamese(this Model.BillStatus status)
+        public static string ToVietnamese(this BillStatus status)
         {
             switch (status)
             {
@@ -17,10 +17,9 @@ namespace AccommodationManagerApp.Util
                 case BillStatus.Paid:
                     return "Đã Thanh Toán";
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(status), status, null);
+                    throw new ArgumentException("Invalid status format.", nameof(status));
             }
         }
-
         public static BillStatus ToBillStatus(this string status)
         {
             switch (status)
@@ -40,8 +39,10 @@ namespace AccommodationManagerApp.Util
         {
             switch (time)
             {
-                case "Lịch Sử": 
-                    return 0;       
+                case "Tất Cả":
+                    return -1;
+                case "Lịch Sử":
+                    return 0;
                 case "Tháng Này":
                     return DateTime.Now.Month;
                 case "Năm Nay":
@@ -73,6 +74,29 @@ namespace AccommodationManagerApp.Util
                 default:
                     throw new ArgumentException("Invalid time format.", nameof(time));
             }
+        }
+        
+        public static List<object> ChangeTextToDate(this string text)
+        {
+            int router = TimeToNumber(text);
+            if (router == -1) return new List<object>() { false, null, null };
+            if (router == 0) return new List<object>() { true, null, null};
+            if (router <= 12) return new List<object>() { false, router, null };
+            return new List<object>() { true, null, router };
+        }
+
+        public static bool CheckMinMaxPrice(int? min, int? max)
+        {
+            if (min != null && max != null && min > max) return false;
+            return true;
+        }
+        
+        public static List<string> ChangeSearchInput(string selection, string input)
+        {
+            if (input == "") return new List<string>(){ null, null};
+            if (selection.Equals("Tên Người")) return new List<string>() { input, null};
+            if (selection.Equals("Số Phòng")) return new List<string>() { null, input};
+            return null;
         }
     }
 }

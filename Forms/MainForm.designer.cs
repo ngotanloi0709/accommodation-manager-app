@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.drawerImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabPageContract = new System.Windows.Forms.TabPage();
@@ -209,8 +209,7 @@
             this.btnPDF = new MaterialSkin.Controls.MaterialButton();
             this.ListViewBill = new MaterialSkin.Controls.MaterialListView();
             this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.elec = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.water = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.rent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.room = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateBill = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -1911,16 +1910,16 @@
             // 
             // RoomInBuildingChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.RoomInBuildingChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.RoomInBuildingChart.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.RoomInBuildingChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.RoomInBuildingChart.Legends.Add(legend2);
             this.RoomInBuildingChart.Location = new System.Drawing.Point(480, 398);
             this.RoomInBuildingChart.Name = "RoomInBuildingChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Number of room";
-            this.RoomInBuildingChart.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Number of room";
+            this.RoomInBuildingChart.Series.Add(series2);
             this.RoomInBuildingChart.Size = new System.Drawing.Size(413, 233);
             this.RoomInBuildingChart.TabIndex = 64;
             this.RoomInBuildingChart.Text = "chart1";
@@ -2671,7 +2670,7 @@
             this.btnEmailThisMonth.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnEmailThisMonth.UseAccentColor = false;
             this.btnEmailThisMonth.UseVisualStyleBackColor = true;
-            this.btnEmailThisMonth.Click += new System.EventHandler(this.btnEmailThisMonth_Click);
+            this.btnEmailThisMonth.Click += new System.EventHandler(this.BtnEmailThisMonth_Click);
             // 
             // labelInternetPrice
             // 
@@ -2818,6 +2817,7 @@
             this.comboBoxTime.IntegralHeight = false;
             this.comboBoxTime.ItemHeight = 43;
             this.comboBoxTime.Items.AddRange(new object[] {
+            "Tất Cả",
             "Tháng Này",
             "Năm Nay",
             "Lịch Sử",
@@ -2931,8 +2931,7 @@
             this.ListViewBill.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ListViewBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.id,
-            this.elec,
-            this.water,
+            this.rent,
             this.room,
             this.name,
             this.dateBill,
@@ -2960,15 +2959,10 @@
             this.id.Text = "ID";
             this.id.Width = 50;
             // 
-            // elec
+            // rent
             // 
-            this.elec.Text = "Số điện";
-            this.elec.Width = 90;
-            // 
-            // water
-            // 
-            this.water.Text = "Số nước";
-            this.water.Width = 91;
+            this.rent.Text = "Tiền Thuê";
+            this.rent.Width = 120;
             // 
             // room
             // 
@@ -3502,8 +3496,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel36;
         private MaterialSkin.Controls.MaterialLabel labelInternetPrice;
         private MaterialSkin.Controls.MaterialLabel materialLabel35;
-        private System.Windows.Forms.ColumnHeader elec;
-        private System.Windows.Forms.ColumnHeader water;
+        private System.Windows.Forms.ColumnHeader rent;
         private System.Windows.Forms.ColumnHeader room;
         private MaterialSkin.Controls.MaterialButton btnEmailThisMonth;
         private MaterialSkin.Controls.MaterialListView lstViewReq;

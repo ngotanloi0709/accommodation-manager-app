@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Mail;
 using System.Net;
 using System.Threading.Tasks;
@@ -54,8 +53,7 @@ namespace AccommodationManagerApp.Forms {
             ListViewBill.Items.Clear();
             foreach (var bill in bills) {
                 var item = new ListViewItem(bill.Id.ToString());
-                item.SubItems.Add(bill.ElectricityQuantity.ToString());
-                item.SubItems.Add(bill.WaterQuantity.ToString());
+                item.SubItems.Add(FormatText.IntegerToVnd(bill.RentFee));
                 item.SubItems.Add(bill.Contract?.Room.RoomNumber ?? "Trống");
                 item.SubItems.Add(bill.User.Name);
                 item.SubItems.Add(bill.DateOfBillFormatted);
@@ -80,7 +78,8 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        private void btnEmailThisMonth_Click(object sender, EventArgs e) {
+        private void BtnEmailThisMonth_Click(object sender, EventArgs e)
+        {
             var confirm = new ConfirmationForm("Xác nhận gửi mail cho danh sách chưa thanh toán trong tháng?");
             var result = confirm.ShowDialog();
             if (result != DialogResult.Yes) return;
@@ -178,17 +177,20 @@ namespace AccommodationManagerApp.Forms {
         }
         private void buttonPriceSearch_Click(object sender, EventArgs e)
         {
-            string text = textBoxSearch.Text;
-            
             BillStatus state = BillUtils.ToBillStatus((string)comboBoxState.SelectedItem);
-            string time = (string)comboBoxTime.SelectedItem;
-            
+            List<object> time = BillUtils.ChangeTextToDate((string)comboBoxTime.SelectedItem);
+            List<string> text = BillUtils.ChangeSearchInput((string) comboBoxVolumn.SelectedItem, textBoxSearch.Text);
             int? minPrice = int.TryParse(textBoxMinPrice.Text, out int min) ? min : (int?)null;
             int? maxPrice = int.TryParse(textBoxMaxPrice.Text, out int max) ? max : (int?)null;
-            
-            if (min > max) new ToastForm("Xin nhập giá sàn thấp hơn giá trần",true); return;
 
-
+            if (BillUtils.CheckMinMaxPrice(minPrice, maxPrice))
+            {
+                var queryBills = _billService.GetByCustomizeQuery(Bills, state, time, text, minPrice, maxPrice);
+                InsertBillIntoListView(queryBills);
+            }
+            else
+                new ToastForm("Xin mời nhập giá sàn thấp hơn giá trần", true).Show();
+            return;
         }
     }
 }

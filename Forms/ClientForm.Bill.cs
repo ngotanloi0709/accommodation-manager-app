@@ -30,7 +30,7 @@ namespace AccommodationManagerApp.Forms
                 item.SubItems.Add(bill.Contract?.Room.RoomNumber.ToString() ?? "Trống");
                 item.SubItems.Add(bill.User.Name);
                 item.SubItems.Add(bill.DateOfBillFormatted);
-                item.SubItems.Add(bill.Status.ToVietnamese());
+                item.SubItems.Add(BillUtils.ToVietnamese(bill.Status));
                 ListViewBill.Items.Add(item);
             }
         }
