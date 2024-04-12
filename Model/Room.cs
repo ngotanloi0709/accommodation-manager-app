@@ -28,5 +28,6 @@ namespace AccommodationManagerApp.Model {
     public enum RoomStatus {
         Normal,
         UnderMaintenance,
+        Null
     }
 }

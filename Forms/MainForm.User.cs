@@ -1,18 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Properties;
+using AccommodationManagerApp.Util;
 
 namespace AccommodationManagerApp.Forms {
     public partial class MainForm {
         private void LoadUserData() {
-            ListViewUser.Items.Clear();
             Users = _userService.GetAllWithRoleTenantAndWithContractAndRoom();
+            InsertUserIntoListView(Users);
+        }
 
-            foreach (var user in Users) {
+        private void InsertUserIntoListView(List<User> users)
+        {
+            ListViewUser.Items.Clear();
+            foreach (var user in users)
+            {
                 var item = new ListViewItem(user.Name);
                 item.SubItems.Add(user.Phone);
                 item.SubItems.Add(user.IdentityNumber);
@@ -230,6 +237,15 @@ namespace AccommodationManagerApp.Forms {
         {
             LoadUserData();
             new ToastForm("Đã thực hiện tải lại dữ liệu người thuê").Show();
+        }
+
+        // Query System
+        private void ButtonUserSearch_Click(object sender, EventArgs e)
+        {
+            bool? isFemale = QueryUtils.UserGender((string) comboBoxGender.SelectedItem);
+            List<string> text = QueryUtils.ChangeUserSearchInput((string)comboBoxUserSearch.SelectedItem, textBoxUserSearch.Text);
+            var queryUser = _userService.GetByCustomizeQuery(Users, isFemale, text);
+            InsertUserIntoListView(queryUser);
         }
     }
 }

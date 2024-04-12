@@ -307,6 +307,5 @@ namespace AccommodationManagerApp.Forms
 
             pieChartPaidBillAndUnpaidBill.Series = series;
         }
-
     }
 }

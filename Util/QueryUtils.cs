@@ -121,5 +121,29 @@ namespace AccommodationManagerApp.Util
             if (selection.Equals("Biển Số")) return new List<string>() { null, null, input };
             return null;
         }
+
+        public static List<string> ChangeUserSearchInput(string selection, string input)
+        {
+            if (input == "") return new List<string>() { null, null, null, null, null };
+            if (selection.Equals("Họ và Tên")) return new List<string>() { input, null, null, null, null };
+            if (selection.Equals("Số Điện Thoại")) return new List<string>() { null, input, null, null, null };
+            if (selection.Equals("Số Căn Cước")) return new List<string>() { null, null, input, null, null };
+            if (selection.Equals("Email")) return new List<string>() { null, null, null, input, null };
+            if (selection.Equals("Năm Sinh")) return new List<string>() { null, null, null, null, input };
+            return null;
+        }
+
+        public static bool? UserGender(this string status)
+        {
+            switch (status)
+            {
+                case "Nam":
+                    return false;
+                case "Nữ":
+                    return true;
+                default:
+                    return null;
+            }
+        }
     }
 }

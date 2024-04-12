@@ -124,5 +124,18 @@ namespace AccommodationManagerApp.Service {
         public User GetByNameAndEmail(string name, string email) {
             return _userRepository.GetByNameAndEmail(name, email);
         }
+
+        public List<User> GetByCustomizeQuery(List<User> users, bool? isFemale, List<string> text)
+        {
+            var filteredUsers = users.Where(user =>
+                (user.IsFemale == isFemale || isFemale == null) &&
+                (text[0] == null || text[0].Equals(user.Name, StringComparison.OrdinalIgnoreCase)) &&
+                (text[1] == null || text[1].Equals(user.Phone, StringComparison.OrdinalIgnoreCase)) &&
+                (text[2] == null || text[2].Equals(user.IdentityNumber, StringComparison.OrdinalIgnoreCase)) &&
+                (text[3] == null || text[3].Equals(user.Email, StringComparison.OrdinalIgnoreCase)) &&
+                (text[4] == null || (int.TryParse(text[4], out int year) && year == user.DateOfBirth.Year))
+            );
+            return filteredUsers.ToList();
+        }
     }
 }
