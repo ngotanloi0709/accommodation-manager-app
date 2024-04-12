@@ -22,7 +22,7 @@ namespace AccommodationManagerApp.Forms
         private User _user;
         private List<Room> Rooms { get; set; }
         private List<Contract> Contracts { get; set; }
-        private int count;
+        
         public ViewUserRoomInfor(User user)
         {
             _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;

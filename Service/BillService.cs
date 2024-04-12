@@ -123,5 +123,9 @@ namespace AccommodationManagerApp.Service {
             );
             return filteredBills.ToList();
         }
+
+        public List<Bill> GetAllByUserId(int userId) {
+            return _billRepository.GetAllByUserId(userId);
+        }
     }
 }

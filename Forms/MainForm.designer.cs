@@ -4769,7 +4769,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader22;
         private MaterialSkin.Controls.MaterialLabel LabelSystemUserRole;
         private MaterialSkin.Controls.MaterialLabel materialLabel38s;
-        private MaterialSkin.Controls.MaterialLabel materialLabel44;
         private MaterialSkin.Controls.MaterialButton materialButton5;
         private MaterialSkin.Controls.MaterialButton btnViewInfor;
         private MaterialSkin.Controls.MaterialButton btnEmailAllMonth;
