@@ -110,6 +110,7 @@ namespace AccommodationManagerApp.Util
             {
                 if ((int)start[1] < (int)end[1]) return true;
             }
+            if (start[1] == null && end[1] != null || start[1] != null && end[1] == null) return true;
             return false;
         }
 
