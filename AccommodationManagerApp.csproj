@@ -235,6 +235,12 @@
     <Compile Include="Forms\BillStatusForm.Designer.cs">
       <DependentUpon>BillStatusForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\BuildingStatisticForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BuildingStatisticForm.Designer.cs">
+      <DependentUpon>BuildingStatisticForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ClientForm.Bill.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -454,6 +460,9 @@
     <EmbeddedResource Include="Forms\BillForm.resx">
       <DependentUpon>BillForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BuildingStatisticForm.resx">
+      <DependentUpon>BuildingStatisticForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ContractExtendForm.resx">
       <DependentUpon>ContractExtendForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -526,7 +535,6 @@
     <Compile Include="Forms\MainForm.Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <None Include="Forms\MainForm.Designer.Dashboard" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -98,5 +98,11 @@ namespace AccommodationManagerApp.Forms
                 Close();
             }
         }
+
+        private void materialButton5_Click(object sender, EventArgs e)
+        {
+            BuildingStatisticForm buildingStatisticForm = new BuildingStatisticForm();
+            buildingStatisticForm.ShowDialog();
+        }
     }
 }

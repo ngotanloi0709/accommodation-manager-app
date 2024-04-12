@@ -24,6 +24,11 @@ namespace AccommodationManagerApp.Repository {
             return Context.Set<Room>().Where(r => r.BuildingId == buildingId).ToList();
         }
 
+        public List<Room> GetAllWithBuildingIdAndNotTerminatedContract(int buildingId)
+        {
+            return Context.Set<Room>().Include("Contracts").Where(r => r.BuildingId == buildingId && r.Contracts.Any(c => c.IsTerminated == false)).ToList();
+        }
+
         public IEnumerable<Room> GetAllWithNotTerminatedContract() {
             return Context.Set<Room>().Include("Contracts").Where(r => r.Contracts.Any(c => c.IsTerminated == false)).ToList();
         }

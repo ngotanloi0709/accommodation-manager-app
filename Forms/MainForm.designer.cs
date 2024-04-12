@@ -127,6 +127,7 @@
             this.colRoomTenant = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colRoomStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageBuilding = new System.Windows.Forms.TabPage();
+            this.materialButton5 = new MaterialSkin.Controls.MaterialButton();
             this.buttonReloadBuilding = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.materialTextBox2 = new MaterialSkin.Controls.MaterialTextBox();
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
@@ -145,11 +146,8 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPageHome = new System.Windows.Forms.TabPage();
-            this.materialLabel41 = new MaterialSkin.Controls.MaterialLabel();
             this.RoomInBuildingChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.materialLabel38 = new MaterialSkin.Controls.MaterialLabel();
             this.pieChartPaidBillAndUnpaidBill = new LiveCharts.WinForms.PieChart();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.btnReloadChart = new MaterialSkin.Controls.MaterialButton();
             this.paidAndUnpaidChart = new LiveCharts.WinForms.CartesianChart();
             this.tabPageVehicle = new System.Windows.Forms.TabPage();
@@ -213,6 +211,9 @@
             this.materialLabel45 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel44 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel43 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel41 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel38 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.buttonResponse = new MaterialSkin.Controls.MaterialButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.cmbbxReqCate = new MaterialSkin.Controls.MaterialComboBox();
@@ -1616,6 +1617,7 @@
             // tabPageBuilding
             // 
             this.tabPageBuilding.BackColor = System.Drawing.Color.White;
+            this.tabPageBuilding.Controls.Add(this.materialButton5);
             this.tabPageBuilding.Controls.Add(this.buttonReloadBuilding);
             this.tabPageBuilding.Controls.Add(this.materialTextBox2);
             this.tabPageBuilding.Controls.Add(this.materialLabel10);
@@ -1635,6 +1637,27 @@
             this.tabPageBuilding.Size = new System.Drawing.Size(986, 673);
             this.tabPageBuilding.TabIndex = 1;
             this.tabPageBuilding.Text = "Toà nhà";
+            // 
+            // materialButton5
+            // 
+            this.materialButton5.AutoSize = false;
+            this.materialButton5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton5.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton5.Depth = 0;
+            this.materialButton5.HighEmphasis = true;
+            this.materialButton5.Icon = global::AccommodationManagerApp.Properties.Resources.search;
+            this.materialButton5.Location = new System.Drawing.Point(490, 422);
+            this.materialButton5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton5.Name = "materialButton5";
+            this.materialButton5.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton5.Size = new System.Drawing.Size(409, 36);
+            this.materialButton5.TabIndex = 17;
+            this.materialButton5.Text = "Thống kê thông tin tòa nhà";
+            this.materialButton5.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton5.UseAccentColor = false;
+            this.materialButton5.UseVisualStyleBackColor = true;
+            this.materialButton5.Click += new System.EventHandler(this.materialButton5_Click);
             // 
             // buttonReloadBuilding
             // 
@@ -1900,19 +1923,6 @@
             this.tabPageHome.TabIndex = 7;
             this.tabPageHome.Text = "Trang chủ";
             // 
-            // materialLabel41
-            // 
-            this.materialLabel41.AutoSize = true;
-            this.materialLabel41.Depth = 0;
-            this.materialLabel41.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel41.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel41.Location = new System.Drawing.Point(752, 464);
-            this.materialLabel41.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel41.Name = "materialLabel41";
-            this.materialLabel41.Size = new System.Drawing.Size(217, 24);
-            this.materialLabel41.TabIndex = 38;
-            this.materialLabel41.Text = "________________________";
-            // 
             // RoomInBuildingChart
             // 
             chartArea1.Name = "ChartArea1";
@@ -1929,19 +1939,6 @@
             this.RoomInBuildingChart.TabIndex = 64;
             this.RoomInBuildingChart.Text = "chart1";
             // 
-            // materialLabel38
-            // 
-            this.materialLabel38.AutoSize = true;
-            this.materialLabel38.Depth = 0;
-            this.materialLabel38.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel38.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel38.Location = new System.Drawing.Point(752, 406);
-            this.materialLabel38.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel38.Name = "materialLabel38";
-            this.materialLabel38.Size = new System.Drawing.Size(217, 24);
-            this.materialLabel38.TabIndex = 37;
-            this.materialLabel38.Text = "________________________";
-            // 
             // pieChartPaidBillAndUnpaidBill
             // 
             this.pieChartPaidBillAndUnpaidBill.Location = new System.Drawing.Point(72, 404);
@@ -1949,19 +1946,6 @@
             this.pieChartPaidBillAndUnpaidBill.Size = new System.Drawing.Size(402, 227);
             this.pieChartPaidBillAndUnpaidBill.TabIndex = 62;
             this.pieChartPaidBillAndUnpaidBill.Text = "pieChart1";
-            // 
-            // materialLabel2
-            // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel2.Location = new System.Drawing.Point(752, 354);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(217, 24);
-            this.materialLabel2.TabIndex = 36;
-            this.materialLabel2.Text = "________________________";
             // 
             // btnReloadChart
             // 
@@ -2926,6 +2910,45 @@
             this.materialLabel43.TabIndex = 39;
             this.materialLabel43.Text = "Tổng Cộng: ";
             // 
+            // materialLabel41
+            // 
+            this.materialLabel41.AutoSize = true;
+            this.materialLabel41.Depth = 0;
+            this.materialLabel41.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel41.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel41.Location = new System.Drawing.Point(752, 464);
+            this.materialLabel41.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel41.Name = "materialLabel41";
+            this.materialLabel41.Size = new System.Drawing.Size(217, 24);
+            this.materialLabel41.TabIndex = 38;
+            this.materialLabel41.Text = "________________________";
+            // 
+            // materialLabel38
+            // 
+            this.materialLabel38.AutoSize = true;
+            this.materialLabel38.Depth = 0;
+            this.materialLabel38.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel38.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel38.Location = new System.Drawing.Point(752, 406);
+            this.materialLabel38.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel38.Name = "materialLabel38";
+            this.materialLabel38.Size = new System.Drawing.Size(217, 24);
+            this.materialLabel38.TabIndex = 37;
+            this.materialLabel38.Text = "________________________";
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel2.Location = new System.Drawing.Point(752, 354);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(217, 24);
+            this.materialLabel2.TabIndex = 36;
+            this.materialLabel2.Text = "________________________";
+            // 
             // buttonResponse
             // 
             this.buttonResponse.AutoSize = false;
@@ -3378,5 +3401,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel43;
         private MaterialSkin.Controls.MaterialLabel materialLabel45;
         private MaterialSkin.Controls.MaterialLabel materialLabel44;
+        private MaterialSkin.Controls.MaterialButton materialButton5;
     }
 }

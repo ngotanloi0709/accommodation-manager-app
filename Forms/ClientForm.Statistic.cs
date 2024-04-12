@@ -86,6 +86,7 @@ namespace AccommodationManagerApp.Forms
         private void DrawPieChart()
         {
             paidAndUnpaidChart.LegendLocation = LegendLocation.Bottom;
+            paidAndUnpaidChart.Series.Clear();
             List<Bill> _bills = _billService.GetAllBillByUserIdIncludeEdit(_user.Id);
             Console.WriteLine(_bills.Count);
             List<Bill> _billUnpaid = _bills.Where(bill =>  bill.Status == BillStatus.Unpaid).ToList();
