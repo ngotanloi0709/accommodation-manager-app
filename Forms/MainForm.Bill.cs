@@ -199,5 +199,33 @@ namespace AccommodationManagerApp.Forms {
                 new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
             }
         }
+
+        private void btnEmailAllMonth_Click(object sender, EventArgs e)
+        {
+            var confirm = new ConfirmationForm("Xác nhận gửi mail cho danh sách chưa thanh toán trong tất cả các tháng?");
+            var result = confirm.ShowDialog();
+
+            if (result != DialogResult.Yes)
+            {
+                return;
+            }
+            List<Bill> Bill = _billService.GetAll();
+            List<Bill> bills = Bill.Where(bill => bill.Status == BillStatus.Unpaid).ToList();
+            if(bills.Count == 0)
+            {
+                new ToastForm("Không có hóa đơn nào chưa thanh toán", true).Show();
+            }
+            else
+            {
+                foreach (Bill bill in bills)
+                {
+                    Task.Run(() =>
+                    {
+                        SendEmail(bill);
+                    });
+                }
+                new ToastForm("Đã gửi mail cho danh sách chưa thanh toán!").Show();
+            }
+        }
     }
 }

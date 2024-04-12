@@ -104,5 +104,7 @@ namespace AccommodationManagerApp.Forms
             BuildingStatisticForm buildingStatisticForm = new BuildingStatisticForm();
             buildingStatisticForm.ShowDialog();
         }
+
+        
     }
 }

@@ -231,5 +231,12 @@ namespace AccommodationManagerApp.Forms {
             LoadUserData();
             new ToastForm("Đã thực hiện tải lại dữ liệu người thuê").Show();
         }
+
+        private void btnViewInfor_Click(object sender, EventArgs e)
+        {
+            User user = IsSelectedUserValid();
+            ViewUserInformation viewUserInformation = new ViewUserInformation(user);
+            viewUserInformation.ShowDialog();
+        }
     }
 }

@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.drawerImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabPageContract = new System.Windows.Forms.TabPage();
@@ -65,6 +65,7 @@
             this.tabPageSystemUser = new System.Windows.Forms.TabPage();
             this.materialLabel24 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageTenants = new System.Windows.Forms.TabPage();
+            this.btnViewInfor = new MaterialSkin.Controls.MaterialButton();
             this.labelResident = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel12 = new MaterialSkin.Controls.MaterialLabel();
             this.buttonChangeTenantAvatar = new MaterialSkin.Controls.MaterialButton();
@@ -173,6 +174,7 @@
             this.columnRoom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageBills = new System.Windows.Forms.TabPage();
+            this.btnEmailAllMonth = new MaterialSkin.Controls.MaterialButton();
             this.ButtonUpdateBillStatus = new MaterialSkin.Controls.MaterialButton();
             this.LabelBillContractEndDate = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel42 = new MaterialSkin.Controls.MaterialLabel();
@@ -695,6 +697,7 @@
             // tabPageTenants
             // 
             this.tabPageTenants.BackColor = System.Drawing.Color.White;
+            this.tabPageTenants.Controls.Add(this.btnViewInfor);
             this.tabPageTenants.Controls.Add(this.labelResident);
             this.tabPageTenants.Controls.Add(this.materialLabel12);
             this.tabPageTenants.Controls.Add(this.buttonChangeTenantAvatar);
@@ -727,6 +730,27 @@
             this.tabPageTenants.Size = new System.Drawing.Size(986, 673);
             this.tabPageTenants.TabIndex = 2;
             this.tabPageTenants.Text = "Người thuê";
+            // 
+            // btnViewInfor
+            // 
+            this.btnViewInfor.AutoSize = false;
+            this.btnViewInfor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnViewInfor.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnViewInfor.Depth = 0;
+            this.btnViewInfor.HighEmphasis = true;
+            this.btnViewInfor.Icon = ((System.Drawing.Image)(resources.GetObject("btnViewInfor.Icon")));
+            this.btnViewInfor.Location = new System.Drawing.Point(607, 229);
+            this.btnViewInfor.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnViewInfor.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnViewInfor.Name = "btnViewInfor";
+            this.btnViewInfor.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnViewInfor.Size = new System.Drawing.Size(295, 36);
+            this.btnViewInfor.TabIndex = 42;
+            this.btnViewInfor.Text = "Truy suất thông tin";
+            this.btnViewInfor.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnViewInfor.UseAccentColor = false;
+            this.btnViewInfor.UseVisualStyleBackColor = true;
+            this.btnViewInfor.Click += new System.EventHandler(this.btnViewInfor_Click);
             // 
             // labelResident
             // 
@@ -1645,7 +1669,7 @@
             this.materialButton5.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.materialButton5.Depth = 0;
             this.materialButton5.HighEmphasis = true;
-            this.materialButton5.Icon = global::AccommodationManagerApp.Properties.Resources.search;
+            this.materialButton5.Icon = ((System.Drawing.Image)(resources.GetObject("materialButton5.Icon")));
             this.materialButton5.Location = new System.Drawing.Point(490, 422);
             this.materialButton5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton5.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1925,16 +1949,16 @@
             // 
             // RoomInBuildingChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.RoomInBuildingChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.RoomInBuildingChart.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.RoomInBuildingChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.RoomInBuildingChart.Legends.Add(legend3);
             this.RoomInBuildingChart.Location = new System.Drawing.Point(480, 398);
             this.RoomInBuildingChart.Name = "RoomInBuildingChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Số lượng phòng";
-            this.RoomInBuildingChart.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Số lượng phòng";
+            this.RoomInBuildingChart.Series.Add(series3);
             this.RoomInBuildingChart.Size = new System.Drawing.Size(413, 233);
             this.RoomInBuildingChart.TabIndex = 64;
             this.RoomInBuildingChart.Text = "chart1";
@@ -2314,6 +2338,7 @@
             // tabPageBills
             // 
             this.tabPageBills.BackColor = System.Drawing.Color.White;
+            this.tabPageBills.Controls.Add(this.btnEmailAllMonth);
             this.tabPageBills.Controls.Add(this.ButtonUpdateBillStatus);
             this.tabPageBills.Controls.Add(this.LabelBillContractEndDate);
             this.tabPageBills.Controls.Add(this.materialLabel42);
@@ -2350,6 +2375,27 @@
             this.tabPageBills.TabIndex = 6;
             this.tabPageBills.Text = "Hoá đơn";
             this.tabPageBills.UseVisualStyleBackColor = true;
+            // 
+            // btnEmailAllMonth
+            // 
+            this.btnEmailAllMonth.AutoSize = false;
+            this.btnEmailAllMonth.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnEmailAllMonth.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnEmailAllMonth.Depth = 0;
+            this.btnEmailAllMonth.HighEmphasis = true;
+            this.btnEmailAllMonth.Icon = ((System.Drawing.Image)(resources.GetObject("btnEmailAllMonth.Icon")));
+            this.btnEmailAllMonth.Location = new System.Drawing.Point(674, 494);
+            this.btnEmailAllMonth.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnEmailAllMonth.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnEmailAllMonth.Name = "btnEmailAllMonth";
+            this.btnEmailAllMonth.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnEmailAllMonth.Size = new System.Drawing.Size(255, 43);
+            this.btnEmailAllMonth.TabIndex = 60;
+            this.btnEmailAllMonth.Text = "Nhắc nhở đóng tiền các tháng";
+            this.btnEmailAllMonth.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnEmailAllMonth.UseAccentColor = false;
+            this.btnEmailAllMonth.UseVisualStyleBackColor = true;
+            this.btnEmailAllMonth.Click += new System.EventHandler(this.btnEmailAllMonth_Click);
             // 
             // ButtonUpdateBillStatus
             // 
@@ -2509,7 +2555,7 @@
             this.btnEmailThisMonth.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnEmailThisMonth.Depth = 0;
             this.btnEmailThisMonth.HighEmphasis = true;
-            this.btnEmailThisMonth.Icon = global::AccommodationManagerApp.Properties.Resources.invoice;
+            this.btnEmailThisMonth.Icon = ((System.Drawing.Image)(resources.GetObject("btnEmailThisMonth.Icon")));
             this.btnEmailThisMonth.Location = new System.Drawing.Point(674, 437);
             this.btnEmailThisMonth.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnEmailThisMonth.MouseState = MaterialSkin.MouseState.HOVER;
@@ -2622,7 +2668,7 @@
             this.buttonEditFixedPrice.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.buttonEditFixedPrice.Depth = 0;
             this.buttonEditFixedPrice.HighEmphasis = true;
-            this.buttonEditFixedPrice.Icon = global::AccommodationManagerApp.Properties.Resources.invoice;
+            this.buttonEditFixedPrice.Icon = ((System.Drawing.Image)(resources.GetObject("buttonEditFixedPrice.Icon")));
             this.buttonEditFixedPrice.Location = new System.Drawing.Point(674, 341);
             this.buttonEditFixedPrice.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.buttonEditFixedPrice.MouseState = MaterialSkin.MouseState.HOVER;
@@ -2692,7 +2738,7 @@
             this.btnSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnSearch.Depth = 0;
             this.btnSearch.HighEmphasis = true;
-            this.btnSearch.Icon = global::AccommodationManagerApp.Properties.Resources.search;
+            this.btnSearch.Icon = ((System.Drawing.Image)(resources.GetObject("btnSearch.Icon")));
             this.btnSearch.Location = new System.Drawing.Point(816, 36);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
@@ -3016,7 +3062,7 @@
             this.btnReqSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnReqSearch.Depth = 0;
             this.btnReqSearch.HighEmphasis = true;
-            this.btnReqSearch.Icon = global::AccommodationManagerApp.Properties.Resources.search;
+            this.btnReqSearch.Icon = ((System.Drawing.Image)(resources.GetObject("btnReqSearch.Icon")));
             this.btnReqSearch.Location = new System.Drawing.Point(622, 48);
             this.btnReqSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnReqSearch.MouseState = MaterialSkin.MouseState.HOVER;
@@ -3402,5 +3448,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel45;
         private MaterialSkin.Controls.MaterialLabel materialLabel44;
         private MaterialSkin.Controls.MaterialButton materialButton5;
+        private MaterialSkin.Controls.MaterialButton btnViewInfor;
+        private MaterialSkin.Controls.MaterialButton btnEmailAllMonth;
     }
 }
