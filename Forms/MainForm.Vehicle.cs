@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Properties;
@@ -7,19 +9,19 @@ using AccommodationManagerApp.Util;
 namespace AccommodationManagerApp.Forms {
     public partial class MainForm {
         private void LoadVehicleData() {
+           Vehicles = _vehicleService.GetAllWithRoom();
+           InsertVehicleIntoListView(Vehicles);
+        }
+        
+        private void InsertVehicleIntoListView(List<Vehicle> vehicles)
+        {
             ListViewVehicle.Items.Clear();
-            Vehicles = _vehicleService.GetAllWithRoom();
-            foreach (var vehicle in Vehicles) {
+            foreach (var vehicle in vehicles)
+            {
                 var item = new ListViewItem(vehicle.Number);
                 item.SubItems.Add(vehicle.Name);
                 item.SubItems.Add(vehicle.Category.ToVietnamese());
-                if (vehicle.Room != null) {
-                    item.SubItems.Add(vehicle.Room.RoomNumber);
-                }
-                else {
-                    item.SubItems.Add(Resources.NullData);
-                }
-
+                item.SubItems.Add(vehicle.Room?.RoomNumber ?? Resources.NullData);
                 ListViewVehicle.Items.Add(item);
             }
         }
@@ -122,13 +124,22 @@ namespace AccommodationManagerApp.Forms {
                     return Vehicles[index];
                 }
             }
-
             return null;
         }
 
         private void materialFloatingActionButton1_Click(object sender, EventArgs e) {
             LoadVehicleData();
             new ToastForm("Dữ liệu phương tiện đã được tải lại").Show();
+        }
+
+        // Query System
+
+        private void ButtonVehiclesSearch_Click(object sender, EventArgs e)
+        {
+            VehicleCategory category = VehicleCategoryExtensions.ToVehicleCategory((string) comboBoxVehiclesType.SelectedItem);
+            List<string> text = QueryUtils.ChangeVehicleSearchInput((string) comboBoxVehiclesSearch.SelectedItem, textBoxVehiclesSearch.Text);
+            var queryVehicles = _vehicleService.GetByCustomizeQuery(Vehicles, category, text);
+            InsertVehicleIntoListView(queryVehicles);
         }
     }
 }

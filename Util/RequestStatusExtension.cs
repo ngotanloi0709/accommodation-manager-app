@@ -17,5 +17,18 @@ namespace AccommodationManagerApp.Util
                     throw new ArgumentOutOfRangeException(nameof(category), category, null);
             }
         }
+
+        public static RequestStatus ToRequestStatus(this string category)
+        {
+            switch (category)
+            {
+                case "Chưa Xử Lý":
+                    return RequestStatus.Unsolve;
+                case "Đã Xử Lý":
+                    return RequestStatus.Solved;
+                default:
+                    return RequestStatus.Null;
+            }
+        }
     }
 }

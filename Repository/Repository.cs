@@ -61,7 +61,6 @@ namespace AccommodationManagerApp.Repository {
         public DbSet<Contract> Contracts { get; set; }
         public DbSet<FixedPrice> FixedPrices { get; set; }
         public DbSet<Request> Requests { get; set; }
-        public DbSet<Response> Responses { get; set; }
 
         public AccommodationManagerAppContext() : base("name=MySqlConnectionString") {
             Database.SetInitializer(

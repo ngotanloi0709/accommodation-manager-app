@@ -3,6 +3,7 @@ using System.Linq;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
 using System.Collections.Generic;
+using iTextSharp.text.pdf.parser.clipper;
 
 namespace AccommodationManagerApp.Service {
     public class BillService {
@@ -33,7 +34,9 @@ namespace AccommodationManagerApp.Service {
             }
         }
 
-        public List<Bill> GetAllByUserId(int userId) => _billRepository.GetAllBillByUserId(userId);
+        public List<Bill> GetBillByStatus(BillStatus status) => _billRepository.GetBillByStatus(status);
+
+        public List<Bill> GetAllByUserIdWithContractWithRoomAndUser(int userId) => _billRepository.GetAllByUserIdWithContractWithRoomAndUser(userId);
 
         public List<Bill> GetByUserIdInThisMonthAnhUnpaid() => _billRepository.GetByUserIdInThisMonthAnhUnpaid();
 
@@ -98,12 +101,23 @@ namespace AccommodationManagerApp.Service {
             }
         }
 
-        public List<Bill> GetAllWithContractWithRoomAndUser() {
-            return _billRepository.GetAllWithContractWithRoomAndUser().ToList();
-        }
+        public List<Bill> GetAllWithContractWithRoomAndUser()  => _billRepository.GetAllWithContractWithRoomAndUser().ToList();
 
-        public bool IsBillGenerated(Contract contract) {
-            return _billRepository.GetAllByContractId(contract.Id).Count > 0;
+        public bool IsBillGenerated(Contract contract) => _billRepository.GetAllByContractId(contract.Id).Count > 0;
+
+        public List<Bill> GetByCustomizeQuery(List<Bill> bills, BillStatus state, List<object> time, List<string> text, int? minPrice, int? maxPrice)
+        {
+            var filteredBills = bills.Where(bill =>
+                (bill.Status == state || state == BillStatus.Null) &&
+                (bill.DateOfBill < DateTime.Now || !(bool)time[0]) &&
+                (time[1] == null || bill.DateOfBill.Month == (int)time[1]) &&
+                (time[2] == null || bill.DateOfBill.Year == (int)time[2]) &&
+                (text[0] == null || text[0].Equals(bill.Contract.User.Name, StringComparison.OrdinalIgnoreCase)) &&
+                (text[1] == null || text[1].Equals(bill.Contract.Room.RoomNumber, StringComparison.OrdinalIgnoreCase)) &&
+                (minPrice == null || bill.RentFee >= minPrice) &&
+                (maxPrice == null || bill.RentFee <= maxPrice)
+            );
+            return filteredBills.ToList();
         }
     }
 }

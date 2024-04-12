@@ -73,7 +73,7 @@ namespace AccommodationManagerApp.Forms
             _bill.VehicleFee = currentVehicleFee;
             _bill.ElectricityQuantity = int.Parse(TextBoxElectricity.Text);
             _bill.WaterQuantity = int.Parse(TextboxWater.Text);
-            _bill.Status = BillStatus.Unpaid;
+            _bill.Status = Model.BillStatus.Unpaid;
             _billService.Update(_bill.Id, _bill);
 
             new ToastForm("Cập nhật thành công").Show();

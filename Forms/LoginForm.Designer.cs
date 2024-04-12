@@ -34,13 +34,14 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelRegister = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.txtEmail = new MaterialSkin.Controls.MaterialTextBox();
             this.txtPass = new MaterialSkin.Controls.MaterialTextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             btnLogin = new MaterialSkin.Controls.MaterialButton();
             btnLogout = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -129,20 +130,6 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // labelRegister
-            // 
-            this.labelRegister.AutoSize = true;
-            this.labelRegister.Depth = 0;
-            this.labelRegister.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.labelRegister.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
-            this.labelRegister.Location = new System.Drawing.Point(16, 510);
-            this.labelRegister.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelRegister.Name = "labelRegister";
-            this.labelRegister.Size = new System.Drawing.Size(120, 14);
-            this.labelRegister.TabIndex = 8;
-            this.labelRegister.Text = "Khôi phục mật khẩu ?";
-            this.labelRegister.UseMnemonic = false;
-            // 
             // materialLabel3
             // 
             this.materialLabel3.AutoSize = true;
@@ -191,16 +178,26 @@
             this.txtPass.Text = "";
             this.txtPass.TrailingIcon = null;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::AccommodationManagerApp.Properties.Resources.ParkLine_apartment_in_Miami_FL;
+            this.pictureBox2.Location = new System.Drawing.Point(484, 64);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(755, 503);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 609);
+            this.ClientSize = new System.Drawing.Size(992, 570);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(btnLogout);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.materialLabel3);
-            this.Controls.Add(this.labelRegister);
             this.Controls.Add(btnLogin);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.materialLabel2);
@@ -208,19 +205,13 @@
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.DoubleBuffered = false;
             this.DrawerHighlightWithAccent = false;
+            this.MaximumSize = new System.Drawing.Size(992, 570);
+            this.MinimumSize = new System.Drawing.Size(992, 570);
             this.Name = "LoginForm";
             this.Sizable = false;
             this.Text = "Đăng Nhập ";
-            this.Controls.SetChildIndex(this.materialLabel1, 0);
-            this.Controls.SetChildIndex(this.materialLabel2, 0);
-            this.Controls.SetChildIndex(this.pictureBox1, 0);
-            this.Controls.SetChildIndex(btnLogin, 0);
-            this.Controls.SetChildIndex(this.labelRegister, 0);
-            this.Controls.SetChildIndex(this.materialLabel3, 0);
-            this.Controls.SetChildIndex(this.txtEmail, 0);
-            this.Controls.SetChildIndex(this.txtPass, 0);
-            this.Controls.SetChildIndex(btnLogout, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,9 +222,9 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private MaterialSkin.Controls.MaterialLabel labelRegister;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialTextBox txtEmail;
         private MaterialSkin.Controls.MaterialTextBox txtPass;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

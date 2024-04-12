@@ -1,6 +1,7 @@
 ﻿using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
+using AccommodationManagerApp.Util;
 using LiveCharts;
 using LiveCharts.Wpf;
 using System;
@@ -156,7 +157,6 @@ namespace AccommodationManagerApp.Forms
                 return month;
             }
         }
-
         public Double countTotalBillAmounUnpaid(int month, int year)
         {
             if (month <= 0)
@@ -182,7 +182,6 @@ namespace AccommodationManagerApp.Forms
                 return total;
             }
         }
-
         public void drawPieChart()
         {
             int nowDate = DateTime.Now.Month;
@@ -209,7 +208,6 @@ namespace AccommodationManagerApp.Forms
 
             pieChartPaidBillAndUnpaidBill.Series = series;
         }
-
         public void drawRoomInBuildingChart()
         {
             List<Building> buildings = _buildingService.GetAll();
@@ -221,8 +219,6 @@ namespace AccommodationManagerApp.Forms
             }
             //RoomInBuildingChart.Series["Number of room"].
         }
-
-
         public Double countTotalBillAmounPaid(int month, int year)
         {
             if (month <= 0)
@@ -248,33 +244,27 @@ namespace AccommodationManagerApp.Forms
                 return total;
             }
         }
-
         private Double countNumberUnpaidBill(int month, int year)
         {
             List<Bill> bills = _billService.GetBillUnpaidByMonthAndYear(month, year);
             return bills.Count;
         }
-
         private Double countNumberPaidBill(int month, int year)
         {
             List<Bill> bills = _billService.GetBillPaidByMonthAndYear(month, year);
             return bills.Count;
         }
-
         private Double countNumberBillIsUpdated(int month, int year)
         {
             List<Bill> bills = _billService.GetBillIsUpdatedByMonthAndYear(month, year);
             return bills.Count;
         }
-
-
         private void btnReloadChart_Click(object sender, EventArgs e)
         {
             ReloadChart();
             ReloadPieChart();
             drawRoomInBuildingChart();
         }
-
         private void ReloadChart()
         {
             int nowDate = DateTime.Now.Month;
@@ -293,7 +283,6 @@ namespace AccommodationManagerApp.Forms
                 }
             };
         }
-
         private void ReloadPieChart()
         {
             int nowDate = DateTime.Now.Month;

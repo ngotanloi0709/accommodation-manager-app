@@ -24,6 +24,8 @@ namespace AccommodationManagerApp.Migrations {
             if (!context.Users.Any()) {
                 context.Users.AddOrUpdate(new User("ngotanloi0709@gmail.com", "Judian Ngo",
                     PasswordHelper.HashPassword("123"), UserRole.Admin));
+                context.Users.AddOrUpdate(new User("ql7769663@gmail.com", "Eric Le",
+                    PasswordHelper.HashPassword("123"), UserRole.Admin));
                 context.Users.AddOrUpdate(new User("admin@gmail.com", "Admin", PasswordHelper.HashPassword("123"), UserRole.Admin));
                 context.Users.AddOrUpdate(new User("user1@gmail.com", "User 1", PasswordHelper.HashPassword("123"), UserRole.Tenant));
                 context.Users.AddOrUpdate(new User("user2@gmail.com", "User 2", PasswordHelper.HashPassword("123"), UserRole.Tenant));
@@ -48,29 +50,45 @@ namespace AccommodationManagerApp.Migrations {
                 context.Rooms.AddOrUpdate(new Room { RoomNumber = "302", BuildingId = null });
                 context.Rooms.AddOrUpdate(new Room { RoomNumber = "303", BuildingId = null });
             }
+            
             if (!context.Vehicles.Any()) {
                 context.Vehicles.AddOrUpdate(new Vehicle { Name = "Honda", Number = "63D-0301", RoomId = null });
                 context.Vehicles.AddOrUpdate(new Vehicle { Name = "Yamaha", Number = "86F-31235", RoomId = null });
                 context.Vehicles.AddOrUpdate(new Vehicle { Name = "Suzuki", Number = "59F-5234", RoomId = null });
             }
             
-            if (!context.FixedPrices.Any())
+            if(!context.Contracts.Any())
             {
-                context.FixedPrices.AddOrUpdate(new FixedPrice { Type = FixedPriceType.Water, Price = 10000 });
-                context.FixedPrices.AddOrUpdate(new FixedPrice { Type = FixedPriceType.Electricity, Price = 7500 });
-                context.FixedPrices.AddOrUpdate(new FixedPrice { Type = FixedPriceType.Internet, Price = 100000 });
+                context.Contracts.AddOrUpdate(new Contract(1500000));
+                context.Contracts.AddOrUpdate(new Contract(1000000));
+                context.Contracts.AddOrUpdate(new Contract(2000000));
             }
+
+            if (!context.Bills.Any())
+            {
+                context.Bills.AddOrUpdate(new Bill(100, 15, 10000, 5000, 20000, 100000, 500000));
+                context.Bills.AddOrUpdate(new Bill(150, 18, 15000, 8000, 25000, 120000, 600000));
+                context.Bills.AddOrUpdate(new Bill(120, 16, 12000, 6000, 22000, 110000, 550000));
+                context.Bills.AddOrUpdate(new Bill(200, 20, 20000, 10000, 30000, 150000, 750000));
+                context.Bills.AddOrUpdate(new Bill(180, 17, 18000, 9000, 28000, 140000, 700000));
+                context.Bills.AddOrUpdate(new Bill(250, 22, 25000, 12000, 35000, 180000, 900000));
+                context.Bills.AddOrUpdate(new Bill(300, 25, 30000, 15000, 40000, 200000, 1000000));
+                context.Bills.AddOrUpdate(new Bill(350, 28, 35000, 16000, 45000, 220000, 1100000));
+                context.Bills.AddOrUpdate(new Bill(400, 30, 40000, 18000, 50000, 250000, 1250000));
+            }
+            
             if (!context.Requests.Any())
             {
                 context.Requests.AddOrUpdate(new Request("Cúp điện kìa", null));
                 context.Requests.AddOrUpdate(new Request("Tiền nhà gì đóng hoài vậy", null));
                 context.Requests.AddOrUpdate(new Request("Không được chửi thề", null));
             }
-            if (!context.Responses.Any())
+
+            if (!context.FixedPrices.Any())
             {
-                context.Responses.AddOrUpdate(new Response("Giải pháp 1", null));
-                context.Responses.AddOrUpdate(new Response("Giải pháp 2", null));
-                context.Responses.AddOrUpdate(new Response("Giải pháp 3", null));
+                context.FixedPrices.AddOrUpdate(new FixedPrice { Type = FixedPriceType.Water, Price = 10000 });
+                context.FixedPrices.AddOrUpdate(new FixedPrice { Type = FixedPriceType.Electricity, Price = 7500 });
+                context.FixedPrices.AddOrUpdate(new FixedPrice { Type = FixedPriceType.Internet, Price = 100000 });
             }
         }
 

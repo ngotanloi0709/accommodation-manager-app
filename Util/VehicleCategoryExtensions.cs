@@ -39,7 +39,7 @@ namespace AccommodationManagerApp.Util
                 case "Xe đạp điện":
                     return VehicleCategory.ElectricBicycle;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(category), category, null);
+                    return VehicleCategory.Null;
             }
         }
     }

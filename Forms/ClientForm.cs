@@ -9,9 +9,10 @@ namespace AccommodationManagerApp.Forms
     public partial class ClientForm : BaseForm
     {
         private BillService _billService;
-        private AuthenticationService _authenticationService;
         private RequestService _requestService;
-        
+        private RoomService _roomService;
+        private AuthenticationService _authenticationService;
+
         private User _user;
         private List<Request> _Requests;
         private List<BillModel> _Bills;
@@ -36,6 +37,7 @@ namespace AccommodationManagerApp.Forms
         }
         private void LoadService()
         {
+            _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
             _authenticationService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
             _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
             _requestService = ServiceLocator.ServiceProvider.GetService(typeof(RequestService)) as RequestService;
@@ -58,7 +60,7 @@ namespace AccommodationManagerApp.Forms
             }
         }
 
-        private void logout(object sender, System.EventArgs e)
+        private void Logout(object sender, System.EventArgs e)
         {
             var confirmation = new ConfirmationForm("Bạn có muốn đăng xuất");
             var result = confirmation.ShowDialog();

@@ -59,5 +59,20 @@ namespace AccommodationManagerApp.Service
         {
             return _requestRepository.GetAllByUserId(id);
         }
+
+        public List<Request> GetAllWithUser() => _requestRepository.GetAllWithUser();
+
+        public List<Request> GetByCustomizeQuery(List<Request> requests, List<object> time, RequestStatus status, List<string> text)
+        {
+            var filteredRequests = requests.Where(request =>
+                (time[0] == null || request.CreatedAt < DateTime.Now) &&
+                (time[1] == null || request.CreatedAt.Month == (int)time[1]) &&
+                (time[2] == null || request.CreatedAt.Year == (int)time[2]) &&
+                (status == RequestStatus.Null || request.Status == status) &&
+                (text[0] == null || text[0].Equals(request.User.Name, StringComparison.OrdinalIgnoreCase)) &&
+                (text[1] == null) 
+            );
+            return filteredRequests.ToList();
+        }
     }
 }

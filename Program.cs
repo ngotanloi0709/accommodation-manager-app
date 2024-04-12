@@ -22,12 +22,12 @@ namespace AccommodationManagerApp {
             
             var authenticationService = _serviceProvider.GetService<AuthenticationService>();
             authenticationService.Authenticate("ngotanloi0709@gmail.com", "123");
+            // authenticationService.Authenticate("ql7769663@gmail.com", "123");
             // authenticationService.Authenticate("user1@gmail.com", "123");
-            
             // ứng dụng này khó có khả năng chạy song song client và manager form, chỉ chạy 1 form mỗi lần 
             Application.SetCompatibleTextRenderingDefault(false);
             Application.EnableVisualStyles();
-            Application.Run(new MainForm());
+            Application.Run(new LoginForm());
         }
 
         private static void ConfigureServices()
@@ -46,7 +46,6 @@ namespace AccommodationManagerApp {
             services.AddSingleton<BillService>();
             services.AddSingleton<ContractService>();
             services.AddSingleton<RequestService>();
-            services.AddSingleton<ResponseService>();
             // Repositories
             services.AddSingleton<BillRepository>();
             services.AddSingleton<UserRepository>();
@@ -56,7 +55,6 @@ namespace AccommodationManagerApp {
             services.AddSingleton<InitLogRepository>();
             services.AddSingleton<ContractRepository>();
             services.AddSingleton<RequestRepository>();
-            services.AddSingleton<ResponseRepository>();
             services.AddSingleton<FixedPriceRepository>();
 
             _serviceProvider = services.BuildServiceProvider();
