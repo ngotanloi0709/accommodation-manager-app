@@ -30,7 +30,7 @@ namespace AccommodationManagerApp.Forms
                 item.SubItems.Add(bill.Contract?.Room.RoomNumber.ToString() ?? "Trống");
                 item.SubItems.Add(bill.User.Name);
                 item.SubItems.Add(bill.DateOfBillFormatted);
-                item.SubItems.Add(BillUtils.ToVietnamese(bill.Status));
+                item.SubItems.Add(QueryUtils.ToVietnamese(bill.Status));
                 ListViewBill.Items.Add(item);
             }
         }
@@ -61,13 +61,13 @@ namespace AccommodationManagerApp.Forms
 
         private void ButtonPriceSearch_Click(object sender, EventArgs e)
         {
-            BillStatus state = BillUtils.ToBillStatus((string)comboBoxState.SelectedItem);
-            List<object> time = BillUtils.ChangeTextToDate((string)comboBoxTime.SelectedItem);
+            BillStatus state = QueryUtils.ToBillStatus((string)comboBoxState.SelectedItem);
+            List<object> time = QueryUtils.ChangeTextToDate((string)comboBoxTime.SelectedItem);
             List<string> text = new List<string> { null, null};
             int? minPrice = int.TryParse(textBoxMinPrice.Text, out int min) ? min : (int?)null;
             int? maxPrice = int.TryParse(textBoxMaxPrice.Text, out int max) ? max : (int?)null;
 
-            if (BillUtils.CheckMinMaxPrice(minPrice, maxPrice))
+            if (QueryUtils.CheckMinMaxPrice(minPrice, maxPrice))
             {
                 var queryBills = _billService.GetByCustomizeQuery(_Bills, state, time, text, minPrice, maxPrice);
                 InsertBillIntoListView(queryBills);

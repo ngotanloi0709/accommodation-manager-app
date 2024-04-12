@@ -36,6 +36,19 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.drawerImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabPageContract = new System.Windows.Forms.TabPage();
+            this.materialLabel55 = new MaterialSkin.Controls.MaterialLabel();
+            this.comboBoxContractStartDate = new MaterialSkin.Controls.MaterialComboBox();
+            this.materialLabel18 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel51 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel52 = new MaterialSkin.Controls.MaterialLabel();
+            this.buttonContractSearch = new MaterialSkin.Controls.MaterialButton();
+            this.materialLabel53 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel54 = new MaterialSkin.Controls.MaterialLabel();
+            this.textBoxContractMaxPrice = new MaterialSkin.Controls.MaterialTextBox();
+            this.textBoxContractMinPrice = new MaterialSkin.Controls.MaterialTextBox();
+            this.comboBoxContractSearch = new MaterialSkin.Controls.MaterialComboBox();
+            this.comboBoxContractEndDate = new MaterialSkin.Controls.MaterialComboBox();
+            this.textBoxContractSearch = new MaterialSkin.Controls.MaterialTextBox();
             this.ButtonExtractWord = new MaterialSkin.Controls.MaterialButton();
             this.buttonReloadContract = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.ButtonDeleteContract = new MaterialSkin.Controls.MaterialButton();
@@ -61,7 +74,6 @@
             this.materialLabel31 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel33 = new MaterialSkin.Controls.MaterialLabel();
             this.ButtonAddContract = new MaterialSkin.Controls.MaterialButton();
-            this.materialLabel18 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageSystemUser = new System.Windows.Forms.TabPage();
             this.materialLabel24 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageTenants = new System.Windows.Forms.TabPage();
@@ -269,6 +281,19 @@
             // tabPageContract
             // 
             this.tabPageContract.BackColor = System.Drawing.Color.White;
+            this.tabPageContract.Controls.Add(this.materialLabel55);
+            this.tabPageContract.Controls.Add(this.comboBoxContractStartDate);
+            this.tabPageContract.Controls.Add(this.materialLabel18);
+            this.tabPageContract.Controls.Add(this.materialLabel51);
+            this.tabPageContract.Controls.Add(this.materialLabel52);
+            this.tabPageContract.Controls.Add(this.buttonContractSearch);
+            this.tabPageContract.Controls.Add(this.materialLabel53);
+            this.tabPageContract.Controls.Add(this.materialLabel54);
+            this.tabPageContract.Controls.Add(this.textBoxContractMaxPrice);
+            this.tabPageContract.Controls.Add(this.textBoxContractMinPrice);
+            this.tabPageContract.Controls.Add(this.comboBoxContractSearch);
+            this.tabPageContract.Controls.Add(this.comboBoxContractEndDate);
+            this.tabPageContract.Controls.Add(this.textBoxContractSearch);
             this.tabPageContract.Controls.Add(this.ButtonExtractWord);
             this.tabPageContract.Controls.Add(this.buttonReloadContract);
             this.tabPageContract.Controls.Add(this.ButtonDeleteContract);
@@ -289,13 +314,262 @@
             this.tabPageContract.Controls.Add(this.materialLabel31);
             this.tabPageContract.Controls.Add(this.materialLabel33);
             this.tabPageContract.Controls.Add(this.ButtonAddContract);
-            this.tabPageContract.Controls.Add(this.materialLabel18);
             this.tabPageContract.ImageKey = "contract.png";
             this.tabPageContract.Location = new System.Drawing.Point(4, 39);
             this.tabPageContract.Name = "tabPageContract";
             this.tabPageContract.Size = new System.Drawing.Size(986, 673);
             this.tabPageContract.TabIndex = 5;
             this.tabPageContract.Text = "Hợp đồng";
+            // 
+            // materialLabel55
+            // 
+            this.materialLabel55.Depth = 0;
+            this.materialLabel55.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel55.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
+            this.materialLabel55.Location = new System.Drawing.Point(3, 69);
+            this.materialLabel55.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel55.Name = "materialLabel55";
+            this.materialLabel55.Size = new System.Drawing.Size(114, 14);
+            this.materialLabel55.TabIndex = 82;
+            this.materialLabel55.Text = "Bắt đầu hợp đồng";
+            // 
+            // comboBoxContractStartDate
+            // 
+            this.comboBoxContractStartDate.AutoResize = false;
+            this.comboBoxContractStartDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxContractStartDate.Depth = 0;
+            this.comboBoxContractStartDate.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxContractStartDate.DropDownHeight = 174;
+            this.comboBoxContractStartDate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxContractStartDate.DropDownWidth = 121;
+            this.comboBoxContractStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBoxContractStartDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxContractStartDate.FormattingEnabled = true;
+            this.comboBoxContractStartDate.IntegralHeight = false;
+            this.comboBoxContractStartDate.ItemHeight = 43;
+            this.comboBoxContractStartDate.Items.AddRange(new object[] {
+            "Tất Cả",
+            "Tháng Này",
+            "Lịch Sử",
+            "Tháng 01",
+            "Tháng 02",
+            "Tháng 03",
+            "Tháng 04",
+            "Tháng 05",
+            "Tháng 06",
+            "Tháng 07",
+            "Tháng 08",
+            "Tháng 09",
+            "Tháng 10",
+            "Tháng 11",
+            "Tháng 12"});
+            this.comboBoxContractStartDate.Location = new System.Drawing.Point(3, 14);
+            this.comboBoxContractStartDate.MaxDropDownItems = 4;
+            this.comboBoxContractStartDate.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboBoxContractStartDate.Name = "comboBoxContractStartDate";
+            this.comboBoxContractStartDate.Size = new System.Drawing.Size(132, 49);
+            this.comboBoxContractStartDate.StartIndex = 0;
+            this.comboBoxContractStartDate.TabIndex = 81;
+            // 
+            // materialLabel18
+            // 
+            this.materialLabel18.Depth = 0;
+            this.materialLabel18.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel18.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
+            this.materialLabel18.Location = new System.Drawing.Point(147, 66);
+            this.materialLabel18.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel18.Name = "materialLabel18";
+            this.materialLabel18.Size = new System.Drawing.Size(114, 14);
+            this.materialLabel18.TabIndex = 80;
+            this.materialLabel18.Text = "Hiệu Lực Hợp Đồng";
+            // 
+            // materialLabel51
+            // 
+            this.materialLabel51.Depth = 0;
+            this.materialLabel51.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel51.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
+            this.materialLabel51.Location = new System.Drawing.Point(281, 66);
+            this.materialLabel51.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel51.Name = "materialLabel51";
+            this.materialLabel51.Size = new System.Drawing.Size(144, 14);
+            this.materialLabel51.TabIndex = 79;
+            this.materialLabel51.Text = "Chọn hình thức tìm kiếm";
+            // 
+            // materialLabel52
+            // 
+            this.materialLabel52.AutoSize = true;
+            this.materialLabel52.Depth = 0;
+            this.materialLabel52.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel52.FontType = MaterialSkin.MaterialSkinManager.fontType.SubtleEmphasis;
+            this.materialLabel52.Location = new System.Drawing.Point(576, 66);
+            this.materialLabel52.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel52.Name = "materialLabel52";
+            this.materialLabel52.Size = new System.Drawing.Size(359, 14);
+            this.materialLabel52.TabIndex = 78;
+            this.materialLabel52.Text = "Mời nhập khoảng giá để tìm kiếm, Lưu ý: giá sàn thấp hơn giá trần";
+            // 
+            // buttonContractSearch
+            // 
+            this.buttonContractSearch.AutoSize = false;
+            this.buttonContractSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonContractSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.buttonContractSearch.Depth = 0;
+            this.buttonContractSearch.HighEmphasis = true;
+            this.buttonContractSearch.Icon = global::AccommodationManagerApp.Properties.Resources.search;
+            this.buttonContractSearch.Location = new System.Drawing.Point(897, 19);
+            this.buttonContractSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonContractSearch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonContractSearch.Name = "buttonContractSearch";
+            this.buttonContractSearch.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.buttonContractSearch.Size = new System.Drawing.Size(40, 36);
+            this.buttonContractSearch.TabIndex = 77;
+            this.buttonContractSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.buttonContractSearch.UseAccentColor = false;
+            this.buttonContractSearch.UseVisualStyleBackColor = true;
+            this.buttonContractSearch.Click += new System.EventHandler(this.ButtonContractSearch_Click);
+            // 
+            // materialLabel53
+            // 
+            this.materialLabel53.AutoSize = true;
+            this.materialLabel53.Depth = 0;
+            this.materialLabel53.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel53.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel53.Location = new System.Drawing.Point(742, 26);
+            this.materialLabel53.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel53.Name = "materialLabel53";
+            this.materialLabel53.Size = new System.Drawing.Size(45, 24);
+            this.materialLabel53.TabIndex = 76;
+            this.materialLabel53.Text = "Max:";
+            // 
+            // materialLabel54
+            // 
+            this.materialLabel54.AutoSize = true;
+            this.materialLabel54.Depth = 0;
+            this.materialLabel54.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel54.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel54.Location = new System.Drawing.Point(593, 26);
+            this.materialLabel54.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel54.Name = "materialLabel54";
+            this.materialLabel54.Size = new System.Drawing.Size(45, 24);
+            this.materialLabel54.TabIndex = 75;
+            this.materialLabel54.Text = "Min: ";
+            // 
+            // textBoxContractMaxPrice
+            // 
+            this.textBoxContractMaxPrice.AnimateReadOnly = false;
+            this.textBoxContractMaxPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxContractMaxPrice.Depth = 0;
+            this.textBoxContractMaxPrice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxContractMaxPrice.Hint = "giá trần";
+            this.textBoxContractMaxPrice.LeadingIcon = null;
+            this.textBoxContractMaxPrice.Location = new System.Drawing.Point(790, 13);
+            this.textBoxContractMaxPrice.MaxLength = 50;
+            this.textBoxContractMaxPrice.MouseState = MaterialSkin.MouseState.OUT;
+            this.textBoxContractMaxPrice.Multiline = false;
+            this.textBoxContractMaxPrice.Name = "textBoxContractMaxPrice";
+            this.textBoxContractMaxPrice.Size = new System.Drawing.Size(100, 50);
+            this.textBoxContractMaxPrice.TabIndex = 74;
+            this.textBoxContractMaxPrice.Text = "";
+            this.textBoxContractMaxPrice.TrailingIcon = null;
+            // 
+            // textBoxContractMinPrice
+            // 
+            this.textBoxContractMinPrice.AnimateReadOnly = false;
+            this.textBoxContractMinPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxContractMinPrice.Depth = 0;
+            this.textBoxContractMinPrice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxContractMinPrice.Hint = "giá sàn";
+            this.textBoxContractMinPrice.LeadingIcon = null;
+            this.textBoxContractMinPrice.Location = new System.Drawing.Point(640, 13);
+            this.textBoxContractMinPrice.MaxLength = 50;
+            this.textBoxContractMinPrice.MouseState = MaterialSkin.MouseState.OUT;
+            this.textBoxContractMinPrice.Multiline = false;
+            this.textBoxContractMinPrice.Name = "textBoxContractMinPrice";
+            this.textBoxContractMinPrice.Size = new System.Drawing.Size(100, 50);
+            this.textBoxContractMinPrice.TabIndex = 73;
+            this.textBoxContractMinPrice.Text = "";
+            this.textBoxContractMinPrice.TrailingIcon = null;
+            // 
+            // comboBoxContractSearch
+            // 
+            this.comboBoxContractSearch.AutoResize = false;
+            this.comboBoxContractSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxContractSearch.Depth = 0;
+            this.comboBoxContractSearch.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxContractSearch.DropDownHeight = 174;
+            this.comboBoxContractSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxContractSearch.DropDownWidth = 121;
+            this.comboBoxContractSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBoxContractSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxContractSearch.FormattingEnabled = true;
+            this.comboBoxContractSearch.IntegralHeight = false;
+            this.comboBoxContractSearch.ItemHeight = 43;
+            this.comboBoxContractSearch.Items.AddRange(new object[] {
+            "Tên Người",
+            "Số Phòng"});
+            this.comboBoxContractSearch.Location = new System.Drawing.Point(273, 14);
+            this.comboBoxContractSearch.MaxDropDownItems = 4;
+            this.comboBoxContractSearch.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboBoxContractSearch.Name = "comboBoxContractSearch";
+            this.comboBoxContractSearch.Size = new System.Drawing.Size(120, 49);
+            this.comboBoxContractSearch.StartIndex = 0;
+            this.comboBoxContractSearch.TabIndex = 72;
+            // 
+            // comboBoxContractEndDate
+            // 
+            this.comboBoxContractEndDate.AutoResize = false;
+            this.comboBoxContractEndDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxContractEndDate.Depth = 0;
+            this.comboBoxContractEndDate.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxContractEndDate.DropDownHeight = 174;
+            this.comboBoxContractEndDate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxContractEndDate.DropDownWidth = 121;
+            this.comboBoxContractEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBoxContractEndDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxContractEndDate.FormattingEnabled = true;
+            this.comboBoxContractEndDate.IntegralHeight = false;
+            this.comboBoxContractEndDate.ItemHeight = 43;
+            this.comboBoxContractEndDate.Items.AddRange(new object[] {
+            "Tất Cả",
+            "Tháng Này",
+            "Tháng 01",
+            "Tháng 02",
+            "Tháng 03",
+            "Tháng 04",
+            "Tháng 05",
+            "Tháng 06",
+            "Tháng 07",
+            "Tháng 08",
+            "Tháng 09",
+            "Tháng 10",
+            "Tháng 11",
+            "Tháng 12"});
+            this.comboBoxContractEndDate.Location = new System.Drawing.Point(141, 14);
+            this.comboBoxContractEndDate.MaxDropDownItems = 4;
+            this.comboBoxContractEndDate.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboBoxContractEndDate.Name = "comboBoxContractEndDate";
+            this.comboBoxContractEndDate.Size = new System.Drawing.Size(128, 49);
+            this.comboBoxContractEndDate.StartIndex = 0;
+            this.comboBoxContractEndDate.TabIndex = 71;
+            // 
+            // textBoxContractSearch
+            // 
+            this.textBoxContractSearch.AnimateReadOnly = false;
+            this.textBoxContractSearch.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxContractSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxContractSearch.Depth = 0;
+            this.textBoxContractSearch.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxContractSearch.ForeColor = System.Drawing.Color.Transparent;
+            this.textBoxContractSearch.LeadingIcon = null;
+            this.textBoxContractSearch.Location = new System.Drawing.Point(396, 13);
+            this.textBoxContractSearch.MaxLength = 50;
+            this.textBoxContractSearch.MouseState = MaterialSkin.MouseState.OUT;
+            this.textBoxContractSearch.Multiline = false;
+            this.textBoxContractSearch.Name = "textBoxContractSearch";
+            this.textBoxContractSearch.Size = new System.Drawing.Size(194, 50);
+            this.textBoxContractSearch.TabIndex = 70;
+            this.textBoxContractSearch.Text = "";
+            this.textBoxContractSearch.TrailingIcon = null;
             // 
             // ButtonExtractWord
             // 
@@ -661,19 +935,6 @@
             this.ButtonAddContract.UseAccentColor = false;
             this.ButtonAddContract.UseVisualStyleBackColor = false;
             this.ButtonAddContract.Click += new System.EventHandler(this.buttonAddContract_Click);
-            // 
-            // materialLabel18
-            // 
-            this.materialLabel18.AutoSize = true;
-            this.materialLabel18.Depth = 0;
-            this.materialLabel18.Font = new System.Drawing.Font("Roboto Light", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel18.FontType = MaterialSkin.MaterialSkinManager.fontType.H2;
-            this.materialLabel18.Location = new System.Drawing.Point(-1, 0);
-            this.materialLabel18.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel18.Name = "materialLabel18";
-            this.materialLabel18.Size = new System.Drawing.Size(461, 72);
-            this.materialLabel18.TabIndex = 1;
-            this.materialLabel18.Text = "Quản lý hợp đồng";
             // 
             // tabPageSystemUser
             // 
@@ -2436,7 +2697,7 @@
             this.buttonPriceSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.buttonPriceSearch.UseAccentColor = false;
             this.buttonPriceSearch.UseVisualStyleBackColor = true;
-            this.buttonPriceSearch.Click += new System.EventHandler(this.buttonPriceSearch_Click);
+            this.buttonPriceSearch.Click += new System.EventHandler(this.ButtonPriceSearch_Click);
             // 
             // materialLabel47
             // 
@@ -3449,7 +3710,6 @@
         private System.Windows.Forms.Label labelCurrentUserEmail;
         private MaterialSkin.Controls.MaterialButton buttonCurrentUserInformationManagement;
         private MaterialSkin.Controls.MaterialButton materialButton4;
-        private MaterialSkin.Controls.MaterialLabel materialLabel18;
         private MaterialSkin.Controls.MaterialButton ButtonDeleteContract;
         private MaterialSkin.Controls.MaterialLabel labelContractIsTerminated;
         private MaterialSkin.Controls.MaterialLabel materialLabel20;
@@ -3543,5 +3803,18 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel50;
         private System.Windows.Forms.PictureBox pictureBox1;
         private MaterialSkin.Controls.MaterialComboBox comboBoxState;
+        private MaterialSkin.Controls.MaterialComboBox comboBoxContractStartDate;
+        private MaterialSkin.Controls.MaterialLabel materialLabel18;
+        private MaterialSkin.Controls.MaterialLabel materialLabel51;
+        private MaterialSkin.Controls.MaterialLabel materialLabel52;
+        private MaterialSkin.Controls.MaterialButton buttonContractSearch;
+        private MaterialSkin.Controls.MaterialLabel materialLabel53;
+        private MaterialSkin.Controls.MaterialLabel materialLabel54;
+        private MaterialSkin.Controls.MaterialTextBox textBoxContractMaxPrice;
+        private MaterialSkin.Controls.MaterialTextBox textBoxContractMinPrice;
+        private MaterialSkin.Controls.MaterialComboBox comboBoxContractSearch;
+        private MaterialSkin.Controls.MaterialComboBox comboBoxContractEndDate;
+        private MaterialSkin.Controls.MaterialTextBox textBoxContractSearch;
+        private MaterialSkin.Controls.MaterialLabel materialLabel55;
     }
 }

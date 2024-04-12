@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Properties;
@@ -8,20 +9,27 @@ using Aspose.Words;
 namespace AccommodationManagerApp.Forms {
     public partial class MainForm {
         private void LoadContractData() {
-            ListViewContract.Items.Clear();
             Contracts = _contractService.GetAllWithUserAndRoom();
+            InsertContractToListView(Contracts);
+        }
 
-            foreach (var contract in Contracts) {
+        private void InsertContractToListView(List<Contract> contracts)
+        {
+            ListViewContract.Items.Clear();
+            foreach (var contract in contracts)
+            {
                 var item = new ListViewItem(contract.User != null ? contract.User.Name : Resources.NullData);
                 item.SubItems.Add(contract.Room != null ? contract.Room.RoomNumber : Resources.NullData);
                 item.SubItems.Add(contract.Price.ToString());
                 item.SubItems.Add(string.IsNullOrEmpty(contract.StartDate.ToString())
                     ? Resources.NullData
                     : contract.StartDate.ToString("dd/MM/yyyy"));
-                if (_contractService.IsContractExpired(contract)) {
+                if (_contractService.IsContractExpired(contract))
+                {
                     item.SubItems.Add(Resources.ContractTerminated);
                 }
-                else {
+                else
+                {
                     item.SubItems.Add(string.IsNullOrEmpty(contract.EndDate.ToString())
                         ? Resources.NullData
                         : contract.EndDate.ToString("dd/MM/yyyy"));
@@ -270,6 +278,31 @@ namespace AccommodationManagerApp.Forms {
             else {
                 new ToastForm("Vui lòng chọn hợp đồng cần xuất", true).Show();
             }
+        }
+
+        // Query System
+        private void ButtonContractSearch_Click(object sender, EventArgs e)
+        {
+            List<object> startDate = QueryUtils.ChangeTextToDate((string)comboBoxContractStartDate.SelectedItem);
+            List<object> endDate = QueryUtils.ChangeTextToDate((string)comboBoxContractEndDate.SelectedItem);
+
+            if (!QueryUtils.CheckContractDate(startDate, endDate)) 
+            {
+                new ToastForm("Xin chọn ngày tháng phù hợp", true).Show();
+                return;
+            }
+            List<string> text = QueryUtils.ChangeSearchInput((string)comboBoxContractSearch.SelectedItem, textBoxContractSearch.Text);
+            int? minPrice = int.TryParse(textBoxContractMinPrice.Text, out int min) ? min : (int?)null;
+            int? maxPrice = int.TryParse(textBoxContractMaxPrice.Text, out int max) ? max : (int?)null;
+            if (QueryUtils.CheckMinMaxPrice(minPrice, maxPrice))
+            {
+                var queryContract = _contractService.GetByCustomizeQuery(Contracts,startDate, endDate, text, minPrice, maxPrice);
+                InsertContractToListView(queryContract);
+            }
+            else
+                new ToastForm("Xin mời nhập giá sàn thấp hơn giá trần", true).Show();
+            return;
+
         }
     }
 }

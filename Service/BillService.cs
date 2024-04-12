@@ -114,8 +114,8 @@ namespace AccommodationManagerApp.Service {
                 (time[2] == null || bill.DateOfBill.Year == (int)time[2]) &&
                 (text[0] == null || text[0].Equals(bill.Contract.User.Name, StringComparison.OrdinalIgnoreCase)) &&
                 (text[1] == null || text[1].Equals(bill.Contract.Room.RoomNumber, StringComparison.OrdinalIgnoreCase)) &&
-                (minPrice == null || bill.RentFee > minPrice) &&
-                (maxPrice == null || bill.RentFee < maxPrice)
+                (minPrice == null || bill.RentFee >= minPrice) &&
+                (maxPrice == null || bill.RentFee <= maxPrice)
             );
             return filteredBills.ToList();
         }

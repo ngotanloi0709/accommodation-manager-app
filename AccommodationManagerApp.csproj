@@ -436,7 +436,7 @@
     <Compile Include="Service\RoomService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="Service\VehicleServide.cs" />
-    <Compile Include="Util\BillUtils.cs" />
+    <Compile Include="Util\QueryUtils.cs" />
     <Compile Include="Util\FixedPriceTypeHelper.cs" />
     <Compile Include="Util\FormatText.cs" />
     <Compile Include="Util\InitLog.cs" />

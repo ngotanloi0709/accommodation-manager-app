@@ -176,15 +176,15 @@ namespace AccommodationManagerApp.Forms {
         }
 
         // Query System
-        private void buttonPriceSearch_Click(object sender, EventArgs e)
+        private void ButtonPriceSearch_Click(object sender, EventArgs e)
         {
-            BillStatus state = BillUtils.ToBillStatus((string)comboBoxState.SelectedItem);
-            List<object> time = BillUtils.ChangeTextToDate((string)comboBoxTime.SelectedItem);
-            List<string> text = BillUtils.ChangeSearchInput((string) comboBoxVolumn.SelectedItem, textBoxSearch.Text);
+            BillStatus state = QueryUtils.ToBillStatus((string)comboBoxState.SelectedItem);
+            List<object> time = QueryUtils.ChangeTextToDate((string)comboBoxTime.SelectedItem);
+            List<string> text = QueryUtils.ChangeSearchInput((string) comboBoxVolumn.SelectedItem, textBoxSearch.Text);
             int? minPrice = int.TryParse(textBoxMinPrice.Text, out int min) ? min : (int?)null;
             int? maxPrice = int.TryParse(textBoxMaxPrice.Text, out int max) ? max : (int?)null;
 
-            if (BillUtils.CheckMinMaxPrice(minPrice, maxPrice))
+            if (QueryUtils.CheckMinMaxPrice(minPrice, maxPrice))
             {
                 var queryBills = _billService.GetByCustomizeQuery(Bills, state, time, text, minPrice, maxPrice);
                 InsertBillIntoListView(queryBills);

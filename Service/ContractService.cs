@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AccommodationManagerApp.Forms;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
@@ -127,6 +128,20 @@ namespace AccommodationManagerApp.Service {
 
         public List<Contract> GetByUserIdAndNonExpiredWithRoom(int userId) {
             return _contractRepository.GetByUserIdAndNonExpiredWithRoom(userId);
+        }
+
+        public List<Contract> GetByCustomizeQuery(List<Contract> contracts, List<object> start, List<object> end, List<string> text, int? minPrice, int? maxPrice)
+        {
+            var filteredContract = contracts.Where(contract =>
+                (contract.StartDate < DateTime.Now || !(bool) start[0]) &&
+                (start[1] == null ||  contract.StartDate.Month >= (int) start[1]) &&
+                (end[1] == null || contract.EndDate.Month <= (int) end[1]) &&
+                (text[0] == null || text[0].Equals(contract.User.Name, StringComparison.OrdinalIgnoreCase)) &&
+                (text[1] == null || text[1].Equals(contract.Room.RoomNumber, StringComparison.OrdinalIgnoreCase)) &&
+                (minPrice == null || contract.Price >= minPrice) &&
+                (maxPrice == null || contract.Price <= maxPrice)
+            );
+            return filteredContract.ToList();
         }
     }
 }

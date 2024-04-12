@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AccommodationManagerApp.Util
 {
-    public static class BillUtils
+    public static class QueryUtils
     {
         public static string ToVietnamese(this BillStatus status)
         {
@@ -97,6 +97,20 @@ namespace AccommodationManagerApp.Util
             if (selection.Equals("Tên Người")) return new List<string>() { input, null};
             if (selection.Equals("Số Phòng")) return new List<string>() { null, input};
             return null;
+        }
+    
+        public static bool CheckContractDate(List<object> start, List<object> end)
+        {
+            if (start[1] == null && end[1] == null) return true;
+            else
+            {
+                if ((bool) start[0]) return true;
+            };
+            if(start[1] != null && end[1] != null)
+            {
+                if ((int)start[1] < (int)end[1]) return true;
+            }
+            return false;
         }
     }
 }
