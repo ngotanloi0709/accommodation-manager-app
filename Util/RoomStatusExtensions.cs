@@ -21,7 +21,7 @@ namespace AccommodationManagerApp.Util {
                 case "Đang bảo dưỡng":
                     return RoomStatus.UnderMaintenance;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(status), status, null);
+                    return RoomStatus.Null;
             }
         }
     }

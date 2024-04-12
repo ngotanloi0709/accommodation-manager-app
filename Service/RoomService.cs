@@ -96,5 +96,16 @@ namespace AccommodationManagerApp.Service {
         public List<Room> GetAllWithNotTerminatedContract() {
             return _roomRepository.GetAllWithNotTerminatedContract().ToList();
         }
+
+        public List<Room> GetByCustomizeQuery(List<Room> rooms, string building, RoomStatus state, List<string> text)
+        {
+            var filteredRooms = rooms.Where(room =>
+                (building == null || room.Building.Name == building) &&
+                (state == RoomStatus.Null || room.Status == state) &&
+                (text[0] == null) &&
+                (text[1] == null || text[1].Equals(room.RoomNumber, StringComparison.OrdinalIgnoreCase))
+            );
+            return filteredRooms.ToList();
+        }
     }
 }
