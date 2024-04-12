@@ -11,9 +11,10 @@ namespace AccommodationManagerApp.Forms
 
         public ChangeUserPasswordForm(User user)
         {
+            InitializeComponent();
+            
             _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
             _user = user;
-            InitializeComponent();
 
             if (_user == null)
             {

@@ -42,13 +42,14 @@ namespace AccommodationManagerApp.Forms {
 
             var billForm = new BillForm(bill, waterPrice, electricityPrice, internetPrice);
             billForm.ShowDialog();
-            
+
             if (billForm.DialogResult == DialogResult.OK) {
                 // Task.Run(() => {
                 //     SendEmail(bill);
                 //     LoadBillData();
                 // });
                 LoadBillData();
+                SelectBillAgain(bill);
             }
         }
 
@@ -69,7 +70,7 @@ namespace AccommodationManagerApp.Forms {
                 item.SubItems.Add(bill.ElectricityQuantity.ToString());
                 item.SubItems.Add(bill.WaterQuantity.ToString());
                 item.SubItems.Add(bill.Contract?.Room.RoomNumber ?? "Trống");
-                item.SubItems.Add(bill.DateOfBillFormatted);
+                item.SubItems.Add(bill.DateOfBill.ToString("MM/yyyy"));
                 item.SubItems.Add(bill.Status.ToVietnamese());
                 ListViewBill.Items.Add(item);
             }
@@ -106,11 +107,11 @@ namespace AccommodationManagerApp.Forms {
         private void btnEmailThisMonth_Click(object sender, EventArgs e) {
             var confirm = new ConfirmationForm("Xác nhận gửi mail cho danh sách chưa thanh toán trong tháng?");
             var result = confirm.ShowDialog();
-            
+
             if (result != DialogResult.Yes) {
                 return;
             }
-            
+
             List<Bill> bills = _billService.GetByUserIdInThisMonthAnhUnpaid();
             if (bills.Count == 0) {
                 new ToastForm("Không có hóa đơn nào chưa thanh toán", true).Show();
@@ -121,7 +122,7 @@ namespace AccommodationManagerApp.Forms {
                         SendEmail(bill);
                     }
                 });
-                
+
                 new ToastForm("Đã gửi mail cho danh sách chưa thanh toán!").Show();
             }
         }
@@ -193,6 +194,26 @@ namespace AccommodationManagerApp.Forms {
 
             if (bill == null) {
                 new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
+            }
+            
+            var billStatusForm = new BillStatusForm(bill);
+            billStatusForm.ShowDialog();
+
+            if (billStatusForm.DialogResult == DialogResult.Cancel) return;
+            
+            if (billStatusForm.DialogResult == DialogResult.OK) {
+                new ToastForm("Cập nhật trạng thái hoá đơn thành công!").Show();
+                LoadBillData();
+                SelectBillAgain(bill);
+            }
+        }
+
+        private void SelectBillAgain(Bill bill) {
+            var index = Bills.IndexOf(bill);
+
+            if (ListViewBill.Items.Count > index) {
+                ListViewBill.Items[index].Selected = true;
+                ListViewBill.Select();
             }
         }
     }

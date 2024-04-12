@@ -8,11 +8,14 @@ namespace AccommodationManagerApp.Forms
     {
         private readonly Request _request;
         private readonly UserService _userService;
+        
         public PreviewRequestForm(Request request)
         {
+            InitializeComponent();
+            
             _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
             _request = request;
-            InitializeComponent();
+            
             SetUpRequestForm();
         }
 

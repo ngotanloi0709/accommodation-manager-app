@@ -17,12 +17,14 @@ namespace AccommodationManagerApp.Forms
 
         public ResponseForm(Request request)
         {
+            InitializeComponent();
+            
             _request = request;
             _requestService = ServiceLocator.ServiceProvider.GetService(typeof(RequestService)) as RequestService;
             _responseService = ServiceLocator.ServiceProvider.GetService(typeof(ResponseService)) as ResponseService;
             _authenticationService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
             _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
-            InitializeComponent();
+            
             SetUpResponseForm();
         }
         private void SetUpResponseForm()

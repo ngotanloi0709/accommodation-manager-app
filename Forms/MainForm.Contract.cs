@@ -271,5 +271,26 @@ namespace AccommodationManagerApp.Forms {
                 new ToastForm("Vui lòng chọn hợp đồng cần xuất", true).Show();
             }
         }
+        
+        private void ButtonCheckContractBills_Click(object sender, EventArgs e)
+        {
+            var contract = IsSelectedContractValid();
+
+            if (contract == null) return;
+            
+            if (contract.IsTerminated) {
+                new ToastForm("Hợp đồng đã kết thúc - bị thanh lý, không thể khởi tạo hoá đơn", true).Show();
+                return;
+            }
+            
+            var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn tiến hành tạo những hoá đơn còn thiếu của hợp đồng này không?");
+            var result = confirmationForm.ShowDialog();
+
+            if (result != DialogResult.Yes) return;
+            
+            _billService.GenerateMissingBillsForContract(contract);
+            new ToastForm("Khởi tạo lại các hóa đơn còn thiếu thành công").Show();
+            ContractForeignInformationReload();
+        }
     }
 }

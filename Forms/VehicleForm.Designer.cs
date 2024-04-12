@@ -300,7 +300,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 600);
+            this.ClientSize = new System.Drawing.Size(585, 572);
             this.Controls.Add(this.buttonMinus);
             this.Controls.Add(this.buttonPlus);
             this.Controls.Add(this.textBoxPrice);
@@ -316,24 +316,13 @@
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.buttonSave);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(585, 572);
+            this.MinimumSize = new System.Drawing.Size(585, 572);
             this.Name = "VehicleForm";
             this.Padding = new System.Windows.Forms.Padding(2, 52, 2, 2);
+            this.Sizable = false;
             this.Text = "Thêm thông tin phương tiện";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VehicleForm_FormClosing);
-            this.Controls.SetChildIndex(this.buttonSave, 0);
-            this.Controls.SetChildIndex(this.textBoxName, 0);
-            this.Controls.SetChildIndex(this.materialLabel3, 0);
-            this.Controls.SetChildIndex(this.materialLabel2, 0);
-            this.Controls.SetChildIndex(this.textBoxNumber, 0);
-            this.Controls.SetChildIndex(this.materialLabel1, 0);
-            this.Controls.SetChildIndex(this.materialLabel4, 0);
-            this.Controls.SetChildIndex(this.comboBoxRoom, 0);
-            this.Controls.SetChildIndex(this.comboBoxCategory, 0);
-            this.Controls.SetChildIndex(this.materialLabel5, 0);
-            this.Controls.SetChildIndex(this.comboBoxVehiclePrice, 0);
-            this.Controls.SetChildIndex(this.textBoxPrice, 0);
-            this.Controls.SetChildIndex(this.buttonPlus, 0);
-            this.Controls.SetChildIndex(this.buttonMinus, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 

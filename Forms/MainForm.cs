@@ -24,6 +24,7 @@ namespace AccommodationManagerApp.Forms
         private List<Room> Rooms { get; set; }
         private List<Vehicle> Vehicles { get; set; }
         private List<User> Users { get; set; }
+        private List<User> SystemUsers { get; set; }
         private List<Contract> Contracts { get; set; }
         private List<Request> _Requests;
 
@@ -58,6 +59,7 @@ namespace AccommodationManagerApp.Forms
             LoadContractData();
             LoadFixedPriceData();
             LoadRequestData();
+            LoadSystemUserData();
         }
         private void SetListViewGridEnable()
         {
@@ -69,6 +71,7 @@ namespace AccommodationManagerApp.Forms
             ListViewBill.GridLines = true;
             ListViewContract.GridLines = true;
             ListViewRoomUserList.GridLines = true;
+            ListViewSystemUser.GridLines = true;
         }
         private void buttonCurrentUserInformationManagement_Click(object sender, EventArgs e)
         {
@@ -103,7 +106,6 @@ namespace AccommodationManagerApp.Forms
             drawCasteriaChart();
             drawPieChart();
             drawRoomInBuildingChart();
-
         }
         private void drawCasteriaChart()
         {
@@ -139,7 +141,7 @@ namespace AccommodationManagerApp.Forms
         }
         private int GetMonth(int month)
         {
-            if(month <= 0)
+            if (month <= 0)
             {
                 month += 12;
                 return GetMonth(month);
@@ -157,7 +159,7 @@ namespace AccommodationManagerApp.Forms
 
         public Double countTotalBillAmounUnpaid(int month, int year)
         {
-            if(month <= 0)
+            if (month <= 0)
             {
                 month += 12;
                 year -= 1;
@@ -318,6 +320,5 @@ namespace AccommodationManagerApp.Forms
 
             pieChartPaidBillAndUnpaidBill.Series = series;
         }
-
     }
 }

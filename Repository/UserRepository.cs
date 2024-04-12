@@ -10,11 +10,6 @@ namespace AccommodationManagerApp.Repository {
             return Context.Set<User>().FirstOrDefault(u => u.Email == email);
         }
 
-        public User GetById(int? id)
-        {
-            return Context.Set<User>().FirstOrDefault(u => u.Id == id);
-        }
-
         public User GetByNameAndEmail(string name, string email) {
             return Context.Set<User>().FirstOrDefault(u => u.Name == name && u.Email == email && u.Role == UserRole.Tenant);
         }
@@ -29,6 +24,10 @@ namespace AccommodationManagerApp.Repository {
 
         public List<User> GetAllByName(string name) {
             return Context.Set<User>().Where(u => u.Name.Contains(name) && u.Role == UserRole.Tenant).ToList();
+        }
+
+        public List<User> GetAllWithRoleNotTenantAndWithContractAndRoom() {
+            return Context.Set<User>().Include("Contracts").Include("Room").Where(u => u.Role != UserRole.Tenant).ToList();
         }
     }
 }

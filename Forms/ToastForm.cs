@@ -11,13 +11,14 @@ namespace AccommodationManagerApp.Forms
         public ToastForm(string content, bool isWarning = false)
         {
             InitializeComponent();
+            
             labelContent.Text = content;
             ShowInTaskbar = false;
-            if (isWarning)
-            {
-                label.Text = "Warning";
-                panel.BackColor = Color.FromArgb(255, 0, 0);
-            }
+
+            if (!isWarning) return;
+            
+            label.Text = "Warning";
+            panel.BackColor = Color.FromArgb(255, 0, 0);
         }
 
         private void ToastForm_Load(object sender, System.EventArgs e)

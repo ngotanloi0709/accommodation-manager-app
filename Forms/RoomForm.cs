@@ -15,20 +15,25 @@ namespace AccommodationManagerApp.Forms
 
         public RoomForm(Room room)
         {
+            InitializeComponent();
+            
             _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
             _buildingService = ServiceLocator.ServiceProvider.GetService(typeof(BuildingService)) as BuildingService;
-
             _room = room;
-            if (_buildingService != null) _buildings = _buildingService.GetAll();
-
-            InitializeComponent();
+            _buildings = _buildingService.GetAll();
+            
             SetUpComboBoxes();
-
+            
             if (_room != null)
             {
                 SetUpData(_room);
                 Text = "Chỉnh sửa thông tin căn hộ";
             }
+        }
+        
+        private void RoomForm_Load(object sender, System.EventArgs e)
+        {
+            PerformLayout();
         }
 
         private void SetUpComboBoxes()
@@ -122,5 +127,7 @@ namespace AccommodationManagerApp.Forms
                 e.Handled = true;
             }
         }
+
+        
     }
 }

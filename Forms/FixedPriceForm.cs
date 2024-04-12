@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using AccommodationManagerApp.Service;
+using AccommodationManagerApp.Util;
 using MaterialSkin.Controls;
 
 namespace AccommodationManagerApp.Forms {
@@ -10,13 +11,12 @@ namespace AccommodationManagerApp.Forms {
         private int _internetPrice = 0;
 
         public FixedPriceForm(int waterPrice, int electricityPrice, int internetPrice) {
-            this._waterPrice = waterPrice;
-            this._electricityPrice = electricityPrice;
-            this._internetPrice = internetPrice;
-
-            _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
-
             InitializeComponent();
+            
+            _waterPrice = waterPrice;
+            _electricityPrice = electricityPrice;
+            _internetPrice = internetPrice;
+            _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
 
             LoadFixedPriceData();
         }
@@ -54,6 +54,24 @@ namespace AccommodationManagerApp.Forms {
 
             if (string.IsNullOrEmpty(textBoxInternetPrice.Text)) {
                 new ToastForm("Vui lòng nhập thông tin giá Internet").Show();
+                return false;
+            }
+            
+            if (!InputHelper.IsValidInputNumber(textBoxWaterPrice.Text))
+            {
+                new ToastForm("Vui lòng nhập số tiền nước hợp lệ", true).Show();
+                return false;
+            }
+            
+            if (!InputHelper.IsValidInputNumber(textBoxElectricityPrice.Text))
+            {
+                new ToastForm("Vui lòng nhập số tiền điện hợp lệ", true).Show();
+                return false;
+            }
+            
+            if (!InputHelper.IsValidInputNumber(textBoxInternetPrice.Text))
+            {
+                new ToastForm("Vui lòng nhập số tiền Internet hợp lệ", true).Show();
                 return false;
             }
 

@@ -9,21 +9,40 @@ namespace AccommodationManagerApp.Forms
     {
         private User _user;
         private readonly UserService _userService;
+        private readonly bool _isSystemUser;
 
-        public UserForm(User user, bool isCurrentUser = false)
+        public UserForm(User user, bool isCurrentUser = false, bool isSystemUser = false)
         {
+            InitializeComponent();
+            
             _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
             _user = user;
-            InitializeComponent();
-
+            _isSystemUser = isSystemUser;
+            
+            SetUpComboBox();
+            
             if (_user != null)
             {
-                setUpData(_user);
+                SetUpData(_user);
                 Text = isCurrentUser ? "Chỉnh sửa thông tin cá nhân" : "Chỉnh sửa thông tin người dùng";
             }
         }
 
-        private void setUpData(User user)
+        private void SetUpComboBox()
+        {
+            if (_isSystemUser) {
+                ComboBoxRole.Items.Add(UserRole.Manager.ToVietnamese());
+                ComboBoxRole.Items.Add(UserRole.Admin.ToVietnamese());
+            }
+            else {
+                ComboBoxRole.Items.Add(UserRole.Tenant.ToVietnamese());    
+                ComboBoxRole.Enabled = false;
+            }
+            
+            ComboBoxRole.SelectedIndex = 0;
+        }
+        
+        private void SetUpData(User user)
         {
             textBoxName.Text = user.Name;
             textBoxPhone.Text = user.Phone;
@@ -31,6 +50,7 @@ namespace AccommodationManagerApp.Forms
             textBoxIdentityNumber.Text = user.IdentityNumber;
             switchSex.Checked = user.IsFemale;
             dateTimePickerDateOfBirth.Value = user.DateOfBirth;
+            ComboBoxRole.SelectedItem = user.Role.ToVietnamese();
         }
 
         private void buttonSave_Click(object sender, System.EventArgs e)
@@ -46,7 +66,8 @@ namespace AccommodationManagerApp.Forms
                     switchSex.Checked,
                     textBoxPhone.Text,
                     textBoxIdentityNumber.Text,
-                    dateTimePickerDateOfBirth.Value);
+                    dateTimePickerDateOfBirth.Value,
+                    ComboBoxRole.SelectedItem.ToString().ToUserRole());
 
                 _userService.Add(_user);
             }
@@ -58,6 +79,7 @@ namespace AccommodationManagerApp.Forms
                 _user.IdentityNumber = textBoxIdentityNumber.Text;
                 _user.IsFemale = switchSex.Checked;
                 _user.DateOfBirth = dateTimePickerDateOfBirth.Value;
+                _user.Role = ComboBoxRole.SelectedItem.ToString().ToUserRole();
 
                 _userService.Update(_user.Id, _user);
             }
@@ -85,6 +107,24 @@ namespace AccommodationManagerApp.Forms
             if (result)
             {
                 new ToastForm("Vui lòng điền đầy đủ thông tin.", true).Show();
+            }
+            
+            if (!string.IsNullOrEmpty(textBoxIdentityNumber.Text) && !InputHelper.IsValidInputNumber(textBoxIdentityNumber.Text))
+            {
+                new ToastForm("Vui lòng nhập số chứng minh/căn cước hợp lệ", true).Show();
+                return false;
+            }
+            
+            if (!string.IsNullOrEmpty(textBoxPhone.Text) && !InputHelper.IsValidInputNumber(textBoxPhone.Text))
+            {
+                new ToastForm("Vui lòng nhập số điện thoại hợp lệ", true).Show();
+                return false;
+            }
+            
+            if (!InputHelper.IsValidInputEmail(textBoxEmail.Text))
+            {
+                new ToastForm("Vui lòng nhập Email hợp lệ", true).Show();
+                return false;
             }
 
             return !result;
