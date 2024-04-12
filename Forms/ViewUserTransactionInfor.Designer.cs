@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LabelBillContractEndDate = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel42 = new MaterialSkin.Controls.MaterialLabel();
             this.LabelBillRoomNumber = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel40 = new MaterialSkin.Controls.MaterialLabel();
@@ -46,7 +47,6 @@
             this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.state = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
-            this.LabelBillContractEndDate = new MaterialSkin.Controls.MaterialLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,10 +66,24 @@
             this.panel1.Controls.Add(this.ListViewUserTransaction);
             this.panel1.Controls.Add(this.materialLabel10);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(4, 79);
+            this.panel1.Location = new System.Drawing.Point(3, 24);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(898, 810);
+            this.panel1.Size = new System.Drawing.Size(917, 760);
             this.panel1.TabIndex = 0;
+            // 
+            // LabelBillContractEndDate
+            // 
+            this.LabelBillContractEndDate.AutoSize = true;
+            this.LabelBillContractEndDate.Depth = 0;
+            this.LabelBillContractEndDate.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.LabelBillContractEndDate.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.LabelBillContractEndDate.Location = new System.Drawing.Point(339, 655);
+            this.LabelBillContractEndDate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LabelBillContractEndDate.Name = "LabelBillContractEndDate";
+            this.LabelBillContractEndDate.Size = new System.Drawing.Size(217, 24);
+            this.LabelBillContractEndDate.TabIndex = 78;
+            this.LabelBillContractEndDate.Text = "________________________";
             // 
             // materialLabel42
             // 
@@ -255,33 +269,24 @@
             this.materialLabel10.Depth = 0;
             this.materialLabel10.Font = new System.Drawing.Font("Roboto Light", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel10.FontType = MaterialSkin.MaterialSkinManager.fontType.H2;
-            this.materialLabel10.Location = new System.Drawing.Point(14, 10);
+            this.materialLabel10.Location = new System.Drawing.Point(14, 26);
             this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel10.Name = "materialLabel10";
             this.materialLabel10.Size = new System.Drawing.Size(666, 72);
             this.materialLabel10.TabIndex = 16;
             this.materialLabel10.Text = "Lịch sử giao dịch cá nhân";
             // 
-            // LabelBillContractEndDate
-            // 
-            this.LabelBillContractEndDate.AutoSize = true;
-            this.LabelBillContractEndDate.Depth = 0;
-            this.LabelBillContractEndDate.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.LabelBillContractEndDate.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.LabelBillContractEndDate.Location = new System.Drawing.Point(339, 655);
-            this.LabelBillContractEndDate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.LabelBillContractEndDate.Name = "LabelBillContractEndDate";
-            this.LabelBillContractEndDate.Size = new System.Drawing.Size(217, 24);
-            this.LabelBillContractEndDate.TabIndex = 78;
-            this.LabelBillContractEndDate.Text = "________________________";
-            // 
             // ViewUserTransactionInfor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(906, 893);
+            this.ClientSize = new System.Drawing.Size(924, 788);
             this.Controls.Add(this.panel1);
+            this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_None;
+            this.MaximumSize = new System.Drawing.Size(924, 788);
+            this.MinimumSize = new System.Drawing.Size(924, 788);
             this.Name = "ViewUserTransactionInfor";
+            this.Padding = new System.Windows.Forms.Padding(3, 24, 4, 4);
             this.Text = "ViewUserTransactionInfor";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

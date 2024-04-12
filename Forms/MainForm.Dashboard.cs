@@ -20,7 +20,7 @@ namespace AccommodationManagerApp.Forms
             drawCasteriaChart();
             drawPieChart();
             drawRoomInBuildingChart();
-
+            LoadDashboard();
         }
         private void drawCasteriaChart()
         {
@@ -199,13 +199,13 @@ namespace AccommodationManagerApp.Forms
             {
                 new LineSeries
                 {
-                    Title = "Unpaid",
-                    Values = new ChartValues <double> {countTotalBillAmounUnpaid(nowDate, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate + 1, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate + 2, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate + 3, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate + 4, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate + 5, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate + 6, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate + 7, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate + 8, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate + 9, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate + 12, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate + 11, DateTime.Now.Year)}
+                    Title = "Chưa trả",
+                    Values = new ChartValues <double> {countTotalBillAmounUnpaid(nowDate-11, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate -10, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate -9, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate -8, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate -7, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate -6, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate -5, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate -4, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate -3, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate -2, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate -1, DateTime.Now.Year), countTotalBillAmounUnpaid(nowDate , DateTime.Now.Year)}
                 },
                 new LineSeries
                 {
-                    Title = "Paid",
-                    Values = new ChartValues <double> {countTotalBillAmounPaid(nowDate, DateTime.Now.Year), countTotalBillAmounPaid(nowDate+1, DateTime.Now.Year), countTotalBillAmounPaid(nowDate+2, DateTime.Now.Year), countTotalBillAmounPaid(nowDate +3, DateTime.Now.Year), countTotalBillAmounPaid(nowDate+4, DateTime.Now.Year), countTotalBillAmounPaid(nowDate+5, DateTime.Now.Year), countTotalBillAmounPaid(nowDate +6, DateTime.Now.Year), countTotalBillAmounPaid(nowDate+7, DateTime.Now.Year), countTotalBillAmounPaid(nowDate + 8, DateTime.Now.Year), countTotalBillAmounPaid(nowDate + 9, DateTime.Now.Year), countTotalBillAmounPaid(nowDate + 10, DateTime.Now.Year), countTotalBillAmounPaid(nowDate + 11, DateTime.Now.Year) }
+                    Title = "Đã trả",
+                    Values = new ChartValues <double> {countTotalBillAmounPaid(nowDate-11, DateTime.Now.Year), countTotalBillAmounPaid(nowDate-10, DateTime.Now.Year), countTotalBillAmounPaid(nowDate-9, DateTime.Now.Year), countTotalBillAmounPaid(nowDate -8, DateTime.Now.Year), countTotalBillAmounPaid(nowDate-7, DateTime.Now.Year), countTotalBillAmounPaid(nowDate-6, DateTime.Now.Year), countTotalBillAmounPaid(nowDate -5, DateTime.Now.Year), countTotalBillAmounPaid(nowDate-4, DateTime.Now.Year), countTotalBillAmounPaid(nowDate -3, DateTime.Now.Year), countTotalBillAmounPaid(nowDate -2, DateTime.Now.Year), countTotalBillAmounPaid(nowDate -1, DateTime.Now.Year), countTotalBillAmounPaid(nowDate, DateTime.Now.Year) }
                 }
             };
         }
@@ -235,6 +235,22 @@ namespace AccommodationManagerApp.Forms
             });
 
             pieChartPaidBillAndUnpaidBill.Series = series;
+        }
+        private void LoadDashboard()
+        {
+            List<Room> _rooms = _roomService.GetAll();
+            List<Building> _buildings = _buildingService.GetAll();
+            List<Bill> _bills = _billService.GetAll();
+            List<Vehicle> _vehicles = _vehicleService.GetAll();
+            List<User> _users = _userService.GetAll();
+            List<Contract> contracts = _contractService.GetAllWithUserAndRoom();
+            List<Request> requests = _requestService.GetAll();
+            lblNumberRoom.Text = _rooms.Count.ToString() + " phòng trọ";
+            lblNumberBuilding.Text = _buildings.Count.ToString() + " tòa nhà";
+            lblNumberVehicle.Text = _vehicles.Count.ToString()+ " phương tiện";
+            lblNumberTennant.Text = _users.Count.ToString() + " người thuê";
+            lblNumberContract.Text = contracts.Count.ToString() + " hợp đồng";
+            lblNumberRequest.Text = requests.Count.ToString() + " yêu cầu";
         }
 
     }

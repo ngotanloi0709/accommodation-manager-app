@@ -70,5 +70,6 @@ namespace AccommodationManagerApp.Forms
                 Close();
             }
         }
+
     }
 }

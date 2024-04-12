@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.materialLabel15 = new MaterialSkin.Controls.MaterialLabel();
             this.debtPieChart = new LiveCharts.WinForms.PieChart();
@@ -69,9 +69,9 @@
             this.panel1.Controls.Add(this.numberRentedRoom);
             this.panel1.Controls.Add(this.materialLabel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(4, 79);
+            this.panel1.Location = new System.Drawing.Point(3, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1157, 1019);
+            this.panel1.Size = new System.Drawing.Size(1176, 899);
             this.panel1.TabIndex = 0;
             // 
             // materialLabel15
@@ -102,7 +102,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.29839F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.70161F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 212F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 211F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 213F));
             this.tableLayoutPanel1.Controls.Add(this.debtBuilding3, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.revenueBuilding3, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.rentRoomBuilding3, 1, 3);
@@ -134,9 +134,9 @@
             this.debtBuilding3.AutoSize = true;
             this.debtBuilding3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.debtBuilding3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.debtBuilding3.Location = new System.Drawing.Point(788, 226);
+            this.debtBuilding3.Location = new System.Drawing.Point(786, 226);
             this.debtBuilding3.Name = "debtBuilding3";
-            this.debtBuilding3.Size = new System.Drawing.Size(206, 81);
+            this.debtBuilding3.Size = new System.Drawing.Size(208, 81);
             this.debtBuilding3.TabIndex = 72;
             this.debtBuilding3.Text = "Tòa nhà 3";
             this.debtBuilding3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -146,7 +146,7 @@
             this.revenueBuilding3.AutoSize = true;
             this.revenueBuilding3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.revenueBuilding3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.revenueBuilding3.Location = new System.Drawing.Point(575, 226);
+            this.revenueBuilding3.Location = new System.Drawing.Point(573, 226);
             this.revenueBuilding3.Name = "revenueBuilding3";
             this.revenueBuilding3.Size = new System.Drawing.Size(206, 81);
             this.revenueBuilding3.TabIndex = 71;
@@ -158,9 +158,9 @@
             this.rentRoomBuilding3.AutoSize = true;
             this.rentRoomBuilding3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rentRoomBuilding3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rentRoomBuilding3.Location = new System.Drawing.Point(217, 226);
+            this.rentRoomBuilding3.Location = new System.Drawing.Point(216, 226);
             this.rentRoomBuilding3.Name = "rentRoomBuilding3";
-            this.rentRoomBuilding3.Size = new System.Drawing.Size(351, 81);
+            this.rentRoomBuilding3.Size = new System.Drawing.Size(350, 81);
             this.rentRoomBuilding3.TabIndex = 70;
             this.rentRoomBuilding3.Text = "Tòa nhà 3";
             this.rentRoomBuilding3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -170,9 +170,9 @@
             this.debtBuilding2.AutoSize = true;
             this.debtBuilding2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.debtBuilding2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.debtBuilding2.Location = new System.Drawing.Point(788, 146);
+            this.debtBuilding2.Location = new System.Drawing.Point(786, 146);
             this.debtBuilding2.Name = "debtBuilding2";
-            this.debtBuilding2.Size = new System.Drawing.Size(206, 79);
+            this.debtBuilding2.Size = new System.Drawing.Size(208, 79);
             this.debtBuilding2.TabIndex = 69;
             this.debtBuilding2.Text = "Tòa nhà 2";
             this.debtBuilding2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -182,7 +182,7 @@
             this.revenueBuilding2.AutoSize = true;
             this.revenueBuilding2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.revenueBuilding2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.revenueBuilding2.Location = new System.Drawing.Point(575, 146);
+            this.revenueBuilding2.Location = new System.Drawing.Point(573, 146);
             this.revenueBuilding2.Name = "revenueBuilding2";
             this.revenueBuilding2.Size = new System.Drawing.Size(206, 79);
             this.revenueBuilding2.TabIndex = 68;
@@ -194,9 +194,9 @@
             this.rentRoomBuilding2.AutoSize = true;
             this.rentRoomBuilding2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rentRoomBuilding2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rentRoomBuilding2.Location = new System.Drawing.Point(217, 146);
+            this.rentRoomBuilding2.Location = new System.Drawing.Point(216, 146);
             this.rentRoomBuilding2.Name = "rentRoomBuilding2";
-            this.rentRoomBuilding2.Size = new System.Drawing.Size(351, 79);
+            this.rentRoomBuilding2.Size = new System.Drawing.Size(350, 79);
             this.rentRoomBuilding2.TabIndex = 67;
             this.rentRoomBuilding2.Text = "Tòa nhà 2";
             this.rentRoomBuilding2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -206,9 +206,9 @@
             this.debtBuilding1.AutoSize = true;
             this.debtBuilding1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.debtBuilding1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.debtBuilding1.Location = new System.Drawing.Point(788, 67);
+            this.debtBuilding1.Location = new System.Drawing.Point(786, 67);
             this.debtBuilding1.Name = "debtBuilding1";
-            this.debtBuilding1.Size = new System.Drawing.Size(206, 78);
+            this.debtBuilding1.Size = new System.Drawing.Size(208, 78);
             this.debtBuilding1.TabIndex = 66;
             this.debtBuilding1.Text = "Tòa nhà 1";
             this.debtBuilding1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -218,7 +218,7 @@
             this.revenueBuilding1.AutoSize = true;
             this.revenueBuilding1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.revenueBuilding1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.revenueBuilding1.Location = new System.Drawing.Point(575, 67);
+            this.revenueBuilding1.Location = new System.Drawing.Point(573, 67);
             this.revenueBuilding1.Name = "revenueBuilding1";
             this.revenueBuilding1.Size = new System.Drawing.Size(206, 78);
             this.revenueBuilding1.TabIndex = 65;
@@ -230,9 +230,9 @@
             this.rentRoomBuilding1.AutoSize = true;
             this.rentRoomBuilding1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rentRoomBuilding1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rentRoomBuilding1.Location = new System.Drawing.Point(217, 67);
+            this.rentRoomBuilding1.Location = new System.Drawing.Point(216, 67);
             this.rentRoomBuilding1.Name = "rentRoomBuilding1";
-            this.rentRoomBuilding1.Size = new System.Drawing.Size(351, 78);
+            this.rentRoomBuilding1.Size = new System.Drawing.Size(350, 78);
             this.rentRoomBuilding1.TabIndex = 64;
             this.rentRoomBuilding1.Text = "Tòa nhà 1";
             this.rentRoomBuilding1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -244,7 +244,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(4, 226);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(206, 81);
+            this.label7.Size = new System.Drawing.Size(205, 81);
             this.label7.TabIndex = 60;
             this.label7.Text = "Tòa nhà 3";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -256,7 +256,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(4, 146);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(206, 79);
+            this.label6.Size = new System.Drawing.Size(205, 79);
             this.label6.TabIndex = 60;
             this.label6.Text = "Tòa nhà 2";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -268,7 +268,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(4, 67);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(206, 78);
+            this.label5.Size = new System.Drawing.Size(205, 78);
             this.label5.TabIndex = 60;
             this.label5.Text = "Tòa nhà 1";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -278,9 +278,9 @@
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(788, 1);
+            this.label4.Location = new System.Drawing.Point(786, 1);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(206, 65);
+            this.label4.Size = new System.Drawing.Size(208, 65);
             this.label4.TabIndex = 63;
             this.label4.Text = "Tổng nợ";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -290,7 +290,7 @@
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(575, 1);
+            this.label3.Location = new System.Drawing.Point(573, 1);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(206, 65);
             this.label3.TabIndex = 62;
@@ -302,9 +302,9 @@
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(217, 1);
+            this.label2.Location = new System.Drawing.Point(216, 1);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(351, 65);
+            this.label2.Size = new System.Drawing.Size(350, 65);
             this.label2.TabIndex = 61;
             this.label2.Text = "Số phòng đã thuê";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -316,7 +316,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(4, 1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 65);
+            this.label1.Size = new System.Drawing.Size(205, 65);
             this.label1.TabIndex = 60;
             this.label1.Text = "Tòa nhà";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -337,16 +337,16 @@
             // numberRentedRoom
             // 
             this.numberRentedRoom.BorderlineColor = System.Drawing.SystemColors.Control;
-            chartArea2.Name = "ChartArea1";
-            this.numberRentedRoom.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.numberRentedRoom.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.numberRentedRoom.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.numberRentedRoom.Legends.Add(legend1);
             this.numberRentedRoom.Location = new System.Drawing.Point(506, 458);
             this.numberRentedRoom.Name = "numberRentedRoom";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Số lượng phòng";
-            this.numberRentedRoom.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Số lượng phòng";
+            this.numberRentedRoom.Series.Add(series1);
             this.numberRentedRoom.Size = new System.Drawing.Size(616, 363);
             this.numberRentedRoom.TabIndex = 68;
             this.numberRentedRoom.Text = "chart1";
@@ -369,9 +369,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1165, 1102);
+            this.ClientSize = new System.Drawing.Size(1183, 927);
             this.Controls.Add(this.panel1);
+            this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_None;
             this.Name = "BuildingStatisticForm";
+            this.Padding = new System.Windows.Forms.Padding(3, 24, 4, 4);
             this.Text = "BuildingStatisticForm";
             this.Load += new System.EventHandler(this.BuildingStatisticForm_Load);
             this.panel1.ResumeLayout(false);

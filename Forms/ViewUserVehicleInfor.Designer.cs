@@ -62,9 +62,12 @@
             this.panel1.Controls.Add(this.materialLabel10);
             this.panel1.Controls.Add(this.ListViewUserVehicle);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(4, 79);
+            this.panel1.Location = new System.Drawing.Point(3, 24);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.MaximumSize = new System.Drawing.Size(1220, 746);
+            this.panel1.MinimumSize = new System.Drawing.Size(1220, 746);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1259, 896);
+            this.panel1.Size = new System.Drawing.Size(1220, 746);
             this.panel1.TabIndex = 0;
             // 
             // lableVehiclePrice
@@ -255,9 +258,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1267, 979);
+            this.ClientSize = new System.Drawing.Size(1223, 775);
             this.Controls.Add(this.panel1);
+            this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_None;
+            this.MaximumSize = new System.Drawing.Size(1223, 775);
+            this.MinimumSize = new System.Drawing.Size(1223, 775);
             this.Name = "ViewUserVehicleInfor";
+            this.Padding = new System.Windows.Forms.Padding(3, 24, 4, 4);
             this.Text = "ViewUserVehicleInfor";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

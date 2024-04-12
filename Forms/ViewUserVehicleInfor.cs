@@ -36,6 +36,10 @@ namespace AccommodationManagerApp.Forms
             ListViewUserVehicle.Items.Clear();
             List<Contract> contracts = _contractService.GetByUserIdAndNonExpiredWithRoom(_user.Id);
             Contract result = contracts.Where(c => c.StartDate <= DateTime.Now && c.EndDate >= DateTime.Now).FirstOrDefault();
+            if(result == null)
+            {
+                return;
+            }
             Vehicle = _vehicleService.GetAllByRoomId(result.Room.Id);
             if(Vehicle.Count != 0)
             {

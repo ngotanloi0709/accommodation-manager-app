@@ -109,6 +109,5 @@ namespace AccommodationManagerApp.Forms
             buildingStatisticForm.ShowDialog();
         }
 
-        
     }
 }

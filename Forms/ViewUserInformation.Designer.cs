@@ -42,12 +42,12 @@
             this.btnRoomInfor.Depth = 0;
             this.btnRoomInfor.HighEmphasis = true;
             this.btnRoomInfor.Icon = global::AccommodationManagerApp.Properties.Resources.search;
-            this.btnRoomInfor.Location = new System.Drawing.Point(27, 238);
-            this.btnRoomInfor.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnRoomInfor.Location = new System.Drawing.Point(36, 293);
+            this.btnRoomInfor.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnRoomInfor.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnRoomInfor.Name = "btnRoomInfor";
             this.btnRoomInfor.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnRoomInfor.Size = new System.Drawing.Size(337, 35);
+            this.btnRoomInfor.Size = new System.Drawing.Size(449, 43);
             this.btnRoomInfor.TabIndex = 40;
             this.btnRoomInfor.Text = "Truy xuất thông tin phòng";
             this.btnRoomInfor.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -63,12 +63,12 @@
             this.btnTransactionHistory.Depth = 0;
             this.btnTransactionHistory.HighEmphasis = true;
             this.btnTransactionHistory.Icon = global::AccommodationManagerApp.Properties.Resources.invoice;
-            this.btnTransactionHistory.Location = new System.Drawing.Point(27, 193);
-            this.btnTransactionHistory.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnTransactionHistory.Location = new System.Drawing.Point(36, 238);
+            this.btnTransactionHistory.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnTransactionHistory.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnTransactionHistory.Name = "btnTransactionHistory";
             this.btnTransactionHistory.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnTransactionHistory.Size = new System.Drawing.Size(337, 35);
+            this.btnTransactionHistory.Size = new System.Drawing.Size(449, 43);
             this.btnTransactionHistory.TabIndex = 39;
             this.btnTransactionHistory.Text = "Truy xuất lịch sử thanh toán";
             this.btnTransactionHistory.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -84,12 +84,12 @@
             this.btnCheckVehicles.Depth = 0;
             this.btnCheckVehicles.HighEmphasis = true;
             this.btnCheckVehicles.Icon = global::AccommodationManagerApp.Properties.Resources.view;
-            this.btnCheckVehicles.Location = new System.Drawing.Point(27, 147);
-            this.btnCheckVehicles.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.btnCheckVehicles.Location = new System.Drawing.Point(36, 181);
+            this.btnCheckVehicles.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCheckVehicles.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCheckVehicles.Name = "btnCheckVehicles";
             this.btnCheckVehicles.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnCheckVehicles.Size = new System.Drawing.Size(337, 36);
+            this.btnCheckVehicles.Size = new System.Drawing.Size(449, 44);
             this.btnCheckVehicles.TabIndex = 38;
             this.btnCheckVehicles.Text = "Truy xuất thông tin phương tiện";
             this.btnCheckVehicles.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -103,8 +103,7 @@
             this.materialLabel10.Depth = 0;
             this.materialLabel10.Font = new System.Drawing.Font("Roboto Light", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel10.FontType = MaterialSkin.MaterialSkinManager.fontType.H2;
-            this.materialLabel10.Location = new System.Drawing.Point(18, 70);
-            this.materialLabel10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.materialLabel10.Location = new System.Drawing.Point(24, 46);
             this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel10.Name = "materialLabel10";
             this.materialLabel10.Size = new System.Drawing.Size(245, 72);
@@ -113,18 +112,19 @@
             // 
             // ViewUserInformation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(389, 298);
+            this.ClientSize = new System.Drawing.Size(513, 356);
             this.Controls.Add(this.materialLabel10);
             this.Controls.Add(this.btnRoomInfor);
             this.Controls.Add(this.btnTransactionHistory);
             this.Controls.Add(this.btnCheckVehicles);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MaximumSize = new System.Drawing.Size(389, 298);
-            this.MinimumSize = new System.Drawing.Size(389, 298);
+            this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(513, 356);
+            this.MinimumSize = new System.Drawing.Size(513, 356);
             this.Name = "ViewUserInformation";
-            this.Padding = new System.Windows.Forms.Padding(2, 52, 2, 2);
+            this.Padding = new System.Windows.Forms.Padding(3, 24, 3, 2);
             this.Text = "ViewUserInformation";
             this.ResumeLayout(false);
             this.PerformLayout();

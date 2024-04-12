@@ -45,5 +45,6 @@ namespace AccommodationManagerApp.Forms
             ViewUserRoomInfor viewUserRoomInfor = new ViewUserRoomInfor(_user);
             viewUserRoomInfor.ShowDialog();
         }
+
     }
 }
