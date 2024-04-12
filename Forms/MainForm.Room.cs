@@ -8,10 +8,15 @@ using AccommodationManagerApp.Util;
 namespace AccommodationManagerApp.Forms {
     public partial class MainForm {
         private void LoadRoomData() {
-            ListViewRoom.Items.Clear();
             Rooms = _roomService.GetAllWithBuildingAndUserAndContractWithUser();
+            InsertRoomIntoListView(Rooms);
+        }
 
-            foreach (var room in Rooms) {
+        private void InsertRoomIntoListView(List<Room> rooms)
+        {
+            ListViewRoom.Items.Clear();
+            foreach (var room in rooms)
+            {
                 var item = new ListViewItem(room.RoomNumber);
                 item.SubItems.Add(room.Building != null ? room.Building.Name : Resources.NullData);
                 item.SubItems.Add(_roomService.GetCurrentTenantName(room));
@@ -19,7 +24,6 @@ namespace AccommodationManagerApp.Forms {
                 ListViewRoom.Items.Add(item);
             }
         }
-
 
         private void ListViewRoom_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) {
             var room = IsSelectedRoomValid();
@@ -226,6 +230,36 @@ namespace AccommodationManagerApp.Forms {
             else {
                 new ToastForm("Vui lòng chọn nhân khẩu", true).Show();
             }
+        }
+
+        private void ButtonRoomSearch_Click(object sender, EventArgs e)
+        {
+            string building = comboBoxRoomBuilding.SelectedIndex == 0 ? null : (string)comboBoxRoomBuilding.SelectedItem;
+            RoomStatus state = RoomStatusExtensions.ToRoomStatus((string)comboBoxRoomState.SelectedItem);
+            List<string> text = QueryUtils.ChangeSearchInput((string) comboBoxRoomSearch.SelectedItem, textBoxRoomSearch.Text);
+            var queryRoom = _roomService.GetByCustomizeQuery(Rooms, building, state, text);
+            InsertRoomIntoListView(queryRoom);
+        }
+        
+        private void ButtonRoomContract_Click(object sender, EventArgs e)
+        {
+            var room = IsSelectedRoomValid();
+            
+            if (room == null)
+            {
+                new ToastForm("Vui lòng chọn căn hộ", true).Show();
+                return;
+            }
+
+            Contract contract = _roomService.GetCurrentContract(room);
+            
+            if (contract == null)
+            {
+                new ToastForm("Không tìm thấy hợp đồng", true).Show();
+                return;
+            }
+            
+            new ContractInfomationForm(contract).Show();
         }
     }
 }

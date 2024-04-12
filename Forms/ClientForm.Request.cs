@@ -1,6 +1,8 @@
 ﻿using AccommodationManagerApp.Model;
 using System.Windows.Forms;
 using AccommodationManagerApp.Util;
+using System.Collections.Generic;
+using System;
 
 namespace AccommodationManagerApp.Forms
 {
@@ -41,8 +43,13 @@ namespace AccommodationManagerApp.Forms
         private void LoadRequestData()
         {
             _Requests = _requestService.GetAllByUserId(_user.Id);
+            InsertRequestIntoListView(_Requests);
+        }
+
+        private void InsertRequestIntoListView(List<Request> requests)
+        {
             lstViewReq.Items.Clear();
-            foreach (var request in _Requests)
+            foreach (var request in requests)
             {
                 var item = new ListViewItem(request.Id.ToString());
                 item.SubItems.Add(request.Des);
@@ -61,16 +68,24 @@ namespace AccommodationManagerApp.Forms
             new ToastForm("Mời bạn chọn yêu cầu !", true).Show();
             return null;
         }
-        private void buttonResponse_Click(object sender, System.EventArgs e)
+
+        private void LstViewReq_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            _request = SelectRequest();
-            if (_request == null) return;
-            if (_request.Status == RequestStatus.Unsolve)
-            {
-                new ToastForm("Yêu cầu của bạn chưa được phản hồi !", true).Show();
-                return;
-            }
-            new PreviewResponseForm(_request).ShowDialog();
+            var _request = SelectRequest();
+            labelReqUser.Text = _request.User.Name;
+            labelReqContent.Text = _request.Des;
+            labelReqDate.Text = _request.CreatedAtFormatted;
+            labelReqState.Text = RequestStatusExtension.ToVietnamese(_request.Status);
+        }
+
+        // Query System
+        private void ButtonReqSearch_Click(object sender, EventArgs e)
+        {
+            List<object> time = QueryUtils.ChangeTextToDate(comboBoxReqTime.SelectedItem.ToString());
+            RequestStatus status = RequestStatusExtension.ToRequestStatus(comboBoxReqState.SelectedItem.ToString());
+            List<string> text = new List<string>() { null, null};
+            var queryRequests = _requestService.GetByCustomizeQuery(_Requests, time, status, text);
+            InsertRequestIntoListView(queryRequests);
         }
     }
 }

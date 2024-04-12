@@ -1,4 +1,5 @@
-﻿using AccommodationManagerApp.Util;
+﻿using AccommodationManagerApp.Model;
+using AccommodationManagerApp.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,36 +12,26 @@ namespace AccommodationManagerApp.Forms
         private BillModel _bill;
         private BillModel SelectBill()
         {
-            if (lstViewBill.SelectedItems.Count > 0)
+            if (ListViewBill.SelectedItems.Count > 0)
             {
-                var index = lstViewBill.SelectedItems[0].Index;
+                var index = ListViewBill.SelectedItems[0].Index;
 
                 if (index < _Bills.Count) return _Bills[index];
             }
             return null;
         }
-        private void LoadBillData()
-        {
-            _Bills = _billService.GetAllByUserId(_user.Id);
-            InsertBillIntoListView(_Bills);
-        }
-        private void LoadBillDataInThisMonth()
-        {
-            _Bills = _Bills.Where(bill => bill.DateOfBill.Month == DateTime.Now.Month).ToList();
-            InsertBillIntoListView(_Bills);
-        }
         private void InsertBillIntoListView(List<BillModel> bills)
         {
-            lstViewBill.Items.Clear();
+            ListViewBill.Items.Clear();
             foreach (var bill in bills)
             {
                 var item = new ListViewItem(bill.Id.ToString());
-                item.SubItems.Add(bill.ElectricityQuantity.ToString());
-                item.SubItems.Add(bill.WaterQuantity.ToString());
+                item.SubItems.Add(FormatText.IntegerToVnd(bill.RentFee));
                 item.SubItems.Add(bill.Contract?.Room.RoomNumber.ToString() ?? "Trống");
+                item.SubItems.Add(bill.User.Name);
                 item.SubItems.Add(bill.DateOfBillFormatted);
-                item.SubItems.Add(bill.Status.ToVietnamese());
-                lstViewBill.Items.Add(item);
+                item.SubItems.Add(QueryUtils.ToVietnamese(bill.Status));
+                ListViewBill.Items.Add(item);
             }
         }
         private void buttonPreview_Click(object sender, System.EventArgs e)
@@ -60,19 +51,30 @@ namespace AccommodationManagerApp.Forms
             var billDetail = new BillDetail(_bill);
             billDetail.ShowDialog();
         }
-        private void ComboBoxVolumn_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void LoadBillData()
         {
-            switch (comboBoxVolumn.SelectedIndex)
+            _Bills = _billService.GetAllByUserIdWithContractWithRoomAndUser(_user.Id);
+            InsertBillIntoListView(_Bills);
+        }
+        // Query System
+
+        private void ButtonPriceSearch_Click(object sender, EventArgs e)
+        {
+            BillStatus state = QueryUtils.ToBillStatus((string)comboBoxState.SelectedItem);
+            List<object> time = QueryUtils.ChangeTextToDate((string)comboBoxTime.SelectedItem);
+            List<string> text = new List<string> { null, null};
+            int? minPrice = int.TryParse(textBoxMinPrice.Text, out int min) ? min : (int?)null;
+            int? maxPrice = int.TryParse(textBoxMaxPrice.Text, out int max) ? max : (int?)null;
+
+            if (QueryUtils.CheckMinMaxPrice(minPrice, maxPrice))
             {
-                case 0:
-                    LoadBillData();
-                    break;
-                case 1:
-                    LoadBillDataInThisMonth();
-                    break;
-
-
+                var queryBills = _billService.GetByCustomizeQuery(_Bills, state, time, text, minPrice, maxPrice);
+                InsertBillIntoListView(queryBills);
             }
+            else
+                new ToastForm("Xin mời nhập giá sàn thấp hơn giá trần", true).Show();
+            return;
         }
     }
 }

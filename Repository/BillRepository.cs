@@ -8,9 +8,14 @@ namespace AccommodationManagerApp.Repository
     {
         public BillRepository(AccommodationManagerAppContext context) : base(context) { }
 
-        public List<Bill> GetAllBillByUserId(int userId)
+        public List<Bill> GetAllByUserIdWithContractWithRoomAndUser(int userId)
         {
-            return Context.Set<Bill>().Where(bill => bill.UserId == userId && bill.Status != BillStatus.Edit).ToList();
+            return Context.Set<Bill>()
+                .Include("Contract")
+                .Include("Contract.Room")
+                .Include("Contract.User")
+                .Where(bill => bill.Contract.UserId == userId)
+                .ToList();
         }
 
         public List<Bill> GetAllBillByUserIdIncludeEdit(int userId)
@@ -23,11 +28,10 @@ namespace AccommodationManagerApp.Repository
             return Context.Set<Bill>().Where(bill => bill.DateOfBill.Month == System.DateTime.Now.Month && bill.Status == BillStatus.Unpaid).ToList();
         }
 
-        public List<Bill> GetAllWithContractWithRoomAndUser() {
-            return Context.Set<Bill>().Include("Contract").Include("Contract.Room").Include("Contract.User").ToList();
-        }
+        public List<Bill> GetAllWithContractWithRoomAndUser() => Context.Set<Bill>().Include("Contract").Include("Contract.Room").Include("Contract.User").ToList();
 
-        public List<Bill> GetAllByContractId(int contract_id) {
+        public List<Bill> GetAllByContractId(int contract_id)
+        {
             return Context.Set<Bill>().Where(bill => bill.ContractId == contract_id).ToList();
         }
 
@@ -45,6 +49,12 @@ namespace AccommodationManagerApp.Repository
         {
             return Context.Set<Bill>().Where(bill => bill.DateOfBill.Month == month && bill.DateOfBill.Year == year && bill.Status == BillStatus.Edit).ToList();
 
+        }
+
+        public List<Bill> GetBillByStatus(BillStatus status) => Context.Set<Bill>().Where(bill => bill.Status == status).ToList(); 
+        
+        public List<Bill> GetAllUnpaidBill() {
+            return Context.Set<Bill>().Include("User").Where(bill => bill.Status == BillStatus.Unpaid).ToList();
         }
     }
 }

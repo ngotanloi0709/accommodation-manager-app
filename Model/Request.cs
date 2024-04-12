@@ -29,7 +29,8 @@ namespace AccommodationManagerApp.Model
     }
     public enum RequestStatus
     {
-        Unsolve = 0,
-        Solved = 1
+        Unsolve,
+        Solved,
+        Null
     }
 }

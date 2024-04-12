@@ -5,7 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AccommodationManagerApp.Model {
     [Table("contracts")]
-    public class Contract {
+    public class Contract
+    {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int? UserId { get; set; }
@@ -14,19 +15,17 @@ namespace AccommodationManagerApp.Model {
         [ForeignKey("RoomId")] public Room Room { get; set; }
         public int Price { get; set; }
         public DateTime StartDate { get; set; } = DateTime.Now;
-        public DateTime EndDate { get; set; } = DateTime.Now;
+        public DateTime EndDate { get; set; } = DateTime.Now.AddMonths(3); // Set EndDate to StartDate + 3 months
         public bool IsTerminated { get; set; } = false;
         public List<Bill> Bills { get; set; }
 
         public Contract() { }
 
-        public Contract(int userId, int roomId, int price, DateTime startDate, DateTime endDate, bool isTerminated) {
-            UserId = userId;
-            RoomId = roomId;
+        // Constructor use for Testing in Migration
+        public Contract(int price)
+        {
             Price = price;
-            StartDate = startDate;
-            EndDate = endDate;
-            IsTerminated = isTerminated;
+            EndDate = StartDate.AddMonths(3);
         }
     }
 }

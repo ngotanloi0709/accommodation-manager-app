@@ -102,5 +102,23 @@ namespace AccommodationManagerApp.Service {
         public List<Room> GetAllWithNotTerminatedContract() {
             return _roomRepository.GetAllWithNotTerminatedContract().ToList();
         }
+
+        public List<Room> GetByCustomizeQuery(List<Room> rooms, string building, RoomStatus state, List<string> text)
+        {
+            var filteredRooms = rooms.Where(room =>
+                (building == null || room.Building.Name == building) &&
+                (state == RoomStatus.Null || room.Status == state) &&
+                (text[0] == null) &&
+                (text[1] == null || text[1].Equals(room.RoomNumber, StringComparison.OrdinalIgnoreCase))
+            );
+            return filteredRooms.ToList();
+        }
+        
+        public Contract GetCurrentContract(Room room) {
+            if (room.Contracts.Count == 0) {
+                return null;
+            }
+            return room.Contracts.FirstOrDefault(contract => contract.EndDate > DateTime.Now && !contract.IsTerminated && contract.User != null);
+        }
     }
 }

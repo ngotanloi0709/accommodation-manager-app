@@ -8,9 +8,10 @@ namespace AccommodationManagerApp.Forms {
         private readonly BuildingService _buildingService;
 
         public BuildingForm(Building building) {
+            InitializeComponent();
+            
             _building = building;
             _buildingService = ServiceLocator.ServiceProvider.GetService(typeof(BuildingService)) as BuildingService;
-            InitializeComponent();
 
             if (_building != null) {
                 SetUpData();

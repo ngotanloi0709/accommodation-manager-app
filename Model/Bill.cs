@@ -34,6 +34,16 @@ namespace AccommodationManagerApp.Model
             DateOfBill = dateOfBill;
             UserId = userId;
         }
+        public Bill(int electricityQuantity, int waterQuantity, int electricityFee, int waterFee, int internetFee, int vehicleFee, int rentFee)
+        {
+            ElectricityQuantity = electricityQuantity;
+            WaterQuantity = waterQuantity;
+            ElectricityFee = electricityFee;
+            WaterFee = waterFee;
+            InternetFee = internetFee;
+            VehicleFee = vehicleFee;
+            RentFee = rentFee;
+        }
 
         public int GetTotalPrice() {
             return ((WaterQuantity * WaterFee) + (ElectricityQuantity * ElectricityFee) + InternetFee + RentFee + VehicleFee);
@@ -43,6 +53,7 @@ namespace AccommodationManagerApp.Model
     {
         Edit,
         Unpaid,
-        Paid
+        Paid,
+        Null
     }
 }

@@ -5,6 +5,7 @@ using AccommodationManagerApp.Forms;
 using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 using AccommodationManagerApp.Util;
+using MaterialSkin;
 
 namespace AccommodationManagerApp {
     internal static class Program {
@@ -17,14 +18,16 @@ namespace AccommodationManagerApp {
         static void Main() {
             ConfigureServices();
             ActiveMigration();
+            SetUpTheme();
             
             var authenticationService = _serviceProvider.GetService<AuthenticationService>();
-            //authenticationService.Authenticate("ngotanloi0709@gmail.com", "123");
-            
-            authenticationService.Authenticate("www.khanhhuan@gmail.com", "123");
-            Application.EnableVisualStyles();
+            authenticationService.Authenticate("ngotanloi0709@gmail.com", "123");
+            // authenticationService.Authenticate("ql7769663@gmail.com", "123");
+            // authenticationService.Authenticate("user1@gmail.com", "123");
+            // ứng dụng này khó có khả năng chạy song song client và manager form, chỉ chạy 1 form mỗi lần 
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.EnableVisualStyles();
+            Application.Run(new LoginForm());
         }
 
         private static void ConfigureServices()
@@ -43,7 +46,6 @@ namespace AccommodationManagerApp {
             services.AddSingleton<BillService>();
             services.AddSingleton<ContractService>();
             services.AddSingleton<RequestService>();
-            services.AddSingleton<ResponseService>();
             // Repositories
             services.AddSingleton<BillRepository>();
             services.AddSingleton<UserRepository>();
@@ -53,11 +55,17 @@ namespace AccommodationManagerApp {
             services.AddSingleton<InitLogRepository>();
             services.AddSingleton<ContractRepository>();
             services.AddSingleton<RequestRepository>();
-            services.AddSingleton<ResponseRepository>();
             services.AddSingleton<FixedPriceRepository>();
 
             _serviceProvider = services.BuildServiceProvider();
             ServiceLocator.Initialize(_serviceProvider);
+        }
+
+        private static void SetUpTheme() {
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Green400, Primary.Green700, Primary.Green700,
+                Accent.Amber700, TextShade.WHITE);
         }
 
         private static void ActiveMigration() {

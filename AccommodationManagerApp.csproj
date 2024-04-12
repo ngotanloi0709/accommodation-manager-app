@@ -253,6 +253,12 @@
     <Compile Include="Forms\ClientForm.Request.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\ContractInfomationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ContractInfomationForm.Designer.cs">
+      <DependentUpon>ContractInfomationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FixedPriceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,17 +286,8 @@
     <Compile Include="Forms\MainForm.Request.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PreviewRequestForm.cs">
+    <Compile Include="Forms\MainForm.SystemUser.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\PreviewRequestForm.Designer.cs">
-      <DependentUpon>PreviewRequestForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\PreviewResponseForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\PreviewResponseForm.Designer.cs">
-      <DependentUpon>PreviewResponseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\RequestForm.cs">
       <SubType>Form</SubType>
@@ -367,12 +364,6 @@
     <Compile Include="Forms\MainForm.Vehicle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ResponseForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ResponseForm.Designer.cs">
-      <DependentUpon>ResponseForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\SplashForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -434,7 +425,6 @@
     <Compile Include="Model\Contract.cs" />
     <Compile Include="Model\FixedPrice.cs" />
     <Compile Include="Model\Request.cs" />
-    <Compile Include="Model\Response.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Vehicle.cs" />
@@ -452,7 +442,6 @@
     <Compile Include="Repository\InitLogRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\RequestRepository.cs" />
-    <Compile Include="Repository\ResponseRepository.cs" />
     <Compile Include="Repository\RoomRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Repository\VehicleRepository.cs" />
@@ -461,12 +450,11 @@
     <Compile Include="Service\BuildingService.cs" />
     <Compile Include="Service\ContractService.cs" />
     <Compile Include="Service\RequestService.cs" />
-    <Compile Include="Service\ResponseService.cs" />
     <Compile Include="Service\ServiceLocator.cs" />
     <Compile Include="Service\RoomService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="Service\VehicleServide.cs" />
-    <Compile Include="Util\BillStatusExtensions.cs" />
+    <Compile Include="Util\QueryUtils.cs" />
     <Compile Include="Util\FixedPriceTypeHelper.cs" />
     <Compile Include="Util\FormatText.cs" />
     <Compile Include="Util\InitLog.cs" />
@@ -474,6 +462,7 @@
     <Compile Include="Util\PasswordHelper.cs" />
     <Compile Include="Util\RequestStatusExtension.cs" />
     <Compile Include="Util\RoomStatusExtensions.cs" />
+    <Compile Include="Util\UserRoleExtensions.cs" />
     <Compile Include="Util\VehicleCategoryExtensions.cs" />
     <EmbeddedResource Include="Forms\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
@@ -483,6 +472,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BillForm.resx">
       <DependentUpon>BillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BillStatusForm.resx">
+      <DependentUpon>BillStatusForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BuildingStatisticForm.resx">
       <DependentUpon>BuildingStatisticForm.cs</DependentUpon>
@@ -496,14 +488,11 @@
     <EmbeddedResource Include="Forms\ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ContractInfomationForm.resx">
+      <DependentUpon>ContractInfomationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FixedPriceForm.resx">
       <DependentUpon>FixedPriceForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreviewRequestForm.resx">
-      <DependentUpon>PreviewRequestForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreviewResponseForm.resx">
-      <DependentUpon>PreviewResponseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RequestForm.resx">
       <DependentUpon>RequestForm.cs</DependentUpon>
@@ -529,9 +518,6 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ResponseForm.resx">
-      <DependentUpon>ResponseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SplashForm.resx">
       <DependentUpon>SplashForm.cs</DependentUpon>
@@ -628,6 +614,7 @@
     <None Include="Resources\next.png" />
     <None Include="Resources\check-list.png" />
     <None Include="Resources\email.png" />
+    <None Include="Resources\ParkLine-apartment-in-Miami-FL.jpg" />
     <Content Include="Resources\Roboto-Medium.ttf" />
     <Content Include="Resources\Roboto-Regular.ttf" />
     <None Include="Resources\signature.jpg" />

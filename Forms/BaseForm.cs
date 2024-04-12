@@ -7,16 +7,11 @@ namespace AccommodationManagerApp.Forms
         protected static string defaultMail = "user@email.com";
         public BaseForm() {
             InitializeComponent();
+            DoubleBuffered = true;
             SetUpUi();
         }
         protected void SetUpUi()
         {
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.Green400, Primary.Green700, Primary.Green700,
-                Accent.Amber700, TextShade.WHITE);
-
-            
             StartPosition = FormStartPosition.CenterScreen;
             MaximizeBox = false;
             MinimizeBox = false;
