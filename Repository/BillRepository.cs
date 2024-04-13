@@ -58,7 +58,10 @@ namespace AccommodationManagerApp.Repository
             string text0 = text[0];
             string text1 = text[1];
 
-            var filteredBills = Context.Set<Bill>().Where(bill =>
+            var filteredBills = Context.Set<Bill>()
+                .Include("Contract")
+                .Include("User")
+                .Where(bill =>
                 (bill.Status == state || state == BillStatus.Null) &&
                 (bill.DateOfBill < DateTime.Now || !time0) &&
                 (time1 == null || bill.DateOfBill.Month == time1) &&

@@ -340,31 +340,30 @@ namespace AccommodationManagerApp.Forms {
             List<string> text = QueryUtils.ChangeSearchInput((string)comboBoxContractSearch.SelectedItem,
                 textBoxContractSearch.Text);
             bool? terminated = QueryUtils.TerminateContract((string)comboBoxContractTerminate.SelectedItem);
-            var queryContract = _contractService.GetByCustomizeQuery(Contracts, startDate, endDate, text, terminated);
-            InsertContractToListView(queryContract);
+            Contracts = _contractService.GetByCustomizeQuery(startDate, endDate, text, terminated);
+            InsertContractToListView(Contracts);
             return;
         }
     
+        private void ButtonCheckContractBills_Click(object sender, EventArgs e)
+            {
+                var contract = IsSelectedContractValid();
 
-    private void ButtonCheckContractBills_Click(object sender, EventArgs e)
-        {
-            var contract = IsSelectedContractValid();
-
-            if (contract == null) return;
+                if (contract == null) return;
             
-            if (contract.IsTerminated) {
-                new ToastForm("Hợp đồng đã kết thúc - bị thanh lý, không thể khởi tạo hoá đơn", true).Show();
-                return;
+                if (contract.IsTerminated) {
+                    new ToastForm("Hợp đồng đã kết thúc - bị thanh lý, không thể khởi tạo hoá đơn", true).Show();
+                    return;
+                }
+            
+                var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn tiến hành tạo những hoá đơn còn thiếu của hợp đồng này không?");
+                var result = confirmationForm.ShowDialog();
+
+                if (result != DialogResult.Yes) return;
+            
+                _billService.GenerateMissingBillsForContract(contract);
+                new ToastForm("Khởi tạo lại các hóa đơn còn thiếu thành công").Show();
+                ContractForeignInformationReload();
             }
-            
-            var confirmationForm = new ConfirmationForm("Bạn có chắc chắn muốn tiến hành tạo những hoá đơn còn thiếu của hợp đồng này không?");
-            var result = confirmationForm.ShowDialog();
-
-            if (result != DialogResult.Yes) return;
-            
-            _billService.GenerateMissingBillsForContract(contract);
-            new ToastForm("Khởi tạo lại các hóa đơn còn thiếu thành công").Show();
-            ContractForeignInformationReload();
         }
-    }
 }
