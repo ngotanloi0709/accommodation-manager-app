@@ -9,10 +9,20 @@ namespace AccommodationManagerApp.Forms
     public partial class ClientForm
     {
         private Request _request;
-        private void DeleteReq(object sender, System.EventArgs e)
+        private void DeleteReq(object sender, EventArgs e)
         {
             _request = SelectRequest();
-            if (_request == null) return;
+            
+            if (_request == null) {
+                new ToastForm("Mời bạn chọn yêu cầu cần xoá!", true).Show();
+                return;
+            }
+            
+            if (_request.Status == RequestStatus.Solved)
+            {
+                new ToastForm("Đã cập nhật trạng thái giải quyết không thể xoá !", true).Show();
+                return;
+            }
 
             var confirmation = new ConfirmationForm("Xác nhận xóa yêu cầu?");
             confirmation.ShowDialog();
@@ -22,19 +32,24 @@ namespace AccommodationManagerApp.Forms
                 LoadRequestData();
             }
         }
-        private void UpdateReq(object sender, System.EventArgs e)
+        private void UpdateReq(object sender, EventArgs e)
         {
             _request = SelectRequest();
-            if (_request == null) return;
-            if (_request.Status == RequestStatus.Solved)
-            {
-                new ToastForm("Đã Cập Nhật Không Thể Thay Đổi !", true).Show();
+            
+            if (_request == null) {
+                new ToastForm("Mời bạn chọn yêu cầu cần chỉnh sửa!", true).Show();
                 return;
             }
-            InsertRequest(_request);
             
+            if (_request.Status == RequestStatus.Solved)
+            {
+                new ToastForm("Đã cập nhật trạng thái giải quyết không thể thay đổi !", true).Show();
+                return;
+            }
+            
+            InsertRequest(_request);
         }
-        private void AddReq(object sender, System.EventArgs e)
+        private void AddReq(object sender, EventArgs e)
         {
             InsertRequest(null);
         }
@@ -72,14 +87,16 @@ namespace AccommodationManagerApp.Forms
             return null;
         }
 
-        private void LstViewReq_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void LstViewReq_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var _request = SelectRequest();
-            if(_request == null) return;
-            labelReqUser.Text = _request.User.Name;
-            labelReqContent.Text = _request.Des;
-            labelReqDate.Text = _request.CreatedAtFormatted;
-            labelReqState.Text = RequestStatusExtension.ToVietnamese(_request.Status);
+            var request = SelectRequest();
+            
+            if(request == null) return;
+            
+            labelReqUser.Text = request.User.Name;
+            labelReqContent.Text = request.Des;
+            labelReqDate.Text = request.CreatedAtFormatted;
+            labelReqState.Text = RequestStatusExtension.ToVietnamese(request.Status);
         }
 
         // Query System

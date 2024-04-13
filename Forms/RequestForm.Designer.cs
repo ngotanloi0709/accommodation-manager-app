@@ -33,7 +33,7 @@
             this.txtReq = new MaterialSkin.Controls.MaterialMultiLineTextBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.btnClose = new MaterialSkin.Controls.MaterialButton();
-            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            this.ButtonSave = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbxReq)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,35 +106,35 @@
             this.btnClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnClose.UseAccentColor = false;
             this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.close);
+            this.btnClose.Click += new System.EventHandler(this.Close);
             // 
-            // materialButton1
+            // ButtonSave
             // 
-            this.materialButton1.AutoSize = false;
-            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton1.Depth = 0;
-            this.materialButton1.HighEmphasis = true;
-            this.materialButton1.Icon = global::AccommodationManagerApp.Properties.Resources.plus1;
-            this.materialButton1.Location = new System.Drawing.Point(275, 403);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton1.Name = "materialButton1";
-            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton1.Size = new System.Drawing.Size(95, 36);
-            this.materialButton1.TabIndex = 25;
-            this.materialButton1.Text = "Thêm";
-            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton1.UseAccentColor = false;
-            this.materialButton1.UseVisualStyleBackColor = true;
-            this.materialButton1.Click += new System.EventHandler(this.AddAndUpdateRequest);
+            this.ButtonSave.AutoSize = false;
+            this.ButtonSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ButtonSave.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.ButtonSave.Depth = 0;
+            this.ButtonSave.HighEmphasis = true;
+            this.ButtonSave.Icon = global::AccommodationManagerApp.Properties.Resources.plus1;
+            this.ButtonSave.Location = new System.Drawing.Point(275, 403);
+            this.ButtonSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.ButtonSave.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ButtonSave.Name = "ButtonSave";
+            this.ButtonSave.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.ButtonSave.Size = new System.Drawing.Size(95, 36);
+            this.ButtonSave.TabIndex = 25;
+            this.ButtonSave.Text = "Lưu";
+            this.ButtonSave.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.ButtonSave.UseAccentColor = false;
+            this.ButtonSave.UseVisualStyleBackColor = true;
+            this.ButtonSave.Click += new System.EventHandler(this.AddAndUpdateRequest);
             // 
             // RequestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(490, 460);
-            this.Controls.Add(this.materialButton1);
+            this.Controls.Add(this.ButtonSave);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.txtReq);
@@ -144,7 +144,7 @@
             this.MinimumSize = new System.Drawing.Size(490, 460);
             this.Name = "RequestForm";
             this.Text = "ReqForm";
-            this.Click += new System.EventHandler(this.AddAndUpdateRequest);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RequestForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pbxReq)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -158,6 +158,6 @@
         protected MaterialSkin.Controls.MaterialLabel lblReqDate;
         protected MaterialSkin.Controls.MaterialMultiLineTextBox txtReq;
         protected MaterialSkin.Controls.MaterialButton btnClose;
-        protected MaterialSkin.Controls.MaterialButton materialButton1;
+        protected MaterialSkin.Controls.MaterialButton ButtonSave;
     }
 }

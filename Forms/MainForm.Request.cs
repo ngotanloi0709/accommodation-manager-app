@@ -34,6 +34,18 @@ namespace AccommodationManagerApp.Forms
                 new ToastForm("Mời bạn chọn yêu cầu!", true).Show();
                 return;
             }
+            
+            if (request.Status == RequestStatus.Solved)
+            {
+                new ToastForm("Yêu cầu đã được xử lý!", true).Show();
+                return;
+            }
+
+            var confirmationForm = new ConfirmationForm("Bạn có chắc muốn cập nhật trạng thái yêu cầu thành đã xử lý?");
+            confirmationForm.ShowDialog();
+            
+            if (confirmationForm.DialogResult != DialogResult.Yes) return;
+            
             request.Status = RequestStatus.Solved;
             _requestService.Update(request.Id, request);
             LoadRequestData();

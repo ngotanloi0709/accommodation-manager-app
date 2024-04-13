@@ -88,7 +88,6 @@ namespace AccommodationManagerApp.Forms
             paidAndUnpaidChart.LegendLocation = LegendLocation.Bottom;
             paidAndUnpaidChart.Series.Clear();
             List<Bill> _bills = _billService.GetAllBillByUserIdIncludeEdit(_user.Id);
-            Console.WriteLine(_bills.Count);
             List<Bill> _billUnpaid = _bills.Where(bill =>  bill.Status == BillStatus.Unpaid).ToList();
             List<Bill> _billPaid = _bills.Where(bill => bill.Status == BillStatus.Paid).ToList();
             List<Bill> _billUpdate = _bills.Where(bill => bill.Status == BillStatus.Edit).ToList();
@@ -145,7 +144,6 @@ namespace AccommodationManagerApp.Forms
             {
                 month += 12;
                 year -= 1;
-                Console.WriteLine("month: " + year);
                 return CountWater(month, year);
             }
             else if (month > 12)
