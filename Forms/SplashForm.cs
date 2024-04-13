@@ -1,40 +1,60 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
+using AccommodationManagerApp.Model;
+using AccommodationManagerApp.Service;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AccommodationManagerApp.Forms
 {
     public partial class SplashForm : BaseForm
     {
-        private MainForm _mainForm;
-
+        private readonly User _user;
+        private readonly AuthenticationService _authenticationService;
+        
         public SplashForm()
         {
             InitializeComponent();
             Cursor = Cursors.Arrow;
             progressBar.Value = 0;
             timerProgress.Start();
+            
+            
+            _authenticationService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
+            if (_authenticationService != null) _user = _authenticationService.CurrentUser;
+            else {
+                Dispose();
+                
+                var thread = new Thread(() => {
+                    Application.Run(new LoginForm());
+                }); 
+                
+                thread.SetApartmentState(ApartmentState.STA); 
+                thread.Start(); 
+            }
         }
 
         private void timerProgress_Tick(object sender, EventArgs e)
         {
-            progressBar.Value += 2;
+            progressBar.Value += 4;
 
-            // Stop Condition
             if (progressBar.Value < 100) return;
 
-            // Init MainForm
             timerProgress.Stop();
-
-            _mainForm = new MainForm();
-            _mainForm.FormClosed += MainForm_FormClosed;
-            _mainForm.Show();
-
-            Hide();
-        }
-
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Close();
+            
+            Dispose();
+                
+            var thread = new Thread(() => {
+                if (_user.Role != UserRole.Tenant) {
+                    Application.Run(new MainForm());
+                }
+                else {
+                    Application.Run(new ClientForm());
+                }
+            }); 
+            
+            thread.SetApartmentState(ApartmentState.STA); 
+            thread.Start(); 
         }
     }
 }

@@ -17,7 +17,7 @@ namespace AccommodationManagerApp.Forms {
                 var item = new ListViewItem(string.IsNullOrEmpty(user.Name) ? Resources.NullData : user.Name);
                 item.SubItems.Add(string.IsNullOrEmpty(user.Phone) ? Resources.NullData : user.Phone);
                 item.SubItems.Add(string.IsNullOrEmpty(user.IdentityNumber) ? Resources.NullData : user.IdentityNumber);
-                item.SubItems.Add(user.DateOfBirth.ToString("mm/dd/yyyy"));
+                item.SubItems.Add(user.DateOfBirth.ToString("dd/MM/yyyy"));
                 item.SubItems.Add(string.IsNullOrEmpty(user.Email) ? Resources.NullData : user.Email);
                 item.SubItems.Add(user.IsFemale ? "Nữ" : "Nam");
                 item.SubItems.Add(user.Role.ToVietnamese());

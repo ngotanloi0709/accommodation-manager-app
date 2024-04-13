@@ -2,31 +2,30 @@
 using AccommodationManagerApp.Util;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
-using BillModel = AccommodationManagerApp.Model.Bill;
+
 namespace AccommodationManagerApp.Forms
 {
     public partial class ClientForm
     {
-        private BillModel _bill;
-        private BillModel SelectBill()
+        private Bill _bill;
+        private Bill SelectBill()
         {
             if (ListViewBill.SelectedItems.Count > 0)
             {
                 var index = ListViewBill.SelectedItems[0].Index;
-                if (index < _Bills.Count) return _Bills[index];
+                if (index < _bills.Count) return _bills[index];
             }
             return null;
         }
-        private void InsertBillIntoListView(List<BillModel> bills)
+        private void InsertBillIntoListView(List<Bill> bills)
         {
             ListViewBill.Items.Clear();
             foreach (var bill in bills)
             {
                 var item = new ListViewItem(bill.Id.ToString());
                 item.SubItems.Add(FormatText.IntegerToVnd(bill.RentFee));
-                item.SubItems.Add(bill.Contract?.Room.RoomNumber.ToString() ?? "Trống");
+                item.SubItems.Add(bill.Contract?.Room.RoomNumber ?? "Trống");
                 item.SubItems.Add(bill.DateOfBillFormatted);
                 item.SubItems.Add(QueryUtils.ToVietnamese(bill.Status));
                 ListViewBill.Items.Add(item);
@@ -34,11 +33,6 @@ namespace AccommodationManagerApp.Forms
         }
         private void ButtonPreview_Click(object sender, System.EventArgs e)
         {
-            var confirmForm = new ConfirmationForm("Bạn muốn xem chi tiết hóa đơn ?");
-            confirmForm.ShowDialog();
-            
-            if (confirmForm.DialogResult != DialogResult.Yes) return;
-            
             _bill = SelectBill();
             if (_bill == null)
             {
@@ -52,8 +46,8 @@ namespace AccommodationManagerApp.Forms
 
         private void LoadBillData()
         {
-            _Bills = _billService.GetAllByUserIdWithContractWithRoomAndUser(_user.Id);
-            InsertBillIntoListView(_Bills);
+            _bills = _billService.GetAllByUserIdWithContractWithRoomAndUser(_user.Id);
+            InsertBillIntoListView(_bills);
         }
         // Query System
 
@@ -82,7 +76,6 @@ namespace AccommodationManagerApp.Forms
             }
             else
                 new ToastForm("Xin mời nhập giá sàn thấp hơn giá trần", true).Show();
-            return;
         }
     }
 }

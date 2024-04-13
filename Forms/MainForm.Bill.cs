@@ -38,7 +38,7 @@ namespace AccommodationManagerApp.Forms {
                 return;
             }
 
-            var billForm = new BillForm(bill, waterPrice, electricityPrice, internetPrice);
+            var billForm = new BillForm(bill, _waterPrice, _electricityPrice, _internetPrice);
             billForm.ShowDialog();
 
             if (billForm.DialogResult == DialogResult.OK) {
@@ -54,6 +54,11 @@ namespace AccommodationManagerApp.Forms {
         private void InsertBillIntoListView(List<Bill> bills) {
             ListViewBill.Items.Clear();
             foreach (var bill in bills) {
+                if (bill.Contract == null) {
+                    _billService.Delete(bill.Id);
+                    continue;
+                }
+                
                 var item = new ListViewItem(bill.Id.ToString());
                 item.SubItems.Add(FormatText.IntegerToVnd(bill.RentFee));
                 item.SubItems.Add(bill.Contract?.Room.RoomNumber ?? "Trống");
@@ -191,6 +196,7 @@ namespace AccommodationManagerApp.Forms {
             {
                 return;
             }
+            
             List<Bill> Bill = _billService.GetAll();
             List<Bill> bills = Bill.Where(bill => bill.Status == BillStatus.Unpaid).ToList();
             if(bills.Count == 0)
@@ -228,11 +234,11 @@ namespace AccommodationManagerApp.Forms {
         // Query System
         private void ButtonPriceSearch_Click(object sender, EventArgs e)
         {
-            BillStatus state = QueryUtils.ToBillStatus((string)comboBoxState.SelectedItem);
-            List<object> time = QueryUtils.ChangeTextToDate((string)comboBoxTime.SelectedItem);
-            List<string> text = QueryUtils.ChangeSearchInput((string) comboBoxVolumn.SelectedItem, textBoxSearch.Text);
-            int? minPrice = int.TryParse(textBoxMinPrice.Text, out int min) ? min : (int?)null;
-            int? maxPrice = int.TryParse(textBoxMaxPrice.Text, out int max) ? max : (int?)null;
+            var state = QueryUtils.ToBillStatus((string)comboBoxState.SelectedItem);
+            var time = QueryUtils.ChangeTextToDate((string)comboBoxTime.SelectedItem);
+            var text = QueryUtils.ChangeSearchInput((string) comboBoxVolumn.SelectedItem, textBoxSearch.Text);
+            var minPrice = int.TryParse(textBoxMinPrice.Text, out int min) ? min : (int?)null;
+            var maxPrice = int.TryParse(textBoxMaxPrice.Text, out int max) ? max : (int?)null;
 
             if (QueryUtils.CheckMinMaxPrice(minPrice, maxPrice))
             {
@@ -241,7 +247,12 @@ namespace AccommodationManagerApp.Forms {
             }
             else
                 new ToastForm("Xin mời nhập giá sàn thấp hơn giá trần", true).Show();
-            return;
+        }
+        
+        private void ButtonReloadBill_Click(object sender, EventArgs e)
+        {
+            LoadBillData();
+            new ToastForm("Đã tải lại dữ liệu hoá đơn").Show();
         }
     }
 }

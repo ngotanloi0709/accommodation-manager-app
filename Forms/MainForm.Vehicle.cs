@@ -29,7 +29,6 @@ namespace AccommodationManagerApp.Forms {
         private void ListViewVehicle_SelectedIndexChanged(object sender, EventArgs e) {
             var vehicle = IsSelectedVehicleValid();
             if (vehicle != null) {
-                MessageBox.Show(vehicle.Id.ToString());
                 var number = vehicle.Number;
                 var name = vehicle.Name;
                 var price = FormatText.IntegerToVnd(vehicle.Price);

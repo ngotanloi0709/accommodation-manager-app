@@ -13,12 +13,14 @@ namespace AccommodationManagerApp.Forms
     public partial class BillDetail : BaseForm
     {
         private readonly BillService _billService;
+        private readonly AuthenticationService _authenticationService;
         private Bill _bill;
         public BillDetail(Bill bill)
         {
             InitializeComponent();
 
             _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
+            _authenticationService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
             _bill = bill;
 
             LoadBillDetail();
@@ -113,6 +115,11 @@ namespace AccommodationManagerApp.Forms
 
         private void ButtonExportWord_Click(object sender, EventArgs e)
         {
+            if (_authenticationService.CurrentUser.Role == UserRole.Tenant) {
+                new ToastForm("Vui lòng liên hệ Admin để nhận File Word", true).Show();
+                return;
+            }
+            
             var saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "DOC Files|*.docx";
             saveFileDialog.Title = "Lưu dưới dạng Docx";
