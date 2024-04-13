@@ -30,12 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.drawerImageList = new System.Windows.Forms.ImageList(this.components);
             this.tabPageContract = new System.Windows.Forms.TabPage();
+            this.comboBoxContractTerminate = new MaterialSkin.Controls.MaterialComboBox();
             this.materialLabel55 = new MaterialSkin.Controls.MaterialLabel();
             this.comboBoxContractStartDate = new MaterialSkin.Controls.MaterialComboBox();
             this.materialLabel18 = new MaterialSkin.Controls.MaterialLabel();
@@ -308,7 +309,6 @@
             this.labelCurrentUserEmail = new System.Windows.Forms.Label();
             this.buttonCurrentUserInformationManagement = new MaterialSkin.Controls.MaterialButton();
             this.btnLogout = new MaterialSkin.Controls.MaterialButton();
-            this.comboBoxContractTerminate = new MaterialSkin.Controls.MaterialComboBox();
             this.tabPageContract.SuspendLayout();
             this.tabPageSystemUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSystemUserAvatar)).BeginInit();
@@ -380,6 +380,32 @@
             this.tabPageContract.Size = new System.Drawing.Size(986, 793);
             this.tabPageContract.TabIndex = 5;
             this.tabPageContract.Text = "Hợp đồng";
+            // 
+            // comboBoxContractTerminate
+            // 
+            this.comboBoxContractTerminate.AutoResize = false;
+            this.comboBoxContractTerminate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxContractTerminate.Depth = 0;
+            this.comboBoxContractTerminate.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxContractTerminate.DropDownHeight = 174;
+            this.comboBoxContractTerminate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxContractTerminate.DropDownWidth = 121;
+            this.comboBoxContractTerminate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.comboBoxContractTerminate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.comboBoxContractTerminate.FormattingEnabled = true;
+            this.comboBoxContractTerminate.IntegralHeight = false;
+            this.comboBoxContractTerminate.ItemHeight = 43;
+            this.comboBoxContractTerminate.Items.AddRange(new object[] {
+            "Hiệu Lực Hợp Đồng",
+            "Còn Hiệu Lực",
+            "Hết Hiệu Lực"});
+            this.comboBoxContractTerminate.Location = new System.Drawing.Point(275, 13);
+            this.comboBoxContractTerminate.MaxDropDownItems = 4;
+            this.comboBoxContractTerminate.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboBoxContractTerminate.Name = "comboBoxContractTerminate";
+            this.comboBoxContractTerminate.Size = new System.Drawing.Size(190, 49);
+            this.comboBoxContractTerminate.StartIndex = 0;
+            this.comboBoxContractTerminate.TabIndex = 83;
             // 
             // materialLabel55
             // 
@@ -555,6 +581,7 @@
             this.textBoxContractSearch.TabIndex = 70;
             this.textBoxContractSearch.Text = "";
             this.textBoxContractSearch.TrailingIcon = null;
+            // 
             // ButtonCheckContractBills
             // 
             this.ButtonCheckContractBills.AutoSize = false;
@@ -2849,7 +2876,7 @@
             this.materialTabControl.Multiline = true;
             this.materialTabControl.Name = "materialTabControl";
             this.materialTabControl.SelectedIndex = 0;
-            this.materialTabControl.Size = new System.Drawing.Size(994, 872);
+            this.materialTabControl.Size = new System.Drawing.Size(994, 836);
             this.materialTabControl.TabIndex = 0;
             // 
             // tabPageHome
@@ -2874,7 +2901,7 @@
             this.tabPageHome.ImageKey = "statistic.png";
             this.tabPageHome.Location = new System.Drawing.Point(4, 39);
             this.tabPageHome.Name = "tabPageHome";
-            this.tabPageHome.Size = new System.Drawing.Size(986, 829);
+            this.tabPageHome.Size = new System.Drawing.Size(986, 793);
             this.tabPageHome.TabIndex = 7;
             this.tabPageHome.Text = "Trang chủ";
             // 
@@ -2882,12 +2909,12 @@
             // 
             this.lblNumberRequest.AutoSize = true;
             this.lblNumberRequest.Depth = 0;
-            this.lblNumberRequest.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lblNumberRequest.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.lblNumberRequest.Location = new System.Drawing.Point(691, 752);
+            this.lblNumberRequest.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblNumberRequest.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.lblNumberRequest.Location = new System.Drawing.Point(623, 669);
             this.lblNumberRequest.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblNumberRequest.Name = "lblNumberRequest";
-            this.lblNumberRequest.Size = new System.Drawing.Size(217, 24);
+            this.lblNumberRequest.Size = new System.Drawing.Size(145, 17);
             this.lblNumberRequest.TabIndex = 76;
             this.lblNumberRequest.Text = "________________________";
             // 
@@ -2895,12 +2922,12 @@
             // 
             this.lblNumberBuilding.AutoSize = true;
             this.lblNumberBuilding.Depth = 0;
-            this.lblNumberBuilding.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lblNumberBuilding.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.lblNumberBuilding.Location = new System.Drawing.Point(691, 707);
+            this.lblNumberBuilding.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblNumberBuilding.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.lblNumberBuilding.Location = new System.Drawing.Point(622, 631);
             this.lblNumberBuilding.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblNumberBuilding.Name = "lblNumberBuilding";
-            this.lblNumberBuilding.Size = new System.Drawing.Size(217, 24);
+            this.lblNumberBuilding.Size = new System.Drawing.Size(145, 17);
             this.lblNumberBuilding.TabIndex = 75;
             this.lblNumberBuilding.Text = "________________________";
             // 
@@ -2908,12 +2935,12 @@
             // 
             this.lblNumberVehicle.AutoSize = true;
             this.lblNumberVehicle.Depth = 0;
-            this.lblNumberVehicle.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lblNumberVehicle.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.lblNumberVehicle.Location = new System.Drawing.Point(691, 666);
+            this.lblNumberVehicle.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblNumberVehicle.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.lblNumberVehicle.Location = new System.Drawing.Point(622, 608);
             this.lblNumberVehicle.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblNumberVehicle.Name = "lblNumberVehicle";
-            this.lblNumberVehicle.Size = new System.Drawing.Size(217, 24);
+            this.lblNumberVehicle.Size = new System.Drawing.Size(145, 17);
             this.lblNumberVehicle.TabIndex = 74;
             this.lblNumberVehicle.Text = "________________________";
             // 
@@ -2921,12 +2948,12 @@
             // 
             this.materialLabel66.AutoSize = true;
             this.materialLabel66.Depth = 0;
-            this.materialLabel66.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel66.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel66.Location = new System.Drawing.Point(524, 752);
+            this.materialLabel66.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel66.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.materialLabel66.Location = new System.Drawing.Point(521, 669);
             this.materialLabel66.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel66.Name = "materialLabel66";
-            this.materialLabel66.Size = new System.Drawing.Size(103, 24);
+            this.materialLabel66.Size = new System.Drawing.Size(71, 17);
             this.materialLabel66.TabIndex = 73;
             this.materialLabel66.Text = "Số yêu cầu:";
             // 
@@ -2934,12 +2961,12 @@
             // 
             this.materialLabel67.AutoSize = true;
             this.materialLabel67.Depth = 0;
-            this.materialLabel67.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel67.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel67.Location = new System.Drawing.Point(525, 707);
+            this.materialLabel67.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel67.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.materialLabel67.Location = new System.Drawing.Point(521, 631);
             this.materialLabel67.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel67.Name = "materialLabel67";
-            this.materialLabel67.Size = new System.Drawing.Size(101, 24);
+            this.materialLabel67.Size = new System.Drawing.Size(71, 17);
             this.materialLabel67.TabIndex = 72;
             this.materialLabel67.Text = "Số tòa nhà:";
             // 
@@ -2947,12 +2974,12 @@
             // 
             this.materialLabel68.AutoSize = true;
             this.materialLabel68.Depth = 0;
-            this.materialLabel68.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel68.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel68.Location = new System.Drawing.Point(525, 666);
+            this.materialLabel68.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel68.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.materialLabel68.Location = new System.Drawing.Point(521, 608);
             this.materialLabel68.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel68.Name = "materialLabel68";
-            this.materialLabel68.Size = new System.Drawing.Size(141, 24);
+            this.materialLabel68.Size = new System.Drawing.Size(98, 17);
             this.materialLabel68.TabIndex = 71;
             this.materialLabel68.Text = "Số phương tiện:";
             // 
@@ -2960,12 +2987,12 @@
             // 
             this.lblNumberContract.AutoSize = true;
             this.lblNumberContract.Depth = 0;
-            this.lblNumberContract.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lblNumberContract.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.lblNumberContract.Location = new System.Drawing.Point(265, 752);
+            this.lblNumberContract.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblNumberContract.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.lblNumberContract.Location = new System.Drawing.Point(278, 658);
             this.lblNumberContract.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblNumberContract.Name = "lblNumberContract";
-            this.lblNumberContract.Size = new System.Drawing.Size(217, 24);
+            this.lblNumberContract.Size = new System.Drawing.Size(145, 17);
             this.lblNumberContract.TabIndex = 70;
             this.lblNumberContract.Text = "________________________";
             // 
@@ -2973,12 +3000,12 @@
             // 
             this.lblNumberTennant.AutoSize = true;
             this.lblNumberTennant.Depth = 0;
-            this.lblNumberTennant.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lblNumberTennant.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.lblNumberTennant.Location = new System.Drawing.Point(265, 707);
+            this.lblNumberTennant.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblNumberTennant.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.lblNumberTennant.Location = new System.Drawing.Point(277, 632);
             this.lblNumberTennant.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblNumberTennant.Name = "lblNumberTennant";
-            this.lblNumberTennant.Size = new System.Drawing.Size(217, 24);
+            this.lblNumberTennant.Size = new System.Drawing.Size(145, 17);
             this.lblNumberTennant.TabIndex = 69;
             this.lblNumberTennant.Text = "________________________";
             // 
@@ -2986,12 +3013,12 @@
             // 
             this.lblNumberRoom.AutoSize = true;
             this.lblNumberRoom.Depth = 0;
-            this.lblNumberRoom.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.lblNumberRoom.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.lblNumberRoom.Location = new System.Drawing.Point(265, 666);
+            this.lblNumberRoom.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblNumberRoom.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.lblNumberRoom.Location = new System.Drawing.Point(277, 608);
             this.lblNumberRoom.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblNumberRoom.Name = "lblNumberRoom";
-            this.lblNumberRoom.Size = new System.Drawing.Size(217, 24);
+            this.lblNumberRoom.Size = new System.Drawing.Size(145, 17);
             this.lblNumberRoom.TabIndex = 68;
             this.lblNumberRoom.Text = "________________________";
             // 
@@ -2999,12 +3026,12 @@
             // 
             this.materialLabel52.AutoSize = true;
             this.materialLabel52.Depth = 0;
-            this.materialLabel52.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel52.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel52.Location = new System.Drawing.Point(101, 752);
+            this.materialLabel52.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel52.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.materialLabel52.Location = new System.Drawing.Point(171, 658);
             this.materialLabel52.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel52.Name = "materialLabel52";
-            this.materialLabel52.Size = new System.Drawing.Size(118, 24);
+            this.materialLabel52.Size = new System.Drawing.Size(82, 17);
             this.materialLabel52.TabIndex = 67;
             this.materialLabel52.Text = "Số hợp đồng:";
             // 
@@ -3012,12 +3039,12 @@
             // 
             this.materialLabel53.AutoSize = true;
             this.materialLabel53.Depth = 0;
-            this.materialLabel53.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel53.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel53.Location = new System.Drawing.Point(102, 707);
+            this.materialLabel53.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel53.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.materialLabel53.Location = new System.Drawing.Point(171, 632);
             this.materialLabel53.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel53.Name = "materialLabel53";
-            this.materialLabel53.Size = new System.Drawing.Size(130, 24);
+            this.materialLabel53.Size = new System.Drawing.Size(90, 17);
             this.materialLabel53.TabIndex = 66;
             this.materialLabel53.Text = "Số người thuê:";
             // 
@@ -3025,34 +3052,34 @@
             // 
             this.materialLabel54.AutoSize = true;
             this.materialLabel54.Depth = 0;
-            this.materialLabel54.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel54.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel54.Location = new System.Drawing.Point(102, 666);
+            this.materialLabel54.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel54.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.materialLabel54.Location = new System.Drawing.Point(171, 608);
             this.materialLabel54.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel54.Name = "materialLabel54";
-            this.materialLabel54.Size = new System.Drawing.Size(145, 24);
+            this.materialLabel54.Size = new System.Drawing.Size(102, 17);
             this.materialLabel54.TabIndex = 65;
             this.materialLabel54.Text = "Số lượng phòng:";
             // 
             // RoomInBuildingChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.RoomInBuildingChart.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.RoomInBuildingChart.Legends.Add(legend3);
-            this.RoomInBuildingChart.Location = new System.Drawing.Point(480, 392);
+            chartArea8.Name = "ChartArea1";
+            this.RoomInBuildingChart.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.RoomInBuildingChart.Legends.Add(legend8);
+            this.RoomInBuildingChart.Location = new System.Drawing.Point(480, 372);
             this.RoomInBuildingChart.Name = "RoomInBuildingChart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Số lượng phòng";
-            this.RoomInBuildingChart.Series.Add(series3);
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Số lượng phòng";
+            this.RoomInBuildingChart.Series.Add(series8);
             this.RoomInBuildingChart.Size = new System.Drawing.Size(413, 233);
             this.RoomInBuildingChart.TabIndex = 64;
             this.RoomInBuildingChart.Text = "chart1";
             // 
             // pieChartPaidBillAndUnpaidBill
             // 
-            this.pieChartPaidBillAndUnpaidBill.Location = new System.Drawing.Point(72, 398);
+            this.pieChartPaidBillAndUnpaidBill.Location = new System.Drawing.Point(72, 372);
             this.pieChartPaidBillAndUnpaidBill.Name = "pieChartPaidBillAndUnpaidBill";
             this.pieChartPaidBillAndUnpaidBill.Size = new System.Drawing.Size(402, 227);
             this.pieChartPaidBillAndUnpaidBill.TabIndex = 62;
@@ -4381,7 +4408,7 @@
             this.labelReqState.TabIndex = 68;
             this.labelReqState.Text = "_____________________";
             // 
-            // LabelRequestResponsed
+            // materialLabel38
             // 
             this.materialLabel38.AutoSize = true;
             this.materialLabel38.Depth = 0;
@@ -4611,38 +4638,12 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.Logout);
             // 
-            // comboBoxContractTerminate
-            // 
-            this.comboBoxContractTerminate.AutoResize = false;
-            this.comboBoxContractTerminate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBoxContractTerminate.Depth = 0;
-            this.comboBoxContractTerminate.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.comboBoxContractTerminate.DropDownHeight = 174;
-            this.comboBoxContractTerminate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxContractTerminate.DropDownWidth = 121;
-            this.comboBoxContractTerminate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.comboBoxContractTerminate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.comboBoxContractTerminate.FormattingEnabled = true;
-            this.comboBoxContractTerminate.IntegralHeight = false;
-            this.comboBoxContractTerminate.ItemHeight = 43;
-            this.comboBoxContractTerminate.Items.AddRange(new object[] {
-            "Hiệu Lực Hợp Đồng",
-            "Còn Hiệu Lực",
-            "Hết Hiệu Lực"});
-            this.comboBoxContractTerminate.Location = new System.Drawing.Point(275, 13);
-            this.comboBoxContractTerminate.MaxDropDownItems = 4;
-            this.comboBoxContractTerminate.MouseState = MaterialSkin.MouseState.OUT;
-            this.comboBoxContractTerminate.Name = "comboBoxContractTerminate";
-            this.comboBoxContractTerminate.Size = new System.Drawing.Size(190, 49);
-            this.comboBoxContractTerminate.StartIndex = 0;
-            this.comboBoxContractTerminate.TabIndex = 83;
-            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1000, 956);
+            this.ClientSize = new System.Drawing.Size(1000, 920);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.buttonCurrentUserInformationManagement);
             this.Controls.Add(this.labelCurrentUserEmail);
