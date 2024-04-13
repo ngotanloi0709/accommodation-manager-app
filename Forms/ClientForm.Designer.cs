@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblEmail = new System.Windows.Forms.Label();
             this.btnLogout = new MaterialSkin.Controls.MaterialButton();
             this.buttonCurrentUserInformationManagement = new MaterialSkin.Controls.MaterialButton();
@@ -249,17 +249,17 @@
             // 
             // requestChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.requestChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.requestChart.Legends.Add(legend2);
+            chartArea7.Name = "ChartArea1";
+            this.requestChart.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.requestChart.Legends.Add(legend7);
             this.requestChart.Location = new System.Drawing.Point(16, 369);
             this.requestChart.Margin = new System.Windows.Forms.Padding(2);
             this.requestChart.Name = "requestChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Số yêu cầu";
-            this.requestChart.Series.Add(series2);
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Số yêu cầu";
+            this.requestChart.Series.Add(series7);
             this.requestChart.Size = new System.Drawing.Size(532, 240);
             this.requestChart.TabIndex = 62;
             this.requestChart.Text = "chart1";
@@ -543,6 +543,7 @@
             this.ListViewBill.Depth = 0;
             this.ListViewBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.ListViewBill.FullRowSelect = true;
+            this.ListViewBill.GridLines = true;
             this.ListViewBill.HideSelection = false;
             this.ListViewBill.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.ListViewBill.Location = new System.Drawing.Point(0, 92);
@@ -966,7 +967,7 @@
             this.labelReqState.Depth = 0;
             this.labelReqState.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelReqState.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelReqState.Location = new System.Drawing.Point(132, 585);
+            this.labelReqState.Location = new System.Drawing.Point(177, 576);
             this.labelReqState.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelReqState.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelReqState.Name = "labelReqState";
@@ -980,7 +981,7 @@
             this.materialLabel38.Depth = 0;
             this.materialLabel38.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel38.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel38.Location = new System.Drawing.Point(2, 585);
+            this.materialLabel38.Location = new System.Drawing.Point(47, 576);
             this.materialLabel38.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.materialLabel38.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel38.Name = "materialLabel38";
@@ -993,7 +994,7 @@
             this.labelReqDate.Depth = 0;
             this.labelReqDate.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelReqDate.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelReqDate.Location = new System.Drawing.Point(132, 549);
+            this.labelReqDate.Location = new System.Drawing.Point(177, 540);
             this.labelReqDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelReqDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelReqDate.Name = "labelReqDate";
@@ -1007,7 +1008,7 @@
             this.materialLabel43.Depth = 0;
             this.materialLabel43.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel43.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel43.Location = new System.Drawing.Point(5, 549);
+            this.materialLabel43.Location = new System.Drawing.Point(50, 540);
             this.materialLabel43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.materialLabel43.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel43.Name = "materialLabel43";
@@ -1020,11 +1021,11 @@
             this.labelReqContent.Depth = 0;
             this.labelReqContent.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelReqContent.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelReqContent.Location = new System.Drawing.Point(132, 512);
+            this.labelReqContent.Location = new System.Drawing.Point(177, 503);
             this.labelReqContent.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelReqContent.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelReqContent.Name = "labelReqContent";
-            this.labelReqContent.Size = new System.Drawing.Size(214, 24);
+            this.labelReqContent.Size = new System.Drawing.Size(331, 24);
             this.labelReqContent.TabIndex = 72;
             this.labelReqContent.Text = "________________________";
             // 
@@ -1034,7 +1035,7 @@
             this.materialLabel45.Depth = 0;
             this.materialLabel45.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel45.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel45.Location = new System.Drawing.Point(5, 512);
+            this.materialLabel45.Location = new System.Drawing.Point(50, 503);
             this.materialLabel45.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.materialLabel45.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel45.Name = "materialLabel45";
@@ -1047,7 +1048,7 @@
             this.labelReqUser.Depth = 0;
             this.labelReqUser.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelReqUser.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelReqUser.Location = new System.Drawing.Point(132, 477);
+            this.labelReqUser.Location = new System.Drawing.Point(177, 468);
             this.labelReqUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelReqUser.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelReqUser.Name = "labelReqUser";
@@ -1061,7 +1062,7 @@
             this.materialLabel65.Depth = 0;
             this.materialLabel65.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel65.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel65.Location = new System.Drawing.Point(5, 477);
+            this.materialLabel65.Location = new System.Drawing.Point(50, 468);
             this.materialLabel65.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.materialLabel65.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel65.Name = "materialLabel65";
@@ -1156,6 +1157,7 @@
             this.lstViewReq.Depth = 0;
             this.lstViewReq.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.lstViewReq.FullRowSelect = true;
+            this.lstViewReq.GridLines = true;
             this.lstViewReq.HideSelection = false;
             this.lstViewReq.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lstViewReq.Location = new System.Drawing.Point(4, 84);
