@@ -25,7 +25,7 @@ namespace AccommodationManagerApp {
             // authenticationService.Authenticate("ql7769663@gmail.com", "123");
             Application.SetCompatibleTextRenderingDefault(false);
             Application.EnableVisualStyles();
-            Application.Run(new ClientForm());
+            Application.Run(new MainForm());
         }
 
         private static void ConfigureServices()
