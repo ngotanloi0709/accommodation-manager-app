@@ -10,6 +10,7 @@ namespace AccommodationManagerApp.Forms
         private User _user;
         private readonly UserService _userService;
         private readonly bool _isSystemUser;
+        private readonly bool _isCurrentUser;
 
         public UserForm(User user, bool isCurrentUser = false, bool isSystemUser = false)
         {
@@ -18,13 +19,14 @@ namespace AccommodationManagerApp.Forms
             _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
             _user = user;
             _isSystemUser = isSystemUser;
+            _isCurrentUser = isCurrentUser;
             
             SetUpComboBox();
             
             if (_user != null)
             {
                 SetUpData(_user);
-                Text = isCurrentUser ? "Chỉnh sửa thông tin cá nhân" : "Chỉnh sửa thông tin người dùng";
+                Text = _isCurrentUser ? "Chỉnh sửa thông tin cá nhân" : "Chỉnh sửa thông tin người dùng";
             }
         }
 
@@ -33,6 +35,12 @@ namespace AccommodationManagerApp.Forms
             if (_isSystemUser) {
                 ComboBoxRole.Items.Add(UserRole.Manager.ToVietnamese());
                 ComboBoxRole.Items.Add(UserRole.Admin.ToVietnamese());
+            }
+            else if (_isCurrentUser) {
+                ComboBoxRole.Items.Add(UserRole.Tenant.ToVietnamese());   
+                ComboBoxRole.Items.Add(UserRole.Manager.ToVietnamese());
+                ComboBoxRole.Items.Add(UserRole.Admin.ToVietnamese());
+                ComboBoxRole.Enabled = false;
             }
             else {
                 ComboBoxRole.Items.Add(UserRole.Tenant.ToVietnamese());    

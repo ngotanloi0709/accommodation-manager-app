@@ -2,12 +2,11 @@
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using AccommodationManagerApp.Forms;
 using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Properties;
 using AccommodationManagerApp.Service;
 
-namespace AccommodationManagerApp.Repository {
+namespace AccommodationManagerApp.Forms {
     public partial class CurrentUserInformationForm : BaseForm {
         private User _user;
         private readonly UserService _userService;
@@ -59,9 +58,8 @@ namespace AccommodationManagerApp.Repository {
             }
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
-        {
-            var userForm = new UserForm(_user);
+        private void buttonEdit_Click(object sender, EventArgs e) {
+            var userForm = new UserForm(_user, true);
             userForm.ShowDialog();
             
             if (userForm.DialogResult == DialogResult.Cancel) {
@@ -70,7 +68,7 @@ namespace AccommodationManagerApp.Repository {
             
             if (userForm.DialogResult == DialogResult.OK) {
                 SetUpData(_user);
-                new ToastForm("Cập nhật thành công", false).Show();
+                new ToastForm("Cập nhật thành công").Show();
             }
         }
 

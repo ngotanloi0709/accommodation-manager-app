@@ -60,7 +60,7 @@ namespace AccommodationManagerApp.Forms {
             // 
             this.switchSex.AutoSize = true;
             this.switchSex.Depth = 0;
-            this.switchSex.Location = new System.Drawing.Point(179, 374);
+            this.switchSex.Location = new System.Drawing.Point(167, 376);
             this.switchSex.Margin = new System.Windows.Forms.Padding(0);
             this.switchSex.MouseLocation = new System.Drawing.Point(-1, -1);
             this.switchSex.MouseState = MaterialSkin.MouseState.HOVER;
@@ -251,16 +251,16 @@ namespace AccommodationManagerApp.Forms {
             this.ComboBoxRole.DropDownHeight = 174;
             this.ComboBoxRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxRole.DropDownWidth = 121;
-            this.ComboBoxRole.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.ComboBoxRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.ComboBoxRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.ComboBoxRole.FormattingEnabled = true;
             this.ComboBoxRole.IntegralHeight = false;
             this.ComboBoxRole.ItemHeight = 43;
-            this.ComboBoxRole.Location = new System.Drawing.Point(371, 369);
+            this.ComboBoxRole.Location = new System.Drawing.Point(329, 369);
             this.ComboBoxRole.MaxDropDownItems = 4;
             this.ComboBoxRole.MouseState = MaterialSkin.MouseState.OUT;
             this.ComboBoxRole.Name = "ComboBoxRole";
-            this.ComboBoxRole.Size = new System.Drawing.Size(138, 49);
+            this.ComboBoxRole.Size = new System.Drawing.Size(180, 49);
             this.ComboBoxRole.StartIndex = 0;
             this.ComboBoxRole.TabIndex = 18;
             // 
@@ -270,7 +270,7 @@ namespace AccommodationManagerApp.Forms {
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel7.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel7.Location = new System.Drawing.Point(300, 379);
+            this.materialLabel7.Location = new System.Drawing.Point(258, 379);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
             this.materialLabel7.Size = new System.Drawing.Size(65, 24);

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace AccommodationManagerApp.Repository {
+namespace AccommodationManagerApp.Forms {
     partial class CurrentUserInformationForm {
         /// <summary>
         /// Required designer variable.
