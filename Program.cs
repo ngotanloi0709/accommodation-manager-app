@@ -24,10 +24,9 @@ namespace AccommodationManagerApp {
             authenticationService.Authenticate("ngotanloi0709@gmail.com", "123");
             // authenticationService.Authenticate("ql7769663@gmail.com", "123");
             // authenticationService.Authenticate("user1@gmail.com", "123");
-            // ứng dụng này khó có khả năng chạy song song client và manager form, chỉ chạy 1 form mỗi lần 
             Application.SetCompatibleTextRenderingDefault(false);
             Application.EnableVisualStyles();
-            Application.Run(new LoginForm());
+            Application.Run(new MainForm());
         }
 
         private static void ConfigureServices()

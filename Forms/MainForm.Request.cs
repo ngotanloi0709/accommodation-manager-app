@@ -52,7 +52,9 @@ namespace AccommodationManagerApp.Forms
         private void LstViewReq_SelectedIndexChanged(object sender, EventArgs e)
         {
             var _request = SelectRequest();
+            if (_request == null) return;   
             labelReqUser.Text = _request.User.Name;
+            MessageBox.Show(_request.Id.ToString());
             labelReqContent.Text = _request.Des;
             labelReqDate.Text = _request.CreatedAtFormatted;
             labelReqState.Text = RequestStatusExtension.ToVietnamese(_request.Status);
@@ -64,8 +66,8 @@ namespace AccommodationManagerApp.Forms
             List<object> time = QueryUtils.ChangeTextToDate(comboBoxReqTime.SelectedItem.ToString());
             RequestStatus status = RequestStatusExtension.ToRequestStatus(comboBoxReqState.SelectedItem.ToString());
             List<string> text = QueryUtils.ChangeSearchInput((string)comboBoxReqSearch.SelectedItem, textBoxReqSearch.Text);
-            var queryRequests = _requestService.GetByCustomizeQuery(_Requests, time, status, text);
-            InsertRequestIntoListView(queryRequests);
+            _Requests = _requestService.GetByCustomizeQuery(time, status, text);
+            InsertRequestIntoListView(_Requests);
         }
     }
 }
