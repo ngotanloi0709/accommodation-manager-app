@@ -29,6 +29,7 @@ namespace AccommodationManagerApp.Forms {
             var room = IsSelectedRoomValid();
 
             if (room != null) {
+                MessageBox.Show(room.Id.ToString());
                 var number = room.RoomNumber;
                 var building = room.Building;
                 var status = room.Status.ToVietnamese();
@@ -237,8 +238,8 @@ namespace AccommodationManagerApp.Forms {
             string building = comboBoxRoomBuilding.SelectedIndex == 0 ? null : (string)comboBoxRoomBuilding.SelectedItem;
             RoomStatus state = RoomStatusExtensions.ToRoomStatus((string)comboBoxRoomState.SelectedItem);
             List<string> text = QueryUtils.ChangeSearchInput((string) comboBoxRoomSearch.SelectedItem, textBoxRoomSearch.Text);
-            var queryRoom = _roomService.GetByCustomizeQuery(Rooms, building, state, text);
-            InsertRoomIntoListView(queryRoom);
+            Rooms = _roomService.GetByCustomizeQuery(building, state, text);
+            InsertRoomIntoListView(Rooms);
         }
         
         private void ButtonRoomContract_Click(object sender, EventArgs e)

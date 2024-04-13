@@ -43,7 +43,6 @@ namespace AccommodationManagerApp.Forms {
 
             if (user != null) {
                 LoadTenantAvatar(user);
-                MessageBox.Show(user.Id.ToString());
                 labelUserName.Text = string.IsNullOrEmpty(user.Name) ? Resources.NullData : user.Name;
                 labelUserPhone.Text = string.IsNullOrEmpty(user.Phone) ? Resources.NullData : user.Phone;
                 labelUserIdentityNumber.Text = string.IsNullOrEmpty(user.IdentityNumber)
