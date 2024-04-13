@@ -26,7 +26,11 @@ namespace AccommodationManagerApp.Forms
         {
             _request = SelectRequest();
             if (_request == null) return;
-                
+            if (_request.Status == RequestStatus.Solved)
+            {
+                new ToastForm("Đã Cập Nhật Không Thể Thay Đổi !", true).Show();
+                return;
+            }
             InsertRequest(_request);
             
         }
@@ -65,13 +69,13 @@ namespace AccommodationManagerApp.Forms
                 var index = lstViewReq.SelectedItems[0].Index;
                 if (index < _Requests.Count) return _Requests[index];
             }
-            new ToastForm("Mời bạn chọn yêu cầu !", true).Show();
             return null;
         }
 
         private void LstViewReq_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             var _request = SelectRequest();
+            if(_request == null) return;
             labelReqUser.Text = _request.User.Name;
             labelReqContent.Text = _request.Des;
             labelReqDate.Text = _request.CreatedAtFormatted;

@@ -129,26 +129,22 @@
             this.materialButton1.UseVisualStyleBackColor = true;
             this.materialButton1.Click += new System.EventHandler(this.AddAndUpdateRequest);
             // 
-            // ReqForm
+            // RequestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 539);
+            this.ClientSize = new System.Drawing.Size(490, 460);
             this.Controls.Add(this.materialButton1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.txtReq);
             this.Controls.Add(this.lblReqDate);
             this.Controls.Add(this.pbxReq);
-            this.Name = "ReqForm";
+            this.MaximumSize = new System.Drawing.Size(490, 460);
+            this.MinimumSize = new System.Drawing.Size(490, 460);
+            this.Name = "RequestForm";
             this.Text = "ReqForm";
             this.Click += new System.EventHandler(this.AddAndUpdateRequest);
-            this.Controls.SetChildIndex(this.pbxReq, 0);
-            this.Controls.SetChildIndex(this.lblReqDate, 0);
-            this.Controls.SetChildIndex(this.txtReq, 0);
-            this.Controls.SetChildIndex(this.materialLabel1, 0);
-            this.Controls.SetChildIndex(this.btnClose, 0);
-            this.Controls.SetChildIndex(this.materialButton1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pbxReq)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblEmail = new System.Windows.Forms.Label();
             this.btnLogout = new MaterialSkin.Controls.MaterialButton();
             this.buttonCurrentUserInformationManagement = new MaterialSkin.Controls.MaterialButton();
@@ -81,6 +81,7 @@
             this.materialLabel36 = new MaterialSkin.Controls.MaterialLabel();
             this.buttonPreview = new MaterialSkin.Controls.MaterialButton();
             this.pgRequest = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonReqSearch = new MaterialSkin.Controls.MaterialButton();
             this.comboBoxReqState = new MaterialSkin.Controls.MaterialComboBox();
             this.comboBoxReqTime = new MaterialSkin.Controls.MaterialComboBox();
@@ -92,7 +93,6 @@
             this.materialLabel45 = new MaterialSkin.Controls.MaterialLabel();
             this.labelReqUser = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel65 = new MaterialSkin.Controls.MaterialLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnUpd = new MaterialSkin.Controls.MaterialButton();
             this.btnDelete = new MaterialSkin.Controls.MaterialButton();
             this.btnAdd = new MaterialSkin.Controls.MaterialButton();
@@ -130,7 +130,7 @@
             this.btnLogout.Depth = 0;
             this.btnLogout.HighEmphasis = true;
             this.btnLogout.Icon = global::AccommodationManagerApp.Properties.Resources.logout;
-            this.btnLogout.Location = new System.Drawing.Point(689, 28);
+            this.btnLogout.Location = new System.Drawing.Point(683, 25);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnLogout.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLogout.Name = "btnLogout";
@@ -249,17 +249,17 @@
             // 
             // requestChart
             // 
-            chartArea7.Name = "ChartArea1";
-            this.requestChart.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.requestChart.Legends.Add(legend7);
+            chartArea1.Name = "ChartArea1";
+            this.requestChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.requestChart.Legends.Add(legend1);
             this.requestChart.Location = new System.Drawing.Point(16, 369);
             this.requestChart.Margin = new System.Windows.Forms.Padding(2);
             this.requestChart.Name = "requestChart";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Số yêu cầu";
-            this.requestChart.Series.Add(series7);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Số yêu cầu";
+            this.requestChart.Series.Add(series1);
             this.requestChart.Size = new System.Drawing.Size(532, 240);
             this.requestChart.TabIndex = 62;
             this.requestChart.Text = "chart1";
@@ -543,7 +543,6 @@
             this.ListViewBill.Depth = 0;
             this.ListViewBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.ListViewBill.FullRowSelect = true;
-            this.ListViewBill.GridLines = true;
             this.ListViewBill.HideSelection = false;
             this.ListViewBill.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.ListViewBill.Location = new System.Drawing.Point(0, 92);
@@ -849,6 +848,7 @@
             // pgRequest
             // 
             this.pgRequest.BackColor = System.Drawing.Color.White;
+            this.pgRequest.Controls.Add(this.pictureBox1);
             this.pgRequest.Controls.Add(this.buttonReqSearch);
             this.pgRequest.Controls.Add(this.comboBoxReqState);
             this.pgRequest.Controls.Add(this.comboBoxReqTime);
@@ -860,7 +860,6 @@
             this.pgRequest.Controls.Add(this.materialLabel45);
             this.pgRequest.Controls.Add(this.labelReqUser);
             this.pgRequest.Controls.Add(this.materialLabel65);
-            this.pgRequest.Controls.Add(this.pictureBox1);
             this.pgRequest.Controls.Add(this.btnUpd);
             this.pgRequest.Controls.Add(this.btnDelete);
             this.pgRequest.Controls.Add(this.btnAdd);
@@ -873,6 +872,17 @@
             this.pgRequest.TabIndex = 1;
             this.pgRequest.Text = "Yêu Cầu";
             this.pgRequest.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AccommodationManagerApp.Properties.Resources.icon_250;
+            this.pictureBox1.Location = new System.Drawing.Point(645, 81);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(170, 156);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 95;
+            this.pictureBox1.TabStop = false;
             // 
             // buttonReqSearch
             // 
@@ -1070,16 +1080,6 @@
             this.materialLabel65.TabIndex = 69;
             this.materialLabel65.Text = "Người gửi: ";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(645, 84);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(170, 153);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 33;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnUpd
             // 
             this.btnUpd.AutoSize = false;
@@ -1157,7 +1157,6 @@
             this.lstViewReq.Depth = 0;
             this.lstViewReq.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.lstViewReq.FullRowSelect = true;
-            this.lstViewReq.GridLines = true;
             this.lstViewReq.HideSelection = false;
             this.lstViewReq.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lstViewReq.Location = new System.Drawing.Point(4, 84);
@@ -1168,7 +1167,7 @@
             this.lstViewReq.Name = "lstViewReq";
             this.lstViewReq.OwnerDraw = true;
             this.lstViewReq.ShowGroups = false;
-            this.lstViewReq.Size = new System.Drawing.Size(636, 366);
+            this.lstViewReq.Size = new System.Drawing.Size(610, 366);
             this.lstViewReq.TabIndex = 29;
             this.lstViewReq.UseCompatibleStateImageBehavior = false;
             this.lstViewReq.View = System.Windows.Forms.View.Details;
@@ -1242,7 +1241,6 @@
         private MaterialSkin.Controls.MaterialButton btnUpd;
         private MaterialSkin.Controls.MaterialButton btnDelete;
         private MaterialSkin.Controls.MaterialButton btnAdd;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private MaterialSkin.Controls.MaterialButton buttonPreview;
         private MaterialSkin.Controls.MaterialLabel labelInternetPrice;
         private MaterialSkin.Controls.MaterialLabel materialLabel35;
@@ -1295,5 +1293,6 @@
         private LiveCharts.WinForms.PieChart paidAndUnpaidChart;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private System.Windows.Forms.ColumnHeader id;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
