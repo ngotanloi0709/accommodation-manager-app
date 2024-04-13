@@ -54,7 +54,6 @@ namespace AccommodationManagerApp.Forms
             var _request = SelectRequest();
             if (_request == null) return;   
             labelReqUser.Text = _request.User.Name;
-            MessageBox.Show(_request.Id.ToString());
             labelReqContent.Text = _request.Des;
             labelReqDate.Text = _request.CreatedAtFormatted;
             labelReqState.Text = RequestStatusExtension.ToVietnamese(_request.Status);

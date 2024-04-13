@@ -40,6 +40,10 @@ namespace AccommodationManagerApp.Service {
 
         public List<Bill> GetByUserIdInThisMonthAnhUnpaid() => _billRepository.GetByUserIdInThisMonthAnhUnpaid();
 
+        public List<Bill> GetAllByContractId(int contractId) => _billRepository.GetAllByContractId(contractId);
+
+        public List<Bill> GetAllBillByUserIdIncludeEdit(int userId) => _billRepository.GetAllBillByUserIdIncludeEdit(userId);
+
         public List<Bill> GetBillUnpaidByMonthAndYear(int month, int year) => _billRepository.GetBillUnpaidByMonthAndYear(month, year);
 
         public List<Bill> GetBillPaidByMonthAndYear(int month, int year) => _billRepository.GetBillPaidByMonthAndYear(month, year);
@@ -105,6 +109,11 @@ namespace AccommodationManagerApp.Service {
 
         public bool IsBillGenerated(Contract contract) => _billRepository.GetAllByContractId(contract.Id).Count > 0;
 
-        public List<Bill> GetByCustomizeQuery(BillStatus state, List<object> time, List<string> text, int? minPrice, int? maxPrice)  => _billRepository.GetByCustomizeQuery(state, time, text, minPrice, maxPrice); 
+        public List<Bill> GetByCustomizeQuery(BillStatus state, List<object> time, List<string> text, int? minPrice, int? maxPrice)  
+        => _billRepository.GetByCustomizeQuery(state, time, text, minPrice, maxPrice);
+
+        public List<Bill> GetAllByUserId(int userId) {
+            return _billRepository.GetAllByUserId(userId);
+        }
     }
 }

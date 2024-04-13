@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Mail;
 using System.Net;
 using System.Threading.Tasks;
@@ -103,31 +104,35 @@ namespace AccommodationManagerApp.Forms {
         private void SendEmail(Bill bill) {
             try {
                 Contract contract = _contractService.GetById(bill.ContractId);
+                Room room = _roomService.GetById(contract.RoomId);
                 User user = _userService.GetById(contract.UserId);
                 string subject = "Reminder: Remind Unpaid Tennant Bill";
                 string body = "<html><body>";
-                body += "<h2>Dear " + user.Name + ",</h2>";
+                body += "<h2>Gửi " + user.Name + ",</h2>";
                 body +=
-                    "<p>You have an unpaid bill in this month. Please pay it as soon as possible. Bill information:</p>";
-                body += "<ul>";
+                    "<p>Bạn có một hóa đơn chưa được thanh toán tháng này, hãy chú ý thanh toán sớm nhất:</p>";
+                body += "<ul style=`list-style-type:none`>";
+                body += "<li>Tiền thuê nhà tháng: " + bill.DateOfBill.Month + " </li>";
+                body += "<li>Phòng số: " + room.RoomNumber + " </li>";
                 body += "<li>Số điện: " + bill.ElectricityQuantity + " kWh  - Đơn giá: " +
                         bill.ElectricityFee.ToString("N0") +
                         " VND/kwh</li>";
                 body += "<li>Số nước: " + bill.WaterQuantity + " m3  - Đơn giá: " + bill.WaterFee.ToString("N0") +
                         " VND/m3</li>";
-                body += "<li>Tiền thuê nhà: " + contract.Price.ToString("N0") + " VND</li>";
+                body += "<li>Tiền thuê nhà: " + bill.RentFee.ToString("N0") + " VND</li>";
                 body += "<li>Tổng tiền điện: " + (bill.ElectricityQuantity * bill.ElectricityFee).ToString("N0") +
                         " VND</li>";
                 body += "<li>Tổng tiền nước: " + (bill.WaterQuantity * bill.WaterFee).ToString("N0") + " VND</li>";
                 body += "<li>Internet: " + bill.InternetFee.ToString("N0") + " VND</li>";
+                body += "<li>Phí gửi xe: " + bill.VehicleFee.ToString("N0") + " VND</li>";
                 body += "<li>Tổng tiền phải trả: " +
-                        (contract.Price + bill.ElectricityQuantity * bill.ElectricityFee +
+                        (bill.RentFee + bill.ElectricityQuantity * bill.ElectricityFee +
                          bill.WaterQuantity * bill.WaterFee +
-                         bill.InternetFee).ToString("N0") + " VND</li>";
+                         bill.InternetFee + bill.VehicleFee).ToString("N0") + " VND</li>";
                 body += "</ul>";
-                body += "<p>Please make sure you pay the bill. Thank you!</p>";
-                body += "<p>Best regards,</p>";
-                body += "<p>Accommodation Manager</p>";
+                body += "<p>Hãy chắc chắn bạn sẽ thanh toán, cảm ơn!</p>";
+                body += "<p>Trân trọng,</p>";
+                body += "<p>Quản lý nhà trọ</p>";
                 body += "</body></html>";
 
                 string senderEmail = "www.khuanhuan1964@gmail.com";
@@ -150,7 +155,6 @@ namespace AccommodationManagerApp.Forms {
         private void ListViewBill_SelectedIndexChanged(object sender, EventArgs e) {
             var bill = SelectBill();
             if (bill == null) return;
-            MessageBox.Show(bill.Id.ToString());
             LabelBillContractOwner.Text = bill.Contract.User.Name;
             LabelBillContractValue.Text = FormatText.IntegerToVnd(bill.Contract.Price);
             LabelBillTotal.Text = FormatText.IntegerToVnd(bill.GetTotalPrice());
@@ -175,6 +179,34 @@ namespace AccommodationManagerApp.Forms {
                 new ToastForm("Cập nhật trạng thái hoá đơn thành công!").Show();
                 LoadBillData();
                 SelectBillAgain(bill);
+            }
+        }
+
+        private void btnEmailAllMonth_Click(object sender, EventArgs e)
+        {
+            var confirm = new ConfirmationForm("Xác nhận gửi mail cho danh sách chưa thanh toán trong tất cả các tháng?");
+            var result = confirm.ShowDialog();
+
+            if (result != DialogResult.Yes)
+            {
+                return;
+            }
+            List<Bill> Bill = _billService.GetAll();
+            List<Bill> bills = Bill.Where(bill => bill.Status == BillStatus.Unpaid).ToList();
+            if(bills.Count == 0)
+            {
+                new ToastForm("Không có hóa đơn nào chưa thanh toán", true).Show();
+            }
+            else
+            {
+                foreach (Bill bill in bills)
+                {
+                    Task.Run(() =>
+                    {
+                        SendEmail(bill);
+                    });
+                }
+                new ToastForm("Đã gửi mail cho danh sách chưa thanh toán!").Show();
             }
         }
 

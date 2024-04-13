@@ -41,6 +41,7 @@ namespace AccommodationManagerApp.Service {
             return null;
         }
 
+
         public User GetById(int? id)
         {
             return _userRepository.GetById(id);
@@ -128,6 +129,7 @@ namespace AccommodationManagerApp.Service {
 
         public List<User> GetByCustomizeQuery(bool? isFemale, List<string> text)
         => _userRepository.GetByCustomizeQuery(isFemale, text);
+
         public List<User> GetAllWithRoleTenantAndWithContractAndRoomWhereHasUnpaidBill() {
             var users = _billRepository.GetAllUnpaidBill().Select(bill => bill.User).ToList();
             var distinctUsers = users.Distinct().ToList();

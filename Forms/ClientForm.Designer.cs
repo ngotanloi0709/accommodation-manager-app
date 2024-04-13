@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientForm));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblEmail = new System.Windows.Forms.Label();
             this.btnLogout = new MaterialSkin.Controls.MaterialButton();
             this.buttonCurrentUserInformationManagement = new MaterialSkin.Controls.MaterialButton();
@@ -93,20 +96,31 @@
             this.materialLabel36 = new MaterialSkin.Controls.MaterialLabel();
             this.buttonPreview = new MaterialSkin.Controls.MaterialButton();
             this.pgConfig = new System.Windows.Forms.TabPage();
+            this.pgStatistic = new System.Windows.Forms.TabPage();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.paidAndUnpaidChart = new LiveCharts.WinForms.PieChart();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.requestChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnReloadChart = new MaterialSkin.Controls.MaterialButton();
+            this.materialLabel13 = new MaterialSkin.Controls.MaterialLabel();
+            this.electricityAndWaterChart = new LiveCharts.WinForms.CartesianChart();
             this.tbCtrlClient.SuspendLayout();
             this.pgRequest.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pgBill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pgStatistic.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.requestChart)).BeginInit();
             this.SuspendLayout();
             // 
             // lblEmail
             // 
             this.lblEmail.BackColor = System.Drawing.Color.Transparent;
             this.lblEmail.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(270, 25);
+            this.lblEmail.Location = new System.Drawing.Point(360, 31);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(246, 36);
+            this.lblEmail.Size = new System.Drawing.Size(328, 44);
             this.lblEmail.TabIndex = 19;
             this.lblEmail.Text = "user@email.com";
             this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -120,12 +134,12 @@
             this.btnLogout.Depth = 0;
             this.btnLogout.HighEmphasis = true;
             this.btnLogout.Icon = global::AccommodationManagerApp.Properties.Resources.logout;
-            this.btnLogout.Location = new System.Drawing.Point(814, 28);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnLogout.Location = new System.Drawing.Point(1001, 36);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnLogout.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnLogout.Size = new System.Drawing.Size(134, 36);
+            this.btnLogout.Size = new System.Drawing.Size(179, 44);
             this.btnLogout.TabIndex = 20;
             this.btnLogout.Text = "Đăng Xuất";
             this.btnLogout.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
@@ -142,12 +156,12 @@
             this.buttonCurrentUserInformationManagement.Depth = 0;
             this.buttonCurrentUserInformationManagement.HighEmphasis = true;
             this.buttonCurrentUserInformationManagement.Icon = global::AccommodationManagerApp.Properties.Resources.user_no_color;
-            this.buttonCurrentUserInformationManagement.Location = new System.Drawing.Point(79, 25);
-            this.buttonCurrentUserInformationManagement.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.buttonCurrentUserInformationManagement.Location = new System.Drawing.Point(105, 31);
+            this.buttonCurrentUserInformationManagement.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.buttonCurrentUserInformationManagement.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonCurrentUserInformationManagement.Name = "buttonCurrentUserInformationManagement";
             this.buttonCurrentUserInformationManagement.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonCurrentUserInformationManagement.Size = new System.Drawing.Size(189, 36);
+            this.buttonCurrentUserInformationManagement.Size = new System.Drawing.Size(252, 44);
             this.buttonCurrentUserInformationManagement.TabIndex = 21;
             this.buttonCurrentUserInformationManagement.Text = "Thông tin cá nhân";
             this.buttonCurrentUserInformationManagement.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
@@ -169,15 +183,19 @@
             this.tbCtrlClient.Controls.Add(this.pgRequest);
             this.tbCtrlClient.Controls.Add(this.pgBill);
             this.tbCtrlClient.Controls.Add(this.pgConfig);
+            this.tbCtrlClient.Controls.Add(this.pgStatistic);
             this.tbCtrlClient.Depth = 0;
             this.tbCtrlClient.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbCtrlClient.ImageList = this.imgLstClient;
-            this.tbCtrlClient.Location = new System.Drawing.Point(3, 64);
+            this.tbCtrlClient.Location = new System.Drawing.Point(5, 97);
+            this.tbCtrlClient.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCtrlClient.MaximumSize = new System.Drawing.Size(1184, 1000);
+            this.tbCtrlClient.MinimumSize = new System.Drawing.Size(1184, 1000);
             this.tbCtrlClient.MouseState = MaterialSkin.MouseState.HOVER;
             this.tbCtrlClient.Multiline = true;
             this.tbCtrlClient.Name = "tbCtrlClient";
             this.tbCtrlClient.SelectedIndex = 0;
-            this.tbCtrlClient.Size = new System.Drawing.Size(994, 733);
+            this.tbCtrlClient.Size = new System.Drawing.Size(1184, 1000);
             this.tbCtrlClient.TabIndex = 25;
             // 
             // pgRequest
@@ -202,9 +220,10 @@
             this.pgRequest.Controls.Add(this.lstViewReq);
             this.pgRequest.ImageKey = "request.png";
             this.pgRequest.Location = new System.Drawing.Point(4, 39);
+            this.pgRequest.Margin = new System.Windows.Forms.Padding(4);
             this.pgRequest.Name = "pgRequest";
-            this.pgRequest.Padding = new System.Windows.Forms.Padding(3);
-            this.pgRequest.Size = new System.Drawing.Size(986, 690);
+            this.pgRequest.Padding = new System.Windows.Forms.Padding(4);
+            this.pgRequest.Size = new System.Drawing.Size(1176, 957);
             this.pgRequest.TabIndex = 1;
             this.pgRequest.Text = "Yêu Cầu";
             this.pgRequest.UseVisualStyleBackColor = true;
@@ -474,7 +493,7 @@
             this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnAdd.Size = new System.Drawing.Size(91, 39);
+            this.btnAdd.Size = new System.Drawing.Size(125, 53);
             this.btnAdd.TabIndex = 30;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -563,8 +582,9 @@
             this.pgBill.Controls.Add(this.buttonPreview);
             this.pgBill.ImageKey = "contract.png";
             this.pgBill.Location = new System.Drawing.Point(4, 39);
+            this.pgBill.Margin = new System.Windows.Forms.Padding(4);
             this.pgBill.Name = "pgBill";
-            this.pgBill.Size = new System.Drawing.Size(986, 690);
+            this.pgBill.Size = new System.Drawing.Size(1176, 957);
             this.pgBill.TabIndex = 2;
             this.pgBill.Text = "Hóa Đơn";
             this.pgBill.UseVisualStyleBackColor = true;
@@ -1039,7 +1059,7 @@
             this.buttonPreview.MouseState = MaterialSkin.MouseState.HOVER;
             this.buttonPreview.Name = "buttonPreview";
             this.buttonPreview.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.buttonPreview.Size = new System.Drawing.Size(189, 36);
+            this.buttonPreview.Size = new System.Drawing.Size(252, 44);
             this.buttonPreview.TabIndex = 50;
             this.buttonPreview.Text = "Xem Chi Tiết";
             this.buttonPreview.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -1051,27 +1071,140 @@
             // 
             this.pgConfig.ImageKey = "configuration.png";
             this.pgConfig.Location = new System.Drawing.Point(4, 39);
+            this.pgConfig.Margin = new System.Windows.Forms.Padding(4);
             this.pgConfig.Name = "pgConfig";
-            this.pgConfig.Size = new System.Drawing.Size(986, 690);
+            this.pgConfig.Size = new System.Drawing.Size(1176, 957);
             this.pgConfig.TabIndex = 3;
             this.pgConfig.Text = "Cài Đặt";
             this.pgConfig.UseVisualStyleBackColor = true;
             // 
+            // pgStatistic
+            // 
+            this.pgStatistic.BackColor = System.Drawing.Color.White;
+            this.pgStatistic.Controls.Add(this.materialLabel2);
+            this.pgStatistic.Controls.Add(this.paidAndUnpaidChart);
+            this.pgStatistic.Controls.Add(this.materialLabel1);
+            this.pgStatistic.Controls.Add(this.requestChart);
+            this.pgStatistic.Controls.Add(this.btnReloadChart);
+            this.pgStatistic.Controls.Add(this.materialLabel13);
+            this.pgStatistic.Controls.Add(this.electricityAndWaterChart);
+            this.pgStatistic.ImageKey = "homepage.png";
+            this.pgStatistic.Location = new System.Drawing.Point(4, 39);
+            this.pgStatistic.Name = "pgStatistic";
+            this.pgStatistic.Size = new System.Drawing.Size(1176, 957);
+            this.pgStatistic.TabIndex = 4;
+            this.pgStatistic.Text = "Thống kê ";
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.materialLabel2.Location = new System.Drawing.Point(822, 752);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(175, 29);
+            this.materialLabel2.TabIndex = 65;
+            this.materialLabel2.Text = "Biểu đồ hóa đơn";
+            // 
+            // paidAndUnpaidChart
+            // 
+            this.paidAndUnpaidChart.Location = new System.Drawing.Point(755, 454);
+            this.paidAndUnpaidChart.Name = "paidAndUnpaidChart";
+            this.paidAndUnpaidChart.Size = new System.Drawing.Size(357, 295);
+            this.paidAndUnpaidChart.TabIndex = 64;
+            this.paidAndUnpaidChart.Text = "pieChart1";
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.materialLabel1.Location = new System.Drawing.Point(65, 752);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(407, 29);
+            this.materialLabel1.TabIndex = 63;
+            this.materialLabel1.Text = "Biểu đồ số yêu cầu trong vòng 3 tháng";
+            // 
+            // requestChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.requestChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.requestChart.Legends.Add(legend1);
+            this.requestChart.Location = new System.Drawing.Point(22, 454);
+            this.requestChart.Name = "requestChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Số yêu cầu";
+            this.requestChart.Series.Add(series1);
+            this.requestChart.Size = new System.Drawing.Size(710, 295);
+            this.requestChart.TabIndex = 62;
+            this.requestChart.Text = "chart1";
+            // 
+            // btnReloadChart
+            // 
+            this.btnReloadChart.AutoSize = false;
+            this.btnReloadChart.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnReloadChart.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnReloadChart.Depth = 0;
+            this.btnReloadChart.HighEmphasis = true;
+            this.btnReloadChart.Icon = global::AccommodationManagerApp.Properties.Resources.check_list;
+            this.btnReloadChart.Location = new System.Drawing.Point(83, 20);
+            this.btnReloadChart.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnReloadChart.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnReloadChart.Name = "btnReloadChart";
+            this.btnReloadChart.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnReloadChart.Size = new System.Drawing.Size(962, 36);
+            this.btnReloadChart.TabIndex = 61;
+            this.btnReloadChart.Text = "Cập nhật dữ liệu thống kê";
+            this.btnReloadChart.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnReloadChart.UseAccentColor = false;
+            this.btnReloadChart.UseVisualStyleBackColor = true;
+            this.btnReloadChart.Click += new System.EventHandler(this.btnReloadChart_Click);
+            // 
+            // materialLabel13
+            // 
+            this.materialLabel13.AutoSize = true;
+            this.materialLabel13.Depth = 0;
+            this.materialLabel13.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel13.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
+            this.materialLabel13.Location = new System.Drawing.Point(352, 405);
+            this.materialLabel13.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel13.Name = "materialLabel13";
+            this.materialLabel13.Size = new System.Drawing.Size(362, 29);
+            this.materialLabel13.TabIndex = 33;
+            this.materialLabel13.Text = "Biểu đồ nợ còn tồn trong 12 tháng";
+            // 
+            // electricityAndWaterChart
+            // 
+            this.electricityAndWaterChart.Location = new System.Drawing.Point(51, 78);
+            this.electricityAndWaterChart.Name = "electricityAndWaterChart";
+            this.electricityAndWaterChart.Size = new System.Drawing.Size(994, 324);
+            this.electricityAndWaterChart.TabIndex = 0;
+            this.electricityAndWaterChart.Text = "cartesianChart1";
+            // 
             // ClientForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 800);
+            this.ClientSize = new System.Drawing.Size(1188, 984);
             this.Controls.Add(this.tbCtrlClient);
             this.Controls.Add(this.buttonCurrentUserInformationManagement);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.lblEmail);
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.tbCtrlClient;
-            this.MaximumSize = new System.Drawing.Size(1000, 800);
-            this.MinimumSize = new System.Drawing.Size(1000, 800);
+            this.Margin = new System.Windows.Forms.Padding(5);
+            this.MaximumSize = new System.Drawing.Size(1188, 984);
+            this.MinimumSize = new System.Drawing.Size(1188, 984);
             this.Name = "ClientForm";
+            this.Padding = new System.Windows.Forms.Padding(5, 97, 5, 5);
             this.Text = "";
+            this.Load += new System.EventHandler(this.ClientFormOnLoad);
             this.tbCtrlClient.ResumeLayout(false);
             this.pgRequest.ResumeLayout(false);
             this.pgRequest.PerformLayout();
@@ -1079,6 +1212,9 @@
             this.pgBill.ResumeLayout(false);
             this.pgBill.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pgStatistic.ResumeLayout(false);
+            this.pgStatistic.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.requestChart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1148,5 +1284,12 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialComboBox comboBoxReqTime;
         private MaterialSkin.Controls.MaterialButton buttonReqSearch;
+        private System.Windows.Forms.TabPage pgStatistic;
+        private LiveCharts.WinForms.CartesianChart electricityAndWaterChart;
+        private MaterialSkin.Controls.MaterialLabel materialLabel13;
+        private MaterialSkin.Controls.MaterialButton btnReloadChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart requestChart;
+        private LiveCharts.WinForms.PieChart paidAndUnpaidChart;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
     }
 }

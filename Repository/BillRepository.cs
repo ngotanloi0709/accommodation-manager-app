@@ -19,10 +19,16 @@ namespace AccommodationManagerApp.Repository
                 .ToList();
         }
 
+        public List<Bill> GetAllBillByUserIdIncludeEdit(int userId)
+        {
+            return Context.Set<Bill>().Where(bill => bill.UserId == userId).ToList();
+        }
+
         public List<Bill> GetByUserIdInThisMonthAnhUnpaid() => Context.Set<Bill>().Where(bill => bill.DateOfBill.Month == System.DateTime.Now.Month && bill.Status == BillStatus.Unpaid).ToList();
 
         public List<Bill> GetAllWithContractWithRoomAndUser() => Context.Set<Bill>().Include("Contract").Include("Contract.Room").Include("Contract.User").ToList();
-
+        
+        
         public List<Bill> GetAllByContractId(int contract_id)
         {
             return Context.Set<Bill>().Where(bill => bill.ContractId == contract_id).ToList();
@@ -50,7 +56,8 @@ namespace AccommodationManagerApp.Repository
             return Context.Set<Bill>().Include("User").Where(bill => bill.Status == BillStatus.Unpaid).ToList();
         }
 
-        public List<Bill> GetByCustomizeQuery(BillStatus state, List<object> time, List<string> text, int? minPrice, int? maxPrice)
+        public List<Bill> GetByCustomizeQuery(BillStatus state, List<object> time, List<string> text, int? minPrice,
+            int? maxPrice)
         {
             bool time0 = (bool)time[0];
             int? time1 = time[1] as int?;
@@ -63,17 +70,21 @@ namespace AccommodationManagerApp.Repository
                 .Include("Contract.Room")
                 .Include("Contract.User")
                 .Where(bill =>
-                (bill.Status == state || state == BillStatus.Null) &&
-                (bill.DateOfBill < DateTime.Now || !time0) &&
-                (time1 == null || bill.DateOfBill.Month == time1) &&
-                (time2 == null || bill.DateOfBill.Year == time2) &&
-                (text0 == null || text0.Equals(bill.Contract.User.Name, StringComparison.OrdinalIgnoreCase)) &&
-                (text1 == null || text1.Equals(bill.Contract.Room.RoomNumber, StringComparison.OrdinalIgnoreCase)) &&
-                (minPrice == null || bill.RentFee >= minPrice) &&
-                (maxPrice == null || bill.RentFee <= maxPrice)
-            );
-            return filteredBills.ToList();
+                    (bill.Status == state || state == BillStatus.Null) &&
+                    (bill.DateOfBill < DateTime.Now || !time0) &&
+                    (time1 == null || bill.DateOfBill.Month == time1) &&
+                    (time2 == null || bill.DateOfBill.Year == time2) &&
+                    (text0 == null || text0.Equals(bill.Contract.User.Name, StringComparison.OrdinalIgnoreCase)) &&
+                    (text1 == null ||
+                     text1.Equals(bill.Contract.Room.RoomNumber, StringComparison.OrdinalIgnoreCase)) &&
+                    (minPrice == null || bill.RentFee >= minPrice) &&
+                    (maxPrice == null || bill.RentFee <= maxPrice)
+                );
+            return filteredBills.ToList(); 
+        }
 
+        public List<Bill> GetAllByUserId(int userId) {
+            return Context.Set<Bill>().Where(bill => bill.User.Id == userId).ToList();
         }
     }
 }

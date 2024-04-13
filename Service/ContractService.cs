@@ -21,6 +21,11 @@ namespace AccommodationManagerApp.Service {
             return _contractRepository.GetAllWithUserAndRoom();
         }
 
+        public List<Contract> GetByRoomIdAndNonExpired(int roomId)
+        {
+            return _contractRepository.GetByRoomIdAndNonExpired(roomId);
+        }
+
         public void Update(Contract contract) {
             _contractRepository.Update(contract.Id, contract);
         }
