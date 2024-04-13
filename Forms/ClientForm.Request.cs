@@ -46,28 +46,28 @@ namespace AccommodationManagerApp.Forms
         }
         private void LoadRequestData()
         {
-            _Requests = _requestService.GetAllByUserId(_user.Id);
-            InsertRequestIntoListView(_Requests);
+            _requests = _requestService.GetAllByUserId(_user.Id);
+            InsertRequestIntoListView(_requests);
         }
 
         private void InsertRequestIntoListView(List<Request> requests)
         {
-            lstViewReq.Items.Clear();
+            ListViewRequest.Items.Clear();
             foreach (var request in requests)
             {
                 var item = new ListViewItem(request.Id.ToString());
                 item.SubItems.Add(request.Des);
                 item.SubItems.Add(request.CreatedAtFormatted);
                 item.SubItems.Add(text: RequestStatusExtension.ToVietnamese(request.Status));
-                lstViewReq.Items.Add(item);
+                ListViewRequest.Items.Add(item);
             }
         }
         private Request SelectRequest()
         {
-            if (lstViewReq.SelectedItems.Count > 0)
+            if (ListViewRequest.SelectedItems.Count > 0)
             {
-                var index = lstViewReq.SelectedItems[0].Index;
-                if (index < _Requests.Count) return _Requests[index];
+                var index = ListViewRequest.SelectedItems[0].Index;
+                if (index < _requests.Count) return _requests[index];
             }
             return null;
         }
@@ -88,8 +88,8 @@ namespace AccommodationManagerApp.Forms
             List<object> time = QueryUtils.ChangeTextToDate(comboBoxReqTime.SelectedItem.ToString());
             RequestStatus status = RequestStatusExtension.ToRequestStatus(comboBoxReqState.SelectedItem.ToString());
             List<string> text = new List<string>() { null, null};
-            _Requests = _requestService.GetByCustomizeQuery(time, status, text);
-            InsertRequestIntoListView(_Requests);
+            _requests = _requestService.GetByCustomizeQuery(time, status, text);
+            InsertRequestIntoListView(_requests);
         }
     }
 }

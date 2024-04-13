@@ -1,7 +1,9 @@
 ﻿using AccommodationManagerApp.Service;
-using System.Windows.Forms;
-using System;
 using AccommodationManagerApp.Util;
+using System;
+using System.Threading;
+using System.Windows.Forms;
+using AccommodationManagerApp.Model;
 
 namespace AccommodationManagerApp.Forms
 {
@@ -13,39 +15,35 @@ namespace AccommodationManagerApp.Forms
         {
             InitializeComponent();
 
-            _authenticationService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
+            _authenticationService =
+                ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
         }
-        
-        private void Login(object sender, EventArgs e) 
-        {
-            var email = txtEmail.Text;
-            var password = txtPass.Text;
 
-            if (!InputHelper.IsValidInputEmail(email)) 
+        private void Login(object sender, EventArgs e)
+        {
+            var email = txtEmail1.Text;
+            var password = txtPass1.Text;
+
+            if (!InputHelper.IsValidInputEmail(email))
             {
                 new ToastForm("Vui lòng nhập email hợp lệ", true).Show();
                 return;
             }
 
+            var result = _authenticationService.Authenticate(email, password);
 
-            try
+            if (!result)
             {
-                var result = _authenticationService.Authenticate(email, password);
-                if (result)
-                {
-                    var splashForm = new SplashForm();
-                    splashForm.Show();
-                    Hide();
-                }
-                else
-                {
-                    new ToastForm("Đăng Nhập Sai Thông Tin !!!", true).Show();
-                }
+                new ToastForm("Đăng Nhập Sai Thông Tin !!!", true).Show();
+                return;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
+            Dispose();
+            // Hide();
+
+            var thread = new Thread(() => { Application.Run(new SplashForm()); });
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
         }
 
         private void Logout(object sender, EventArgs e)
@@ -56,6 +54,11 @@ namespace AccommodationManagerApp.Forms
             {
                 Close();
             }
+        }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
         }
     }
 }

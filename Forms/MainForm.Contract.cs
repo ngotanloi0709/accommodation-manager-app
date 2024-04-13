@@ -342,14 +342,16 @@ namespace AccommodationManagerApp.Forms {
             bool? terminated = QueryUtils.TerminateContract((string)comboBoxContractTerminate.SelectedItem);
             Contracts = _contractService.GetByCustomizeQuery(startDate, endDate, text, terminated);
             InsertContractToListView(Contracts);
-            return;
         }
     
         private void ButtonCheckContractBills_Click(object sender, EventArgs e)
             {
                 var contract = IsSelectedContractValid();
 
-                if (contract == null) return;
+                if (contract == null) {
+                    new ToastForm("Vui lòng chọn hợp đồng cần kiểm tra", true).Show();
+                    return;
+                }
             
                 if (contract.IsTerminated) {
                     new ToastForm("Hợp đồng đã kết thúc - bị thanh lý, không thể khởi tạo hoá đơn", true).Show();

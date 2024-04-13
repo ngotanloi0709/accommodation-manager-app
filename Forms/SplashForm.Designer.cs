@@ -44,7 +44,7 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H5;
-            this.materialLabel1.Location = new System.Drawing.Point(110, 98);
+            this.materialLabel1.Location = new System.Drawing.Point(68, 71);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(434, 29);
@@ -54,7 +54,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(195, 130);
+            this.pictureBox1.Location = new System.Drawing.Point(153, 127);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(264, 160);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -63,7 +63,7 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(159, 321);
+            this.progressBar.Location = new System.Drawing.Point(117, 318);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(340, 20);
             this.progressBar.TabIndex = 4;
@@ -76,13 +76,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 431);
+            this.ClientSize = new System.Drawing.Size(559, 366);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.materialLabel1);
-            this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_64;
+            this.MaximumSize = new System.Drawing.Size(559, 366);
+            this.MinimumSize = new System.Drawing.Size(559, 366);
             this.Name = "SplashForm";
-            this.Padding = new System.Windows.Forms.Padding(3, 88, 3, 3);
             this.ShowInTaskbar = false;
             this.Sizable = false;
             this.Text = "";

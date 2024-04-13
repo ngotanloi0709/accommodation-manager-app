@@ -29,7 +29,6 @@ namespace AccommodationManagerApp.Forms {
             var room = IsSelectedRoomValid();
 
             if (room != null) {
-                MessageBox.Show(room.Id.ToString());
                 var number = room.RoomNumber;
                 var building = room.Building;
                 var status = room.Status.ToVietnamese();
@@ -178,7 +177,7 @@ namespace AccommodationManagerApp.Forms {
 
         private void buttonReloadRoom_Click(object sender, EventArgs e) {
             LoadRoomData();
-            new ToastForm("Đã thực hiện tải lại dữ liệu chung cư", false).Show();
+            new ToastForm("Đã thực hiện tải lại dữ liệu chung cư").Show();
         }
 
         private void buttonAddResidentToRoom_Click(object sender, EventArgs e) {

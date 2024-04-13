@@ -8,55 +8,53 @@ namespace AccommodationManagerApp.Forms
 {
     public partial class MainForm
     {
-        private Request _request;
-
         private void LoadRequestData()
         {
-            _Requests = _requestService.GetAllWithUser();
-            InsertRequestIntoListView(_Requests);
+            Requests = _requestService.GetAllWithUser();
+            InsertRequestIntoListView(Requests);
         }
 
         private void InsertRequestIntoListView(List<Request> requests)
         {
-            lstViewReq.Items.Clear();
+            ListViewRequest.Items.Clear();
             foreach (var request in requests)
             {
                 var item = new ListViewItem(request.Id.ToString());
                 item.SubItems.Add(request.Des);
                 item.SubItems.Add(request.CreatedAtFormatted);
                 item.SubItems.Add(RequestStatusExtension.ToVietnamese(request.Status));
-                lstViewReq.Items.Add(item);
+                ListViewRequest.Items.Add(item);
             }
         }
         private void ButtonResponse_Click(object sender, EventArgs e)
         {
-            _request = SelectRequest();
-            if (_request == null)
+            var request = SelectRequest();
+            if (request == null)
             {
-                new ToastForm("Mời bạn chọn yêu cầu !", true).Show();
+                new ToastForm("Mời bạn chọn yêu cầu!", true).Show();
                 return;
             }
-            _request.Status = RequestStatus.Solved;
-            _requestService.Update(_request.Id,_request);
+            request.Status = RequestStatus.Solved;
+            _requestService.Update(request.Id, request);
             LoadRequestData();
         }
         private Request SelectRequest()
         {
-            if (lstViewReq.SelectedItems.Count > 0)
+            if (ListViewRequest.SelectedItems.Count > 0)
             {
-                var index = lstViewReq.SelectedItems[0].Index;
-                if (index < _Requests.Count) return _Requests[index];
+                var index = ListViewRequest.SelectedItems[0].Index;
+                if (index < Requests.Count) return Requests[index];
             }
             return null;
         }
         private void LstViewReq_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var _request = SelectRequest();
-            if (_request == null) return;   
-            labelReqUser.Text = _request.User.Name;
-            labelReqContent.Text = _request.Des;
-            labelReqDate.Text = _request.CreatedAtFormatted;
-            labelReqState.Text = RequestStatusExtension.ToVietnamese(_request.Status);
+            var request = SelectRequest();
+            if (request == null) return;   
+            labelReqUser.Text = request.User.Name;
+            labelReqContent.Text = request.Des;
+            labelReqDate.Text = request.CreatedAtFormatted;
+            labelReqState.Text = RequestStatusExtension.ToVietnamese(request.Status);
         }
 
         // Query System
@@ -65,8 +63,14 @@ namespace AccommodationManagerApp.Forms
             List<object> time = QueryUtils.ChangeTextToDate(comboBoxReqTime.SelectedItem.ToString());
             RequestStatus status = RequestStatusExtension.ToRequestStatus(comboBoxReqState.SelectedItem.ToString());
             List<string> text = QueryUtils.ChangeSearchInput((string)comboBoxReqSearch.SelectedItem, textBoxReqSearch.Text);
-            _Requests = _requestService.GetByCustomizeQuery(time, status, text);
-            InsertRequestIntoListView(_Requests);
+            Requests = _requestService.GetByCustomizeQuery(time, status, text);
+            InsertRequestIntoListView(Requests);
+        }
+        
+        private void ButtonReloadRequest_Click(object sender, EventArgs e)
+        {
+            LoadRequestData();
+            new ToastForm("Đã tải lại dữ liệu yêu cầu").Show();
         }
     }
 }

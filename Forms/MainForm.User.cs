@@ -55,7 +55,15 @@ namespace AccommodationManagerApp.Forms {
                 labelUserEmail.Text = string.IsNullOrEmpty(user.Email) ? Resources.NullData : user.Email;
                 
                 if (user.Room != null) {
-                    labelResident.Text = "Người này đang ở tại căn hộ số " + user.Room.RoomNumber;
+                    try
+                    {
+                        labelResident.Text = "Người này đang ở tại căn hộ số " + user.Room.RoomNumber;
+                    }
+                    catch (Exception exception)
+                    {
+                        labelResident.Text = "Người này hiện không sống ở căn hộ nào!";
+                        Console.WriteLine(exception);
+                    }
                     
                 }   
                 else {

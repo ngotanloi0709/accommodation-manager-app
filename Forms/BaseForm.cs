@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
-using MaterialSkin;
 using MaterialSkin.Controls;
+
 namespace AccommodationManagerApp.Forms
 {
     public partial class BaseForm : MaterialForm {
@@ -9,6 +9,7 @@ namespace AccommodationManagerApp.Forms
             InitializeComponent();
             DoubleBuffered = true;
             SetUpUi();
+            Icon = Properties.Resources.app_icon;
         }
         protected void SetUpUi()
         {
@@ -17,6 +18,5 @@ namespace AccommodationManagerApp.Forms
             MinimizeBox = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
-        private string GetDebuggerDisplay() => ToString();
     }
 }

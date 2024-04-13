@@ -2,6 +2,7 @@
 using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 using System.Collections.Generic;
+using System.Threading;
 using BillModel = AccommodationManagerApp.Model.Bill;
 using System.Windows.Forms;
 namespace AccommodationManagerApp.Forms
@@ -11,13 +12,13 @@ namespace AccommodationManagerApp.Forms
         private BillService _billService;
         private RequestService _requestService;
         private AuthenticationService _authenticationService;
-
         private User _user;
-        private List<Request> _Requests;
-        private List<BillModel> _Bills;
+        private List<Request> _requests;
+        private List<BillModel> _bills;
         public ClientForm()
         {
             InitializeComponent();
+            SetListViewGridEnable();
             LoadData();
         }
 
@@ -63,13 +64,24 @@ namespace AccommodationManagerApp.Forms
 
         private void Logout(object sender, System.EventArgs e)
         {
-            var confirmation = new ConfirmationForm("Bạn có muốn đăng xuất");
+            var confirmation = new ConfirmationForm("Bạn có chắc chắn muốn thoát");
             var result = confirmation.ShowDialog();
             if (result == DialogResult.Yes)
             {
                 _authenticationService.Logout();
-                Close();
+                Dispose();
+                
+                var thread = new Thread(() => {
+                    Application.Run(new LoginForm());
+                }); 
+                thread.SetApartmentState(ApartmentState.STA); 
+                thread.Start(); 
             }
+        }
+
+        private void SetListViewGridEnable() {
+            ListViewBill.GridLines = true;
+            ListViewRequest.GridLines = true;
         }
     }
 }

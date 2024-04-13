@@ -15,17 +15,18 @@ namespace AccommodationManagerApp.Model {
         [ForeignKey("RoomId")] public Room Room { get; set; }
         public int Price { get; set; }
         public DateTime StartDate { get; set; } = DateTime.Now;
-        public DateTime EndDate { get; set; } = DateTime.Now.AddMonths(3); // Set EndDate to StartDate + 3 months
+        public DateTime EndDate { get; set; } = DateTime.Now.AddMonths(3);
         public bool IsTerminated { get; set; } = false;
         public List<Bill> Bills { get; set; }
 
         public Contract() { }
 
         // Constructor use for Testing in Migration
-        public Contract(int price)
+        public Contract(int price, int userId, int roomId)
         {
             Price = price;
-            EndDate = StartDate.AddMonths(3);
+            UserId = userId;
+            RoomId = roomId;
         }
     }
 }
