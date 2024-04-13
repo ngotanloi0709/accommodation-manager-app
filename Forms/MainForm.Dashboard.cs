@@ -13,7 +13,7 @@ namespace AccommodationManagerApp.Forms
             DrawCasteriaChart();
             DrawPieChart();
             DrawRoomInBuildingChart();
-            LoadDashboard();
+            LoadDashboardLabelData();
         }
         private void DrawCasteriaChart()
         {
@@ -36,12 +36,12 @@ namespace AccommodationManagerApp.Forms
                 new LineSeries
                 {
                     Title = "Chưa trả",
-                    Values = new ChartValues <double> {CountTotalBillAmounUnpaid(nowDate-11, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -10, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -9, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -8, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -7, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -6, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -5, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -4, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -3, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -2, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -1, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate , DateTime.Now.Year)}
+                    Values = new ChartValues <int> {CountTotalBillAmounUnpaid(nowDate-11, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -10, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -9, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -8, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -7, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -6, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -5, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -4, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -3, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -2, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -1, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate , DateTime.Now.Year)}
                 },
                 new LineSeries
                 {
                     Title = "Đã trả",
-                    Values = new ChartValues <double> {CountTotalBillAmounPaid(nowDate-11, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-10, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-9, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -8, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-7, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-6, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -5, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-4, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -3, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -2, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -1, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate, DateTime.Now.Year) }
+                    Values = new ChartValues <int> {CountTotalBillAmounPaid(nowDate-11, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-10, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-9, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -8, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-7, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-6, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -5, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-4, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -3, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -2, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -1, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate, DateTime.Now.Year) }
                 }
             };
         }
@@ -61,7 +61,7 @@ namespace AccommodationManagerApp.Forms
             return month;
         }
 
-        private Double CountTotalBillAmounUnpaid(int month, int year) {
+        private int CountTotalBillAmounUnpaid(int month, int year) {
             if (month <= 0)
             {
                 month += 12;
@@ -77,7 +77,7 @@ namespace AccommodationManagerApp.Forms
             }
 
             List<Bill> bills = _billService.GetBillUnpaidByMonthAndYear(month, year);
-            Double total = 0;
+            int total = 0;
             foreach (Bill bill in bills)
             {
                 total = total + bill.ElectricityQuantity * _electricityPrice + bill.WaterQuantity * _waterPrice + bill.InternetFee + bill.RentFee + bill.VehicleFee;
@@ -93,19 +93,19 @@ namespace AccommodationManagerApp.Forms
             series.Add(new PieSeries
             {
                 Title = "Chưa trả",
-                Values = new ChartValues<double> { CountNumberUnpaidBill(nowDate, DateTime.Now.Year) },
+                Values = new ChartValues<int> { CountNumberUnpaidBill(nowDate, DateTime.Now.Year) },
                 DataLabels = true
             });
             series.Add(new PieSeries
             {
                 Title = "Đã trả",
-                Values = new ChartValues<double> { CountNumberPaidBill(nowDate, DateTime.Now.Year) },
+                Values = new ChartValues<int> { CountNumberPaidBill(nowDate, DateTime.Now.Year) },
                 DataLabels = true
             });
             series.Add(new PieSeries
             {
                 Title = "Đang cập nhật",
-                Values = new ChartValues<double> { CountNumberBillIsUpdated(nowDate, DateTime.Now.Year) },
+                Values = new ChartValues<int> { CountNumberBillIsUpdated(nowDate, DateTime.Now.Year) },
                 DataLabels = true
             });
 
@@ -114,19 +114,17 @@ namespace AccommodationManagerApp.Forms
 
         public void DrawRoomInBuildingChart()
         {
-            List<Building> buildings = _buildingService.GetAll();
+            var buildings = _buildingService.GetAll();
             RoomInBuildingChart.Series["Số lượng phòng"].Points.Clear();
-            for (int i = 0; i < buildings.Count; i++)
+            for (var i = 0; i < buildings.Count; i++)
             {
-
-                List<Room> rooms = _roomService.GetAllWithBuildingId(buildings[i].Id);
-                RoomInBuildingChart.Series["Số lượng phòng"].Points.AddXY("Tòa " + (i + 1), rooms.Count);
+                var rooms = _roomService.GetAllWithBuildingId(buildings[i].Id);
+                RoomInBuildingChart.Series["Số lượng phòng"].Points.AddXY(buildings[i].Name, rooms.Count);
             }
-            //RoomInBuildingChart.Series["Number of room"].
         }
 
 
-        public Double CountTotalBillAmounPaid(int month, int year)
+        public int CountTotalBillAmounPaid(int month, int year)
         {
             if (month <= 0)
             {
@@ -143,7 +141,7 @@ namespace AccommodationManagerApp.Forms
             else
             {
                 List<Bill> bills = _billService.GetBillPaidByMonthAndYear(month, year);
-                Double total = 0;
+                int total = 0;
                 foreach (Bill bill in bills)
                 {
                     total = total + bill.ElectricityQuantity * _electricityPrice + bill.WaterQuantity * _waterPrice + bill.InternetFee + bill.RentFee + bill.VehicleFee;
@@ -152,19 +150,19 @@ namespace AccommodationManagerApp.Forms
             }
         }
 
-        private Double CountNumberUnpaidBill(int month, int year)
+        private int CountNumberUnpaidBill(int month, int year)
         {
             List<Bill> bills = _billService.GetBillUnpaidByMonthAndYear(month, year);
             return bills.Count;
         }
 
-        private Double CountNumberPaidBill(int month, int year)
+        private int CountNumberPaidBill(int month, int year)
         {
             List<Bill> bills = _billService.GetBillPaidByMonthAndYear(month, year);
             return bills.Count;
         }
 
-        private Double CountNumberBillIsUpdated(int month, int year)
+        private int CountNumberBillIsUpdated(int month, int year)
         {
             List<Bill> bills = _billService.GetBillIsUpdatedByMonthAndYear(month, year);
             return bills.Count;
@@ -180,50 +178,50 @@ namespace AccommodationManagerApp.Forms
 
         private void ReloadChart()
         {
-            int nowDate = DateTime.Now.Month;
+            var nowDate = DateTime.Now.Month;
             paidAndUnpaidChart.Series.Clear();
             paidAndUnpaidChart.Series = new SeriesCollection
             {
                 new LineSeries
                 {
                     Title = "Chưa trả",
-                    Values = new ChartValues <double> {CountTotalBillAmounUnpaid(nowDate-11, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -10, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -9, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -8, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -7, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -6, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -5, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -4, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -3, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -2, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -1, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate , DateTime.Now.Year)}
+                    Values = new ChartValues <int> {CountTotalBillAmounUnpaid(nowDate-11, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -10, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -9, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -8, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -7, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -6, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -5, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -4, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -3, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -2, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate -1, DateTime.Now.Year), CountTotalBillAmounUnpaid(nowDate , DateTime.Now.Year)}
                 },
                 new LineSeries
                 {
                     Title = "Đã trả",
-                    Values = new ChartValues <double> {CountTotalBillAmounPaid(nowDate-11, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-10, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-9, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -8, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-7, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-6, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -5, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-4, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -3, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -2, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -1, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate, DateTime.Now.Year) }
+                    Values = new ChartValues <int> {CountTotalBillAmounPaid(nowDate-11, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-10, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-9, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -8, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-7, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-6, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -5, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate-4, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -3, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -2, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate -1, DateTime.Now.Year), CountTotalBillAmounPaid(nowDate, DateTime.Now.Year) }
                 }
             };
         }
 
         private void ReloadPieChart()
         {
-            int nowDate = DateTime.Now.Month;
+            var nowDate = DateTime.Now.Month;
             pieChartPaidBillAndUnpaidBill.Series.Clear();
             SeriesCollection series = new SeriesCollection();
             series.Add(new PieSeries
             {
                 Title = "Chưa trả",
-                Values = new ChartValues<double> { CountNumberUnpaidBill(nowDate, DateTime.Now.Year) },
+                Values = new ChartValues<int> { CountNumberUnpaidBill(nowDate, DateTime.Now.Year) },
                 DataLabels = true
             });
             series.Add(new PieSeries
             {
                 Title = "Đã trả",
-                Values = new ChartValues<double> { CountNumberPaidBill(nowDate, DateTime.Now.Year) },
+                Values = new ChartValues<int> { CountNumberPaidBill(nowDate, DateTime.Now.Year) },
                 DataLabels = true
             });
             series.Add(new PieSeries
             {
                 Title = "Đang cập nhật",
-                Values = new ChartValues<double> { CountNumberBillIsUpdated(nowDate, DateTime.Now.Year) },
+                Values = new ChartValues<int> { CountNumberBillIsUpdated(nowDate, DateTime.Now.Year) },
                 DataLabels = true
             });
 
             pieChartPaidBillAndUnpaidBill.Series = series;
         }
-        private void LoadDashboard()
+        private void LoadDashboardLabelData()
         {
             var rooms = _roomService.GetAll();
             var buildings = _buildingService.GetAll();

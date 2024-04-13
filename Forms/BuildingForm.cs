@@ -44,17 +44,22 @@ namespace AccommodationManagerApp.Forms {
         }
 
         private bool IsBuildingNameSafe() {
+            if (textBoxName.Text.Length > 12) {
+                new ToastForm("Tên toà nhà không được quá 12 ký tự.", true).Show();
+                return false;
+            }
+            
             if ((_building == null || _building.Name != textBoxName.Text) &&
                 _buildingService.IsBuildingNameExists(textBoxName.Text)) {
                 new ToastForm("Tên toà nhà đã tồn tại. Vui lòng nhập tên khác.", true).Show();
                 return false;
             }
-
+            
             return true;
         }
 
         private bool IsAllTextBoxFilled() {
-            var result = string.IsNullOrEmpty(textBoxName.Text) || string.IsNullOrEmpty(textBoxAddress.Text);
+            var result = string.IsNullOrEmpty(textBoxName.Text);
             
             if (result) {
                 new ToastForm("Vui lòng điền đầy đủ thông tin.", true).Show();
