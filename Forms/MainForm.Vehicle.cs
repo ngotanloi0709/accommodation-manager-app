@@ -29,6 +29,7 @@ namespace AccommodationManagerApp.Forms {
         private void ListViewVehicle_SelectedIndexChanged(object sender, EventArgs e) {
             var vehicle = IsSelectedVehicleValid();
             if (vehicle != null) {
+                MessageBox.Show(vehicle.Id.ToString());
                 var number = vehicle.Number;
                 var name = vehicle.Name;
                 var price = FormatText.IntegerToVnd(vehicle.Price);
@@ -138,8 +139,8 @@ namespace AccommodationManagerApp.Forms {
         {
             VehicleCategory category = VehicleCategoryExtensions.ToVehicleCategory((string) comboBoxVehiclesType.SelectedItem);
             List<string> text = QueryUtils.ChangeVehicleSearchInput((string) comboBoxVehiclesSearch.SelectedItem, textBoxVehiclesSearch.Text);
-            var queryVehicles = _vehicleService.GetByCustomizeQuery(Vehicles, category, text);
-            InsertVehicleIntoListView(queryVehicles);
+            Vehicles = _vehicleService.GetByCustomizeQuery(category, text);
+            InsertVehicleIntoListView(Vehicles);
         }
     }
 }

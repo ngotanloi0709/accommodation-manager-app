@@ -20,12 +20,27 @@ namespace AccommodationManagerApp.Repository
             return Context.Set<Vehicle>().Include("Room").FirstOrDefault(v => v.Id == id);
         }
         public List<Vehicle> GetAllWithRoom()
-        {
-            return Context.Set<Vehicle>().Include("Room").ToList();
-        }
+        => Context.Set<Vehicle>().Include("Room").ToList();
+
         public List<Vehicle> GetAllByRoomId(int roomId)
+        => Context.Set<Vehicle>().Where(v => v.RoomId == roomId).ToList();
+
+        public List<Vehicle> GetByCustomizeQuery(VehicleCategory type, List<string> text)
         {
-            return Context.Set<Vehicle>().Where(v => v.RoomId == roomId).ToList();
+            var name = text[0];
+            var roomNumber = text[1];
+            var number = text[2];
+
+            var filteredVehicles = Context.Set<Vehicle>()
+                .Include("Room")
+                .Where(vehicle =>
+                (vehicle.Category == type || type == VehicleCategory.Null) &&
+                (name == null || name.Equals(vehicle.Name, StringComparison.OrdinalIgnoreCase)) &&
+                (roomNumber == null || roomNumber.Equals(vehicle.Room.RoomNumber, StringComparison.OrdinalIgnoreCase)) &&
+                (number == null || number.Equals(vehicle.Number, StringComparison.OrdinalIgnoreCase))
+            );
+            return filteredVehicles.ToList();
+
         }
     }
 }

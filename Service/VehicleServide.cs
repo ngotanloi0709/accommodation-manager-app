@@ -1,11 +1,8 @@
 ﻿using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Repository;
 using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AccommodationManagerApp.Service {
     public class VehicleService {
@@ -72,15 +69,7 @@ namespace AccommodationManagerApp.Service {
             return totalFee;
         }
 
-        public List<Vehicle> GetByCustomizeQuery(List<Vehicle> vehicles, VehicleCategory type, List<string> text)
-        {
-            var filteredVehicles = vehicles.Where(vehicle =>
-                (vehicle.Category == type || type == VehicleCategory.Null) &&
-                (text[0] == null || text[0].Equals(vehicle.Name, StringComparison.OrdinalIgnoreCase)) &&
-                (text[1] == null || text[1].Equals(vehicle.Room.RoomNumber, StringComparison.OrdinalIgnoreCase)) &&
-                (text[2] == null || text[2].Equals(vehicle.Number, StringComparison.OrdinalIgnoreCase)) 
-            );
-            return filteredVehicles.ToList();
-        }
+        public List<Vehicle> GetByCustomizeQuery(VehicleCategory type, List<string> text)
+        => _vehicleRepository.GetByCustomizeQuery(type, text);
     }
 }

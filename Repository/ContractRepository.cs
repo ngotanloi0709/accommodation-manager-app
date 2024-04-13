@@ -31,7 +31,10 @@ namespace AccommodationManagerApp.Repository {
             string userName = text[0];
             string roomNumber = text[1];
 
-            var filteredContract = Context.Set<Contract>().Where(contract =>
+            var filteredContract = Context.Set<Contract>()
+                .Include("User")
+                .Include("Room")
+                .Where(contract =>
                 (contract.StartDate < DateTime.Now || !startCondition) &&
                 (startMonth == null || contract.StartDate.Month >= startMonth) &&
                 (endMonth == null || contract.EndDate.Month <= endMonth) &&

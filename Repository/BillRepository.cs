@@ -60,7 +60,8 @@ namespace AccommodationManagerApp.Repository
 
             var filteredBills = Context.Set<Bill>()
                 .Include("Contract")
-                .Include("User")
+                .Include("Contract.Room")
+                .Include("Contract.User")
                 .Where(bill =>
                 (bill.Status == state || state == BillStatus.Null) &&
                 (bill.DateOfBill < DateTime.Now || !time0) &&
