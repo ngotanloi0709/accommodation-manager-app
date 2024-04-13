@@ -15,7 +15,6 @@ namespace AccommodationManagerApp.Forms
             if (ListViewBill.SelectedItems.Count > 0)
             {
                 var index = ListViewBill.SelectedItems[0].Index;
-
                 if (index < _Bills.Count) return _Bills[index];
             }
             return null;
@@ -69,7 +68,7 @@ namespace AccommodationManagerApp.Forms
 
             if (QueryUtils.CheckMinMaxPrice(minPrice, maxPrice))
             {
-                var queryBills = _billService.GetByCustomizeQuery(_Bills, state, time, text, minPrice, maxPrice);
+                var queryBills = _billService.GetByCustomizeQuery(state, time, text, minPrice, maxPrice);
                 InsertBillIntoListView(queryBills);
             }
             else
