@@ -103,16 +103,8 @@ namespace AccommodationManagerApp.Service {
             return _roomRepository.GetAllWithNotTerminatedContract().ToList();
         }
 
-        public List<Room> GetByCustomizeQuery(List<Room> rooms, string building, RoomStatus state, List<string> text)
-        {
-            var filteredRooms = rooms.Where(room =>
-                (building == null || room.Building.Name == building) &&
-                (state == RoomStatus.Null || room.Status == state) &&
-                (text[0] == null) &&
-                (text[1] == null || text[1].Equals(room.RoomNumber, StringComparison.OrdinalIgnoreCase))
-            );
-            return filteredRooms.ToList();
-        }
+        public List<Room> GetByCustomizeQuery(string building, RoomStatus state, List<string> text)
+        => _roomRepository.GetByCustomizeQuery(building, state, text);
         
         public Contract GetCurrentContract(Room room) {
             if (room.Contracts.Count == 0) {

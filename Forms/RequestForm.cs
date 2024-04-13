@@ -31,7 +31,14 @@ namespace AccommodationManagerApp.Forms
         {
             var result = string.IsNullOrEmpty(txtReq.Text);
             if(result)
+            {
                 new ToastForm("Vui lòng điền đầy đủ thông tin.", true).Show();
+            }
+            if(txtReq.Text.Length > 100)
+            {
+                new ToastForm("Giới Hạn Văn Bản 100 ký tự !", true).Show();
+                return true;
+            }
             return result;
         }
         private void AddAndUpdateRequest(object sender, System.EventArgs e)

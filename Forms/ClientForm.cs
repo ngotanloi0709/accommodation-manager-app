@@ -10,7 +10,6 @@ namespace AccommodationManagerApp.Forms
     {
         private BillService _billService;
         private RequestService _requestService;
-        private RoomService _roomService;
         private AuthenticationService _authenticationService;
 
         private User _user;
@@ -34,10 +33,12 @@ namespace AccommodationManagerApp.Forms
         private void LoadEntity() 
         {
             _user = _authenticationService.CurrentUser;
+            labelWaterPrice.Text = _billService.GetWaterPrice().Price.ToString();
+            labelElectricityPrice.Text = _billService.GetElectricityPrice().Price.ToString();
+            labelInternetPrice.Text = _billService.GetInternetPrice().Price.ToString();
         }
         private void LoadService()
         {
-            _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
             _authenticationService = ServiceLocator.ServiceProvider.GetService(typeof(AuthenticationService)) as AuthenticationService;
             _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
             _requestService = ServiceLocator.ServiceProvider.GetService(typeof(RequestService)) as RequestService;
@@ -70,6 +71,5 @@ namespace AccommodationManagerApp.Forms
                 Close();
             }
         }
-
     }
 }

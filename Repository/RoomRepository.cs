@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AccommodationManagerApp.Model;
 
@@ -10,29 +11,42 @@ namespace AccommodationManagerApp.Repository {
             return Context.Set<Room>().Include("Building").Include("Users").Include("Contracts").Include("Contracts.User").ToList();
         }
 
-        public Room GetByRoomNumber(string roomNumber) {
-            return Context.Set<Room>().FirstOrDefault(r => r.RoomNumber == roomNumber);
-        }
+        public Room GetByRoomNumber(string roomNumber) 
+            => Context.Set<Room>().FirstOrDefault(r => r.RoomNumber == roomNumber);
 
+        public Room GetByIdWithContract(int? id) 
+            => Context.Set<Room>().Include("Contracts").FirstOrDefault(r => r.Id == id);
 
-        public Room GetByIdWithContract(int? id) {
-            return Context.Set<Room>().Include("Contracts").FirstOrDefault(r => r.Id == id);
-        }
+        public List<Room> GetAllWithBuildingId(int buildingId) 
+            => Context.Set<Room>().Where(r => r.BuildingId == buildingId).ToList();
 
-
-
-        public List<Room> GetAllWithBuildingId(int buildingId)
+        public List<Room> GetByCustomizeQuery(string building, RoomStatus state, List<string> text)
         {
-            return Context.Set<Room>().Where(r => r.BuildingId == buildingId).ToList();
+            var text0 = text[0];
+            var text1 = text[1];
+
+            var filteredRooms = Context.Set<Room>()
+                .Include("Building")
+                .Include("Users")
+                .Include("Contracts")
+                .Include("Contracts.User")
+                .Where(room =>
+                (building == null || room.Building.Name == building) &&
+                (state == RoomStatus.Null || room.Status == state) &&
+                (text0 == null) &&
+                (text1 == null || text1.Equals(room.RoomNumber, StringComparison.OrdinalIgnoreCase))
+            );
+            return filteredRooms.ToList();
         }
 
         public List<Room> GetAllWithBuildingIdAndNotTerminatedContract(int buildingId)
-        {
-            return Context.Set<Room>().Include("Contracts").Where(r => r.BuildingId == buildingId && r.Contracts.Any(c => c.IsTerminated == false)).ToList();
-        }
+            => Context.Set<Room>().Include("Contracts")
+            .Where(r => r.BuildingId == buildingId && r.Contracts.Any(c => c.IsTerminated == false)).ToList();
 
-        public IEnumerable<Room> GetAllWithNotTerminatedContract() {
-            return Context.Set<Room>().Include("Contracts").Where(r => r.Contracts.Any(c => c.IsTerminated == false)).ToList();
-        }
+
+        public IEnumerable<Room> GetAllWithNotTerminatedContract() 
+            => Context.Set<Room>().Include("Contracts")
+            .Where(r => r.Contracts.Any(c => c.IsTerminated == false)).ToList();
+
     }
 }

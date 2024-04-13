@@ -15,7 +15,6 @@ namespace AccommodationManagerApp.Forms
             if (ListViewBill.SelectedItems.Count > 0)
             {
                 var index = ListViewBill.SelectedItems[0].Index;
-
                 if (index < _Bills.Count) return _Bills[index];
             }
             return null;
@@ -28,13 +27,12 @@ namespace AccommodationManagerApp.Forms
                 var item = new ListViewItem(bill.Id.ToString());
                 item.SubItems.Add(FormatText.IntegerToVnd(bill.RentFee));
                 item.SubItems.Add(bill.Contract?.Room.RoomNumber.ToString() ?? "Trống");
-                item.SubItems.Add(bill.User.Name);
                 item.SubItems.Add(bill.DateOfBillFormatted);
                 item.SubItems.Add(QueryUtils.ToVietnamese(bill.Status));
                 ListViewBill.Items.Add(item);
             }
         }
-        private void buttonPreview_Click(object sender, System.EventArgs e)
+        private void ButtonPreview_Click(object sender, System.EventArgs e)
         {
             var confirmForm = new ConfirmationForm("Bạn muốn xem chi tiết hóa đơn ?");
             confirmForm.ShowDialog();
@@ -59,6 +57,16 @@ namespace AccommodationManagerApp.Forms
         }
         // Query System
 
+        private void ListViewBill_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            var bill = SelectBill();
+            if (bill == null) return;
+            LabelBillContractOwner.Text = bill.Contract.User.Name;
+            LabelBillContractValue.Text = FormatText.IntegerToVnd(bill.Contract.Price);
+            LabelBillTotal.Text = FormatText.IntegerToVnd(bill.GetTotalPrice());
+            LabelBillRoomNumber.Text = bill.Contract.Room.RoomNumber;
+            LabelBillContractEndDate.Text = bill.Contract.EndDate.ToString("dd/MM/yyyy");
+        }
         private void ButtonPriceSearch_Click(object sender, EventArgs e)
         {
             BillStatus state = QueryUtils.ToBillStatus((string)comboBoxState.SelectedItem);
@@ -69,7 +77,7 @@ namespace AccommodationManagerApp.Forms
 
             if (QueryUtils.CheckMinMaxPrice(minPrice, maxPrice))
             {
-                var queryBills = _billService.GetByCustomizeQuery(_Bills, state, time, text, minPrice, maxPrice);
+                var queryBills = _billService.GetByCustomizeQuery(state, time, text, minPrice, maxPrice);
                 InsertBillIntoListView(queryBills);
             }
             else

@@ -154,11 +154,7 @@ namespace AccommodationManagerApp.Forms {
 
         private void ListViewBill_SelectedIndexChanged(object sender, EventArgs e) {
             var bill = SelectBill();
-            if (bill == null)
-            {
-                new ToastForm("Hãy chọn hoá đơn cần thao tác!", true).Show();
-                return;
-            }
+            if (bill == null) return;
             LabelBillContractOwner.Text = bill.Contract.User.Name;
             LabelBillContractValue.Text = FormatText.IntegerToVnd(bill.Contract.Price);
             LabelBillTotal.Text = FormatText.IntegerToVnd(bill.GetTotalPrice());
@@ -240,8 +236,8 @@ namespace AccommodationManagerApp.Forms {
 
             if (QueryUtils.CheckMinMaxPrice(minPrice, maxPrice))
             {
-                var queryBills = _billService.GetByCustomizeQuery(Bills, state, time, text, minPrice, maxPrice);
-                InsertBillIntoListView(queryBills);
+                Bills = _billService.GetByCustomizeQuery(state, time, text, minPrice, maxPrice);
+                InsertBillIntoListView(Bills);
             }
             else
                 new ToastForm("Xin mời nhập giá sàn thấp hơn giá trần", true).Show();

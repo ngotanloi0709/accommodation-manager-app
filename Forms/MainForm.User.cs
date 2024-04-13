@@ -43,7 +43,6 @@ namespace AccommodationManagerApp.Forms {
 
             if (user != null) {
                 LoadTenantAvatar(user);
-
                 labelUserName.Text = string.IsNullOrEmpty(user.Name) ? Resources.NullData : user.Name;
                 labelUserPhone.Text = string.IsNullOrEmpty(user.Phone) ? Resources.NullData : user.Phone;
                 labelUserIdentityNumber.Text = string.IsNullOrEmpty(user.IdentityNumber)
@@ -261,8 +260,8 @@ namespace AccommodationManagerApp.Forms {
         {
             bool? isFemale = QueryUtils.UserGender((string) comboBoxGender.SelectedItem);
             List<string> text = QueryUtils.ChangeUserSearchInput((string)comboBoxUserSearch.SelectedItem, textBoxUserSearch.Text);
-            var queryUser = _userService.GetByCustomizeQuery(Users, isFemale, text);
-            InsertUserIntoListView(queryUser);
+            Users = _userService.GetByCustomizeQuery(isFemale, text);
+            InsertUserIntoListView(Users);
         }
 
         private void btnViewInfor_Click(object sender, EventArgs e)
