@@ -1551,7 +1551,7 @@
             this.btnViewInfor.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnViewInfor.UseAccentColor = false;
             this.btnViewInfor.UseVisualStyleBackColor = true;
-            this.btnViewInfor.Click += new System.EventHandler(this.btnViewInfor_Click);
+            this.btnViewInfor.Click += new System.EventHandler(this.BtnViewInfor_Click);
             // 
             // materialLabel12
             // 
@@ -1664,7 +1664,7 @@
             this.buttonChangeTenantAvatar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Text;
             this.buttonChangeTenantAvatar.UseAccentColor = false;
             this.buttonChangeTenantAvatar.UseVisualStyleBackColor = true;
-            this.buttonChangeTenantAvatar.Click += new System.EventHandler(this.buttonChangeTenantAvatar_Click);
+            this.buttonChangeTenantAvatar.Click += new System.EventHandler(this.ButtonChangeTenantAvatar_Click);
             // 
             // buttonEditTenantPassword
             // 
@@ -1685,7 +1685,7 @@
             this.buttonEditTenantPassword.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Text;
             this.buttonEditTenantPassword.UseAccentColor = false;
             this.buttonEditTenantPassword.UseVisualStyleBackColor = true;
-            this.buttonEditTenantPassword.Click += new System.EventHandler(this.buttonEditTenantPassword_Click);
+            this.buttonEditTenantPassword.Click += new System.EventHandler(this.ButtonEditTenantPassword_Click);
             // 
             // buttonDeleteTenant
             // 
@@ -1706,7 +1706,7 @@
             this.buttonDeleteTenant.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.buttonDeleteTenant.UseAccentColor = false;
             this.buttonDeleteTenant.UseVisualStyleBackColor = true;
-            this.buttonDeleteTenant.Click += new System.EventHandler(this.buttonDeleteTenant_Click);
+            this.buttonDeleteTenant.Click += new System.EventHandler(this.ButtonDeleteTenant_Click);
             // 
             // buttonEditTenant
             // 
@@ -1727,7 +1727,7 @@
             this.buttonEditTenant.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.buttonEditTenant.UseAccentColor = false;
             this.buttonEditTenant.UseVisualStyleBackColor = true;
-            this.buttonEditTenant.Click += new System.EventHandler(this.buttonEditTenant_Click);
+            this.buttonEditTenant.Click += new System.EventHandler(this.ButtonEditTenant_Click);
             // 
             // buttonAddTenant
             // 
@@ -1748,7 +1748,7 @@
             this.buttonAddTenant.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.buttonAddTenant.UseAccentColor = false;
             this.buttonAddTenant.UseVisualStyleBackColor = true;
-            this.buttonAddTenant.Click += new System.EventHandler(this.buttonAddTenant_Click);
+            this.buttonAddTenant.Click += new System.EventHandler(this.ButtonAddTenant_Click);
             // 
             // ButtonUserUnpaid
             // 
@@ -1790,7 +1790,7 @@
             this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton1.UseAccentColor = false;
             this.materialButton1.UseVisualStyleBackColor = true;
-            this.materialButton1.Click += new System.EventHandler(this.buttonReloadUser_Click);
+            this.materialButton1.Click += new System.EventHandler(this.ButtonReloadUser_Click);
             // 
             // materialLabel15
             // 
@@ -2015,7 +2015,7 @@
             this.buttonReloadUser.TabIndex = 10;
             this.buttonReloadUser.Text = "materialFloatingActionButton1";
             this.buttonReloadUser.UseVisualStyleBackColor = true;
-            this.buttonReloadUser.Click += new System.EventHandler(this.buttonReloadUser_Click);
+            this.buttonReloadUser.Click += new System.EventHandler(this.ButtonReloadUser_Click);
             // 
             // ListViewUser
             // 

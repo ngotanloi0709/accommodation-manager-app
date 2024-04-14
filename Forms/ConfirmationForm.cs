@@ -12,13 +12,13 @@ namespace AccommodationManagerApp.Forms
             labelMessage.Text = message;
         }
 
-        private void buttonYes_Click(object sender, System.EventArgs e)
+        private void ButtonYes_Click(object sender, System.EventArgs e)
         {
             DialogResult = DialogResult.Yes;
             Close();
         }
 
-        private void buttonNo_Click(object sender, System.EventArgs e)
+        private void ButtonNo_Click(object sender, System.EventArgs e)
         {
             DialogResult = DialogResult.No;
             Close();

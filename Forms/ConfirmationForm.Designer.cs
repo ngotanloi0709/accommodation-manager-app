@@ -61,7 +61,7 @@ namespace AccommodationManagerApp.Forms {
             this.buttonNo.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.buttonNo.UseAccentColor = false;
             this.buttonNo.UseVisualStyleBackColor = true;
-            this.buttonNo.Click += new System.EventHandler(this.buttonNo_Click);
+            this.buttonNo.Click += new System.EventHandler(this.ButtonNo_Click);
             // 
             // buttonYes
             // 
@@ -82,21 +82,21 @@ namespace AccommodationManagerApp.Forms {
             this.buttonYes.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.buttonYes.UseAccentColor = false;
             this.buttonYes.UseVisualStyleBackColor = true;
-            this.buttonYes.Click += new System.EventHandler(this.buttonYes_Click);
+            this.buttonYes.Click += new System.EventHandler(this.ButtonYes_Click);
             // 
             // ConfirmationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(298, 144);
+            this.ClientSize = new System.Drawing.Size(300, 150);
             this.Controls.Add(this.buttonNo);
             this.Controls.Add(this.buttonYes);
             this.Controls.Add(this.labelMessage);
             this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_None;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(298, 144);
+            this.MaximumSize = new System.Drawing.Size(500, 200);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(298, 144);
+            this.MinimumSize = new System.Drawing.Size(300, 150);
             this.Name = "ConfirmationForm";
             this.Padding = new System.Windows.Forms.Padding(3, 24, 3, 3);
             this.Sizable = false;
