@@ -68,10 +68,11 @@ namespace AccommodationManagerApp.Forms
             List<string> text = new List<string> { null, null};
             int? minPrice = int.TryParse(textBoxMinPrice.Text, out int min) ? min : (int?)null;
             int? maxPrice = int.TryParse(textBoxMaxPrice.Text, out int max) ? max : (int?)null;
+            int userId = _user.Id;
 
             if (QueryUtils.CheckMinMaxPrice(minPrice, maxPrice))
             {
-                var queryBills = _billService.GetByCustomizeQuery(state, time, text, minPrice, maxPrice);
+                var queryBills = _billService.GetByCustomizeQuery(state, time, text, minPrice, maxPrice, userId);
                 InsertBillIntoListView(queryBills);
             }
             else

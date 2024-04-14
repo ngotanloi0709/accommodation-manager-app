@@ -112,7 +112,7 @@ namespace AccommodationManagerApp.Forms {
             this.buttonSave.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.buttonSave.UseAccentColor = false;
             this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // ChangeUserPasswordForm
             // 

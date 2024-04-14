@@ -62,6 +62,6 @@ namespace AccommodationManagerApp.Service
 
         public List<Request> GetAllWithUser() => _requestRepository.GetAllWithUser();
 
-        public List<Request> GetByCustomizeQuery(List<object> time, RequestStatus status, List<string> text) => _requestRepository.GetByCustomizeQuery(time, status, text);
+        public List<Request> GetByCustomizeQuery(List<object> time, RequestStatus status, List<string> text, int? userId) => _requestRepository.GetByCustomizeQuery(time, status, text, userId);
     }
 }

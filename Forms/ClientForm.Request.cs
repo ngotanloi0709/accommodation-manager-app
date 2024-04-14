@@ -105,7 +105,8 @@ namespace AccommodationManagerApp.Forms
             List<object> time = QueryUtils.ChangeTextToDate(comboBoxReqTime.SelectedItem.ToString());
             RequestStatus status = RequestStatusExtension.ToRequestStatus(comboBoxReqState.SelectedItem.ToString());
             List<string> text = new List<string>() { null, null};
-            _requests = _requestService.GetByCustomizeQuery(time, status, text);
+            int userId = _user.Id;
+            _requests = _requestService.GetByCustomizeQuery(time, status, text, userId);
             InsertRequestIntoListView(_requests);
         }
     }
