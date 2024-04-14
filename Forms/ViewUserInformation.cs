@@ -33,7 +33,7 @@ namespace AccommodationManagerApp.Forms {
 
         private void btnTransactionHistory_Click(object sender, EventArgs e) {
             if (_billService.GetAllByUserId(_user.Id).Count == 0) {
-                new ToastForm("Người thuê này lịch sử giao dịch nào", true).Show();
+                new ToastForm("Người thuê này không có lịch sử giao dịch nào", true).Show();
                 return;
             }
             

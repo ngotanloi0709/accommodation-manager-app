@@ -272,7 +272,7 @@ namespace AccommodationManagerApp.Forms {
             this.buttonEdit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.buttonEdit.UseAccentColor = false;
             this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            this.buttonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
             // 
             // CurrentUserInformationForm
             // 

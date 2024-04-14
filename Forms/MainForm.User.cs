@@ -85,13 +85,13 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        private void buttonAddTenant_Click(object sender, EventArgs e) {
+        private void ButtonAddTenant_Click(object sender, EventArgs e) {
             var userForm = new UserForm(null);
             userForm.ShowDialog();
             ShowUserDialogMessageResult(userForm.DialogResult, false);
         }
 
-        private void buttonEditTenant_Click(object sender, EventArgs e) {
+        private void ButtonEditTenant_Click(object sender, EventArgs e) {
             var user = IsSelectedUserValid();
 
             if (user != null) {
@@ -130,7 +130,7 @@ namespace AccommodationManagerApp.Forms {
             new ToastForm(message, dialogResult != DialogResult.OK).Show();
         }
 
-        private void buttonDeleteTenant_Click(object sender, EventArgs e) {
+        private void ButtonDeleteTenant_Click(object sender, EventArgs e) {
             var user = IsSelectedUserValid();
             if (user != null) {
                 if (!IsUserSafeDelete(user.Id)) {
@@ -164,7 +164,7 @@ namespace AccommodationManagerApp.Forms {
             return true;
         }
 
-        private void buttonEditTenantPassword_Click(object sender, EventArgs e) {
+        private void ButtonEditTenantPassword_Click(object sender, EventArgs e) {
             var user = IsSelectedUserValid();
 
             if (user != null) {
@@ -176,7 +176,7 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        private void buttonChangeTenantAvatar_Click(object sender, EventArgs e) {
+        private void ButtonChangeTenantAvatar_Click(object sender, EventArgs e) {
             var user = IsSelectedUserValid();
             if (user != null) {
                 var openFileDialog = new OpenFileDialog {
@@ -250,7 +250,7 @@ namespace AccommodationManagerApp.Forms {
             LoadRoomData();
         }
 
-        private void buttonReloadUser_Click(object sender, EventArgs e) {
+        private void ButtonReloadUser_Click(object sender, EventArgs e) {
             LoadUserData();
             new ToastForm("Đã thực hiện tải dữ liệu người thuê").Show();
         }
@@ -269,7 +269,7 @@ namespace AccommodationManagerApp.Forms {
             InsertUserIntoListView(Users);
         }
 
-        private void btnViewInfor_Click(object sender, EventArgs e) {
+        private void BtnViewInfor_Click(object sender, EventArgs e) {
             var user = IsSelectedUserValid();
 
             if (user == null) {

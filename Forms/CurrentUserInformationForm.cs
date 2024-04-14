@@ -58,7 +58,7 @@ namespace AccommodationManagerApp.Forms {
             }
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e) {
+        private void ButtonEdit_Click(object sender, EventArgs e) {
             var userForm = new UserForm(_user, true);
             userForm.ShowDialog();
             
