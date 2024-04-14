@@ -11,7 +11,7 @@ namespace AccommodationManagerApp.Repository
         public List<Request> GetAllByUserId(int id) => Context.Set<Request>().Include("User").Where(user => user.UserId == id).ToList();
         public List<Request> GetAllWithUser() => Context.Set<Request>().Include("User").ToList();
     
-        public List<Request> GetByCustomizeQuery(List<object> time, RequestStatus status, List<string> text)
+        public List<Request> GetByCustomizeQuery(List<object> time, RequestStatus status, List<string> text, int? userId)
         {
             var time0 = time[0] as DateTime?;
             var time1 = time[1] as int?;
@@ -27,7 +27,8 @@ namespace AccommodationManagerApp.Repository
                 (time2 == null || request.CreatedAt.Year == time2) &&
                 (status == RequestStatus.Null || request.Status == status) &&
                 (text0 == null || text0.Equals(request.User.Name, StringComparison.OrdinalIgnoreCase)) &&
-                (text1 == null)
+                (text1 == null) &&
+                (userId == null || userId == request.User.Id)
             );
             return filteredRequests.ToList();
         }

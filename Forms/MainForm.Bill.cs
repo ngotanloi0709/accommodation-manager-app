@@ -242,7 +242,7 @@ namespace AccommodationManagerApp.Forms {
 
             if (QueryUtils.CheckMinMaxPrice(minPrice, maxPrice))
             {
-                Bills = _billService.GetByCustomizeQuery(state, time, text, minPrice, maxPrice);
+                Bills = _billService.GetByCustomizeQuery(state, time, text, minPrice, maxPrice, null);
                 InsertBillIntoListView(Bills);
             }
             else
