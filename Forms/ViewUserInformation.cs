@@ -1,50 +1,54 @@
 ﻿using AccommodationManagerApp.Model;
 using AccommodationManagerApp.Service;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace AccommodationManagerApp.Forms
-{
-    public partial class ViewUserInformation : BaseForm
-    {
-        private readonly UserService _userService;
-        private readonly VehicleService _vehicleService;
-        private readonly RoomService _roomService;
+namespace AccommodationManagerApp.Forms {
+    public partial class ViewUserInformation : BaseForm {
+        private readonly ContractService _contractService;
+        private readonly BillService _billService;
         private readonly User _user;
-        public ViewUserInformation(User user)
-        {
-            _userService = ServiceLocator.ServiceProvider.GetService(typeof(UserService)) as UserService;
-            _vehicleService = ServiceLocator.ServiceProvider.GetService(typeof(VehicleService)) as VehicleService;
-            _roomService = ServiceLocator.ServiceProvider.GetService(typeof(RoomService)) as RoomService;
-            _user = user;
+
+        public ViewUserInformation(User user) {
             InitializeComponent();
+            
+            _contractService = ServiceLocator.ServiceProvider.GetService(typeof(ContractService)) as ContractService;
+            _billService = ServiceLocator.ServiceProvider.GetService(typeof(BillService)) as BillService;
+            _user = user;
+            
+            if (_user == null) {
+                new ToastForm("Đã xảy ra lỗi", true).Show();
+                Close();
+            }
         }
 
-        private void btnCheckVehicles_Click(object sender, EventArgs e)
-        {
-            ViewUserVehicleInfor viewUserVehicleInfor = new ViewUserVehicleInfor(_user);
+        private void btnCheckVehicles_Click(object sender, EventArgs e) {
+            if (_contractService.GetByUserIdAndNonExpiredWithRoom(_user.Id).Count == 0) {
+                new ToastForm("Người thuê này không có hợp đồng với phòng nào", true).Show();
+                return;
+            }
+            
+            var viewUserVehicleInfor = new ViewUserVehicleInformation(_user);
             viewUserVehicleInfor.ShowDialog();
         }
 
-        private void btnTransactionHistory_Click(object sender, EventArgs e)
-        {
-            ViewUserTransactionInfor viewUserTransactionInfor = new ViewUserTransactionInfor(_user);
+        private void btnTransactionHistory_Click(object sender, EventArgs e) {
+            if (_billService.GetAllByUserId(_user.Id).Count == 0) {
+                new ToastForm("Người thuê này lịch sử giao dịch nào", true).Show();
+                return;
+            }
+            
+            var viewUserTransactionInfor = new ViewUserTransactionInformation(_user);
             viewUserTransactionInfor.ShowDialog();
-
         }
 
-        private void btnRoomInfor_Click(object sender, EventArgs e)
-        {
-            ViewUserRoomInfor viewUserRoomInfor = new ViewUserRoomInfor(_user);
+        private void btnRoomInfor_Click(object sender, EventArgs e) {
+            if (_contractService.GetByUserIdAndNonExpiredWithRoom(_user.Id).Count == 0) {
+                new ToastForm("Người thuê này không có hợp đồng nào", true).Show();
+                return;
+            }
+            
+            var viewUserRoomInfor = new ViewUserRoomInformation(_user);
             viewUserRoomInfor.ShowDialog();
         }
-
     }
 }

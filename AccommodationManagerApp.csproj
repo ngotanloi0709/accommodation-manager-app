@@ -400,23 +400,23 @@
     <Compile Include="Forms\ViewUserInformation.Designer.cs">
       <DependentUpon>ViewUserInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ViewUserRoomInfor.cs">
+    <Compile Include="Forms\ViewUserRoomInformation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ViewUserRoomInfor.Designer.cs">
-      <DependentUpon>ViewUserRoomInfor.cs</DependentUpon>
+    <Compile Include="Forms\ViewUserRoomInformation.Designer.cs">
+      <DependentUpon>ViewUserRoomInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ViewUserTransactionInfor.cs">
+    <Compile Include="Forms\ViewUserTransactionInformation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ViewUserTransactionInfor.Designer.cs">
-      <DependentUpon>ViewUserTransactionInfor.cs</DependentUpon>
+    <Compile Include="Forms\ViewUserTransactionInformation.Designer.cs">
+      <DependentUpon>ViewUserTransactionInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ViewUserVehicleInfor.cs">
+    <Compile Include="Forms\ViewUserVehicleInformation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ViewUserVehicleInfor.Designer.cs">
-      <DependentUpon>ViewUserVehicleInfor.cs</DependentUpon>
+    <Compile Include="Forms\ViewUserVehicleInformation.Designer.cs">
+      <DependentUpon>ViewUserVehicleInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="Lib\ReportExtensionMethod.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -537,14 +537,14 @@
     <EmbeddedResource Include="Forms\ViewUserInformation.resx">
       <DependentUpon>ViewUserInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ViewUserRoomInfor.resx">
-      <DependentUpon>ViewUserRoomInfor.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ViewUserRoomInformation.resx">
+      <DependentUpon>ViewUserRoomInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ViewUserTransactionInfor.resx">
-      <DependentUpon>ViewUserTransactionInfor.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ViewUserTransactionInformation.resx">
+      <DependentUpon>ViewUserTransactionInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ViewUserVehicleInfor.resx">
-      <DependentUpon>ViewUserVehicleInfor.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ViewUserVehicleInformation.resx">
+      <DependentUpon>ViewUserVehicleInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

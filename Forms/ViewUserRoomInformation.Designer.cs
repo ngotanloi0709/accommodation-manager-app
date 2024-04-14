@@ -1,6 +1,6 @@
 ﻿namespace AccommodationManagerApp.Forms
 {
-    partial class ViewUserRoomInfor
+    partial class ViewUserRoomInformation
     {
         /// <summary>
         /// Required designer variable.
@@ -42,7 +42,6 @@
             this.colRomBuilding = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colRoomStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colRoomNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,12 +57,11 @@
             this.panel1.Controls.Add(this.materialLabel5);
             this.panel1.Controls.Add(this.materialLabel1);
             this.panel1.Controls.Add(this.ListViewUserRoom);
-            this.panel1.Controls.Add(this.materialLabel10);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 24);
+            this.panel1.Location = new System.Drawing.Point(3, 64);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1224, 828);
+            this.panel1.Size = new System.Drawing.Size(816, 333);
             this.panel1.TabIndex = 0;
             // 
             // labelRoomStatus
@@ -72,12 +70,13 @@
             this.labelRoomStatus.Depth = 0;
             this.labelRoomStatus.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelRoomStatus.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelRoomStatus.Location = new System.Drawing.Point(877, 221);
+            this.labelRoomStatus.Location = new System.Drawing.Point(611, 122);
+            this.labelRoomStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelRoomStatus.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelRoomStatus.Name = "labelRoomStatus";
-            this.labelRoomStatus.Size = new System.Drawing.Size(217, 24);
+            this.labelRoomStatus.Size = new System.Drawing.Size(181, 24);
             this.labelRoomStatus.TabIndex = 51;
-            this.labelRoomStatus.Text = "________________________";
+            this.labelRoomStatus.Text = "____________________";
             // 
             // labelRoomTenant
             // 
@@ -85,12 +84,13 @@
             this.labelRoomTenant.Depth = 0;
             this.labelRoomTenant.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelRoomTenant.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelRoomTenant.Location = new System.Drawing.Point(877, 177);
+            this.labelRoomTenant.Location = new System.Drawing.Point(611, 86);
+            this.labelRoomTenant.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelRoomTenant.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelRoomTenant.Name = "labelRoomTenant";
-            this.labelRoomTenant.Size = new System.Drawing.Size(217, 24);
+            this.labelRoomTenant.Size = new System.Drawing.Size(181, 24);
             this.labelRoomTenant.TabIndex = 50;
-            this.labelRoomTenant.Text = "________________________";
+            this.labelRoomTenant.Text = "____________________";
             // 
             // labelRoomBuilding
             // 
@@ -98,12 +98,13 @@
             this.labelRoomBuilding.Depth = 0;
             this.labelRoomBuilding.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelRoomBuilding.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelRoomBuilding.Location = new System.Drawing.Point(877, 132);
+            this.labelRoomBuilding.Location = new System.Drawing.Point(611, 49);
+            this.labelRoomBuilding.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelRoomBuilding.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelRoomBuilding.Name = "labelRoomBuilding";
-            this.labelRoomBuilding.Size = new System.Drawing.Size(217, 24);
+            this.labelRoomBuilding.Size = new System.Drawing.Size(181, 24);
             this.labelRoomBuilding.TabIndex = 49;
-            this.labelRoomBuilding.Text = "________________________";
+            this.labelRoomBuilding.Text = "____________________";
             // 
             // labelRoomNumber
             // 
@@ -111,12 +112,13 @@
             this.labelRoomNumber.Depth = 0;
             this.labelRoomNumber.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.labelRoomNumber.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelRoomNumber.Location = new System.Drawing.Point(877, 91);
+            this.labelRoomNumber.Location = new System.Drawing.Point(611, 16);
+            this.labelRoomNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelRoomNumber.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelRoomNumber.Name = "labelRoomNumber";
-            this.labelRoomNumber.Size = new System.Drawing.Size(217, 24);
+            this.labelRoomNumber.Size = new System.Drawing.Size(181, 24);
             this.labelRoomNumber.TabIndex = 48;
-            this.labelRoomNumber.Text = "________________________";
+            this.labelRoomNumber.Text = "____________________";
             // 
             // materialLabel8
             // 
@@ -124,7 +126,8 @@
             this.materialLabel8.Depth = 0;
             this.materialLabel8.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel8.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel8.Location = new System.Drawing.Point(696, 177);
+            this.materialLabel8.Location = new System.Drawing.Point(475, 86);
+            this.materialLabel8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
             this.materialLabel8.Size = new System.Drawing.Size(105, 24);
@@ -137,7 +140,8 @@
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel7.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel7.Location = new System.Drawing.Point(696, 221);
+            this.materialLabel7.Location = new System.Drawing.Point(475, 122);
+            this.materialLabel7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
             this.materialLabel7.Size = new System.Drawing.Size(97, 24);
@@ -150,7 +154,8 @@
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel5.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel5.Location = new System.Drawing.Point(697, 132);
+            this.materialLabel5.Location = new System.Drawing.Point(476, 49);
+            this.materialLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
             this.materialLabel5.Size = new System.Drawing.Size(78, 24);
@@ -163,7 +168,8 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel1.Location = new System.Drawing.Point(697, 91);
+            this.materialLabel1.Location = new System.Drawing.Point(476, 16);
+            this.materialLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(67, 24);
@@ -182,16 +188,17 @@
             this.colRoomStatus,
             this.colRoomNumber});
             this.ListViewUserRoom.Depth = 0;
+            this.ListViewUserRoom.Dock = System.Windows.Forms.DockStyle.Left;
             this.ListViewUserRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.ListViewUserRoom.FullRowSelect = true;
             this.ListViewUserRoom.HideSelection = false;
-            this.ListViewUserRoom.Location = new System.Drawing.Point(15, 91);
-            this.ListViewUserRoom.MinimumSize = new System.Drawing.Size(200, 100);
+            this.ListViewUserRoom.Location = new System.Drawing.Point(0, 0);
+            this.ListViewUserRoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ListViewUserRoom.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ListViewUserRoom.MouseState = MaterialSkin.MouseState.OUT;
             this.ListViewUserRoom.Name = "ListViewUserRoom";
             this.ListViewUserRoom.OwnerDraw = true;
-            this.ListViewUserRoom.Size = new System.Drawing.Size(614, 540);
+            this.ListViewUserRoom.Size = new System.Drawing.Size(460, 333);
             this.ListViewUserRoom.TabIndex = 43;
             this.ListViewUserRoom.UseCompatibleStateImageBehavior = false;
             this.ListViewUserRoom.View = System.Windows.Forms.View.Details;
@@ -217,31 +224,18 @@
             this.colRoomNumber.Text = "Số phòng";
             this.colRoomNumber.Width = 120;
             // 
-            // materialLabel10
+            // ViewUserRoomInformation
             // 
-            this.materialLabel10.AutoSize = true;
-            this.materialLabel10.Depth = 0;
-            this.materialLabel10.Font = new System.Drawing.Font("Roboto Light", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel10.FontType = MaterialSkin.MaterialSkinManager.fontType.H2;
-            this.materialLabel10.Location = new System.Drawing.Point(3, 16);
-            this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel10.Name = "materialLabel10";
-            this.materialLabel10.Size = new System.Drawing.Size(655, 72);
-            this.materialLabel10.TabIndex = 42;
-            this.materialLabel10.Text = "Thông tin phòng cá nhân";
-            // 
-            // ViewUserRoomInfor
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1231, 856);
+            this.ClientSize = new System.Drawing.Size(822, 400);
             this.Controls.Add(this.panel1);
-            this.FormStyle = MaterialSkin.Controls.MaterialForm.FormStyles.ActionBar_None;
-            this.MaximumSize = new System.Drawing.Size(1231, 856);
-            this.MinimumSize = new System.Drawing.Size(1231, 856);
-            this.Name = "ViewUserRoomInfor";
-            this.Padding = new System.Windows.Forms.Padding(3, 24, 4, 4);
-            this.Text = "ViewUserRoomInfor";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximumSize = new System.Drawing.Size(822, 400);
+            this.MinimumSize = new System.Drawing.Size(822, 400);
+            this.Name = "ViewUserRoomInformation";
+            this.Sizable = false;
+            this.Text = "Thông tin phòng cá nhân";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -251,7 +245,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private MaterialSkin.Controls.MaterialLabel materialLabel10;
         private MaterialSkin.Controls.MaterialListView ListViewUserRoom;
         private System.Windows.Forms.ColumnHeader colRoomId;
         private System.Windows.Forms.ColumnHeader colRomBuilding;

@@ -87,7 +87,7 @@ namespace AccommodationManagerApp.Forms {
         private void LoadPersonalInformation() {
             labelCurrentUserEmail.Text = _authenticationService.IsAuthenticated()
                 ? _authenticationService.CurrentUser.Email
-                : defaultMail;
+                : DefaultMail;
         }
 
         private void Logout(object sender, EventArgs e) {

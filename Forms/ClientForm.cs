@@ -1,5 +1,4 @@
 ﻿using AccommodationManagerApp.Model;
-using AccommodationManagerApp.Repository;
 using AccommodationManagerApp.Service;
 using System.Collections.Generic;
 using System.Threading;
@@ -47,7 +46,7 @@ namespace AccommodationManagerApp.Forms
 
         private void LoadPersonalInformation()
         {
-            lblEmail.Text = _authenticationService.IsAuthenticated() ? _authenticationService.CurrentUser.Email : defaultMail;
+            lblEmail.Text = _authenticationService.IsAuthenticated() ? _authenticationService.CurrentUser.Email : DefaultMail;
         }
         private void ShowInfor(object sender, System.EventArgs e)
         {

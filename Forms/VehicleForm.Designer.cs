@@ -198,6 +198,7 @@
             this.comboBoxCategory.Size = new System.Drawing.Size(298, 49);
             this.comboBoxCategory.StartIndex = 0;
             this.comboBoxCategory.TabIndex = 15;
+            this.comboBoxCategory.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategory_SelectedIndexChanged);
             // 
             // buttonMinus
             // 

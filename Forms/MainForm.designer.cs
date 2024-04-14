@@ -127,15 +127,15 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBoxUserImage = new System.Windows.Forms.PictureBox();
-            this.labelUserIdentityNumber = new MaterialSkin.Controls.MaterialLabel();
+            this.LabelUserIdentityNumber = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel32 = new MaterialSkin.Controls.MaterialLabel();
-            this.labelUserPhone = new MaterialSkin.Controls.MaterialLabel();
+            this.LabelUserPhone = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel30 = new MaterialSkin.Controls.MaterialLabel();
-            this.labelUserName = new MaterialSkin.Controls.MaterialLabel();
+            this.LabelUserName = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel17 = new MaterialSkin.Controls.MaterialLabel();
-            this.labelUserDateOfBirth = new MaterialSkin.Controls.MaterialLabel();
-            this.labelUserSex = new MaterialSkin.Controls.MaterialLabel();
-            this.labelUserEmail = new MaterialSkin.Controls.MaterialLabel();
+            this.LabelUserDateOfBirth = new MaterialSkin.Controls.MaterialLabel();
+            this.LabelUserSex = new MaterialSkin.Controls.MaterialLabel();
+            this.LabelUserEmail = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel25 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel27 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel28 = new MaterialSkin.Controls.MaterialLabel();
@@ -1448,15 +1448,15 @@
             this.tabPageTenants.Controls.Add(this.materialLabel15);
             this.tabPageTenants.Controls.Add(this.ListViewUserRentList);
             this.tabPageTenants.Controls.Add(this.pictureBoxUserImage);
-            this.tabPageTenants.Controls.Add(this.labelUserIdentityNumber);
+            this.tabPageTenants.Controls.Add(this.LabelUserIdentityNumber);
             this.tabPageTenants.Controls.Add(this.materialLabel32);
-            this.tabPageTenants.Controls.Add(this.labelUserPhone);
+            this.tabPageTenants.Controls.Add(this.LabelUserPhone);
             this.tabPageTenants.Controls.Add(this.materialLabel30);
-            this.tabPageTenants.Controls.Add(this.labelUserName);
+            this.tabPageTenants.Controls.Add(this.LabelUserName);
             this.tabPageTenants.Controls.Add(this.materialLabel17);
-            this.tabPageTenants.Controls.Add(this.labelUserDateOfBirth);
-            this.tabPageTenants.Controls.Add(this.labelUserSex);
-            this.tabPageTenants.Controls.Add(this.labelUserEmail);
+            this.tabPageTenants.Controls.Add(this.LabelUserDateOfBirth);
+            this.tabPageTenants.Controls.Add(this.LabelUserSex);
+            this.tabPageTenants.Controls.Add(this.LabelUserEmail);
             this.tabPageTenants.Controls.Add(this.materialLabel25);
             this.tabPageTenants.Controls.Add(this.materialLabel27);
             this.tabPageTenants.Controls.Add(this.materialLabel28);
@@ -1850,16 +1850,16 @@
             // 
             // labelUserIdentityNumber
             // 
-            this.labelUserIdentityNumber.AutoSize = true;
-            this.labelUserIdentityNumber.Depth = 0;
-            this.labelUserIdentityNumber.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.labelUserIdentityNumber.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelUserIdentityNumber.Location = new System.Drawing.Point(414, 187);
-            this.labelUserIdentityNumber.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelUserIdentityNumber.Name = "labelUserIdentityNumber";
-            this.labelUserIdentityNumber.Size = new System.Drawing.Size(163, 24);
-            this.labelUserIdentityNumber.TabIndex = 27;
-            this.labelUserIdentityNumber.Text = "__________________";
+            this.LabelUserIdentityNumber.AutoSize = true;
+            this.LabelUserIdentityNumber.Depth = 0;
+            this.LabelUserIdentityNumber.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.LabelUserIdentityNumber.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.LabelUserIdentityNumber.Location = new System.Drawing.Point(414, 187);
+            this.LabelUserIdentityNumber.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LabelUserIdentityNumber.Name = "LabelUserIdentityNumber";
+            this.LabelUserIdentityNumber.Size = new System.Drawing.Size(163, 24);
+            this.LabelUserIdentityNumber.TabIndex = 27;
+            this.LabelUserIdentityNumber.Text = "__________________";
             // 
             // materialLabel32
             // 
@@ -1876,16 +1876,16 @@
             // 
             // labelUserPhone
             // 
-            this.labelUserPhone.AutoSize = true;
-            this.labelUserPhone.Depth = 0;
-            this.labelUserPhone.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.labelUserPhone.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelUserPhone.Location = new System.Drawing.Point(358, 142);
-            this.labelUserPhone.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelUserPhone.Name = "labelUserPhone";
-            this.labelUserPhone.Size = new System.Drawing.Size(217, 24);
-            this.labelUserPhone.TabIndex = 25;
-            this.labelUserPhone.Text = "________________________";
+            this.LabelUserPhone.AutoSize = true;
+            this.LabelUserPhone.Depth = 0;
+            this.LabelUserPhone.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.LabelUserPhone.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.LabelUserPhone.Location = new System.Drawing.Point(358, 142);
+            this.LabelUserPhone.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LabelUserPhone.Name = "LabelUserPhone";
+            this.LabelUserPhone.Size = new System.Drawing.Size(217, 24);
+            this.LabelUserPhone.TabIndex = 25;
+            this.LabelUserPhone.Text = "________________________";
             // 
             // materialLabel30
             // 
@@ -1902,16 +1902,16 @@
             // 
             // labelUserName
             // 
-            this.labelUserName.AutoSize = true;
-            this.labelUserName.Depth = 0;
-            this.labelUserName.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.labelUserName.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelUserName.Location = new System.Drawing.Point(358, 97);
-            this.labelUserName.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(217, 24);
-            this.labelUserName.TabIndex = 23;
-            this.labelUserName.Text = "________________________";
+            this.LabelUserName.AutoSize = true;
+            this.LabelUserName.Depth = 0;
+            this.LabelUserName.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.LabelUserName.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.LabelUserName.Location = new System.Drawing.Point(358, 97);
+            this.LabelUserName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LabelUserName.Name = "LabelUserName";
+            this.LabelUserName.Size = new System.Drawing.Size(217, 24);
+            this.LabelUserName.TabIndex = 23;
+            this.LabelUserName.Text = "________________________";
             // 
             // materialLabel17
             // 
@@ -1928,42 +1928,42 @@
             // 
             // labelUserDateOfBirth
             // 
-            this.labelUserDateOfBirth.AutoSize = true;
-            this.labelUserDateOfBirth.Depth = 0;
-            this.labelUserDateOfBirth.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.labelUserDateOfBirth.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelUserDateOfBirth.Location = new System.Drawing.Point(358, 229);
-            this.labelUserDateOfBirth.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelUserDateOfBirth.Name = "labelUserDateOfBirth";
-            this.labelUserDateOfBirth.Size = new System.Drawing.Size(217, 24);
-            this.labelUserDateOfBirth.TabIndex = 20;
-            this.labelUserDateOfBirth.Text = "________________________";
+            this.LabelUserDateOfBirth.AutoSize = true;
+            this.LabelUserDateOfBirth.Depth = 0;
+            this.LabelUserDateOfBirth.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.LabelUserDateOfBirth.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.LabelUserDateOfBirth.Location = new System.Drawing.Point(358, 229);
+            this.LabelUserDateOfBirth.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LabelUserDateOfBirth.Name = "LabelUserDateOfBirth";
+            this.LabelUserDateOfBirth.Size = new System.Drawing.Size(217, 24);
+            this.LabelUserDateOfBirth.TabIndex = 20;
+            this.LabelUserDateOfBirth.Text = "________________________";
             // 
             // labelUserSex
             // 
-            this.labelUserSex.AutoSize = true;
-            this.labelUserSex.Depth = 0;
-            this.labelUserSex.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.labelUserSex.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelUserSex.Location = new System.Drawing.Point(358, 321);
-            this.labelUserSex.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelUserSex.Name = "labelUserSex";
-            this.labelUserSex.Size = new System.Drawing.Size(217, 24);
-            this.labelUserSex.TabIndex = 19;
-            this.labelUserSex.Text = "________________________";
+            this.LabelUserSex.AutoSize = true;
+            this.LabelUserSex.Depth = 0;
+            this.LabelUserSex.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.LabelUserSex.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.LabelUserSex.Location = new System.Drawing.Point(358, 321);
+            this.LabelUserSex.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LabelUserSex.Name = "LabelUserSex";
+            this.LabelUserSex.Size = new System.Drawing.Size(217, 24);
+            this.LabelUserSex.TabIndex = 19;
+            this.LabelUserSex.Text = "________________________";
             // 
             // labelUserEmail
             // 
-            this.labelUserEmail.AutoSize = true;
-            this.labelUserEmail.Depth = 0;
-            this.labelUserEmail.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.labelUserEmail.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.labelUserEmail.Location = new System.Drawing.Point(358, 273);
-            this.labelUserEmail.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelUserEmail.Name = "labelUserEmail";
-            this.labelUserEmail.Size = new System.Drawing.Size(217, 24);
-            this.labelUserEmail.TabIndex = 18;
-            this.labelUserEmail.Text = "________________________";
+            this.LabelUserEmail.AutoSize = true;
+            this.LabelUserEmail.Depth = 0;
+            this.LabelUserEmail.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.LabelUserEmail.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.LabelUserEmail.Location = new System.Drawing.Point(358, 273);
+            this.LabelUserEmail.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LabelUserEmail.Name = "LabelUserEmail";
+            this.LabelUserEmail.Size = new System.Drawing.Size(217, 24);
+            this.LabelUserEmail.TabIndex = 18;
+            this.LabelUserEmail.Text = "________________________";
             // 
             // materialLabel25
             // 
@@ -4845,17 +4845,17 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private MaterialSkin.Controls.MaterialFloatingActionButton buttonReloadUser;
         private MaterialSkin.Controls.MaterialListView ListViewUser;
-        private MaterialSkin.Controls.MaterialLabel labelUserName;
+        private MaterialSkin.Controls.MaterialLabel LabelUserName;
         private MaterialSkin.Controls.MaterialLabel materialLabel17;
-        private MaterialSkin.Controls.MaterialLabel labelUserDateOfBirth;
-        private MaterialSkin.Controls.MaterialLabel labelUserSex;
-        private MaterialSkin.Controls.MaterialLabel labelUserEmail;
+        private MaterialSkin.Controls.MaterialLabel LabelUserDateOfBirth;
+        private MaterialSkin.Controls.MaterialLabel LabelUserSex;
+        private MaterialSkin.Controls.MaterialLabel LabelUserEmail;
         private MaterialSkin.Controls.MaterialLabel materialLabel25;
         private MaterialSkin.Controls.MaterialLabel materialLabel27;
         private MaterialSkin.Controls.MaterialLabel materialLabel28;
-        private MaterialSkin.Controls.MaterialLabel labelUserPhone;
+        private MaterialSkin.Controls.MaterialLabel LabelUserPhone;
         private MaterialSkin.Controls.MaterialLabel materialLabel30;
-        private MaterialSkin.Controls.MaterialLabel labelUserIdentityNumber;
+        private MaterialSkin.Controls.MaterialLabel LabelUserIdentityNumber;
         private MaterialSkin.Controls.MaterialLabel materialLabel32;
         private System.Windows.Forms.PictureBox pictureBoxUserImage;
         private System.Windows.Forms.ColumnHeader columnHeader8;

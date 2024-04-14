@@ -15,9 +15,9 @@ namespace AccommodationManagerApp.Forms {
             InsertUserIntoListView(Users);
         }
 
-        private void InsertUserIntoListView(List<User> users)
-        {
+        private void InsertUserIntoListView(List<User> users) {
             ListViewUser.Items.Clear();
+            
             foreach (var user in users) {
                 var item = new ListViewItem(string.IsNullOrEmpty(user.Name) ? Resources.NullData : user.Name);
                 item.SubItems.Add(string.IsNullOrEmpty(user.Phone) ? Resources.NullData : user.Phone);
@@ -41,51 +41,50 @@ namespace AccommodationManagerApp.Forms {
         private void ListViewUser_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e) {
             var user = IsSelectedUserValid();
 
-            if (user != null) {
-                LoadTenantAvatar(user);
-                labelUserName.Text = string.IsNullOrEmpty(user.Name) ? Resources.NullData : user.Name;
-                labelUserPhone.Text = string.IsNullOrEmpty(user.Phone) ? Resources.NullData : user.Phone;
-                labelUserIdentityNumber.Text = string.IsNullOrEmpty(user.IdentityNumber)
-                    ? Resources.NullData
-                    : user.IdentityNumber;
-                labelUserSex.Text = user.IsFemale ? "Nữ" : "Nam";
-                labelUserDateOfBirth.Text = string.IsNullOrEmpty(user.DateOfBirth.ToString(CultureInfo.CurrentCulture))
-                    ? Resources.NullData
-                    : user.DateOfBirth.ToString("dd/MM/yyyy");
-                labelUserEmail.Text = string.IsNullOrEmpty(user.Email) ? Resources.NullData : user.Email;
+            if (user == null) return;
+            
+            LoadTenantAvatar(user);
                 
-                if (user.Room != null) {
-                    try
-                    {
-                        labelResident.Text = "Người này đang ở tại căn hộ số " + user.Room.RoomNumber;
-                    }
-                    catch (Exception exception)
-                    {
-                        labelResident.Text = "Người này hiện không sống ở căn hộ nào!";
-                        Console.WriteLine(exception);
-                    }
-                    
-                }   
-                else {
-                    labelResident.Text = "Người này hiện không sống ở căn hộ nào!";
+            LabelUserName.Text = string.IsNullOrEmpty(user.Name) ? Resources.NullData : user.Name;
+            LabelUserPhone.Text = string.IsNullOrEmpty(user.Phone) ? Resources.NullData : user.Phone;
+            LabelUserIdentityNumber.Text = string.IsNullOrEmpty(user.IdentityNumber)
+                ? Resources.NullData
+                : user.IdentityNumber;
+            LabelUserSex.Text = user.IsFemale ? "Nữ" : "Nam";
+            LabelUserDateOfBirth.Text = string.IsNullOrEmpty(user.DateOfBirth.ToString(CultureInfo.CurrentCulture))
+                ? Resources.NullData
+                : user.DateOfBirth.ToString("dd/MM/yyyy");
+            LabelUserEmail.Text = string.IsNullOrEmpty(user.Email) ? Resources.NullData : user.Email;
+
+            if (user.Room != null) {
+                try {
+                    labelResident.Text = "Người này đang ở tại căn hộ số " + user.Room.RoomNumber;
                 }
-                
-                
-                LoadUserRentList(user);
+                catch (Exception exception) {
+                    labelResident.Text = "Người này hiện không sống ở căn hộ nào!";
+                    Console.WriteLine(exception);
+                }
             }
+            else {
+                labelResident.Text = "Người này hiện không sống ở căn hộ nào!";
+            }
+
+            LoadUserRentList(user);
         }
 
         private void LoadUserRentList(User user) {
             ListViewUserRentList.Items.Clear();
             var contracts = _contractService.GetByUserIdAndNonExpiredWithRoom(user.Id);
-            
+
             foreach (var contract in contracts) {
                 var item = new ListViewItem(contract.User != null ? contract.Room.RoomNumber : Resources.NullData);
-                item.SubItems.Add(string.IsNullOrEmpty(contract.EndDate.ToString("dd/MM/yyyy")) ? Resources.NullData : contract.EndDate.ToString("dd/MM/yyyy"));
+                item.SubItems.Add(string.IsNullOrEmpty(contract.EndDate.ToString("dd/MM/yyyy"))
+                    ? Resources.NullData
+                    : contract.EndDate.ToString("dd/MM/yyyy"));
                 ListViewUserRentList.Items.Add(item);
             }
         }
-        
+
         private void buttonAddTenant_Click(object sender, EventArgs e) {
             var userForm = new UserForm(null);
             userForm.ShowDialog();
@@ -250,37 +249,35 @@ namespace AccommodationManagerApp.Forms {
             LoadUserData();
             LoadRoomData();
         }
-        
-        private void buttonReloadUser_Click(object sender, EventArgs e)
-        {
+
+        private void buttonReloadUser_Click(object sender, EventArgs e) {
             LoadUserData();
             new ToastForm("Đã thực hiện tải dữ liệu người thuê").Show();
         }
-        
-        private void ButtonUserUnpaid_Click(object sender, EventArgs e)
-        {
+
+        private void ButtonUserUnpaid_Click(object sender, EventArgs e) {
             LoadUserDataWithUnpaidBill();
             new ToastForm("Đã thực hiện tải dữ liệu người thuê nợ tiền").Show();
         }
 
         // Query System
-        private void ButtonUserSearch_Click(object sender, EventArgs e)
-        {
-            bool? isFemale = QueryUtils.UserGender((string) comboBoxGender.SelectedItem);
-            List<string> text = QueryUtils.ChangeUserSearchInput((string)comboBoxUserSearch.SelectedItem, textBoxUserSearch.Text);
+        private void ButtonUserSearch_Click(object sender, EventArgs e) {
+            var isFemale = QueryUtils.UserGender((string)comboBoxGender.SelectedItem);
+            var text = QueryUtils.ChangeUserSearchInput((string) comboBoxUserSearch.SelectedItem, textBoxUserSearch.Text);
+            
             Users = _userService.GetByCustomizeQuery(isFemale, text);
             InsertUserIntoListView(Users);
         }
 
-        private void btnViewInfor_Click(object sender, EventArgs e)
-        {
-            User user = IsSelectedUserValid();
-            if(user == null)
-            {
+        private void btnViewInfor_Click(object sender, EventArgs e) {
+            var user = IsSelectedUserValid();
+
+            if (user == null) {
                 new ToastForm("Vui lòng chọn người thuê cần xem thông tin", true).Show();
                 return;
             }
-            ViewUserInformation viewUserInformation = new ViewUserInformation(user);
+            
+            var viewUserInformation = new ViewUserInformation(user);
             viewUserInformation.ShowDialog();
         }
     }

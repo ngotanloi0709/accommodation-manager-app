@@ -197,5 +197,12 @@ namespace AccommodationManagerApp.Forms
                 e.Handled = true;
             }
         }
+
+        private void comboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxCategory.Text.Equals(VehicleCategory.Bicycle.ToVietnamese())) {
+                textBoxNumber.Text = "Không biển số";
+            }
+        }
     }
 }
