@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Threading;
 using BillModel = AccommodationManagerApp.Model.Bill;
 using System.Windows.Forms;
+using AccommodationManagerApp.Util;
+
 namespace AccommodationManagerApp.Forms
 {
     public partial class ClientForm : BaseForm
@@ -33,9 +35,9 @@ namespace AccommodationManagerApp.Forms
         private void LoadEntity() 
         {
             _user = _authenticationService.CurrentUser;
-            labelWaterPrice.Text = _billService.GetWaterPrice().Price.ToString();
-            labelElectricityPrice.Text = _billService.GetElectricityPrice().Price.ToString();
-            labelInternetPrice.Text = _billService.GetInternetPrice().Price.ToString();
+            labelWaterPrice.Text = FormatText.IntegerToVnd(_billService.GetWaterPrice().Price);
+            labelElectricityPrice.Text = FormatText.IntegerToVnd(_billService.GetElectricityPrice().Price);
+            labelInternetPrice.Text = FormatText.IntegerToVnd(_billService.GetInternetPrice().Price);
         }
         private void LoadService()
         {
@@ -71,7 +73,7 @@ namespace AccommodationManagerApp.Forms
                 Dispose();
                 
                 var thread = new Thread(() => {
-                    Application.Run(new LoginForm());
+                    Application.Run(new NewLoginForm());
                 }); 
                 thread.SetApartmentState(ApartmentState.STA); 
                 thread.Start(); 

@@ -97,7 +97,7 @@ namespace AccommodationManagerApp.Forms {
                 _authenticationService.Logout();
                 Dispose();
 
-                var thread = new Thread(() => { Application.Run(new LoginForm()); });
+                var thread = new Thread(() => { Application.Run(new NewLoginForm()); });
                 thread.SetApartmentState(ApartmentState.STA);
                 thread.Start();
             }

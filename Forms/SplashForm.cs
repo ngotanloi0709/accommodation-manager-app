@@ -26,7 +26,7 @@ namespace AccommodationManagerApp.Forms
                 Dispose();
                 
                 var thread = new Thread(() => {
-                    Application.Run(new LoginForm());
+                    Application.Run(new NewLoginForm());
                 }); 
                 
                 thread.SetApartmentState(ApartmentState.STA); 

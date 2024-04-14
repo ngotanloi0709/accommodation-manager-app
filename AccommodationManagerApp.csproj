@@ -289,6 +289,12 @@
     <Compile Include="Forms\MainForm.SystemUser.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\NewLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewLoginForm.Designer.cs">
+      <DependentUpon>NewLoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\RequestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -494,6 +500,9 @@
     <EmbeddedResource Include="Forms\FixedPriceForm.resx">
       <DependentUpon>FixedPriceForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewLoginForm.resx">
+      <DependentUpon>NewLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\RequestForm.resx">
       <DependentUpon>RequestForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -578,6 +587,10 @@
     <None Include="Resources\download.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\textbox-bg.png" />
+    <None Include="Resources\textbox-background1.png" />
+    <None Include="Resources\textbox-background.png" />
+    <None Include="Resources\user-login.png" />
     <None Include="Resources\skip.png" />
     <None Include="Resources\view.png" />
     <None Include="Resources\user_no_color.png" />
@@ -617,6 +630,13 @@
     <None Include="Resources\ParkLine-apartment-in-Miami-FL.jpg" />
     <None Include="Resources\icons8-config-100.png" />
     <None Include="Resources\app-icon.ico" />
+    <None Include="Resources\login-background.png" />
+    <None Include="Resources\login-background-2.png" />
+    <None Include="Resources\login-background-3.png" />
+    <None Include="Resources\login-background-4.png" />
+    <None Include="Resources\login-bg.png" />
+    <None Include="Resources\login-background-f.png" />
+    <None Include="Resources\login-bg-f.png" />
     <Content Include="Resources\Roboto-Medium.ttf" />
     <Content Include="Resources\Roboto-Regular.ttf" />
     <None Include="Resources\signature.jpg" />

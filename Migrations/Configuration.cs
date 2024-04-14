@@ -73,19 +73,20 @@ namespace AccommodationManagerApp.Migrations {
                 context.SaveChanges();
             }
 
-            if (!context.Bills.Any())
-            {
-                context.Bills.AddOrUpdate(new Bill(100, 15, 10000, 5000, 20000, 100000, 500000, 1, 1));
-                context.Bills.AddOrUpdate(new Bill(150, 18, 15000, 8000, 25000, 120000, 600000, 1, 1));
-                context.Bills.AddOrUpdate(new Bill(120, 16, 12000, 6000, 22000, 110000, 550000, 1, 1));
-                context.Bills.AddOrUpdate(new Bill(200, 20, 20000, 10000, 30000, 150000, 750000, 2, 2));
-                context.Bills.AddOrUpdate(new Bill(180, 17, 18000, 9000, 28000, 140000, 700000, 2, 2));
-                context.Bills.AddOrUpdate(new Bill(250, 22, 25000, 12000, 35000, 180000, 900000, 2, 2));
-                context.Bills.AddOrUpdate(new Bill(300, 25, 30000, 15000, 40000, 200000, 1000000, 3, 3));
-                context.Bills.AddOrUpdate(new Bill(350, 28, 35000, 16000, 45000, 220000, 1100000, 3, 3));
-                context.Bills.AddOrUpdate(new Bill(400, 30, 40000, 18000, 50000, 250000, 1250000, 3, 3));
-                context.SaveChanges();
-            }
+            // Bấm bổ sung bills thủ công để có dữ liệu chính xác
+            // if (!context.Bills.Any())
+            // {
+            //     context.Bills.AddOrUpdate(new Bill(100, 15, 10000, 5000, 20000, 100000, 500000, 1, 1));
+            //     context.Bills.AddOrUpdate(new Bill(150, 18, 15000, 8000, 25000, 120000, 600000, 1, 1));
+            //     context.Bills.AddOrUpdate(new Bill(120, 16, 12000, 6000, 22000, 110000, 550000, 1, 1));
+            //     context.Bills.AddOrUpdate(new Bill(200, 20, 20000, 10000, 30000, 150000, 750000, 2, 2));
+            //     context.Bills.AddOrUpdate(new Bill(180, 17, 18000, 9000, 28000, 140000, 700000, 2, 2));
+            //     context.Bills.AddOrUpdate(new Bill(250, 22, 25000, 12000, 35000, 180000, 900000, 2, 2));
+            //     context.Bills.AddOrUpdate(new Bill(300, 25, 30000, 15000, 40000, 200000, 1000000, 3, 3));
+            //     context.Bills.AddOrUpdate(new Bill(350, 28, 35000, 16000, 45000, 220000, 1100000, 3, 3));
+            //     context.Bills.AddOrUpdate(new Bill(400, 30, 40000, 18000, 50000, 250000, 1250000, 3, 3));
+            //     context.SaveChanges();
+            // }
             
             if (!context.Requests.Any())
             {
