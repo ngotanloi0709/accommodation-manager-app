@@ -22,10 +22,12 @@ namespace AccommodationManagerApp.Forms
             }
         }
 
-        private void buttonSave_Click(object sender, System.EventArgs e)
+        private void ButtonSave_Click(object sender, System.EventArgs e)
         {
-            if (!IsAllTextBoxFilled() || !IsPasswordMatch())
+            if (!IsAllTextBoxFilled() || !IsPasswordMatch()) return; 
+            if (textBoxPassword.Text.Length > 30)
             {
+                new ToastForm("Độ dài mật khẩu không được vượt quá 30 ký tự",true).Show();
                 return;
             }
 
